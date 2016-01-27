@@ -1,0 +1,249 @@
+@import '../../variables';
+
+.input {
+  font-family: $font-primary;
+  font-size: 1.6rem;
+  position: relative;
+  color: $color-text;
+  margin-bottom: 1.6rem;
+
+  &__label {
+    position: absolute;
+    top: .9rem;
+    left: 0;
+    cursor: text;
+    color: $color-text-muted;
+    transition: color .2s linear;
+
+    &--has-value {
+      font-size: 1.2rem;
+    }
+  }
+
+  input,
+  select {
+    // background: rgba(#ff0000, .2);
+    display: block;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #C5C5C5;
+    padding: 1.4rem 0 .3rem;
+    width: 100%;
+    transition: border-color .2s linear;
+    line-height: 1.4;
+    border-radius: 0;
+    min-height: 4rem;
+    font-size: 1.6rem;
+  }
+
+  &--has-focus {
+    input,
+    select {
+      border-color: $color-primary--focus;
+      outline: none;
+
+    }
+
+    .input__date {
+      border-color: $color-primary--focus;
+    }
+
+    .input__label {
+      color: $color-primary--focus;
+      font-size: 1.2rem;
+    }
+
+    &.input--has-success input {
+      border-color: $color-success--focus;
+
+      + .input__label {
+        color: $color-success--focus;
+      }
+
+      + .input__help-text {
+        color: $color-success--focus;
+      }
+    }
+
+    &.input--has-warning input {
+      border-color: $color-warning--focus;
+
+      + .input__label {
+        color: $color-warning--focus;
+      }
+
+      + .input__help-text {
+        color: $color-warning--focus;
+      }
+    }
+
+    &.input--has-error input {
+      border-color: $color-danger--focus;
+
+      + .input__label {
+        color: $color-danger--focus;
+      }
+
+      + .input__help-text {
+        color: $color-danger--focus;
+      }
+    }
+  }
+
+  select {
+    appearance: none;
+  }
+
+  &__date {
+    border-bottom: 1px solid #C5C5C5;
+    transition: border-color .2s linear;
+
+    input {
+      display: inline;
+      width: auto;
+      max-width: (100% / 3);
+      min-height: 2rem;
+      border: 0;
+      line-height: 1;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &::-webkit-input-placeholder {
+         color: $color-text-muted;
+         line-height: 1.4;
+      }
+
+      &:-moz-placeholder { /* Firefox 18- */
+         color: $color-text-muted;
+         line-height: 1.4;
+      }
+
+      &::-moz-placeholder {  /* Firefox 19+ */
+         color: $color-text-muted;
+         line-height: 1.4;
+      }
+
+      &:-ms-input-placeholder {
+         color: $color-text-muted;
+         line-height: 1.4;
+      }
+    }
+
+    &-overlay {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      pointer-events: none;
+      color: rgba(#ff0000, .5);
+    }
+  }
+
+  &__password {
+    display: table;
+    width: 100%;
+
+    input {
+      display: table-cell;
+
+      &::-ms-reveal {
+        display: none;
+      }
+    }
+
+    &-toggle {
+      display: table-cell;
+      width: 4.4rem;
+      cursor: pointer;
+      font-size: 1.4rem;
+      // text-transform: uppercase;
+      font-weight: 600;
+      color: $color-primary;
+      padding: 1.1rem .4rem 0 0;
+      border-bottom: 1px solid #C5C5C5;
+      vertical-align: top;
+      transition: all .2s linear;
+      text-align: right;
+      -webkit-font-smoothing: antialiased;
+
+      > span {
+        display: inline-block;
+        width: auto;
+        transition: all .2s linear;
+      }
+
+      &--has-focus {
+        border-color: $color-primary--focus;
+      }
+    }
+  }
+
+  &__validation-icon,
+  &__select-arrow {
+    position: absolute;
+    display: block;
+    right: .4rem;
+    bottom: .8rem;
+    height: .8rem;
+    transition: all .2s linear;
+
+    > img {
+      display: block;
+      max-height: 100%;
+    }
+  }
+
+  &__help-text {
+    position: absolute;
+    display: block;
+    right: 0;
+    bottom: -1.8rem;
+    font-size: 1.2rem;
+    color: $color-text-muted;
+  }
+
+  &--has-success {
+    .input__help-text {
+      color: $color-success;
+    }
+
+    input {
+      border-color: $color-success;
+    }
+  }
+
+  &--has-warning {
+    .input {
+      &__label {
+        color: $color-warning;
+      }
+
+      &__help-text {
+        color: $color-warning;
+      }
+    }
+
+    input {
+      border-color: $color-warning;
+    }
+  }
+
+  &--has-error {
+    .input {
+      &__label {
+        color: $color-danger;
+      }
+
+      &__help-text {
+        color: $color-danger;
+      }
+    }
+
+    input {
+      border-color: $color-danger;
+    }
+  }
+}

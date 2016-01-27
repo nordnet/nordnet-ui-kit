@@ -1,0 +1,75 @@
+@import '../../variables';
+
+.radio {
+  display: inline-block;
+  height: 1.6rem;
+  margin-bottom: 1.6rem;
+
+  label {
+    display: block;
+  }
+
+  &--is-disabled {
+    color: #DADADA;
+    cursor: not-allowed;
+  }
+
+  &__label {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: top;
+    padding: .1rem 0 .1rem .4rem;
+  }
+
+  &__input {
+    display: inline-block;
+
+    input[type="radio"] {
+      display: none;
+
+      + span {
+        position: relative;
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        border: 1px solid #C5C5C5;
+        padding: .3rem .2rem;
+        transition: all .1s linear;
+        user-select: none;
+        border-radius: 50%;
+      }
+
+      &:checked + span {
+        // border-color: mix($color-primary, #000, 90);
+        border-color: $color-primary;
+        background: $color-primary;
+
+        &:after {
+          content: '';
+          display: block;
+          width: .8rem;
+          height: .8rem;
+          background: #FFF;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -.4rem;
+          margin-left: -.4rem;
+          border-radius: 50%;
+          // box-shadow: 0 0 .1rem .1rem rgba(#000, .05);
+        }
+      }
+
+      &:disabled {
+        + span {
+          border-color: #DADADA;
+        }
+
+        &:checked + span {
+          border-color: #C5C5C5;
+          background: #DADADA;
+        }
+      }
+    }
+  }
+}

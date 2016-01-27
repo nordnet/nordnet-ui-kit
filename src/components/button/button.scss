@@ -1,0 +1,169 @@
+@import '../../variables';
+
+.btn {
+  &-primary,
+  &-secondary,
+  &-link {
+    border: 0;
+    font-size: 1.4rem;
+    font-family: $font-primary;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: .6rem;
+    transition: all .1s linear;
+    text-decoration: none;
+    user-select: none;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &-primary {
+    background: $color-primary;
+    border: 2px solid $color-primary;
+    color: #fff;
+
+    &:hover {
+      background: $color-primary--focus;
+      border-color: $color-primary--focus;
+    }
+
+    &:disabled {
+      background: #DADADA;
+      border: 2px solid #DADADA;
+      color: #AEADAD;
+
+      &:hover {
+        background: #DADADA;
+        border-color: 2px solid #DADADA;
+      }
+    }
+
+    &--success {
+      background: $color-success;
+      border-color: $color-success;
+
+      &:hover {
+        background: $color-success--focus;
+        border-color: $color-success--focus;
+      }
+    }
+
+    &--warning {
+      background: $color-warning;
+      border-color: $color-warning;
+
+      &:hover {
+        background: $color-warning--focus;
+        border-color: $color-warning--focus;
+      }
+    }
+
+    &--danger {
+      background: $color-danger;
+      border-color: $color-danger;
+
+      &:hover {
+        background: $color-danger--focus;
+        border-color: $color-danger--focus;
+      }
+    }
+  }
+
+  &-secondary {
+    background: none;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+
+    &:hover {
+      color: $color-primary--focus;
+      border-color: $color-primary--focus;
+    }
+
+    &:disabled {
+      border: 2px solid #DADADA;
+      color: #DADADA;
+
+      &:hover {
+        color: #DADADA;
+        border-color: 2px solid #DADADA;
+      }
+    }
+
+    &--success {
+      color: $color-success;
+      border-color: $color-success;
+
+      &:hover {
+        color: $color-success--focus;
+        border-color: $color-success--focus;
+      }
+    }
+
+    &--warning {
+      color: $color-warning;
+      border-color: $color-warning;
+
+      &:hover {
+        color: $color-warning--focus;
+        border-color: $color-warning--focus;
+      }
+    }
+
+    &--danger {
+      color: $color-danger;
+      border-color: $color-danger;
+
+      &:hover {
+        color: $color-danger--focus;
+        border-color: $color-danger--focus;
+      }
+    }
+  }
+
+  &-link {
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+    color: $color-text;
+    border: 2px solid transparent;
+    font-weight: 600;
+
+    &:hover {
+      color: #000;
+    }
+
+    &:disabled {
+      color: #DADADA;
+
+      &:hover {
+        color: #DADADA;
+      }
+    }
+
+    &--success {
+      color: $color-success;
+
+      &:hover {
+        color: $color-success--focus;
+      }
+    }
+
+    &--warning {
+      color: $color-warning;
+
+      &:hover {
+        color: $color-warning--focus;
+      }
+    }
+
+    &--danger {
+      color: $color-danger;
+
+      &:hover {
+        color: $color-danger--focus;
+      }
+    }
+  }
+}

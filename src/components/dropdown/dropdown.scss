@@ -1,0 +1,44 @@
+@import '../../variables';
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1.6rem;
+
+  &__toggle {
+    position: relative;
+    background: none;
+    border: 0;
+    border-bottom: .1rem solid #C5C5C5;
+    padding: .6rem 0;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 1.4rem;
+
+    &-icon {
+      width: 1rem;
+      height: .8rem;
+      margin-left: .8rem;
+    }
+  }
+
+  &__actions {
+    position: absolute;
+    top: 0;
+    left: -1.6rem;
+    background: #FFF;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 3.2rem 1.6rem 1.6rem;
+    margin: 0;
+    width: calc(100% + 3.2rem);
+    z-index: 0;
+  }
+
+  &__action {
+    display: block;
+    padding: .4rem 0;
+    border-bottom: .1rem solid #C5C5C5;
+    font-size: 1.2rem;
+  }
+}

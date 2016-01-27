@@ -1,0 +1,48 @@
+@import '../../variables';
+
+.alert {
+  background: #FFF;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, .1);
+  font-size: 1.2rem;
+  padding: .4rem .8rem;
+  position: relative;
+  line-height: 1.4;
+  margin-bottom: 1.6rem;
+
+  &__header {
+    display: inline-block;
+    font-weight: bold;
+    padding: .4rem;
+  }
+
+  &__body {
+    display: inline-block;
+    padding: .4rem;
+  }
+
+  &__close {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.2rem;
+  }
+
+  &--success {
+    .alert__header {
+      color: $color-success;
+    }
+  }
+
+  &--warning {
+    .alert__header {
+      color: $color-warning;
+    }
+  }
+
+  &--danger {
+    .alert__header {
+      color: $color-danger;
+    }
+  }
+}
