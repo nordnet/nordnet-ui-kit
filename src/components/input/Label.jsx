@@ -26,4 +26,12 @@ function Label(props) {
   );
 }
 
+Label.propTypes = {
+  label: React.PropTypes.string,
+  placeholder: React.PropTypes.string,
+  id: React.PropTypes.string,
+  hasFocus: React.PropTypes.bool,
+  hasValue: React.PropTypes.bool,
+};
+
 export default Label;

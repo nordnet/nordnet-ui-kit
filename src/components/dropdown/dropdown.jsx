@@ -10,7 +10,7 @@ class Dropdown extends PureComponent {
 
     this.state = {
       actionsOpen: props.actionsOpen,
-    }
+    };
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
   }
@@ -24,7 +24,7 @@ class Dropdown extends PureComponent {
   renderOptions() {
     const style = {
       display: this.state.actionsOpen ? 'block' : 'none',
-    }
+    };
 
     return (
       <ul className="dropdown__actions" style={ style }>

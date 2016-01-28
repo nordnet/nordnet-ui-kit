@@ -20,4 +20,10 @@ function ValidationIcon(props) {
   return <span />; // Stateless functions do not support returning null, see https://github.com/facebook/react/issues/5355
 }
 
+ValidationIcon.propTypes = {
+  hasSuccess: React.PropTypes.bool,
+  hasWarning: React.PropTypes.bool,
+  hasError: React.PropTypes.bool,
+};
+
 export default ValidationIcon;

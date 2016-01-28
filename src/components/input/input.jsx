@@ -277,14 +277,14 @@ class Input extends PureComponent {
     }, this.props.className);
 
     switch (type) {
-    case 'select':
-      return this.renderSelect(id, classes);
-    case 'password':
-      return this.renderPassword(id, classes);
-    case 'date':
-      return this.renderDate(id, classes);
-    default:
-      return this.renderDefault(id, classes, type);
+      case 'select':
+        return this.renderSelect(id, classes);
+      case 'password':
+        return this.renderPassword(id, classes);
+      case 'date':
+        return this.renderDate(id, classes);
+      default:
+        return this.renderDefault(id, classes, type);
     }
   }
 }

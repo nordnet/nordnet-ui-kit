@@ -1,0 +1,22 @@
+$color-primary: #00A9EC;
+$color-success: #00BD76;
+$color-warning: #FFBD55;
+$color-danger: #EF472F;
+
+$color-primary--focus: mix($color-primary, #000, 90);
+$color-success--focus: mix($color-success, #000, 90);
+$color-warning--focus: mix($color-warning, #000, 90);
+$color-danger--focus: mix($color-danger, #000, 90);
+
+$color-shareville: #048D45;
+
+$color-base: #FFF;
+$color-border: #DDD;
+
+$color-background: #F1F1F1;
+$color-background-dark: #444;
+$color-background-muted: #EEE;
+
+$color-text: #222;
+$color-text-muted: #8A8A8A;
+$font-primary: "Value Nordnet", sans-serif;
