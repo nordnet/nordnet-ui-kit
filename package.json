@@ -4,10 +4,15 @@
   "description": "Nordnets React powered UI kit",
   "main": "src/index.js",
   "scripts": {
+    "delete": "rimraf dist",
+    "clean": "find dist -name '*.jsx' -type f -delete",
+    "copy": "mkdir ./dist && cp -R ./src/. ./dist/",
+    "build": "npm-run-all delete copy babel clean",
+    "babel": "babel src -d dist",
     "test": "mocha",
     "lint": "eslint --ext=.jsx --ext=.js src",
     "prepush": "npm-run-all lint test",
-    "prepublish": "npm-run-all lint test",
+    "prepublish": "npm-run-all lint test build",
     "postpublish": "npm run clean && git push --follow-tags"
   },
   "keywords": [

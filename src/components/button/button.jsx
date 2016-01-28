@@ -3,21 +3,21 @@ import classNames from 'classnames';
 import './button.scss';
 
 function Button(props) {
-  const { primary, secondary, link, modifier, href } = props;
+  const { primary, secondary, link, type, href } = props;
   const ComponentClass = href ? 'a' : 'button';
   const classes = classNames({
     'btn-primary': primary,
-    'btn-primary--success': primary && modifier === 'success',
-    'btn-primary--warning': primary && modifier === 'warning',
-    'btn-primary--danger': primary && modifier === 'danger',
+    'btn-primary--success': primary && type === 'success',
+    'btn-primary--warning': primary && type === 'warning',
+    'btn-primary--danger': primary && type === 'danger',
     'btn-secondary': secondary,
-    'btn-secondary--success': secondary && modifier === 'success',
-    'btn-secondary--warning': secondary && modifier === 'warning',
-    'btn-secondary--danger': secondary && modifier === 'danger',
+    'btn-secondary--success': secondary && type === 'success',
+    'btn-secondary--warning': secondary && type === 'warning',
+    'btn-secondary--danger': secondary && type === 'danger',
     'btn-link': link,
-    'btn-link--success': link && modifier === 'success',
-    'btn-link--warning': link && modifier === 'warning',
-    'btn-link--danger': link && modifier === 'danger',
+    'btn-link--success': link && type === 'success',
+    'btn-link--warning': link && type === 'warning',
+    'btn-link--danger': link && type === 'danger',
   }, props.className);
 
   return (
@@ -33,7 +33,7 @@ Button.propTypes = {
   primary: React.PropTypes.bool,
   secondary: React.PropTypes.bool,
   link: React.PropTypes.bool,
-  modifier: React.PropTypes.string,
+  type: React.PropTypes.string,
   href: React.PropTypes.string,
   disabled: React.PropTypes.bool,
 };
