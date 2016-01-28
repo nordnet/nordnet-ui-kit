@@ -2,7 +2,7 @@
   "name": "nordnet-ui-kit",
   "version": "0.0.1",
   "description": "Nordnets React powered UI kit",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "delete": "rimraf dist",
     "clean": "find dist -name '*.jsx' -type f -delete",
