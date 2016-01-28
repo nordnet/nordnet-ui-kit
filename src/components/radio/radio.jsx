@@ -24,7 +24,14 @@ class Radio extends PureComponent {
   renderRadio() {
     return (
       <div className="radio__input">
-        <input { ...this.props } type="radio" checked={ this.state.checked } disabled={ this.state.disabled } value={ this.props.value } onChange={ this.handleChange } />
+        <input
+          { ...this.props }
+          type="radio"
+          checked={ this.state.checked }
+          disabled={ this.state.disabled }
+          value={ this.props.value }
+          onChange={ this.handleChange }
+        />
         <span />
       </div>
     );

@@ -78,8 +78,28 @@ class Input extends PureComponent {
 
     this.setState(state);
 
+    let valueString = '';
+
+    if (unit === 'YYYY') {
+      valueString = `${ valueString }${ value }-`;
+    } else {
+      valueString = `${ valueString }${ this.state.valueYYYY }-`;
+    }
+
+    if (unit === 'MM') {
+      valueString = `${ valueString }${ value }-`;
+    } else {
+      valueString = `${ valueString }${ this.state.valueMM }-`;
+    }
+
+    if (unit === 'DD') {
+      valueString = `${ valueString }${ value }`;
+    } else {
+      valueString = `${ valueString }${ this.state.valueDD }`;
+    }
+
     this.setState({
-      value: `${unit === 'YYYY' ? value : this.state.valueYYYY}-${unit === 'MM' ? value : this.state.valueMM}-${unit === 'DD' ? value : this.state.valueDD}`,
+      value: valueString,
     });
   }
 
@@ -213,13 +233,16 @@ class Input extends PureComponent {
 
     return (
       <div className={ classes }>
-        <div className="input__date" onClick={ () => {
-          if (!this.state.hasFocus) document.querySelector(`#${id}`).focus();
-        }}>
+        <div
+          className="input__date"
+          onClick={ () => {if (!this.state.hasFocus) document.querySelector(`#${id}`).focus();}}
+        >
           {units.map((unit, index) =>
-            <span style={{
-              opacity: this.state.hasFocus || this.state.valueDD > 0 || this.state.valueMM > 0 || this.state.valueYYYY > 0 ? 1 : 0,
-            }}>
+            <span
+              style={{
+                opacity: this.state.hasFocus || this.state.valueDD > 0 || this.state.valueMM > 0 || this.state.valueYYYY > 0 ? 1 : 0,
+              }}
+            >
               <input
                 { ...this.props }
                 id={ index === 0 ? id : '' }

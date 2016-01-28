@@ -1,3 +1,9 @@
 {
-  "extends": "eslint-config-nordnet"
+  "extends": "eslint-config-nordnet",
+  "rules": {
+    "react/jsx-no-bind": [1, {
+      "ignoreRefs": true,
+      "allowArrowFunctions": true
+    }]
+  }
 }
