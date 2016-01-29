@@ -29,7 +29,6 @@ class Input extends PureComponent {
     this.handleChange = this.handleChange.bind(this);
     this.handlePasswordToggle = this.handlePasswordToggle.bind(this);
     this.renderLabel = this.renderLabel.bind(this);
-    this.renderHelpText = this.renderHelpText.bind(this);
     this.renderSelectArrow = this.renderSelectArrow.bind(this);
   }
 

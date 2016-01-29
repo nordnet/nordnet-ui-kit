@@ -2,19 +2,18 @@
   "name": "nordnet-ui-kit",
   "version": "0.0.2",
   "description": "Nordnets React powered UI kit",
-  "main": "dist/nordnet-ui-kit.js",
+  "main": "dist/index.js",
   "scripts": {
     "delete": "rimraf dist",
     "clean": "find dist -name '*.jsx' -type f -delete",
     "copy": "mkdir ./dist && cp -R ./src/. ./dist/",
-    "build": "npm-run-all delete webpack",
+    "build": "npm-run-all delete copy babel clean",
     "babel": "babel src -d dist",
-    "webpack": "webpack --progress --config webpack.config.js",
     "test": "mocha",
     "lint": "eslint --ext=.jsx --ext=.js src",
     "prepush": "npm-run-all lint test",
     "prepublish": "npm-run-all lint test build",
-    "postpublish": "npm run clean && git push --follow-tags"
+    "postpublish": "npm run delete && git push --follow-tags"
   },
   "keywords": [
     "nordnet",
@@ -37,11 +36,9 @@
     "autoprefixer": "^6.3.1",
     "babel-cli": "^6.4.5",
     "babel-core": "^6.4.5",
-    "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "chai": "^3.4.1",
-    "css-loader": "^0.23.1",
     "enzyme": "^1.4.0",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^4.0.0",
@@ -51,11 +48,8 @@
     "husky": "^0.10.2",
     "mocha": "^2.3.4",
     "npm-run-all": "^1.5.0",
-    "postcss-loader": "^0.8.0",
     "react-addons-test-utils": "^0.14.6",
-    "sass-loader": "^3.1.2",
     "sass-variable-loader": "^0.0.3",
-    "svg-icon-template-loader": "0.0.4",
-    "webpack": "^1.12.12"
+    "svg-icon-template-loader": "0.0.4"
   }
 }
