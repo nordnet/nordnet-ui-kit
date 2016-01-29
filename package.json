@@ -44,7 +44,6 @@
     "eslint-config-airbnb": "^4.0.0",
     "eslint-config-nordnet": "^1.1.1",
     "eslint-plugin-react": "^3.16.1",
-    "extract-text-webpack-plugin": "^1.0.1",
     "husky": "^0.10.2",
     "mocha": "^2.3.4",
     "npm-run-all": "^1.5.0",
