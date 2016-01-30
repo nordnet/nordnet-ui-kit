@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import { Motion, spring, presets } from 'react-motion';
 
 function Label(props) {
-  const { label, placeholder, id, hasFocus, hasValue } = props;
+  const { label, id, hasFocus, hasValue } = props;
+  const placeholder = props.placeholder || label;
   const classes = classNames('input__label', {
     'input__label--has-value': hasValue,
   });
