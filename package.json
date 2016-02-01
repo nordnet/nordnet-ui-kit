@@ -21,6 +21,14 @@
     "kit"
   ],
   "author": "Gustaf Zetterlund <gustaf.zetterlund@nordnet.se>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nordnet/nordnet-ui-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nordnet/nordnet-ui-kit/issues"
+  },
+  "homepage": "https://github.com/nordnet/nordnet-ui-kit#readme",
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.3",
