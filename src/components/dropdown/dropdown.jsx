@@ -21,7 +21,7 @@ class Dropdown extends PureComponent {
     });
   }
 
-  renderOptions() {
+  renderActions() {
     const style = {
       display: this.state.actionsOpen ? 'block' : 'none',
     };
@@ -46,7 +46,7 @@ class Dropdown extends PureComponent {
           { this.props.toggle }
           <Icon className="dropdown__toggle-icon" type={ this.state.actionsOpen ? 'arrowUp' : 'arrowDown' } />
         </button>
-        { this.renderOptions() }
+        { this.renderActions() }
       </div>
     );
   }
