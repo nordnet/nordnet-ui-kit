@@ -1,5 +1,5 @@
-import Alert from './components/alert/alert';
-import Button from './components/button/button';
+import Alert from './components/alert';
+import Button from './components/button';
 import Checkbox from './components/checkbox/checkbox';
 import Collapsible from './components/collapsible/collapsible';
 import Dropdown from './components/dropdown/dropdown';
