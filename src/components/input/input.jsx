@@ -331,7 +331,6 @@ Input.propTypes = {
 Input.defaultProps = {
   type: 'text',
   label: 'Label',
-  placeholder: 'Enter value',
 };
 
 export default Input;
