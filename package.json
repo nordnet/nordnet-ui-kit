@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "description": "Nordnets React powered UI kit",
   "main": "dist/nordnet-ui-kit.js",
+  "repository": "nordnet/nordnet-ui-kit",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm-run-all clean webpack:bundle webpack:individual",
