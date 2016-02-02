@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import Alert from '../../../src/components/alert';
+import Alert from '../../../src/components/alert/alert';
 
 describe('<Alert />', () => {
   let wrapper;
