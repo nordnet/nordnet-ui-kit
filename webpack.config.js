@@ -22,10 +22,12 @@ var entry = {
 var output = {
   bundle: {
     filename: 'nordnet-ui-kit',
+    cssFilename: 'nordnet-ui-kit',
     library: 'NordnetUiKit',
   },
   individual: {
-    filename: '[name]/[name]',
+    filename: '[name]/index',
+    cssFilename: '[name]/[name]',
     library: 'NordnetUiKit.[name]',
   },
 };
@@ -78,6 +80,6 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production'),
       },
     }),
-    new ExtractTextPlugin(output[argv.type].filename + '.css'),
+    new ExtractTextPlugin(output[argv.type].cssFilename + '.css'),
   ],
 };
