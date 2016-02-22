@@ -35,7 +35,7 @@
     "react-motion": "^0.4.1",
     "react-prop-types": "^0.3.0",
     "react-pure-render": "^1.0.2",
-    "react-svg-sprite-icon": "0.0.5"
+    "react-svg-sprite-icon": "0.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
