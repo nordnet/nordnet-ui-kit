@@ -29,6 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.3",
+    "lodash.kebabcase": "^4.0.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-motion": "^0.4.1",

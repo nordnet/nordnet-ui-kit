@@ -1,6 +1,7 @@
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
+import kebabCase from 'lodash.kebabcase';
 import Icon from '../icon/icon';
 import ValidationIcon from './ValidationIcon';
 import Label from './Label';
@@ -290,7 +291,7 @@ class Input extends PureComponent {
 
   render() {
     const { type, label } = this.props;
-    const id = this.props.id || label.toLowerCase().replace(/ /g, '-');
+    const id = this.props.id || kebabCase(label);
     const classes = classNames('input', {
       'input--has-focus': this.state.hasFocus,
       'input--has-success': this.state.hasSuccess,
