@@ -12,6 +12,8 @@ class Input extends PureComponent {
   constructor(props) {
     super(props);
 
+    const isBrowser = !(typeof window === 'undefined');
+
     this.state = {
       hasFocus: false,
       value: props.value ? props.value : '',
@@ -19,7 +21,7 @@ class Input extends PureComponent {
       hasWarning: props.hasWarning ? props.hasWarning : false,
       hasError: props.hasError ? props.hasError : false,
       showPassword: false,
-      inputTypes: window.Modernizr ? window.Modernizr.inputtypes : {},
+      inputTypes: isBrowser && window.Modernizr ? window.Modernizr.inputtypes : {},
       valueDD: '',
       valueMM: '',
       valueYYYY: '',
