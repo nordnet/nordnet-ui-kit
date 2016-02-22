@@ -36,9 +36,9 @@ class Alert extends PureComponent {
     if (this.state.dismissed) return null;
 
     const classes = classNames('alert', {
-      'alert--success': this.props.type === 'success',
-      'alert--warning': this.props.type === 'warning',
-      'alert--danger': this.props.type === 'danger',
+      'alert--success': this.props.modifier === 'success',
+      'alert--warning': this.props.modifier === 'warning',
+      'alert--danger': this.props.modifier === 'danger',
     }, this.props.className);
 
     return (
@@ -53,7 +53,7 @@ class Alert extends PureComponent {
 
 Alert.propTypes = {
   className: React.PropTypes.string,
-  type: React.PropTypes.string,
+  modifier: React.PropTypes.string,
   header: React.PropTypes.string,
   children: React.PropTypes.node,
   dismissable: React.PropTypes.bool,
