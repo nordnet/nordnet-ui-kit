@@ -318,7 +318,11 @@ Input.propTypes = {
   label: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   id: React.PropTypes.string,
-  value: React.PropTypes.string,
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+    React.PropTypes.bool,
+  ]),
   onFocus: React.PropTypes.func,
   onBlur: React.PropTypes.func,
   onChange: React.PropTypes.func,
