@@ -10,7 +10,7 @@ require.extensions['.jsx'] = function compile(module, filename) {
 
   // Path to webpack config for test builds
   const buildConfig = (
-    path.join(process.cwd(), 'webpack.config.js')
+    path.join(process.cwd(), 'webpack.config.babel.js')
   );
 
   // Temp directory for test builds
