@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm-run-all clean webpack:bundle webpack:individual",
-    "webpack:bundle": "NODE_ENV=production webpack --type bundle --progress --config webpack.config.js",
-    "webpack:individual": "NODE_ENV=production webpack --type individual --progress --config webpack.config.js",
+    "webpack:bundle": "NODE_ENV=production webpack --type bundle --progress --config webpack.config.babel.js",
+    "webpack:individual": "NODE_ENV=production webpack --type individual --progress --config webpack.config.babel.js",
     "test": "mocha",
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "prepush": "npm-run-all lint test",
@@ -63,6 +63,7 @@
     "sass-variable-loader": "^0.0.3",
     "style-loader": "^0.13.0",
     "svg-icon-template-loader": "0.0.4",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.13",
+    "webpack-configurator": "^0.3.1"
   }
 }
