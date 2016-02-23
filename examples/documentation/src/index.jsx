@@ -16,6 +16,7 @@ module.exports = function render(locals, callback) {
   const html = htmlWrapper({
     title: 'Nordnet UI Kit',
     body: renderToString(<App />),
+    assets: locals.assets,
   });
   callback(null, html);
 };

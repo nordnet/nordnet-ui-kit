@@ -1,0 +1,11 @@
+.section--button {
+  .section {
+    &__example {
+      button {
+        display: block;
+        margin-bottom: 1.6rem;
+        width: 100%;
+      }
+    }
+  }
+}

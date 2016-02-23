@@ -110,7 +110,7 @@ module.exports = (() => {
 
   config.plugin('webpack-define', webpack.DefinePlugin, [{
     'process.env': {
-      'NODE_ENV': 'production',
+      'NODE_ENV': '"production"',
     },
   }]);
 

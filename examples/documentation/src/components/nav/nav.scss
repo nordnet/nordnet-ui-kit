@@ -11,9 +11,24 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    font-size: 1.6rem;
+    text-align: right;
   }
 
   &__item {
     display: inline-block;
+
+    > a {
+      display: block;
+      padding: 1.3rem 1.6rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &:last-child {
+      > a {
+        padding-right: 0;
+      }
+    }
   }
 }

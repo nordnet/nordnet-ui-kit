@@ -1,0 +1,14 @@
+.section {
+  pre {
+    font-family: 'Hack', Monaco, Consolas, 'Courier New', Courier, monospace;
+    font-size: 1.4rem;
+    border-radius: .2rem;
+    border: 0;
+    // box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, .1);
+
+    code {
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
+}

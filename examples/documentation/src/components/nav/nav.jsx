@@ -1,12 +1,19 @@
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { Grid, Row, Col } from 'react-bem-grid';
+import kebabCase from 'lodash.kebabcase';
 import './nav.scss';
 
 class Nav extends PureComponent {
-  renderNavItem(item, index) {
+  renderNavItem(item) {
+    const id = kebabCase(item);
+
     return (
-      <li key={ index }>{ item.label }</li>
+      <li className="nav__item" key={ id }>
+        <a href={ `#${ id }-section` }>
+          { item }
+        </a>
+      </li>
     );
   }
 
@@ -20,7 +27,7 @@ class Nav extends PureComponent {
             </Col>
             <Col xs={ 6 }>
               <ul className="nav__items">
-                { this.props.items.map((item, index) => this.renderNavItem(item, index)) }
+                { this.props.items.map(item => this.renderNavItem(item)) }
               </ul>
             </Col>
           </Row>

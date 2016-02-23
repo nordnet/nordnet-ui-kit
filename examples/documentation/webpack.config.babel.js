@@ -17,27 +17,13 @@ module.exports = (() => {
   config.merge({
     entry: {
       bundle: './src/index.jsx',
+      // vendor: ['react', 'react-dom'],
     },
     output: {
       path: './dist',
       filename: '[name].js',
       libraryTarget: 'umd',
     },
-    // externals: [{
-    //   'react': {
-    //     root: 'React',
-    //     commonjs2: 'react',
-    //     commonjs: 'react',
-    //     amd: 'react',
-    //   },
-    // }, {
-    //   'react-dom': {
-    //     root: 'ReactDOM',
-    //     commonjs2: 'react-dom',
-    //     commonjs: 'react-dom',
-    //     amd: 'react-dom',
-    //   },
-    // }],
     resolve: {
       extensions: [
         '',
@@ -89,11 +75,19 @@ module.exports = (() => {
   // Define //
   // ////// //
 
-  // config.plugin('webpack-define', webpack.DefinePlugin, [{
-  //   'process.env': {
-  //     'NODE_ENV': 'production',
-  //   },
-  // }]);
+  config.plugin('webpack-define', webpack.DefinePlugin, [{
+    'process.env': {
+      NODE_ENV: '"production"',
+    },
+  }]);
+
+  // ////// //
+  // Vendor //
+  // ////// //
+
+  // config.plugin('webpack-common-chunks', webpack.optimize.CommonsChunkPlugin, [
+  //   'vendor', 'vendor.bundle.js',
+  // ]);
 
   // ///////////////////// //
   // Static site generator //
