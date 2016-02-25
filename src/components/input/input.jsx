@@ -328,7 +328,7 @@ class Input extends PureComponent {
       'input--has-success': this.state.hasSuccess,
       'input--has-warning': this.state.hasWarning,
       'input--has-error': this.state.hasError,
-    },`input--${ kebabCase(type) }`, this.props.className);
+    }, `input--${ kebabCase(type) }`, this.props.className);
 
     switch (type) {
       case 'select':
