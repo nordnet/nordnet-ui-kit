@@ -1,7 +1,7 @@
 @import '../../variables';
 
 .input {
-  font-family: $font-primary;
+  // font-family: $font-primary;
   font-size: 1.6rem;
   position: relative;
   color: $color-text;
@@ -17,6 +17,22 @@
 
     &--has-value {
       font-size: 1.2rem;
+    }
+  }
+
+  .input__number {
+    position: relative;
+
+    > input {
+      border: 0;
+    }
+  }
+
+  &.input--has-success,
+  &.input--has-warning,
+  &.input--has-error {
+    .input__number {
+      padding-right: 1.6rem;
     }
   }
 
@@ -44,7 +60,8 @@
 
     }
 
-    .input__date {
+    .input__date,
+    .input__number {
       border-color: $color-primary--focus;
     }
 
@@ -53,45 +70,62 @@
       font-size: 1.2rem;
     }
 
-    &.input--has-success input {
-      border-color: $color-success--focus;
+    &.input--has-success {
+      input,
+      .input__date,
+      .input__number {
+        border-color: $color-success--focus;
 
-      + .input__label {
-        color: $color-success--focus;
-      }
+        + .input__label {
+          color: $color-success--focus;
+        }
 
-      + .input__help-text {
-        color: $color-success--focus;
-      }
-    }
-
-    &.input--has-warning input {
-      border-color: $color-warning--focus;
-
-      + .input__label {
-        color: $color-warning--focus;
-      }
-
-      + .input__help-text {
-        color: $color-warning--focus;
+        + .input__help-text {
+          color: $color-success--focus;
+        }
       }
     }
 
-    &.input--has-error input {
-      border-color: $color-danger--focus;
+    &.input--has-warning {
+      input,
+      .input__date,
+      .input__number {
+        border-color: $color-warning--focus;
 
-      + .input__label {
-        color: $color-danger--focus;
+        + .input__label {
+          color: $color-warning--focus;
+        }
+
+        + .input__help-text {
+          color: $color-warning--focus;
+        }
       }
+    }
 
-      + .input__help-text {
-        color: $color-danger--focus;
+    &.input--has-error {
+      input,
+      .input__date,
+      .input__number {
+        border-color: $color-danger--focus;
+
+        + .input__label {
+          color: $color-danger--focus;
+        }
+
+        + .input__help-text {
+          color: $color-danger--focus;
+        }
       }
     }
   }
 
   select {
     appearance: none;
+  }
+
+  &__number {
+    border-bottom: 1px solid #C5C5C5;
+    transition: border-color .2s linear;
   }
 
   &__date {
@@ -206,11 +240,18 @@
   }
 
   &--has-success {
-    .input__help-text {
-      color: $color-success;
+    .input {
+      &__label {
+        color: $color-success;
+      }
+
+      &__help-text {
+        color: $color-success;
+      }
     }
 
-    input {
+    input,
+    .input__number {
       border-color: $color-success;
     }
   }
@@ -226,7 +267,8 @@
       }
     }
 
-    input {
+    input,
+    .input__number {
       border-color: $color-warning;
     }
   }
@@ -242,7 +284,8 @@
       }
     }
 
-    input {
+    input,
+    .input__number {
       border-color: $color-danger;
     }
   }

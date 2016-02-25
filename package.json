@@ -29,6 +29,8 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.3",
+    "lodash.isnumber": "^3.0.3",
+    "lodash.isundefined": "^3.0.1",
     "lodash.kebabcase": "^4.0.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

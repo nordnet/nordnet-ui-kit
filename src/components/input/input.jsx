@@ -1,6 +1,8 @@
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
+import isUndefined from 'lodash.isundefined';
+import isNumber from 'lodash.isnumber';
 import kebabCase from 'lodash.kebabcase';
 import Icon from '../icon/icon';
 import ValidationIcon from './ValidationIcon';
@@ -16,10 +18,10 @@ class Input extends PureComponent {
 
     this.state = {
       hasFocus: false,
-      value: props.value ? props.value : '',
-      hasSuccess: props.hasSuccess ? props.hasSuccess : false,
-      hasWarning: props.hasWarning ? props.hasWarning : false,
-      hasError: props.hasError ? props.hasError : false,
+      value: isUndefined(props.value) ? '' : props.value,
+      hasSuccess: isUndefined(props.hasSuccess) ? false : props.hasSuccess,
+      hasWarning: isUndefined(props.hasWarning) ? false : props.hasWarning,
+      hasError: isUndefined(props.hasError) ? false : props.hasError,
       showPassword: false,
       inputTypes: isBrowser && window.Modernizr ? window.Modernizr.inputtypes : {},
       valueDD: '',
@@ -117,8 +119,13 @@ class Input extends PureComponent {
       placeholder: this.props.placeholder,
       id,
       hasFocus: this.state.hasFocus,
-      hasValue: this.state.value.length > 0,
     };
+
+    if (isNumber(this.state.value)) {
+      props.hasValue = true;
+    } else {
+      props.hasValue = this.state.value ? this.state.value.length > 0 : '';
+    }
 
     return <Label { ...props } />;
   }
@@ -271,6 +278,28 @@ class Input extends PureComponent {
     );
   }
 
+  renderNumber(id, classes) {
+    return (
+      <div className={ classes }>
+        <div className="input__number">
+          <input
+            { ...this.props }
+            id={ id }
+            type="number"
+            onFocus={ this.handleFocus }
+            onBlur={ this.handleBlur }
+            onChange={ this.handleChange }
+            placeholder=""
+            value={ this.state.value }
+          />
+          <ValidationIcon hasSuccess={ this.state.hasSuccess } hasWarning={ this.state.hasWarning } hasError={ this.state.hasError } />
+        </div>
+        { this.renderLabel(id) }
+        <HelpText>{ this.props.helpText }</HelpText>
+      </div>
+    );
+  }
+
   renderDefault(id, classes, type) {
     return (
       <div className={ classes }>
@@ -299,7 +328,7 @@ class Input extends PureComponent {
       'input--has-success': this.state.hasSuccess,
       'input--has-warning': this.state.hasWarning,
       'input--has-error': this.state.hasError,
-    }, this.props.className);
+    },`input--${ kebabCase(type) }`, this.props.className);
 
     switch (type) {
       case 'select':
@@ -308,6 +337,8 @@ class Input extends PureComponent {
         return this.renderPassword(id, classes);
       case 'date':
         return this.renderDate(id, classes);
+      case 'number':
+        return this.renderNumber(id, classes);
       default:
         return this.renderDefault(id, classes, type);
     }
