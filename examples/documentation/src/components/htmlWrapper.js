@@ -11,7 +11,7 @@ function htmlWrapper(props) {
     <link rel="stylesheet" href="/styles.css" />
     <title>${ props.title }</title>
   </head>
-  <body className="landing-page">
+  <body>
     <div id="react-mount">${ props.body }</div>
     <script src="/prism.js"></script>
     <script src="/${ props.assets.bundle }"></script>

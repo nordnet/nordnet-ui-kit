@@ -72,6 +72,22 @@ module.exports = (() => {
   ]);
 
   // ////// //
+  // Images //
+  // ////// //
+
+  const svgoConfig = JSON.stringify({
+    plugins: [
+      { removeTitle: true },
+      { convertColors: { shorthex: true } },
+    ],
+  });
+
+  config.loader('svg', {
+    test: /\.svg$/,
+    loader: `svg-inline!svgo?${ svgoConfig }`,
+  });
+
+  // ////// //
   // Define //
   // ////// //
 

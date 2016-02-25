@@ -20,7 +20,8 @@
     "react-bem-grid": "0.0.10",
     "react-dom": "^0.14.7",
     "react-prism": "^3.1.1",
-    "react-pure-render": "^1.0.2"
+    "react-pure-render": "^1.0.2",
+    "svg-inline-react": "^0.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
@@ -42,6 +43,8 @@
     "sass-loader": "^3.1.2",
     "static-site-generator-webpack-plugin": "^2.0.1",
     "style-loader": "^0.13.0",
+    "svg-inline-loader": "^0.4.0",
+    "svgo-loader": "^1.1.0",
     "webpack": "^1.12.14",
     "webpack-configurator": "^0.3.1"
   }

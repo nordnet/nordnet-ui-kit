@@ -10,37 +10,37 @@ class ButtonSection extends PureComponent {
     const example = (
       <div>
         <Row>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button primary>Primary: Default</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button primary>Primary: default</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button primary modifier="danger">Primary: Danger</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button primary modifier="danger">Primary: danger</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button primary modifier="warning">Primary: Warning</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button primary modifier="warning">Primary: warning</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button primary modifier="success">Primary: Success</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button primary modifier="success">Primary: success</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button primary disabled>Primary: Disabled</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button primary disabled>Primary: disabled</Button>
           </Col>
         </Row>
         <Row>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button secondary>Secondary: Default</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button secondary>Secondary: default</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button secondary modifier="danger">Secondary: Danger</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button secondary modifier="danger">Secondary: danger</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button secondary modifier="warning">Secondary: Warning</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button secondary modifier="warning">Secondary: warning</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button secondary modifier="success">Secondary: Success</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button secondary modifier="success">Secondary: success</Button>
           </Col>
-          <Col xs={ 6 } sm={ 2 }>
-            <Button secondary disabled>Secondary: Disabled</Button>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button secondary disabled>Secondary: disabled</Button>
           </Col>
         </Row>
       </div>

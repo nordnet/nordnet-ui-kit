@@ -5,6 +5,8 @@ import './app.scss';
 import Nav from './components/nav/nav';
 import AlertSection from './sections/alertSection';
 import ButtonSection from './sections/buttonSection';
+import CollapsibleSection from './sections/collapsibleSection';
+import DropdownSection from './sections/dropdownSection';
 
 class App extends PureComponent {
   constructor(props) {
@@ -13,6 +15,9 @@ class App extends PureComponent {
     this.state = {
       navItems: [
         'Alert',
+        'Button',
+        'Collapsible',
+        'Dropdown',
       ],
     };
   }
@@ -24,6 +29,8 @@ class App extends PureComponent {
         <Grid>
           <AlertSection />
           <ButtonSection />
+          <CollapsibleSection />
+          <DropdownSection />
         </Grid>
       </div>
     );
