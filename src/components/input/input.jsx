@@ -42,6 +42,7 @@ class Input extends PureComponent {
       hasSuccess: nextProps.hasSuccess ? nextProps.hasSuccess : false,
       hasWarning: nextProps.hasWarning ? nextProps.hasWarning : false,
       hasError: nextProps.hasError ? nextProps.hasError : false,
+      value: nextProps.value ? nextProps.value : this.state.value,
     });
   }
 
@@ -321,13 +322,14 @@ class Input extends PureComponent {
   }
 
   render() {
-    const { type, label } = this.props;
+    const { type, label, disabled } = this.props;
     const id = this.props.id || kebabCase(label);
     const classes = classNames('input', {
       'input--has-focus': this.state.hasFocus,
       'input--has-success': this.state.hasSuccess,
       'input--has-warning': this.state.hasWarning,
       'input--has-error': this.state.hasError,
+      'input--is-disabled': disabled,
     }, `input--${ kebabCase(type) }`, this.props.className);
 
     switch (type) {

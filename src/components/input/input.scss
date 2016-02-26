@@ -239,14 +239,53 @@
     color: $color-text-muted;
   }
 
-  &--has-success {
+  &--is-disabled {
+    cursor: not-allowed;
+    user-select: none;
+
     .input {
       &__label {
-        color: $color-success;
+        color: mix(#fff, $color-text-muted, 50);
+        cursor: not-allowed;
+        user-select: none;
       }
 
       &__help-text {
+        color: mix(#fff, $color-text-muted, 50);
+      }
+
+      &__validation-icon {
+        opacity: .5;
+      }
+    }
+
+    input,
+    .input__number {
+      border-color: mix(#fff, #C5C5C5, 50);
+      cursor: not-allowed !important;
+      user-select: none;
+    }
+  }
+
+  &--has-success {
+    .input {
+      &__label,
+      &__help-text {
         color: $color-success;
+      }
+    }
+
+    &.input--is-disabled {
+      .input {
+        &__label,
+        &__help-text {
+          color: mix(#fff, $color-success, 50);
+        }
+      }
+
+      input,
+      .input__number {
+        border-color: mix(#fff, $color-success, 50);
       }
     }
 
@@ -258,12 +297,23 @@
 
   &--has-warning {
     .input {
-      &__label {
-        color: $color-warning;
-      }
-
+      &__label,
       &__help-text {
         color: $color-warning;
+      }
+    }
+
+    &.input--is-disabled {
+      .input {
+        &__label,
+        &__help-text {
+          color: mix(#fff, $color-warning, 50);
+        }
+      }
+
+      input,
+      .input__number {
+        border-color: mix(#fff, $color-warning, 50);
       }
     }
 
@@ -275,12 +325,23 @@
 
   &--has-error {
     .input {
-      &__label {
-        color: $color-danger;
+      &__label,
+      &__help-text {
+        border-color: $color-danger;
+      }
+    }
+
+    &.input--is-disabled {
+      .input {
+        &__label,
+        &__help-text {
+          color: mix(#fff, $color-danger, 50);
+        }
       }
 
-      &__help-text {
-        color: $color-danger;
+      input,
+      .input__number {
+        border-color: mix(#fff, $color-danger, 50);
       }
     }
 
