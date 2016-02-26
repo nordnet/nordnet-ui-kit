@@ -34,6 +34,12 @@
     .input__number {
       padding-right: 1.6rem;
     }
+
+    &.input--select {
+      .input__validation-icon {
+        right: 2rem;
+      }
+    }
   }
 
   input,
@@ -57,7 +63,6 @@
     select {
       border-color: $color-primary--focus;
       outline: none;
-
     }
 
     .input__date,
@@ -72,6 +77,7 @@
 
     &.input--has-success {
       input,
+      select,
       .input__date,
       .input__number {
         border-color: $color-success--focus;
@@ -88,6 +94,7 @@
 
     &.input--has-warning {
       input,
+      select,
       .input__date,
       .input__number {
         border-color: $color-warning--focus;
@@ -104,6 +111,7 @@
 
     &.input--has-error {
       input,
+      select,
       .input__date,
       .input__number {
         border-color: $color-danger--focus;
@@ -260,6 +268,7 @@
     }
 
     input,
+    select,
     .input__number {
       border-color: mix(#fff, #C5C5C5, 50);
       cursor: not-allowed !important;
@@ -284,12 +293,14 @@
       }
 
       input,
+      select,
       .input__number {
         border-color: mix(#fff, $color-success, 50);
       }
     }
 
     input,
+    select,
     .input__number {
       border-color: $color-success;
     }
@@ -312,12 +323,14 @@
       }
 
       input,
+      select,
       .input__number {
         border-color: mix(#fff, $color-warning, 50);
       }
     }
 
     input,
+    select,
     .input__number {
       border-color: $color-warning;
     }
@@ -340,12 +353,14 @@
       }
 
       input,
+      select,
       .input__number {
         border-color: mix(#fff, $color-danger, 50);
       }
     }
 
     input,
+    select,
     .input__number {
       border-color: $color-danger;
     }

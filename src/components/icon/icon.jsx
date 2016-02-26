@@ -1,7 +1,7 @@
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
-import { IconClass } from 'react-svg-sprite-icon';
+import { IconStateless } from 'react-svg-sprite-icon';
 
 import iconArrowDown from '!!svg-icon-template-loader!../../icons/arrow-down.svg';
 import iconArrowUp from '!!svg-icon-template-loader!../../icons/arrow-up.svg';
@@ -23,7 +23,7 @@ class Icon extends PureComponent {
   }
 
   render() {
-    return <IconClass { ...this.props } name={ this.props.type } svg={ this.icons[this.props.type] } />;
+    return <IconStateless { ...this.props } name={ this.props.type } svg={ this.icons[this.props.type] } />;
   }
 }
 

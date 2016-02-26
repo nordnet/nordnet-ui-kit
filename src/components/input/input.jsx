@@ -137,8 +137,7 @@ class Input extends PureComponent {
       transform: this.state.hasFocus || this.state.value.length > 0 ? '' : 'translateY(-.6rem)',
     };
 
-    if (this.state.hasFocus) return <Icon className={ className } style={ style } type="arrowUp" />;
-    return <Icon className={ className } style={ style } type="arrowDown" />;
+    return <Icon className={ className } style={ style } type={ this.state.hasFocus ? 'arrowUp' : 'arrowDown' } />;
   }
 
   renderPasswordToggle() {
