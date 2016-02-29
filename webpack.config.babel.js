@@ -15,6 +15,7 @@ const entry = {
     dropdown: './src/components/dropdown/dropdown.jsx',
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
+    logo: './src/components/input/input.jsx',
     pane: './src/components/pane/pane.jsx',
     radio: './src/components/radio/radio.jsx',
   },
