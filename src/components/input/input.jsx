@@ -42,7 +42,7 @@ class Input extends PureComponent {
       hasSuccess: nextProps.hasSuccess ? nextProps.hasSuccess : false,
       hasWarning: nextProps.hasWarning ? nextProps.hasWarning : false,
       hasError: nextProps.hasError ? nextProps.hasError : false,
-      value: nextProps.value ? nextProps.value : this.state.value,
+      value: isUndefined(nextProps.value) ? this.state.value : nextProps.value,
     });
   }
 
