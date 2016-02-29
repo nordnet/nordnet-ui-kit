@@ -22,7 +22,7 @@
 
   &-primary {
     background: $color-primary;
-    border: 2px solid $color-primary;
+    border: .2rem solid $color-primary;
     color: #fff;
 
     &:hover {
@@ -32,12 +32,12 @@
 
     &:disabled {
       background: #DADADA;
-      border: 2px solid #DADADA;
+      border: .2rem solid #DADADA;
       color: #AEADAD;
 
       &:hover {
         background: #DADADA;
-        border-color: 2px solid #DADADA;
+        border-color: .2rem solid #DADADA;
       }
     }
 
@@ -75,7 +75,7 @@
   &-secondary {
     background: none;
     color: $color-primary;
-    border: 2px solid $color-primary;
+    border: .2rem solid $color-primary;
 
     &:hover {
       color: $color-primary--focus;
@@ -83,12 +83,12 @@
     }
 
     &:disabled {
-      border: 2px solid #DADADA;
+      border: .2rem solid #DADADA;
       color: #DADADA;
 
       &:hover {
         color: #DADADA;
-        border-color: 2px solid #DADADA;
+        border-color: .2rem solid #DADADA;
       }
     }
 
@@ -128,7 +128,7 @@
     padding-left: 0;
     padding-right: 0;
     color: $color-text;
-    border: 2px solid transparent;
+    border: .2rem solid transparent;
     font-weight: 600;
 
     &:hover {
