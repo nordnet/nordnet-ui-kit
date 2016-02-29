@@ -61,6 +61,20 @@ class InputSection extends PureComponent {
             <Input type="select" id="input-select-4" label="Select input with success" placeholder="Pick an option" options = { selectOptions } value="3" hasSuccess />
           </Col>
         </Row>
+        <Row className="input-container">
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="password" id="input-password-1" label="Password input" placeholder="Enter password" />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="password" id="input-password-2" label="Password input with error" placeholder="Enter password" value="Passw0rd!" hasError />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="password" id="input-password-3" label="Password input with warning" placeholder="Enter password" value="Passw0rd!" hasWarning />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="password" id="input-password-4" label="Password input with success" placeholder="Enter password"value="Passw0rd!" hasSuccess />
+          </Col>
+        </Row>
       </div>
     );
 
