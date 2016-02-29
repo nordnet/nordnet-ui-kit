@@ -2,6 +2,7 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { Grid, Row, Col } from 'react-bem-grid';
 import kebabCase from 'lodash.kebabcase';
+import Logo from '../../../../../src/components/logo/logo';
 import './nav.scss';
 
 class Nav extends PureComponent {
@@ -23,7 +24,7 @@ class Nav extends PureComponent {
         <Grid>
           <Row>
             <Col xs={ 6 }>
-              <span className="nav__logo">Nordnet UI Kit</span>
+              <Logo className="nav__logo" />
             </Col>
             <Col xs={ 6 }>
               <ul className="nav__items">

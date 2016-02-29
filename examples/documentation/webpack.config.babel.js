@@ -78,13 +78,14 @@ module.exports = (() => {
   const svgoConfig = JSON.stringify({
     plugins: [
       { removeTitle: true },
+      { removeDimensions: true },
       { convertColors: { shorthex: true } },
     ],
   });
 
   config.loader('svg', {
     test: /\.svg$/,
-    loader: `svg-inline!svgo?${ svgoConfig }`,
+    loader: `raw!svgo?${ svgoConfig }`,
   });
 
   // ////// //

@@ -20,8 +20,7 @@
     "react-bem-grid": "0.0.10",
     "react-dom": "^0.14.7",
     "react-prism": "^3.1.1",
-    "react-pure-render": "^1.0.2",
-    "svg-inline-react": "^0.3.1"
+    "react-pure-render": "^1.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
@@ -39,6 +38,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "npm-run-all": "^1.5.1",
     "postcss-loader": "^0.8.1",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.1.2",
     "static-site-generator-webpack-plugin": "^2.0.1",
