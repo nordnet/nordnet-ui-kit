@@ -40,6 +40,10 @@
         right: 2rem;
       }
     }
+
+    .input__password-toggle {
+      padding-right: 1.6rem;
+    }
   }
 
   input,
@@ -60,7 +64,8 @@
 
   &--has-focus {
     input,
-    select {
+    select,
+    .input__password-toggle {
       border-color: $color-primary--focus;
       outline: none;
     }
@@ -79,7 +84,8 @@
       input,
       select,
       .input__date,
-      .input__number {
+      .input__number,
+      .input__password-toggle {
         border-color: $color-success--focus;
 
         + .input__label {
@@ -96,7 +102,8 @@
       input,
       select,
       .input__date,
-      .input__number {
+      .input__number,
+      .input__password-toggle {
         border-color: $color-warning--focus;
 
         + .input__label {
@@ -113,7 +120,8 @@
       input,
       select,
       .input__date,
-      .input__number {
+      .input__number,
+      .input__password-toggle {
         border-color: $color-danger--focus;
 
         + .input__label {
@@ -217,9 +225,9 @@
         transition: all .2s linear;
       }
 
-      &--has-focus {
-        border-color: $color-primary--focus;
-      }
+      // &--has-focus {
+      //   border-color: $color-primary--focus;
+      // }
     }
   }
 
@@ -294,14 +302,16 @@
 
       input,
       select,
-      .input__number {
+      .input__number,
+      .input__password-toggle {
         border-color: mix(#fff, $color-success, 50);
       }
     }
 
     input,
     select,
-    .input__number {
+    .input__number,
+    .input__password-toggle {
       border-color: $color-success;
     }
   }
@@ -324,14 +334,16 @@
 
       input,
       select,
-      .input__number {
+      .input__number,
+      .input__password-toggle {
         border-color: mix(#fff, $color-warning, 50);
       }
     }
 
     input,
     select,
-    .input__number {
+    .input__number,
+    .input__password-toggle {
       border-color: $color-warning;
     }
   }
@@ -354,14 +366,16 @@
 
       input,
       select,
-      .input__number {
+      .input__number,
+      .input__password-toggle {
         border-color: mix(#fff, $color-danger, 50);
       }
     }
 
     input,
     select,
-    .input__number {
+    .input__number,
+    .input__password-toggle {
       border-color: $color-danger;
     }
   }
