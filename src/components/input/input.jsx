@@ -189,9 +189,7 @@ class Input extends PureComponent {
       return [0, 0, 0];
     }
 
-    return dateArray.map(value => {
-      return value;
-    });
+    return dateArray;
   }
 
   renderDate(id, classes) {
