@@ -10,7 +10,7 @@
   }
 
   &--is-disabled {
-    color: #DADADA;
+    color: $color-background-disabled;
     cursor: not-allowed;
   }
 
@@ -62,12 +62,12 @@
 
       &:disabled {
         + span {
-          border-color: #DADADA;
+          border-color: $color-background-disabled;
         }
 
         &:checked + span {
-          border-color: #C5C5C5;
-          background: #DADADA;
+          border-color: $color-background-disabled;
+          background: $color-background-disabled;
         }
       }
     }

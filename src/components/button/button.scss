@@ -31,13 +31,13 @@
     }
 
     &:disabled {
-      background: #DADADA;
-      border: .2rem solid #DADADA;
-      color: #AEADAD;
+      background: $color-background-disabled;
+      border: .2rem solid $color-background-disabled;
+      color: $color-disabled;
 
       &:hover {
-        background: #DADADA;
-        border-color: .2rem solid #DADADA;
+        background: $color-background-disabled;
+        border-color: .2rem solid $color-background-disabled;
       }
     }
 
@@ -83,12 +83,12 @@
     }
 
     &:disabled {
-      border: .2rem solid #DADADA;
-      color: #DADADA;
+      border: .2rem solid $color-background-disabled;
+      color: $color-background-disabled;
 
       &:hover {
-        color: #DADADA;
-        border-color: .2rem solid #DADADA;
+        color: $color-background-disabled;
+        border-color: .2rem solid $color-background-disabled;
       }
     }
 
@@ -136,10 +136,10 @@
     }
 
     &:disabled {
-      color: #DADADA;
+      color: $color-background-disabled;
 
       &:hover {
-        color: #DADADA;
+        color: $color-background-disabled;
       }
     }
 
