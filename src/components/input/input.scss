@@ -149,8 +149,7 @@
     transition: border-color .2s linear;
 
     input {
-      display: inline;
-      width: auto;
+      display: inline-block;
       max-width: (100% / 3);
       min-height: 2rem;
       border: 0;
@@ -189,6 +188,11 @@
       bottom: 0;
       pointer-events: none;
       color: rgba(#ff0000, .5);
+    }
+
+    &-divider {
+      display: inline-block;
+      padding-right: .4rem;
     }
   }
 
@@ -277,7 +281,8 @@
 
     input,
     select,
-    .input__number {
+    .input__number,
+    .input__date {
       border-color: mix(#fff, #C5C5C5, 50);
       cursor: not-allowed !important;
       user-select: none;
@@ -303,7 +308,8 @@
       input,
       select,
       .input__number,
-      .input__password-toggle {
+      .input__password-toggle,
+      .input__date {
         border-color: mix(#fff, $color-success, 50);
       }
     }
@@ -311,7 +317,8 @@
     input,
     select,
     .input__number,
-    .input__password-toggle {
+    .input__password-toggle,
+    .input__date {
       border-color: $color-success;
     }
   }
@@ -335,7 +342,8 @@
       input,
       select,
       .input__number,
-      .input__password-toggle {
+      .input__password-toggle,
+      .input__date {
         border-color: mix(#fff, $color-warning, 50);
       }
     }
@@ -343,7 +351,8 @@
     input,
     select,
     .input__number,
-    .input__password-toggle {
+    .input__password-toggle,
+    .input__date {
       border-color: $color-warning;
     }
   }
@@ -367,7 +376,8 @@
       input,
       select,
       .input__number,
-      .input__password-toggle {
+      .input__password-toggle,
+      .input__date {
         border-color: mix(#fff, $color-danger, 50);
       }
     }
@@ -375,7 +385,8 @@
     input,
     select,
     .input__number,
-    .input__password-toggle {
+    .input__password-toggle,
+    .input__date {
       border-color: $color-danger;
     }
   }

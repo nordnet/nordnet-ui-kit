@@ -24,9 +24,6 @@ class Input extends PureComponent {
       hasError: isUndefined(props.hasError) ? false : props.hasError,
       showPassword: false,
       inputTypes: isBrowser && window.Modernizr ? window.Modernizr.inputtypes : {},
-      valueDD: '',
-      valueMM: '',
-      valueYYYY: '',
     };
 
     this.handleFocus = this.handleFocus.bind(this);
@@ -77,34 +74,13 @@ class Input extends PureComponent {
   }
 
   handleDateChange(event, unit) {
-    const state = {};
-    const value = parseInt(event.target.value, 10);
-    state[`value${unit}`] = value;
-
-    this.setState(state);
-
-    let valueString = '';
-
-    if (unit === 'YYYY') {
-      valueString = `${ valueString }${ value }-`;
-    } else {
-      valueString = `${ valueString }${ this.state.valueYYYY }-`;
-    }
-
-    if (unit === 'MM') {
-      valueString = `${ valueString }${ value }-`;
-    } else {
-      valueString = `${ valueString }${ this.state.valueMM }-`;
-    }
-
-    if (unit === 'DD') {
-      valueString = `${ valueString }${ value }`;
-    } else {
-      valueString = `${ valueString }${ this.state.valueDD }`;
-    }
+    // Format of date is 'yyyy-MM-dd'
+    const date = this.splitDate(this.state.value);
+    const value = isUndefined(event.target.value) ? '' : parseInt(event.target.value, 10);
+    date[unit.index] = this.zeroFill(value, unit.label.length);
 
     this.setState({
-      value: valueString,
+      value: date.join('-'),
     });
   }
 
@@ -201,6 +177,23 @@ class Input extends PureComponent {
     );
   }
 
+  zeroFill(number, length) {
+    const pad = new Array(1 + length).join('0');
+    return (pad + number).slice(-pad.length);
+  }
+
+  splitDate(date) {
+    const dateArray = date.split('-');
+
+    if (dateArray.length < 3) {
+      return [0, 0, 0];
+    }
+
+    return dateArray.map(value => {
+      return value;
+    });
+  }
+
   renderDate(id, classes) {
     if (this.state.inputTypes.date) {
       return (
@@ -223,51 +216,56 @@ class Input extends PureComponent {
       );
     }
 
-    const units = ['DD', 'MM', 'YYYY'];
-    const min = {
-      DD: 1,
-      MM: 1,
-      YYYY: 1000,
-    };
-    const max = {
-      DD: 31,
-      MM: 12,
-      YYYY: 9999,
-    };
+    const units = [{
+      label: 'dd',
+      index: 2,
+      min: 1,
+      max: 31,
+    }, {
+      label: 'MM',
+      index: 1,
+      min: 1,
+      max: 12,
+    }, {
+      label: 'yyyy',
+      index: 0,
+      min: 1000,
+      max: 9999,
+    }];
 
-    function zeroFill(number, length) {
-      const pad = new Array(1 + length).join('0');
-      return (pad + number).slice(-pad.length);
-    }
+    const values = this.splitDate(this.state.value);
 
     return (
       <div className={ classes }>
         <div
           className="input__date"
-          onClick={ () => {if (!this.state.hasFocus) document.querySelector(`#${id}`).focus();}}
+          onClick={ () => {if (!this.state.hasFocus && !this.props.disabled) document.querySelector(`#${id}`).focus();}}
         >
           {units.map((unit, index) =>
             <span
               style={{
-                opacity: this.state.hasFocus || this.state.valueDD > 0 || this.state.valueMM > 0 || this.state.valueYYYY > 0 ? 1 : 0,
+                opacity: this.state.hasFocus || this.state.value.length > 0 ? 1 : 0,
               }}
             >
               <input
                 { ...this.props }
                 id={ index === 0 ? id : '' }
-                key={ unit }
+                key={ unit.label }
                 type="number"
-                min={ min[unit] }
-                max={ max[unit] }
+                min={ unit.min }
+                max={ unit.max }
                 onFocus={ this.handleFocus }
                 onBlur={ this.handleBlur }
                 onChange={ (event) => this.handleDateChange(event, unit) }
-                placeholder={ unit.toLowerCase() }
+                placeholder={ unit.label.toLowerCase() }
                 inputMode="numeric"
                 pattern="[0-9]*"
-                value={ this.state[`value${unit}`] ? zeroFill(this.state[`value${unit}`], unit.length) : null }
+                style= {{
+                  width: unit.index === 1 && !values[unit.index] ? '4ch' : `calc(${ unit.label.length }ch + .4rem)`,
+                }}
+                value={ parseInt(values[unit.index], 10) > 0 ? this.zeroFill(values[unit.index], unit.label.length) : null }
               />
-            { index < 2 ? '/' : null }
+            { index < 2 ? <span className="input__date-divider">/</span> : null }
             </span>
           )}
           { this.renderLabel(id) }
