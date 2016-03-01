@@ -75,6 +75,20 @@ class InputSection extends PureComponent {
             <Input type="password" id="input-password-4" label="Password input with success" placeholder="Enter password"value="Passw0rd!" hasSuccess />
           </Col>
         </Row>
+        <Row className="input-container">
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="date" id="input-date-1" label="Date input" placeholder="Enter date" />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="date" id="input-date-2" label="Date input with error" placeholder="Enter date" value="2016-12-03" hasError />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="date" id="input-date-3" label="Date input with warning" placeholder="Enter date" value="2016-12-03" hasWarning />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="date" id="input-date-4" label="Date input with success" placeholder="Enter date"value="2016-12-03" hasSuccess />
+          </Col>
+        </Row>
       </div>
     );
 
