@@ -13,6 +13,7 @@ function htmlWrapper(props) {
   </head>
   <body>
     <div id="react-mount">${ props.body }</div>
+    <script src="/modernizr-custom.min.js"></script>
     <script src="/prism.js"></script>
     <script src="/${ props.assets.bundle }"></script>
   </body>
