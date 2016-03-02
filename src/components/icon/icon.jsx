@@ -2,24 +2,18 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
 import { IconStateless } from 'react-svg-sprite-icon';
-
-import iconArrowDown from '!!svg-icon-template-loader!../../icons/arrow-down.svg';
-import iconArrowUp from '!!svg-icon-template-loader!../../icons/arrow-up.svg';
-import iconCheckmark from '!!svg-icon-template-loader!../../icons/checkmark.svg';
-import iconClose from '!!svg-icon-template-loader!../../icons/close.svg';
-import iconExclamationPoint from '!!svg-icon-template-loader!../../icons/exclamation-point.svg';
+import camelCase from 'lodash.camelCase';
+import mapKeys from 'lodash.mapkeys';
+import mapValues from 'lodash.mapvalues';
+import icons from 'dir!./icons.config.js';
 
 class Icon extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.icons = {
-      arrowDown: iconArrowDown,
-      arrowUp: iconArrowUp,
-      checkmark: iconCheckmark,
-      close: iconClose,
-      exclamationPoint: iconExclamationPoint,
-    };
+    this.icons = mapValues(mapKeys(icons, (value, key) => {
+      return camelCase(key.replace(/\.svg$/, ''));
+    }), 'src');
   }
 
   render() {
