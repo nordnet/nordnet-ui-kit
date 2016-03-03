@@ -5,7 +5,7 @@ import { IconStateless } from 'react-svg-sprite-icon';
 import camelCase from 'lodash.camelCase';
 import mapKeys from 'lodash.mapkeys';
 import mapValues from 'lodash.mapvalues';
-import icons from 'dir!./icons.config.js';
+import icons from '!!dir!./icons.config.js';
 
 class Icon extends PureComponent {
   constructor(props) {

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>calendar</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-1" transform="translate(-210.000000, -188.000000)" stroke="#FFFFFF">
+            <g id="calendar" transform="translate(210.000000, 188.000000)">
+                <rect id="Rectangle-path" stroke-width="2" x="2" y="4" width="13" height="10"></rect>
+                <path d="M14,2 L12,2" id="Shape" stroke-width="2" fill="#FFFFFF"></path>
+                <path d="M5,2 L3,2" id="Shape" stroke-width="2" fill="#FFFFFF"></path>
+                <path d="M3,7.5 L14,7.5" id="Path-502"></path>
+                <path d="M3,10.5 L14,10.5" id="Path-502"></path>
+                <path d="M5.5,5 L5.5,13" id="Shape" fill="#FFFFFF"></path>
+                <path d="M8.5,5 L8.5,13" id="Shape" fill="#FFFFFF"></path>
+                <path d="M11.5,5 L11.5,13" id="Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
