@@ -11,9 +11,7 @@ class Icon extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.icons = mapValues(mapKeys(icons, (value, key) => {
-      return camelCase(key.replace(/\.svg$/, ''));
-    }), 'src');
+    this.icons = mapValues(mapKeys(icons, (value, key) => camelCase(key.replace(/\.svg$/, ''))), 'src');
   }
 
   render() {
