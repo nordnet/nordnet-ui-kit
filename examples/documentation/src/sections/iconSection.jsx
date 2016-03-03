@@ -1,0 +1,53 @@
+import React from 'react';
+import PureComponent from 'react-pure-render/component';
+import { Row, Col } from 'react-bem-grid';
+import Section from '../components/section/section';
+import Icon from '../../../../src/components/icon/icon';
+import './iconSection.scss';
+
+class IconSection extends PureComponent {
+  render() {
+    const icons = [
+      <Icon type="bell" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="calendar" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="folder" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="heart" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="key" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="mail" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="mailOpen" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="news" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="star" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="tag" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+    ];
+
+    const example = (
+      <Row>
+        {icons.map(icon => (
+          <Col xs={ 4 } sm={ 3 } lg={ 2 }>
+            <div className="icon-container">
+              <div className="icon-container__icon">
+                { icon }
+              </div>
+              <div className="icon-container__type">
+                { icon.props.type }
+              </div>
+            </div>
+          </Col>
+        ))}
+      </Row>
+    );
+
+    const code = `<Icon type="checkmark" stroke="#00a9ec" width={ 16 } height={ 16 } />`;
+
+    return (
+      <Section
+        title="Icons"
+        description="These are the icons currently available in the UI kit"
+        example={ example }
+        code={ code }
+      />
+    );
+  }
+}
+
+export default IconSection;

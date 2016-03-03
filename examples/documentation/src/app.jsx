@@ -9,6 +9,7 @@ import CollapsibleSection from './sections/collapsibleSection';
 import DropdownSection from './sections/dropdownSection';
 import InputSection from './sections/inputSection';
 import PaneSection from './sections/paneSection';
+import IconSection from './sections/iconSection';
 
 class App extends PureComponent {
   constructor(props) {
@@ -35,6 +36,7 @@ class App extends PureComponent {
           <DropdownSection />
           <InputSection />
           <PaneSection />
+          <IconSection />
         </Grid>
       </div>
     );

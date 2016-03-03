@@ -1,0 +1,19 @@
+.icon-container {
+  padding: 1.6rem;
+  background: #fff;
+  // box-shadow: 0 .2rem .4rem .2rem rgba(0, 0, 0, .1);
+  text-align: center;
+  margin-bottom: 1.6rem;
+  border-radius: .2rem;
+
+  &__icon {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__type {
+    font-family: 'Hack', monospace;
+    font-size: 1.4rem;
+    padding-top: .4rem;
+  }
+}
