@@ -18,6 +18,10 @@ class IconSection extends PureComponent {
       <Icon type="news" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="star" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="tag" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="search" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="share" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="trash" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="user" stroke="#00a9ec" width={ 16 } height={ 16 } />,
     ];
 
     const example = (
@@ -37,7 +41,7 @@ class IconSection extends PureComponent {
       </Row>
     );
 
-    const code = `<Icon type="checkmark" stroke="#00a9ec" width={ 16 } height={ 16 } />`;
+    const code = `<Icon type="star" stroke="#00a9ec" width={ 16 } height={ 16 } />`;
 
     const explanation = 'Use the type prop to specify which icon to use';
 

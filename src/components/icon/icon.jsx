@@ -2,7 +2,7 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
 import { IconStateless } from 'react-svg-sprite-icon';
-import camelCase from 'lodash.camelCase';
+import camelCase from 'lodash.camelcase';
 import mapKeys from 'lodash.mapkeys';
 import mapValues from 'lodash.mapvalues';
 import icons from '!!dir!./icons.config.js';
