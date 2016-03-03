@@ -39,12 +39,15 @@ class IconSection extends PureComponent {
 
     const code = `<Icon type="checkmark" stroke="#00a9ec" width={ 16 } height={ 16 } />`;
 
+    const explanation = 'Use the type prop to specify which icon to use';
+
     return (
       <Section
         title="Icons"
-        description="These are the icons currently available in the UI kit"
+        description="These are the icons currently exposed by the icon component"
         example={ example }
         code={ code }
+        explanation={ explanation }
       />
     );
   }
