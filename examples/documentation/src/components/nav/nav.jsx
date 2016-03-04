@@ -23,10 +23,10 @@ class Nav extends PureComponent {
       <nav className="nav">
         <Grid>
           <Row>
-            <Col xs={ 6 }>
+            <Col xs={ 4 }>
               <Logo className="nav__logo" />
             </Col>
-            <Col xs={ 6 }>
+            <Col xs={ 8 }>
               <ul className="nav__items">
                 { this.props.items.map(item => this.renderNavItem(item)) }
               </ul>

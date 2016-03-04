@@ -21,22 +21,32 @@ class App extends PureComponent {
         'Button',
         'Collapsible',
         'Dropdown',
+        'Input',
+        'Pane',
+        'Icons',
       ],
     };
   }
 
   render() {
+    const sections = [
+      <AlertSection />,
+      <ButtonSection />,
+      <CollapsibleSection />,
+      <DropdownSection />,
+      <InputSection />,
+      <PaneSection />,
+      <IconSection />,
+    ];
+
     return (
       <div>
         <Nav items={ this.state.navItems } />
         <Grid>
-          <AlertSection />
-          <ButtonSection />
-          <CollapsibleSection />
-          <DropdownSection />
-          <InputSection />
-          <PaneSection />
-          <IconSection />
+          {sections.map((section, index) => (
+            <span key={ index }>
+              { section }
+            </span>))}
         </Grid>
       </div>
     );
