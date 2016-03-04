@@ -86,7 +86,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var html = (0, _htmlWrapper2.default)({
 	    title: 'Nordnet UI Kit',
 	    body: (0, _server.renderToString)(_react2.default.createElement(_app2.default, null)),
-	    assets: locals.assets
+	    assets: locals.assets,
+	    root:  true ? '/nordnet-ui-kit/' : '/'
 	  });
 	  callback(null, html);
 	};
@@ -19030,13 +19031,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 155 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function htmlWrapper(props) {
-	  return "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charSet=\"utf-8\"/>\n    <meta httpEquiv=\"X-UA-Compatible\" content=\"IE=edge\"/>\n    <meta name=\"viewport\" content=\"user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0\"/>\n    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>\n    <link rel=\"stylesheet\" href=\"//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css\">\n    <link rel=\"stylesheet\" href=\"/prism.css\" />\n    <link rel=\"stylesheet\" href=\"/styles.css\" />\n    <title>" + props.title + "</title>\n  </head>\n  <body>\n    <div id=\"react-mount\">" + props.body + "</div>\n    <script src=\"/modernizr-custom.min.js\"></script>\n    <script src=\"/prism.js\"></script>\n    <script src=\"/" + props.assets.bundle + "\"></script>\n  </body>\n</html>";
+	  var root = props.root || '/';
+
+	  return '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charSet="utf-8"/>\n    <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>\n    <meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0"/>\n    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic" type="text/css">\n    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css" type="text/css">\n    <link rel="stylesheet" href="' + root + 'prism.css" type="text/css">\n    <link rel="stylesheet" href="' + root + 'styles.css" type="text/css">\n    <title>' + props.title + '</title>\n  </head>\n  <body>\n    <div id="react-mount">' + props.body + '</div>\n    <script src="' + root + 'modernizr-custom.min.js"></script>\n    <script src="' + root + 'prism.js"></script>\n    <script src="' + root + props.assets.bundle + '"></script>\n  </body>\n</html>';
 	}
 
 	exports.default = htmlWrapper;
