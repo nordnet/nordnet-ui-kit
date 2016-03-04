@@ -22,12 +22,16 @@ class IconSection extends PureComponent {
       <Icon type="share" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="trash" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="user" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="socialInstagram" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="socialFacebook" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="socialTwitter" fill="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="apartment" stroke="#00a9ec" width={ 16 } height={ 16 } />,
     ];
 
     const example = (
       <Row>
-        {icons.map(icon => (
-          <Col xs={ 4 } sm={ 3 } lg={ 2 }>
+        {icons.map((icon, index) => (
+          <Col key={ `${ icon.props.type }-${ index }` } xs={ 4 } sm={ 3 } lg={ 2 }>
             <div className="icon-container">
               <div className="icon-container__icon">
                 { icon }

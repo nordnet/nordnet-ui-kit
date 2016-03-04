@@ -4,10 +4,13 @@
   "description": "",
   "main": "dist/index.html",
   "scripts": {
+    "start": "NODE_ENV=development npm run build",
     "clean": "rimraf dist",
-    "build": "npm run clean && npm run webpack && npm run copy",
+    "build": "npm run clean && npm run webpack  && npm run copy",
     "copy": "cp -r lib/. dist/.",
-    "webpack": "NODE_ENV=production webpack --progress --config webpack.config.babel.js"
+    "webpack": "webpack --progress --config webpack.config.babel.js",
+    "pages": "NODE_ENV=production npm run build && npm run deploy",
+    "deploy": "git-directory-deploy --directory ./dist --branch gh-pages"
   },
   "author": "Gustaf Zetterlund <gustaf.zetterlund@nordnet.se>",
   "license": "MIT",
@@ -36,6 +39,8 @@
     "eslint-config-nordnet": "^1.1.1",
     "eslint-plugin-react": "^4.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "git-directory-deploy": "^1.5.0",
+    "minimist": "^1.2.0",
     "npm-run-all": "^1.5.1",
     "postcss-loader": "^0.8.1",
     "raw-loader": "^0.5.1",

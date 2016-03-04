@@ -17,6 +17,7 @@ module.exports = function render(locals, callback) {
     title: 'Nordnet UI Kit',
     body: renderToString(<App />),
     assets: locals.assets,
+    root: process.env.NODE_ENV === 'production' ? '/nordnet-ui-kit/' : '/',
   });
   callback(null, html);
 };
