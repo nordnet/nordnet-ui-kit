@@ -46607,8 +46607,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */(function(module) {module.exports = {
 	  "apartment.svg": {
 	    "src": __webpack_require__(394),
-	    "size": 1512,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "size": 1320,
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "apartment.svg"
 	    ],
@@ -46638,7 +46638,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "bell.svg": {
 	    "src": __webpack_require__(397),
 	    "size": 912,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "bell.svg"
 	    ],
@@ -46648,7 +46648,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "calendar.svg": {
 	    "src": __webpack_require__(398),
 	    "size": 1298,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "calendar.svg"
 	    ],
@@ -46658,7 +46658,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "checkmark-large.svg": {
 	    "src": __webpack_require__(399),
 	    "size": 784,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "checkmark-large.svg"
 	    ],
@@ -46677,8 +46677,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  "close.svg": {
 	    "src": __webpack_require__(401),
-	    "size": 866,
-	    "mtime": "2016-01-27T15:53:34.000Z",
+	    "size": 830,
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "close.svg"
 	    ],
@@ -46698,7 +46698,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "folder.svg": {
 	    "src": __webpack_require__(403),
 	    "size": 754,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "folder.svg"
 	    ],
@@ -46708,7 +46708,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "heart.svg": {
 	    "src": __webpack_require__(404),
 	    "size": 1171,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "heart.svg"
 	    ],
@@ -46718,7 +46718,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "key.svg": {
 	    "src": __webpack_require__(405),
 	    "size": 1092,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "key.svg"
 	    ],
@@ -46728,7 +46728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "mail-open.svg": {
 	    "src": __webpack_require__(406),
 	    "size": 847,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "mail-open.svg"
 	    ],
@@ -46738,7 +46738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "mail.svg": {
 	    "src": __webpack_require__(407),
 	    "size": 828,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "mail.svg"
 	    ],
@@ -46748,7 +46748,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "news.svg": {
 	    "src": __webpack_require__(408),
 	    "size": 1456,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "news.svg"
 	    ],
@@ -46758,7 +46758,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "search.svg": {
 	    "src": __webpack_require__(409),
 	    "size": 822,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "search.svg"
 	    ],
@@ -46768,7 +46768,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "share.svg": {
 	    "src": __webpack_require__(410),
 	    "size": 1087,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "share.svg"
 	    ],
@@ -46778,7 +46778,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "social-facebook.svg": {
 	    "src": __webpack_require__(411),
 	    "size": 934,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "social-facebook.svg"
 	    ],
@@ -46788,7 +46788,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "social-gplus.svg": {
 	    "src": __webpack_require__(412),
 	    "size": 995,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "social-gplus.svg"
 	    ],
@@ -46798,7 +46798,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "social-instagram.svg": {
 	    "src": __webpack_require__(413),
 	    "size": 1068,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "social-instagram.svg"
 	    ],
@@ -46808,7 +46808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "social-twitter.svg": {
 	    "src": __webpack_require__(414),
 	    "size": 1760,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "social-twitter.svg"
 	    ],
@@ -46818,7 +46818,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "star.svg": {
 	    "src": __webpack_require__(415),
 	    "size": 1005,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "star.svg"
 	    ],
@@ -46828,7 +46828,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "tag.svg": {
 	    "src": __webpack_require__(416),
 	    "size": 812,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "tag.svg"
 	    ],
@@ -46838,7 +46838,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "trash-alternate.svg": {
 	    "src": __webpack_require__(417),
 	    "size": 1046,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "trash-alternate.svg"
 	    ],
@@ -46848,7 +46848,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "trash.svg": {
 	    "src": __webpack_require__(418),
 	    "size": 995,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "trash.svg"
 	    ],
@@ -46858,7 +46858,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "user-shirt.svg": {
 	    "src": __webpack_require__(419),
 	    "size": 1080,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "user-shirt.svg"
 	    ],
@@ -46868,7 +46868,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "user.svg": {
 	    "src": __webpack_require__(420),
 	    "size": 951,
-	    "mtime": "2016-03-03T17:15:00.000Z",
+	    "mtime": "2016-03-04T13:17:45.000Z",
 	    [Symbol.for("__location__")]: [
 	      "user.svg"
 	    ],
@@ -46884,7 +46884,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 394 */
 /***/ function(module, exports) {
 
-	module.exports = function(options) {var options = options || {};var info = {"minX":0,"minY":0,"width":16,"height":16,"modeStrokeWidth":2};var strokeWidthDifference = options.strokeWidth > 0 ?info.modeStrokeWidth - options.strokeWidth : 0;var result = { data: '<' + (options.rootElement || 'svg') + ' ' + 'viewBox="' + (0 - (strokeWidthDifference / -2)) + ' ' + (0 - (strokeWidthDifference / -2)) + ' ' + (16 - strokeWidthDifference) + ' ' + (16 - strokeWidthDifference) + '" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path stroke="' + (options.stroke || '#FFF') + '" stroke-width="' + (options.strokeWidth || '2') + '" d="M2 1h12v14H2z"/><path d="M6.5 14V9.5h3V14" stroke="' + (options.stroke || '#FFF') + '"/><g fill="' + (options.fill || '#FFF') + '"><path d="M4 3h2v2H4zM7 3h2v2H7zM10 3h2v2h-2zM10 6h2v2h-2zM7 6h2v2H7zM4 6h2v2H4z"/></g></g>' +'</' + (options.rootElement || 'svg')  + '>' };if (strokeWidthDifference !== 0) {result.originalInfo = info;result.info = {};result.info.minX = result.originalInfo.minX - (strokeWidthDifference / -2);result.info.minY = result.originalInfo.minY - (strokeWidthDifference / -2);result.info.width = result.originalInfo.width - strokeWidthDifference;result.info.height = result.originalInfo.height - strokeWidthDifference;} else {result.info = info;}return result;}
+	module.exports = function(options) {var options = options || {};var info = {"minX":0,"minY":0,"width":16,"height":16,"modeStrokeWidth":2};var strokeWidthDifference = options.strokeWidth > 0 ?info.modeStrokeWidth - options.strokeWidth : 0;var result = { data: '<' + (options.rootElement || 'svg') + ' ' + 'viewBox="' + (0 - (strokeWidthDifference / -2)) + ' ' + (0 - (strokeWidthDifference / -2)) + ' ' + (16 - strokeWidthDifference) + ' ' + (16 - strokeWidthDifference) + '" xmlns="http://www.w3.org/2000/svg"><g stroke="' + (options.stroke || '#FFF') + '" fill="none" fill-rule="evenodd"><path stroke-width="' + (options.strokeWidth || '2') + '" d="M2 1h12v14H2z"/><path d="M6.5 14V9.5h3V14"/><g stroke-width="' + (options.strokeWidth || '2') + '"><path d="M10 7h2M7 7h2M4 7h2M10 4h2M7 4h2M4 4h2"/></g></g>' +'</' + (options.rootElement || 'svg')  + '>' };if (strokeWidthDifference !== 0) {result.originalInfo = info;result.info = {};result.info.minX = result.originalInfo.minX - (strokeWidthDifference / -2);result.info.minY = result.originalInfo.minY - (strokeWidthDifference / -2);result.info.width = result.originalInfo.width - strokeWidthDifference;result.info.height = result.originalInfo.height - strokeWidthDifference;} else {result.info = info;}return result;}
 
 /***/ },
 /* 395 */
@@ -46926,7 +46926,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 401 */
 /***/ function(module, exports) {
 
-	module.exports = function(options) {var options = options || {};var info = {"minX":0,"minY":0,"width":8,"height":8,"modeStrokeWidth":2};var strokeWidthDifference = options.strokeWidth > 0 ?info.modeStrokeWidth - options.strokeWidth : 0;var result = { data: '<' + (options.rootElement || 'svg') + ' ' + 'viewBox="' + (0 - (strokeWidthDifference / -2)) + ' ' + (0 - (strokeWidthDifference / -2)) + ' ' + (8 - strokeWidthDifference) + ' ' + (8 - strokeWidthDifference) + '" xmlns="http://www.w3.org/2000/svg"><g stroke="' + (options.stroke || '#00A8EF') + '" stroke-width="' + (options.strokeWidth || '2') + '" fill="none" fill-rule="evenodd"><path d="M.7 7.3L7.3.7M7.3 7.3L.7.7"/></g>' +'</' + (options.rootElement || 'svg')  + '>' };if (strokeWidthDifference !== 0) {result.originalInfo = info;result.info = {};result.info.minX = result.originalInfo.minX - (strokeWidthDifference / -2);result.info.minY = result.originalInfo.minY - (strokeWidthDifference / -2);result.info.width = result.originalInfo.width - strokeWidthDifference;result.info.height = result.originalInfo.height - strokeWidthDifference;} else {result.info = info;}return result;}
+	module.exports = function(options) {var options = options || {};var info = {"minX":0,"minY":0,"width":16,"height":16,"modeStrokeWidth":4};var strokeWidthDifference = options.strokeWidth > 0 ?info.modeStrokeWidth - options.strokeWidth : 0;var result = { data: '<' + (options.rootElement || 'svg') + ' ' + 'viewBox="' + (0 - (strokeWidthDifference / -2)) + ' ' + (0 - (strokeWidthDifference / -2)) + ' ' + (16 - strokeWidthDifference) + ' ' + (16 - strokeWidthDifference) + '" xmlns="http://www.w3.org/2000/svg"><g stroke="' + (options.stroke || '#FFF') + '" stroke-width="' + (options.strokeWidth || '4') + '" fill="none" fill-rule="evenodd"><path d="M1.875 1.875l12.25 12.25M14.125 1.875l-12.25 12.25"/></g>' +'</' + (options.rootElement || 'svg')  + '>' };if (strokeWidthDifference !== 0) {result.originalInfo = info;result.info = {};result.info.minX = result.originalInfo.minX - (strokeWidthDifference / -2);result.info.minY = result.originalInfo.minY - (strokeWidthDifference / -2);result.info.width = result.originalInfo.width - strokeWidthDifference;result.info.height = result.originalInfo.height - strokeWidthDifference;} else {result.info = info;}return result;}
 
 /***/ },
 /* 402 */
@@ -50594,15 +50594,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(IconSection, [{
 	    key: 'render',
 	    value: function render() {
-	      var icons = [_react2.default.createElement(_icon2.default, { type: 'bell', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'calendar', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'folder', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'heart', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'key', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'mail', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'mailOpen', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'news', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'star', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'tag', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'search', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'share', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'trash', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'user', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'socialInstagram', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'socialFacebook', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'socialTwitter', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'apartment', stroke: '#00a9ec', width: 16, height: 16 })];
+	      var icons = [_react2.default.createElement(_icon2.default, { type: 'bell', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'calendar', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'folder', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'heart', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'key', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'mail', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'mailOpen', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'news', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'star', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'tag', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'search', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'share', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'trash', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'user', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'socialInstagram', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'socialFacebook', stroke: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'socialTwitter', fill: '#00a9ec', width: 16, height: 16 }), _react2.default.createElement(_icon2.default, { type: 'apartment', stroke: '#00a9ec', width: 16, height: 16 })];
 
 	      var example = _react2.default.createElement(
 	        _reactBemGrid.Row,
 	        null,
-	        icons.map(function (icon) {
+	        icons.map(function (icon, index) {
 	          return _react2.default.createElement(
 	            _reactBemGrid.Col,
-	            { xs: 4, sm: 3, lg: 2 },
+	            { key: icon.props.type + '-' + index, xs: 4, sm: 3, lg: 2 },
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'icon-container' },
