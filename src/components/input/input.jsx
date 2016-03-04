@@ -101,7 +101,7 @@ class Input extends PureComponent {
     if (isNumber(this.state.value)) {
       props.hasValue = true;
     } else {
-      props.hasValue = this.state.value ? this.state.value.length > 0 : '';
+      props.hasValue = this.state.value ? this.state.value.length > 0 : false;
     }
 
     return <Label { ...props } />;
