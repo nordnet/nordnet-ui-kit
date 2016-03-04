@@ -19124,7 +19124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 
 	    _this.state = {
-	      navItems: ['Alert', 'Button', 'Collapsible', 'Dropdown']
+	      navItems: ['Alert', 'Button', 'Collapsible', 'Dropdown', 'Input', 'Pane', 'Icons']
 	    };
 	    return _this;
 	  }
@@ -19132,6 +19132,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
+	      var sections = [_react2.default.createElement(_alertSection2.default, null), _react2.default.createElement(_buttonSection2.default, null), _react2.default.createElement(_collapsibleSection2.default, null), _react2.default.createElement(_dropdownSection2.default, null), _react2.default.createElement(_inputSection2.default, null), _react2.default.createElement(_paneSection2.default, null), _react2.default.createElement(_iconSection2.default, null)];
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -19139,13 +19141,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          _reactBemGrid.Grid,
 	          null,
-	          _react2.default.createElement(_alertSection2.default, null),
-	          _react2.default.createElement(_buttonSection2.default, null),
-	          _react2.default.createElement(_collapsibleSection2.default, null),
-	          _react2.default.createElement(_dropdownSection2.default, null),
-	          _react2.default.createElement(_inputSection2.default, null),
-	          _react2.default.createElement(_paneSection2.default, null),
-	          _react2.default.createElement(_iconSection2.default, null)
+	          sections.map(function (section, index) {
+	            return _react2.default.createElement(
+	              'span',
+	              { key: index },
+	              section
+	            );
+	          })
 	        )
 	      );
 	    }
@@ -20253,12 +20255,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            null,
 	            _react2.default.createElement(
 	              _reactBemGrid.Col,
-	              { xs: 6 },
+	              { xs: 4 },
 	              _react2.default.createElement(_logo2.default, { className: 'nav__logo' })
 	            ),
 	            _react2.default.createElement(
 	              _reactBemGrid.Col,
-	              { xs: 6 },
+	              { xs: 8 },
 	              _react2.default.createElement(
 	                'ul',
 	                { className: 'nav__items' },
@@ -49714,7 +49716,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if ((0, _lodash4.default)(this.state.value)) {
 	        props.hasValue = true;
 	      } else {
-	        props.hasValue = this.state.value ? this.state.value.length > 0 : '';
+	        props.hasValue = this.state.value ? this.state.value.length > 0 : false;
 	      }
 
 	      return _react2.default.createElement(_Label2.default, props);
