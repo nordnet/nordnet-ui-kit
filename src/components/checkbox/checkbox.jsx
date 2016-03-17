@@ -23,15 +23,19 @@ class Checkbox extends PureComponent {
   }
 
   renderCheckbox() {
+    const { value } = this.props;
+    const rest = this.props;
+    delete rest.value;
+
     return (
       <div className="checkbox__input">
         <input
-          { ...this.props }
           type="checkbox"
           checked={ this.state.checked }
           disabled={ this.state.disabled }
-          value={ this.props.value }
+          value={ value }
           onChange={ this.handleChange }
+          { ...rest }
         />
         <span>
           { this.state.checked && !this.state.disabled ? <Icon type="checkmark" stroke="#FFFFFF" style={{ display: 'block' }} /> : null }
