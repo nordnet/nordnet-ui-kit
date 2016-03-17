@@ -3,15 +3,19 @@ import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
 import { IconStateless } from 'react-svg-sprite-icon';
 import camelCase from 'lodash.camelcase';
-import mapKeys from 'lodash.mapkeys';
-import mapValues from 'lodash.mapvalues';
-import icons from '!!dir!./icons.config.js';
+
+const icons = require.context('../../icons/', true, /\.svg$/);
 
 class Icon extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.icons = mapValues(mapKeys(icons, (value, key) => camelCase(key.replace(/\.svg$/, ''))), 'src');
+    this.icons = {};
+
+    icons.keys().forEach((key) => {
+      const icon = key.replace(/\.\//, '');
+      this.icons[camelCase(icon.replace(/\.svg$/, ''))] = require(`!!svg-icon-template-loader!../../icons/${icon}`);
+    });
   }
 
   render() {
