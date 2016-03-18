@@ -43,6 +43,23 @@ class ButtonSection extends PureComponent {
             <Button secondary disabled>Secondary: disabled</Button>
           </Col>
         </Row>
+        <Row>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button link>Secondary: default</Button>
+          </Col>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button link modifier="danger">Link: danger</Button>
+          </Col>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button link modifier="warning">Link: warning</Button>
+          </Col>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button link modifier="success">Link: success</Button>
+          </Col>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button link disabled>Link: disabled</Button>
+          </Col>
+        </Row>
       </div>
     );
 

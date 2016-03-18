@@ -24,12 +24,10 @@
     }
 
     @if $variant == 'link' {
-      &--#{ $modifier } {
-        color: $color;
+      color: $color;
 
-        &:hover {
-          color: $color-focus;
-        }
+      &:hover {
+        color: $color-focus;
       }
     }
   }
