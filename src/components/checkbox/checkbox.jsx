@@ -16,10 +16,21 @@ class Checkbox extends PureComponent {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      checked: nextProps.checked ? nextProps.checked : false,
+      disabled: nextProps.disabled ? nextProps.disabled : false,
+    });
+  }
+
   handleChange(event) {
     this.setState({
       checked: event.target.checked,
     });
+
+    if (this.props.onChange) {
+      this.props.onChange();
+    }
   }
 
   renderCheckbox() {
