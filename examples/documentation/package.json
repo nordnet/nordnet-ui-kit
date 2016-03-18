@@ -21,6 +21,7 @@
     "react": "^0.14.7",
     "react-addons-pure-render-mixin": "^0.14.7",
     "react-bem-grid": "0.0.10",
+    "react-date-picker": "^4.0.10",
     "react-dom": "^0.14.7",
     "react-prism": "^3.1.1",
     "react-pure-render": "^1.0.2"
