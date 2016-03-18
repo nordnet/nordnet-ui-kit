@@ -14,14 +14,12 @@
     }
 
     @if $variant == 'secondary' {
-      &--#{ $modifier } {
-        color: $color;
-        border-color: $color;
+      color: $color;
+      border-color: $color;
 
-        &:hover {
-          color: $color-focus;
-          border-color: $color-focus;
-        }
+      &:hover {
+        color: $color-focus;
+        border-color: $color-focus;
       }
     }
 

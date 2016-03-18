@@ -7,9 +7,6 @@
 @mixin rem($property, $px-values) {
   // Convert the baseline into rems
   $baseline-rem: $baseline-px / 1rem * 1;
-  // Print the first line in pixel values
-  #{ $property }: $px-values;
-
   // Only use rem if enabled, true by default
   @if $use-rem {
     // If there is only one (numeric) value, return the property/value line for it.
@@ -35,5 +32,9 @@
       // Return the property and its list of converted values
       #{ $property }: $rem-values;
     }
+  }
+
+  @else {
+    #{ $property }: $px-values;
   }
 }
