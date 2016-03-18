@@ -1,4 +1,41 @@
 @import '../../variables';
+@import '../../mixins';
+
+@mixin btn--modifier ($variant, $modifier, $color, $color-focus) {
+  &--#{ $modifier } {
+    @if $variant == 'primary' {
+      background: $color;
+      border-color: $color;
+
+      &:hover {
+        background: $color-focus;
+        border-color: $color-focus;
+      }
+    }
+
+    @if $variant == 'secondary' {
+      &--#{ $modifier } {
+        color: $color;
+        border-color: $color;
+
+        &:hover {
+          color: $color-focus;
+          border-color: $color-focus;
+        }
+      }
+    }
+
+    @if $variant == 'link' {
+      &--success {
+        color: $color;
+
+        &:hover {
+          color: $color-focus;
+        }
+      }
+    }
+  }
+}
 
 .btn {
   &-primary,
@@ -6,11 +43,11 @@
   &-link {
     display: inline-block;
     border: 0;
-    font-size: 1.4rem;
+    @include rem('font-size', 14px);
     // font-family: $font-primary;
     font-weight: 700;
     line-height: 1.2;
-    padding: .6rem;
+    @include rem('padding', 6px);
     transition: all .1s linear;
     text-decoration: none;
     user-select: none;
@@ -22,7 +59,7 @@
 
   &-primary {
     background: $color-primary;
-    border: .2rem solid $color-primary;
+    @include rem('border', 2px solid $color-primary);
     color: #fff;
 
     &:hover {
@@ -32,50 +69,24 @@
 
     &:disabled {
       background: $color-background-disabled;
-      border: .2rem solid $color-background-disabled;
+      @include rem('border', 2px solid $color-background-disabled);
       color: $color-disabled;
 
       &:hover {
         background: $color-background-disabled;
-        border-color: .2rem solid $color-background-disabled;
+        border-color: $color-background-disabled;
       }
     }
 
-    &--success {
-      background: $color-success;
-      border-color: $color-success;
-
-      &:hover {
-        background: $color-success--focus;
-        border-color: $color-success--focus;
-      }
-    }
-
-    &--warning {
-      background: $color-warning;
-      border-color: $color-warning;
-
-      &:hover {
-        background: $color-warning--focus;
-        border-color: $color-warning--focus;
-      }
-    }
-
-    &--danger {
-      background: $color-danger;
-      border-color: $color-danger;
-
-      &:hover {
-        background: $color-danger--focus;
-        border-color: $color-danger--focus;
-      }
-    }
+    @include btn--modifier('primary', 'success', $color-success, $color-success--focus);
+    @include btn--modifier('primary', 'warning', $color-warning, $color-warning--focus);
+    @include btn--modifier('primary', 'danger', $color-danger, $color-danger--focus);
   }
 
   &-secondary {
     background: none;
     color: $color-primary;
-    border: .2rem solid $color-primary;
+    @include rem('border', 2px solid $color-primary);
 
     &:hover {
       color: $color-primary--focus;
@@ -83,44 +94,18 @@
     }
 
     &:disabled {
-      border: .2rem solid $color-background-disabled;
+      @include rem('border', 2px solid $color-background-disabled);
       color: $color-background-disabled;
 
       &:hover {
         color: $color-background-disabled;
-        border-color: .2rem solid $color-background-disabled;
+        border-color: $color-background-disabled;
       }
     }
 
-    &--success {
-      color: $color-success;
-      border-color: $color-success;
-
-      &:hover {
-        color: $color-success--focus;
-        border-color: $color-success--focus;
-      }
-    }
-
-    &--warning {
-      color: $color-warning;
-      border-color: $color-warning;
-
-      &:hover {
-        color: $color-warning--focus;
-        border-color: $color-warning--focus;
-      }
-    }
-
-    &--danger {
-      color: $color-danger;
-      border-color: $color-danger;
-
-      &:hover {
-        color: $color-danger--focus;
-        border-color: $color-danger--focus;
-      }
-    }
+    @include btn--modifier('secondary', 'success', $color-success, $color-success--focus);
+    @include btn--modifier('secondary', 'warning', $color-warning, $color-warning--focus);
+    @include btn--modifier('secondary', 'danger', $color-danger, $color-danger--focus);
   }
 
   &-link {
@@ -128,7 +113,7 @@
     padding-left: 0;
     padding-right: 0;
     color: $color-text;
-    border: .2rem solid transparent;
+    @include rem('border', 2px solid transparent);
     font-weight: 600;
 
     &:hover {
@@ -143,28 +128,8 @@
       }
     }
 
-    &--success {
-      color: $color-success;
-
-      &:hover {
-        color: $color-success--focus;
-      }
-    }
-
-    &--warning {
-      color: $color-warning;
-
-      &:hover {
-        color: $color-warning--focus;
-      }
-    }
-
-    &--danger {
-      color: $color-danger;
-
-      &:hover {
-        color: $color-danger--focus;
-      }
-    }
+    @include btn--modifier('link', 'success', $color-success, $color-success--focus);
+    @include btn--modifier('link', 'warning', $color-warning, $color-warning--focus);
+    @include btn--modifier('link', 'danger', $color-danger, $color-danger--focus);
   }
 }
