@@ -1,3 +1,5 @@
+@import './functions';
+
 // /////////////// //
 // Nordnet colours //
 // /////////////// //
@@ -25,7 +27,7 @@ $color-background-muted: #EEE;
 $color-background-disabled: #C5C5C5;
 $color-disabled: #969696;
 
-$shadow-level-1: 0 .2rem .4rem .2rem rgba(0, 0, 0, .1);
+$shadow-level-1: rem(0 2px 4px 2px rgba(0, 0, 0, .1));
 $shadow-level-2: $shadow-level-1;
 $shadow-level-3: $shadow-level-1;
 
@@ -42,10 +44,3 @@ $color-shareville: #048D45;
 $color-text: #222;
 $color-text-muted: #8A8A8A;
 $font-primary: "Value Nordnet", "Century Gothic", "AppleGothic", sans-serif;
-
-// ///// //
-// Units //
-// ///// //
-
-$use-rem: true !default; // Set this to false to use px instead
-$baseline-px: 10px !default; // 10px by default based on HTML node font size being 62.5%

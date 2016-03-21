@@ -1,23 +1,24 @@
 @import '../../variables';
+@import '../../functions';
 
 .alert {
   background: #FFF;
   box-shadow: $shadow-level-3;
-  font-size: 1.2rem;
-  padding: .4rem .8rem;
+  font-size: rem(12px);
+  padding: rem(40px 8px);
   position: relative;
   line-height: 1.4;
-  margin-bottom: 1.6rem;
+  margin-bottom: rem(16px);
 
   &__header {
     display: inline-block;
     font-weight: bold;
-    padding: .4rem;
+    padding: rem(4px);
   }
 
   &__body {
     display: inline-block;
-    padding: .4rem;
+    padding: rem(4px);
   }
 
   &__close {
@@ -25,7 +26,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: 1.2rem;
+    padding: rem(12px);
     cursor: pointer;
   }
 

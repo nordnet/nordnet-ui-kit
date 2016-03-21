@@ -1,5 +1,5 @@
 @import '../../variables';
-@import '../../mixins';
+@import '../../functions';
 
 @mixin btn--modifier ($variant, $modifier, $color, $color-focus) {
   &--#{ $modifier } {
@@ -39,11 +39,12 @@
   &-link {
     display: inline-block;
     border: 0;
-    @include rem('font-size', 14px);
+    // font-size', 14px);
+    font-size: rem(14px);
     // font-family: $font-primary;
     font-weight: 700;
     line-height: 1.2;
-    @include rem('padding', 6px);
+    padding: rem(6px);
     transition: all .1s linear;
     text-decoration: none;
     user-select: none;
@@ -55,7 +56,8 @@
 
   &-primary {
     background: $color-primary;
-    @include rem('border', 2px solid $color-primary);
+    // border: rem(2px solid $color-primary);
+    border: rem(2px solid $color-primary);
     color: #fff;
 
     &:hover {
@@ -65,7 +67,7 @@
 
     &:disabled {
       background: $color-background-disabled;
-      @include rem('border', 2px solid $color-background-disabled);
+      border: rem(2px solid $color-background-disabled);
       color: $color-disabled;
 
       &:hover {
@@ -82,7 +84,7 @@
   &-secondary {
     background: none;
     color: $color-primary;
-    @include rem('border', 2px solid $color-primary);
+    border: rem(2px solid $color-primary);
 
     &:hover {
       color: $color-primary--focus;
@@ -90,7 +92,7 @@
     }
 
     &:disabled {
-      @include rem('border', 2px solid $color-background-disabled);
+      border: rem(2px solid $color-background-disabled);
       color: $color-background-disabled;
 
       &:hover {
@@ -109,7 +111,7 @@
     padding-left: 0;
     padding-right: 0;
     color: $color-text;
-    @include rem('border', 2px solid transparent);
+    border: rem(2px solid transparent);
     font-weight: 600;
 
     &:hover {

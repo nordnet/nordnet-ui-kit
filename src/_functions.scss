@@ -1,17 +1,19 @@
-@import 'variables';
+// //////////////////////////////////////////////////////////////////////// //
+// REM mixin stolen from https://github.com/bitmanic/rem                    //
+// Rewritten to function and modified to only use px if rem is not feasible //
+// //////////////////////////////////////////////////////////////////////// //
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////// //
-// REM mixin: Stolen from https://github.com/bitmanic/rem and modified to only use px if rem is not feasible //
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////// //
+$use-rem: true !default; // Set this to false to use px instead
+$baseline-px: 10px !default; // 10px by default based on HTML node font size being 62.5%
 
-@mixin rem($property, $px-values) {
+@function rem($px-values){
   // Convert the baseline into rems
   $baseline-rem: $baseline-px / 1rem * 1;
   // Only use rem if enabled, true by default
   @if $use-rem {
     // If there is only one (numeric) value, return the property/value line for it.
     @if type-of($px-values) == "number" {
-      #{ $property }: $px-values / $baseline-rem;
+      @return $px-values / $baseline-rem;
     }
 
     @else {
@@ -30,11 +32,11 @@
       }
 
       // Return the property and its list of converted values
-      #{ $property }: $rem-values;
+      @return $rem-values;
     }
   }
 
   @else {
-    #{ $property }: $px-values;
+    @return $px-values;
   }
 }

@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import Config from 'webpack-configurator';
 import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import minimist from 'minimist';
 const argv = minimist(process.argv.slice(2));
@@ -96,13 +97,18 @@ module.exports = (() => {
     loader: ExtractTextPlugin.extract('css!postcss!sass'),
   });
 
+  const postcss = [
+    autoprefixer,
+  ];
+
+  if (NODE_ENV === 'production') {
+    postcss.push(cssnano);
+  }
+
   config.merge({
-    postcss: [
-      autoprefixer,
-    ],
+    postcss: postcss,
     sassLoader: {
       data: `$use-rem: ${ useRem };`,
-      outputStyle: 'compact',
     },
   });
 
