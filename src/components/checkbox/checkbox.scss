@@ -1,9 +1,10 @@
 @import '../../variables';
+@import '../../functions';
 
 .checkbox {
   display: inline-block;
-  height: 1.6rem;
-  margin-bottom: 1.6rem;
+  height: rem(16px);
+  margin-bottom: rem(16px);
 
   label {
     display: block;
@@ -18,7 +19,7 @@
     display: inline-block;
     line-height: 1;
     vertical-align: top;
-    padding: .1rem 0 .1rem .4rem;
+    padding: rem(1px 0 1px 4px);
   }
 
   &__input {
@@ -29,10 +30,10 @@
 
       + span {
         display: block;
-        width: 1.6rem;
-        height: 1.6rem;
-        border: 1px solid $color-background-disabled;
-        padding: .3rem .2rem;
+        width: rem(16px);
+        height: rem(16px);
+        border: rem(1px solid $color-background-disabled);
+        padding: rem(3px 2px);
         transition: all .1s linear;
         user-select: none;
       }
