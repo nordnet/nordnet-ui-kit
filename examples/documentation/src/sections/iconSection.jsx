@@ -8,8 +8,14 @@ import './iconSection.scss';
 class IconSection extends PureComponent {
   render() {
     const icons = [
+      <Icon type="arrowUp" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="arrowDown" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="bell" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="lock" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="print" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="calendar" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="film" stroke="#00a9ec" width={ 16 } height={ 16 } />,
+      <Icon type="floppyDisk" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="folder" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="heart" stroke="#00a9ec" width={ 16 } height={ 16 } />,
       <Icon type="key" stroke="#00a9ec" width={ 16 } height={ 16 } />,
