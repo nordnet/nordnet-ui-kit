@@ -4,6 +4,9 @@ import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import minimist from 'minimist';
 const argv = minimist(process.argv.slice(2));
+const NODE_ENV = process.env.NODE_ENV;
+const useRem = argv['use-rem'] ? true : false;
+const fileSuffix = useRem ? '' : '.px';
 
 const entry = {
   bundle: './src/index.js',
@@ -18,18 +21,19 @@ const entry = {
     logo: './src/components/input/input.jsx',
     pane: './src/components/pane/pane.jsx',
     radio: './src/components/radio/radio.jsx',
+    variables: ['./src/components/variables/variables.js'],
   },
 };
 
 const output = {
   bundle: {
-    filename: 'nordnet-ui-kit',
-    cssFilename: 'nordnet-ui-kit',
+    filename: `nordnet-ui-kit${ fileSuffix }`,
+    cssFilename: `nordnet-ui-kit${ fileSuffix }`,
     library: 'NordnetUiKit',
   },
   individual: {
-    filename: '[name]/index',
-    cssFilename: '[name]/[name]',
+    filename: `[name]/index${ fileSuffix }`,
+    cssFilename: `[name]/[name]${ fileSuffix }`,
     library: 'NordnetUiKit.[name]',
   },
 };
@@ -97,6 +101,7 @@ module.exports = (() => {
       autoprefixer,
     ],
     sassLoader: {
+      data: `$use-rem: ${ useRem };`,
       outputStyle: 'compact',
     },
   });
@@ -128,8 +133,9 @@ module.exports = (() => {
 
   config.plugin('webpack-define', webpack.DefinePlugin, [{
     'process.env': {
-      'NODE_ENV': '"production"',
+      'NODE_ENV': JSON.stringify(NODE_ENV),
     },
+    '__USE_REM__': JSON.stringify(useRem),
   }]);
 
   return config.resolve();

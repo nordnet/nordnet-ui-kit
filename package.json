@@ -5,9 +5,11 @@
   "main": "dist/nordnet-ui-kit.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm-run-all clean webpack:bundle webpack:individual",
-    "webpack:bundle": "NODE_ENV=production webpack --type bundle --progress --config webpack.config.babel.js",
-    "webpack:individual": "NODE_ENV=production webpack --type individual --progress --config webpack.config.babel.js",
+    "build": "NODE_ENV=production npm-run-all clean webpack:bundle-use-rem webpack:bundle webpack:individual-use-rem webpack:individual",
+    "webpack:bundle-use-rem": "webpack --type bundle --use-rem --progress --config webpack.config.babel.js",
+    "webpack:bundle": "webpack --type bundle --progress --config webpack.config.babel.js",
+    "webpack:individual-use-rem": "webpack --type individual --use-rem --progress --config webpack.config.babel.js",
+    "webpack:individual": "webpack --type individual --progress --config webpack.config.babel.js",
     "test": "mocha",
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "prepush": "npm-run-all lint test",
@@ -25,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/nordnet/nordnet-ui-kit/issues"
   },
-  "homepage": "https://github.com/nordnet/nordnet-ui-kit#readme",
+  "homepage": "https://nordnet.github.io/nordnet-ui-kit",
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.3",
