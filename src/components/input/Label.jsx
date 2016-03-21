@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Motion, spring, presets } from 'react-motion';
+import rem from '../../utilities/rem.js';
 
 function Label(props) {
   const { label, id, hasFocus, hasValue } = props;
@@ -19,7 +20,7 @@ function Label(props) {
   return (
     <Motion defaultStyle={ defaultStyle } style={ style }>
       {({ y }) =>
-        <label htmlFor={ id } className={ classes } style={{ transform: `translateY(${y}rem)` }}>
+        <label htmlFor={ id } className={ classes } style={{ transform: `translateY(${ y }rem)` }}>
           { hasFocus || hasValue ? label : placeholder }
         </label>
       }

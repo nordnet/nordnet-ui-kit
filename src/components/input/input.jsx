@@ -8,7 +8,7 @@ import Icon from '../icon/icon';
 import ValidationIcon from './ValidationIcon';
 import Label from './Label';
 import HelpText from './HelpText';
-import variables from '../variables/variables';
+import variables from '../../utilities/variables';
 import './input.scss';
 
 class Input extends PureComponent {

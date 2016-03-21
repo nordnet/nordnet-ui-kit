@@ -96,6 +96,7 @@ module.exports = (() => {
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
     },
+    '__USE_REM__': JSON.stringify(true),
   }]);
 
   // ////// //

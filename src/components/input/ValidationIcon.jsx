@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../icon/icon';
-import variables from '../variables/variables';
+import variables from '../../utilities/variables';
 
 function ValidationIcon(props) {
   const iconClass = 'input__validation-icon';
