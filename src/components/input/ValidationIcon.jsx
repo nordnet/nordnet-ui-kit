@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../icon/icon';
-import variables from '!!sass-variable-loader!../../_variables.scss';
+import variables from '../variables/variables';
 
 function ValidationIcon(props) {
   const iconClass = 'input__validation-icon';

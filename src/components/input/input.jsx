@@ -8,6 +8,7 @@ import Icon from '../icon/icon';
 import ValidationIcon from './ValidationIcon';
 import Label from './Label';
 import HelpText from './HelpText';
+import variables from '../variables/variables';
 import './input.scss';
 
 class Input extends PureComponent {
@@ -113,7 +114,14 @@ class Input extends PureComponent {
       transform: this.state.hasFocus || this.state.value.length > 0 ? '' : 'translateY(-.6rem)',
     };
 
-    return <Icon className={ className } style={ style } type={ this.state.hasFocus ? 'arrowUp' : 'arrowDown' } />;
+    return (
+      <Icon
+        className={ className }
+        stroke={ variables.colorPrimary }
+        style={ style }
+        type={ this.state.hasFocus ? 'chevronUp' : 'chevronDown' }
+      />
+    );
   }
 
   renderPasswordToggle() {
@@ -148,7 +156,11 @@ class Input extends PureComponent {
         </select>
         { this.renderLabel(id) }
         <HelpText>{ this.props.helpText }</HelpText>
-        <ValidationIcon hasSuccess={ this.state.hasSuccess } hasWarning={ this.state.hasWarning } hasError={ this.state.hasError } />
+        <ValidationIcon
+          hasSuccess={ this.state.hasSuccess }
+          hasWarning={ this.state.hasWarning }
+          hasError={ this.state.hasError }
+        />
         { this.renderSelectArrow() }
       </div>
     );

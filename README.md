@@ -19,6 +19,9 @@ ReactDOM.render(button, mountNode);
 
 ```
 
+## Documentation
+More complete docs as well as example are available [here](https://nordnet.github.io/nordnet-ui-kit).
+
 ## Components
 ### Alert
 **In use:**
@@ -27,7 +30,7 @@ ReactDOM.render(button, mountNode);
 ```
 
 The `<Alert />` component takes the following props:
-- `type`: either `success`, `warning` or `danger`
+- `modifier`: either `success`, `warning` or `danger`
 - `header`
 - `dismissable`
 - `dismissed`
@@ -42,7 +45,7 @@ The `<Button />` component takes the following props:
 - `primary`
 - `secondary`
 - `link`
-- `type`: either `success`, `warning` or `danger`
+- `modifier`: either `success`, `warning` or `danger`
 - `href`
 - `disabled`
 

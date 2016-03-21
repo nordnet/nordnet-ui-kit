@@ -8,6 +8,6 @@ import Input from './components/input/input';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import Radio from './components/radio/radio';
-import variables from '!!sass-variable-loader!./_variables.scss';
+import variables from './components/variables/variables';
 
 export { Alert, Button, Checkbox, Collapsible, Dropdown, Icon, Input, Logo, Pane, Radio, variables };
