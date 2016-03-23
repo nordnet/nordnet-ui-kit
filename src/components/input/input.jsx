@@ -9,6 +9,7 @@ import ValidationIcon from './ValidationIcon';
 import Label from './Label';
 import HelpText from './HelpText';
 import variables from '../../utilities/variables';
+import rem from '../../utilities/rem.js';
 import './input.scss';
 
 class Input extends PureComponent {
@@ -111,7 +112,7 @@ class Input extends PureComponent {
   renderSelectArrow() {
     const className = 'input__select-arrow';
     const style = {
-      transform: this.state.hasFocus || this.state.value.length > 0 ? '' : 'translateY(-.6rem)',
+      transform: this.state.hasFocus || this.state.value.length > 0 ? '' : `translateY(${ rem('-6px') })`,
     };
 
     return (
@@ -131,7 +132,7 @@ class Input extends PureComponent {
 
     return (
       <div className={ classes } onClick={ this.handlePasswordToggle }>
-        <span style={ this.state.hasFocus || this.state.value.length > 0 ? { transform: 'translateY(.5rem)' } : { } }>
+        <span style={ this.state.hasFocus || this.state.value.length > 0 ? { transform: `translateY(${ rem('5px') })` } : { } }>
           { this.state.showPassword ? 'Hide' : 'Show' }
         </span>
       </div>
@@ -249,7 +250,7 @@ class Input extends PureComponent {
       <div className={ classes }>
         <div
           className="input__date"
-          onClick={ () => {if (!this.state.hasFocus && !this.props.disabled) document.querySelector(`#${id}`).focus();}}
+          onClick={ () => {if (!this.state.hasFocus && !this.props.disabled) document.querySelector(`#${ id }`).focus();}}
         >
           {units.map((unit, index) =>
             <span
@@ -271,7 +272,7 @@ class Input extends PureComponent {
                 inputMode="numeric"
                 pattern="[0-9]*"
                 style= {{
-                  width: unit.index === 1 && !values[unit.index] ? '4ch' : `calc(${ unit.label.length }ch + .4rem)`,
+                  width: unit.index === 1 && !values[unit.index] ? '4ch' : `calc(${ unit.label.length }ch + ${ rem('4px') })`,
                 }}
                 value={ parseInt(values[unit.index], 10) > 0 ? this.zeroFill(values[unit.index], unit.label.length) : null }
               />

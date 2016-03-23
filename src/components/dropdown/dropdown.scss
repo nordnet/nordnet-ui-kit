@@ -32,7 +32,7 @@
     list-style: none;
     padding: rem(32px 16px 16px);
     margin: 0;
-    width: calc(100% + rem(32px));
+    width: calc(100% + #{ rem(32px) });
     z-index: 0;
   }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import { Motion, spring, presets } from 'react-motion';
+import rem from '../../utilities/rem.js';
 import './collapsible.scss';
 
 class Collapsible extends PureComponent {
@@ -65,7 +66,7 @@ class Collapsible extends PureComponent {
     return (
       <Motion defaultStyle={ defaultStyle } style={ style }>
         {({ height }) =>
-          <div className="collapsible__body" style={{ height: `${height / 10}rem` }}>
+          <div className="collapsible__body" style={{ height: rem(`${ height }px`) }}>
             { this.renderContent() }
           </div>
         }

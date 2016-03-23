@@ -63,6 +63,7 @@ module.exports = (() => {
       cssnano,
     ],
     sassLoader: {
+      data: `$use-rem: ${ true };`,
       outputStyle: 'compact',
     },
   });

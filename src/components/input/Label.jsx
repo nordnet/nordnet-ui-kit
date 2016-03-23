@@ -11,16 +11,16 @@ function Label(props) {
   });
   const springConfig = presets.noWobble;
   const defaultStyle = {
-    y: hasValue ? -1.2 : 0,
+    y: hasValue ? rem(-12) : 0,
   };
   const style = {
-    y: hasFocus || hasValue ? spring(-1.2, springConfig) : spring(0, springConfig),
+    y: hasFocus || hasValue ? spring(rem(-12), springConfig) : spring(0, springConfig),
   };
 
   return (
     <Motion defaultStyle={ defaultStyle } style={ style }>
       {({ y }) =>
-        <label htmlFor={ id } className={ classes } style={{ transform: `translateY(${ y }rem)` }}>
+        <label htmlFor={ id } className={ classes } style={{ transform: `translateY(${ y }${ __USE_REM__ ? 'rem': 'px' })` }}>
           { hasFocus || hasValue ? label : placeholder }
         </label>
       }

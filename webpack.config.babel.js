@@ -22,7 +22,7 @@ const entry = {
     logo: './src/components/input/input.jsx',
     pane: './src/components/pane/pane.jsx',
     radio: './src/components/radio/radio.jsx',
-    variables: ['./src/components/variables/variables.js'],
+    variables: ['./src/utilities/variables.js'],
   },
 };
 
