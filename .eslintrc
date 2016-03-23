@@ -5,5 +5,8 @@
       "ignoreRefs": true,
       "allowArrowFunctions": true
     }]
+  },
+  "globals": {
+    "__USE_REM__": false
   }
 }

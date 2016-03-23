@@ -20,7 +20,11 @@ function Label(props) {
   return (
     <Motion defaultStyle={ defaultStyle } style={ style }>
       {({ y }) =>
-        <label htmlFor={ id } className={ classes } style={{ transform: `translateY(${ y }${ __USE_REM__ ? 'rem': 'px' })` }}>
+        <label
+          htmlFor={ id }
+          className={ classes }
+          style={{ transform: `translateY(${ y }${ __USE_REM__ ? 'rem' : 'px' })` }}
+        >
           { hasFocus || hasValue ? label : placeholder }
         </label>
       }
