@@ -138,6 +138,10 @@
 
   select {
     appearance: none;
+
+    &::-ms-expand {
+      display: none;
+    }
   }
 
   &__number {
