@@ -8,6 +8,7 @@ import ButtonSection from './sections/buttonSection';
 import CollapsibleSection from './sections/collapsibleSection';
 import DropdownSection from './sections/dropdownSection';
 import InputSection from './sections/inputSection';
+import DatePickerSection from './sections/datePickerSection';
 import PaneSection from './sections/paneSection';
 import IconSection from './sections/iconSection';
 
@@ -35,6 +36,7 @@ class App extends PureComponent {
       <CollapsibleSection />,
       <DropdownSection />,
       <InputSection />,
+      <DatePickerSection />,
       <PaneSection />,
       <IconSection />,
     ];

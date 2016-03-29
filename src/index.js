@@ -9,5 +9,6 @@ import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import Radio from './components/radio/radio';
 import variables from './utilities/variables';
+import './components/date-picker/date-picker.scss';
 
 export { Alert, Button, Checkbox, Collapsible, Dropdown, Icon, Input, Logo, Pane, Radio, variables };
