@@ -23,7 +23,7 @@ const entry = {
     pane: './src/components/pane/pane.jsx',
     radio: './src/components/radio/radio.jsx',
     variables: ['./src/utilities/variables.js'],
-    'date-picker': './src/components/date-picker/date-picker.scss',
+    'date-picker': './src/components/date-picker/date-picker.js',
   },
 };
 

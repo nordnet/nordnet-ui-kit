@@ -3,7 +3,7 @@ import PureComponent from 'react-pure-render/component';
 import { Row, Col } from 'react-bem-grid';
 import Section from '../components/section/section';
 import DatePicker from 'react-date-picker';
-import '../../../../src/components/date-picker/date-picker.scss';
+import datePicker from '../../../../src/components/date-picker/date-picker';
 
 class DatePickerSection extends PureComponent {
   constructor(props) {
@@ -25,16 +25,15 @@ class DatePickerSection extends PureComponent {
   }
 
   render() {
+    const description = <span>We reccomend using <a href="https://github.com/zippyui/react-date-picker">react-date-picker</a> and provide a custom theme as well as a default set of props to be used on the component.</span>
+
     const example = (
       <Row>
         <Col xs={ 10 } sm={ 4 }>
           <DatePicker
+            { ...datePicker }
             minDate={ this.state.minDate }
             maxDate={ this.state.maxDate }
-            weekStartDay={ 1 }
-            weekDayNames={[<span className="dp-weekend">Su</span>, 'Mo', 'Tu', 'We', 'Th', 'Fr', <span className="dp-weekend">Sa</span>]}
-            highlightWeekends
-            hideFooter
             date={ this.state.date }
             onChange={ this.onChangeHandler }
           />
@@ -42,19 +41,26 @@ class DatePickerSection extends PureComponent {
       </Row>
     );
 
-    const code = `<DatePicker
-  minDate='2014-04-04'
-  maxDate='2015-10-10'
-  date={ Date.now() }
-  onChange={ onChange }
+    const code = `import DatePicker from 'react-date-picker';
+import datePicker from 'nordnet-ui-kit/dist/date-picker';
+
+<DatePicker
+  { ...datePicker }
+  minDate={ this.state.minDate }
+  maxDate={ this.state.maxDate }
+  date={ this.state.date }
+  onChange={ this.onChangeHandler }
 />`;
+
+    const explanation = <span>The UI kit exposes the default props to be used on <a href="https://github.com/zippyui/react-date-picker">react-date-picker</a>, import them and use the <a href="https://facebook.github.io/react/docs/jsx-spread.html#spread-attributes">spread attributes</a> feature to copy them onto the components props.</span>;
 
     return (
       <Section
         title="Date picker"
-        description={ <span>This is the custom CSS for <a href="https://github.com/zippyui/react-date-picker">react-date-picker</a></span> }
+        description={ description }
         example={ example }
         code={ code }
+        explanation={ explanation }
       />
     );
   }
