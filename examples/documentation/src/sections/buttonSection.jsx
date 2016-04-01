@@ -9,40 +9,48 @@ class ButtonSection extends PureComponent {
   render() {
     const example = (
       <div>
+        <h3>Variant</h3>
         <Row>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="primary">Variant: Primary </Button>
+            <Button variant="primary">Variant: primary</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="primary" modifier="danger">Primary: danger</Button>
+            <Button variant="secondary">Variant: secondary</Button>
+          </Col>
+        </Row>
+        <h3>Disabled</h3>
+        <Row>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button variant="primary" disabled>Variant: primary, disabled</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="primary" modifier="warning">Primary: warning</Button>
+            <Button variant="secondary" disabled>Variant: secondary, disabled</Button>
+          </Col>
+        </Row>
+        <h2>Modifier</h2>
+        <Row>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button variant="primary" modifier="danger">Variant: primary, Modifier: danger</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="primary" modifier="success">Primary: success</Button>
+            <Button variant="primary" modifier="warning">Variant: primary, Modifier: warning</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="primary" disabled>Primary: disabled</Button>
+            <Button variant="primary" modifier="success">Variant: primary, Modifier: success</Button>
           </Col>
         </Row>
         <Row>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="secondary">Variant: Secondary</Button>
+            <Button variant="secondary" modifier="danger">Variant: secondary, Modifier: danger</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="secondary" modifier="danger">Secondary: danger</Button>
+            <Button variant="secondary" modifier="warning">Variant: secondary, Modifier: warning</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="secondary" modifier="warning">Secondary: warning</Button>
-          </Col>
-          <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="secondary" modifier="success">Secondary: success</Button>
-          </Col>
-          <Col xs={ 6 } sm={ 3 } md>
-            <Button variant="secondary" disabled>Secondary: disabled</Button>
+            <Button variant="secondary" modifier="success">Variant: secondary, Modifier: success</Button>
           </Col>
         </Row>
+        <h3>Link</h3>
         <Row>
           <Col xs={ 6 } sm={ 3 } md>
             <Button link>Link: default</Button>
