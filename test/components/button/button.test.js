@@ -18,4 +18,14 @@ describe.only('<Button />', () => {
     const component = shallow(<Button secondary>Hello</Button>);
     expect(component.hasClass('btn-secondary')).to.equal(true);
   });
+
+  it('should use variant "primary" prop', () => {
+    const component = shallow(<Button variant="primary">Hello</Button>);
+    expect(component.hasClass('btn-primary')).to.equal(true);
+  });
+
+  it('should use variant "secondary" prop', () => {
+    const component = shallow(<Button variant="secondary">Hello</Button>);
+    expect(component.hasClass('btn-secondary')).to.equal(true);
+  });
 });
