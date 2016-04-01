@@ -25,6 +25,10 @@ function Button(props) {
     'btn-link--danger': link && isDanger,
   }, props.className);
 
+  if (primary || secondary) {
+    console.warn('nordnet-ui-kit :: button: primary, secondary props are deprecated, use variant={primary,secondary} instead'); // eslint-disable-line
+  }
+
   return (
     <Element { ...props } disabled={ props.disabled } className={ classes }>
       { props.children }
