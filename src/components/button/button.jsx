@@ -7,19 +7,22 @@ function Button(props) {
   const Element = href ? 'a' : 'button';
   const isPrimary = primary || variant === 'primary';
   const isSecondary = secondary || variant === 'secondary';
+  const isSuccess = modifier === 'success';
+  const isWarning = modifier === 'warning';
+  const isDanger = modifier === 'danger';
   const classes = classNames({
     'btn-primary': isPrimary,
-    'btn-primary--success': isPrimary && modifier === 'success',
-    'btn-primary--warning': isPrimary && modifier === 'warning',
-    'btn-primary--danger': isPrimary && modifier === 'danger',
+    'btn-primary--success': isPrimary && isSuccess,
+    'btn-primary--warning': isPrimary && isWarning,
+    'btn-primary--danger': isPrimary && isDanger,
     'btn-secondary': isSecondary,
-    'btn-secondary--success': isSecondary && modifier === 'success',
-    'btn-secondary--warning': isSecondary && modifier === 'warning',
-    'btn-secondary--danger': isSecondary && modifier === 'danger',
+    'btn-secondary--success': isSecondary && isSuccess,
+    'btn-secondary--warning': isSecondary && isWarning,
+    'btn-secondary--danger': isSecondary && isDanger,
     'btn-link': link,
-    'btn-link--success': link && modifier === 'success',
-    'btn-link--warning': link && modifier === 'warning',
-    'btn-link--danger': link && modifier === 'danger',
+    'btn-link--success': link && isSuccess,
+    'btn-link--warning': link && isWarning,
+    'btn-link--danger': link && isDanger,
   }, props.className);
 
   return (
