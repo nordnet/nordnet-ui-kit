@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import InputDefault from './input-default';
 import DatePicker from '../date-picker/date-picker';
 import Icon from '../icon/icon';
