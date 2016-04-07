@@ -25,7 +25,9 @@ class Collapsible extends PureComponent {
 
   componentDidUpdate() {
     this.setContentHeight(this.content);
-    if (!this.state.hasContent) this.setHasContent();
+    if (!this.state.hasContent) {
+      this.setHasContent();
+    }
   }
 
   setContentHeight(content) {
