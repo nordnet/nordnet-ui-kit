@@ -23,7 +23,9 @@ class Alert extends PureComponent {
   }
 
   renderClose() {
-    if (!this.props.dismissable) return null;
+    if (!this.props.dismissable) {
+      return null;
+    }
 
     return (
       <span className="alert__close" onClick={ this.handleCloseClick }>
@@ -33,7 +35,9 @@ class Alert extends PureComponent {
   }
 
   render() {
-    if (this.state.dismissed) return null;
+    if (this.state.dismissed) {
+      return null;
+    }
 
     const classes = classNames('alert', {
       'alert--success': this.props.modifier === 'success',
