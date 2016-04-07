@@ -2,12 +2,13 @@ import React, { PropTypes } from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
-import isUndefined from 'lodash.isundefined';
 import isNumber from 'lodash.isnumber';
 import ValidationIcon from './validation-icon';
 import Label from './label';
 import HelpText from './help-text';
 import './input-default.scss';
+
+const isUndefined = value => value === undefined;
 
 class InputDefault extends PureComponent {
   constructor(props) {
@@ -70,15 +71,7 @@ class InputDefault extends PureComponent {
   }
 
   hasValue(value) {
-    let hasValue;
-
-    if (isNumber(value)) {
-      hasValue = true;
-    } else {
-      hasValue = value ? value.length > 0 : false;
-    }
-
-    return hasValue;
+    return isNumber(value) || (value && !!value.length);
   }
 
   renderInput(id, type) {
@@ -101,9 +94,9 @@ class InputDefault extends PureComponent {
 
   renderLabel(id) {
     const props = {
+      id,
       label: this.props.label,
       placeholder: this.props.placeholder,
-      id,
       hasFocus: this.state.hasFocus,
       hasValue: this.state.hasValue,
     };
@@ -126,6 +119,10 @@ class InputDefault extends PureComponent {
   }
 
   renderAddon(content, position) {
+    if (!content) {
+      return null;
+    }
+
     const classes = classNames('input__addon', `input__addon--${ position }`);
 
     return (
@@ -136,10 +133,10 @@ class InputDefault extends PureComponent {
   renderField(id) {
     return (
       <div className="input__field">
-        { this.props.leftAddon ? this.renderAddon(this.props.leftAddon, 'left') : null }
+        { this.renderAddon(this.props.leftAddon, 'left') }
         { this.renderInput(id) }
         { this.renderLabel(id) }
-        { this.props.rightAddon ? this.renderAddon(this.props.rightAddon, 'right') : null }
+        { this.renderAddon(this.props.rightAddon, 'right') }
         { this.renderValidationIcon() }
       </div>
     );
