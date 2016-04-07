@@ -89,6 +89,20 @@ class InputSection extends PureComponent {
             <Input type="date" id="input-date-4" label="Date input with success" placeholder="Enter date"value="2016-12-03" hasSuccess />
           </Col>
         </Row>
+        <Row className="input-container">
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="checkbox" id="input-checkbox-1" label="Checkbox input" value="1" />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="checkbox" id="input-checkbox-2" label="Checkbox input disabled" value="2" disabled />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="radio" id="input-radio-1" label="Radio input" value="1" />
+          </Col>
+          <Col xs={ 6 } sm={ 3 }>
+            <Input type="radio" id="input-radio-2" label="Radio input disabled" value="2" disabled />
+          </Col>
+        </Row>
       </div>
     );
 

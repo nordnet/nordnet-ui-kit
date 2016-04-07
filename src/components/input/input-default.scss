@@ -1,0 +1,148 @@
+@import '../../variables';
+@import '../../functions';
+$modifiers: (
+  success: $color-success,
+  warning: $color-warning,
+  error: $color-danger
+);
+
+$modifiers--focus: (
+  success: $color-success--focus,
+  warning: $color-warning--focus,
+  error: $color-danger--focus
+);
+
+.input {
+  font-size: rem(16px);
+  color: $color-text;
+  margin-bottom: rem(16px);
+
+  @each $modifier, $color in $modifiers {
+    &--has-#{ $modifier } {
+      .input {
+        &__label {
+          color: $color;
+        }
+
+        &__field {
+          border-color: $color;
+        }
+      }
+    }
+  }
+
+  &--has-focus {
+    .input {
+      &__label {
+        color: $color-primary--focus;
+      }
+
+      &__field {
+        border-color: $color-primary--focus;
+      }
+    }
+
+    @each $modifier, $color in $modifiers--focus {
+      &.input--has-#{ $modifier } {
+        .input {
+          &__label {
+            color: $color;
+          }
+
+          &__field {
+            border-color: $color;
+          }
+        }
+      }
+    }
+  }
+
+  &--has-success {
+    .input__field {
+      padding-right: rem(16px);
+    }
+  }
+
+  &--has-warning,
+  &--has-error {
+    .input__field {
+      padding-right: rem(8px);
+    }
+  }
+
+  &--has-addon {
+    .input {
+      &__field {
+        display: table;
+      }
+
+      &__element,
+      &__addon {
+        display: table-cell;
+      }
+
+      &__element {
+        width: 100%;
+      }
+    }
+  }
+
+  // &--number {
+  //   // TODO: Move this to number css
+  //   .input__field {
+  //     padding-right: rem(16px);
+  //   }
+  // }
+
+  &__field {
+    position: relative;
+    width: 100%;
+    border-bottom: rem(1px solid $color-background-disabled);
+    padding-top: rem(14px);
+  }
+
+  &__label {
+    position: absolute;
+    top: rem(9px);
+    left: 0;
+    cursor: text;
+    color: $color-text-muted;
+    transition: color .2s linear;
+
+    .input--has-focus &,
+    .input--has-value &, {
+      font-size: rem(12px);
+    }
+  }
+
+  &__element {
+    display: block;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    padding: rem(0 0 3px);
+    width: 100%;
+    transition: border-color .2s linear;
+    // line-height: 1.4;
+    // min-height: rem(40px);
+    font-size: rem(16px);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__validation-icon, {
+    position: absolute;
+    display: block;
+    right: rem(4px);
+    bottom: rem(8px);
+    height: rem(8px);
+    transition: all .2s linear;
+
+    > img {
+      display: block;
+      max-height: 100%;
+    }
+  }
+}

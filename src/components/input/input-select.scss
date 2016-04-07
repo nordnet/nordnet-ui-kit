@@ -1,0 +1,28 @@
+@import '../../variables';
+@import '../../functions';
+
+.input--select {
+  .input {
+    &__element {
+      appearance: none;
+
+      &-wrapper {
+        position: relative;
+      }
+    }
+
+    &__select-arrow {
+      position: absolute;
+      display: block;
+      right: rem(4px);
+      bottom: rem(8px);
+      height: rem(8px);
+      transition: all .2s linear;
+
+      > img {
+        display: block;
+        max-height: 100%;
+      }
+    }
+  }
+}

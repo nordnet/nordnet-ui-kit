@@ -1,0 +1,64 @@
+@import '../../variables';
+@import '../../functions';
+
+.input {
+  &--checkbox,
+  &--radio {
+    display: inline-block;
+
+    .input {
+      &__element {
+        display: inline-block;
+        width: auto;
+
+        > input {
+          display: none;
+
+          + span {
+            display: block;
+            width: rem(16px);
+            height: rem(16px);
+            border: rem(1px solid $color-background-disabled);
+            padding: rem(3px 2px);
+            transition: all .1s linear;
+            user-select: none;
+          }
+
+          &:checked + span {
+            border-color: $color-primary;
+            background: $color-primary;
+          }
+
+          &:disabled {
+            + span {
+              border-color: $color-background-disabled;
+            }
+
+            &:checked + span {
+              border-color: $color-background-disabled;
+              background: $color-background-disabled;
+            }
+          }
+        }
+      }
+
+      &__label {
+        position: relative;
+        display: inline-block;
+        top: 0;
+        line-height: 1;
+        vertical-align: top;
+        padding: rem(1px 0 1px 4px);
+        color: $color-text;
+      }
+    }
+  }
+
+  &--radio {
+    .input__element > input {
+      + span {
+        border-radius: rem(8px);
+      }
+    }
+  }
+}
