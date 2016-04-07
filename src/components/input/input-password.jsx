@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import rem from '../../utilities/rem.js';
 import InputDefault from './input-default';
 import './input-password.scss';
 

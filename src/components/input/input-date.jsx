@@ -1,7 +1,4 @@
-import React, { PropTypes } from 'react';
-// import classNames from 'classnames';
-// import kebabCase from 'lodash.kebabcase';
-// import rem from '../../utilities/rem.js';
+import React, from 'react';
 import InputDefault from './input-default';
 import DatePicker from '../date-picker/date-picker';
 import Icon from '../icon/icon';
