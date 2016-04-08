@@ -2,6 +2,7 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import Icon from '../icon/icon';
+import variables from '../../utilities/variables';
 import './alert.scss';
 
 class Alert extends PureComponent {
@@ -29,7 +30,13 @@ class Alert extends PureComponent {
 
     return (
       <span className="alert__close" onClick={ this.handleCloseClick }>
-        <Icon type="close" style={{ display: 'block' }} />
+        <Icon
+          type="close"
+          stroke={ variables.colorPrimary }
+          width={ 8 }
+          height={ 8 }
+          style={{ display: 'block' }}
+        />
       </span>
     );
   }
