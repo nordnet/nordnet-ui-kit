@@ -86,7 +86,7 @@ class InputDefault extends PureComponent {
         onFocus={ this.onFocus }
         onBlur={ this.onBlur }
         onChange={ this.onChange }
-        placeholder=""
+        placeholder={ this.props.placeholder }
         value={ this.state.value }
       />
     );

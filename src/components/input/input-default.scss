@@ -1,5 +1,7 @@
 @import '../../variables';
 @import '../../functions';
+@import '../../mixins';
+
 $modifiers: (
   success: $color-success,
   warning: $color-warning,
@@ -87,13 +89,6 @@ $modifiers--focus: (
     }
   }
 
-  // &--number {
-  //   // TODO: Move this to number css
-  //   .input__field {
-  //     padding-right: rem(16px);
-  //   }
-  // }
-
   &__field {
     position: relative;
     width: 100%;
@@ -123,12 +118,15 @@ $modifiers--focus: (
     padding: rem(0 0 3px);
     width: 100%;
     transition: border-color .2s linear;
-    // line-height: 1.4;
-    // min-height: rem(40px);
     font-size: rem(16px);
 
     &:focus {
       outline: none;
+    }
+
+    @include placeholder {
+      color: transparent;
+      line-height: .8;
     }
   }
 
