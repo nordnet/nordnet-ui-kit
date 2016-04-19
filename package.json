@@ -40,7 +40,7 @@
     "react-motion": "^0.4.1",
     "react-prop-types": "^0.3.0",
     "react-pure-render": "^1.0.2",
-    "react-svg-sprite-icon": "0.0.9"
+    "react-svg-sprite-icon": "0.0.10"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
