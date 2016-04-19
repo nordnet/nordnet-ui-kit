@@ -1,6 +1,6 @@
 {
   "name": "nordnet-ui-kit",
-  "version": "0.0.16",
+  "version": "0.0.19",
   "description": "Nordnets React powered UI kit",
   "main": "dist/nordnet-ui-kit.js",
   "scripts": {
@@ -34,13 +34,13 @@
     "lodash.camelcase": "^4.1.0",
     "lodash.isnumber": "^3.0.3",
     "lodash.kebabcase": "^4.0.0",
-    "react": "^0.14.0",
+    "react": "^0.14.0 || ^15.0.1",
     "react-date-picker": "^4.0.10",
-    "react-dom": "^0.14.0",
+    "react-dom": "^0.14.0 || ^15.0.1",
     "react-motion": "^0.4.1",
     "react-prop-types": "^0.3.0",
     "react-pure-render": "^1.0.2",
-    "react-svg-sprite-icon": "0.0.9"
+    "react-svg-sprite-icon": "0.0.10"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",

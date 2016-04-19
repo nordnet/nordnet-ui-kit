@@ -2,6 +2,7 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import Icon from '../icon/icon';
+import variables from '../../utilities/variables';
 import './dropdown.scss';
 
 class Dropdown extends PureComponent {
@@ -44,7 +45,13 @@ class Dropdown extends PureComponent {
       <div className={ classes }>
         <button className="dropdown__toggle" onClick={ this.handleToggleClick }>
           { this.props.toggle }
-          <Icon className="dropdown__toggle-icon" type={ this.state.actionsOpen ? 'arrowUp' : 'arrowDown' } />
+          <Icon
+            className="dropdown__toggle-icon"
+            stroke={ variables.colorPrimary }
+            width={ 8 }
+            height={ 8 }
+            type={ this.state.actionsOpen ? 'chevronUp' : 'chevronDown' }
+          />
         </button>
         { this.renderActions() }
       </div>
