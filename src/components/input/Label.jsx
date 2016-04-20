@@ -5,7 +5,6 @@ import rem from '../../utilities/rem.js';
 
 function Label(props) {
   const { label, id, hasFocus, hasValue } = props;
-  const placeholder = props.placeholder || label;
   const classes = classNames('input__label', {
     'input__label--has-value': hasValue,
   });
@@ -25,7 +24,7 @@ function Label(props) {
           className={ classes }
           style={{ transform: `translateY(${ y }${ __USE_REM__ ? 'rem' : 'px' })` }}
         >
-          { hasFocus || hasValue ? label : placeholder }
+          { label }
         </label>
       }
     </Motion>

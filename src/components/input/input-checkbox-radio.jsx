@@ -2,7 +2,8 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
-import Icon from '../icon/icon';
+import Checkbox from './checkbox';
+import Radio from './radio';
 import './input-checkbox-radio.scss';
 
 class InputCheckboxRadio extends PureComponent {
@@ -35,10 +36,8 @@ class InputCheckboxRadio extends PureComponent {
   }
 
   renderInput() {
-    const classes = classNames('input__element', `input__element--${ kebabCase(this.props.type) }`);
-
     return (
-      <div className={ classes }>
+      <div className="input-checkbox-radio__element">
         <input
           { ...this.props }
           type={ this.props.type }
@@ -46,11 +45,10 @@ class InputCheckboxRadio extends PureComponent {
           disabled={ this.state.disabled }
           value={ this.props.value }
           onChange={ this.onChange }
+          aria-labelledby={ `${ kebabCase(this.props.label) }-label` }
         />
-        <span>
-          { this.state.checked && !this.state.disabled ? <Icon type="checkmark" stroke="#FFFFFF" style={{ display: 'block' }} /> : null }
-          { this.state.checked && this.state.disabled ? <Icon type="checkmark" stroke="#AAAAAA" style={{ display: 'block' }} /> : null }
-        </span>
+        { this.props.type === 'checkbox' ? <Checkbox { ...this.state } /> : null }
+        { this.props.type === 'radio' ? <Radio { ...this.state } /> : null }
       </div>
     );
   }
@@ -58,13 +56,17 @@ class InputCheckboxRadio extends PureComponent {
   renderLabel() {
     if (!this.props.label) return null;
 
-    return <span className="input__label">{ this.props.label }</span>;
+    return (
+      <span id={ `${ kebabCase(this.props.label) }-label` } className="input-checkbox-radio__label">
+        { this.props.label }
+      </span>
+    );
   }
 
   render() {
-    const classes = classNames('input', {
-      'input--is-disabled': this.state.disabled,
-    }, `input--${ kebabCase(this.props.type) }`, this.props.className);
+    const classes = classNames('input-checkbox-radio', {
+      'input-checkbox-radio--is-disabled': this.state.disabled,
+    }, this.props.className);
 
     return (
       <label className={ classes }>

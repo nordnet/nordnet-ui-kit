@@ -30,6 +30,18 @@ $modifiers--focus: (
           border-color: $color;
         }
       }
+
+      &.input--is-disabled {
+        .input {
+          &__label {
+            color: mix($color, $color-disabled, 90);
+          }
+
+          &__field {
+            border-color: mix($color, $color-disabled, 90);
+          }
+        }
+      }
     }
   }
 
@@ -72,6 +84,24 @@ $modifiers--focus: (
     }
   }
 
+  &--is-disabled {
+    color: $color-disabled;
+
+    .input {
+      &__label {
+        color: $color-disabled;
+      }
+
+      &__field {
+        border-color: $color-disabled;
+
+        > input {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
   &--has-addon {
     .input {
       &__field {
@@ -101,12 +131,13 @@ $modifiers--focus: (
     top: rem(9px);
     left: 0;
     cursor: text;
-    color: $color-text-muted;
-    transition: color .2s linear;
+    transition: opacity .2s linear;
+    font-size: rem(12px);
+    opacity: 0;
 
     .input--has-focus &,
     .input--has-value &, {
-      font-size: rem(12px);
+      opacity: 1;
     }
   }
 
@@ -119,14 +150,20 @@ $modifiers--focus: (
     width: 100%;
     transition: border-color .2s linear;
     font-size: rem(16px);
+    transform: translateY(rem(-4px));
+    transition: transform .2s linear;
+
+    @include placeholder {
+      color: $color-text-muted;
+    }
+
+    .input--has-focus &,
+    .input--has-value &, {
+      transform: translateY(0);
+    }
 
     &:focus {
       outline: none;
-    }
-
-    @include placeholder {
-      color: transparent;
-      line-height: .8;
     }
   }
 
