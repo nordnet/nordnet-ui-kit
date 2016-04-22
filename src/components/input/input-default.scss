@@ -14,6 +14,10 @@ $modifiers--focus: (
   error: $color-danger--focus
 );
 
+@function disabled-color($color) {
+  @return mix($color, $color-disabled, 60);
+}
+
 .input {
   font-size: rem(16px);
   color: $color-text;
@@ -34,11 +38,11 @@ $modifiers--focus: (
       &.input--is-disabled {
         .input {
           &__label {
-            color: mix($color, $color-disabled, 90);
+            color: disabled-color($color);
           }
 
           &__field {
-            border-color: mix($color, $color-disabled, 90);
+            border-color: disabled-color($color);
           }
         }
       }
@@ -123,21 +127,26 @@ $modifiers--focus: (
     position: relative;
     width: 100%;
     border-bottom: rem(1px solid $color-background-disabled);
-    padding-top: rem(14px);
+    padding-top: rem(12px);
+    transition: border-color .2s $ease-out;
   }
 
   &__label {
     position: absolute;
-    top: rem(9px);
+    top: rem(-4px);
     left: 0;
     cursor: text;
-    transition: opacity .2s linear;
+    transition: opacity .2s $ease-out, transform .2s $ease-out, color .2s $ease-out;
     font-size: rem(12px);
+    transform: translateY(#{ rem(11px) });
     opacity: 0;
+    color: $color-disabled;
+    pointer-events: none;
 
     .input--has-focus &,
     .input--has-value &, {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -146,12 +155,13 @@ $modifiers--focus: (
     background: none;
     border: 0;
     border-radius: 0;
-    padding: rem(0 0 3px);
+    padding: rem(0 0 5px);
     width: 100%;
-    transition: border-color .2s linear;
+    transition: border-color .2s $ease-out;
     font-size: rem(16px);
-    transform: translateY(rem(-4px));
-    transition: transform .2s linear;
+    transform: translateY(#{ rem(-4px) });
+    transition: transform .2s $ease-out;
+    max-height: rem(27px);
 
     @include placeholder {
       color: $color-text-muted;
@@ -171,9 +181,9 @@ $modifiers--focus: (
     position: absolute;
     display: block;
     right: rem(4px);
-    bottom: rem(8px);
+    bottom: rem(10px);
     height: rem(8px);
-    transition: all .2s linear;
+    transition: all .2s $ease-out;
 
     > img {
       display: block;

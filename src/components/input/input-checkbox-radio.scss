@@ -2,7 +2,7 @@
 @import '../../functions';
 
 .input-checkbox-radio {
-  display: inline-block;
+  display: block;
   margin-bottom: rem(16px);
 
   &__element {
@@ -18,9 +18,9 @@
 
   &__label {
     display: inline-block;
-    line-height: 1;
+    line-height: 1.2;
     vertical-align: top;
-    padding: rem(1px 0 0 4px);
+    padding-left: rem(4px);
     user-select: none;
     font-size: inherit;
     max-width: calc(100% - #{ rem(16px) });
@@ -39,7 +39,7 @@
   height: rem(16px);
   border: rem(1px solid $color-background-disabled);
   padding: rem(3px 2px);
-  transition: all .1s linear;
+  transition: all .1s $ease-out;
   user-select: none;
 
   &--is-checked {

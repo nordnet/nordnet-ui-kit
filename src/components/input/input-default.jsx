@@ -126,7 +126,7 @@ class InputDefault extends PureComponent {
     const classes = classNames('input__addon', `input__addon--${ position }`);
 
     return (
-      <div className={ classes }>{ content() }</div>
+      <div className={ classes }>{ typeof content === 'function' ? content() : content }</div>
     );
   }
 

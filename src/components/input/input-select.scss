@@ -11,18 +11,44 @@
       }
     }
 
+    &__placeholder {
+      position: absolute;
+      top: rem(-4px);
+      left: 0;
+      color: $color-text-muted;
+    }
+
     &__select-arrow {
       position: absolute;
       display: block;
       right: rem(4px);
-      bottom: rem(8px);
+      bottom: rem(10px);
       height: rem(8px);
-      transition: all .2s linear;
+      transition: transform .2s $ease-out;
+      transform: translateY(#{ rem(-4px) });
 
       > img {
         display: block;
         max-height: 100%;
       }
+    }
+  }
+
+  &.input--has-focus,
+  &.input--has-value {
+    .input__select-arrow {
+      transform: translateY(0);
+    }
+
+    .input__placeholder {
+      display: none;
+    }
+  }
+
+  &.input--is-disabled {
+    .input__element,
+    .input__placeholder {
+      cursor: not-allowed;
     }
   }
 }

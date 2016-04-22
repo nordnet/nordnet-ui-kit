@@ -10,13 +10,18 @@
   }
 
   .input__toggle-datepicker {
+    position: relative;
     background: none;
     border: 0;
     appearance: none;
     vertical-align: bottom;
-    padding: rem(4px 0 4px 4px);
-    transform: translateY(#{ rem(-6px) });
-    transition: transform .2s linear;
+    padding: rem(2px 0 4px 4px);
+    transform: translateY(#{ rem(-4px) });
+    transition: transform .2s $ease-out;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .date-picker {
