@@ -16,6 +16,7 @@
       top: rem(-4px);
       left: 0;
       color: $color-text-muted;
+      pointer-events: none;
     }
 
     &__select-arrow {

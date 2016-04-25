@@ -1,9 +1,9 @@
 import React from 'react';
-import { describeWithDOM, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { expect } from 'chai';
 import Collapsible from '../../../src/components/collapsible/collapsible';
 
-describeWithDOM('<Collapsible />', () => {
+describe('<Collapsible />', () => {
   let wrapper;
 
   beforeEach(() => {
