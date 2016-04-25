@@ -64,17 +64,14 @@
   &--is-checked {
     &:after {
       content: '';
-      display: block;
-      width: .8rem;
-      height: .8rem;
-      background: #FFF;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -.4rem;
-      margin-left: -.4rem;
+      display: block;
+      width: rem(8px);
+      height: rem(8px);
+      background: #FFF;
+      top: rem(4px);
+      left: rem(4px);
       border-radius: 50%;
-      // box-shadow: 0 0 .1rem .1rem rgba(#000, .05);
     }
   }
 }
