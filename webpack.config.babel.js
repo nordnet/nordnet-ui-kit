@@ -24,6 +24,7 @@ const entry = {
     radio: './src/components/radio/radio.jsx',
     variables: ['./src/utilities/variables.js'],
     'date-picker': './src/components/date-picker/date-picker.js',
+    widget: ['./src/components/widget/widget'],
   },
 };
 

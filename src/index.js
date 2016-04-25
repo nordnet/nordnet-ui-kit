@@ -10,5 +10,6 @@ import Pane from './components/pane/pane';
 import Radio from './components/radio/radio';
 import variables from './utilities/variables';
 import datePicker from './components/date-picker/date-picker.js';
+import Widget from './components/widget/widget';
 
-export { Alert, Button, Checkbox, Collapsible, Dropdown, Icon, Input, Logo, Pane, Radio, datePicker, variables };
+export { Alert, Button, Checkbox, Collapsible, Dropdown, Icon, Input, Logo, Pane, Radio, datePicker, variables, Widget };
