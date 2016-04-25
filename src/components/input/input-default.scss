@@ -22,6 +22,7 @@ $modifiers--focus: (
   font-size: rem(16px);
   color: $color-text;
   margin-bottom: rem(16px);
+  position: relative;
 
   @each $modifier, $color in $modifiers {
     &--has-#{ $modifier } {

@@ -17,10 +17,10 @@ class InputDefault extends PureComponent {
     this.state = {
       value: isUndefined(props.value) ? '' : props.value,
       hasFocus: false,
-      hasSuccess: props.hasSuccess ? true : false,
-      hasWarning: props.hasWarning ? true : false,
-      hasError: props.hasError ? true : false,
-      hasAddon: props.rightAddon || props.leftAddon ? true : false,
+      hasSuccess: !!props.hasSuccess,
+      hasWarning: !!props.hasWarning,
+      hasError: !!props.hasError,
+      hasAddon: !!props.rightAddon || !!props.leftAddon,
     };
 
     this.state.hasValue = this.hasValue(this.state.value);
@@ -32,9 +32,9 @@ class InputDefault extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      hasSuccess: nextProps.hasSuccess ? true : false,
-      hasWarning: nextProps.hasWarning ? true : false,
-      hasError: nextProps.hasError ? true : false,
+      hasSuccess: !!nextProps.hasSuccess,
+      hasWarning: !!nextProps.hasWarning,
+      hasError: !!nextProps.hasError,
       value: isUndefined(nextProps.value) ? this.state.value : nextProps.value,
     });
   }
@@ -75,7 +75,7 @@ class InputDefault extends PureComponent {
   }
 
   renderInput(id, type) {
-    const classes = `input__element input__element--${ this.props.type }`;
+    const classes = `input__element input__element--${this.props.type}`;
 
     return (
       <input
@@ -105,8 +105,14 @@ class InputDefault extends PureComponent {
   }
 
   renderHelpText() {
+    const modifiers = {
+      hasSuccess: this.state.hasSuccess,
+      hasWarning: this.state.hasWarning,
+      hasError: this.state.hasError,
+    };
+
     return (
-      <HelpText>{ this.props.helpText }</HelpText>
+      <HelpText { ...modifiers }>{ this.props.helpText }</HelpText>
     );
   }
 
@@ -123,7 +129,7 @@ class InputDefault extends PureComponent {
       return null;
     }
 
-    const classes = classNames('input__addon', `input__addon--${ position }`);
+    const classes = classNames('input__addon', `input__addon--${position}`);
 
     return (
       <div className={ classes }>{ typeof content === 'function' ? content() : content }</div>
@@ -152,7 +158,7 @@ class InputDefault extends PureComponent {
       'input--has-warning': this.state.hasWarning,
       'input--has-error': this.state.hasError,
       'input--is-disabled': this.props.disabled,
-    }, `input--${ kebabCase(this.props.type) }`, this.props.className);
+    }, `input--${kebabCase(this.props.type)}`, this.props.className);
 
     return (
       <div className={ classes }>

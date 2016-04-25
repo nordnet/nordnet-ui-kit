@@ -67,8 +67,8 @@ class Collapsible extends PureComponent {
 
     return (
       <Motion defaultStyle={ defaultStyle } style={ style }>
-        {({ height }) =>
-          <div className="collapsible__body" style={{ height: rem(`${ height }px`) }}>
+        { ({ height }) =>
+          <div className="collapsible__body" style={ { height: rem(`${height}px`) } }>
             { this.renderContent() }
           </div>
         }
@@ -78,7 +78,7 @@ class Collapsible extends PureComponent {
 
   renderContent() {
     return (
-      <div ref={ content => this.content = content }>
+      <div ref={ content => { this.content = content; } }>
         { this.state.collapsed && !this.state.hasContent ? null : this.props.children }
       </div>
     );

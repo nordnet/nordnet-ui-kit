@@ -21,9 +21,11 @@ function convertToRem(value) {
 
     return matches.reduce((result, match) => {
       const inRem = parseFloat(match, 10) / baselinePx;
-      return result.replace(match, `${ inRem }rem`);
+      return result.replace(match, `${inRem}rem`);
     }, value);
   }
+
+  return value;
 }
 
 export default rem;

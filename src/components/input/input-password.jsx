@@ -7,7 +7,7 @@ class InputPassword extends InputDefault {
     super(props);
 
     this.state = Object.assign({}, this.state, {
-      showPassword: props.showPassword ? true : false,
+      showPassword: !!props.showPassword,
       hasAddon: true,
     });
 
@@ -32,9 +32,9 @@ class InputPassword extends InputDefault {
     return (
       <label
         className="input__toggle"
-        style={{
+        style={ {
           display: this.state.hasValue ? 'block' : 'none',
-        }}
+        } }
       >
         <input
           type="checkbox"

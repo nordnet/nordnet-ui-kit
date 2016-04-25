@@ -35,7 +35,7 @@ class Alert extends PureComponent {
           stroke={ variables.colorPrimary }
           width={ 8 }
           height={ 8 }
-          style={{ display: 'block' }}
+          style={ { display: 'block' } }
         />
       </span>
     );

@@ -29,11 +29,11 @@ class Dropdown extends PureComponent {
 
     return (
       <ul className="dropdown__actions" style={ style }>
-        {this.props.actions.map((action, index) => (
+        { this.props.actions.map((action, index) => (
           <li className="dropdown__action" key={ index } onClick={ action.action }>
             { action.label }
           </li>
-        ))}
+        )) }
       </ul>
     );
   }

@@ -14,7 +14,7 @@ function Checkbox(props) {
   const icon = (<Icon
     type="checkmark"
     stroke={ disabled ? variables.colorDisabled : '#FFFFFF' }
-    style={{ display: 'block' }}
+    style={ { display: 'block' } }
   />);
 
   return (

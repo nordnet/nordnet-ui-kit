@@ -27,7 +27,7 @@ class InputSelect extends InputDefault {
   }
 
   renderInput() {
-    const classes = `input__element input__element--${ this.props.type }`;
+    const classes = `input__element input__element--${this.props.type}`;
 
     return (
       <div className="input__element-wrapper">

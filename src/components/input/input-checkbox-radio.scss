@@ -24,6 +24,7 @@
     user-select: none;
     font-size: inherit;
     max-width: calc(100% - #{ rem(16px) });
+    font-size: rem(16px);
   }
 
   &--is-disabled {

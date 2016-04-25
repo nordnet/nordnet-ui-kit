@@ -29,7 +29,7 @@ class InputDate extends InputDefault {
   renderDatePicker() {
     return (
       <DatePicker
-        style={{ display: this.state.showDatePicker ? 'block' : 'none' }}
+        style={ { display: this.state.showDatePicker ? 'block' : 'none' } }
         date={ this.state.value }
         defaultViewDate={ this.state.value }
         onChange={ this.onDatePickerChange }
@@ -46,7 +46,7 @@ class InputDate extends InputDefault {
   renderDatePickerToggle() {
     return (
       <button className="input__toggle-datepicker" onClick={ this.onDatePickerToggleClick }>
-        <Icon type="calendar" stroke={ variables.colorPrimary } style={{ display: 'block', verticalAlign: 'bottom' }} />
+        <Icon type="calendar" stroke={ variables.colorPrimary } style={ { display: 'block', verticalAlign: 'bottom' } } />
       </button>
     );
   }

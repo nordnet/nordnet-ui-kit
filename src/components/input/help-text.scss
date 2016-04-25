@@ -1,0 +1,24 @@
+@import '../../variables';
+@import '../../functions';
+
+$modifiers: (
+  success: $color-success,
+  warning: $color-warning,
+  error: $color-danger
+);
+
+.help-text {
+  position: absolute;
+  display: block;
+  width: 100%;
+  text-align: right;
+  bottom: rem(-18px);
+  font-size: rem(12px);
+  color: $color-text-muted;
+
+  @each $modifier, $color in $modifiers {
+    &--has-#{ $modifier } {
+      color: $color;
+    }
+  }
+}

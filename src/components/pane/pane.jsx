@@ -23,16 +23,16 @@ class Pane extends PureComponent {
   renderTabs() {
     return (
       <ul className="pane__tabs">
-        {this.props.tabs.map((tab, index) => (
+        { this.props.tabs.map((tab, index) => (
           <li
             key={ index }
-            className={ classNames('pane__tab', { 'pane__tab--is-active': this.state.activeTab === index })}
-            style={{ width: `${100 / this.props.tabs.length}%` }}
+            className={ classNames('pane__tab', { 'pane__tab--is-active': this.state.activeTab === index }) }
+            style={ { width: `${100 / this.props.tabs.length}%` } }
             onClick={ () => this.handleTabClick(index) }
           >
             { tab.label }
           </li>
-        ))}
+        )) }
       </ul>
     );
   }
@@ -40,11 +40,11 @@ class Pane extends PureComponent {
   renderBody() {
     return (
       <div className="pane__body">
-        {this.props.tabs.map((tab, index) => (
-          <div key={ index } style={{ display: this.state.activeTab === index ? 'block' : 'none' }}>
+        { this.props.tabs.map((tab, index) => (
+          <div key={ index } style={ { display: this.state.activeTab === index ? 'block' : 'none' } }>
             { tab.body }
           </div>
-        ))}
+        )) }
       </div>
     );
   }

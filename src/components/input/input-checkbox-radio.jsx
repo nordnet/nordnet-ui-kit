@@ -31,7 +31,7 @@ class InputCheckboxRadio extends PureComponent {
     });
 
     if (this.props.onChange) {
-      this.props.onChange();
+      this.props.onChange(event);
     }
   }
 
@@ -45,7 +45,7 @@ class InputCheckboxRadio extends PureComponent {
           disabled={ this.state.disabled }
           value={ this.props.value }
           onChange={ this.onChange }
-          aria-labelledby={ `${ kebabCase(this.props.label) }-label` }
+          aria-labelledby={ `${kebabCase(this.props.label)}-label` }
         />
         { this.props.type === 'checkbox' ? <Checkbox { ...this.state } /> : null }
         { this.props.type === 'radio' ? <Radio { ...this.state } /> : null }
@@ -57,7 +57,7 @@ class InputCheckboxRadio extends PureComponent {
     if (!this.props.label) return null;
 
     return (
-      <span id={ `${ kebabCase(this.props.label) }-label` } className="input-checkbox-radio__label">
+      <span id={ `${kebabCase(this.props.label)}-label` } className="input-checkbox-radio__label">
         { this.props.label }
       </span>
     );

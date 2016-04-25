@@ -4,7 +4,8 @@
     "react/jsx-no-bind": [1, {
       "ignoreRefs": true,
       "allowArrowFunctions": true
-    }]
+    }],
+    "react/jsx-curly-spacing": [2, "always"]
   },
   "globals": {
     "__USE_REM__": false
