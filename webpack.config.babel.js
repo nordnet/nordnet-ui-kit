@@ -19,9 +19,9 @@ const entry = {
     input: './src/components/input/input.jsx',
     logo: './src/components/logo/logo.jsx',
     pane: './src/components/pane/pane.jsx',
-    radio: './src/components/radio/radio.jsx',
     variables: ['./src/utilities/variables.js'],
-    'date-picker': './src/components/date-picker/index.js',
+    'date-picker': './src/components/date-picker',
+    widget: ['./src/components/widget/widget'],
   },
 };
 
