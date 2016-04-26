@@ -14,7 +14,7 @@ function HelpText(props) {
     return <span className={ classes }>{ props.children }</span>;
   }
 
-  return <span />; // Stateless functions do not support returning null, see https://github.com/facebook/react/issues/5355
+  return <span />; // Stateless functions in React 0.14.X do not support returning null
 }
 
 HelpText.propTypes = {
