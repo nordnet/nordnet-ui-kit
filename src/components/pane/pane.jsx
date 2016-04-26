@@ -1,6 +1,7 @@
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
+import kebabCase from 'lodash.kebabcase';
 import './pane.scss';
 
 class Pane extends PureComponent {
@@ -27,7 +28,7 @@ class Pane extends PureComponent {
       <ul className="pane__tabs">
         { this.props.tabs.map((tab, index) => (
           <li
-            key={ index }
+            key={ `${kebabCase(tab.label)}_${index}` }
             className={ classNames('pane__tab', { 'pane__tab--is-active': this.state.activeTab === index }) }
             style={ { width: `${tabWidth}%` } }
             onClick={ () => this.handleTabClick(index) }
@@ -43,7 +44,7 @@ class Pane extends PureComponent {
     return (
       <div className="pane__body">
         { this.props.tabs.map((tab, index) => (
-          <div key={ index } style={ { display: this.state.activeTab === index ? 'block' : 'none' } }>
+          <div key={ `${kebabCase(tab.label)}_body_${index}` } style={ { display: this.state.activeTab === index ? 'block' : 'none' } }>
             { tab.body }
           </div>
         )) }
