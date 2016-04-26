@@ -40,7 +40,7 @@ class InputSelect extends InputDefault {
           onChange={ this.onChange }
           placeholder=""
           value={ this.state.value }
-          style={ this.state.hasFocus || this.state.value.length > 0 ? { } : { color: 'transparent' } }
+          style={ this.state.hasFocus || this.state.value.length ? { } : { color: 'transparent' } }
         >
           <option value="" disabled>{ this.props.placeholder }</option>
           { this.props.options.map(option => <option key={ option.value } value={ option.value }>{ option.label }</option>) }
