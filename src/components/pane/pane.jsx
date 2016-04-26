@@ -21,13 +21,15 @@ class Pane extends PureComponent {
   }
 
   renderTabs() {
+    const tabWidth = 100 / this.props.tabs.length;
+
     return (
       <ul className="pane__tabs">
         { this.props.tabs.map((tab, index) => (
           <li
             key={ index }
             className={ classNames('pane__tab', { 'pane__tab--is-active': this.state.activeTab === index }) }
-            style={ { width: `${100 / this.props.tabs.length}%` } }
+            style={ { width: `${tabWidth}%` } }
             onClick={ () => this.handleTabClick(index) }
           >
             { tab.label }
