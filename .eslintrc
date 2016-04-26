@@ -1,5 +1,8 @@
 {
   "extends": "eslint-config-nordnet",
+  "parserOptions": {
+    "experimentalObjectRestSpread": true
+  },
   "rules": {
     "react/jsx-no-bind": [1, {
       "ignoreRefs": true,
