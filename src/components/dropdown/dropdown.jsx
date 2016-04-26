@@ -1,6 +1,7 @@
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
+import kebabCase from 'lodash.kebabcase';
 import Icon from '../icon/icon';
 import variables from '../../utilities/variables';
 import './dropdown.scss';
@@ -30,7 +31,7 @@ class Dropdown extends PureComponent {
     return (
       <ul className="dropdown__actions" style={ style }>
         { this.props.actions.map((action, index) => (
-          <li className="dropdown__action" key={ index } onClick={ action.action }>
+          <li className="dropdown__action" key={ `${index}-${kebabCase(action.label)}` } onClick={ action.action }>
             { action.label }
           </li>
         )) }
