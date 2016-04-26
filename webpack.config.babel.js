@@ -14,7 +14,6 @@ const entry = {
   individual: {
     alert: './src/components/alert/alert.jsx',
     button: './src/components/button/button.jsx',
-    collapsible: './src/components/collapsible/collapsible.jsx',
     dropdown: './src/components/dropdown/dropdown.jsx',
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
