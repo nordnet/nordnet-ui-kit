@@ -1,0 +1,24 @@
+@import '../../variables';
+.value{
+  position: relative;
+
+  &__label{
+    font-size: 1.2rem;
+    display: block;
+    position: absolute;
+    left: 0;
+    cursor: text;
+    color: $color-text-muted;
+  }
+  &__value{
+    display: block;
+    background: none;
+    border: 0;
+    padding: 1.4rem 0 .3rem;
+    width: 100%;
+    line-height: 1.4;
+    border-radius: 0;
+    min-height: 4rem;
+    font-size: 1.6rem;
+  }
+}

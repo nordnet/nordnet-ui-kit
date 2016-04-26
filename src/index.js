@@ -9,6 +9,7 @@ import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import Radio from './components/radio/radio';
 import variables from './utilities/variables';
+import Value from './components/value/value';
 import datePicker from './components/date-picker/date-picker.js';
 
-export { Alert, Button, Checkbox, Collapsible, Dropdown, Icon, Input, Logo, Pane, Radio, datePicker, variables };
+export { Alert, Button, Checkbox, Collapsible, Dropdown, Icon, Input, Logo, Pane, Radio, datePicker, Value, variables };
