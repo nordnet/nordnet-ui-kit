@@ -1,0 +1,33 @@
+@import '../../variables';
+
+.widget {
+  display: block;
+  background: $color-base;
+  // TODO: Replace hardcoded shadow with variable
+  box-shadow: 0 .2rem .4rem .2rem rgba(0, 0, 0, .1);
+  margin-bottom: 1.6rem;
+  margin-left: 1.2rem;
+
+  &__heading {
+    display: block;
+    margin: .4rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__divider {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid $color-background-muted;
+  }
+
+  &__body {
+    padding: 1.6rem;
+
+    &--full-width {
+      padding: 0;
+    }
+  }
+}
