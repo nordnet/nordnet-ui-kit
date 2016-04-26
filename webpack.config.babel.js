@@ -6,7 +6,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import minimist from 'minimist';
 const argv = minimist(process.argv.slice(2));
 const NODE_ENV = process.env.NODE_ENV;
-const useRem = argv['use-rem'] ? true : false;
+const useRem = !!argv['use-rem'];
 const fileSuffix = useRem ? '' : '.px';
 
 const entry = {
@@ -27,13 +27,13 @@ const entry = {
 
 const output = {
   bundle: {
-    filename: `nordnet-ui-kit${ fileSuffix }`,
-    cssFilename: `nordnet-ui-kit${ fileSuffix }`,
+    filename: `nordnet-ui-kit${fileSuffix}`,
+    cssFilename: `nordnet-ui-kit${fileSuffix}`,
     library: 'NordnetUiKit',
   },
   individual: {
-    filename: `[name]/index${ fileSuffix }`,
-    cssFilename: `[name]/[name]${ fileSuffix }`,
+    filename: `[name]/index${fileSuffix}`,
+    cssFilename: `[name]/[name]${fileSuffix}`,
     library: 'NordnetUiKit.[name]',
   },
 };
@@ -49,12 +49,12 @@ module.exports = (() => {
     entry: entry[argv.type],
     output: {
       path: './dist',
-      filename: `${ output[argv.type].filename }.js`,
+      filename: `${output[argv.type].filename}.js`,
       library: output[argv.type].library,
       libraryTarget: 'commonjs2',
     },
     externals: [{
-      'react': {
+      react: {
         root: 'React',
         commonjs2: 'react',
         commonjs: 'react',
@@ -105,14 +105,14 @@ module.exports = (() => {
   }
 
   config.merge({
-    postcss: postcss,
+    postcss,
     sassLoader: {
-      data: `$use-rem: ${ useRem };`,
+      data: `$use-rem: ${useRem};`,
     },
   });
 
   config.plugin('extract-css', ExtractTextPlugin, [
-    `${ output[argv.type].cssFilename }.css`,
+    `${output[argv.type].cssFilename}.css`,
   ]);
 
   // ////// //
@@ -129,7 +129,7 @@ module.exports = (() => {
 
   config.loader('svg', {
     test: /\.svg$/,
-    loader: `raw!svgo?${ svgoConfig }`,
+    loader: `raw!svgo?${svgoConfig}`,
   });
 
   // ////// //
@@ -138,9 +138,9 @@ module.exports = (() => {
 
   config.plugin('webpack-define', webpack.DefinePlugin, [{
     'process.env': {
-      'NODE_ENV': JSON.stringify(NODE_ENV),
+      NODE_ENV: JSON.stringify(NODE_ENV),
     },
-    '__USE_REM__': JSON.stringify(useRem),
+    __USE_REM__: JSON.stringify(useRem),
   }]);
 
   return config.resolve();

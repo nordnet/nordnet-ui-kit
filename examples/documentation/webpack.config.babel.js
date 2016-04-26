@@ -63,7 +63,7 @@ module.exports = (() => {
       cssnano,
     ],
     sassLoader: {
-      data: `$use-rem: ${ true };`,
+      data: `$use-rem: ${true};`,
       outputStyle: 'compact',
     },
   });
@@ -86,7 +86,7 @@ module.exports = (() => {
 
   config.loader('svg', {
     test: /\.svg$/,
-    loader: `raw!svgo?${ svgoConfig }`,
+    loader: `raw!svgo?${svgoConfig}`,
   });
 
   // ////// //
@@ -97,7 +97,7 @@ module.exports = (() => {
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
     },
-    '__USE_REM__': JSON.stringify(true),
+    __USE_REM__: JSON.stringify(true),
   }]);
 
   // ////// //

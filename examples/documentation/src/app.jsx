@@ -42,10 +42,11 @@ class App extends PureComponent {
       <div>
         <Nav items={ this.state.navItems } />
         <Grid>
-          {sections.map((section, index) => (
+          { sections.map((section, index) => (
             <span key={ index }>
               { section }
-            </span>))}
+            </span>)
+          ) }
         </Grid>
       </div>
     );
