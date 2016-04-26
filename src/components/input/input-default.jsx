@@ -71,7 +71,7 @@ class InputDefault extends PureComponent {
   }
 
   hasValue(value) {
-    return isNumber(value) || (value && !!value.length);
+    return isNumber(value) || (value && value.length);
   }
 
   renderInput(id, type) {
