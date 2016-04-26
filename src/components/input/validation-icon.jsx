@@ -17,7 +17,7 @@ function ValidationIcon(props) {
     return <Icon className={ iconClass } type="exclamationPoint" />;
   }
 
-  return <span />; // Stateless functions do not support returning null, see https://github.com/facebook/react/issues/5355
+  return <span />; // Stateless functions in React 0.14.X do not support returning null
 }
 
 ValidationIcon.propTypes = {

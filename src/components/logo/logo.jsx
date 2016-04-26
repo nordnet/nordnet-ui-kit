@@ -11,11 +11,11 @@ function Logo(props) {
   };
   const classes = classNames(
     'logo',
-    `logo--${ kebabCase(type) }`,
+    `logo--${kebabCase(type)}`,
     props.className
   );
 
-  return <span { ...props } className={ classes } dangerouslySetInnerHTML={{ __html: logos[type] }} />;
+  return <span { ...props } className={ classes } dangerouslySetInnerHTML={ { __html: logos[type] } } />;
 }
 
 Logo.propTypes = {

@@ -43,7 +43,7 @@
     font-weight: 700;
     line-height: 1.2;
     padding: rem(6px);
-    transition: all .1s linear;
+    transition: all .1s $ease-out;
     text-decoration: none;
     user-select: none;
 

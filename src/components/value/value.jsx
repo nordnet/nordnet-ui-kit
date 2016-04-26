@@ -11,9 +11,9 @@ export default function Value(props) {
   const id = props.id || label;
 
   return (
-    <div className={classes}>
-      <label className="value__label" htmlFor={id}>{label}</label>
-      <span className="value__value" id={id} >{value}</span>
+    <div className={ classes }>
+      <label className="value__label" htmlFor={ id }>{ label }</label>
+      <span className="value__value" id={ id } >{ value }</span>
     </div>
   );
 }

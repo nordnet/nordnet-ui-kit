@@ -2,24 +2,27 @@ import isNumber from 'lodash.isnumber';
 
 function rem(value) {
   if (__USE_REM__) {
-    const baselinePx = 10;
-    const matchNumber = /(\d*\.?\d+)\s*px/g;
+    return convertToRem(value);
+  }
 
-    if (isNumber(value)) {
-      return value / baselinePx;
-    }
+  return value;
+}
 
-    if (matchNumber.test(value)) {
-      const matches = value.match(matchNumber);
-      let result = value;
+function convertToRem(value) {
+  const baselinePx = 10;
+  const matchNumber = /(\d*\.?\d+)\s*px/g;
 
-      matches.forEach(match => {
-        const inRem = parseFloat(match, 10) / baselinePx;
-        result = result.replace(match, `${ inRem }rem`);
-      });
+  if (isNumber(value)) {
+    return value / baselinePx;
+  }
 
-      return result;
-    }
+  if (matchNumber.test(value)) {
+    const matches = value.match(matchNumber);
+
+    return matches.reduce((result, match) => {
+      const inRem = parseFloat(match, 10) / baselinePx;
+      return result.replace(match, `${inRem}rem`);
+    }, value);
   }
 
   return value;

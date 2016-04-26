@@ -1,3 +1,4 @@
+/* eslint global-require: "warn" */
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
