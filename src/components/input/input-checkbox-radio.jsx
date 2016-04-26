@@ -35,6 +35,17 @@ class InputCheckboxRadio extends PureComponent {
     }
   }
 
+  renderFakeInput() {
+    switch (this.props.type) {
+      case 'checkbox':
+        return <Checkbox { ...this.state } />;
+      case 'radio':
+        return <Radio { ...this.state } />;
+      default:
+        return null;
+    }
+  }
+
   renderInput() {
     return (
       <div className="input-checkbox-radio__element">
@@ -47,8 +58,7 @@ class InputCheckboxRadio extends PureComponent {
           onChange={ this.onChange }
           aria-labelledby={ `${kebabCase(this.props.label)}-label` }
         />
-        { this.props.type === 'checkbox' ? <Checkbox { ...this.state } /> : null }
-        { this.props.type === 'radio' ? <Radio { ...this.state } /> : null }
+      { this.renderFakeInput() }
       </div>
     );
   }
