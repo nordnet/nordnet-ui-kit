@@ -1,0 +1,77 @@
+@import '../../variables';
+@import '../../functions';
+
+.input-checkbox-radio {
+  display: block;
+  margin-bottom: rem(16px);
+
+  &__element {
+    display: inline-block;
+    width: rem(16px);
+    position: relative;
+
+    > input {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    line-height: 1.2;
+    vertical-align: top;
+    padding-left: rem(4px);
+    user-select: none;
+    font-size: inherit;
+    max-width: calc(100% - #{ rem(16px) });
+    font-size: rem(16px);
+  }
+
+  &--is-disabled {
+    cursor: not-allowed;
+    color: $color-disabled;
+  }
+}
+
+.checkbox,
+.radio {
+  display: block;
+  width: rem(16px);
+  height: rem(16px);
+  border: rem(1px solid $color-background-disabled);
+  padding: rem(3px 2px);
+  transition: all .1s $ease-out;
+  user-select: none;
+
+  &--is-checked {
+    border-color: $color-primary;
+    background: $color-primary;
+  }
+
+  &--is-disabled {
+    border-color: $color-background-disabled;
+  }
+}
+
+.checkbox--is-disabled.checkbox--is-checked,
+.radio--is-disabled.radio--is-checked {
+  background: $color-background-disabled;
+}
+
+.radio {
+  border-radius: 50%;
+
+  &--is-checked {
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: rem(8px);
+      height: rem(8px);
+      background: #FFF;
+      top: rem(4px);
+      left: rem(4px);
+      border-radius: 50%;
+    }
+  }
+}

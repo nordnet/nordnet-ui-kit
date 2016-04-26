@@ -5,7 +5,6 @@ import './app.scss';
 import Nav from './components/nav/nav';
 import AlertSection from './sections/alertSection';
 import ButtonSection from './sections/buttonSection';
-import CollapsibleSection from './sections/collapsibleSection';
 import DropdownSection from './sections/dropdownSection';
 import InputSection from './sections/inputSection';
 import DatePickerSection from './sections/datePickerSection';
@@ -20,7 +19,6 @@ class App extends PureComponent {
       navItems: [
         'Alert',
         'Button',
-        'Collapsible',
         'Dropdown',
         'Input',
         'Pane',
@@ -33,7 +31,6 @@ class App extends PureComponent {
     const sections = [
       <AlertSection />,
       <ButtonSection />,
-      <CollapsibleSection />,
       <DropdownSection />,
       <InputSection />,
       <DatePickerSection />,

@@ -2,16 +2,13 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { Row, Col } from 'react-bem-grid';
 import Section from '../components/section/section';
-import DatePicker from 'react-date-picker';
-import datePicker from '../../../../src/components/date-picker/date-picker';
+import DatePicker from '../../../../src/components/date-picker/date-picker';
 
 class DatePickerSection extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      minDate: '2015-01-01',
-      maxDate: '2016-12-31',
       date: Date.now(),
     };
 
@@ -25,15 +22,12 @@ class DatePickerSection extends PureComponent {
   }
 
   render() {
-    const description = <span>We reccomend using <a href="https://github.com/zippyui/react-date-picker">react-date-picker</a> and provide a custom theme as well as a default set of props to be used on the component.</span>
+    const description = <span>The UI kit uses <a href="https://github.com/zippyui/react-date-picker">react-date-picker</a> and provides a custom theme as well as a default set of props.</span>
 
     const example = (
       <Row>
         <Col xs={ 10 } sm={ 4 }>
           <DatePicker
-            { ...datePicker }
-            minDate={ this.state.minDate }
-            maxDate={ this.state.maxDate }
             date={ this.state.date }
             onChange={ this.onChangeHandler }
           />

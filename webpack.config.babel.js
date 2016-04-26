@@ -14,16 +14,13 @@ const entry = {
   individual: {
     alert: './src/components/alert/alert.jsx',
     button: './src/components/button/button.jsx',
-    checkbox: './src/components/checkbox/checkbox.jsx',
-    collapsible: './src/components/collapsible/collapsible.jsx',
     dropdown: './src/components/dropdown/dropdown.jsx',
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
-    logo: './src/components/input/input.jsx',
+    logo: './src/components/logo/logo.jsx',
     pane: './src/components/pane/pane.jsx',
-    radio: './src/components/radio/radio.jsx',
     variables: ['./src/utilities/variables.js'],
-    'date-picker': './src/components/date-picker/date-picker.js',
+    'date-picker': './src/components/date-picker',
     widget: ['./src/components/widget/widget'],
   },
 };

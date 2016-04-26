@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: "warn" */
 const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
