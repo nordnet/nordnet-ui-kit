@@ -10,7 +10,7 @@ describe('<Dropdown />', () => {
     wrapper = shallow(
       <Dropdown
         toggle="Dropdown"
-        actions={ [{ label: 'log', action() { console.log('I was clicked!'); } }] }
+        actions={ [{ label: 'log', function() {} }] }
       />);
   });
 
