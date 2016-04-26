@@ -56,4 +56,8 @@ InputSelect.propTypes = {
   options: PropTypes.array,
 };
 
+InputSelect.defaultProps = {
+  options: [],
+};
+
 export default InputSelect;
