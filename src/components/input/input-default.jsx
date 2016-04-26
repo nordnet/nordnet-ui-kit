@@ -30,12 +30,12 @@ class InputDefault extends PureComponent {
     this.onChange = this.onChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps({ hasSuccess, hasWarning, hasError, value }) {
     this.setState({
-      hasSuccess: !!nextProps.hasSuccess,
-      hasWarning: !!nextProps.hasWarning,
-      hasError: !!nextProps.hasError,
-      value: isUndefined(nextProps.value) ? this.state.value : nextProps.value,
+      hasSuccess: !!hasSuccess,
+      hasWarning: !!hasWarning,
+      hasError: !!hasError,
+      value: isUndefined(value) ? this.state.value : value,
     });
   }
 

@@ -15,12 +15,13 @@ class InputPassword extends InputDefault {
     this.onPasswordToggleChange = this.onPasswordToggleChange.bind(this);
   }
 
-  // TODO: How to handle this when there's already a componentWillReceiveProps method?
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({
-  //     showPassword: nextProps.showPassword ? true : false,
-  //   });
-  // }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      showPassword: !!nextProps.showPassword,
+    });
+
+    super.componentWillReceiveProps(nextProps);
+  }
 
   onPasswordToggleChange(event) {
     this.setState({
