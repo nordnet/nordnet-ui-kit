@@ -119,6 +119,30 @@ class InputSection extends PureComponent {
   placeholder="Enter value"
   value="Incorrect value"
   hasError
+/>
+
+<Input
+  type="select"
+  id="input-select-1"
+  label="Select input"
+  placeholder="Pick an option"
+  options = { [{
+    label: 'Option 1',
+    value: 1,
+  }, {
+    label: 'Option 2',
+    value: 2,
+  }, {
+    label: 'Option 3',
+    value: 3,
+  }] }
+/>
+
+<Input
+  type="radio"
+  id="input-radio-1"
+  label="Radio input"
+  value="1"
 />`;
 
     return (
