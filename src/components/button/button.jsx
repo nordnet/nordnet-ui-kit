@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import './button.scss';
 
-function Button(props) {
-  const { primary, secondary, variant, link, modifier, href } = props;
+function Button({
+  primary,
+  secondary,
+  variant,
+  block,
+  disabled,
+  className,
+  children,
+  link,
+  modifier,
+  href,
+  ...rest,
+}) {
   const Element = href ? 'a' : 'button';
   const isPrimary = primary || variant === 'primary';
   const isSecondary = secondary || variant === 'secondary';
@@ -11,6 +22,7 @@ function Button(props) {
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
   const classes = classNames({
+    'btn--block': block,
     'btn-primary': isPrimary,
     'btn-primary--success': isPrimary && isSuccess,
     'btn-primary--warning': isPrimary && isWarning,
@@ -23,29 +35,30 @@ function Button(props) {
     'btn-link--success': link && isSuccess,
     'btn-link--warning': link && isWarning,
     'btn-link--danger': link && isDanger,
-  }, props.className);
+  }, className);
 
   if (primary || secondary) {
-    console.warn('nordnet-ui-kit :: button: primary, secondary props are deprecated, use variant={primary,secondary} instead'); // eslint-disable-line
+    console.warn(`Warning: Nordnet UI Kit button component primary, secondary props are deprecated, use variant={ primary, secondary } instead, check button with value: ${props.children}`); // eslint-disable-line
   }
 
   return (
-    <Element { ...props } disabled={ props.disabled } className={ classes }>
-      { props.children }
+    <Element { ...rest } className={ classes } disabled={ disabled }>
+      { children }
     </Element>
   );
 }
 
 Button.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  variant: React.PropTypes.string,
-  primary: React.PropTypes.bool,
-  secondary: React.PropTypes.bool,
-  link: React.PropTypes.bool,
-  modifier: React.PropTypes.string,
-  href: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  block: PropTypes.bool,
+  variant: PropTypes.string,
+  primary: PropTypes.bool,
+  secondary: PropTypes.bool,
+  link: PropTypes.bool,
+  modifier: PropTypes.string,
+  href: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default Button;

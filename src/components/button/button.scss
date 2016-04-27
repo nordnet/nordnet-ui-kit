@@ -52,6 +52,11 @@
     }
   }
 
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
   &-primary {
     background: $color-primary;
     // border: rem(2px solid $color-primary);
