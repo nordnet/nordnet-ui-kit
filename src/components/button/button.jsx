@@ -38,7 +38,7 @@ function Button({
   }, className);
 
   if (primary || secondary) {
-    console.warn(`Warning: Nordnet UI Kit button component primary, secondary props are deprecated, use variant={ primary, secondary } instead, check button with value: ${props.children}`); // eslint-disable-line
+    console.warn(`Warning: Nordnet UI Kit button component primary, secondary props are deprecated, use variant={ primary, secondary } instead, check button with value: ${children}`); // eslint-disable-line
   }
 
   return (
