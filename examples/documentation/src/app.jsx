@@ -10,6 +10,8 @@ import InputSection from './sections/inputSection';
 import DatePickerSection from './sections/datePickerSection';
 import PaneSection from './sections/paneSection';
 import IconSection from './sections/iconSection';
+import ValueSection from './sections/valueSection';
+import WidgetSection from './sections/widgetSection';
 
 class App extends PureComponent {
   constructor(props) {
@@ -36,6 +38,8 @@ class App extends PureComponent {
       <DatePickerSection />,
       <PaneSection />,
       <IconSection />,
+      <ValueSection />,
+      <WidgetSection />,
     ];
 
     return (
