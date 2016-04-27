@@ -1,3 +1,2 @@
-/* eslint import/no-unresolved: "warn" */
-import variables from '!!sass-variable-loader!../_variables.scss';
+import variables from '!!sass-variable-loader!../_variables.scss'; // eslint-disable-line
 export default variables;

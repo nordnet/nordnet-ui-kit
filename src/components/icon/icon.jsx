@@ -1,4 +1,3 @@
-/* eslint global-require: "warn" */
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
@@ -15,7 +14,8 @@ class Icon extends PureComponent {
 
     icons.keys().forEach((key) => {
       const icon = key.replace(/\.\//, '');
-      this.icons[camelCase(icon.replace(/\.svg$/, ''))] = require(`!!svg-icon-template-loader!../../icons/${icon}`);
+      const iconName = camelCase(icon.replace(/\.svg$/, ''));
+      this.icons[iconName] = require(`!!svg-icon-template-loader!../../icons/${icon}`); // eslint-disable-line
     });
   }
 
