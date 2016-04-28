@@ -18,6 +18,7 @@ function Button({
   const Element = href ? 'a' : 'button';
   const isPrimary = primary || variant === 'primary';
   const isSecondary = secondary || variant === 'secondary';
+  const isLink = link || variant === 'link';
   const isSuccess = modifier === 'success';
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
@@ -31,14 +32,14 @@ function Button({
     'btn-secondary--success': isSecondary && isSuccess,
     'btn-secondary--warning': isSecondary && isWarning,
     'btn-secondary--danger': isSecondary && isDanger,
-    'btn-link': link,
-    'btn-link--success': link && isSuccess,
-    'btn-link--warning': link && isWarning,
-    'btn-link--danger': link && isDanger,
+    'btn-link': isLink,
+    'btn-link--success': isLink && isSuccess,
+    'btn-link--warning': isLink && isWarning,
+    'btn-link--danger': isLink && isDanger,
   }, className);
 
-  if (primary || secondary) {
-    console.warn(`Warning: Nordnet UI Kit button component primary, secondary props are deprecated, use variant={ primary, secondary } instead, check button with value: ${children}`); // eslint-disable-line
+  if (primary || secondary || link) {
+    console.warn(`Warning: Nordnet UI Kit button component primary, secondary and link props are deprecated, use variant={ primary, secondary, link } instead, check button with value: ${children}`); // eslint-disable-line
   }
 
   return (
@@ -48,11 +49,15 @@ function Button({
   );
 }
 
+Button.defaultProps = {
+  variant: 'primary',
+};
+
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   block: PropTypes.bool,
-  variant: PropTypes.string,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'link']).isRequired,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
   link: PropTypes.bool,

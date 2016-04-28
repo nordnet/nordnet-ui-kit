@@ -17,6 +17,9 @@ class ButtonSection extends PureComponent {
           <Col xs={ 6 } sm={ 3 } md>
             <Button block variant="secondary">Variant: secondary</Button>
           </Col>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button block variant="link">Variant: link</Button>
+          </Col>
         </Row>
         <h3>Disabled</h3>
         <Row>
@@ -25,6 +28,9 @@ class ButtonSection extends PureComponent {
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
             <Button block variant="secondary" disabled>Variant: secondary, disabled</Button>
+          </Col>
+          <Col xs={ 6 } sm={ 3 } md>
+            <Button block variant="link" disabled>Variant: link, disabled</Button>
           </Col>
         </Row>
         <h2>Modifier</h2>
@@ -50,24 +56,18 @@ class ButtonSection extends PureComponent {
             <Button block variant="secondary" modifier="success">Variant: secondary, Modifier: success</Button>
           </Col>
         </Row>
-        <h3>Link</h3>
         <Row>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button block link>Link: default</Button>
+            <Button block variant="link" modifier="danger">Variant: link, Modifier: danger</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button block link modifier="danger">Link: danger</Button>
+            <Button block variant="link" modifier="warning">Variant: link, Modifier: warning</Button>
           </Col>
           <Col xs={ 6 } sm={ 3 } md>
-            <Button block link modifier="warning">Link: warning</Button>
-          </Col>
-          <Col xs={ 6 } sm={ 3 } md>
-            <Button block link modifier="success">Link: success</Button>
-          </Col>
-          <Col xs={ 6 } sm={ 3 } md>
-            <Button block link disabled>Link: disabled</Button>
+            <Button block variant="link" modifier="success">Variant: link, Modifier: success</Button>
           </Col>
         </Row>
+        <h3>Link</h3>
       </div>
     );
 
