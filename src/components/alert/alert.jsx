@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import Icon from '../icon/icon';
@@ -63,12 +63,12 @@ class Alert extends PureComponent {
 }
 
 Alert.propTypes = {
-  className: React.PropTypes.string,
-  modifier: React.PropTypes.string,
-  header: React.PropTypes.string,
-  children: React.PropTypes.node,
-  dismissable: React.PropTypes.bool,
-  dismissed: React.PropTypes.bool,
+  className: PropTypes.string,
+  modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
+  header: PropTypes.node,
+  children: PropTypes.node,
+  dismissable: PropTypes.bool,
+  dismissed: PropTypes.bool,
 };
 
 Alert.defaultProps = {
