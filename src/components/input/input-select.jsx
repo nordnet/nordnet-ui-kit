@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import InputDefault from './input-default';
+import kebabCase from 'lodash.kebabcase';
 import variables from '../../utilities/variables';
 import Icon from '../icon/icon';
 import './input-select.scss';
@@ -26,6 +27,16 @@ class InputSelect extends InputDefault {
     );
   }
 
+  renderOption(option) {
+    const key = option.key || kebabCase(option.value);
+
+    return (
+      <option key={ key } value={ option.value }>
+        { option.label }
+      </option>
+    );
+  }
+
   renderInput() {
     const classes = `input__element input__element--${this.props.type}`;
 
@@ -43,7 +54,7 @@ class InputSelect extends InputDefault {
           style={ this.state.hasFocus || this.state.value.length ? { } : { color: 'transparent' } }
         >
           <option value="" disabled>{ this.props.placeholder }</option>
-          { this.props.options.map(option => <option key={ option.value } value={ option.value }>{ option.label }</option>) }
+          { this.props.options.map(this.renderOption) }
         </select>
         { this.renderPlaceholder() }
         { this.renderSelectArrow() }
@@ -53,11 +64,22 @@ class InputSelect extends InputDefault {
 }
 
 InputSelect.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    key: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]).isRequired,
+  })),
 };
 
 InputSelect.defaultProps = {
-  options: [],
+  options: [{
+    label: '',
+    value: '',
+  }],
 };
 
 export default InputSelect;
