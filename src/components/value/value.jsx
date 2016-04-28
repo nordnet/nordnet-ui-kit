@@ -8,23 +8,16 @@ export default function Value({
   children,
   id: idProp,
   className,
-  xs,
-  sm,
-  md,
-  lg,
+  size,
   ...rest,
 }) {
   const id = idProp || `${kebabCase(label)}-label`;
   const classes = classNames('value', {
-    'value--xs': xs,
-    'value--sm': sm,
-    'value--md': md || (!xs && !sm && !lg),
-    'value--lg': lg,
+    'value--xs': size === 'xs',
+    'value--sm': size === 'sm',
+    'value--md': size === 'md',
+    'value--lg': size === 'lg',
   }, className);
-
-  if ([xs, sm, md, lg].filter(modifier => modifier).length > 1) {
-    console.warn(`Warning: Nordnet UI Kit value component only supports one size modifier (xs, sm, md, lg), check value component with label: ${label}`); // eslint-disable-line
-  }
 
   return (
     <div { ...rest } className={ classes }>
@@ -37,6 +30,7 @@ export default function Value({
 Value.defaultProps = {
   label: '',
   value: '',
+  size: 'md',
 };
 
 Value.propTypes = {
@@ -48,8 +42,5 @@ Value.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   className: PropTypes.string,
-  xs: PropTypes.bool,
-  sm: PropTypes.bool,
-  md: PropTypes.bool,
-  lg: PropTypes.bool,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
 };

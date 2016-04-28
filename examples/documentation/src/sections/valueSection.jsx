@@ -7,16 +7,16 @@ export default function valueSection() {
   const example = (
     <Row>
       <Col xs={ 6 } sm={ 3 }>
-        <Value label="Value xs" xs>10000</Value>
+        <Value label="Value xs" size="xs">10000</Value>
       </Col>
       <Col xs={ 6 } sm={ 3 }>
-        <Value label="Value sm" sm>10000</Value>
+        <Value label="Value sm" size="sm">10000</Value>
       </Col>
       <Col xs={ 6 } sm={ 3 }>
-        <Value label="Value md" md>10000</Value>
+        <Value label="Value md" size="md">10000</Value>
       </Col>
       <Col xs={ 6 } sm={ 3 }>
-        <Value label="Value lg" lg>10000</Value>
+        <Value label="Value lg" size="lg">10000</Value>
       </Col>
     </Row>
   );
