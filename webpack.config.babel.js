@@ -19,7 +19,6 @@ const entry = {
     input: './src/components/input/input.jsx',
     logo: './src/components/logo/logo.jsx',
     pane: './src/components/pane/pane.jsx',
-    radio: './src/components/radio/radio.jsx',
     value: './src/components/value/value.jsx',
     variables: ['./src/utilities/variables.js'],
     'date-picker': './src/components/date-picker',
