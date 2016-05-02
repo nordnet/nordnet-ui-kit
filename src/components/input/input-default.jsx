@@ -35,6 +35,7 @@ class InputDefault extends PureComponent {
       hasSuccess: !!hasSuccess,
       hasWarning: !!hasWarning,
       hasError: !!hasError,
+      hasValue: this.hasValue(value),
       value: isUndefined(value) ? this.state.value : value,
     });
   }
@@ -71,7 +72,7 @@ class InputDefault extends PureComponent {
   }
 
   hasValue(value) {
-    return isNumber(value) || (value && value.length);
+    return isNumber(value) || (value && value.length) || (typeof value === 'object');
   }
 
   renderInput(id, type) {
