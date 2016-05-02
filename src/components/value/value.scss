@@ -19,13 +19,18 @@ $modifiers: (
 
   &__value{
     display: block;
-    padding-top: rem(4px);
     font-size: rem(16px);
     line-height: 1.2;
 
     @each $modifier, $font-size in $modifiers {
       .value--#{ $modifier } & {
-        font-size: $font-size;
+        font-size: rem($font-size);
+
+        @if $modifier != 'lg' {
+          padding-top: rem($font-size - 12);
+        } @else {
+          padding-top: rem($font-size - 14);
+        }
       }
     }
   }
