@@ -76,6 +76,7 @@ class InputDefault extends PureComponent {
 
   renderInput(id, type) {
     const classes = `input__element input__element--${this.props.type}`;
+    const placeholder = this.props.placeholder || this.props.label;
 
     return (
       <input
@@ -86,7 +87,7 @@ class InputDefault extends PureComponent {
         onFocus={ this.onFocus }
         onBlur={ this.onBlur }
         onChange={ this.onChange }
-        placeholder={ this.props.placeholder }
+        placeholder={ placeholder }
         value={ this.state.value }
       />
     );
@@ -110,6 +111,10 @@ class InputDefault extends PureComponent {
       hasWarning: this.state.hasWarning,
       hasError: this.state.hasError,
     };
+
+    if (!this.props.helpText) {
+      return null;
+    }
 
     return (
       <HelpText { ...modifiers }>{ this.props.helpText }</HelpText>
@@ -172,7 +177,7 @@ class InputDefault extends PureComponent {
 InputDefault.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.node,
   placeholder: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.oneOfType([
@@ -186,7 +191,7 @@ InputDefault.propTypes = {
   hasSuccess: PropTypes.bool,
   hasError: PropTypes.bool,
   hasWarning: PropTypes.bool,
-  helpText: PropTypes.string,
+  helpText: PropTypes.node,
 };
 
 InputDefault.defaultProps = {

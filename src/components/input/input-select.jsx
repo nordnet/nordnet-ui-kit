@@ -19,44 +19,55 @@ class InputSelect extends InputDefault {
     );
   }
 
-  renderPlaceholder() {
+  renderFakePlaceholder() {
     return (
       <span className="input__placeholder">
-        { this.props.placeholder }
+        { this.props.placeholder || this.props.label }
       </span>
     );
   }
 
   renderOption(option) {
-    const key = option.key || kebabCase(option.value);
+    const { label, value, key: keyOption, ...rest } = option;
+    const key = keyOption || kebabCase(value); // Assumes value is a string
 
     return (
-      <option key={ key } value={ option.value }>
-        { option.label }
+      <option { ...rest } key={ key } value={ value }>
+        { label }
       </option>
     );
   }
 
-  renderInput() {
-    const classes = `input__element input__element--${this.props.type}`;
+  showValue() {
+    const { value, hasFocus } = this.state;
+    const hasStringValue = typeof value === 'string' && value.length;
+    const isObject = typeof value === 'object';
 
+    if (hasFocus || hasStringValue || isObject) {
+      return true;
+    }
+
+    return false;
+  }
+
+  renderInput() {
     return (
       <div className="input__element-wrapper">
         <select
           { ...this.props }
           id={ this.props.id }
-          className={ classes }
+          className="input__element input__element--select"
           onFocus={ this.onFocus }
           onBlur={ this.onBlur }
           onChange={ this.onChange }
           placeholder=""
           value={ this.state.value }
-          style={ this.state.hasFocus || this.state.value.length ? { } : { color: 'transparent' } }
+          style={ this.showValue() ? { } : { color: 'transparent' } }
         >
-          <option value="" disabled>{ this.props.placeholder }</option>
+          { this.props.placeholder ? <option value="" disabled>{ this.props.placeholder }</option> : null }
           { this.props.options.map(this.renderOption) }
         </select>
-        { this.renderPlaceholder() }
+        { this.renderFakePlaceholder() }
         { this.renderSelectArrow() }
       </div>
     );
