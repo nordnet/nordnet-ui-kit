@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.23
+* Input now uses label prop as placeholder if placeholder is missing.
+
 ## 0.0.22
 * Major refactoring of input component.
   * Now supports addons (inline elements to the left or right of the actual input, great for icons).
