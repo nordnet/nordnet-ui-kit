@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.24
+* Input now properly renders label when value is an object and when value is set via props.
+
 ## 0.0.23
 * Input now uses label prop as placeholder if placeholder is missing.
 
