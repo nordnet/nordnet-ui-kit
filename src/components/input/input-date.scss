@@ -9,8 +9,13 @@
     }
   }
 
+  .input__addon--right {
+    text-align: right;
+  }
+
   .input__toggle-datepicker {
     position: relative;
+    display: inline-block;
     background: none;
     border: 0;
     appearance: none;
@@ -30,6 +35,6 @@
     top: 100%;
     left: 0;
     margin-top: rem(1px);
-    z-index: 1;
+    z-index: 4;
   }
 }

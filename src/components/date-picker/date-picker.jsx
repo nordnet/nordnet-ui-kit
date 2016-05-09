@@ -1,8 +1,8 @@
 import React from 'react';
-import DatePicker from 'react-date-picker';
+import ReactDatePicker from 'react-date-picker';
 import './date-picker.scss';
 
-function datePicker(props) {
+export default function DatePicker(props) {
   const options = Object.assign({}, {
     weekStartDay: 1,
     weekDayNames: [
@@ -19,8 +19,6 @@ function datePicker(props) {
   }, props);
 
   return (
-    <DatePicker { ...options } />
+    <ReactDatePicker { ...options } />
   );
 }
-
-export default datePicker;

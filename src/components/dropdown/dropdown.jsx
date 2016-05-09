@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
@@ -61,10 +61,13 @@ class Dropdown extends PureComponent {
 }
 
 Dropdown.propTypes = {
-  className: React.PropTypes.string,
-  toggle: React.PropTypes.string,
-  actions: React.PropTypes.array,
-  actionsOpen: React.PropTypes.bool,
+  className: PropTypes.string,
+  toggle: PropTypes.string,
+  actions: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node,
+    action: PropTypes.func,
+  })),
+  actionsOpen: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {

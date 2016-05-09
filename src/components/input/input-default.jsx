@@ -177,6 +177,7 @@ class InputDefault extends PureComponent {
 
 InputDefault.propTypes = {
   className: PropTypes.string,
+  /** Needs to be a valid input type */
   type: PropTypes.string,
   label: PropTypes.node,
   placeholder: PropTypes.string,

@@ -10,7 +10,7 @@ function renderHeader(header) {
   return header;
 }
 
-export default function widget({ header, children, fullWidth, className, ...rest }) {
+export default function Widget({ header, children, fullWidth, className, ...rest }) {
   const classes = classNames('widget', className);
   const bodyClasses = classNames('widget__body', {
     'widget__body--full-width': fullWidth,
@@ -26,11 +26,11 @@ export default function widget({ header, children, fullWidth, className, ...rest
   );
 }
 
-widget.defaltProps = {
+Widget.defaltProps = {
   fullWidth: false,
 };
 
-widget.propTypes = {
+Widget.propTypes = {
   children: PropTypes.node,
   header: PropTypes.node,
   className: PropTypes.string,

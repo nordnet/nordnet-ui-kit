@@ -163,6 +163,8 @@ $modifiers--focus: (
     transform: translateY(#{ rem(-4px) });
     transition: transform .2s $ease-out;
     max-height: rem(27px);
+    font-family: inherit;
+    font-weight: inherit;
 
     @include placeholder {
       color: $color-text-muted;

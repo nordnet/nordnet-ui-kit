@@ -29,16 +29,12 @@ export default function Value({
 
 Value.defaultProps = {
   label: '',
-  value: '',
+  children: '',
   size: 'md',
 };
 
 Value.propTypes = {
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.element,
-  ]),
+  label: PropTypes.node,
   children: PropTypes.node,
   id: PropTypes.string,
   className: PropTypes.string,

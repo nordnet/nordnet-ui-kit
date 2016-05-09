@@ -56,12 +56,16 @@ Button.defaultProps = {
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  /** Block level button that spans the full width of the parent */
   block: PropTypes.bool,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'link']).isRequired,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'link']),
+  /** ⚠️ Deprecated in favour of `variant` prop */
   primary: PropTypes.bool,
+  /** ⚠️ Deprecated in favour of `variant` prop */
   secondary: PropTypes.bool,
+  /** ⚠️ Deprecated in favour of `variant` prop */
   link: PropTypes.bool,
-  modifier: PropTypes.string,
+  modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
   href: PropTypes.string,
   disabled: PropTypes.bool,
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
@@ -65,7 +65,10 @@ class Pane extends PureComponent {
 }
 
 Pane.propTypes = {
-  tabs: React.PropTypes.array,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node,
+    body: PropTypes.node,
+  })),
 };
 
 Pane.defaultProps = {};

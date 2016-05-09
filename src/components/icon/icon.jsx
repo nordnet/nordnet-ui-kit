@@ -2,21 +2,12 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
 import { IconStateless } from 'react-svg-sprite-icon';
-import camelCase from 'lodash.camelcase';
-
-const icons = require.context('../../icons/', true, /\.svg$/);
+import icons from './icons';
 
 class Icon extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.icons = {};
-
-    icons.keys().forEach((key) => {
-      const icon = key.replace(/\.\//, '');
-      const iconName = camelCase(icon.replace(/\.svg$/, ''));
-      this.icons[iconName] = require(`!!svg-icon-template-loader!../../icons/${icon}`); // eslint-disable-line
-    });
+    this.icons = icons;
   }
 
   render() {
@@ -27,7 +18,9 @@ class Icon extends PureComponent {
 Icon.propTypes = {
   className: React.PropTypes.string,
   type: React.PropTypes.string,
+  /** Needs to be a valid colour */
   fill: React.PropTypes.string,
+  /** Needs to be a valid colour */
   stroke: React.PropTypes.string,
   strokeWidth: React.PropTypes.number,
   width: React.PropTypes.number,

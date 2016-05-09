@@ -1,0 +1,46 @@
+@import 'reset';
+@import '../src/variables';
+
+$font-primary: 'Open Sans', sans-serif;
+$font-monospace: 'Hack', monospace;
+
+#app {
+  font-family: $font-primary;
+}
+
+.CodeMirror {
+  font-family: $font-monospace;
+}
+
+.ReactStyleguidist {
+  &-common {
+    &__font {
+      font-family: $font-primary;
+    }
+
+    &__monospace {
+      font-family: $font-monospace;
+    }
+  }
+
+  &-colors {
+    &__link {
+      color: $color-primary;
+
+      &:link,
+      &:visited {
+        color: $color-primary;
+      }
+
+      &:hover {
+        color: $color-primary--focus;
+      }
+    }
+  }
+
+  &-Layout {
+    &__footer {
+      display: none;
+    }
+  }
+}
