@@ -23,7 +23,9 @@ Icon.propTypes = {
   /** Needs to be a valid colour */
   stroke: React.PropTypes.string,
   strokeWidth: React.PropTypes.number,
+  /** Unitless pixel value */
   width: React.PropTypes.number,
+  /** Unitless pixel value */
   height: React.PropTypes.number,
   style: React.PropTypes.object,
   componentClass: elementType,
