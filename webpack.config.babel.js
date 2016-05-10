@@ -13,6 +13,7 @@ const entry = {
   bundle: './src/index.js',
   individual: {
     alert: './src/components/alert/alert.jsx',
+    badge: './src/components/badge/badge.jsx',
     button: './src/components/button/button.jsx',
     dropdown: './src/components/dropdown/dropdown.jsx',
     icon: ['./src/components/icon/icon.jsx'],
@@ -61,13 +62,6 @@ module.exports = (() => {
         commonjs: 'react',
         amd: 'react',
       },
-    }, {
-      'react-dom': {
-        root: 'ReactDOM',
-        commonjs2: 'react-dom',
-        commonjs: 'react-dom',
-        amd: 'react-dom',
-      },
     }],
     resolve: {
       extensions: [
@@ -87,6 +81,8 @@ module.exports = (() => {
     loader: 'babel',
     exclude: /node_modules/,
   });
+
+  // config.plugin('uglify', webpack.optimize.UglifyJsPlugin);
 
   // ////// //
   // Styles //

@@ -41,7 +41,6 @@
     "lodash.kebabcase": "^4.0.0",
     "react": "^0.14.0 || ^15.0.1",
     "react-date-picker": "^4.0.10",
-    "react-dom": "^0.14.0 || ^15.0.1",
     "react-prop-types": "^0.3.0",
     "react-pure-render": "^1.0.2",
     "react-svg-sprite-icon": "^0.0.11"
@@ -67,6 +66,7 @@
     "eslint-plugin-jsx-a11y": "^1.0.2",
     "eslint-plugin-react": "^5.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "git-directory-deploy": "^1.5.0",
     "husky": "^0.11.4",
     "jsdom": "^8.4.0",
     "minimist": "^1.2.0",
