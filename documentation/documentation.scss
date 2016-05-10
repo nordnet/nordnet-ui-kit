@@ -6,6 +6,7 @@ $font-monospace: 'Hack', monospace;
 
 #app {
   font-family: $font-primary;
+  color: $color-text;
 }
 
 .CodeMirror {
@@ -36,11 +37,46 @@ $font-monospace: 'Hack', monospace;
         color: $color-primary--focus;
       }
     }
+
+    &__border {
+      border-color: $color-border;
+    }
+
+    &__light {
+      color: $color-disabled;
+    }
   }
 
-  &-Layout {
-    &__footer {
-      display: none;
+  &-TableOfContents {
+    &__list {
+      padding-left: 0;
+    }
+
+    &__item {
+      padding-left: 1.5rem;
+      // border-left: .2rem solid $color-primary;
+      margin-bottom: .8rem;
+      font-size: 1.4rem;
+    }
+
+    &__link.ReactStyleguidist-colors__link {
+      color: $color-text;
+      font-weight: 600;
+
+      &:hover {
+        color: $color-primary--focus;
+      }
+    }
+
+    &__search {
+      border: 0;
+      border-bottom: .1rem solid $color-background-disabled;
+      border-radius: 0;
+      padding-left: 0;
+
+      &:focus {
+        border-color: $color-primary--focus;
+      }
     }
   }
 }

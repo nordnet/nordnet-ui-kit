@@ -1,0 +1,25 @@
+@import '../../../src/variables';
+
+%border {
+  border-color: $color-border;
+  border-style: solid;
+}
+
+.ReactStyleguidist-Layout__ {
+  &sidebar {
+    @extend %border;
+    background: $color-base;
+  }
+
+  &heading {
+    // text-align: center;
+    @extend %border;
+    background: $color-background-muted;
+
+    .logo {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+}

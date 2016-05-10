@@ -41,21 +41,23 @@ module.exports = {
       ],
     });
 
+    const loaderDirs = [dir, path.join(__dirname, 'documentation')];
+
     const loaders = {
       js: {
         test: /.jsx?$/,
         loader: 'babel',
-        include: dir,
+        include: loaderDirs,
       },
       sass: {
         test: /\.scss$/,
         loader: 'style!css!postcss!sass',
-        include: [dir, path.join(__dirname, 'documentation')],
+        include: loaderDirs,
       },
       svg: {
         test: /\.svg$/,
         loader: `raw!svgo?${svgoConfig}`,
-        include: dir,
+        include: loaderDirs,
       },
     };
 
@@ -82,6 +84,8 @@ module.exports = {
     config.postcss = postcss;
 
     config.entry.push(path.join(__dirname, 'documentation/documentation.scss'));
+
+    config.resolve.alias['rsg-components/Layout/Renderer'] = path.join(__dirname, 'documentation/rsg-components/Layout/Renderer');
 
     return config;
   },
