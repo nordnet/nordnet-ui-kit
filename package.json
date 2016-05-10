@@ -15,7 +15,8 @@
     "prepush": "npm-run-all lint test",
     "prepublish": "npm-run-all lint test build",
     "postpublish": "npm run clean && git push --follow-tags --no-verify && npm run docs-publish",
-    "start": "styleguidist server",
+    "start": "npm run docs-server",
+    "docs-server": "styleguidist server",
     "docs-build": "rimraf documentation/build && styleguidist build",
     "predocs-publish": "npm run docs-build",
     "docs-publish": "git-directory-deploy --directory ./documentation/dist --branch gh-pages"
