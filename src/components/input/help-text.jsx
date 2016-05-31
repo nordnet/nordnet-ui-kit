@@ -23,6 +23,8 @@ HelpText.propTypes = {
   hasSuccess: PropTypes.bool,
   hasWarning: PropTypes.bool,
   hasError: PropTypes.bool,
+  isCheckbox: PropTypes.bool,
+  isRadio: PropTypes.bool,
 };
 
 export default HelpText;
