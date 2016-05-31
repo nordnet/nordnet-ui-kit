@@ -2,6 +2,7 @@
 
 ## 0.0.27
 * Added value formatter function to input.
+* Checkbox and radio inputs now support validation.
 * More icons.
 * New [react-select](https://github.com/JedWatson/react-select) component.
 * `event` is now passed to input components custom onBlur and onFocus functions [#46](https://github.com/nordnet/nordnet-ui-kit/pull/46).
