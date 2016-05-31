@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.0.27
+* Added value formatter function to input.
+* More icons.
+* New [react-select](https://github.com/JedWatson/react-select) component.
+* `event` is now passed to input components custom onBlur and onFocus functions [#46](https://github.com/nordnet/nordnet-ui-kit/pull/46).
+
+## 0.0.26
+* Build tool improvements.
+* More icons.
+* New badge component.
+
+## 0.0.25
+* Documentation is now powered by [react-styleguidist](https://github.com/sapegin/react-styleguidist).
+
 ## 0.0.24
 * Input now properly renders label when value is an object and when value is set via props.
 
