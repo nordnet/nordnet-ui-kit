@@ -8,6 +8,7 @@ function HelpText(props) {
     'help-text--has-success': hasSuccess,
     'help-text--has-warning': hasWarning,
     'help-text--has-error': hasError,
+    'help-text--checkbox-radio': props.isCheckbox || props.isRadio,
   });
 
   if (props.children) {

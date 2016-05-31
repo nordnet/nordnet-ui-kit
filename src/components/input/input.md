@@ -89,3 +89,28 @@ Type: `date`
       placeholder="Enter text"
       type="date"
     />
+
+Type: `checkbox`
+
+    <div>
+      <Input
+        label="Checkbox input"
+        type="checkbox"
+      />
+
+      <Input
+        label="Checkbox input with success"
+        type="checkbox"
+        checked
+        hasSuccess
+        helpText="Well done!"
+      />
+
+      <Input
+        label="Checkbox input with error"
+        type="checkbox"
+        checked
+        hasError
+        helpText="Oh no!"
+      />
+    </div>
