@@ -1,9 +1,19 @@
 Type: `text`
 
+    function toUpperCase(value) {
+      return value.toUpperCase();
+    }
+
     <div>
       <Input
         label="Text input"
         placeholder="Enter text"
+      />
+
+      <Input
+        label="Text input with custom formatter"
+        placeholder="Enter text to see how the formatter works"
+        valueFormatter={toUpperCase}
       />
 
       <Input
