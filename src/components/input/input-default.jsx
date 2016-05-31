@@ -61,10 +61,19 @@ class InputDefault extends PureComponent {
   }
 
   onChange(event) {
-    this.setState({
-      value: event.target.value,
-      hasValue: this.hasValue(event.target.value),
-    });
+    const state = {};
+
+    if (this.props.valueFormatter) {
+      const value = this.props.valueFormatter(event.target.value);
+
+      state.value = value;
+      state.hasValue = this.hasValue(value);
+    } else {
+      state.value = event.target.value;
+      state.hasValue = this.hasValue(event.target.value);
+    }
+
+    this.setState(state);
 
     if (this.props.onChange) {
       this.props.onChange(event);
@@ -190,6 +199,8 @@ InputDefault.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  /** Manipulates the value of the input, eg. removing unsupported characters from number inputs */
+  valueFormatter: PropTypes.func,
   hasSuccess: PropTypes.bool,
   hasError: PropTypes.bool,
   hasWarning: PropTypes.bool,
