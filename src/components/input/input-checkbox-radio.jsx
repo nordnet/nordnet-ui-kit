@@ -26,6 +26,9 @@ class InputCheckboxRadio extends PureComponent {
     this.setState({
       checked: nextProps.checked ? nextProps.checked : false,
       disabled: nextProps.disabled ? nextProps.disabled : false,
+      hasSuccess: !!nextProps.hasSuccess,
+      hasWarning: !!nextProps.hasWarning,
+      hasError: !!nextProps.hasError,
     });
   }
 
