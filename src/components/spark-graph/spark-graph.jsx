@@ -4,26 +4,27 @@ import classNames from 'classnames';
 import variables from '../../utilities/variables';
 import './spark-graph.scss';
 
-
-export default class SparkGraph extends React.Component {
+class SparkGraph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       width: 0,
       height: 0,
+      isBrowser: !(typeof window === 'undefined'),
     };
+
     this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
-    if (!this.props.height || !this.props.width) {
+    if (this.state.isBrowser && (!this.props.height || !this.props.width)) {
       this.handleResize();
       window.addEventListener('resize', this.handleResize);
     }
   }
 
   componentWillUnmount() {
-    if (!this.props.height || !this.props.width) {
+    if (this.state.isBrowser && (!this.props.height || !this.props.width)) {
       window.removeEventListener('resize', this.handleResize);
     }
   }
@@ -164,3 +165,5 @@ SparkGraph.propTypes = {
 SparkGraph.defaultProps = {
   strokeWidth: 1,
 };
+
+export default SparkGraph;
