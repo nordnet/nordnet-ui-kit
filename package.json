@@ -85,6 +85,7 @@
     "rimraf": "^2.5.1",
     "sass-loader": "^3.1.2",
     "sass-variable-loader": "^0.0.3",
+    "source-map-support": "^0.4.0",
     "style-loader": "^0.13.1",
     "svg-icon-template-loader": "0.0.6",
     "svgo-loader": "^1.1.0",
