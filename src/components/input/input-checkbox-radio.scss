@@ -1,6 +1,12 @@
 @import '../../variables';
 @import '../../functions';
 
+$modifiers: (
+  success: $color-success,
+  warning: $color-warning,
+  error: $color-danger
+);
+
 .input-checkbox-radio {
   display: block;
   margin-bottom: rem(16px);
@@ -25,11 +31,35 @@
     font-size: inherit;
     max-width: calc(100% - #{ rem(16px) });
     font-size: rem(16px);
+    margin-top: rem(-2px);
+  }
+
+  @each $modifier, $color in $modifiers {
+    &--has-#{$modifier} {
+      color: $color;
+
+      .checkbox,
+      .radio {
+        border-color: $color;
+
+        &--is-checked {
+          background-color: $color;
+        }
+      }
+    }
   }
 
   &--is-disabled {
     cursor: not-allowed;
     color: $color-disabled;
+  }
+
+  + .help-text {
+    position: relative;
+    text-align: left;
+    width: auto;
+    bottom: rem(14px);
+    margin-left: rem(20px);
   }
 }
 

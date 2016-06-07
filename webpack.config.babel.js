@@ -22,6 +22,7 @@ const entry = {
     logo: './src/components/logo/logo.jsx',
     pane: './src/components/pane/pane.jsx',
     'spark-graph': ['./src/components/spark-graph'],
+    select: './src/components/select/select.jsx',
     value: './src/components/value/value.jsx',
     variables: ['./src/utilities/variables.js'],
     widget: ['./src/components/widget/widget'],

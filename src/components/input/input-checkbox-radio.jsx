@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import Checkbox from './checkbox';
 import Radio from './radio';
+import HelpText from './help-text.jsx';
 import './input-checkbox-radio.scss';
 
 class InputCheckboxRadio extends PureComponent {
@@ -13,6 +14,9 @@ class InputCheckboxRadio extends PureComponent {
     this.state = {
       checked: props.checked,
       disabled: props.disabled,
+      hasSuccess: !!props.hasSuccess,
+      hasWarning: !!props.hasWarning,
+      hasError: !!props.hasError,
     };
 
     this.onChange = this.onChange.bind(this);
@@ -22,6 +26,9 @@ class InputCheckboxRadio extends PureComponent {
     this.setState({
       checked: nextProps.checked ? nextProps.checked : false,
       disabled: nextProps.disabled ? nextProps.disabled : false,
+      hasSuccess: !!nextProps.hasSuccess,
+      hasWarning: !!nextProps.hasWarning,
+      hasError: !!nextProps.hasError,
     });
   }
 
@@ -33,6 +40,24 @@ class InputCheckboxRadio extends PureComponent {
     if (this.props.onChange) {
       this.props.onChange(event);
     }
+  }
+
+  renderHelpText() {
+    const props = {
+      hasSuccess: this.state.hasSuccess,
+      hasWarning: this.state.hasWarning,
+      hasError: this.state.hasError,
+      isCheckbox: this.props.type === 'checkbox',
+      isRadio: this.props.type === 'radio',
+    };
+
+    if (!this.props.helpText) {
+      return null;
+    }
+
+    return (
+      <HelpText { ...props }>{ this.props.helpText }</HelpText>
+    );
   }
 
   renderFakeInput() {
@@ -75,14 +100,19 @@ class InputCheckboxRadio extends PureComponent {
 
   render() {
     const classes = classNames('input-checkbox-radio', {
+      'input-checkbox-radio--has-success': this.state.hasSuccess,
+      'input-checkbox-radio--has-error': this.state.hasError,
       'input-checkbox-radio--is-disabled': this.state.disabled,
     }, this.props.className);
 
     return (
-      <label className={ classes }>
-        { this.renderInput() }
-        { this.renderLabel() }
-      </label>
+      <span>
+        <label className={ classes }>
+          { this.renderInput() }
+          { this.renderLabel() }
+        </label>
+        { this.renderHelpText() }
+      </span>
     );
   }
 }

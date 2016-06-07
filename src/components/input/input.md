@@ -1,9 +1,19 @@
 Type: `text`
 
+    function toUpperCase(value) {
+      return value.toUpperCase();
+    }
+
     <div>
       <Input
         label="Text input"
         placeholder="Enter text"
+      />
+
+      <Input
+        label="Text input with custom formatter"
+        placeholder="Enter text to see how the formatter works"
+        valueFormatter={toUpperCase}
       />
 
       <Input
@@ -89,3 +99,28 @@ Type: `date`
       placeholder="Enter text"
       type="date"
     />
+
+Type: `checkbox`
+
+    <div>
+      <Input
+        label="Checkbox input"
+        type="checkbox"
+      />
+
+      <Input
+        label="Checkbox input with success"
+        type="checkbox"
+        checked
+        hasSuccess
+        helpText="Well done!"
+      />
+
+      <Input
+        label="Checkbox input with error"
+        type="checkbox"
+        checked
+        hasError
+        helpText="Oh no!"
+      />
+    </div>
