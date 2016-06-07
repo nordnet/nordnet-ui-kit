@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import variables from '../../utilities/variables';
+import debounce from 'lodash.debounce';
 import './spark-graph.scss';
 
 class SparkGraph extends React.Component {
@@ -12,8 +13,7 @@ class SparkGraph extends React.Component {
       height: 0,
       isBrowser: !(typeof window === 'undefined'),
     };
-
-    this.handleResize = this.handleResize.bind(this);
+    this.handleResize = debounce(this.handleResize.bind(this), 150).bind(this);
   }
 
   componentDidMount() {
