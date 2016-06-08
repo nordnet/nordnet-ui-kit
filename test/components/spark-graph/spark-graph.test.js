@@ -25,8 +25,8 @@ describe('<SparkGraph />', () => {
     beforeEach(() => {
       component = shallow(<SparkGraph points={ [1, 2] } height={ 32 } width={ 128 } />);
     });
-    it('should have a path equal to: M 0 31.5  L 128 0.5', () => {
-      expect(component.childAt(0).prop('d')).to.equal('M 0 31.5  L 128 0.5');
+    it('should have a path equal to: M 0 31.5 L 128 0.5', () => {
+      expect(component.childAt(0).prop('d')).to.equal('M 0 31.5 L 128 0.5');
     });
     describe('and strokeWidth=10', () => {
       beforeEach(() => {
@@ -35,8 +35,8 @@ describe('<SparkGraph />', () => {
       it('should have a path with a strokeWidth of 10', () => {
         expect(component.childAt(0).prop('strokeWidth')).to.equal(10);
       });
-      it('should have a path equal to: M 0 27  L 128 5', () => {
-        expect(component.childAt(0).prop('d')).to.equal('M 0 27  L 128 5');
+      it('should have a path equal to: M 0 27 L 128 5', () => {
+        expect(component.childAt(0).prop('d')).to.equal('M 0 27 L 128 5');
       });
     });
   });
@@ -60,13 +60,13 @@ describe('<SparkGraph />', () => {
         <SparkGraph points={ [1, 2] } />
       );
     });
-    it('should have a path equal to: M 0 31.5  L 128 0.5 in a state of 128x32px', () => {
+    it('should have a path equal to: M 0 31.5 L 128 0.5 in a state of 128x32px', () => {
       component.setState({ width: 128, height: 32 });
-      expect(component.find('path').prop('d')).to.equal('M 0 31.5  L 128 0.5');
+      expect(component.find('path').prop('d')).to.equal('M 0 31.5 L 128 0.5');
     });
-    it('should have a path equal to: M 0 99.5  L 200 0.5 in a state of 200x100px', () => {
+    it('should have a path equal to: M 0 99.5 L 200 0.5 in a state of 200x100px', () => {
       component.setState({ width: 200, height: 100 });
-      expect(component.find('path').prop('d')).to.equal('M 0 99.5  L 200 0.5');
+      expect(component.find('path').prop('d')).to.equal('M 0 99.5 L 200 0.5');
     });
   });
 });

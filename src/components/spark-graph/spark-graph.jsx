@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
+import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
 import variables from '../../utilities/variables';
 import debounce from 'lodash.debounce';
@@ -9,35 +9,55 @@ class SparkGraph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: 0,
-      height: 0,
-      isBrowser: !(typeof window === 'undefined'),
+      width: props.width || 0,
+      height: props.height || 0,
+      shouldResize: !(typeof window === 'undefined') && (!props.width || !props.height),
     };
+
     this.handleResize = debounce(this.handleResize.bind(this), 150).bind(this);
   }
 
   componentDidMount() {
-    if (this.state.isBrowser && (!this.props.height || !this.props.width)) {
+    if (this.state.shouldResize) {
       this.handleResize();
       window.addEventListener('resize', this.handleResize);
     }
   }
 
+  componentWillReceiveProps({ width, height }) {
+    this.setState({
+      width: width !== this.state.width ? width : this.state.width,
+      height: height !== this.state.height ? height : this.state.height,
+    });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+
   componentWillUnmount() {
-    if (this.state.isBrowser && (!this.props.height || !this.props.width)) {
+    if (this.state.shouldResize) {
       window.removeEventListener('resize', this.handleResize);
     }
   }
 
-  getMinMax(points) {
-    return {
-      min: Math.min(...points),
-      max: Math.max(...points),
-    };
+  getStrokeDirection(points, stroke) {
+    if (stroke) {
+      return stroke;
+    }
+
+    if (points[0] > points[points.length - 1]) {
+      return variables.colorDanger;
+    } else if (points[0] < points[points.length - 1]) {
+      return variables.colorSuccess;
+    }
+
+    return variables.colorText;
   }
 
   handleResize() {
-    const rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
+    const rect = this.svgNode.getBoundingClientRect();
+
     if (rect.height !== this.state.height || rect.width !== this.state.width) {
       this.setState({
         width: rect.width,
@@ -48,20 +68,27 @@ class SparkGraph extends React.Component {
 
   transformPoints(points, height, strokeWidth) {
     const effectiveHeight = height - strokeWidth;
-    const horizontalPadding = strokeWidth / 2;
-    const { min, max } = this.getMinMax(points);
+    const strokeCompensation = strokeWidth / 2;
+    const min = Math.min(...points);
+    const max = Math.max(...points);
+
     if (min === max) {
       // The line must be exactly horizontal, normalization not possible
       return [height / 2, height / 2];
     }
-    return points.map(point => horizontalPadding + effectiveHeight -
-      (((point - min) / (max - min)) * effectiveHeight));
+
+    return points.map(point => (
+      (effectiveHeight + strokeCompensation) - (((point - min) / (max - min)) * effectiveHeight)
+    ));
   }
 
-  buildPathString(points, width) {
-    const xInc = width / (points.length - 1);
-    return `M 0 ${points[0]} ${points.slice(1).reduce((prev, curr, index) =>
-      `${prev} L ${(index + 1) * xInc} ${curr}`, '')}`;
+  constructPathString(points, width) {
+    const [first, ...rest] = points;
+    const xScale = width / rest.length;
+
+    return rest.reduce((prev, curr, index) => (
+      `${prev} L ${(index + 1) * xScale} ${curr}`
+    ), `M 0 ${first}`);
   }
 
   render() {
@@ -69,41 +96,32 @@ class SparkGraph extends React.Component {
       points,
       stroke,
       strokeWidth,
-      width,
-      height,
       className,
       style,
       ...rest,
     } = this.props;
-    const targetWidth = !width ? this.state.width : width;
-    const targetHeight = !height ? this.state.height : height;
-    const classes = classNames('spark-graph', className);
+    const { width, height } = this.state;
+    const transformedPoints = this.transformPoints(points, height, strokeWidth);
+    // TODO: Polyfill Object.assign because IE
     const styles = Object.assign({
-      width: !width ? '100%' : `${targetWidth}px`,
-      height: !height ? '100%' : `${targetHeight}px`,
+      width: !this.props.width ? '100%' : `${width}px`,
+      height: !this.props.height ? '100%' : `${height}px`,
     }, style);
-    let actualStroke = stroke;
-    if (!stroke) {
-      if (points[0] > points[points.length - 1]) {
-        actualStroke = variables.colorDanger;
-      } else if (points[0] < points[points.length - 1]) {
-        actualStroke = variables.colorSuccess;
-      } else {
-        actualStroke = variables.colorText;
-      }
-    }
-    const transformedPoints = this.transformPoints(points, targetHeight, strokeWidth);
+
     return (
       <svg
         { ...rest }
-        className={ classes }
+        className={ classNames('spark-graph', className) }
         style={ styles }
-        viewBox={ `0 0 ${targetWidth} ${targetHeight}` }
+        viewBox={ `0 0 ${width} ${height}` }
+        ref={ (node) => {
+          this.svgNode = node;
+        } }
       >
         <path
           className="spark-graph__path"
-          d={ this.buildPathString(transformedPoints, targetWidth) }
-          stroke={ actualStroke }
+          d={ this.constructPathString(transformedPoints, width) }
+          stroke={ this.getStrokeDirection(points, stroke) }
           strokeWidth={ strokeWidth }
           strokeLinecap="square"
           strokeLinejoin="round"
@@ -114,49 +132,13 @@ class SparkGraph extends React.Component {
 }
 
 SparkGraph.propTypes = {
-  /**
-    Needs to be an array of at least 2 numbers
-  */
-  points: (props, propName, componentName) => {
-    const points = props[propName];
-    if (!points) {
-      return new Error(
-        `Invalid prop ${propName} supplied to ${componentName}.
-        Points undefined`
-      );
-    }
-    if (!Array.isArray(points)) {
-      return new Error(
-        `Invalid prop ${propName} supplied to ${componentName}.
-        Points need to be array`
-      );
-    }
-    if (points.length < 2) {
-      return new Error(
-        `Invalid prop ${propName} supplied to ${componentName}.
-        Need more than 2 points`
-      );
-    }
-    if (points.some(isNaN)) {
-      return new Error(
-        `Invalid prop ${propName} supplied to ${componentName}.
-        Need to be an array of numbers`
-      );
-    }
-    return null;
-  },
-  /**
-    Stroke color
-  */
+  points: PropTypes.arrayOf(PropTypes.number).isRequired,
+  /** Stroke color */
   stroke: PropTypes.string,
   strokeWidth: PropTypes.number,
-  /**
-    Width in px or leave blank to fill parent
-  */
+  /** Unitless pixel value */
   width: PropTypes.number,
-  /**
-    Height in px or leave blank to fill parent
-  */
+  /** Unitless pixel value */
   height: PropTypes.number,
   className: PropTypes.string,
   style: PropTypes.object,
