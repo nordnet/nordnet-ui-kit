@@ -8,6 +8,7 @@ import './graph.scss';
 
 export default function Graph({
   variant,
+  language,
   className,
   config,
   ...rest,
@@ -23,22 +24,30 @@ export default function Graph({
   const variantTheme = require(`./themes/${variant}.js`).theme;
   console.log('variantTheme', variantTheme);
 
-  config = merge({}, defaultTheme, variantTheme, config);
+  const translations = require(`./i18n/${language}.js`);
+  console.log('translations', translations);
+
+  config = merge({}, defaultTheme, translations, variantTheme, config);
   console.log('config', config);
 
+//  ReactHighstocks.getChart().setOptions();
+
+
   return (
-    <ReactHighstocks { ...rest } config={ config } className={ classes } />
+    <ReactHighstocks { ...rest } config={ config } className={ classes } lang={ translations } />
   );
 }
 
 Graph.defaultProps = {
   variant: 'dark',
+  language: 'sv',
   decimals: 2,
   config: {}
 };
 
 Graph.propTypes = {
   className: PropTypes.string,
+  language: React.PropTypes.oneOf(['sv', 'da', 'no', 'fi', 'en']),
   decimals: PropTypes.number,
   /** Theme variant of the chart. */
   variant: React.PropTypes.oneOf(['dark', 'light']),
