@@ -2,7 +2,7 @@ import Alert from './components/alert/alert';
 import Badge from './components/badge/badge';
 import Button from './components/button/button';
 import Dropdown from './components/dropdown/dropdown';
-import Highcharts from './components/highcharts/highcharts';
+import Graph from './components/graph/graph';
 import Icon from './components/icon/icon';
 import Input from './components/input/input';
 import Logo from './components/logo/logo';
@@ -13,4 +13,4 @@ import Value from './components/value/value';
 import DatePicker from './components/date-picker';
 import Widget from './components/widget/widget';
 
-export { Alert, Badge, Button, Dropdown, Highcharts, Icon, Input, Logo, Pane, Select, DatePicker, Value, Widget, variables };
+export { Alert, Badge, Button, Dropdown, Graph, Icon, Input, Logo, Pane, Select, DatePicker, Value, Widget, variables };

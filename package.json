@@ -39,6 +39,7 @@
     "lodash.camelcase": "^4.1.0",
     "lodash.isnumber": "^3.0.3",
     "lodash.kebabcase": "^4.0.0",
+    "lodash.merge": "^4.4.0",
     "react": "^0.14.0 || ^15.0.1",
     "react-date-picker": "^4.0.10",
     "react-highcharts": "^8.3.2",
