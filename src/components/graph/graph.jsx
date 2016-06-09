@@ -16,7 +16,7 @@ class Graph extends React.Component {
   render() {
     const {
       variant,
-      language,
+      lang,
       className,
       config,
       ...rest,
@@ -29,7 +29,7 @@ class Graph extends React.Component {
     );
 
     // Get translations from language file
-    const translations = require(`./i18n/${language}.js`);  // eslint-disable-line
+    const translations = require(`./i18n/${lang}.js`);  // eslint-disable-line
 
     return (
       <ReactHighstocks
@@ -44,14 +44,14 @@ class Graph extends React.Component {
 
 Graph.defaultProps = {
   variant: 'dark',
-  language: 'sv',
+  lang: 'sv',
   decimals: 2,
   config: {},
 };
 
 Graph.propTypes = {
   className: PropTypes.string,
-  language: React.PropTypes.oneOf(['sv', 'da', 'no', 'fi', 'en']),
+  lang: React.PropTypes.oneOf(['sv', 'da', 'no', 'fi', 'en']),
   decimals: PropTypes.number,
   /** Theme variant of the chart. */
   variant: React.PropTypes.oneOf(['dark', 'light']),
