@@ -8,12 +8,12 @@ export default {
     animation: false,
     style: {
       fontFamily: 'Verdana, Arial, sans-serif',
-      fontSize: '10px'
+      fontSize: '10px',
     },
     resetZoomButton: {
       position: {
         x: 0,
-        y: 0
+        y: 0,
       },
       theme: {
         fill: '#EBEAEA',
@@ -24,26 +24,26 @@ export default {
             fill: '#D5D3D4',
             stroke: '#D5D3D4',
             style: {
-              color: '#26282F'
-            }
-          }
-        }
-      }
-    }
+              color: '#26282F',
+            },
+          },
+        },
+      },
+    },
   },
 
   navigation: {
     buttonOptions: {
-      enabled: false
-    }
+      enabled: false,
+    },
   },
 
   scrollbar: {
-    enabled: false
+    enabled: false,
   },
 
   legend: {
-    enabled: false
+    enabled: false,
   },
 
   loading: {
@@ -52,7 +52,7 @@ export default {
     style: {
       backgroundColor: 'white',
       opacity: 0.5,
-      display: 'block'
+      display: 'block',
     },
     labelStyle: {
       position: 'absolute',
@@ -60,8 +60,8 @@ export default {
       top: '40%',
       width: '50px',
       height: '50px',
-      display: 'block'
-    }
+      display: 'block',
+    },
   },
 
   title: {
@@ -70,18 +70,18 @@ export default {
     align: 'center',
     verticalAlign: 'top',
     style: {
-      font: '12px Verdana, arial, sans-serif'
-    }
+      font: '12px Verdana, arial, sans-serif',
+    },
   },
 
   subtitle: {
     text: '',
     floating: true,
     align: 'center',
-    verticalAlign: 'top'
+    verticalAlign: 'top',
   },
 
   credits: {
-    enabled: false
-  }
+    enabled: false,
+  },
 };

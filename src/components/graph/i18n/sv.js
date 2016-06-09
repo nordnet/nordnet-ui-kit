@@ -58,6 +58,6 @@ export const lang = {
     R: 'R\u00e4nteb\u00e4rande',
     FND: 'Fonder',
     LIQUID_HOLDINGS: 'Likvida medel',
-    OTHER: '\u00d6vrigt'
-  }
+    OTHER: '\u00d6vrigt',
+  },
 };

@@ -1,48 +1,52 @@
 import React, { PropTypes } from 'react';
-import ReactHighstocks from 'react-highcharts/dist/ReactHighstock.src';
-import defaultTheme from './themes/default.js';
+import ReactHighstocks from './react-highstocks';
+import defaultTheme from './themes/default';
 import kebabCase from 'lodash.kebabcase';
 import merge from 'lodash.merge';
 import classNames from 'classnames';
 import './graph.scss';
 
-export default function Graph({
-  variant,
-  language,
-  className,
-  config,
-  ...rest,
-}) {
+class Graph extends React.Component {
+  mergeConfig(variant, config) {
+    // Override default theme with variant and then custom config.
+    const variantTheme = require(`./themes/${variant}.js`).theme; // eslint-disable-line
+    return merge({}, defaultTheme, variantTheme, config);
+  }
 
-  const classes = classNames(
-    'graph',
-    `graph--${kebabCase(variant)}`,
-    className
-  );
+  render() {
+    const {
+      variant,
+      language,
+      className,
+      config,
+      ...rest,
+    } = this.props;
 
-  // Override default theme with variant and then custom config.
-  const variantTheme = require(`./themes/${variant}.js`).theme;
-  console.log('variantTheme', variantTheme);
+    const classes = classNames(
+      'graph',
+      `graph--${kebabCase(variant)}`,
+      className
+    );
 
-  const translations = require(`./i18n/${language}.js`);
-  console.log('translations', translations);
+    // Get translations from language file
+    const translations = require(`./i18n/${language}.js`);  // eslint-disable-line
 
-  config = merge({}, defaultTheme, translations, variantTheme, config);
-  console.log('config', config);
-
-//  ReactHighstocks.getChart().setOptions();
-
-
-  return (
-    <ReactHighstocks { ...rest } config={ config } className={ classes } lang={ translations } />
-  );
+    return (
+      <ReactHighstocks
+        { ...rest }
+        config={ this.mergeConfig(variant, config) }
+        className={ classes }
+        translations={ translations }
+      />
+    );
+  }
 }
 
 Graph.defaultProps = {
   variant: 'dark',
   language: 'sv',
   decimals: 2,
-  config: {}
+  config: {},
 };
 
 Graph.propTypes = {
@@ -54,3 +58,5 @@ Graph.propTypes = {
   /** Highstocks config object, overrides default themes per setting, see API documentation [here](http://api.highcharts.com/highstock). */
   config: PropTypes.object,
 };
+
+export default Graph;

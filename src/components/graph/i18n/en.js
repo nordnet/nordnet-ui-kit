@@ -58,6 +58,6 @@ export const lang = {
     R: 'Interest-bearing instruments',
     FND: 'Funds',
     LIQUID_HOLDINGS: 'Liquid holdings',
-    OTHER: 'Other'
-  }
+    OTHER: 'Other',
+  },
 };

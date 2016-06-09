@@ -1,9 +1,9 @@
 export const theme = {
   navigator: {
-     enabled: false
+    enabled: false,
   },
 
   rangeSelector: {
-    enabled: false
-  }
+    enabled: false,
+  },
 };
