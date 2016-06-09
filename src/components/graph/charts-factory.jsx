@@ -48,6 +48,9 @@ class ChartsFactory extends React.Component {
       },
     }, this.props.callback);
 
+    // Need this later for the formatters
+    this.chart.decimals = this.props.decimals;
+
     if (global.requestAnimationFrame && this.chart && this.chart.options) {
       requestAnimationFrame(() => { this.chart.reflow(); });
     }
@@ -64,12 +67,14 @@ class ChartsFactory extends React.Component {
 }
 
 ChartsFactory.defaultProps = {
+  decimals: 2,
   callback: () => {},
 };
 
 ChartsFactory.propTypes = {
   chartType: PropTypes.string.isRequired,
   highcharts: PropTypes.object.isRequired,
+  decimals: PropTypes.number,
   config: PropTypes.object.isRequired,
   translations: PropTypes.object,
   isPureConfig: PropTypes.bool,
