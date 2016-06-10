@@ -1,3 +1,11 @@
+import {
+  yAxisLabelFormatter,
+  xAxisLabelFormatter,
+  tickPositioner,
+  tooltipPositioner,
+  tooltipFormatter,
+} from '../plugins/formatters.js';
+
 export default {
   chart: {
     marginBottom: 20,
@@ -83,5 +91,71 @@ export default {
 
   credits: {
     enabled: false,
+  },
+
+  yAxis: [
+    {
+      labels: {
+        formatter: yAxisLabelFormatter,
+        style: {
+          fontSize: '10px',
+        },
+        align: 'left',
+        x: -10,
+        y: 0,
+      },
+      gridLineColor: '#ededed',
+      gridZIndex: 2,
+      gridLineWidth: 1,
+      lineWidth: 0,
+      title: {
+        text: '',
+      },
+      opposite: true,
+    },
+  ],
+
+  xAxis: {
+    floor: 0,
+    type: 'datetime',
+    ordinal: true,
+    offset: 0,
+    tickColor: '#ededed',
+    minRange: 900000,
+    tickPixelInterval: 130,
+    tickPositioner,
+    labels: {
+      formatter: xAxisLabelFormatter,
+      style: {
+        fontSize: '10px',
+      },
+    },
+  },
+
+  navigator: {
+    enabled: true,
+    xAxis: {
+      labels: {
+        formatter: xAxisLabelFormatter,
+      },
+    },
+  },
+
+  tooltip: {
+    positioner: tooltipPositioner,
+    formatter: tooltipFormatter,
+    backgroundColor: '#fff',
+    borderColor: '#d1cfcf',
+    borderRadius: 0,
+    borderWidth: 0,
+    shared: true,
+    shadow: false,
+    style: {
+      color: '#333333',
+      font: '14px',
+      padding: '8px',
+    },
+    followPointer: true,
+    useHTML: true,
   },
 };

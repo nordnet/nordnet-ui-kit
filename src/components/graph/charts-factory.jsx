@@ -29,14 +29,9 @@ class ChartsFactory extends React.Component {
     return this.chart;
   }
 
-  renderChart(config, translations) {
+  renderChart(config) {
     if (!config) {
       throw new Error(`Config must be specified for the Highcharts${this.props.chartType} component`);
-    }
-
-    // Need to apply translations before chart is created.
-    if (translations) {
-      this.Highcharts.setOptions(translations);
     }
 
     const chartConfig = config.chart;
@@ -50,6 +45,7 @@ class ChartsFactory extends React.Component {
 
     // Need this later for the formatters
     this.chart.decimals = this.props.decimals;
+    this.chart.translations = this.props.translations;
 
     if (global.requestAnimationFrame && this.chart && this.chart.options) {
       requestAnimationFrame(() => { this.chart.reflow(); });

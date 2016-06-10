@@ -1,5 +1,6 @@
-import Highcharts from 'highcharts';
+
 import * as definitions from '../definitions';
+import { getHighstocks } from '../react-highstocks';
 
 function isLongerThan(from, to, comparison) {
   return to - from > comparison;
@@ -9,13 +10,32 @@ function isSinglePointToday(points, minDate, maxDate) {
   const firstDate = new Date(minDate);
   const lastDate = new Date(maxDate);
   return points === 2 &&
-      firstDate.getDate() !== new Date().getDate() &&
-      firstDate.getDate() !== lastDate.getDate();
+  firstDate.getDate() !== new Date().getDate() &&
+  firstDate.getDate() !== lastDate.getDate();
+}
+
+function isPointFirst(data) {
+  return data.points[0].point.index === 0;
+}
+
+function hasPointPrice(data) {
+  return data && data.points && data.points.length > 0;
+}
+
+function hasPointVolume(data) {
+  return data && data.points && data.points.length > 1;
+}
+
+function hasPriceSeries(data) {
+  return data &&
+      data.points &&
+      data.points.length > 0 &&
+      data.points[0].series;
 }
 
 export function yAxisLabelFormatter() {
   if (this.value >= 0) {
-    return Highcharts.numberFormat(this.value, this.chart.decimals ? this.chart.decimals : 2);
+    return getHighstocks().numberFormat(this.value, this.chart.decimals ? this.chart.decimals : 2);
   }
   return '';
 }
@@ -32,20 +52,20 @@ export function xAxisLabelFormatter() {
   if (this.axis) {
     if (isSinglePointToday(pointCount, this.axis.dataMin, this.axis.dataMax) || pointCount === 0) {
       if (this.isFirst) {
-        return Highcharts.dateFormat(definitions.shortDateFormat, this.value);
+        return getHighstocks().dateFormat(definitions.shortDateFormat, this.value);
       }
-      return Highcharts.dateFormat(definitions.shortDateTimeFormat, this.value);
+      return getHighstocks().dateFormat(definitions.shortDateTimeFormat, this.value);
     }
 
     if (isLongerThan(this.axis.dataMin, currentTime, definitions.year)) {
-      return Highcharts.dateFormat(definitions.yearFormat, this.value);
+      return getHighstocks().dateFormat(definitions.yearFormat, this.value);
     } else if (isLongerThan(this.axis.dataMin, currentTime, definitions.month)) {
-      return Highcharts.dateFormat(definitions.shortDateFormat, this.value);
+      return getHighstocks().dateFormat(definitions.shortDateFormat, this.value);
     } else if (isLongerThan(this.axis.dataMin, currentTime, definitions.week)) {
-      return Highcharts.dateFormat(definitions.shortDateTimeFormat, this.value);
+      return getHighstocks().dateFormat(definitions.shortDateTimeFormat, this.value);
     }
     // day
-    return Highcharts.dateFormat(definitions.timeFormat, this.value);
+    return getHighstocks().dateFormat(definitions.timeFormat, this.value);
   }
   return '';
 }
@@ -91,4 +111,60 @@ export function tickPositioner() {
   }
 
   return ticks;
+}
+
+export function tooltipPositioner() {
+  return { x: 0, y: 0 };
+}
+
+function tooltipElement(title, bold, extra) {
+  return `<span class="webapp-graph-tooltip">${title || ''} <b>${bold || ''}</b> ${extra || ''}</span>`;
+}
+
+export function tooltipFormatter() {
+  const translations = this.points[0].series.chart.translations;
+  const decimals = this.points[0].series.chart.decimals || 2;
+  const currentTime = new Date();
+  let dateString = '';
+  let tooltipString = '';
+  let series;
+  let pointCount;
+
+  if (hasPriceSeries(this)) {
+    series = this.points[0].series;
+    try {
+      pointCount = series.points.length;
+    } catch (e) {
+      pointCount = 0;
+    }
+
+    if (isSinglePointToday(pointCount, series.xAxis.dataMin, series.xAxis.dataMax)) {
+      if (isPointFirst(this)) {
+        dateString = getHighstocks().dateFormat(definitions.shortDateFormat, this.x);
+      } else {
+        dateString = getHighstocks().dateFormat(definitions.shortDateTimeFormat, this.x);
+      }
+    } else if (isLongerThan(series.xAxis.dataMin, currentTime, definitions.year)) { // year
+      dateString = getHighstocks().dateFormat(definitions.fullYearFormat, this.x);
+    //  console.log(dateString);
+    } else if (isLongerThan(series.xAxis.dataMin, currentTime, definitions.month)) { // month
+      dateString = getHighstocks().dateFormat(definitions.fullDateFormat, this.x);
+    }
+    // week & day
+    dateString = getHighstocks().dateFormat(definitions.fullDateTimeFormat, this.x);
+  }
+
+  tooltipString = tooltipElement(null, dateString);
+
+  if (hasPointPrice(this)) {
+    tooltipString += tooltipElement(translations.price,
+      getHighstocks().numberFormat(this.points[0].y, decimals));
+  }
+
+  if (hasPointVolume(this)) {
+    tooltipString += tooltipElement(translations.volume,
+      getHighstocks().numberFormat(this.points[1].y, decimals));
+  }
+
+  return tooltipString;
 }

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import ReactHighstocks from './react-highstocks';
+import ReactHighstocks, { getHighstocks } from './react-highstocks';
 import defaultTheme from './themes/default';
 import kebabCase from 'lodash.kebabcase';
 import merge from 'lodash.merge';
@@ -29,7 +29,8 @@ class Graph extends React.Component {
     );
 
     // Get translations from language file
-    const translations = require(`./i18n/${lang}.js`);  // eslint-disable-line
+    const translations = require(`./i18n/${lang}.js`).lang;  // eslint-disable-line
+    getHighstocks().setOptions({ lang: translations });
 
     return (
       <ReactHighstocks

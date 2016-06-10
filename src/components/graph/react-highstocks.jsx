@@ -8,4 +8,8 @@ function ReactHighstocks(props) {
   );
 }
 
+export function getHighstocks() {
+  return Highstocks;
+}
+
 export default ReactHighstocks;
