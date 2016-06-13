@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import zoomOut from './plugins/zoom-out.js';
+import mousewheelZoom from './plugins/mouse-wheel-zoom.js';
 
 class ChartsFactory extends React.Component {
   constructor(props) {
@@ -42,6 +44,10 @@ class ChartsFactory extends React.Component {
         renderTo: this.refs.chart,
       },
     }, this.props.callback);
+
+    // Init plugins
+    zoomOut(this.Highcharts, this.chart);
+    mousewheelZoom(this.Highcharts, this.chart);
 
     // Need this later for the formatters
     this.chart.decimals = this.props.decimals;

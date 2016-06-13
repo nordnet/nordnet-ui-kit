@@ -8,6 +8,7 @@ export const theme = {
   },
 
   chart: {
+    zoomType: 'x',
     marginBottom: 5,
     backgroundColor: 'rgba(60, 81, 148, 1)',
     borderColor: '#D6D6D6',
