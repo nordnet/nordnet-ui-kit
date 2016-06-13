@@ -1,5 +1,3 @@
-The UI kit uses [react-highcharts](https://github.com/kirjs/react-highcharts) and applies a custom theme.
-
     const data = [
       [1462744800000, 22.56], [1462831200000, 21.67], [1462917600000, 21.66], [1463004000000, 21.81],
       [1463090400000, 18.26], [1463349600000, 19.16], [1463436000000, 20.13], [1463522400000, 18.72],
@@ -22,7 +20,7 @@ The UI kit uses [react-highcharts](https://github.com/kirjs/react-highcharts) an
 
     <Graph
       name="graph"
-      variant="light"
+      variant="dark"
       decimals={ 3 }
       config={ config }
     />

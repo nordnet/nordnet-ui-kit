@@ -132,4 +132,12 @@ export const theme = {
     },
     gridLineColor: 'rgba(130, 143, 186, 0.5)',
   }],
+
+  xAxis: {
+    labels: {
+      style: {
+        color: '#ffffff',
+      },
+    },
+  },
 };

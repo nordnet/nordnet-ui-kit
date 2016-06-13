@@ -120,7 +120,7 @@ export default {
     type: 'datetime',
     ordinal: true,
     offset: 0,
-    tickColor: '#ededed',
+    tickColor: '#ffffff',
     minRange: 900000,
     tickPixelInterval: 130,
     tickPositioner,
@@ -137,6 +137,9 @@ export default {
     xAxis: {
       labels: {
         formatter: xAxisLabelFormatter,
+        style: {
+          color: '#ffffff',
+        },
       },
     },
   },
