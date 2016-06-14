@@ -36,10 +36,12 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.3",
+    "highcharts": "^4.2.5",
     "lodash.camelcase": "^4.1.0",
     "lodash.debounce": "^4.0.6",
     "lodash.isnumber": "^3.0.3",
     "lodash.kebabcase": "^4.0.0",
+    "lodash.merge": "^4.4.0",
     "react": "^0.14.0 || ^15.0.1",
     "react-addons-shallow-compare": "^15.1.0",
     "react-date-picker": "^4.0.10",
