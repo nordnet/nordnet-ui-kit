@@ -16,6 +16,7 @@ const entry = {
     badge: './src/components/badge/badge.jsx',
     button: './src/components/button/button.jsx',
     dropdown: './src/components/dropdown/dropdown.jsx',
+    graph: './src/components/graph/graph.jsx',
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
     logo: './src/components/logo/logo.jsx',

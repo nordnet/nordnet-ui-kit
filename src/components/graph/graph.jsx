@@ -9,7 +9,12 @@ import './graph.scss';
 class Graph extends React.Component {
   mergeConfig(variant, config) {
     // Override default theme with variant and then custom config.
-    const variantTheme = require(`./themes/${variant}.js`).theme; // eslint-disable-line
+    let variantTheme;
+    try {
+      variantTheme = require(`./themes/${variant}.js`).theme; // eslint-disable-line
+    } catch (e) {
+      variantTheme = {};
+    }
     return merge({}, defaultTheme, variantTheme, config);
   }
 
@@ -29,8 +34,14 @@ class Graph extends React.Component {
     );
 
     // Get translations from language file
-    const translations = require(`./i18n/${lang}.js`).lang;  // eslint-disable-line
-    getHighstocks().setOptions({ lang: translations });
+    let translations;
+    try {
+      translations = require(`./i18n/${lang}.js`).lang; // eslint-disable-line
+    } catch (e) {
+      translations = {};
+    } finally {
+      getHighstocks().setOptions({ lang: translations });
+    }
 
     return (
       <ReactHighstocks
