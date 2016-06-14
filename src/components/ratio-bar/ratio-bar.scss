@@ -1,0 +1,66 @@
+@import '../../variables';
+
+.ratio-bar {
+  display: block;
+  margin: rem(0px -1px);
+  font-size: 0;
+  margin-bottom: rem(16px);
+
+  &__label {
+    display: block;
+    font-size: 1.4rem;
+    color: $color-text-muted;
+    padding-bottom: rem(4px);
+  }
+
+  &__bar {
+    display: inline-block;
+    height: rem(16px);
+    padding: rem(0 1px);
+
+    &-background {
+      display: block;
+      width: 100%;
+      // min-width: rem(1px);
+      height: 100%;
+    }
+
+    &--positive {
+      .ratio-bar__bar-background {
+        background-color: $color-success;
+        color: $color-success;
+      }
+    }
+
+    &--neutral {
+      .ratio-bar__bar-background {
+        background: $color-border;
+        color: $color-border;
+      }
+    }
+
+    &--negative {
+      .ratio-bar__bar-background {
+        background: $color-danger;
+        color: $color-danger;
+      }
+    }
+  }
+
+  &__direction-label {
+    display: inline-block;
+    font-size: rem(14px);
+    padding-top: rem(4px);
+    width: 50%;
+
+    &--negative {
+      color: $color-danger;
+      text-align: left;
+    }
+
+    &--positive {
+      color: $color-success;
+      text-align: right;
+    }
+  }
+}
