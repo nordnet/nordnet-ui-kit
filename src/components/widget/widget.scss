@@ -27,6 +27,10 @@
   &__body {
     padding: rem(0 16px 16px);
 
+    &--no-header {
+      padding-top: rem(16px);
+    }
+
     &--full-width {
       padding: 0;
     }
