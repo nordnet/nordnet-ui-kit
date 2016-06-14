@@ -1,4 +1,3 @@
-
 import * as definitions from '../definitions';
 import { getHighstocks } from '../react-highstocks';
 
