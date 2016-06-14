@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.28
+* Added ratio-bar component [#50](https://github.com/nordnet/nordnet-ui-kit/issues/50).
+* Added spark-graph component thanks to [robineng](https://github.com/robineng).
+* Widget now has padding on top when no header is present thanks to [bstream](https://github.com/bstream).
+* Minor refactoring of various components to improve code quality.
+
 ## 0.0.27
 * Added value formatter function to input.
 * Checkbox and radio inputs now support validation.
