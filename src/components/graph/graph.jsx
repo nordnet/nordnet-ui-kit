@@ -1,18 +1,22 @@
 import React, { PropTypes } from 'react';
 import ReactHighstocks from 'react-highcharts/dist/ReactHighstock';
-import defaultTheme from './themes/default';
 import merge from 'lodash.merge';
+import {
+  baseTheme,
+  lightTheme,
+  darkTheme,
+} from './index';
 
 class Graph extends React.Component {
   mergeConfig(variant, config) {
-    // Override default theme with variant and then custom config.
-    let variantTheme;
-    try {
-      variantTheme = require(`./themes/${variant}.js`).theme; // eslint-disable-line
-    } catch (e) {
-      variantTheme = {};
+    switch (variant) {
+      case 'light':
+        return merge({}, lightTheme, config);
+      case 'dark':
+        return merge({}, darkTheme, config);
+      default:
+        return merge({}, baseTheme, config);
     }
-    return merge({}, defaultTheme, variantTheme, config);
   }
 
   render() {
@@ -38,7 +42,7 @@ Graph.defaultProps = {
 
 Graph.propTypes = {
   /** Theme variant of the chart. */
-  variant: React.PropTypes.oneOf(['dark', 'light']),
+  variant: React.PropTypes.oneOf(['light', 'dark']),
   /** Highstocks config object, overrides default themes per setting, see API documentation [here](http://api.highcharts.com/highstock). */
   config: PropTypes.object,
 };

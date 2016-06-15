@@ -21,6 +21,5 @@
     <Graph
       name="graph"
       variant="dark"
-      decimals={ 3 }
       config={ config }
     />
