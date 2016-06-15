@@ -36,7 +36,6 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.3",
-    "highcharts": "^4.2.5",
     "lodash.camelcase": "^4.1.0",
     "lodash.debounce": "^4.0.6",
     "lodash.isnumber": "^3.0.3",
@@ -85,6 +84,7 @@
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.0.1",
     "react-docgen": "^2.8.2",
+    "react-highcharts": "^8.3.3",
     "react-styleguidist": "^2.2.1",
     "rimraf": "^2.5.1",
     "sass-loader": "^3.1.2",

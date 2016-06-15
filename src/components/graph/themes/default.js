@@ -1,11 +1,3 @@
-import {
-  yAxisLabelFormatter,
-  xAxisLabelFormatter,
-  tickPositioner,
-  tooltipPositioner,
-  tooltipFormatter,
-} from '../plugins/formatters.js';
-
 export default {
   chart: {
     marginBottom: 20,
@@ -96,7 +88,6 @@ export default {
   yAxis: [
     {
       labels: {
-        formatter: yAxisLabelFormatter,
         style: {
           fontSize: '10px',
         },
@@ -123,9 +114,7 @@ export default {
     tickColor: '#ffffff',
     minRange: 900000,
     tickPixelInterval: 130,
-    tickPositioner,
     labels: {
-      formatter: xAxisLabelFormatter,
       style: {
         fontSize: '10px',
       },
@@ -136,7 +125,6 @@ export default {
     enabled: true,
     xAxis: {
       labels: {
-        formatter: xAxisLabelFormatter,
         style: {
           color: '#ffffff',
         },
@@ -145,8 +133,6 @@ export default {
   },
 
   tooltip: {
-    positioner: tooltipPositioner,
-    formatter: tooltipFormatter,
     backgroundColor: '#fff',
     borderColor: '#d1cfcf',
     borderRadius: 0,
