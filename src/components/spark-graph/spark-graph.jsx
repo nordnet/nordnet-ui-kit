@@ -4,14 +4,18 @@ import classNames from 'classnames';
 import variables from '../../utilities/variables';
 import debounce from 'lodash.debounce';
 import './spark-graph.scss';
+import { select } from 'd3';
 
 class SparkGraph extends React.Component {
   constructor(props) {
     super(props);
+    const width = props.width || 0;
+    const height = props.height || 0;
     this.state = {
-      width: props.width || 0,
-      height: props.height || 0,
+      width,
+      height,
       shouldResize: !(typeof window === 'undefined') && (!props.width || !props.height),
+      pointsFrom: null,
     };
 
     this.handleResize = debounce(this.handleResize.bind(this), 150).bind(this);
@@ -24,15 +28,32 @@ class SparkGraph extends React.Component {
     }
   }
 
-  componentWillReceiveProps({ width, height }) {
-    this.setState({
-      width: width !== this.state.width ? width : this.state.width,
-      height: height !== this.state.height ? height : this.state.height,
-    });
+  componentWillReceiveProps({ width, height, points }) {
+    const state = {};
+    if (width) state.width = width;
+    if (height) state.height = height;
+    if (points && !this.arraysEqual(this.props.points, points)) {
+      state.pointsFrom = this.props.points;
+    } else {
+      state.pointsFrom = null;
+    }
+    this.setState(state);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
+  }
+
+  componentDidUpdate() {
+    const { points, strokeWidth } = this.props;
+    const { height, width, pointsFrom } = this.state;
+    if (pointsFrom) {
+      let pointsToRender = this.transformPoints(points, height, width, strokeWidth);
+      if (pointsToRender.length < pointsFrom) {
+        pointsToRender = this.addPointsToArray(pointsToRender, pointsFrom - points.length);
+      }
+      select(this.path).transition().attr('d', this.constructPathString(pointsToRender)).duration(250);
+    }
   }
 
   componentWillUnmount() {
@@ -55,6 +76,18 @@ class SparkGraph extends React.Component {
     return variables.colorText;
   }
 
+  arraysEqual(array1, array2) {
+    if (array1.length !== array2.length) {
+      return false;
+    }
+    for (let i = array1.length; i--;) {
+      if (array1[i] !== array2[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   handleResize() {
     const rect = this.svgNode.getBoundingClientRect();
 
@@ -66,7 +99,8 @@ class SparkGraph extends React.Component {
     }
   }
 
-  transformPoints(points, height, strokeWidth) {
+  transformPoints(points, height, width, strokeWidth) {
+    const xScale = width / (points.length - 1);
     const effectiveHeight = height - strokeWidth;
     const strokeCompensation = strokeWidth / 2;
     const min = Math.min(...points);
@@ -74,21 +108,55 @@ class SparkGraph extends React.Component {
 
     if (min === max) {
       // The line must be exactly horizontal, normalization not possible
-      return [height / 2, height / 2];
+      return [{ x: 0, y: height / 2 }, { x: width, y: height / 2 }];
     }
 
-    return points.map(point => (
-      (effectiveHeight + strokeCompensation) - (((point - min) / (max - min)) * effectiveHeight)
+
+    return points.map((point, index) => (
+      {
+        x: index * xScale,
+        y: (effectiveHeight + strokeCompensation) - (((point - min) / (max - min)) * effectiveHeight),
+      }
     ));
   }
 
-  constructPathString(points, width) {
-    const [first, ...rest] = points;
-    const xScale = width / rest.length;
+  addPointsToArray(points, numberOfPoints) {
+    const pointsPerSpace = Math.floor((numberOfPoints - 1) / (points.length - 1)) + 1;
+    const pointsOnLast = ((numberOfPoints - 1) % (points.length - 1)) + 1;
+    const xDiff = points[1].x - points[0].x;
 
-    return rest.reduce((prev, curr, index) => (
-      `${prev} L ${(index + 1) * xScale} ${curr}`
-    ), `M 0 ${first}`);
+    if (numberOfPoints === 1) {
+      points.push(points[points.length - 1]);
+      return points;
+    }
+
+    const [first, ...rest] = points;
+
+    return rest.reduce((prev, curr, index, arr) => {
+      let pointsToAdd;
+      if (index < arr.length - pointsOnLast) {
+        pointsToAdd = pointsPerSpace - 1;
+      } else {
+        pointsToAdd = pointsPerSpace;
+      }
+      const prevPoint = prev[prev.length - 1];
+      const currPoint = curr;
+      for (let i = 1 / (pointsToAdd + 1); i <= 1; i += 1 / (pointsToAdd + 1)) {
+        prev.push({
+          x: prevPoint.x + (i * xDiff),
+          y: prevPoint.y + (i * (currPoint.y - prevPoint.y)),
+        });
+      }
+      return prev;
+    }, [first]);
+  }
+
+  constructPathString(points) {
+    const [first, ...rest] = points;
+
+    return rest.reduce((prev, curr) => (
+      `${prev} L ${curr.x} ${curr.y}`
+    ), `M ${first.x} ${first.y}`);
   }
 
   render() {
@@ -100,13 +168,21 @@ class SparkGraph extends React.Component {
       style,
       ...rest,
     } = this.props;
-    const { width, height } = this.state;
-    const transformedPoints = this.transformPoints(points, height, strokeWidth);
+    const { width, height, pointsFrom } = this.state;
     // TODO: Polyfill Object.assign because IE
     const styles = Object.assign({
       width: !this.props.width ? '100%' : `${width}px`,
       height: !this.props.height ? '100%' : `${height}px`,
     }, style);
+    let pointsToRender;
+    if (pointsFrom) {
+      pointsToRender = this.transformPoints(pointsFrom, height, width, strokeWidth);
+      if (pointsToRender.length < points.length) {
+        pointsToRender = this.addPointsToArray(pointsToRender, points.length - pointsFrom.length);
+      }
+    } else {
+      pointsToRender = this.transformPoints(points, height, width, strokeWidth);
+    }
 
     return (
       <svg
@@ -120,11 +196,14 @@ class SparkGraph extends React.Component {
       >
         <path
           className="spark-graph__path"
-          d={ this.constructPathString(transformedPoints, width) }
+          d={ this.constructPathString(pointsToRender) }
           stroke={ this.getStrokeDirection(points, stroke) }
           strokeWidth={ strokeWidth }
           strokeLinecap="square"
           strokeLinejoin="round"
+          ref={ (node) => {
+            this.path = node;
+          } }
         />
       </svg>
     );
