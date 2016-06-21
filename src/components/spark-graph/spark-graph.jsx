@@ -16,6 +16,7 @@ class SparkGraph extends React.Component {
       height,
       shouldResize: !(typeof window === 'undefined') && (!props.width || !props.height),
       pointsFrom: null,
+      pointsTo: null,
     };
 
     this.handleResize = debounce(this.handleResize.bind(this), 150).bind(this);
@@ -33,7 +34,16 @@ class SparkGraph extends React.Component {
     if (width) state.width = width;
     if (height) state.height = height;
     if (points && !this.arraysEqual(this.props.points, points)) {
-      state.pointsFrom = this.props.points;
+      if (this.props.points.length < points) {
+        state.pointsFrom = this.addPointsToArray(this.props.points, points.length - this.props.points.length);
+        state.pointsTo = points;
+      } else if (this.props.points.length > points) {
+        state.pointsFrom = this.props.points;
+        state.pointsTo = this.addPointsToArray(points, this.props.points.length - points.length);
+      } else {
+        state.pointsFrom = this.props.points;
+        state.pointsTo = points;
+      }
     } else {
       state.pointsFrom = null;
     }
