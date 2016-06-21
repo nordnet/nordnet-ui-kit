@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import './widget.scss';
+import SparkGraph from '../spark-graph';
 
 function renderHeader(header) {
   let headerBody = header;
@@ -16,21 +17,52 @@ function renderHeader(header) {
   );
 }
 
-export default function Widget({ header, children, fullWidth, className, ...rest }) {
-  const classes = classNames('widget', className);
-  const bodyClasses = classNames('widget__body', {
-    'widget__body--full-width': fullWidth,
-    'widget__body--no-header': !header,
-  });
+export default class Widget extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      points: [
+        3, 1, 3, 1, 3, 3, 1, 3, 1, 3, 3, 1, 3, 1,
+      ],
+    };
+    const that = this;
+    this.interval = setInterval(() => {
+      const points = [...that.state.points, this.getRandom()];
+      that.setState({
+        points,
+      });
+    }, 2000);
 
-  return (
-    <div { ...rest } className={ classes }>
-      { header ? renderHeader(header) : <span /> }
-      <div className={ bodyClasses }>
-        { children }
+    this.onStopInterval = this.onStopInterval.bind(this);
+  }
+
+  onStopInterval() {
+    clearInterval(this.interval);
+  }
+
+  getRandom() {
+    return Math.floor(Math.random() * 10);
+  }
+
+  render() {
+    const { header, children, fullWidth, className, ...rest } = this.props;
+    const classes = classNames('widget', className);
+    const bodyClasses = classNames('widget__body', {
+      'widget__body--full-width': fullWidth,
+      'widget__body--no-header': !header,
+    });
+
+    return (
+      <div { ...rest } className={ classes }>
+        { header ? renderHeader(header) : <span /> }
+        <div className={ bodyClasses }>
+          { children }
+          <SparkGraph points={ this.state.points } />
+          <button onClick={ this.onStopInterval }>STOPPA</button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Widget.defaltProps = {
