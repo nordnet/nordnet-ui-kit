@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import variables from '../../utilities/variables';
 import debounce from 'lodash.debounce';
 import './spark-graph.scss';
-import { select } from 'd3';
+import { interpolateObject } from 'd3-interpolate';
 
 class SparkGraph extends React.Component {
   constructor(props) {
@@ -34,16 +34,8 @@ class SparkGraph extends React.Component {
     if (width) state.width = width;
     if (height) state.height = height;
     if (points && !this.arraysEqual(this.props.points, points)) {
-      if (this.props.points.length < points) {
-        state.pointsFrom = this.addPointsToArray(this.props.points, points.length - this.props.points.length);
-        state.pointsTo = points;
-      } else if (this.props.points.length > points) {
-        state.pointsFrom = this.props.points;
-        state.pointsTo = this.addPointsToArray(points, this.props.points.length - points.length);
-      } else {
-        state.pointsFrom = this.props.points;
-        state.pointsTo = points;
-      }
+      state.pointsFrom = this.props.points;
+      state.pointsTo = points;
     } else {
       state.pointsFrom = null;
     }
@@ -55,14 +47,31 @@ class SparkGraph extends React.Component {
   }
 
   componentDidUpdate() {
-    const { points, strokeWidth } = this.props;
-    const { height, width, pointsFrom } = this.state;
+    const { strokeWidth, transformTime } = this.props;
+    const { height, width, pointsFrom, pointsTo } = this.state;
     if (pointsFrom) {
-      let pointsToRender = this.transformPoints(points, height, width, strokeWidth);
-      if (pointsToRender.length < pointsFrom) {
-        pointsToRender = this.addPointsToArray(pointsToRender, pointsFrom - points.length);
+      let pFrom = this.transformPoints(pointsFrom, height, width, strokeWidth);
+      let pTo = this.transformPoints(pointsTo, height, width, strokeWidth);
+      if (pFrom.length < pTo.length) {
+        pFrom = this.addPointsToArray(pFrom, pTo.length - pFrom.length);
+      } else if (pFrom.length > pTo.length) {
+        pTo = this.addPointsToArray(pTo, pFrom.length - pTo.length);
       }
-      select(this.path).transition().attr('d', this.constructPathString(pointsToRender)).duration(250);
+
+      const interpolates = pFrom.map((v, i) => interpolateObject(v, pTo[i]));
+      // 60 fps
+      const steps = Math.round(transformTime * 60 / 1000);
+      const timePerSteps = Math.floor(transformTime / steps);
+      const interpolatePerStep = 1 / steps;
+      let s = steps;
+      const interval = setInterval((polates) => {
+        if (s <= 0) {
+          clearInterval(interval);
+        }
+        const values = polates.map(ip => ip(1 - (s * interpolatePerStep)));
+        this.path.setAttribute('d', this.constructPathString(values));
+        s--;
+      }, timePerSteps, interpolates);
     }
   }
 
@@ -186,10 +195,7 @@ class SparkGraph extends React.Component {
     }, style);
     let pointsToRender;
     if (pointsFrom) {
-      pointsToRender = this.transformPoints(pointsFrom, height, width, strokeWidth);
-      if (pointsToRender.length < points.length) {
-        pointsToRender = this.addPointsToArray(pointsToRender, points.length - pointsFrom.length);
-      }
+      // Do nothing
     } else {
       pointsToRender = this.transformPoints(points, height, width, strokeWidth);
     }
@@ -206,7 +212,7 @@ class SparkGraph extends React.Component {
       >
         <path
           className="spark-graph__path"
-          d={ this.constructPathString(pointsToRender) }
+          d={ !pointsFrom ? this.constructPathString(pointsToRender) : '' }
           stroke={ this.getStrokeDirection(points, stroke) }
           strokeWidth={ strokeWidth }
           strokeLinecap="square"
@@ -229,12 +235,15 @@ SparkGraph.propTypes = {
   width: PropTypes.number,
   /** Unitless pixel value */
   height: PropTypes.number,
+  /** Transformtime in ms */
+  transformTime: PropTypes.number,
   className: PropTypes.string,
   style: PropTypes.object,
 };
 
 SparkGraph.defaultProps = {
   strokeWidth: 1,
+  transformTime: 500,
 };
 
 export default SparkGraph;
