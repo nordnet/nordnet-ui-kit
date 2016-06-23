@@ -16,19 +16,21 @@ describe('<RatioBar />', () => {
     change: -1,
   }];
 
+  const widthPercent = `${(1 / 3) * 100}%`;
+
   beforeEach(() => {
     component = shallow(<RatioBar data={ data } />);
   });
 
-  it('positive bar should have a width of 33.3%', () => {
-    expect(component.find('.ratio-bar__bar--positive').prop('style').width).to.equal('33.3%');
+  it(`positive bar should have a width of ${widthPercent}`, () => {
+    expect(component.find('.ratio-bar__bar--positive').prop('style').width).to.equal(widthPercent);
   });
 
-  it('neutral bar should have a width of 33.3%', () => {
-    expect(component.find('.ratio-bar__bar--neutral').prop('style').width).to.equal('33.3%');
+  it(`neutral bar should have a width of ${widthPercent}`, () => {
+    expect(component.find('.ratio-bar__bar--neutral').prop('style').width).to.equal(widthPercent);
   });
 
-  it('negative bar should have a width of 33.3%', () => {
-    expect(component.find('.ratio-bar__bar--negative').prop('style').width).to.equal('33.3%');
+  it(`negative bar should have a width of ${widthPercent}`, () => {
+    expect(component.find('.ratio-bar__bar--negative').prop('style').width).to.equal(widthPercent);
   });
 });
