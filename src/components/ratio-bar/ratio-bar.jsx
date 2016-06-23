@@ -55,36 +55,42 @@ function renderBar(direction, value, naturalLanguage) {
   return (
     <span className={ classes } style={ styles }>
       <span className="ratio-bar__bar-background">
-        { `${value}% ${naturalLanguage[direction]}.` }
+        { `${value.toFixed(2)}% ${naturalLanguage[direction]}.` }
       </span>
     </span>
   );
 }
 
-function renderLabels(show) {
+function renderLabels(show, labelUp, labelDown) {
   if (!show) {
     return <span />;
   }
 
   return (
     <div aria-hidden="true">
-      <span className="ratio-bar__direction-label ratio-bar__direction-label--negative">Down</span>
-      <span className="ratio-bar__direction-label ratio-bar__direction-label--positive">Up</span>
+      <span className="ratio-bar__direction-label ratio-bar__direction-label--negative">{ labelDown }</span>
+      <span className="ratio-bar__direction-label ratio-bar__direction-label--positive">{ labelUp }</span>
     </div>
   );
 }
 
-function RatioBar({ data, label, showLabels, className, ...rest }) {
+function RatioBar({ data, label, labelUp, labelDown, showLabels, className, ...rest }) {
   const classes = classNames('ratio-bar', className);
   const [positive, neutral, negative] = calculatePercentages(data);
+
+  const naturalLanguage = {
+    positive: labelUp.toLowerCase(),
+    neutral: 'with no change',
+    negative: labelDown.toLowerCase(),
+  };
 
   return (
     <div className={ classes } { ...rest }>
       { label ? <span className="ratio-bar__label">{ label }</span> : <span /> }
-      { renderBar('negative', negative) }
-      { renderBar('neutral', neutral) }
-      { renderBar('positive', positive) }
-      { renderLabels(showLabels) }
+      { renderBar('negative', negative, naturalLanguage) }
+      { renderBar('neutral', neutral, naturalLanguage) }
+      { renderBar('positive', positive, naturalLanguage) }
+      { renderLabels(showLabels, labelUp, labelDown) }
     </div>
   );
 }
@@ -97,10 +103,14 @@ RatioBar.propTypes = {
   label: PropTypes.string,
   className: PropTypes.string,
   showLabels: PropTypes.bool,
+  labelUp: PropTypes.string,
+  labelDown: PropTypes.string,
 };
 
 RatioBar.defaultProps = {
   showLabels: true,
+  labelUp: 'Up',
+  labelDown: 'Down',
 };
 
 export default RatioBar;
