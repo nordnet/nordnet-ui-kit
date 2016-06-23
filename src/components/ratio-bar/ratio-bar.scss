@@ -16,12 +16,18 @@
   &__bar {
     display: inline-block;
     height: rem(16px);
-    padding: rem(0 1px);
+
+    &:before {
+      width: rem(2px);
+      background: $color-base;
+      height: rem(16px);
+      content: ' ';
+      position: absolute;
+    }
 
     &-background {
       display: block;
       width: 100%;
-      // min-width: rem(1px);
       height: 100%;
     }
 

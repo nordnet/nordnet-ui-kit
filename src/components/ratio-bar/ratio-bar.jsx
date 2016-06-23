@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './ratio-bar.scss';
 
 function percentage(value, total) {
-  return Math.round((value / total) * 1000) / 10;
+  return (value / total) * 100;
 }
 
 function calculatePercentages(data) {
@@ -42,15 +42,14 @@ function calculatePercentages(data) {
   ];
 }
 
-function renderBar(direction, value) {
+function renderBar(direction, value, naturalLanguage) {
+  if (value <= 0.01) { // Don't render any bar if it's insignificant
+    return null;
+  }
+
   const classes = classNames('ratio-bar__bar', `ratio-bar__bar--${direction}`);
   const styles = {
     width: `${value}%`,
-  };
-  const naturalLanguage = {
-    positive: 'up',
-    neutral: 'with no change',
-    negative: 'down',
   };
 
   return (
