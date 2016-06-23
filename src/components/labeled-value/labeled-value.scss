@@ -8,7 +8,7 @@ $modifiers: (
   lg: 18px,
 );
 
-.value {
+.labeled-value {
   display: inline-block;
 
   &__label{
@@ -23,7 +23,7 @@ $modifiers: (
     line-height: 1.2;
 
     @each $modifier, $font-size in $modifiers {
-      .value--#{ $modifier } & {
+      .labeled-value--#{ $modifier } & {
         font-size: rem($font-size);
 
         @if $modifier != 'lg' {
