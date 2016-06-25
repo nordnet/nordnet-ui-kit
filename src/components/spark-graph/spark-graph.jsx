@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import variables from '../../utilities/variables';
 import debounce from 'lodash.debounce';
 import './spark-graph.scss';
-import { interpolateObject } from 'd3-interpolate';
+import { interpolateObject, interpolateRgb } from 'd3-interpolate';
 
 class SparkGraph extends React.Component {
   constructor(props) {
@@ -17,6 +17,8 @@ class SparkGraph extends React.Component {
       shouldResize: !(typeof window === 'undefined') && (!props.width || !props.height),
       pointsFrom: null,
       pointsTo: null,
+      strokeFrom: null,
+      strokeTo: null,
     };
 
     this.handleResize = debounce(this.handleResize.bind(this), 150).bind(this);
@@ -29,16 +31,14 @@ class SparkGraph extends React.Component {
     }
   }
 
-  componentWillReceiveProps({ width, height, points }) {
+  componentWillReceiveProps({ width, height, points, stroke }) {
     const state = {};
     if (width) state.width = width;
     if (height) state.height = height;
-    if (points && !this.arraysEqual(this.props.points, points)) {
-      state.pointsFrom = this.props.points;
-      state.pointsTo = points;
-    } else {
-      state.pointsFrom = null;
-    }
+    state.pointsFrom = this.props.points;
+    state.pointsTo = points;
+    state.strokeFrom = this.props.stroke;
+    state.strokeTo = stroke;
     this.setState(state);
   }
 
@@ -48,30 +48,26 @@ class SparkGraph extends React.Component {
 
   componentDidUpdate() {
     const { strokeWidth, transformTime } = this.props;
-    const { height, width, pointsFrom, pointsTo } = this.state;
-    if (pointsFrom) {
-      let pFrom = this.transformPoints(pointsFrom, height, width, strokeWidth);
-      let pTo = this.transformPoints(pointsTo, height, width, strokeWidth);
-      if (pFrom.length < pTo.length) {
-        pFrom = this.addPointsToArray(pFrom, pTo.length - pFrom.length);
-      } else if (pFrom.length > pTo.length) {
-        pTo = this.addPointsToArray(pTo, pFrom.length - pTo.length);
-      }
-
-      const interpolates = pFrom.map((v, i) => interpolateObject(v, pTo[i]));
-      // 60 fps
-      const steps = Math.round(transformTime * 60 / 1000);
-      const timePerSteps = Math.floor(transformTime / steps);
-      const interpolatePerStep = 1 / steps;
-      let s = steps;
-      const interval = setInterval((polates) => {
-        if (s <= 0) {
-          clearInterval(interval);
+    const { height, width, pointsFrom, pointsTo, strokeFrom, strokeTo } = this.state;
+    const pointInterpolator = this.getPointInterpolation(pointsFrom, pointsTo, height, width, strokeWidth);
+    const colorInterpolator = this.getColorInterpolation(pointsFrom, pointsTo, strokeFrom, strokeTo);
+    if (pointInterpolator || colorInterpolator) {
+      let startTime;
+      const draw = (time) => {
+        if (!startTime) startTime = time;
+        const progress = time - startTime < transformTime ? (time - startTime) / transformTime : 1;
+        if (pointInterpolator) {
+          const values = pointInterpolator.map(ip => ip(progress));
+          this.path.setAttribute('d', this.constructPathString(values));
         }
-        const values = polates.map(ip => ip(1 - (s * interpolatePerStep)));
-        this.path.setAttribute('d', this.constructPathString(values));
-        s--;
-      }, timePerSteps, interpolates);
+        if (colorInterpolator) {
+          this.path.setAttribute('stroke', colorInterpolator(progress));
+        }
+        if (progress < 1) {
+          requestAnimationFrame(draw);
+        }
+      };
+      requestAnimationFrame(draw);
     }
   }
 
@@ -81,18 +77,149 @@ class SparkGraph extends React.Component {
     }
   }
 
+  getPointInterpolation(pointsFrom, pointsTo, height, width, strokeWidth) {
+    if (!pointsFrom || this.arraysEqual(pointsFrom, pointsTo)) {
+      return null;
+    }
+    const pFrom = pointsFrom.length === 1 ? [...pointsFrom, ...pointsFrom] : pointsFrom;
+    const pTo = pointsTo.length === 1 ? [...pointsTo, ...pointsTo] : pointsTo;
+    const pointChange = this.analyzeDataPattern(pFrom, pTo);
+    const coordsFrom = this.transformPoints(pFrom, height, width, strokeWidth);
+    const coordsTo = this.transformPoints(pTo, height, width, strokeWidth);
+    let res;
+    if (pointChange) {
+      res = this.addSmoothTransisionPoints(coordsFrom, coordsTo, pointChange.frontDelta, pointChange.backDelta);
+    } else {
+      res = this.addUndefinedTransitionPoints(coordsFrom, coordsTo);
+    }
+    return res.from.map((v, i) => interpolateObject(v, res.to[i]));
+  }
+
+  getColorInterpolation(pointsFrom, pointsTo, strokeFrom, strokeTo) {
+    const fromStroke = this.getStrokeDirection(pointsFrom, strokeFrom);
+    const toStroke = this.getStrokeDirection(pointsTo, strokeTo);
+    if (fromStroke !== toStroke) {
+      return interpolateRgb(fromStroke, toStroke);
+    }
+    return null;
+  }
+
   getStrokeDirection(points, stroke) {
     if (stroke) {
       return stroke;
     }
 
-    if (points[0] > points[points.length - 1]) {
+    if (points && points[0] > points[points.length - 1]) {
       return variables.colorDanger;
-    } else if (points[0] < points[points.length - 1]) {
+    } else if (points && points[0] < points[points.length - 1]) {
       return variables.colorSuccess;
     }
 
     return variables.colorText;
+  }
+
+  getArrayOfObjectReferences(object, numberOfCopies) {
+    const arr = [];
+    for (let i = 0; i < numberOfCopies; i++) {
+      arr.push(object);
+    }
+    return arr;
+  }
+
+  generateAddDeleteMotionPoints(coordsFrom, coordsTo, frontDelta, backDelta) {
+    let from = coordsFrom;
+    let to = coordsTo;
+    if (frontDelta > 0) {
+      from = [...this.getArrayOfObjectReferences(from[0], frontDelta), ...from];
+    } else if (frontDelta < 0) {
+      to = [...this.getArrayOfObjectReferences(to[0], -frontDelta), ...to];
+    }
+    if (backDelta > 0) {
+      from = [...from, ...this.getArrayOfObjectReferences(from[from.length - 1], backDelta)];
+    } else if (backDelta < 0) {
+      to = [...to, ...this.getArrayOfObjectReferences(to[to.length - 1], -backDelta)];
+    }
+    return { from, to };
+  }
+
+  addSmoothTransisionPoints(coordsFrom, coordsTo, frontDelta, backDelta) {
+    if (-frontDelta === backDelta) {
+      return this.generateForwardMotionPoints(coordsFrom, coordsTo, backDelta);
+    }
+    return this.generateAddDeleteMotionPoints(coordsFrom, coordsTo, frontDelta, backDelta);
+  }
+
+  addUndefinedTransitionPoints(coordsFrom, coordsTo) {
+    let from = coordsFrom;
+    let to = coordsTo;
+    if (from.length > to.length) {
+      to = this.addPointsToArray(to, from.length - to.length);
+    } else if (from.length < to.length) {
+      from = this.addPointsToArray(from, to.length - from.length);
+    }
+    return { from, to };
+  }
+
+  findSequencePositionInArray(array, sequence) {
+    let start = -1;
+    let seqIndex = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === sequence[seqIndex]) {
+        if (start < 0) {
+          start = i;
+        }
+        if (seqIndex === sequence.length - 1) {
+          return { start, stop: i };
+        }
+        seqIndex++;
+      } else {
+        if (seqIndex.length - i < sequence.length) {
+          return null;
+        }
+        start = -1;
+        seqIndex = 0;
+      }
+    }
+    return null;
+  }
+
+  /**
+    Checks for 3 special cases of data change:
+    1. x Points removed from front or back
+    2. x Points added to front or back
+    3. x Points added to front and x points removed from back.
+
+    If none of the above criterias are met assume that we
+    are dealing with a completely new dataset
+  */
+  analyzeDataPattern(pointsFrom, pointsTo) {
+    if (pointsFrom.length < pointsTo.length) {
+      const seqPos = this.findSequencePositionInArray(pointsTo, pointsFrom);
+      return seqPos ? { frontDelta: seqPos.start, backDelta: pointsTo.length - seqPos.stop - 1 } : null;
+    } if (pointsFrom.length > pointsTo.length) {
+      const seqPos = this.findSequencePositionInArray(pointsFrom, pointsTo);
+      return seqPos ? { frontDelta: -seqPos.start, backDelta: seqPos.stop + 1 - pointsFrom.length } : null;
+    }
+    for (let i = 1; i < pointsFrom.length; i++) {
+      if (pointsFrom[i] === pointsTo[0]) {
+        if (this.arraysEqual(pointsFrom.slice(i), pointsTo.slice(0, pointsTo.length - i))) {
+          return { frontDelta: -i, backDelta: i };
+        }
+      }
+    }
+    return null;
+  }
+
+  generateForwardMotionPoints(coordsFrom, coordsTo, steps) {
+    let from = coordsFrom;
+    let to = coordsTo;
+    const xStep = from[1].x;
+    const xMax = from[from.length - 1].x;
+    for (let i = steps - 1; i >= 0; i--) {
+      from = [...from, Object.assign({}, to[to.length - i - 1], { x: xMax + xStep * (steps - i) })];
+      to = [Object.assign({}, from[i], { x: -xStep * (steps - i) }), ...to];
+    }
+    return { from, to };
   }
 
   arraysEqual(array1, array2) {
@@ -143,12 +270,6 @@ class SparkGraph extends React.Component {
     const pointsPerSpace = Math.floor((numberOfPoints - 1) / (points.length - 1)) + 1;
     const pointsOnLast = ((numberOfPoints - 1) % (points.length - 1)) + 1;
     const xDiff = points[1].x - points[0].x;
-
-    if (numberOfPoints === 1) {
-      points.push(points[points.length - 1]);
-      return points;
-    }
-
     const [first, ...rest] = points;
 
     return rest.reduce((prev, curr, index, arr) => {
@@ -187,16 +308,14 @@ class SparkGraph extends React.Component {
       style,
       ...rest,
     } = this.props;
-    const { width, height, pointsFrom } = this.state;
+    const { width, height, pointsFrom, pointsTo } = this.state;
     // TODO: Polyfill Object.assign because IE
     const styles = Object.assign({
       width: !this.props.width ? '100%' : `${width}px`,
       height: !this.props.height ? '100%' : `${height}px`,
     }, style);
     let pointsToRender;
-    if (pointsFrom) {
-      // Do nothing
-    } else {
+    if (!pointsFrom || this.arraysEqual(pointsFrom, pointsTo)) {
       pointsToRender = this.transformPoints(points, height, width, strokeWidth);
     }
 
@@ -213,7 +332,7 @@ class SparkGraph extends React.Component {
         <path
           className="spark-graph__path"
           d={ !pointsFrom ? this.constructPathString(pointsToRender) : '' }
-          stroke={ this.getStrokeDirection(points, stroke) }
+          stroke={ !pointsFrom ? this.getStrokeDirection(points, stroke) : this.getStrokeDirection(pointsFrom, stroke) }
           strokeWidth={ strokeWidth }
           strokeLinecap="square"
           strokeLinejoin="round"
