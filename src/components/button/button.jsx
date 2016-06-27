@@ -43,7 +43,7 @@ function Button({
   }
 
   return (
-    <Element { ...rest } className={ classes } disabled={ disabled }>
+    <Element { ...rest } className={ classes } disabled={ disabled } href={ href }>
       { children }
     </Element>
   );
