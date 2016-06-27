@@ -43,45 +43,41 @@ function calculatePercentages(data) {
 }
 
 function renderBar(direction, value, naturalLanguage) {
-  if (value <= 0.01) { // Don't render any bar if it's insignificant
-    return null;
-  }
-
   const classes = classNames('ratio-bar__bar', `ratio-bar__bar--${direction}`);
   const styles = {
     width: `${value}%`,
   };
 
   return (
-    <span className={ classes } style={ styles }>
+    <div className={ classes } style={ styles }>
       <span className="ratio-bar__bar-background">
         { `${value.toFixed(2)}% ${naturalLanguage[direction]}.` }
       </span>
-    </span>
+    </div>
   );
 }
 
-function renderLabels(show, labelUp, labelDown) {
+function renderLabels(show, labelPositive, labelNegative) {
   if (!show) {
     return <span />;
   }
 
   return (
     <div aria-hidden="true">
-      <span className="ratio-bar__direction-label ratio-bar__direction-label--negative">{ labelDown }</span>
-      <span className="ratio-bar__direction-label ratio-bar__direction-label--positive">{ labelUp }</span>
+      <span className="ratio-bar__direction-label ratio-bar__direction-label--negative">{ labelNegative }</span>
+      <span className="ratio-bar__direction-label ratio-bar__direction-label--positive">{ labelPositive }</span>
     </div>
   );
 }
 
-function RatioBar({ data, label, labelUp, labelDown, showLabels, className, ...rest }) {
+function RatioBar({ data, label, labelPositive, labelNeutral, labelNegative, showLabels, className, ...rest }) {
   const classes = classNames('ratio-bar', className);
   const [positive, neutral, negative] = calculatePercentages(data);
 
   const naturalLanguage = {
-    positive: labelUp.toLowerCase(),
-    neutral: 'with no change',
-    negative: labelDown.toLowerCase(),
+    positive: labelPositive.toLowerCase(),
+    neutral: labelNeutral.toLowerCase(),
+    negative: labelNegative.toLowerCase(),
   };
 
   return (
@@ -90,7 +86,7 @@ function RatioBar({ data, label, labelUp, labelDown, showLabels, className, ...r
       { renderBar('negative', negative, naturalLanguage) }
       { renderBar('neutral', neutral, naturalLanguage) }
       { renderBar('positive', positive, naturalLanguage) }
-      { renderLabels(showLabels, labelUp, labelDown) }
+      { renderLabels(showLabels, labelPositive, labelNegative) }
     </div>
   );
 }
@@ -103,14 +99,16 @@ RatioBar.propTypes = {
   label: PropTypes.string,
   className: PropTypes.string,
   showLabels: PropTypes.bool,
-  labelUp: PropTypes.string,
-  labelDown: PropTypes.string,
+  labelPositive: PropTypes.string,
+  labelNeutral: PropTypes.string,
+  labelNegative: PropTypes.string,
 };
 
 RatioBar.defaultProps = {
   showLabels: true,
-  labelUp: 'Up',
-  labelDown: 'Down',
+  labelPositive: 'Up',
+  labelNeutral: 'with no change',
+  labelNegative: 'Down',
 };
 
 export default RatioBar;

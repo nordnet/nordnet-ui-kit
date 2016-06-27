@@ -10,24 +10,18 @@
     display: block;
     font-size: 1.4rem;
     color: $color-text-muted;
-    padding-bottom: rem(4px);
+    padding: rem(0 1px 4px 1px);
   }
 
   &__bar {
     display: inline-block;
     height: rem(16px);
-
-    &:before {
-      width: rem(2px);
-      background: $color-base;
-      height: rem(16px);
-      content: ' ';
-      position: absolute;
-    }
+    text-align: center;
 
     &-background {
-      display: block;
+      display: inline-block;
       width: 100%;
+      width: calc(100% - #{rem(2px)});
       height: 100%;
     }
 
@@ -56,7 +50,7 @@
   &__direction-label {
     display: inline-block;
     font-size: rem(14px);
-    padding-top: rem(4px);
+    padding: rem(4px 1px 0 1px);
     width: 50%;
 
     &--negative {
