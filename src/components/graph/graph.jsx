@@ -1,21 +1,17 @@
 import React, { PropTypes } from 'react';
 import ReactHighstocks from 'react-highcharts/dist/ReactHighstock';
 import merge from 'lodash.merge';
-import {
-  baseTheme,
-  lightTheme,
-  darkTheme,
-} from './index';
+import { baseTheme, lightTheme, darkTheme } from './themes';
 
 class Graph extends React.Component {
-  mergeConfig(variant, config) {
+  mergeConfig(variant, config, other) {
     switch (variant) {
       case 'light':
-        return merge({}, lightTheme, config);
+        return merge({}, other, lightTheme, config);
       case 'dark':
-        return merge({}, darkTheme, config);
+        return merge({}, other, darkTheme, config);
       default:
-        return merge({}, baseTheme, config);
+        return merge({}, other, baseTheme, config);
     }
   }
 
@@ -26,12 +22,32 @@ class Graph extends React.Component {
       ...rest,
     } = this.props;
 
-    return (
-      <ReactHighstocks
-        { ...rest }
-        config={ this.mergeConfig(variant, config) }
-      />
-    );
+    const labelStyle = {
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+    };
+
+    const labels = {
+      labels: {
+        items: [{
+          html: 'High',
+          style: labelStyle,
+        }, {
+          html: 'Low',
+          style: labelStyle,
+        }, {
+          html: 'Close',
+          style: labelStyle,
+        }],
+      },
+    };
+
+    const _config = this.mergeConfig(variant, config, labels);
+    console.log(_config);
+
+    return <ReactHighstocks { ...rest } config={ _config } />;
   }
 }
 

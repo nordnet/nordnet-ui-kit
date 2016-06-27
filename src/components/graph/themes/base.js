@@ -1,13 +1,15 @@
+import variables from './variables';
+
 export default {
   chart: {
     marginBottom: 20,
-    backgroundColor: '#FFFFFF',
-    borderColor: '#FFFFFF',
+    backgroundColor: variables.colorBase,
+    borderColor: variables.colorBase,
     spacingLeft: 8,
     spacingRight: 8,
     animation: false,
     style: {
-      fontFamily: 'Verdana, Arial, sans-serif',
+      fontFamily: variables.fontPrimary,
       fontSize: '10px',
     },
     resetZoomButton: {
@@ -133,14 +135,20 @@ export default {
   },
 
   tooltip: {
-    backgroundColor: '#fff',
-    borderColor: '#d1cfcf',
+    backgroundColor: variables.colorBase,
+    borderColor: variables.colorBase,
     borderRadius: 0,
     borderWidth: 0,
     shared: true,
-    shadow: false,
+    shadow: {
+      color: 'rgba(0, 0, 0, .1)',
+      opacity: 1,
+      offsetX: 0,
+      offsetY: 0,
+      width: 4,
+    },
     style: {
-      color: '#333333',
+      color: variables.colorText,
       font: '14px',
       padding: '8px',
     },

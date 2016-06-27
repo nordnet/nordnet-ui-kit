@@ -17,6 +17,7 @@ const entry = {
     button: './src/components/button/button.jsx',
     'date-picker': './src/components/date-picker',
     dropdown: './src/components/dropdown/dropdown.jsx',
+    graph: './src/components/graph',
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
     logo: './src/components/logo/logo.jsx',
@@ -141,6 +142,7 @@ module.exports = (() => {
       NODE_ENV: JSON.stringify(NODE_ENV),
     },
     __USE_REM__: JSON.stringify(useRem),
+    __STYLEGUIDE__: false,
   }]);
 
   return config.resolve();

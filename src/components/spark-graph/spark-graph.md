@@ -1,4 +1,4 @@
-    const { eric, abb } = require('./data.js')
+    const { eric, abb } = require('./data.js');
 
     const style = {
       marginRight: '1.6rem',

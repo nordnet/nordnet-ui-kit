@@ -6,17 +6,17 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "NODE_ENV=production npm-run-all clean webpack:bundle-use-rem webpack:bundle webpack:individual-use-rem webpack:individual",
-    "webpack:bundle-use-rem": "webpack --type bundle --use-rem --progress --config webpack.config.babel.js",
-    "webpack:bundle": "webpack --type bundle --progress --config webpack.config.babel.js",
-    "webpack:individual-use-rem": "webpack --type individual --use-rem --progress --config webpack.config.babel.js",
-    "webpack:individual": "webpack --type individual --progress --config webpack.config.babel.js",
+    "webpack:bundle-use-rem": "webpack --type bundle --use-rem --progress --colors --config webpack.config.babel.js",
+    "webpack:bundle": "webpack --type bundle --progress --colors --config webpack.config.babel.js",
+    "webpack:individual-use-rem": "webpack --type individual --use-rem --progress --colors --config webpack.config.babel.js",
+    "webpack:individual": "webpack --type individual --progress --colors --config webpack.config.babel.js",
     "test": "mocha-webpack --opts test/mocha.webpack.opts",
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "prepush": "npm-run-all lint test",
     "prepublish": "npm-run-all lint test build",
     "postpublish": "npm run clean && git push --follow-tags --no-verify && npm run docs-publish",
     "start": "npm run docs-server",
-    "docs-server": "styleguidist server",
+    "docs-server": "styleguidist server --colors",
     "docs-build": "rimraf documentation/build && styleguidist build",
     "predocs-publish": "npm run docs-build",
     "docs-publish": "git-directory-deploy --directory ./documentation/dist --branch gh-pages"
@@ -35,6 +35,7 @@
   "homepage": "https://nordnet.github.io/nordnet-ui-kit",
   "license": "MIT",
   "dependencies": {
+    "chroma-js": "^1.1.1",
     "classnames": "^2.2.3",
     "lodash.camelcase": "^4.1.0",
     "lodash.debounce": "^4.0.6",
@@ -93,6 +94,7 @@
     "style-loader": "^0.13.1",
     "svg-icon-template-loader": "0.0.6",
     "svgo-loader": "^1.1.0",
+    "tojson-loader": "^1.0.3",
     "webpack": "^1.13.1",
     "webpack-configurator": "^0.3.1",
     "webpack-node-externals": "^1.2.0"

@@ -1,3 +1,5 @@
+import variables from './variables';
+
 export default {
   navigator: {
     enabled: false,
@@ -31,8 +33,8 @@ export default {
       color: 'rgba(255, 255, 255, 1)',
       states: {
         hover: {
-          borderColor: '#00a8ef',
-          color: '#00a8ef',
+          borderColor: variables.colorPrimary,
+          color: variables.colorPrimary,
         },
       },
     },
@@ -57,7 +59,7 @@ export default {
             fillColor: '#01709f',
             radius: 5,
             lineWidth: 2,
-            lineColor: '#ffffff',
+            lineColor: variables.colorBase,
             enabled: true,
           },
         },

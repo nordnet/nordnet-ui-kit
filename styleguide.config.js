@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const docgen = require('react-docgen');
 const dir = path.join(__dirname, 'src');
+const webpack = require('webpack');
 
 module.exports = {
   title: 'Nordnet UI Kit',
@@ -80,6 +81,8 @@ module.exports = {
 
       config.plugins.push(new ExtractTextPlugin('build/styles.css'));
     }
+
+    config.plugins.push(new webpack.DefinePlugin({ __STYLEGUIDE__: true }));
 
     config.postcss = postcss;
 

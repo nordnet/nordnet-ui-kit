@@ -4,28 +4,50 @@
 // Nordnet colours //
 // /////////////// //
 
+$color-primary-dark: #008FC8;
 $color-primary: #00A9EC;
-$color-success: #00BD76;
-$color-warning: #FFBD55;
-$color-danger: #EF472F;
+$color-primary-light: #CCEDFB;
 
-$color-primary--focus: mix($color-primary, #000, 90);
-$color-success--focus: mix($color-success, #000, 90);
-$color-warning--focus: mix($color-warning, #000, 90);
-$color-danger--focus: mix($color-danger, #000, 90);
+$color-info-dark: #2B417A;
+$color-info: #365299;
+$color-info-light: #D6DCEA;
+
+$color-success-dark: #00975E;
+$color-success: #00BD76;
+$color-success-light: #CCF1E3;
+
+$color-warning-dark: #E5AA4C;
+$color-warning: #FFBD55;
+$color-warning-light: #FFF1DD;
+
+$color-danger-dark: #D73F2A;
+$color-danger: #EF472F;
+$color-danger-light: #FBDAD5;
+
+$color-primary--focus: $color-primary-dark;
+$color-success--focus: $color-success-dark;
+$color-warning--focus: $color-warning-dark;
+$color-danger--focus: $color-danger-dark;
 
 // //////////// //
 // UI variables //
 // //////////// //
 
-$color-base: #FFF;
-$color-border: #DDD;
+$color-black: #222;
+$color-gray-darker: #646464;
+$color-gray-dark: #969696;
+$color-gray: #C8C8C8;
+$color-gray-light: #DEDEDE;
+$color-gray-lighter: #F4F4F4;
 
-$color-background: #F1F1F1;
-$color-background-dark: #444;
-$color-background-muted: #EEE;
-$color-background-disabled: #C5C5C5;
-$color-disabled: #969696;
+$color-base: #FFF;
+$color-border: $color-gray-light;
+
+$color-background: $color-gray-lighter;
+$color-background-dark: $color-gray-darker;
+$color-background-muted: $color-gray-light;
+$color-background-disabled: $color-gray;
+$color-disabled: $color-gray-dark;
 
 $shadow-level-1: rem(0 2px 4px 2px rgba(0, 0, 0, .1));
 $shadow-level-2: $shadow-level-1;
@@ -41,8 +63,8 @@ $color-shareville: #048D45;
 // Text variables //
 // ////////////// //
 
-$color-text: #222;
-$color-text-muted: #8A8A8A;
+$color-text: $color-black;
+$color-text-muted: $color-gray-darker;
 $font-primary: "Value Nordnet", "Century Gothic", "AppleGothic", sans-serif;
 
 // ///////// //

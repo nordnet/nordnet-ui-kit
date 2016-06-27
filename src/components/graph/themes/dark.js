@@ -1,3 +1,6 @@
+import variables from './variables';
+import chroma from 'chroma-js';
+
 export default {
   navigator: {
     enabled: true,
@@ -10,13 +13,13 @@ export default {
   chart: {
     zoomType: 'x',
     marginBottom: 5,
-    backgroundColor: 'rgba(60, 81, 148, 1)',
+    backgroundColor: variables.colorInfo,
     borderColor: '#D6D6D6',
     spacingLeft: 8,
     spacingRight: 8,
     animation: false,
     style: {
-      fontFamily: 'Verdana, Arial, sans-serif',
+      fontFamily: variables.fontPrimary,
       fontSize: '10px',
     },
     resetZoomButton: {
@@ -26,14 +29,14 @@ export default {
       },
       theme: {
         fill: '#EBEAEA',
-        stroke: '#ffffff',
+        stroke: variables.colorBase,
         r: 0,
         states: {
           hover: {
-            fill: '#ffffff',
-            stroke: '#ffffff',
+            fill: variables.colorBase,
+            stroke: variables.colorBase,
             style: {
-              color: '#ffffff',
+              color: variables.colorBase,
             },
           },
         },
@@ -43,13 +46,13 @@ export default {
 
   plotOptions: {
     series: {
-      fillColor: {
-        linearGradient: ['0%', '0%', '0%', '100%'],
-        stops: [
-          ['0%', 'rgba(119, 133, 180, 0.7)'],
-          ['100%', 'rgba(119, 133, 180, 0.7)'],
-        ],
-      },
+      // fillColor: {
+      //   linearGradient: ['0%', '0%', '0%', '100%'],
+      //   stops: [
+      //     ['0%', chroma(variables.colorInfo).alpha(0.7).css()],
+      //     ['100%', chroma(variables.colorInfo).alpha(0.7).css()],
+      //   ],
+      // },
       marker: {
         enabled: false,
       },
@@ -65,15 +68,15 @@ export default {
       color: 'rgba(255, 255, 255, 1)',
       states: {
         hover: {
-          borderColor: '#00a8ef',
-          color: '#00a8ef',
+          borderColor: variables.colorPrimary,
+          color: variables.colorPrimary,
         },
       },
     },
 
     line: {
       enableMouseTracking: false,
-      color: '#ffffff',
+      color: variables.colorBase,
       marker: {
         states: {
           hover: {
@@ -84,14 +87,14 @@ export default {
     },
 
     area: {
-      color: '#ffffff',
+      color: variables.colorBase,
+      fillColor: chroma(variables.colorBase).alpha(0.3).css(),
       marker: {
         states: {
           hover: {
-            fillColor: '#01709f',
             radius: 5,
             lineWidth: 2,
-            lineColor: '#ffffff',
+            lineColor: variables.colorBase,
             enabled: true,
           },
         },
@@ -107,10 +110,10 @@ export default {
     },
 
     candlestick: {
-      lineColor: '#B4001D',
-      color: 'rgba(224, 0, 36, 0.75)',
-      upLineColor: '#0082B6',
-      upColor: 'rgba(0, 169, 236, 0.75)',
+      lineColor: variables.colorDanger,
+      color: chroma(variables.colorDanger).alpha(0.75).css(),
+      upLineColor: variables.colorPrimary,
+      upColor: chroma(variables.colorPrimary).alpha(0.75).css(),
       pointPadding: 0.3,
       states: {
         hover: {
@@ -123,22 +126,26 @@ export default {
     },
   },
 
-  yAxis:
-  [{
+  yAxis: [{
     labels: {
       style: {
         fontSize: 10,
-        color: '#ffffff',
+        color: variables.colorBase,
       },
     },
-    gridLineColor: 'rgba(130, 143, 186, 0.5)',
+    tickPosition: 'inside',
+    gridLineColor: chroma(variables.colorBase).alpha(0.2).css(),
+    lineColor: variables.colorBase,
+    lineWidth: 1,
   }],
 
   xAxis: {
     labels: {
       style: {
-        color: '#ffffff',
+        color: variables.colorBase,
       },
     },
+    lineColor: variables.colorBase,
+    lineWidth: 1,
   },
 };
