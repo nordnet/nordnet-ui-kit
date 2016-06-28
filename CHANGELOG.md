@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.29
+* **Breaking change:** Value component renamed to LabeledValue to avoid clashes with [nordnet-component-kit](https://nordnet.github.io/nordnet-component-kit/#Value).
+* Ratio bar no longer reflows to a new line if a segment is very small.
+* Ratio bar now supports `labelPositive`, `labelNeutral` and `labelNegative` props to allow translation if needed.
+* Button component now correctly passes down href to the underlying a tag.
+
 ## 0.0.28
 * Added ratio-bar component [#50](https://github.com/nordnet/nordnet-ui-kit/issues/50).
 * Added spark-graph component thanks to [robineng](https://github.com/robineng).
