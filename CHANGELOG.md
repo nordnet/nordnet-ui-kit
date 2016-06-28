@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.30
+* Fixed incorrect webpack entrypoint for LabeledValue component.
+
 ## 0.0.29
 * **Breaking change:** Value component renamed to LabeledValue to avoid clashes with [nordnet-component-kit](https://nordnet.github.io/nordnet-component-kit/#Value).
 * Ratio bar no longer reflows to a new line if a segment is very small.
