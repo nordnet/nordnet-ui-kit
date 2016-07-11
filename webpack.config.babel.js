@@ -25,7 +25,7 @@ const entry = {
     select: './src/components/select/select.jsx',
     'spark-graph': ['./src/components/spark-graph'],
     'spark-graph-demo': ['./src/components/spark-graph-demo'],
-    value: './src/components/value/value.jsx',
+    'labeled-value': './src/components/labeled-value/labeled-value.jsx',
     variables: ['./src/utilities/variables.js'],
     widget: ['./src/components/widget/widget'],
   },

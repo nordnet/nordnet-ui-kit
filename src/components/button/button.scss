@@ -46,6 +46,7 @@
     transition: all .1s $ease-out;
     text-decoration: none;
     user-select: none;
+    text-align: center;
 
     &:disabled {
       cursor: not-allowed;

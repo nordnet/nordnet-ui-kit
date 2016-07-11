@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
-import './value.scss';
+import './labeled-value.scss';
 
-export default function Value({
+export default function LabeledValue({
   label,
   children,
   id: idProp,
@@ -12,28 +12,28 @@ export default function Value({
   ...rest,
 }) {
   const id = idProp || `${kebabCase(label)}-label`;
-  const classes = classNames('value', {
-    'value--xs': size === 'xs',
-    'value--sm': size === 'sm',
-    'value--md': size === 'md',
-    'value--lg': size === 'lg',
+  const classes = classNames('labeled-value', {
+    'labeled-value--xs': size === 'xs',
+    'labeled-value--sm': size === 'sm',
+    'labeled-value--md': size === 'md',
+    'labeled-value--lg': size === 'lg',
   }, className);
 
   return (
     <div { ...rest } className={ classes }>
-      <span className="value__label" id={ id }>{ label }</span>
-      <span className="value__value" aria-labelledby={ id } >{ children }</span>
+      <span className="labeled-value__label" id={ id }>{ label }</span>
+      <span className="labeled-value__value" aria-labelledby={ id } >{ children }</span>
     </div>
   );
 }
 
-Value.defaultProps = {
+LabeledValue.defaultProps = {
   label: '',
   children: '',
   size: 'md',
 };
 
-Value.propTypes = {
+LabeledValue.propTypes = {
   label: PropTypes.node,
   children: PropTypes.node,
   id: PropTypes.string,

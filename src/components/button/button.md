@@ -5,7 +5,7 @@ Primary button:
     };
 
     <div>
-      <Button variant="primary" style= { style }>Click Me</Button>
+      <Button variant="primary" href="https://google.com" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="danger" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="warning" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="success" style= { style }>Click Me</Button>
