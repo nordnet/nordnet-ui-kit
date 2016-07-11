@@ -10,7 +10,6 @@ import Pane from './components/pane/pane';
 import RatioBar from './components/ratio-bar';
 import Select from './components/select/select';
 import SparkGraph from './components/spark-graph';
-import SparkGraphDemo from './components/spark-graph-demo';
 import LabeledValue from './components/labeled-value/labeled-value';
 import variables from './utilities/variables';
 import Widget from './components/widget/widget';
@@ -28,7 +27,6 @@ export {
   RatioBar,
   Select,
   SparkGraph,
-  SparkGraphDemo,
   LabeledValue,
   variables,
   Widget,
