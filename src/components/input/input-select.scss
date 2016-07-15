@@ -27,6 +27,7 @@
       height: rem(8px);
       transition: transform .2s $ease-out;
       transform: translateY(#{ rem(-4px) });
+      pointer-events: none;
 
       > img {
         display: block;
