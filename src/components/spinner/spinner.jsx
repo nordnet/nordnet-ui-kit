@@ -30,7 +30,9 @@ Spinner.defaultProps = {
 
 Spinner.propTypes = {
   className: PropTypes.string,
+  /** Unitless pixel value */
   height: PropTypes.number,
+  /** Unitless pixel value */
   width: PropTypes.number,
 };
 
