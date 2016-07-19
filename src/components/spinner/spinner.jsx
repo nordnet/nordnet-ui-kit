@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import rem from '../../utilities/rem';
 
 import './spinner.scss';
 
 function Spinner({ className, height, width }) {
   const style = {
-    height: rem(height),
-    width: rem(width),
+    height,
+    width,
   };
   return (
     <div style={ style } className={ classNames('sk-cube-grid', className) }>
