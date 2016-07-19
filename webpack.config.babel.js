@@ -24,6 +24,7 @@ const entry = {
     'ratio-bar': './src/components/ratio-bar/',
     select: './src/components/select/select.jsx',
     'spark-graph': ['./src/components/spark-graph'],
+    spinner: './src/components/spinner',
     'labeled-value': './src/components/labeled-value/labeled-value.jsx',
     variables: ['./src/utilities/variables.js'],
     widget: ['./src/components/widget/widget'],
