@@ -1,0 +1,8 @@
+@import '~spinkit/scss/spinners/9-cube-grid';
+@import '../../_variables';
+
+.sk-cube-grid{
+  .sk-cube{
+    background-color: $color-primary;
+  }
+}
