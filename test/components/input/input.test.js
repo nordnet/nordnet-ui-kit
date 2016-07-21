@@ -87,6 +87,22 @@ describe('<Input />', () => {
           wrapper.setProps({ hasSuccess: true });
           expect(wrapper.shallow().find('.input-checkbox-radio--has-success')).to.have.length(1);
         });
+        it('should be unchecked by default', () => {
+          expect(wrapper.shallow().find(`input[type="${type.name}"]`).props().checked).to.equal(false);
+        });
+        it('should be checked if checked in props', () => {
+          wrapper.setProps({ checked: true });
+          expect(wrapper.shallow().find(`input[type="${type.name}"]`).props().checked).to.equal(true);
+        });
+        it('should become checked if unchecked and clicked', () => {
+          const checkbox = wrapper.shallow();
+          checkbox.find(`input[type="${type.name}"]`).simulate('change', { target: { checked: true } });
+          expect(checkbox.find(`input[type="${type.name}"]`).props().checked).to.equal(true);
+        });
+        it('should render helptext if specified', () => {
+          wrapper.setProps({ helpText: 'help' });
+          expect(wrapper.shallow().find('HelpText').childAt(0).text()).to.equal('help');
+        });
       }
       switch (type.name) {
         case 'text':
@@ -104,20 +120,34 @@ describe('<Input />', () => {
           it('should have class input--password', () => {
             expect(wrapper.shallow().hasClass('input--password')).to.equals(true);
           });
+          it('should have no show button when no password is entered', () => {
+            wrapper.setProps({ value: '' });
+            expect(wrapper.shallow().find('label.input__toggle').props().style.display).to.equal('none');
+          });
+          it('should have show button when password is entered', () => {
+            expect(wrapper.shallow().find('label.input__toggle').props().style.display).to.not.equal('none');
+          });
+          it('should have input type password as standard', () => {
+            expect(wrapper.shallow().find('input[type="password"]')).to.have.length(1);
+          });
+          it('should change to input type text when show button is clicked', () => {
+            const inputPassword = wrapper.shallow();
+            inputPassword.find('input[type="checkbox"]').simulate('change', { target: { checked: true } });
+            expect(inputPassword.find('input[type="text"]')).to.have.length(1);
+          });
           break;
         case 'date':
           it('should have class input--date', () => {
             expect(wrapper.shallow().hasClass('input--date')).to.equals(true);
+          });
+          it('should have a calendar icon', () => {
+            expect(wrapper.shallow().find('Icon').props().type).to.equal('calendar');
           });
           break;
         case 'select':
           it('should have class input--select', () => {
             expect(wrapper.shallow().hasClass('input--select')).to.equals(true);
           });
-          break;
-        case 'checkbox':
-          break;
-        case 'radio':
           break;
         default:
       }
