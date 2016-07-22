@@ -1,4 +1,6 @@
 import variables from './variables';
+import hlc from '../hlc';
+import markersToFront from '../markers-to-front';
 
 export default {
   chart: {
@@ -9,7 +11,8 @@ export default {
     spacingRight: 8,
     animation: false,
     style: {
-      fontFamily: variables.fontPrimary,
+      // fontFamily: variables.fontPrimary,
+      fontFamily: '\'Open Sans\', sans-serif',
       fontSize: '10px',
     },
     resetZoomButton: {
@@ -32,6 +35,10 @@ export default {
         },
       },
     },
+    events: {
+      load: markersToFront,
+      redraw: hlc,
+    },
   },
 
   navigation: {
@@ -46,6 +53,34 @@ export default {
 
   legend: {
     enabled: false,
+  },
+
+  plotOptions: {
+    area: {
+      lineWidth: 2,
+      marker: {
+        states: {
+          hover: {
+            radius: 5,
+            lineWidth: 2,
+            lineColor: variables.colorBase,
+            fillColor: variables.colorInfo,
+            enabled: true,
+            attributes: {
+              zIndex: 7,
+            },
+          },
+        },
+      },
+      states: {
+        hover: {
+          lineWidth: 2,
+          halo: {
+            size: 0,
+          },
+        },
+      },
+    },
   },
 
   loading: {
@@ -93,14 +128,15 @@ export default {
         style: {
           fontSize: '10px',
         },
-        align: 'left',
-        x: -10,
-        y: 0,
+        align: 'right',
+        x: -5,
+        y: 4,
       },
       gridLineColor: '#ededed',
       gridZIndex: 2,
       gridLineWidth: 1,
-      lineWidth: 0,
+      lineWidth: 1,
+      tickPosition: 'inside',
       title: {
         text: '',
       },
@@ -114,9 +150,17 @@ export default {
     ordinal: true,
     offset: 0,
     tickColor: '#ffffff',
+    tickPosition: 'inside',
     minRange: 900000,
+    lineWidth: 1,
     tickPixelInterval: 130,
+    tickWidth: 2,
+    tickLength: 4,
+    crosshair: {
+      zIndex: 3,
+    },
     labels: {
+      y: -8,
       style: {
         fontSize: '10px',
       },
@@ -125,13 +169,24 @@ export default {
 
   navigator: {
     enabled: true,
-    xAxis: {
-      labels: {
-        style: {
-          color: '#ffffff',
-        },
+    outlineWidth: 1,
+    height: 40,
+    margin: 0,
+    series: {
+      type: 'area',
+      fillOpacity: 0.3,
+      lineWidth: 0,
+    },
+    labels: {
+      style: {
+        fontSize: '10px',
       },
     },
+  },
+
+  rangeSelector: {
+    enabled: false,
+    inputEnabled: false,
   },
 
   tooltip: {

@@ -1,4 +1,4 @@
-The UI kit exports two themes for highcharts and a base them for easy overriding.
+The UI kit exports two themes for highcharts and a base theme for easy overriding.
 
     const { data } = require('./data.js');
 
@@ -9,7 +9,7 @@ The UI kit exports two themes for highcharts and a base them for easy overriding
         data: data,
         tooltip: {
           valueDecimals: 2
-        }
+        },
       }]
     };
 

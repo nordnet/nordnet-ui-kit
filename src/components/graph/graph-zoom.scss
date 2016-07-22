@@ -1,0 +1,36 @@
+@import '../../variables';
+@import '../../functions';
+
+.graph-zoom {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  padding-top: rem(8px);
+
+  &--dark {
+    background: $color-info;
+
+    .graph-zoom__btn {
+      color: $color-base;
+
+      &--selected {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+    appearance: none;
+    background: none;
+    border-radius: 0;
+    border: 0;
+    font-size: rem(12px);
+    padding: rem(8px 16px);
+    cursor: pointer;
+
+    &--selected {
+      color: $color-primary;
+    }
+  }
+}

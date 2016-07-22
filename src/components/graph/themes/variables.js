@@ -1,3 +1,4 @@
+/* eslint-disable */
 let variables;
 
 if (typeof __STYLEGUIDE__ !== 'undefined' && __STYLEGUIDE__) {

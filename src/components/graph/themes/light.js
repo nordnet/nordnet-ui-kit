@@ -9,6 +9,10 @@ export default {
     enabled: false,
   },
 
+  yAxis: [{
+    lineWidth: 0,
+  }],
+
   plotOptions: {
     series: {
       fillColor: {
@@ -52,26 +56,7 @@ export default {
     },
 
     area: {
-      color: '#000000',
-      marker: {
-        states: {
-          hover: {
-            fillColor: '#01709f',
-            radius: 5,
-            lineWidth: 2,
-            lineColor: variables.colorBase,
-            enabled: true,
-          },
-        },
-      },
-      states: {
-        hover: {
-          lineWidth: 1,
-          halo: {
-            size: 0,
-          },
-        },
-      },
+      color: variables.colorBlack,
     },
 
     candlestick: {

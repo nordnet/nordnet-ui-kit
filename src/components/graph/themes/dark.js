@@ -1,64 +1,46 @@
 import variables from './variables';
 import chroma from 'chroma-js';
 
+const textStyle = {
+  color: variables.colorBase,
+  textShadow: '0 1px 1px rgba(0, 0, 0, .3)',
+};
+
 export default {
   navigator: {
-    enabled: true,
-  },
-
-  rangeSelector: {
-    enabled: true,
+    outlineColor: chroma.mix(variables.colorBase, variables.colorInfo, 0.3).css(),
+    series: {
+      color: '#fff',
+    },
+    xAxis: {
+      gridLineColor: chroma(variables.colorBase).alpha(0.3).css(),
+      labels: {
+        align: 'center',
+        style: {
+          ...textStyle,
+          fontSize: '10px',
+          fontWeight: 600,
+        },
+      },
+    },
+    handles: {
+      backgroundColor: chroma.mix(variables.colorBase, variables.colorInfo, 0.7).css(),
+      borderColor: variables.colorBase,
+    },
   },
 
   chart: {
     zoomType: 'x',
-    marginBottom: 5,
     backgroundColor: variables.colorInfo,
-    borderColor: '#D6D6D6',
-    spacingLeft: 8,
-    spacingRight: 8,
-    animation: false,
-    style: {
-      fontFamily: variables.fontPrimary,
-      fontSize: '10px',
-    },
-    resetZoomButton: {
-      position: {
-        x: 0,
-        y: -42,
-      },
-      theme: {
-        fill: '#EBEAEA',
-        stroke: variables.colorBase,
-        r: 0,
-        states: {
-          hover: {
-            fill: variables.colorBase,
-            stroke: variables.colorBase,
-            style: {
-              color: variables.colorBase,
-            },
-          },
-        },
-      },
-    },
   },
 
   plotOptions: {
     series: {
-      // fillColor: {
-      //   linearGradient: ['0%', '0%', '0%', '100%'],
-      //   stops: [
-      //     ['0%', chroma(variables.colorInfo).alpha(0.7).css()],
-      //     ['100%', chroma(variables.colorInfo).alpha(0.7).css()],
-      //   ],
-      // },
       marker: {
         enabled: false,
       },
       animation: false,
       threshold: null,
-      lineWidth: 2,
       turboThreshold: 50,
     },
 
@@ -89,24 +71,6 @@ export default {
     area: {
       color: variables.colorBase,
       fillColor: chroma(variables.colorBase).alpha(0.3).css(),
-      marker: {
-        states: {
-          hover: {
-            radius: 5,
-            lineWidth: 2,
-            lineColor: variables.colorBase,
-            enabled: true,
-          },
-        },
-      },
-      states: {
-        hover: {
-          lineWidth: 1,
-          halo: {
-            size: 0,
-          },
-        },
-      },
     },
 
     candlestick: {
@@ -129,23 +93,27 @@ export default {
   yAxis: [{
     labels: {
       style: {
-        fontSize: 10,
-        color: variables.colorBase,
+        ...textStyle,
+        fontWeight: '600',
       },
     },
-    tickPosition: 'inside',
     gridLineColor: chroma(variables.colorBase).alpha(0.2).css(),
     lineColor: variables.colorBase,
-    lineWidth: 1,
+    tickWidth: 1,
+    tickLength: 0,
+    tickColor: variables.colorInfo,
   }],
 
   xAxis: {
     labels: {
       style: {
-        color: variables.colorBase,
+        ...textStyle,
+        fontWeight: '600',
       },
     },
     lineColor: variables.colorBase,
-    lineWidth: 1,
+    crosshair: {
+      color: chroma.mix(variables.colorBase, variables.colorInfo, 0.3).css(),
+    },
   },
 };
