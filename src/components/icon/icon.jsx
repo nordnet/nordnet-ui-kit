@@ -17,7 +17,7 @@ class Icon extends PureComponent {
 
 Icon.propTypes = {
   className: React.PropTypes.string,
-  type: React.PropTypes.string,
+  type: React.PropTypes.string.isRequired,
   /** Needs to be a valid colour */
   fill: React.PropTypes.string,
   /** Needs to be a valid colour */
