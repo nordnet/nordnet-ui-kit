@@ -3,6 +3,7 @@ import maxBy from 'lodash.maxby';
 import minBy from 'lodash.minby';
 
 function getHLC(chart) {
+  // TODO: Add Close
   const data = chart.series[0].points.filter(({ plotX }) => plotX >= 0);
   const { y: max, plotY: maxY, plotX: maxX } = maxBy(data, ({ y }) => y);
   const { y: min, plotY: minY, plotX: minX } = minBy(data, ({ y }) => y);
@@ -12,13 +13,11 @@ function getHLC(chart) {
     value: max,
     x: Math.round(maxX),
     y: Math.round(maxY),
-    color: variables.colorSuccess,
   }, {
     type: 'low',
     value: min,
     x: Math.round(minX),
     y: Math.round(minY),
-    color: variables.colorDanger,
   }];
 }
 
@@ -35,6 +34,11 @@ function drawLabel(label) {
   }).add();
 
   const xOffset = 8;
+  const colors = {
+    high: variables.colorSuccess,
+    low: variables.colorDanger,
+    close: variables.colorDanger,
+  };
 
   // Label Stroke
   this.renderer.path([
@@ -46,7 +50,7 @@ function drawLabel(label) {
     label.y + 9,
   ]).attr({
     'stroke-width': 1,
-    stroke: label.color,
+    stroke: colors[label.type],
   }).add(this[labelName]);
 
   // Label Point
@@ -57,7 +61,7 @@ function drawLabel(label) {
   ).attr({
     'stroke-width': 2,
     stroke: '#fff',
-    fill: label.color,
+    fill: colors[label.type],
   }).add(this[labelName]);
 
   // Label Value
@@ -70,7 +74,7 @@ function drawLabel(label) {
     fontSize: '8px',
   }).attr({
     padding: 2,
-    fill: label.color,
+    fill: colors[label.type],
   }).add(this[labelName]);
 }
 
