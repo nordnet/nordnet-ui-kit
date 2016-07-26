@@ -5,9 +5,11 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const docgen = require('react-docgen');
 const dir = path.join(__dirname, 'src');
+const webpack = require('webpack');
 
 module.exports = {
   title: 'Nordnet UI Kit',
+  serverPort: 4000,
   styleguideDir: path.join(__dirname, 'documentation/dist'),
   components() {
     const folders = fs.readdirSync(`${dir}/components`);
@@ -86,6 +88,8 @@ module.exports = {
     config.entry.push(path.join(__dirname, 'documentation/documentation.scss'));
 
     config.resolve.alias['rsg-components/Layout/Renderer'] = path.join(__dirname, 'documentation/rsg-components/Layout/Renderer');
+
+    config.plugins.push(new webpack.DefinePlugin({ __USE_REM__: true }));
 
     return config;
   },
