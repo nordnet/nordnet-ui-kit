@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.31
+* Added spinner component.
+* Chevron in select input is now clickable to expand select.
+* The codebase is now much more well tested thanks to [robineng](https://github.com/robineng).
+
 ## 0.0.30
 * Fixed incorrect webpack entrypoint for LabeledValue component.
 
