@@ -11,11 +11,11 @@ function generateRgb(degree, limit) {
   return `rgb(${value}, ${value}, ${value})`;
 }
 
-function conicalGradient(size, limit) {
+function conicalGradient(size, limit, clipPathId) {
   const sectionSize = size / 2;
   const gradientSectionsA = [];
   const gradientSectionsB = [];
-  const rotationMultiplier = Math.round((360 / limit), 10);
+  const rotationMultiplier = 360 / limit;
 
   for (let i = 0; i < limit; i++) {
     const rotation = i * rotationMultiplier;
@@ -30,10 +30,10 @@ function conicalGradient(size, limit) {
       />
     );
 
-    if (rotation >= 180) {
-      gradientSectionsA.push(item);
-    } else {
+    if (i > (limit / 2)) {
       gradientSectionsB.push(item);
+    } else {
+      gradientSectionsA.push(item);
     }
   }
 
@@ -42,7 +42,7 @@ function conicalGradient(size, limit) {
       <g>
         { gradientSectionsA.map(section => section) }
       </g>
-      <g clipPath="url(#overlapClip)">
+      <g clipPath={ `url(#${clipPathId})` }>
         { gradientSectionsB.map(section => section) }
       </g>
     </g>
@@ -52,7 +52,8 @@ function conicalGradient(size, limit) {
 function Spinner({ className, size, color, gradientStops, strokeWidth }) {
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
-  const maskId = `spinner__mask--${size}`;
+  const maskId = `spinner__mask--${size}-${stroke}-${gradientStops}`;
+  const clipPathId = `spinner__clip-path--${size}`;
   const style = {
     width: rem(`${size}px`),
     height: rem(`${size}px`),
@@ -62,12 +63,12 @@ function Spinner({ className, size, color, gradientStops, strokeWidth }) {
     <div className={ classNames('spinner', className) } style={ style }>
       <svg className="spinner__element" viewBox={ `0 0 ${size} ${size}` }>
         <defs>
-          <clipPath id="overlapClip">
-            <rect x={ radius } y="0" width={ radius } height={ size } />
+          <clipPath id={ clipPathId }>
+            <rect x="0" y="0" width={ radius } height={ size } />
           </clipPath>
           <mask id={ maskId } maskUnits="objectBoundingBox">
             <rect width={ size } height={ size } fill="#fff" />
-            { conicalGradient(size, gradientStops) }
+            { conicalGradient(size, gradientStops, clipPathId) }
             <circle cx={ radius } cy={ radius } r={ radius - stroke } fill="#000" />
             <circle cx={ radius } cy={ stroke / 2 } r={ stroke / 2 } fill="#fff" />
           </mask>
@@ -81,7 +82,7 @@ function Spinner({ className, size, color, gradientStops, strokeWidth }) {
 Spinner.defaultProps = {
   size: 16,
   color: variables.colorPrimary,
-  gradientStops: 30,
+  gradientStops: 20,
 };
 
 Spinner.propTypes = {
