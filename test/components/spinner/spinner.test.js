@@ -49,7 +49,7 @@ describe('<Spinner />', () => {
     });
 
     it('should have 90 gradient stops in total', () => {
-      expect(wrapper.find('.spinner__gradient').find('rect')).to.have.length(90);
+      expect(wrapper.find('.spinner__gradient rect')).to.have.length(90);
     });
   });
 });
