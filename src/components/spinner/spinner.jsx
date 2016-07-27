@@ -49,18 +49,19 @@ function conicalGradient(size, limit, clipPathId) {
   );
 }
 
-function Spinner({ className, size, color, gradientStops, strokeWidth }) {
+function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }) {
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
   const maskId = `spinner__mask--${size}-${stroke}-${gradientStops}`;
   const clipPathId = `spinner__clip-path--${size}`;
-  const style = {
+  const wrapperStyle = {
     width: rem(`${size}px`),
     height: rem(`${size}px`),
+    ...style,
   };
 
   return (
-    <div className={ classNames('spinner', className) } style={ style }>
+    <div { ...rest } className={ classNames('spinner', className) } style={ wrapperStyle }>
       <svg className="spinner__element" viewBox={ `0 0 ${size} ${size}` }>
         <defs>
           <clipPath id={ clipPathId }>
@@ -93,6 +94,7 @@ Spinner.propTypes = {
   /** Lower values yield better performance at the risk of more banding */
   gradientStops: PropTypes.number,
   strokeWidth: PropTypes.number,
+  style: PropTypes.object,
 };
 
 export default Spinner;
