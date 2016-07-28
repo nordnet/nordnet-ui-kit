@@ -51,11 +51,13 @@ class InputSelect extends InputDefault {
   }
 
   renderInput() {
+    const { id, placeholder, options, ...rest } = this.props;
+
     return (
       <div className="input__element-wrapper">
         <select
-          { ...this.props }
-          id={ this.props.id }
+          { ...rest }
+          id={ id }
           className="input__element input__element--select"
           onFocus={ this.onFocus }
           onBlur={ this.onBlur }
@@ -64,8 +66,8 @@ class InputSelect extends InputDefault {
           value={ this.state.value }
           style={ this.showValue() ? { } : { color: 'transparent' } }
         >
-          { this.props.placeholder ? <option value="" disabled>{ this.props.placeholder }</option> : null }
-          { this.props.options.map(this.renderOption) }
+          { placeholder ? <option value="" disabled>{ placeholder }</option> : null }
+          { options.map(this.renderOption) }
         </select>
         { this.renderFakePlaceholder() }
         { this.renderSelectArrow() }
