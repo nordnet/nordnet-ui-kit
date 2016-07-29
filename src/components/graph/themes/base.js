@@ -1,5 +1,4 @@
 import variables from './variables';
-import hlc from '../hlc';
 import markersToFront from '../markers-to-front';
 
 export default {
@@ -37,7 +36,6 @@ export default {
     },
     events: {
       load: markersToFront,
-      redraw: hlc,
     },
   },
 
@@ -63,8 +61,6 @@ export default {
           hover: {
             radius: 5,
             lineWidth: 2,
-            lineColor: variables.colorBase,
-            fillColor: variables.colorInfo,
             enabled: true,
             attributes: {
               zIndex: 7,
@@ -122,29 +118,24 @@ export default {
     enabled: false,
   },
 
-  yAxis: [
-    {
-      labels: {
-        style: {
-          fontSize: '10px',
-        },
-        align: 'right',
-        x: -5,
-        y: 4,
+  yAxis: [{
+    labels: {
+      style: {
+        fontSize: '10px',
       },
-      gridLineColor: '#ededed',
-      gridZIndex: 2,
-      gridLineWidth: 1,
-      lineWidth: 1,
-      tickPosition: 'inside',
-      title: {
-        text: '',
-      },
-      opposite: true,
+      y: 4,
     },
-  ],
+    gridLineColor: '#ededed',
+    gridZIndex: 1,
+    gridLineWidth: 1,
+    lineWidth: 1,
+    tickWidth: 1,
+    title: {
+      text: '',
+    },
+  }],
 
-  xAxis: {
+  xAxis: [{
     floor: 0,
     type: 'datetime',
     ordinal: true,
@@ -159,13 +150,7 @@ export default {
     crosshair: {
       zIndex: 3,
     },
-    labels: {
-      y: -8,
-      style: {
-        fontSize: '10px',
-      },
-    },
-  },
+  }],
 
   navigator: {
     enabled: true,

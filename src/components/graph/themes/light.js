@@ -1,5 +1,18 @@
 import variables from './variables';
 
+const tickStyle = {
+  tickColor: variables.colorGrayDark,
+  tickLength: 4,
+  tickPosition: 'outside',
+  tickWidth: 1,
+};
+
+const tickLabelStyle = {
+  color: variables.colorGrayDark,
+  fontSize: '10px',
+  fontWeight: '400',
+};
+
 export default {
   navigator: {
     enabled: false,
@@ -9,21 +22,54 @@ export default {
     enabled: false,
   },
 
+  chart: {
+    spacingLeft: 14,
+  },
+
   yAxis: [{
-    lineWidth: 0,
+    lineWidth: 1,
+    lineColor: variables.colorGray,
+    gridLineDashStyle: 'Dash',
+    gridLineColor: variables.colorGrayLight,
+    opposite: false,
+    labels: {
+      align: 'right',
+      x: -6,
+      style: tickLabelStyle,
+    },
+    ...tickStyle,
   }],
+
+  xAxis: [{
+    lineWidth: 1,
+    lineColor: variables.colorGray,
+    ...tickStyle,
+    labels: {
+      style: tickLabelStyle,
+      y: 14,
+    },
+    crosshair: {
+      color: variables.colorGray,
+    },
+  }],
+
+  colors: [
+    variables.colorInfo,
+    variables.colorPrimary,
+    variables.colorWarning,
+  ],
 
   plotOptions: {
     series: {
-      fillColor: {
-        linearGradient: ['0%', '0%', '0%', '100%'],
-        stops: [
-          ['0%', 'rgba(255, 255, 255, 0.7)'],
-          ['100%', 'rgba(255, 255, 255, 0.7)'],
-        ],
-      },
+      fillColor: 'none',
       marker: {
         enabled: false,
+        states: {
+          hover: {
+            fillColor: null,
+            lineColor: null,
+          },
+        },
       },
       animation: false,
       threshold: null,
@@ -45,7 +91,6 @@ export default {
 
     line: {
       enableMouseTracking: false,
-      color: '#000000',
       marker: {
         states: {
           hover: {
@@ -53,10 +98,6 @@ export default {
           },
         },
       },
-    },
-
-    area: {
-      color: variables.colorBlack,
     },
 
     candlestick: {

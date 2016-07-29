@@ -71,7 +71,7 @@ function drawLabel(label) {
     label.y - 6
   ).css({
     color: '#fff',
-    fontSize: '8px',
+    fontSize: '10px',
   }).attr({
     padding: 2,
     fill: colors[label.type],

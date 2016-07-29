@@ -13,6 +13,34 @@ The UI kit exports two themes for highcharts and a base theme for easy overridin
       }]
     };
 
+    function randomizeData([time, val]) {
+      const value = Math.round(Math.random()) ? val + Math.random() : val - Math.random();
+      return [time, value];
+    }
+
+    const configAlt = {
+      // settings here will override default theme using deep merge.
+      series: [{
+        type: 'area',
+        data: data,
+        tooltip: {
+          valueDecimals: 2
+        },
+      }, {
+        type: 'area',
+        data: data.map(randomizeData) ,
+        tooltip: {
+          valueDecimals: 2
+        },
+      }, {
+        type: 'area',
+        data: data.map(randomizeData) ,
+        tooltip: {
+          valueDecimals: 2
+        },
+      }]
+    };
+
     <div>
       <Graph
         name="graph"
@@ -23,6 +51,6 @@ The UI kit exports two themes for highcharts and a base theme for easy overridin
       <Graph
         name="graph"
         variant="light"
-        config={ config }
+        config={ configAlt }
       />
     </div>

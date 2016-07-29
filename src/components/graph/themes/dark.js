@@ -1,9 +1,12 @@
 import variables from './variables';
 import chroma from 'chroma-js';
+import hlc from '../hlc';
 
-const textStyle = {
+const tickLabelStyle = {
   color: variables.colorBase,
+  fontSize: '10px',
   textShadow: '0 1px 1px rgba(0, 0, 0, .3)',
+  fontWeight: '600',
 };
 
 export default {
@@ -16,11 +19,7 @@ export default {
       gridLineColor: chroma(variables.colorBase).alpha(0.3).css(),
       labels: {
         align: 'center',
-        style: {
-          ...textStyle,
-          fontSize: '10px',
-          fontWeight: 600,
-        },
+        style: tickLabelStyle,
       },
     },
     handles: {
@@ -32,6 +31,9 @@ export default {
   chart: {
     zoomType: 'x',
     backgroundColor: variables.colorInfo,
+    events: {
+      redraw: hlc,
+    },
   },
 
   plotOptions: {
@@ -71,6 +73,14 @@ export default {
     area: {
       color: variables.colorBase,
       fillColor: chroma(variables.colorBase).alpha(0.3).css(),
+      marker: {
+        states: {
+          hover: {
+            lineColor: variables.colorBase,
+            fillColor: variables.colorInfo,
+          },
+        },
+      },
     },
 
     candlestick: {
@@ -92,28 +102,26 @@ export default {
 
   yAxis: [{
     labels: {
-      style: {
-        ...textStyle,
-        fontWeight: '600',
-      },
+      style: tickLabelStyle,
+      align: 'right',
+      x: -5,
+      tickPosition: 'inside',
     },
     gridLineColor: chroma(variables.colorBase).alpha(0.2).css(),
     lineColor: variables.colorBase,
-    tickWidth: 1,
     tickLength: 0,
     tickColor: variables.colorInfo,
+    opposite: true,
   }],
 
-  xAxis: {
+  xAxis: [{
     labels: {
-      style: {
-        ...textStyle,
-        fontWeight: '600',
-      },
+      style: tickLabelStyle,
+      y: -8,
     },
     lineColor: variables.colorBase,
     crosshair: {
       color: chroma.mix(variables.colorBase, variables.colorInfo, 0.3).css(),
     },
-  },
+  }],
 };
