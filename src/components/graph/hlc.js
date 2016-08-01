@@ -44,10 +44,10 @@ function drawLabel(label) {
   this.renderer.path([
     'M',
     xOffset,
-    label.y + 9,
+    label.y + 9.5, // Align to middle of pixel to ensure no half pixels are drawn
     'L',
     this.chartWidth - 8,
-    label.y + 9,
+    label.y + 9.5, // Align to middle of pixel to ensure no half pixels are drawn
   ]).attr({
     'stroke-width': 1,
     stroke: colors[label.type],
@@ -68,7 +68,7 @@ function drawLabel(label) {
   this.renderer.label(
     `${label.type[0].toUpperCase()}. ${label.value}`,
     xOffset,
-    label.y - 6
+    label.y - 8
   ).css({
     color: '#fff',
     fontSize: '10px',
