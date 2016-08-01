@@ -83,6 +83,8 @@ module.exports = {
       config.plugins.push(new ExtractTextPlugin('build/styles.css'));
     }
 
+    config.plugins.push(new webpack.DefinePlugin({ __STYLEGUIDE__: true }));
+
     config.postcss = postcss;
 
     config.entry.push(path.join(__dirname, 'documentation/documentation.scss'));
