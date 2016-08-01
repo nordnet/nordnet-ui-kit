@@ -1,17 +1,31 @@
 import React, { PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
-import variables from '../../utilities/variables';
 import debounce from 'lodash.debounce';
+import assign from 'lodash.assign';
+import arrayEqual from 'array-equal';
+import bezierEasing from 'bezier-easing';
+import {
+  pointInterpolator,
+  colorInterpolator,
+  getStrokeColor,
+  transformPoints,
+} from './interpolate.js';
 import './spark-graph.scss';
 
 class SparkGraph extends React.Component {
   constructor(props) {
     super(props);
+    const width = props.width || 0;
+    const height = props.height || 0;
     this.state = {
-      width: props.width || 0,
-      height: props.height || 0,
+      width,
+      height,
       shouldResize: !(typeof window === 'undefined') && (!props.width || !props.height),
+      pointsFrom: null,
+      pointsTo: null,
+      strokeFrom: null,
+      strokeTo: null,
     };
 
     this.handleResize = debounce(this.handleResize.bind(this), 150).bind(this);
@@ -24,35 +38,57 @@ class SparkGraph extends React.Component {
     }
   }
 
-  componentWillReceiveProps({ width, height }) {
-    this.setState({
-      width: width !== this.state.width ? width : this.state.width,
-      height: height !== this.state.height ? height : this.state.height,
-    });
+  componentWillReceiveProps({ width, height, points, stroke }) {
+    const state = {};
+    if (width) state.width = width;
+    if (height) state.height = height;
+    state.pointsFrom = this.props.points;
+    state.pointsTo = points;
+    state.strokeFrom = this.props.stroke;
+    state.strokeTo = stroke;
+    this.setState(state);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
 
+  componentDidUpdate() {
+    const { strokeWidth, transitionDuration } = this.props;
+    const { height, width, pointsFrom, pointsTo, strokeFrom, strokeTo } = this.state;
+    const pInterpolator = pointInterpolator(pointsFrom, pointsTo, width, height, strokeWidth);
+    const cInterpolator = colorInterpolator(pointsFrom, pointsTo, strokeFrom, strokeTo);
+
+    if (pInterpolator || cInterpolator) {
+      const easing = bezierEasing(0.6, 0.04, 0.98, 0.335);
+      let startTime;
+
+      const draw = (time) => {
+        if (!startTime) startTime = time;
+        const progress = time - startTime < transitionDuration ? (time - startTime) / transitionDuration : 1;
+
+        if (pInterpolator) {
+          const values = pInterpolator.map(ip => ip(easing(progress)));
+          this.path.setAttribute('d', this.constructPathString(values));
+        }
+
+        if (cInterpolator) {
+          this.path.setAttribute('stroke', cInterpolator(easing(progress)));
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(draw);
+        }
+      };
+
+      requestAnimationFrame(draw);
+    }
+  }
+
   componentWillUnmount() {
     if (this.state.shouldResize) {
       window.removeEventListener('resize', this.handleResize);
     }
-  }
-
-  getStrokeDirection(points, stroke) {
-    if (stroke) {
-      return stroke;
-    }
-
-    if (points[0] > points[points.length - 1]) {
-      return variables.colorDanger;
-    } else if (points[0] < points[points.length - 1]) {
-      return variables.colorSuccess;
-    }
-
-    return variables.colorText;
   }
 
   handleResize() {
@@ -62,33 +98,18 @@ class SparkGraph extends React.Component {
       this.setState({
         width: rect.width,
         height: rect.height,
+        pointsFrom: null, // Avoid animation on resize
+        strokeFrom: null, // Avoid animation on resize
       });
     }
   }
 
-  transformPoints(points, height, strokeWidth) {
-    const effectiveHeight = height - strokeWidth;
-    const strokeCompensation = strokeWidth / 2;
-    const min = Math.min(...points);
-    const max = Math.max(...points);
-
-    if (min === max) {
-      // The line must be exactly horizontal, normalization not possible
-      return [height / 2, height / 2];
-    }
-
-    return points.map(point => (
-      (effectiveHeight + strokeCompensation) - (((point - min) / (max - min)) * effectiveHeight)
-    ));
-  }
-
-  constructPathString(points, width) {
+  constructPathString(points) {
     const [first, ...rest] = points;
-    const xScale = width / rest.length;
 
-    return rest.reduce((prev, curr, index) => (
-      `${prev} L ${(index + 1) * xScale} ${curr}`
-    ), `M 0 ${first}`);
+    return rest.reduce((prev, curr) => (
+      `${prev} L ${curr.x} ${curr.y}`
+    ), `M ${first.x} ${first.y}`);
   }
 
   render() {
@@ -100,13 +121,16 @@ class SparkGraph extends React.Component {
       style,
       ...rest,
     } = this.props;
-    const { width, height } = this.state;
-    const transformedPoints = this.transformPoints(points, height, strokeWidth);
-    // TODO: Polyfill Object.assign because IE
-    const styles = Object.assign({
+    const { width, height, pointsFrom, pointsTo } = this.state;
+    const styles = assign({
       width: !this.props.width ? '100%' : `${width}px`,
       height: !this.props.height ? '100%' : `${height}px`,
     }, style);
+    let pointsToRender;
+
+    if (!pointsFrom || arrayEqual(pointsFrom, pointsTo)) {
+      pointsToRender = transformPoints(points, width, height, strokeWidth);
+    }
 
     return (
       <svg
@@ -120,11 +144,14 @@ class SparkGraph extends React.Component {
       >
         <path
           className="spark-graph__path"
-          d={ this.constructPathString(transformedPoints, width) }
-          stroke={ this.getStrokeDirection(points, stroke) }
+          d={ pointsFrom ? '' : this.constructPathString(pointsToRender) }
+          stroke={ pointsFrom ? getStrokeColor(pointsFrom, stroke) : getStrokeColor(points, stroke) }
           strokeWidth={ strokeWidth }
           strokeLinecap="square"
           strokeLinejoin="round"
+          ref={ (node) => {
+            this.path = node;
+          } }
         />
       </svg>
     );
@@ -140,12 +167,15 @@ SparkGraph.propTypes = {
   width: PropTypes.number,
   /** Unitless pixel value */
   height: PropTypes.number,
+  /** Transition duration in ms */
+  transitionDuration: PropTypes.number,
   className: PropTypes.string,
   style: PropTypes.object,
 };
 
 SparkGraph.defaultProps = {
   strokeWidth: 1,
+  transitionDuration: 500,
 };
 
 export default SparkGraph;

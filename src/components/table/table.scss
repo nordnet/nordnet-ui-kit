@@ -1,0 +1,40 @@
+@import '../../functions';
+@import '../../variables';
+
+$sizes: (
+  xs: 12px,
+  sm: 14px,
+  md: 16px,
+  lg: 18px,
+);
+
+.table {
+  display: inline-block;
+  text-align: left;
+
+  &--full-width {
+    width: 100%;
+
+    table {
+      width: 100%;
+    }
+  }
+
+  @each $size, $font-size in $sizes {
+    &--#{$size} {
+      font-size: rem($font-size);
+    }
+  }
+
+  &--alternat-rows {
+    tbody tr:nth-child(odd) {
+      background: $color-background-muted;
+    }
+  }
+
+  .reactable {
+    &-column-header {
+      font-weight: 600;
+    }
+  }
+}

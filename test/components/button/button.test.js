@@ -4,28 +4,34 @@ import { expect } from 'chai';
 import Button from '../../../src/components/button/button';
 
 describe('<Button />', () => {
+  let wrapper;
+
   it('should render <button> by default', () => {
-    const component = shallow(<Button>Button</Button>);
-    expect(component.type()).to.equal('button');
+    wrapper = shallow(<Button>Button</Button>);
+    expect(wrapper.type()).to.equal('button');
   });
 
-  it('should use "primary" prop', () => {
-    const component = shallow(<Button primary>Button primary</Button>);
-    expect(component.hasClass('btn-primary')).to.equal(true);
+  ['primary', 'secondary', 'link'].forEach((variant) => {
+    it(`should have class btn-${variant} if variant is set to ${variant}`, () => {
+      wrapper = shallow(<Button variant={ variant }>Button</Button>);
+      expect(wrapper.hasClass(`btn-${variant}`)).to.equal(true);
+    });
   });
 
-  it('should use "secondary" prop', () => {
-    const component = shallow(<Button secondary>Button secondary</Button>);
-    expect(component.hasClass('btn-secondary')).to.equal(true);
+  ['danger', 'warning', 'success'].forEach((modifier) => {
+    it(`should have class btn-primary--${modifier} if modifier is set to ${modifier}`, () => {
+      wrapper = shallow(<Button modifier={ modifier }>Button</Button>);
+      expect(wrapper.hasClass(`btn-primary--${modifier}`)).to.equal(true);
+    });
   });
 
-  it('should use variant "primary" prop', () => {
-    const component = shallow(<Button variant="primary">Button variant = primary</Button>);
-    expect(component.hasClass('btn-primary')).to.equal(true);
+  it('should render children', () => {
+    wrapper = shallow(<Button>Button</Button>);
+    expect(wrapper.childAt(0).text()).to.equal('Button');
   });
 
-  it('should use variant "secondary" prop', () => {
-    const component = shallow(<Button variant="secondary">Button variant = secondary</Button>);
-    expect(component.hasClass('btn-secondary')).to.equal(true);
+  it('should be disabled if prop disabled is set', () => {
+    wrapper = shallow(<Button disabled>Button</Button>);
+    expect(wrapper.props().disabled).to.equal(true);
   });
 });
