@@ -7,7 +7,7 @@ function Table(props) {
   const { className, fullWidth, size, colorAlternateRows, ...rest } = props;
   const classes = classNames('table', {
     'table--full-width': fullWidth,
-    'table--alternat-rows': colorAlternateRows,
+    'table--alternate-rows': colorAlternateRows,
   }, `table--${size}`, className);
 
   return (

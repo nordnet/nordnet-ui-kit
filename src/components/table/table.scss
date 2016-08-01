@@ -20,15 +20,19 @@ $sizes: (
     }
   }
 
+  table {
+    border-collapse: collapse;
+  }
+
   @each $size, $font-size in $sizes {
     &--#{$size} {
       font-size: rem($font-size);
     }
   }
 
-  &--alternat-rows {
+  &--alternate-rows {
     tbody tr:nth-child(odd) {
-      background: $color-background-muted;
+      background: $color-gray-lighter;
     }
   }
 
