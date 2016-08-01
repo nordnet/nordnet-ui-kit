@@ -63,13 +63,9 @@ export default {
     series: {
       fillColor: 'none',
       marker: {
-        enabled: false,
-        states: {
-          hover: {
-            fillColor: null,
-            lineColor: null,
-          },
-        },
+        fillColor: variables.colorBase,
+        lineColor: null,
+        symbol: 'circle',
       },
       animation: false,
       threshold: null,

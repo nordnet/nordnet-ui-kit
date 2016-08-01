@@ -54,9 +54,9 @@ export default {
   },
 
   plotOptions: {
-    area: {
-      lineWidth: 2,
+    series: {
       marker: {
+        enabled: false,
         states: {
           hover: {
             radius: 5,
@@ -68,6 +68,9 @@ export default {
           },
         },
       },
+    },
+    area: {
+      lineWidth: 2,
       states: {
         hover: {
           lineWidth: 2,
