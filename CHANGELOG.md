@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.32
+* Added graph themes
+* Added table component
+
 ## 0.0.31
 * Added spinner component.
 * Chevron in select input is now clickable to expand select.
