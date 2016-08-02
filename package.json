@@ -1,6 +1,6 @@
 {
   "name": "nordnet-ui-kit",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "Nordnets React powered UI kit",
   "main": "dist/nordnet-ui-kit.js",
   "scripts": {
@@ -40,7 +40,6 @@
     "date-arithmetic": "^3.1.0",
     "array-equal": "^1.0.0",
     "bezier-easing": "^2.0.3",
-    "classnames": "^2.2.3",
     "d3-interpolate": "^1.0.0",
     "lodash.assign": "^4.0.9",
     "lodash.camelcase": "^4.1.0",
