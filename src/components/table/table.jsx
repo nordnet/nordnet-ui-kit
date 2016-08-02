@@ -12,7 +12,7 @@ function Table(props) {
 
   return (
     <div className={ classes }>
-      <Reactable.Table {...rest}>{ props.children }</Reactable.Table>
+      <Reactable.Table { ...rest }>{ props.children }</Reactable.Table>
     </div>
   );
 }
