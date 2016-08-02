@@ -12,6 +12,40 @@ $sizes: (
   display: inline-block;
   text-align: left;
 
+  table {
+    border-collapse: collapse;
+
+    tr {
+      th,
+      td {
+        &:first-child {
+          padding: rem(2px);
+          padding-left: rem(4px);
+        }
+
+        &:last-child {
+          padding: rem(2px);
+          padding-right: rem(4px);
+        }
+      }
+    }
+  }
+
+  .th--number {
+    text-align: right;
+  }
+
+  .td--number {
+    font-family: monospace;
+    text-align: right;
+  }
+
+  @each $size, $font-size in $sizes {
+    &--#{$size} {
+      font-size: rem($font-size);
+    }
+  }
+
   &--full-width {
     width: 100%;
 
@@ -20,13 +54,11 @@ $sizes: (
     }
   }
 
-  table {
-    border-collapse: collapse;
-  }
+  &--hide-header {
+    width: 100%;
 
-  @each $size, $font-size in $sizes {
-    &--#{$size} {
-      font-size: rem($font-size);
+    table > thead {
+      display: none;
     }
   }
 

@@ -4,10 +4,11 @@ import Reactable from 'reactable';
 import './table.scss';
 
 function Table(props) {
-  const { className, fullWidth, size, colorAlternateRows, ...rest } = props;
+  const { className, fullWidth, size, colorAlternateRows, hideHeader, ...rest } = props;
   const classes = classNames('table', {
     'table--full-width': fullWidth,
     'table--alternate-rows': colorAlternateRows,
+    'table--hide-header': hideHeader,
   }, `table--${size}`, className);
 
   return (
@@ -21,6 +22,7 @@ Table.defaultProps = {
   fullWidth: true,
   size: 'sm',
   colorAlternateRows: true,
+  hideHeader: false,
 };
 
 Table.propTypes = {
@@ -28,6 +30,7 @@ Table.propTypes = {
   children: PropTypes.node,
   fullWidth: PropTypes.bool,
   colorAlternateRows: PropTypes.bool,
+  hideHeader: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
 };
 
