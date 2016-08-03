@@ -4,7 +4,7 @@ import Reactable from 'reactable';
 import './table.scss';
 
 function Table(props) {
-  const { className, fullWidth, size, colorAlternateRows, hideHeader, ...rest } = props;
+  const { className, children, fullWidth, size, colorAlternateRows, hideHeader, ...rest } = props;
   const classes = classNames('table', {
     'table--full-width': fullWidth,
     'table--alternate-rows': colorAlternateRows,
@@ -13,7 +13,7 @@ function Table(props) {
 
   return (
     <div className={ classes }>
-      <Reactable.Table { ...rest }>{ props.children }</Reactable.Table>
+      <Reactable.Table { ...rest }>{ children }</Reactable.Table>
     </div>
   );
 }
