@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.34
+* Minor tweak to table component
+
 ## 0.0.33
 * Added question mark icon [#68](https://github.com/nordnet/nordnet-ui-kit/pull/68).
 * Added missing entry point for table component.
