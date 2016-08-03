@@ -1,0 +1,26 @@
+.instrument-tooltip {
+  .tooltip__listitem{
+    &-name{
+    }
+    &-value{
+      float:right;
+      font-family: monospace;
+    }
+    &__volume{
+      &--name{
+      }
+      &--value{
+        float:right;
+        font-family: monospace;
+      }
+    }
+    &__candle{
+      &--name{
+      }
+      &--value{
+        float:right;
+        font-family: monospace;
+      }
+    }
+  }
+}
