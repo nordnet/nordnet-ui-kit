@@ -34,7 +34,7 @@ InstrumentTooltip.propTypes = {
   volume: PropTypes.shape({
     translation: PropTypes.string,
     color: PropTypes.string,
-    value: PropTypes.number,
+    value: PropTypes.string,
   }),
   ohlc: PropTypes.shape({
     color: PropTypes.string,

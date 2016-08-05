@@ -16,7 +16,7 @@ function VolumeListElement({ translation, value }) {
 VolumeListElement.propTypes = {
   translation: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default VolumeListElement;

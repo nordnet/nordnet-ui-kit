@@ -17,25 +17,25 @@ Highcharts tooltips
       volume: {
         translation: 'Volym',
         color: 'green',
-        value: 4711,
+        value: '4711',
       },
       ohlc: {
         color: 'orange',
         open: {
           translation: 'Öppning',
-          value: 1,
+          value: '1',
         },
         high: {
           translation: 'Högsta',
-          value: 13,
+          value: '13',
         },
         low: {
           translation: 'Lägsta',
-          value: 2,
+          value: '2',
         },
         close: {
           translation: 'Stängning',
-          value: 13,
+          value: '13',
         },
       },
     };
