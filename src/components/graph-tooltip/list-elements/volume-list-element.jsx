@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 
-function VolumeListElement({ translation, color, value }) {
+function VolumeListElement({ translation, value }) {
   return (
     <tr className="tooltip__listitem">
       <td className="tooltip__listitem-name">
-        <b style={ { color } }>{ translation }</b>
+        <b>{ translation }</b>
       </td>
       <td className="tooltip__listitem-value">
         { value }

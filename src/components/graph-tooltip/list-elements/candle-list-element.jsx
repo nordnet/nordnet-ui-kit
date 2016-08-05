@@ -14,7 +14,7 @@ function CandleListElement({ color, ...rest }) {
 function getCandleValue(color, { translation, value }) {
   return (
     <span>
-      <b style={ { color } }>{ translation }:</b> { value }
+      <b style={ { color } }> { translation }:</b> { value }
     </span>
   );
 }

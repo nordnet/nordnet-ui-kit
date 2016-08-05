@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 
-function PriceListElement({ name, color, value, percentValue }) {
+function PriceListElement({ name, value, percentValue }) {
   return (
     <tr className="tooltip__listitem">
       <td className="tooltip__listitem-name">
-        <b style={ { color } }>{ name }</b>
+        <b>{ name }</b>
       </td>
       <td className="tooltip__listitem-value">
         { value + (percentValue ? '%' : '') }
