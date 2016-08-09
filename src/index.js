@@ -14,7 +14,13 @@ import RatioBar from './components/ratio-bar';
 import Select from './components/select/select';
 import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
-import Table from './components/table/';
+import Table from './components/table';
+import Tbody from './components/tbody';
+import Td from './components/td';
+import Tfoot from './components/tfoot';
+import Th from './components/th';
+import Thead from './components/thead';
+import Tr from './components/tr';
 import variables from './utilities/variables';
 import Widget from './components/widget/widget';
 
@@ -36,6 +42,12 @@ export {
   SparkGraph,
   Spinner,
   Table,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
   variables,
   Widget,
 };
