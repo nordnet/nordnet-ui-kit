@@ -33,16 +33,6 @@ describe('<Spinner />', () => {
     });
   });
 
-  describe('<Spinner color="red" />', () => {
-    beforeEach(() => {
-      wrapper = shallow(<Spinner color="red" />);
-    });
-
-    it('should have a red fill', () => {
-      expect(wrapper.find('.spinner__circle').prop('fill')).to.equal('red');
-    });
-  });
-
   describe('<Spinner gradientStops={ 90 } />', () => {
     beforeEach(() => {
       wrapper = shallow(<Spinner gradientStops={ 90 } />);

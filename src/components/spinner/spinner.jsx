@@ -49,6 +49,12 @@ function conicalGradient(size, limit, clipPathId) {
   );
 }
 
+function renderCircleAsHtml(radius, color, maskId) {
+  return {
+    __html: `<circle class="spinner__circle" cx="${radius}" cy="${radius}" r="${radius}" fill="${color}" mask="url(#${maskId})"></circle>`,
+  };
+}
+
 function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }) {
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
@@ -74,7 +80,7 @@ function Spinner({ className, size, color, gradientStops, strokeWidth, style, ..
             <circle cx={ radius } cy={ stroke / 2 } r={ stroke / 2 } fill="#fff" />
           </mask>
         </defs>
-        <circle className="spinner__circle" cx={ radius } cy={ radius } r={ radius } fill={ color } mask={ `url(#${maskId})` } />
+        <g dangerouslySetInnerHTML={ renderCircleAsHtml(radius, color, maskId) } />
       </svg>
     </div>
   );
