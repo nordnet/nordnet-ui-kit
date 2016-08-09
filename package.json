@@ -56,8 +56,7 @@
     "react-prop-types": "^0.3.0",
     "react-pure-render": "^1.0.2",
     "react-select": "^1.0.0-beta13",
-    "react-svg-sprite-icon": "^0.0.11",
-    "reactable": "^0.13.2"
+    "react-svg-sprite-icon": "^0.0.11"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
