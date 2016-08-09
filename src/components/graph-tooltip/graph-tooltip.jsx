@@ -5,9 +5,9 @@ import InstrumentTooltip from './instrument-tooltip';
 function GraphTooltip({ type, ...rest }) {
   switch (type) {
     case 'compare':
-      return <CompareTooltip {...rest} />;
+      return <CompareTooltip { ...rest } />;
     case 'instrument':
-      return <InstrumentTooltip {...rest} />;
+      return <InstrumentTooltip { ...rest } />;
     default:
       return <div />;
   }

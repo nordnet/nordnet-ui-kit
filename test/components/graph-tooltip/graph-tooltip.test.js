@@ -22,7 +22,7 @@ describe('<GraphTooltip />', () => {
   types.forEach((type) => {
     describe(`with type=${type.name}`, () => {
       beforeEach(() => {
-        wrapper = shallow(<GraphTooltip type={ type.name } {...data} />);
+        wrapper = shallow(<GraphTooltip type={ type.name } { ...data } />);
       });
       it(`should render a ${type.elementName}`, () => {
         expect(wrapper.type()).to.equal(type.value);
