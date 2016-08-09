@@ -9,6 +9,10 @@
   &sidebar {
     @extend %border;
     background: $color-base;
+
+    &--hidden {
+      display: none;
+    }
   }
 
   &heading {
