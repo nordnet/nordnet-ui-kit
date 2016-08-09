@@ -4,6 +4,7 @@ import Button from './components/button/button';
 import DatePicker from './components/date-picker';
 import Dropdown from './components/dropdown/dropdown';
 import Graph from './components/graph';
+import GraphTooltip from './components/graph-tooltip';
 import Icon from './components/icon/icon';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
@@ -24,6 +25,7 @@ export {
   DatePicker,
   Dropdown,
   Graph,
+  GraphTooltip,
   Icon,
   Input,
   LabeledValue,

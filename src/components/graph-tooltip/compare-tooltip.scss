@@ -1,0 +1,10 @@
+.compare-tooltip {
+  .tooltip__listitem{
+    &-name{
+    }
+    &-value{
+      float:right;
+      font-family: monospace;
+    }
+  }
+}

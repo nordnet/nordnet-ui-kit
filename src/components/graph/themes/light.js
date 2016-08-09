@@ -85,17 +85,6 @@ export default {
       },
     },
 
-    line: {
-      enableMouseTracking: false,
-      marker: {
-        states: {
-          hover: {
-            enabled: false,
-          },
-        },
-      },
-    },
-
     candlestick: {
       lineColor: '#B4001D',
       color: 'rgba(224, 0, 36, 0.75)',

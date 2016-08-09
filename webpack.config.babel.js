@@ -18,6 +18,7 @@ const entry = {
     'date-picker': './src/components/date-picker',
     dropdown: './src/components/dropdown/dropdown.jsx',
     graph: './src/components/graph',
+    'graph-tooltip': './src/components/graph-tooltip',
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
     'labeled-value': './src/components/labeled-value/labeled-value.jsx',
