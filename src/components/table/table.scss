@@ -1,35 +1,11 @@
 @import '../../functions';
 @import '../../variables';
-
-$sizes: (
-  xs: 12px,
-  sm: 14px,
-  md: 16px,
-  lg: 18px,
-);
+@import './utilities';
 
 .table {
-  display: inline-block;
   text-align: left;
-
-  table {
-    border-collapse: collapse;
-
-    tr {
-      th,
-      td {
-        &:first-child {
-          padding: rem(2px);
-          padding-left: rem(4px);
-        }
-
-        &:last-child {
-          padding: rem(2px);
-          padding-right: rem(4px);
-        }
-      }
-    }
-  }
+  border-collapse: collapse;
+  font-weight: normal;
 
   .th--number {
     text-align: right;
@@ -40,37 +16,15 @@ $sizes: (
     text-align: right;
   }
 
-  @each $size, $font-size in $sizes {
-    &--#{$size} {
-      font-size: rem($font-size);
-    }
-  }
+  @include sizes();
 
   &--full-width {
     width: 100%;
-
-    table {
-      width: 100%;
-    }
   }
 
   &--hide-header {
-    width: 100%;
-
-    table > thead {
+    > thead {
       display: none;
-    }
-  }
-
-  &--alternate-rows {
-    tbody tr:nth-child(odd) {
-      background: $color-gray-lighter;
-    }
-  }
-
-  .reactable {
-    &-column-header {
-      font-weight: 600;
     }
   }
 }

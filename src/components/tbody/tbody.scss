@@ -1,0 +1,13 @@
+@import '../../functions';
+@import '../../variables';
+@import '../table/utilities';
+
+.tbody {
+  @include sizes();
+
+  &--alternate-rows {
+    tr:nth-child(odd) {
+      background: $color-gray-lighter;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@import '../../functions';
+@import '../../variables';
+@import '../table/utilities';
+
+.tfoot {
+  @include sizes();
+}

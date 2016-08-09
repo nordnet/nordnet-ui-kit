@@ -1,0 +1,22 @@
+@import '../../functions';
+
+$sizes: (
+  xs: 12px,
+  sm: 14px,
+  md: 16px,
+  lg: 18px,
+);
+
+@mixin sizes() {
+  @each $size, $font-size in $sizes {
+    &--#{$size} {
+      font-size: rem($font-size);
+    }
+  }
+}
+
+@mixin mono() {
+  &--mono {
+    font-family: "Value Nordnet Mono", menlo, monospace;
+  }
+}

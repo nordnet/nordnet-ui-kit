@@ -1,0 +1,8 @@
+@import '../../functions';
+@import '../../variables';
+@import '../table/utilities';
+
+.td {
+  @include sizes();
+  @include mono();
+}

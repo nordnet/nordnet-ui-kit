@@ -1,0 +1,22 @@
+@import '../../functions';
+@import '../../variables';
+@import '../table/utilities';
+
+.tr {
+  @include sizes();
+
+  th,
+  td {
+    padding: rem(2px);
+
+    &:first-child {
+      padding: rem(2px);
+      padding-left: rem(4px);
+    }
+
+    &:last-child {
+      padding: rem(2px);
+      padding-right: rem(4px);
+    }
+  }
+}
