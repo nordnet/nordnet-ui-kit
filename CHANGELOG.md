@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.35
+* Replaced reactable with custom `table`, `tbody`, `td`, `tfoot`, `th`, `thead` and `tr` components.
+* Spinner now renders primary circle as string due to unsupported `mask` attribute in React 0.14.0.
+* Added initial version of `graph-tooltip` component.
+
 ## 0.0.34
 * Minor tweak to table component
 
