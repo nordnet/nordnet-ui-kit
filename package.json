@@ -49,6 +49,8 @@
     "lodash.maxby": "^4.4.0",
     "lodash.merge": "^4.4.0",
     "lodash.minby": "^4.4.0",
+    "lodash.throttle": "^4.1.0",
+    "lodash.toarray": "^4.3.0",
     "react": "^0.14.0 || ^15.0.1",
     "react-addons-shallow-compare": "^15.1.0",
     "react-date-picker": "^4.0.10",

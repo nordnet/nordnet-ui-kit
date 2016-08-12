@@ -5,7 +5,10 @@ import './tbody.scss';
 function Tbody(props) {
   const { className, children, size, colorAlternateRows, ...rest } = props;
   const classes = classNames('tbody', {
-    [`tbody--${size}`]: size,
+    'tbody--xs': size === 'xs',
+    'tbody--sm': size === 'sm',
+    'tbody--md': size === 'md',
+    'tbody--lg': size === 'lg',
     'tbody--alternate-rows': colorAlternateRows,
   }, className);
 

@@ -5,7 +5,10 @@ import './table.scss';
 function Table(props) {
   const { className, children, fullWidth, size, hideHeader, ...rest } = props;
   const classes = classNames('table', {
-    [`table--${size}`]: size,
+    'table--xs': size === 'xs',
+    'table--sm': size === 'sm',
+    'table--md': size === 'md',
+    'table--lg': size === 'lg',
     'table--full-width': fullWidth,
     'table--hide-header': hideHeader,
   }, className);

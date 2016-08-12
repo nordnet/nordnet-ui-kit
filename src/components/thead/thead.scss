@@ -4,4 +4,15 @@
 
 .thead {
   @include sizes();
+
+  &__child--clone {
+    position: fixed;
+    display: none;
+    top: 0;
+    background: $color-base;
+
+    .thead--sticky & {
+      display: block;
+    }
+  }
 }

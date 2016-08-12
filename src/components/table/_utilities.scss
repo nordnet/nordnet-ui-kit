@@ -1,3 +1,4 @@
+@import '../../variables';
 @import '../../functions';
 
 $sizes: (
@@ -6,6 +7,14 @@ $sizes: (
   md: 16px,
   lg: 18px,
 );
+
+$modifiers: (
+  success: $color-success,
+  warning: $color-warning,
+  danger: $color-danger,
+);
+
+$borders: 'top', 'right', 'bottom', 'left';
 
 @mixin sizes() {
   @each $size, $font-size in $sizes {
@@ -18,5 +27,34 @@ $sizes: (
 @mixin mono() {
   &--mono {
     font-family: "Value Nordnet Mono", menlo, monospace;
+  }
+}
+
+@mixin modifiers() {
+  @each $modifier, $color in $modifiers {
+    &--#{$modifier} {
+      color: $color;
+    }
+  }
+}
+
+@mixin highlights() {
+  @each $modifier, $color in $modifiers {
+    &--highlight-#{$modifier} {
+      background: rgba($color, .2);
+    }
+  }
+}
+
+@mixin borders() {
+  &--border {
+    border: rem(1px) solid $color-gray;
+  }
+
+  @each $position in $borders {
+    &--border-#{$position} {
+      border-#{$position}: rem(1px) solid $color-gray;
+      padding-#{$position}: rem(4px);
+    }
   }
 }

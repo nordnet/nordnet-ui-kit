@@ -5,7 +5,10 @@ import './tfoot.scss';
 function Tfoot(props) {
   const { className, children, size, ...rest } = props;
   const classes = classNames('tfoot', {
-    [`tfoot--${size}`]: size,
+    'tfoot--xs': size === 'xs',
+    'tfoot--sm': size === 'sm',
+    'tfoot--md': size === 'md',
+    'tfoot--lg': size === 'lg',
   }, className);
 
   return <tfoot { ...rest } className={ classes }>{ children }</tfoot>;
