@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
+import arrayEqual from 'array-equal';
 import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 import toArray from 'lodash.toarray';
 import './thead.scss';
 
@@ -15,29 +17,39 @@ class Thead extends React.Component {
     };
 
     this.handleScroll = throttle(this.handleScroll.bind(this), 200).bind(this);
+    this.handleResize = debounce(this.handleResize.bind(this), 500).bind(this);
     this.addRefToChild = this.addRefToChild.bind(this);
     this.renderClone = this.renderClone.bind(this);
+    this.setSticky = this.setSticky.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleResize);
+    this.setChildNodesWidths(this.childNode);
+  }
+
+  componentDidUpdate() {
     this.setChildNodesWidths(this.childNode);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   setChildNodesWidths(node) {
     // Make NodeList an array so it can be mapped
-    const nodes = toArray(ReactDOM.findDOMNode(node).childNodes);
+    const childNodesWidths = toArray(ReactDOM.findDOMNode(node).childNodes).map(child => child.offsetWidth);
 
-    this.setState({
-      childNodesWidths: nodes.map(child => child.offsetWidth),
-    });
+    if (!arrayEqual(childNodesWidths, this.state.childNodesWidths)) {
+      this.setState({
+        childNodesWidths,
+      });
+    }
   }
 
-  handleScroll() {
+  setSticky() {
     const node = ReactDOM.findDOMNode(this.childNode);
     const top = node.getBoundingClientRect().top;
     const parentHeight = node.closest('table').offsetHeight;
@@ -51,6 +63,15 @@ class Thead extends React.Component {
         headerSticky: false,
       });
     }
+  }
+
+  handleScroll() {
+    this.setSticky();
+  }
+
+  handleResize() {
+    this.setChildNodesWidths(this.childNode);
+    this.setSticky();
   }
 
   capitalizeFirstLetter(string) {

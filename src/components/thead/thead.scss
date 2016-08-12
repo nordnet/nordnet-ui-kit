@@ -11,6 +11,7 @@
     opacity: 0;
     top: 0;
     background: $color-base;
+    border-bottom: rem(1px) solid $color-gray;
     transition: visibility 0s linear .15s, opacity .15s linear;
 
     .thead--sticky & {
