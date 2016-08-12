@@ -7,12 +7,16 @@
 
   &__child--clone {
     position: fixed;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     top: 0;
     background: $color-base;
+    transition: visibility 0s linear .15s, opacity .15s linear;
 
     .thead--sticky & {
-      display: block;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity .15s linear;
     }
   }
 }

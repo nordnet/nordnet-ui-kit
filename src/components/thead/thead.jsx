@@ -42,7 +42,7 @@ class Thead extends React.Component {
     const top = node.getBoundingClientRect().top;
     const parentHeight = node.closest('table').offsetHeight;
 
-    if (top <= 0 && top > parentHeight * -1) {
+    if (top <= 0 && top > (parentHeight - 21) * -1) {
       this.setState({
         headerSticky: true,
       });
@@ -76,6 +76,7 @@ class Thead extends React.Component {
     if (this.childNode && childNodesWidths.length > 0) {
       return React.cloneElement(children, {
         className: 'thead__child--clone',
+        'aria-hidden': true,
         ref: node => {
           this.childNodeClone = node;
         },
