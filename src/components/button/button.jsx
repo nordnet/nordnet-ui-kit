@@ -13,6 +13,7 @@ function Button({
   link,
   modifier,
   href,
+  size,
   ...rest,
 }) {
   const Element = href ? 'a' : 'button';
@@ -36,7 +37,7 @@ function Button({
     'btn-link--success': isLink && isSuccess,
     'btn-link--warning': isLink && isWarning,
     'btn-link--danger': isLink && isDanger,
-  }, className);
+  }, `btn--${size}`, className);
 
   if (primary || secondary || link) {
     console.warn(`Warning: Nordnet UI Kit button component primary, secondary and link props are deprecated, use variant={ primary, secondary, link } instead, check button with value: ${children}`); // eslint-disable-line
@@ -51,6 +52,7 @@ function Button({
 
 Button.defaultProps = {
   variant: 'primary',
+  size: 'sm',
 };
 
 Button.propTypes = {
@@ -66,6 +68,7 @@ Button.propTypes = {
   /** ⚠️ Deprecated in favour of `variant` prop */
   link: PropTypes.bool,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
   disabled: PropTypes.bool,
 };

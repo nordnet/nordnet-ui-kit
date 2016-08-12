@@ -5,7 +5,7 @@ Primary button:
     };
 
     <div>
-      <Button variant="primary" href="https://google.com" style= { style }>Click Me</Button>
+      <Button variant="primary" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="danger" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="warning" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="success" style= { style }>Click Me</Button>
@@ -35,4 +35,18 @@ Link button:
       <Button variant="link" modifier="danger" style={ style }>Click Me</Button>
       <Button variant="link" modifier="warning" style={ style }>Click Me</Button>
       <Button variant="link" modifier="success" style={ style }>Click Me</Button>
+    </div>
+
+Sizes:
+
+    const style = {
+      marginRight: '1.6rem',
+      verticalAlign: 'bottom',
+    };
+
+    <div>
+      <Button variant="primary" size="xs" style= { style }>Button xs</Button>
+      <Button variant="primary" size="sm" style= { style }>Button sm (Default)</Button>
+      <Button variant="primary" size="md" style= { style }>Button md</Button>
+      <Button variant="primary" size="lg" style= { style }>Button lg</Button>
     </div>
