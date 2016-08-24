@@ -68,14 +68,7 @@ module.exports = (() => {
       library: output[argv.type].library,
       libraryTarget: 'commonjs2',
     },
-    externals: [{
-      react: {
-        root: 'React',
-        commonjs2: 'react',
-        commonjs: 'react',
-        amd: 'react',
-      },
-    }],
+    externals: ['react', 'react-dom'],
     resolve: {
       extensions: [
         '',

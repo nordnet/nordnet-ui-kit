@@ -3,10 +3,12 @@
 @import '../table/utilities';
 
 .th {
-  padding: rem(2px 4px);
+  @include flex-item();
   @include sizes();
   @include mono();
   @include modifiers();
   @include highlights();
   @include borders();
+  @include align();
+  font-weight: inherit;
 }

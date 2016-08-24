@@ -3,5 +3,6 @@
 @import '../table/utilities';
 
 .tfoot {
+  display: block;
   @include sizes();
 }

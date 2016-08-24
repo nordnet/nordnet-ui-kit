@@ -3,11 +3,18 @@
 @import '../table/utilities';
 
 .tbody {
+  display: block;
   @include sizes();
+  @include borders();
 
   &--alternate-rows {
     tr:nth-child(odd) {
       background: $color-gray-lighter;
     }
+  }
+
+  &--scroll {
+    width: 100%;
+    overflow-y: scroll;
   }
 }

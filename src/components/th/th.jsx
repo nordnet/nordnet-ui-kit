@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import assign from 'lodash.assign';
 import './th.scss';
 
 function Th({
   className,
   children,
+  style,
   size,
+  width,
   mono,
   modifier,
   highlight,
@@ -14,6 +17,7 @@ function Th({
   borderRight,
   borderBottom,
   borderLeft,
+  align,
   ...rest,
 }) {
   const classes = classNames('th', {
@@ -21,6 +25,7 @@ function Th({
     'th--sm': size === 'sm',
     'th--md': size === 'md',
     'th--lg': size === 'lg',
+    'th--has-width': width,
     'th--mono': mono,
     'th--success': modifier === 'success',
     'th--warning': modifier === 'warning',
@@ -33,13 +38,18 @@ function Th({
     'th--border-right': borderRight,
     'th--border-bottom': borderBottom,
     'th--border-left': borderLeft,
+    'th--align-left': align === 'left',
+    'th--align-right': align === 'right',
+    'th--align-center': align === 'center',
   }, className);
 
-  return (
-    <th { ...rest } className={ classes }>
-      { children }
-    </th>
+  const thStyle = assign(
+    {},
+    width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
+    style
   );
+
+  return <th { ...rest } className={ classes } style={ thStyle }>{ children }</th>;
 }
 
 Th.defaultProps = {
@@ -54,7 +64,10 @@ Th.defaultProps = {
 Th.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  style: PropTypes.object,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  /** Number is assumed to be a percentage which helps with responsiveness: */
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   mono: PropTypes.bool,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
   highlight: PropTypes.oneOf(['success', 'warning', 'danger']),
@@ -63,6 +76,7 @@ Th.propTypes = {
   borderRight: PropTypes.bool,
   borderBottom: PropTypes.bool,
   borderLeft: PropTypes.bool,
+  align: PropTypes.oneOf(['left', 'right', 'center']),
 };
 
 export default Th;

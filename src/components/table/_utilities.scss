@@ -14,6 +14,18 @@ $modifiers: (
   danger: $color-danger,
 );
 
+$modifiers-dark: (
+  success: $color-success-dark,
+  warning: $color-warning-dark,
+  danger: $color-danger-dark,
+);
+
+$modifiers-light: (
+  success: $color-success-light,
+  warning: $color-warning-light,
+  danger: $color-danger-light,
+);
+
 $borders: 'top', 'right', 'bottom', 'left';
 
 @mixin sizes() {
@@ -34,6 +46,10 @@ $borders: 'top', 'right', 'bottom', 'left';
   @each $modifier, $color in $modifiers {
     &--#{$modifier} {
       color: $color;
+
+      .tr--secondary & {
+        background: rgba(map-get($modifiers-light, $modifier), .9);
+      }
     }
   }
 }
@@ -42,19 +58,61 @@ $borders: 'top', 'right', 'bottom', 'left';
   @each $modifier, $color in $modifiers {
     &--highlight-#{$modifier} {
       background: rgba($color, .2);
+
+      .thead & {
+        background: map-get($modifiers-light, $modifier);
+        @if $modifier == 'warning' {
+          color: inherit;
+        } @else {
+          color: $color;
+        }
+      }
     }
   }
 }
 
 @mixin borders() {
   &--border {
-    border: rem(1px) solid $color-gray;
+    border: rem(1px) solid $color-gray-light;;
   }
 
   @each $position in $borders {
     &--border-#{$position} {
-      border-#{$position}: rem(1px) solid $color-gray;
-      padding-#{$position}: rem(4px);
+      border-#{$position}: rem(1px) solid $color-gray-light;;
+      // padding-#{$position}: rem(4px);
     }
+  }
+}
+
+@mixin align() {
+  &--align-left {
+    text-align: left;
+  }
+
+  &--align-right {
+    text-align: right;
+  }
+
+  &--align-center {
+    text-align: center;
+  }
+}
+
+@mixin flex-row() {
+  display: flex;
+  flex-flow: row nowrap;
+  // align-items: center;
+}
+
+@mixin flex-item() {
+  display: inline-block;
+  padding: rem(3px 6px);
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+
+  &--has-width {
+    flex-basis: auto;
+    flex-grow: 0;
   }
 }

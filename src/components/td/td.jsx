@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import assign from 'lodash.assign';
 import './td.scss';
 
 function Td({
   className,
   children,
+  style,
   size,
+  width,
   mono,
   modifier,
   highlight,
@@ -14,6 +17,7 @@ function Td({
   borderRight,
   borderBottom,
   borderLeft,
+  align,
   ...rest,
 }) {
   const classes = classNames('td', {
@@ -21,6 +25,7 @@ function Td({
     'td--sm': size === 'sm',
     'td--md': size === 'md',
     'td--lg': size === 'lg',
+    'td--has-width': width,
     'td--mono': mono,
     'td--success': modifier === 'success',
     'td--warning': modifier === 'warning',
@@ -33,9 +38,18 @@ function Td({
     'td--border-right': borderRight,
     'td--border-bottom': borderBottom,
     'td--border-left': borderLeft,
+    'td--align-left': align === 'left',
+    'td--align-right': align === 'right',
+    'td--align-center': align === 'center',
   }, className);
 
-  return <td { ...rest } className={ classes }>{ children }</td>;
+  const tdStyle = assign(
+    {},
+    width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
+    style
+  );
+
+  return <td { ...rest } className={ classes } style={ tdStyle }>{ children }</td>;
 }
 
 Td.defaultProps = {
@@ -50,7 +64,10 @@ Td.defaultProps = {
 Td.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  style: PropTypes.object,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  /** Number is assumed to be a percentage which helps with responsiveness: */
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   mono: PropTypes.bool,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
   highlight: PropTypes.oneOf(['success', 'warning', 'danger']),
@@ -59,6 +76,7 @@ Td.propTypes = {
   borderRight: PropTypes.bool,
   borderBottom: PropTypes.bool,
   borderLeft: PropTypes.bool,
+  align: PropTypes.oneOf(['left', 'right', 'center']),
 };
 
 export default Td;

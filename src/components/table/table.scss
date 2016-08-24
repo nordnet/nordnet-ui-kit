@@ -3,29 +3,12 @@
 @import './utilities';
 
 .table {
+  display: block;
+  width: 100%;
   text-align: left;
   border-collapse: collapse;
   font-weight: normal;
   position: relative;
-
-  .th--number {
-    text-align: right;
-  }
-
-  .td--number {
-    font-family: monospace;
-    text-align: right;
-  }
-
+  border-color: $color-gray-light;
   @include sizes();
-
-  &--full-width {
-    width: 100%;
-  }
-
-  &--hide-header {
-    > thead {
-      display: none;
-    }
-  }
 }
