@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.36
+* React dependency moved to peer dependency.
+* Null validation on Input components
+* React Select bumped to stop warnings in React v15.0.0.
+* Added candlestick and area graph icons
+
 ## 0.0.35
 * Replaced reactable with custom `table`, `tbody`, `td`, `tfoot`, `th`, `thead` and `tr` components.
 * Spinner now renders primary circle as string due to unsupported `mask` attribute in React 0.14.0.
