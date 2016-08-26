@@ -3,6 +3,7 @@ import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import isNumber from 'lodash.isnumber';
+import isEmpty from 'lodash.isempty';
 import ValidationIcon from './validation-icon';
 import Label from './label';
 import HelpText from './help-text';
@@ -81,7 +82,7 @@ class InputDefault extends PureComponent {
   }
 
   hasValue(value) {
-    return isNumber(value) || (value && value.length) || (typeof value === 'object');
+    return isNumber(value) || typeof value === 'boolean' || !!(value && value.length) || !isEmpty(value);
   }
 
   renderInput(id, type) {
@@ -195,6 +196,8 @@ InputDefault.propTypes = {
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
+    PropTypes.array,
+    PropTypes.object,
   ]),
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
