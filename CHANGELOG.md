@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.37
+* Added ReactDOM dependency to externals in webpack config.
+* Removed x-axis min range in graph themes.
+
 ## 0.0.36
 * React dependency moved to peer dependency.
 * Null validation on Input components
