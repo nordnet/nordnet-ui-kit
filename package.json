@@ -5,8 +5,9 @@
   "main": "dist/nordnet-ui-kit.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "NODE_ENV=production npm-run-all clean webpack:bundle-use-rem webpack:bundle webpack:individual-use-rem webpack:individual",
+    "build": "NODE_ENV=production npm-run-all clean webpack:bundle-use-rem webpack:bundle-use-rem:umd webpack:bundle webpack:individual-use-rem webpack:individual",
     "webpack:bundle-use-rem": "webpack --type bundle --use-rem --progress --colors --config webpack.config.babel.js",
+    "webpack:bundle-use-rem:umd": "webpack --type bundle --libraryTarget umd --use-rem --progress --colors --config webpack.config.babel.js",
     "webpack:bundle": "webpack --type bundle --progress --colors --config webpack.config.babel.js",
     "webpack:individual-use-rem": "webpack --type individual --use-rem --progress --colors --config webpack.config.babel.js",
     "webpack:individual": "webpack --type individual --progress --colors --config webpack.config.babel.js",

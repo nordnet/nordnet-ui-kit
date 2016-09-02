@@ -7,7 +7,10 @@ import minimist from 'minimist';
 const argv = minimist(process.argv.slice(2));
 const NODE_ENV = process.env.NODE_ENV;
 const useRem = !!argv['use-rem'];
-const fileSuffix = useRem ? '' : '.px';
+const remSuffix = useRem ? '' : '.px';
+const libraryTarget = argv['libraryTarget'] || 'commonjs2';
+const libraryTargetSuffix = libraryTarget === 'umd' ? '.umd' : '';
+const fileSuffix = `${remSuffix}${libraryTargetSuffix}`;
 
 const entry = {
   bundle: './src/index.js',
@@ -66,7 +69,7 @@ module.exports = (() => {
       path: './dist',
       filename: `${output[argv.type].filename}.js`,
       library: output[argv.type].library,
-      libraryTarget: 'commonjs2',
+      libraryTarget,
     },
     externals: [{
       react: {
