@@ -24,9 +24,6 @@ describe('<GraphTooltip />', () => {
       beforeEach(() => {
         wrapper = shallow(<GraphTooltip type={ type.name } { ...data } />);
       });
-      it(`should render a ${type.elementName}`, () => {
-        expect(wrapper.type()).to.equal(type.value);
-      });
       it('should render a div', () => {
         expect(wrapper.shallow().type()).to.equal('div');
       });
@@ -49,24 +46,18 @@ describe('<GraphTooltip />', () => {
             expect(html).to.contain(`${point.value}%`);
           });
         });
-        it('should not render volume', () => {
-          expect(wrapper.shallow().html()).to.not.contain(data.volume.translation);
-        });
         it('should not render ohlc', () => {
           const html = wrapper.shallow().html();
-          Object.keys(data.ohlc).map(d => data.ohlc[d].translation).forEach(t => {
+          ['open', 'high', 'low', 'close'].map(key => data[key]).forEach(t => {
             if (t) {
               expect(html).to.not.contain(t);
             }
           });
         });
       } else {
-        it('should render volume', () => {
-          expect(wrapper.shallow().html()).to.contain(data.volume.translation);
-        });
         it('should render ohlc', () => {
           const html = wrapper.shallow().html();
-          Object.keys(data.ohlc).map(d => data.ohlc[d].translation).forEach(t => {
+          ['open', 'high', 'low', 'close'].map(key => data[key]).forEach(t => {
             if (t) {
               expect(html).to.contain(t);
             }

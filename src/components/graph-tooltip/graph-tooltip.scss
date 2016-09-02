@@ -1,0 +1,81 @@
+@import '../../variables';
+@import '../../functions';
+
+.graph-tooltip {
+  font-size: rem(12px);
+  min-width: rem(128px);
+  padding-bottom: rem(6px);
+
+  &__date {
+    display: block;
+    font-weight: 600;
+    color: $color-gray-darker;
+    padding: rem(4px) 0;
+    margin: 0 rem(8px);
+    border-bottom: rem(1px) solid $color-gray-light;
+
+    &-time {
+      display: block;
+      float: right;
+    }
+  }
+
+  &__indicator {
+    width: rem(8px);
+    height: rem(8px);
+    display: inline-block;
+    margin-right: rem(4px);
+    border-radius: 50%;
+  }
+
+  &__header {
+    color: $color-gray-darker;
+    border-bottom: rem(1px) solid $color-gray-light;
+
+    &-item {
+      border-left: rem(1px) solid $color-gray-light;
+      padding: rem(0 4px);
+      text-align: center;
+
+      &:first-child {
+        border: 0;
+      }
+    }
+  }
+
+  &__items {
+    border-collapse: collapse;
+    width: calc(100% - #{rem(16px)});
+    margin: 0 rem(8px);
+  }
+
+  &__cell {
+    padding: rem(4px);
+    line-height: 1;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &--name {
+      font-weight: bold;
+    }
+
+    &--value {
+      font-family: $font-mono;
+      text-align: right;
+
+      .graph-tooltip__items--ohlc & {
+        border-left: rem(1px) solid $color-gray-light;
+      }
+    }
+
+    .graph-tooltip__item:last-child & {
+      padding-bottom: 0;
+    }
+  }
+}
