@@ -27,6 +27,7 @@ const entry = {
     'labeled-value': './src/components/labeled-value/labeled-value.jsx',
     logo: './src/components/logo/logo.jsx',
     pane: './src/components/pane/pane.jsx',
+    'range-selector': './src/components/range-selector/',
     'ratio-bar': './src/components/ratio-bar/',
     select: './src/components/select/select.jsx',
     'spark-graph': ['./src/components/spark-graph'],

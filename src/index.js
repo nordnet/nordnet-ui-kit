@@ -10,6 +10,7 @@ import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
+import RangeSelector from './components/range-selector/';
 import RatioBar from './components/ratio-bar';
 import Select from './components/select/select';
 import SparkGraph from './components/spark-graph';
@@ -37,6 +38,7 @@ export {
   LabeledValue,
   Logo,
   Pane,
+  RangeSelector,
   RatioBar,
   Select,
   SparkGraph,
