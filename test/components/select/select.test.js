@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import Select from '../../../src/components/select/select';
-import ReactSelect from 'react-select';
 
 describe('<Select />', () => {
   let wrapper;
@@ -11,7 +10,7 @@ describe('<Select />', () => {
     wrapper = shallow(<Select />);
   });
 
-  it('should render a <ReactSelect />', () => {
-    expect(wrapper.type()).to.equal(ReactSelect);
+  it('should render a <div />', () => {
+    expect(wrapper.type()).to.equal('div');
   });
 });
