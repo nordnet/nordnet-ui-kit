@@ -1,0 +1,33 @@
+@import '../../variables';
+@import '../../functions';
+
+.legend {
+  width: 100%;
+  font-size: 1.4rem;
+  color: $color-gray-darker;
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &-indicator {
+      display: inline-block;
+      width: .8rem;
+      height: .8rem;
+      border-radius: 50%;
+      margin: 0 .4rem .1rem 0;
+    }
+
+    &-value {
+      font-size: 1.2rem;
+      margin-left: .8rem;
+    }
+  }
+}

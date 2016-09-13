@@ -25,6 +25,7 @@ const entry = {
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
     'labeled-value': './src/components/labeled-value/labeled-value.jsx',
+    legend: './src/components/legend',
     logo: './src/components/logo/logo.jsx',
     pane: './src/components/pane/pane.jsx',
     'range-selector': './src/components/range-selector/',

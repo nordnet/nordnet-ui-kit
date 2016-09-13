@@ -8,6 +8,7 @@ import GraphTooltip from './components/graph-tooltip';
 import Icon from './components/icon/icon';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
+import Legend from './components/legend';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import RangeSelector from './components/range-selector/';
@@ -36,6 +37,7 @@ export {
   Icon,
   Input,
   LabeledValue,
+  Legend,
   Logo,
   Pane,
   RangeSelector,
