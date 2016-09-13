@@ -4,11 +4,12 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import minimist from 'minimist';
+import svgoConfig from './svgo.config';
 const argv = minimist(process.argv.slice(2));
 const NODE_ENV = process.env.NODE_ENV;
 const useRem = !!argv['use-rem'];
 const remSuffix = useRem ? '' : '.px';
-const libraryTarget = argv['libraryTarget'] || 'commonjs2';
+const libraryTarget = argv.libraryTarget || 'commonjs2';
 const libraryTargetSuffix = libraryTarget === 'umd' ? '.umd' : '';
 const fileSuffix = `${remSuffix}${libraryTargetSuffix}`;
 
@@ -20,6 +21,7 @@ const entry = {
     button: './src/components/button/button.jsx',
     'date-picker': './src/components/date-picker',
     dropdown: './src/components/dropdown/dropdown.jsx',
+    flag: ['./src/components/icon/icon.jsx'],
     graph: './src/components/graph',
     'graph-tooltip': './src/components/graph-tooltip',
     icon: ['./src/components/icon/icon.jsx'],
@@ -138,14 +140,6 @@ module.exports = (() => {
   // ////// //
   // Images //
   // ////// //
-
-  const svgoConfig = JSON.stringify({
-    plugins: [
-      { removeTitle: true },
-      { removeDimensions: true },
-      { convertColors: { shorthex: true } },
-    ],
-  });
 
   config.loader('svg', {
     test: /\.svg$/,
