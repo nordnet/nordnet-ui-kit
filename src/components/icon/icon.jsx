@@ -39,7 +39,7 @@ class Icon extends PureComponent {
         className={ classes }
         style={ styles }
         dangerouslySetInnerHTML={ { __html: icon.data } }
-        {...rest}
+        { ...rest }
       />
     );
   }
