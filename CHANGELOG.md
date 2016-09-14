@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.39
+* Updated graph tooltip component.
+* Updated select component.
+* Added new range selector component.
+* Added new legend component.
+
+## 0.0.38
+* Added UMD build of UI kit.
+
 ## 0.0.37
 * Added ReactDOM dependency to externals in webpack config.
 * Removed x-axis min range in graph themes.
