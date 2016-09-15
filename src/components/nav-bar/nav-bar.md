@@ -39,6 +39,7 @@ $wrapper-max-width: 120rem;
       },
     }, {
       label: 'Discover',
+      url: '#Discover',
       onClick: () => {
         setState({
           subItems: [],

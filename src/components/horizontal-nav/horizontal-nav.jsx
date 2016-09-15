@@ -5,14 +5,15 @@ import c from 'color';
 import './horizontal-nav.scss';
 
 function navItem(item) {
-  const { label, key, active, ...rest } = item;
+  const { label, url, key, active, ...rest } = item;
   const classes = classNames('horizontal-nav__item', {
     'horizontal-nav__item--active': active,
+    'horizontal-nav__item--has-link': url,
   });
 
   return (
     <li {...rest} key={ key || kebabCase(label) } className={ classes }>
-      { label }
+      { url ? <a href={ url }>{ label }</a> : label }
     </li>
   );
 }
@@ -20,6 +21,7 @@ function navItem(item) {
 navItem.propTypes = {
   item: PropTypes.shape({
     label: PropTypes.string,
+    url: PropTypes.string,
     key: PropTypes.string,
     active: PropTypes.bool,
   }),
@@ -55,6 +57,7 @@ HorizontalNav.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
+    url: PropTypes.string,
     key: PropTypes.string,
     active: PropTypes.bool,
   })),
