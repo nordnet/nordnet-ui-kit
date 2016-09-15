@@ -1,11 +1,23 @@
 The UI kit uses [react-select](https://github.com/JedWatson/react-select) and applies a custom theme.
 
     const options = [{
-      value: 'one',
-      label: 'One'
+      label: 'Chocolate',
+      value: 'chocolate'
     }, {
-      value: 'two',
-      label: 'Two'
+      label: 'Vanilla',
+      value: 'vanilla'
+    }, {
+      label: 'Strawberry',
+      value: 'strawberry'
+    }, {
+      label: 'Caramel',
+      value: 'caramel'
+    }, {
+      label: 'Cookies and Cream',
+      value: 'cookiescream'
+    }, {
+      label: 'Peppermint',
+      value: 'peppermint'
     }];
 
     function setValue(value) {
@@ -16,5 +28,8 @@ The UI kit uses [react-select](https://github.com/JedWatson/react-select) and ap
       name="form-field-name"
       value={state.value}
       options={options}
+      multi
+      label="Favourite ice cream"
+      placeholder="You can pick as many as you want"
       onChange={setValue}
     />

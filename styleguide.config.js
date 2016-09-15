@@ -6,6 +6,7 @@ const cssnano = require('cssnano');
 const docgen = require('react-docgen');
 const dir = path.join(__dirname, 'src');
 const webpack = require('webpack');
+const svgoConfig = require('./svgo.config');
 
 module.exports = {
   title: 'Nordnet UI Kit',
@@ -34,15 +35,6 @@ module.exports = {
   },
   updateWebpackConfig(webpackConfig, env) {
     const config = webpackConfig;
-
-    const svgoConfig = JSON.stringify({
-      plugins: [
-        { removeTitle: true },
-        { removeDimensions: true },
-        { convertColors: { shorthex: true } },
-      ],
-    });
-
     const loaderDirs = [dir, path.join(__dirname, 'documentation')];
 
     const loaders = {

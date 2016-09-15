@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactHighstocks from 'react-highcharts/dist/ReactHighstock';
 import merge from 'lodash.merge';
 import { baseTheme, lightTheme, darkTheme } from './themes';
-import GraphZoom from './graph-zoom';
+import RangeSelector from '../range-selector/';
 import dateMath from 'date-arithmetic';
 import './graph.scss';
 
@@ -53,7 +53,7 @@ class Graph extends React.Component {
 
     return (
       <div>
-        <GraphZoom clickHandler={ this.setZoom } variant={ this.props.variant } />
+        <RangeSelector clickHandler={ this.setZoom } variant={ this.props.variant } />
         <ReactHighstocks
           { ...rest }
           config={ this.mergeConfig(variant, config) }

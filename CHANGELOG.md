@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.0.39
+* Updated graph tooltip component.
+* Updated select component.
+* Added new range selector component.
+* Added new legend component.
+
+## 0.0.38
+* Added UMD build of UI kit.
+
+## 0.0.37
+* Added ReactDOM dependency to externals in webpack config.
+* Removed x-axis min range in graph themes.
+
+## 0.0.36
+* React dependency moved to peer dependency.
+* Null validation on Input components
+* React Select bumped to stop warnings in React v15.0.0.
+* Added candlestick and area graph icons
+
 ## 0.0.35
 * Replaced reactable with custom `table`, `tbody`, `td`, `tfoot`, `th`, `thead` and `tr` components.
 * Spinner now renders primary circle as string due to unsupported `mask` attribute in React 0.14.0.

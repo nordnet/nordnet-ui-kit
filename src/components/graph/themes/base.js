@@ -145,7 +145,6 @@ export default {
     offset: 0,
     tickColor: '#ffffff',
     tickPosition: 'inside',
-    minRange: 900000,
     lineWidth: 1,
     tickPixelInterval: 130,
     tickWidth: 2,

@@ -14,6 +14,7 @@
             type={ icon }
             stroke="#00A9EC"
             fill="#00A9EC"
+            renderInline
           />
 
           <div style={{ fontSize: '1.2rem', fontFamily: '"Hack", monospace' }}>{ icon }</div>

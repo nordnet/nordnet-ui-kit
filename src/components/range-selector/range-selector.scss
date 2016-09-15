@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../functions';
 
-.graph-zoom {
+.range-selector {
   position: relative;
   text-align: center;
   z-index: 1;
@@ -10,7 +10,7 @@
   &--dark {
     background: $color-info;
 
-    .graph-zoom__btn {
+    .range-selector__btn {
       color: $color-base;
 
       &--selected {

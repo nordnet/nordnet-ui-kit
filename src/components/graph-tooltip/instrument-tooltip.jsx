@@ -1,22 +1,22 @@
 import React, { PropTypes } from 'react';
-import CandleListElement from './list-elements/candle-list-element';
-import PriceListElement from './list-elements/price-list-element';
-import VolumeListElement from './list-elements/volume-list-element';
+import PriceListElement from './price-list-element';
 
-import './instrument-tooltip.scss';
-
-function InstrumentTooltip({ date, points, volume, ohlc }) {
+function InstrumentTooltip({ points }) {
   return (
-    <div className="instrument-tooltip">
-      <b>{ date }</b>
-      <table className="instrument-tooltip__list">
-        <tbody>
-          { points.map(p => <PriceListElement key={ p.name } { ...p } />) }
-          { ohlc ? <CandleListElement { ...ohlc } /> : null }
-          { volume ? <VolumeListElement { ...volume } /> : null }
-        </tbody>
-      </table>
-    </div>
+    <table className="graph-tooltip__items graph-tooltip__items--ohlc">
+      <thead className="graph-tooltip__header">
+        <tr>
+          <th className="graph-tooltip__header-item" />
+          <th className="graph-tooltip__header-item">O.</th>
+          <th className="graph-tooltip__header-item">H.</th>
+          <th className="graph-tooltip__header-item">L.</th>
+          <th className="graph-tooltip__header-item">C.</th>
+        </tr>
+      </thead>
+      <tbody>
+        { points.map(p => <PriceListElement ohlc key={ p.name } { ...p } />) }
+      </tbody>
+    </table>
   );
 }
 
@@ -25,36 +25,11 @@ InstrumentTooltip.defaultProps = {
 };
 
 InstrumentTooltip.propTypes = {
-  date: PropTypes.string.isRequired,
   points: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     color: PropTypes.string,
     value: PropTypes.string.isRequired,
   })),
-  volume: PropTypes.shape({
-    translation: PropTypes.string,
-    color: PropTypes.string,
-    value: PropTypes.string,
-  }),
-  ohlc: PropTypes.shape({
-    color: PropTypes.string,
-    open: PropTypes.shape({
-      translation: PropTypes.string,
-      value: PropTypes.string,
-    }),
-    high: PropTypes.shape({
-      translation: PropTypes.string,
-      value: PropTypes.string,
-    }),
-    low: PropTypes.shape({
-      translation: PropTypes.string,
-      value: PropTypes.string,
-    }),
-    close: PropTypes.shape({
-      translation: PropTypes.string,
-      value: PropTypes.string,
-    }),
-  }),
 };
 
 export default InstrumentTooltip;
