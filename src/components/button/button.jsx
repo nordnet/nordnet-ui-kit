@@ -3,23 +3,20 @@ import classNames from 'classnames';
 import './button.scss';
 
 function Button({
-  primary,
-  secondary,
   variant,
   block,
   disabled,
   className,
   children,
-  link,
   modifier,
   href,
   size,
   ...rest,
 }) {
   const Element = href ? 'a' : 'button';
-  const isPrimary = primary || variant === 'primary';
-  const isSecondary = secondary || variant === 'secondary';
-  const isLink = link || variant === 'link';
+  const isPrimary = variant === 'primary';
+  const isSecondary = variant === 'secondary';
+  const isLink = variant === 'link';
   const isSuccess = modifier === 'success';
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
@@ -39,10 +36,6 @@ function Button({
     'btn-link--danger': isLink && isDanger,
   }, `btn--${size}`, className);
 
-  if (primary || secondary || link) {
-    console.warn(`Warning: Nordnet UI Kit button component primary, secondary and link props are deprecated, use variant={ primary, secondary, link } instead, check button with value: ${children}`); // eslint-disable-line
-  }
-
   return (
     <Element { ...rest } className={ classes } disabled={ disabled } href={ href }>
       { children }
@@ -58,15 +51,9 @@ Button.defaultProps = {
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  /** Block level button that spans the full width of the parent */
+  /** Block level button that spans the full width of its parent */
   block: PropTypes.bool,
   variant: PropTypes.oneOf(['primary', 'secondary', 'link']),
-  /** ⚠️ Deprecated in favour of `variant` prop */
-  primary: PropTypes.bool,
-  /** ⚠️ Deprecated in favour of `variant` prop */
-  secondary: PropTypes.bool,
-  /** ⚠️ Deprecated in favour of `variant` prop */
-  link: PropTypes.bool,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
