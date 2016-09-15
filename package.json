@@ -44,6 +44,7 @@
     "bezier-easing": "^2.0.3",
     "chroma-js": "^1.1.1",
     "classnames": "^2.2.3",
+    "color": "^0.11.3",
     "d3-interpolate": "^1.0.0",
     "date-arithmetic": "^3.1.0",
     "lodash.assign": "^4.0.9",

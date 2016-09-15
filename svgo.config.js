@@ -5,5 +5,6 @@ module.exports = JSON.stringify({
     { removeDesc: true },
     { removeDimensions: true },
     { convertColors: { shorthex: true } },
+    { cleanupIDs: false },
   ],
 });

@@ -177,7 +177,7 @@ class InputDefault extends PureComponent {
     }, `input--${kebabCase(this.props.type)}`, this.props.className);
 
     return (
-      <div className={ classes }>
+      <div className={ classes } style={ this.props.style }>
         { this.renderField(id) }
         { this.renderHelpText() }
       </div>
