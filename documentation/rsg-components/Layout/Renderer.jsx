@@ -22,7 +22,7 @@ export default function Renderer({ components, toc, sidebar }) {
             { 'ReactStyleguidist-Layout__sidebar--hidden': !sidebar }) }
         >
           <h1 className="ReactStyleguidist-Layout__heading">
-            <span className="logo" dangerouslySetInnerHTML={ logoHTML } />
+            <div className="ReactStyleguidist-Layout__logo" dangerouslySetInnerHTML={ logoHTML } />
           </h1>
           { toc }
         </div>
