@@ -159,5 +159,9 @@ module.exports = (() => {
     __STYLEGUIDE__: false,
   }]);
 
+  config.plugin('webpack-provide', webpack.ProvidePlugin, [{
+    'Object.assign': 'lodash.assign',
+  }]);
+
   return config.resolve();
 })();
