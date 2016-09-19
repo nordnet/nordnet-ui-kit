@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import assign from 'lodash.assign';
 import InputDefault from './input-default';
 import './input-password.scss';
 
@@ -6,7 +7,7 @@ class InputPassword extends InputDefault {
   constructor(props) {
     super(props);
 
-    this.state = Object.assign({}, this.state, {
+    this.state = assign({}, this.state, {
       showPassword: !!props.showPassword,
       hasAddon: true,
     });

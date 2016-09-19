@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDatePicker from 'react-date-picker';
+import assign from 'lodash.assign';
 import './date-picker.scss';
 
 export default function DatePicker(props) {
-  const options = Object.assign({}, {
+  const options = assign({}, {
     weekStartDay: 1,
     weekDayNames: [
       <span className="dp-weekend">Su</span>,

@@ -1,4 +1,5 @@
 import React from 'react';
+import assign from 'lodash.assign';
 import InputDefault from './input-default';
 import DatePicker from '../date-picker/date-picker';
 import Icon from '../icon/icon';
@@ -9,7 +10,7 @@ class InputDate extends InputDefault {
   constructor(props) {
     super(props);
 
-    this.state = Object.assign({}, this.state, {
+    this.state = assign({}, this.state, {
       hasAddon: true,
       showDatePicker: false,
     });
