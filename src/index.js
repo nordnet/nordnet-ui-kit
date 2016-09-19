@@ -3,6 +3,7 @@ import Badge from './components/badge/badge';
 import Button from './components/button/button';
 import DatePicker from './components/date-picker';
 import Dropdown from './components/dropdown/dropdown';
+import Flag from './components/flag/flag';
 import Graph from './components/graph';
 import GraphTooltip from './components/graph-tooltip';
 import Icon from './components/icon/icon';
@@ -32,6 +33,7 @@ export {
   Button,
   DatePicker,
   Dropdown,
+  Flag,
   Graph,
   GraphTooltip,
   Icon,
