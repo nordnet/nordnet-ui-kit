@@ -12,7 +12,7 @@ function navItem(item) {
   });
 
   return (
-    <li {...rest} key={ key || kebabCase(label) } className={ classes }>
+    <li { ...rest } key={ key || kebabCase(label) } className={ classes }>
       { url ? <a href={ url }>{ label }</a> : label }
     </li>
   );
