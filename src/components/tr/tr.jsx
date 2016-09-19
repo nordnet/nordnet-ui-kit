@@ -91,7 +91,9 @@ class Tr extends React.Component { // eslint-disable-line
   }
 
   addClone() {
-    // TODO: This is so incredibly wrong, I feel dirty.
+    // NOTE: Unfortunately it's impossible to wrap a tr so there's no other way to return two sibling elements.
+    // Returning sibling elements from render will eventually be supported.
+    // https://github.com/facebook/react/issues/2127#issuecomment-232331521
     const clone = this.tr.cloneNode(true);
     clone.classList.remove('tr--sticky');
     clone.classList.add('tr--clone');
