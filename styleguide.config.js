@@ -10,6 +10,7 @@ const svgoConfig = require('./svgo.config');
 
 module.exports = {
   title: 'Nordnet UI Kit',
+  serverHost: '0.0.0.0',
   serverPort: 4000,
   styleguideDir: path.join(__dirname, 'documentation/dist'),
   components() {
