@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.41
+* Fixed export for flag component.
+
 ## 0.0.40
 * Refactored `table` components and tweaked styles.
 * Added `nav-bar` and `horizontal-nav` components.
