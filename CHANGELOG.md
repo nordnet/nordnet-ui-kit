@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.42
+* Made sure sticky prop isn't passed to `<tr />` in `<Tr />` component.
+
 ## 0.0.41
 * Fixed export for flag component.
 
