@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
+import omit from 'lodash.omit';
 import rem from '../../utilities/rem';
 import './tr.scss';
 
@@ -123,7 +124,7 @@ class Tr extends React.Component { // eslint-disable-line
 
     return (
       <tr
-        { ...rest }
+        { ...(omit(rest, 'sticky')) }
         className={ classes }
         style={ stickyStyle }
         ref={ node => this.addRef(node, 'tr') }
