@@ -1,0 +1,125 @@
+@import '../../variables';
+@import '../../functions';
+
+.search {
+  display: inline-block;
+  position: relative;
+
+  &__input {
+    padding: rem(6px 4px 6px 20px);
+    appearance: none;
+    border: 0;
+    border-bottom: .1rem solid $color-gray;
+    transition: border-color .15s linear;
+    font-size: inherit;
+    line-height: 1.2;
+
+    &:focus {
+      outline: 0;
+      border-color: $color-primary;
+
+      + .search__icon > svg g#search {
+        stroke: $color-primary;
+        transform: scale(1);
+      }
+
+      ~ .search__results {
+        border-color: $color-primary;
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+    position: absolute;
+    width: rem(16px);
+    height: rem(16px);
+    top: rem(7px);
+    left: 0;
+
+    > svg {
+      width: 100%;
+      height: 100%;
+
+      g#search {
+        stroke: $color-gray-dark;
+        transition: stroke .15s linear, transform .15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        transform: scale(.85);
+        transform-origin: rem(8px 8px);
+      }
+    }
+  }
+
+  &__results {
+    display: block;
+    position: absolute;
+    min-width: 100%;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: $shadow-level-2;
+    z-index: 2;
+    background: $color-base;
+    border-top: rem(1px) solid $color-gray;
+    margin-top: rem(-1px);
+    transition: border-color .15s linear;
+
+    &-enter {
+      opacity: 0.01;
+
+      &-active {
+        opacity: 1;
+        transition: opacity .2s ease-in;
+      }
+    }
+
+    &-leave {
+      opacity: 1;
+
+      &-active {
+        opacity: 0.01;
+        transition: opacity .2s ease-out;
+      }
+    }
+  }
+
+  &__result {
+    display: block;
+    padding: rem(4px 8px);
+    font-size: rem(14px);
+    border-bottom: $color-gray;
+
+    &:last-child {
+      border: 0;
+    }
+
+    &--loading {
+      text-align: center;
+      padding: rem(8px);
+      font-size: 0;
+    }
+
+    &--no-results {
+      text-align: center;
+      padding: rem(8px);
+      line-height: 1.2;
+      color: $color-gray-dark;
+    }
+
+    &-name {
+      font-weight: 600;
+      margin-bottom: rem(4px);
+      white-space: nowrap;
+    }
+
+    &-market {
+      font-size: rem(12px);
+
+      .flag {
+        margin-right: .5rem;
+      }
+    }
+  }
+}

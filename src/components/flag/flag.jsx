@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import assign from 'lodash.assign';
@@ -36,14 +36,14 @@ Flag.defaultProps = {
 };
 
 Flag.propTypes = {
-  className: React.PropTypes.string,
+  className: PropTypes.string,
   /** A valid 2-character country code */
-  countryCode: React.PropTypes.string.isRequired,
+  countryCode: PropTypes.string.isRequired,
   /** Unitless pixel value */
-  width: React.PropTypes.number,
+  width: PropTypes.number,
   /** Unitless pixel value */
-  height: React.PropTypes.number,
-  style: React.PropTypes.object,
+  height: PropTypes.number,
+  style: PropTypes.object,
 };
 
 export default Flag;

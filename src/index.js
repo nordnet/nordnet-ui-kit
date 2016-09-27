@@ -14,6 +14,7 @@ import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import RangeSelector from './components/range-selector/';
 import RatioBar from './components/ratio-bar';
+import Search from './components/search';
 import Select from './components/select/select';
 import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
@@ -44,6 +45,7 @@ export {
   Pane,
   RangeSelector,
   RatioBar,
+  Search,
   Select,
   SparkGraph,
   Spinner,
