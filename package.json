@@ -60,6 +60,7 @@
     "lodash.omit": "^4.5.0",
     "lodash.throttle": "^4.1.0",
     "lodash.toarray": "^4.3.0",
+    "nordnet-component-kit": "0.0.12",
     "react-addons-css-transition-group": "^15.3.2",
     "react-addons-shallow-compare": "^15.1.0",
     "react-date-picker": "^4.0.10",

@@ -5,6 +5,7 @@ import { IconStateless } from 'react-svg-sprite-icon';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import assign from 'lodash.assign';
+import omit from 'lodash.omit';
 import icons from './icons';
 
 class Icon extends PureComponent {
@@ -39,7 +40,7 @@ class Icon extends PureComponent {
         className={ classes }
         style={ styles }
         dangerouslySetInnerHTML={ { __html: icon.data } }
-        { ...rest }
+        { ...omit(rest, 'renderInline') }
       />
     );
   }

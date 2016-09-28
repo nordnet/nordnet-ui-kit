@@ -25,6 +25,7 @@ class Search extends React.Component {
     this.search = debounce(this.search.bind(this), props.searchDebounceWait).bind(this);
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
+    this.renderResult = this.renderResult.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -75,8 +76,9 @@ class Search extends React.Component {
   }
 
   onBlur() {
+    // TODO: change this back to false
     this.setState({
-      showResults: false,
+      showResults: true,
     });
   }
 
@@ -105,14 +107,50 @@ class Search extends React.Component {
     });
   }
 
-  renderResult({ name, market, countryCode }) {
+  renderDevelopment(development) {
+    const developmentClass = classNames('search__result-development', {
+      'search__result-development--positive': development > 0,
+      'search__result-development--negative': development < 0,
+    });
+
+    const positiveArrowPath = 'M0,16 L16,16 L8,0';
+    const negativeArrowPath = 'M0,0 L16,0 L8,16';
+    const arrowStyle = {
+      marginRight: '.2em',
+      fill: 'currentcolor',
+      height: '.6em',
+    };
+
+    return (
+      <div className={ developmentClass }>
+        <svg aria-hidden="true" role="presentation" viewBox="0 0 16 16" style={ arrowStyle }>
+          <path d={ development > 0 ? positiveArrowPath : negativeArrowPath } />
+        </svg>
+        { `${development}%` }
+      </div>
+    );
+  }
+
+  renderResult(item) {
+    if (this.props.resultRenderer) {
+      return this.props.resultRenderer(item);
+    }
+
+    const { name, market, countryCode, href, development } = item;
+    const Wrapper = href ? 'a' : 'span';
+
     return (
       <li className="search__result" key={ kebabCase(name + market) }>
-        <div className="search__result-name">{ name }</div>
-        <div className="search__result-market">
-          <Flag countryCode={ countryCode } />
-          <span>{ market }</span>
-        </div>
+        <Wrapper href={ href }>
+          <div className="search__result-info">
+            <div className="search__result-name">{ name }</div>
+            <div className="search__result-market">
+              <Flag countryCode={ countryCode } />
+              <span>{ market }</span>
+            </div>
+          </div>
+          { this.renderDevelopment(development) }
+        </Wrapper>
       </li>
     );
   }
@@ -152,7 +190,7 @@ class Search extends React.Component {
     return (
       <div className={ classes }>
         <input
-          { ...omit(rest, ['search', 'results', 'noResults']) }
+          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait']) }
           className="search__input"
           type="search"
           placeholder={ placeholder }
@@ -196,6 +234,8 @@ Search.propTypes = {
   /** The number of milliseconds to wait for user input to pause before calling the search function */
   searchDebounceWait: PropTypes.number,
   showResults: PropTypes.bool,
+  /** The function that gets used to render the content of a result */
+  resultRenderer: PropTypes.func,
 };
 
 export default Search;

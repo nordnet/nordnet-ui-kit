@@ -87,9 +87,26 @@
 
   &__result {
     display: block;
-    padding: rem(4px 8px);
     font-size: rem(14px);
-    border-bottom: $color-gray;
+    border-bottom: rem(1px) solid $color-gray;
+    background-color: $color-base;
+    transition: background-color .15s linear;
+
+    > a,
+    > span {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding: rem(4px 8px);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+
+    &:hover {
+      background-color: $color-gray-lighter;
+    }
 
     &:last-child {
       border: 0;
@@ -108,6 +125,26 @@
       color: $color-gray-dark;
     }
 
+    &-info {
+      display: inline-block;
+      flex-grow: 1;
+    }
+
+    &-development {
+      display: inline-block;
+      flex-grow: 0;
+      padding-left: .8rem;
+      font-size: 1.2rem;
+
+      &--positive {
+        color: $color-success;
+      }
+
+      &--negative {
+        color: $color-danger;
+      }
+    }
+
     &-name {
       font-weight: 600;
       margin-bottom: rem(4px);
@@ -116,6 +153,7 @@
 
     &-market {
       font-size: rem(12px);
+      color: $color-text;
 
       .flag {
         margin-right: .5rem;
