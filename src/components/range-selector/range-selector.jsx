@@ -7,7 +7,7 @@ class RangeSelector extends React.Component {
     super(props);
 
     this.state = {
-      zoom: props.zoom,
+      selected: props.selected,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -18,21 +18,27 @@ class RangeSelector extends React.Component {
     // this.props.clickHandler(this.props.ranges[this.state.zoom]);
   }
 
-  handleClick(button, i) {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      zoom: i,
+      selected: nextProps.selected,
+    });
+  }
+
+  handleClick(button) {
+    this.setState({
+      selected: button.type,
     });
 
     this.props.clickHandler(button);
   }
 
-  renderButton(button, i) {
+  renderButton(button) {
     const classes = classNames('range-selector__btn', {
-      'range-selector__btn--selected': i === this.state.zoom,
+      'range-selector__btn--selected': button.type === this.state.selected,
     });
 
     return (
-      <button key={ button.text } className={ classes } onClick={ () => this.handleClick(button, i) }>
+      <button key={ button.text } className={ classes } onClick={ () => this.handleClick(button) }>
         { button.text }
       </button>
     );
@@ -50,23 +56,19 @@ class RangeSelector extends React.Component {
 RangeSelector.defaultProps = {
   zoom: 0,
   ranges: [{
-    type: 'month',
-    count: 1,
+    type: '1m',
     text: '1m',
   }, {
-    type: 'month',
-    count: 3,
+    type: '3m',
     text: '3m',
   }, {
-    type: 'month',
-    count: 6,
+    type: '6m',
     text: '6m',
   }, {
     type: 'ytd',
     text: 'YTD',
   }, {
-    type: 'year',
-    count: 1,
+    type: '1y',
     text: '1y',
   }, {
     type: 'all',
@@ -76,9 +78,13 @@ RangeSelector.defaultProps = {
 
 RangeSelector.propTypes = {
   zoom: PropTypes.number,
-  ranges: PropTypes.arrayOf(React.PropTypes.object),
+  ranges: PropTypes.arrayOf(React.PropTypes.shape({
+    type: PropTypes.string,
+    text: PropTypes.string,
+  })),
   variant: PropTypes.oneOf(['light', 'dark']),
   clickHandler: PropTypes.func,
+  selected: PropTypes.string,
 };
 
 export default RangeSelector;
