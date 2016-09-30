@@ -76,9 +76,8 @@ class Search extends React.Component {
   }
 
   onBlur() {
-    // TODO: change this back to false
     this.setState({
-      showResults: true,
+      showResults: false,
     });
   }
 
