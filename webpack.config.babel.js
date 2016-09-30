@@ -125,7 +125,7 @@ module.exports = (() => {
   ];
 
   if (NODE_ENV === 'production') {
-    postcss.push(cssnano);
+    postcss.push(cssnano({ zindex: false }));
   }
 
   config.merge({
