@@ -35,7 +35,7 @@ const entry = {
     search: './src/components/search',
     select: './src/components/select/select.jsx',
     'spark-graph': ['./src/components/spark-graph'],
-    spinner: './src/components/spinner',
+    spinner: ['./src/components/spinner'],
     table: './src/components/table',
     tbody: './src/components/tbody',
     td: './src/components/td',
