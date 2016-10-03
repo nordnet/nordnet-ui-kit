@@ -200,6 +200,7 @@ class Search extends React.Component {
         />
         <span className="search__icon" dangerouslySetInnerHTML={ { __html: searchIcon } } />
         <ReactCSSTransitionGroup
+          className="search__results-container"
           transitionName="search__results"
           transitionEnterTimeout={ 200 }
           transitionLeaveTimeout={ 200 }

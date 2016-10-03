@@ -23,7 +23,7 @@
         transform: scale(1);
       }
 
-      ~ .search__results {
+      ~ .search__results-container > .search__results {
         border-color: $color-primary;
       }
     }
