@@ -1,10 +1,17 @@
 import React, { PropTypes } from 'react';
 import ReactHighstocks from 'react-highcharts/dist/ReactHighstock';
 import merge from 'lodash.merge';
-import { baseTheme, lightTheme, darkTheme } from './themes';
+import { baseTheme, lightTheme, darkTheme, mutedTheme } from './themes';
 import RangeSelector from '../range-selector/';
 import dateMath from 'date-arithmetic';
 import './graph.scss';
+
+const counts = {
+  '1m': 30,
+  '3m': 90,
+  '6m': 180,
+  '1y': 365,
+};
 
 class Graph extends React.Component {
   constructor(props) {
@@ -13,7 +20,7 @@ class Graph extends React.Component {
     this.setZoom = this.setZoom.bind(this);
   }
 
-  setZoom({ type, count }) {
+  setZoom({ type }) {
     const chart = this.chart.getChart();
     const { max, dataMin, dataMax } = chart.xAxis[0];
 
@@ -28,7 +35,7 @@ class Graph extends React.Component {
         break;
       default:
         chart.xAxis[0].setExtremes(
-          dateMath.startOf(dateMath.subtract(max, count, type), 'day').getTime()
+          dateMath.startOf(dateMath.subtract(max, counts[type] || 30, 'day'), 'day').getTime()
         , max);
     }
   }
@@ -39,6 +46,8 @@ class Graph extends React.Component {
         return merge({}, other, lightTheme, config);
       case 'dark':
         return merge({}, other, darkTheme, config);
+      case 'muted':
+        return merge({}, other, mutedTheme, config);
       default:
         return merge({}, other, baseTheme, config);
     }
@@ -71,7 +80,7 @@ Graph.defaultProps = {
 
 Graph.propTypes = {
   /** Theme variant of the chart. */
-  variant: PropTypes.oneOf(['light', 'dark']),
+  variant: PropTypes.oneOf(['light', 'dark', 'muted']),
   /** Highstocks config object, overrides default themes per setting, see API documentation [here](http://api.highcharts.com/highstock). */
   config: PropTypes.object,
 };

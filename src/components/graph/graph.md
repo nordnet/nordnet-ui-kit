@@ -50,6 +50,12 @@ The UI kit exports two themes for highcharts and a base theme for easy overridin
 
       <Graph
         name="graph"
+        variant="muted"
+        config={ config }
+      />
+
+      <Graph
+        name="graph"
         variant="light"
         config={ configAlt }
       />
