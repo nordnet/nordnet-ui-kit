@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import onOutsideClick from 'react-onclickoutside';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import debounce from 'lodash.debounce';
@@ -16,26 +17,20 @@ class Search extends React.Component {
 
     this.state = {
       value: '',
-      results: props.results || null,
-      loading: false,
       showResults: false,
     };
 
     this.onChange = this.onChange.bind(this);
     this.search = debounce(this.search.bind(this), props.searchDebounceWait).bind(this);
     this.onFocus = this.onFocus.bind(this);
-    this.onBlur = this.onBlur.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.renderResult = this.renderResult.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { value, loading, showResults, results } = this.state;
+    const { value, showResults } = this.state;
 
     if (value !== nextState.value) {
-      return true;
-    }
-
-    if (loading !== nextState.loading) {
       return true;
     }
 
@@ -43,7 +38,11 @@ class Search extends React.Component {
       return true;
     }
 
-    if (isEqual(results, nextState.results)) {
+    if (this.props.isLoading !== nextProps.isLoading) {
+      return true;
+    }
+
+    if (isEqual(this.props.results, nextProps.results)) {
       return true;
     }
 
@@ -56,15 +55,11 @@ class Search extends React.Component {
     if (value.length > 0) {
       this.setState({
         value,
-        loading: true,
       });
-
       this.search();
     } else {
       this.setState({
         value: '',
-        loading: false,
-        results: null,
       });
     }
   }
@@ -75,7 +70,7 @@ class Search extends React.Component {
     });
   }
 
-  onBlur() {
+  handleClickOutside() {
     this.setState({
       showResults: false,
     });
@@ -87,23 +82,7 @@ class Search extends React.Component {
     // otherwise it'll replace empty results with the results of
     // the previous resolve which is undesirable
 
-    this.props.search(this.state.value)
-    .then(results => {
-      if (this.state.value.length > 0) {
-        this.setState({
-          results,
-          loading: false,
-        });
-      }
-    })
-    .catch(() => {
-      if (this.state.value.length > 0) {
-        this.setState({
-          results: [],
-          loading: false,
-        });
-      }
-    });
+    this.props.search(this.state.value);
   }
 
   renderDevelopment(development) {
@@ -155,9 +134,8 @@ class Search extends React.Component {
   }
 
   renderResults() {
-    const { results, loading } = this.state;
-
-    if ((!results && !loading) || !this.state.showResults) {
+    const { results, isLoading } = this.props;
+    if ((!results && !isLoading) || !this.state.showResults) {
       return null;
     }
 
@@ -168,7 +146,7 @@ class Search extends React.Component {
     );
 
     const spinner = (
-      <li className="search__result search__result--loading">
+      <li className="search__result search__result--isloading">
         <Spinner />
       </li>
     );
@@ -176,7 +154,7 @@ class Search extends React.Component {
     return (
       <ul key="search__results" className="search__results">
         { results && results.length > 0 ? results.map(this.renderResult) : null }
-        { !results && loading ? spinner : null }
+        { !results && isLoading ? spinner : null }
         { results && results.length === 0 ? noResults : null }
       </ul>
     );
@@ -236,6 +214,7 @@ Search.propTypes = {
   showResults: PropTypes.bool,
   /** The function that gets used to render the content of a result */
   resultRenderer: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
-export default Search;
+export default onOutsideClick(Search);

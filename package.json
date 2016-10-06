@@ -37,7 +37,8 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+    "react-addons-css-transition-group": "^15.0.0"
   },
   "dependencies": {
     "array-equal": "^1.0.0",
@@ -60,10 +61,10 @@
     "lodash.omit": "^4.5.0",
     "lodash.throttle": "^4.1.0",
     "lodash.toarray": "^4.3.0",
-    "react-addons-css-transition-group": "^15.3.2",
     "react-addons-shallow-compare": "^15.1.0",
     "react-date-picker": "^4.0.10",
     "react-input-autosize": "^0.6.13",
+    "react-onclickoutside": "^5.7.1",
     "react-prop-types": "^0.3.0",
     "react-pure-render": "^1.0.2",
     "react-select": "^1.0.0-rc.1",
@@ -103,6 +104,7 @@
     "raw-loader": "^0.5.1",
     "react": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
+    "react-addons-css-transition-group": "^15.0.0",
     "react-docgen": "^2.8.2",
     "react-dom": "^15.0.1",
     "react-highcharts": "^8.3.3",
