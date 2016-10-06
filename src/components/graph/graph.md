@@ -1,4 +1,4 @@
-The UI kit exports two themes for highcharts and a base theme for easy overriding as well as a RangeSelector component.
+The UI kit exports three themes for highcharts and a base theme for easy overriding as well as a RangeSelector component.
 
     const { data } = require('./data.js');
 
