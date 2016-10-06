@@ -50,10 +50,10 @@ export default {
     column: {
       borderWidth: 1,
       borderColor: 'rgba(255, 255, 255, 0)',
-      color: variables.colorBlack,
+      color: variables.colorGrayDarker,
       states: {
         hover: {
-          borderColor: variables.colorBlack,
+          borderColor: variables.colorGrayDarker,
           color: variables.colorBase,
         },
       },
@@ -125,4 +125,10 @@ export default {
       color: chroma.mix(variables.colorBase, variables.colorGrayDarker, 0.7).css(),
     },
   }],
+
+  noData: {
+    style: {
+      color: variables.colorGrayDarker,
+    },
+  },
 };
