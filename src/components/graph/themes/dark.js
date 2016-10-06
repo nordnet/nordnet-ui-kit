@@ -123,4 +123,10 @@ export default {
       color: chroma.mix(variables.colorBase, variables.colorInfo, 0.3).css(),
     },
   }],
+
+  noData: {
+    style: {
+      color: '#fff',
+    },
+  },
 };

@@ -101,4 +101,9 @@ export default {
       },
     },
   },
+  noData: {
+    style: {
+      color: variables.colorGrayDark,
+    },
+  },
 };
