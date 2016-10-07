@@ -89,6 +89,12 @@ module.exports = (() => {
         commonjs: 'react-dom',
         amd: 'react-dom',
       },
+      'react-addons-css-transition-group': {
+        root: 'ReactCSSTransitionGroup',
+        commonjs2: 'react-addons-css-transition-group',
+        commonjs: 'react-addons-css-transition-group',
+        amd: 'react-addons-css-transition-group',
+      },
     }],
     resolve: {
       extensions: [

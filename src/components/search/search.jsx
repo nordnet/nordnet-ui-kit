@@ -3,7 +3,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import debounce from 'lodash.debounce';
-import isEqual from 'lodash.isequal';
 import omit from 'lodash.omit';
 import Flag from '../flag';
 import Spinner from '../spinner';
@@ -15,57 +14,33 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      value: '',
-      results: props.results || null,
-      loading: false,
+      value: props.value,
+      results: props.results,
       showResults: false,
     };
 
     this.onChange = this.onChange.bind(this);
     this.search = debounce(this.search.bind(this), props.searchDebounceWait).bind(this);
     this.onFocus = this.onFocus.bind(this);
-    this.onBlur = this.onBlur.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.renderResult = this.renderResult.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const { value, loading, showResults, results } = this.state;
-
-    if (value !== nextState.value) {
-      return true;
-    }
-
-    if (loading !== nextState.loading) {
-      return true;
-    }
-
-    if (showResults !== nextState.showResults) {
-      return true;
-    }
-
-    if (isEqual(results, nextState.results)) {
-      return true;
-    }
-
-    return false;
+  componentWillReceiveProps({ results }) {
+    this.setState({
+      results,
+    });
   }
 
   onChange(event) {
     const { value } = event.target;
 
+    this.setState({
+      value,
+      results: null,
+    });
     if (value.length > 0) {
-      this.setState({
-        value,
-        loading: true,
-      });
-
       this.search();
-    } else {
-      this.setState({
-        value: '',
-        loading: false,
-        results: null,
-      });
     }
   }
 
@@ -75,35 +50,14 @@ class Search extends React.Component {
     });
   }
 
-  onBlur() {
+  handleClickOutside() {
     this.setState({
       showResults: false,
     });
   }
 
   search() {
-    // Since this function is debounced we must check what the
-    // current value in this.state is and wether it has a length
-    // otherwise it'll replace empty results with the results of
-    // the previous resolve which is undesirable
-
-    this.props.search(this.state.value)
-    .then(results => {
-      if (this.state.value.length > 0) {
-        this.setState({
-          results,
-          loading: false,
-        });
-      }
-    })
-    .catch(() => {
-      if (this.state.value.length > 0) {
-        this.setState({
-          results: [],
-          loading: false,
-        });
-      }
-    });
+    this.props.search(this.state.value);
   }
 
   renderDevelopment(development) {
@@ -155,9 +109,9 @@ class Search extends React.Component {
   }
 
   renderResults() {
-    const { results, loading } = this.state;
-
-    if ((!results && !loading) || !this.state.showResults) {
+    const { isLoading } = this.props;
+    const { value, results, showResults } = this.state;
+    if ((!results && !isLoading) || !showResults || value.length === 0) {
       return null;
     }
 
@@ -168,7 +122,7 @@ class Search extends React.Component {
     );
 
     const spinner = (
-      <li className="search__result search__result--loading">
+      <li className="search__result search__result--is-loading">
         <Spinner />
       </li>
     );
@@ -176,8 +130,8 @@ class Search extends React.Component {
     return (
       <ul key="search__results" className="search__results">
         { results && results.length > 0 ? results.map(this.renderResult) : null }
-        { !results && loading ? spinner : null }
-        { results && results.length === 0 ? noResults : null }
+        { isLoading ? spinner : null }
+        { !isLoading && results && results.length === 0 ? noResults : null }
       </ul>
     );
   }
@@ -185,11 +139,11 @@ class Search extends React.Component {
   render() {
     const { className, placeholder, ...rest } = this.props;
     const classes = classNames('search', className);
-
     return (
       <div className={ classes }>
         <input
-          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait']) }
+          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait',
+            'isLoading', 'disableOnClickOutside', 'enableOnClickOutside', 'showResults']) }
           className="search__input"
           type="search"
           placeholder={ placeholder }
@@ -214,8 +168,11 @@ class Search extends React.Component {
 
 Search.defaultProps = {
   placeholder: 'Search',
-  noResults: 'No results :-(',
-  searchDebounceWait: 200,
+  noResults: 'No results',
+  searchDebounceWait: 300,
+  value: '',
+  showResults: false,
+  results: [],
 };
 
 Search.propTypes = {
@@ -236,6 +193,8 @@ Search.propTypes = {
   showResults: PropTypes.bool,
   /** The function that gets used to render the content of a result */
   resultRenderer: PropTypes.func,
+  isLoading: PropTypes.bool,
+  value: PropTypes.string,
 };
 
 export default Search;
