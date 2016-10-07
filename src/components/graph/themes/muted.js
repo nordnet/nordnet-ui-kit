@@ -3,34 +3,35 @@ import chroma from 'chroma-js';
 import hlc from '../hlc';
 
 const tickLabelStyle = {
-  color: variables.colorBase,
+  color: variables.colorGrayDarker,
   fontSize: '10px',
-  textShadow: '0 1px 1px rgba(0, 0, 0, .3)',
+  textShadow: 'none',
   fontWeight: '600',
 };
 
 export default {
   navigator: {
-    outlineColor: chroma.mix(variables.colorBase, variables.colorInfo, 0.3).css(),
+    outlineColor: chroma.mix(variables.colorBase, variables.colorGrayDarker, 0.7).css(),
     series: {
       color: '#fff',
     },
     xAxis: {
-      gridLineColor: chroma(variables.colorBase).alpha(0.3).css(),
+      gridLineColor: chroma(variables.colorGrayDark).alpha(0.3).css(),
       labels: {
         align: 'center',
         style: tickLabelStyle,
       },
     },
     handles: {
-      backgroundColor: chroma.mix(variables.colorBase, variables.colorInfo, 0.7).css(),
-      borderColor: variables.colorBase,
+      backgroundColor: variables.colorGray,
+      borderColor: variables.colorGrayDarker,
     },
+    maskFill: chroma(variables.colorGrayDark).alpha(0.15).css(),
   },
 
   chart: {
     zoomType: 'x',
-    backgroundColor: variables.colorInfo,
+    backgroundColor: variables.colorGrayLight,
     events: {
       redraw: hlc,
     },
@@ -49,18 +50,18 @@ export default {
     column: {
       borderWidth: 1,
       borderColor: 'rgba(255, 255, 255, 0)',
-      color: 'rgba(255, 255, 255, 1)',
+      color: variables.colorGrayDarker,
       states: {
         hover: {
-          borderColor: variables.colorPrimary,
-          color: variables.colorPrimary,
+          borderColor: variables.colorGrayDarker,
+          color: variables.colorBase,
         },
       },
     },
 
     line: {
       enableMouseTracking: false,
-      color: variables.colorBase,
+      color: variables.colorGrayDarker,
       marker: {
         states: {
           hover: {
@@ -71,13 +72,13 @@ export default {
     },
 
     area: {
-      color: variables.colorBase,
-      fillColor: chroma(variables.colorBase).alpha(0.3).css(),
+      color: variables.colorGrayDarker,
+      fillColor: chroma(variables.colorGrayDarker).alpha(0.18).css(),
       marker: {
         states: {
           hover: {
-            lineColor: variables.colorBase,
-            fillColor: variables.colorInfo,
+            lineColor: variables.colorGrayDarker,
+            fillColor: variables.colorGrayLighter,
           },
         },
       },
@@ -107,8 +108,8 @@ export default {
       x: -5,
       tickPosition: 'inside',
     },
-    gridLineColor: chroma(variables.colorBase).alpha(0.2).css(),
-    lineColor: variables.colorBase,
+    gridLineColor: variables.colorGray,
+    lineColor: variables.colorGrayDark,
     tickLength: 0,
     opposite: true,
   }],
@@ -118,15 +119,16 @@ export default {
       style: tickLabelStyle,
       y: -8,
     },
-    lineColor: variables.colorBase,
+    lineColor: variables.colorGrayDark,
+    tickColor: variables.colorGrayDark,
     crosshair: {
-      color: chroma.mix(variables.colorBase, variables.colorInfo, 0.3).css(),
+      color: chroma.mix(variables.colorBase, variables.colorGrayDarker, 0.7).css(),
     },
   }],
 
   noData: {
     style: {
-      color: '#fff',
+      color: variables.colorGrayDarker,
     },
   },
 };

@@ -82,7 +82,7 @@ RangeSelector.propTypes = {
     type: PropTypes.string,
     text: PropTypes.string,
   })),
-  variant: PropTypes.oneOf(['light', 'dark']),
+  variant: PropTypes.oneOf(['light', 'dark', 'muted']),
   clickHandler: PropTypes.func,
   selected: PropTypes.string,
 };

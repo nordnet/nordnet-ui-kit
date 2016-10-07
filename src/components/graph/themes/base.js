@@ -128,6 +128,7 @@ export default {
       },
       y: 4,
     },
+    showFirstLabel: false,
     gridLineColor: '#ededed',
     gridZIndex: 1,
     gridLineWidth: 1,

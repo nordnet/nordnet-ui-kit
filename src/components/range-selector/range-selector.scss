@@ -19,6 +19,10 @@
     }
   }
 
+  &--muted {
+    background: $color-gray-light;
+  }
+
   &__btn {
     display: inline-block;
     appearance: none;
