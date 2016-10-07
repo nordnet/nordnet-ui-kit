@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.43
+* Added search component
+* Added muted graph theme
+* Added muted range selector variant
+* Styled "no-data" view for graphs correctly
+
 ## 0.0.42
 * Made sure sticky prop isn't passed to `<tr />` in `<Tr />` component.
 
