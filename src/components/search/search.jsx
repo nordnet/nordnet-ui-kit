@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import onOutsideClick from 'react-onclickoutside';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import debounce from 'lodash.debounce';
-import isEqual from 'lodash.isequal';
 import omit from 'lodash.omit';
 import Flag from '../flag';
 import Spinner from '../spinner';
@@ -16,7 +14,8 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      value: '',
+      value: props.value,
+      results: props.results,
       showResults: false,
     };
 
@@ -27,40 +26,21 @@ class Search extends React.Component {
     this.renderResult = this.renderResult.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const { value, showResults } = this.state;
-
-    if (value !== nextState.value) {
-      return true;
-    }
-
-    if (showResults !== nextState.showResults) {
-      return true;
-    }
-
-    if (this.props.isLoading !== nextProps.isLoading) {
-      return true;
-    }
-
-    if (isEqual(this.props.results, nextProps.results)) {
-      return true;
-    }
-
-    return false;
+  componentWillReceiveProps({ results }) {
+    this.setState({
+      results,
+    });
   }
 
   onChange(event) {
     const { value } = event.target;
 
+    this.setState({
+      value,
+      results: null,
+    });
     if (value.length > 0) {
-      this.setState({
-        value,
-      });
       this.search();
-    } else {
-      this.setState({
-        value: '',
-      });
     }
   }
 
@@ -77,11 +57,6 @@ class Search extends React.Component {
   }
 
   search() {
-    // Since this function is debounced we must check what the
-    // current value in this.state is and wether it has a length
-    // otherwise it'll replace empty results with the results of
-    // the previous resolve which is undesirable
-
     this.props.search(this.state.value);
   }
 
@@ -134,8 +109,9 @@ class Search extends React.Component {
   }
 
   renderResults() {
-    const { results, isLoading } = this.props;
-    if ((!results && !isLoading) || !this.state.showResults) {
+    const { isLoading } = this.props;
+    const { value, results, showResults } = this.state;
+    if ((!results && !isLoading) || !showResults || value.length === 0) {
       return null;
     }
 
@@ -146,7 +122,7 @@ class Search extends React.Component {
     );
 
     const spinner = (
-      <li className="search__result search__result--isloading">
+      <li className="search__result search__result--is-loading">
         <Spinner />
       </li>
     );
@@ -154,8 +130,8 @@ class Search extends React.Component {
     return (
       <ul key="search__results" className="search__results">
         { results && results.length > 0 ? results.map(this.renderResult) : null }
-        { !results && isLoading ? spinner : null }
-        { results && results.length === 0 ? noResults : null }
+        { isLoading ? spinner : null }
+        { !isLoading && results && results.length === 0 ? noResults : null }
       </ul>
     );
   }
@@ -163,11 +139,11 @@ class Search extends React.Component {
   render() {
     const { className, placeholder, ...rest } = this.props;
     const classes = classNames('search', className);
-
     return (
       <div className={ classes }>
         <input
-          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait']) }
+          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait',
+            'isLoading', 'disableOnClickOutside', 'enableOnClickOutside']) }
           className="search__input"
           type="search"
           placeholder={ placeholder }
@@ -192,8 +168,11 @@ class Search extends React.Component {
 
 Search.defaultProps = {
   placeholder: 'Search',
-  noResults: 'No results :-(',
-  searchDebounceWait: 200,
+  noResults: 'No results',
+  searchDebounceWait: 300,
+  value: '',
+  showResults: false,
+  results: [],
 };
 
 Search.propTypes = {
@@ -215,6 +194,7 @@ Search.propTypes = {
   /** The function that gets used to render the content of a result */
   resultRenderer: PropTypes.func,
   isLoading: PropTypes.bool,
+  value: PropTypes.string,
 };
 
-export default onOutsideClick(Search);
+export default Search;
