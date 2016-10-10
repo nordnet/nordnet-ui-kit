@@ -61,6 +61,10 @@ class Search extends React.Component {
   }
 
   renderDevelopment(development) {
+    if (!development) {
+      return null;
+    }
+
     const developmentClass = classNames('search__result-development', {
       'search__result-development--positive': development > 0,
       'search__result-development--negative': development < 0,
