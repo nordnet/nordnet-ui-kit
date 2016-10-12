@@ -65,24 +65,7 @@
     border-top: rem(1px) solid $color-gray;
     margin-top: rem(-1px);
     transition: border-color .15s linear;
-
-    &-enter {
-      opacity: 0.01;
-
-      &-active {
-        opacity: 1;
-        transition: opacity .2s ease-in;
-      }
-    }
-
-    &-leave {
-      opacity: 1;
-
-      &-active {
-        opacity: 0.01;
-        transition: opacity .2s ease-out;
-      }
-    }
+    will-change: opacity;
   }
 
   &__result {
