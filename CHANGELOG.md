@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.44
+* Added arrow right icon
+* Tweak style for `Search`
+* Replaced react-addons-css-transition-group with react-motion
+* Tweaked results view for `Search`
+
 ## 0.0.43
 * Added search component
 * Added muted graph theme
