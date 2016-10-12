@@ -146,8 +146,8 @@ class Search extends React.Component {
     return (
       <div className={ classes }>
         <input
-          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait',
-            'isLoading', 'disableOnClickOutside', 'enableOnClickOutside', 'showResults']) }
+          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait', 'isLoading',
+            'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'resultRenderer']) }
           className="search__input"
           type="search"
           placeholder={ placeholder }
