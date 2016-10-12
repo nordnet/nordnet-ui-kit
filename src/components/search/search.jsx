@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Transition from 'react-motion-ui-pack';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import debounce from 'lodash.debounce';
@@ -116,7 +116,7 @@ class Search extends React.Component {
     const { isLoading } = this.props;
     const { value, results, showResults } = this.state;
     if ((!results && !isLoading) || !showResults || value.length === 0) {
-      return null;
+      return <span />;
     }
 
     const noResults = (
@@ -157,14 +157,15 @@ class Search extends React.Component {
           value={ this.state.value }
         />
         <span className="search__icon" dangerouslySetInnerHTML={ { __html: searchIcon } } />
-        <ReactCSSTransitionGroup
+        <Transition
+          component="div"
           className="search__results-container"
-          transitionName="search__results"
-          transitionEnterTimeout={ 200 }
-          transitionLeaveTimeout={ 200 }
+          measure={ false }
+          enter={ { opacity: 1 } }
+          leave={ { opacity: 0 } }
         >
           { this.renderResults() }
-        </ReactCSSTransitionGroup>
+        </Transition>
       </div>
     );
   }
