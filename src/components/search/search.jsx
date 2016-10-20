@@ -39,9 +39,8 @@ class Search extends React.Component {
       value,
       results: null,
     });
-    if (value.length > 0) {
-      this.search();
-    }
+
+    this.search();
   }
 
   onFocus() {
