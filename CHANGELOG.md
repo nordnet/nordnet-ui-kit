@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.45
+* Updated `Select` component style.
+* Added key to search results in `Search` component to get rid of warning from `react-motion`.
+
 ## 0.0.44
 * Added arrow right icon
 * Tweak style for `Search`
