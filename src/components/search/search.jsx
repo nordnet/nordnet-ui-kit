@@ -116,7 +116,7 @@ class Search extends React.Component {
     const { isLoading } = this.props;
     const { value, results, showResults } = this.state;
     if ((!results && !isLoading) || !showResults || value.length === 0) {
-      return <span />;
+      return <span key="search__results" />;
     }
 
     const noResults = (
