@@ -4,6 +4,7 @@
 .search {
   display: inline-block;
   position: relative;
+  text-align: left;
 
   &__input {
     padding: rem(6px 4px 6px 20px);
@@ -23,7 +24,7 @@
         transform: scale(1);
       }
 
-      ~ .search__results-container > .search__results {
+      ~ .search__results {
         border-color: $color-primary;
       }
     }
@@ -53,9 +54,11 @@
   &__results {
     display: block;
     position: absolute;
-    min-width: 100%;
+    overflow: hidden;
+    max-width: 40rem;
+    min-width: 25rem;
+    min-height: rem(32px);
     top: 100%;
-    left: 0;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -66,6 +69,14 @@
     margin-top: rem(-1px);
     transition: border-color .15s linear;
     will-change: opacity;
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
   }
 
   &__result {
