@@ -15,7 +15,6 @@ class Search extends React.Component {
 
     this.state = {
       value: props.value,
-      results: props.results,
       showResults: false,
     };
 
@@ -37,7 +36,6 @@ class Search extends React.Component {
 
     this.setState({
       value,
-      results: null,
     });
 
     this.search();
@@ -112,11 +110,16 @@ class Search extends React.Component {
   }
 
   renderResults() {
-    const { isLoading } = this.props;
-    const { value, results, showResults } = this.state;
+    const { isLoading, results, showNoResults, alignResults } = this.props;
+    const { value, showResults } = this.state;
     if ((!results && !isLoading) || !showResults || value.length === 0) {
-      return <span key="search__results" />;
+      return <ul key="search__results" />;
     }
+
+    const searchResultsClass = classNames('search__results', {
+      'search__results--left': alignResults === 'left',
+      'search__results--right': alignResults === 'right',
+    });
 
     const noResults = (
       <li className="search__result search__result--no-results">
@@ -131,22 +134,32 @@ class Search extends React.Component {
     );
 
     return (
-      <ul key="search__results" className="search__results">
-        { results && results.length > 0 ? results.map(this.renderResult) : null }
-        { isLoading ? spinner : null }
-        { !isLoading && results && results.length === 0 ? noResults : null }
-      </ul>
+      <Transition
+        component={ false }
+        measure={ false }
+        enter={ { opacity: 1 } }
+        leave={ { opacity: 0 } }
+      >
+        <ul key="search__results" className={ searchResultsClass }>
+          { results && results.length > 0 ? results.map(this.renderResult) : null }
+          { isLoading ? spinner : null }
+          { !isLoading && results && showNoResults && results.length === 0 ? noResults : null }
+        </ul>
+      </Transition>
     );
   }
 
   render() {
-    const { className, placeholder, ...rest } = this.props;
+    const { className, placeholder, isLoading, results, ...rest } = this.props;
+    const { value, showResults } = this.state;
     const classes = classNames('search', className);
+    const show = (results || isLoading) && showResults && value.length > 0;
+
     return (
       <div className={ classes }>
         <input
-          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait', 'isLoading',
-            'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'resultRenderer']) }
+          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait', 'isLoading', 'alignResults',
+            'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'showNoResults', 'resultRenderer']) }
           className="search__input"
           type="search"
           placeholder={ placeholder }
@@ -156,15 +169,7 @@ class Search extends React.Component {
           value={ this.state.value }
         />
         <span className="search__icon" dangerouslySetInnerHTML={ { __html: searchIcon } } />
-        <Transition
-          component="div"
-          className="search__results-container"
-          measure={ false }
-          enter={ { opacity: 1 } }
-          leave={ { opacity: 0 } }
-        >
-          { this.renderResults() }
-        </Transition>
+          { show ? this.renderResults() : null }
       </div>
     );
   }
@@ -176,7 +181,9 @@ Search.defaultProps = {
   searchDebounceWait: 300,
   value: '',
   showResults: false,
-  results: [],
+  showNoResults: true,
+  results: null,
+  alignResults: 'left',
 };
 
 Search.propTypes = {
@@ -195,10 +202,13 @@ Search.propTypes = {
   /** The number of milliseconds to wait for user input to pause before calling the search function */
   searchDebounceWait: PropTypes.number,
   showResults: PropTypes.bool,
+  /** Override showing the NoResult panel */
+  showNoResults: PropTypes.bool,
   /** The function that gets used to render the content of a result */
   resultRenderer: PropTypes.func,
   isLoading: PropTypes.bool,
   value: PropTypes.string,
+  alignResults: PropTypes.oneOf(['left', 'right']),
 };
 
 export default Search;
