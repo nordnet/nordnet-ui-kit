@@ -72,14 +72,23 @@ $modifiers: (
   padding: rem(3px 2px);
   transition: all .1s $ease-out;
   user-select: none;
+  color: $color-base;
 
   &--is-checked {
+    color: $color-base;
     border-color: $color-primary;
     background: $color-primary;
   }
 
   &--is-disabled {
+    color: $color-disabled;
     border-color: $color-background-disabled;
+  }
+}
+
+.checkbox {
+  .icon > svg {
+    display: block;
   }
 }
 
