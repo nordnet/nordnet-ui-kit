@@ -31,6 +31,7 @@ const entry = {
     legend: './src/components/legend',
     logo: './src/components/logo/logo.jsx',
     pane: './src/components/pane/pane.jsx',
+    'radio-group': './src/components/radio-group/radio-group.jsx',
     'range-selector': './src/components/range-selector',
     'ratio-bar': './src/components/ratio-bar',
     search: './src/components/search',

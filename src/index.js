@@ -13,6 +13,7 @@ import LabeledValue from './components/labeled-value/labeled-value';
 import Legend from './components/legend';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
+import RadioGroup from './components/radio-group';
 import RangeSelector from './components/range-selector/';
 import RatioBar from './components/ratio-bar';
 import Search from './components/search';
@@ -45,6 +46,7 @@ export {
   Legend,
   Logo,
   Pane,
+  RadioGroup,
   RangeSelector,
   RatioBar,
   Search,
