@@ -13,7 +13,7 @@ function navItem(item) {
 
   return (
     <li { ...rest } key={ key || kebabCase(label) } className={ classes }>
-      { url ? <a href={ url }>{ label }</a> : label }
+      { url ? <a href={ url }>{ label }</a> : <span>{ label }</span> }
     </li>
   );
 }
@@ -32,18 +32,25 @@ function formatColor(color, opacity) {
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
 
-function HorizontalNav({ className, items, fadeColor, ...rest }) {
+function fade(fadeColor) {
+  const fadeStyle = `linear-gradient(to right, ${formatColor(fadeColor, 0)} 0%, ${formatColor(fadeColor, 1)} 100%)`;
+
+  return (
+    <li
+      className="horizontal-nav__fade"
+      style={ { backgroundImage: fadeStyle } }
+    />
+  );
+}
+
+function HorizontalNav({ className, items, fadeColor, navItemRenderer, fadeRenderer, ...rest }) {
   const classes = classNames('horizontal-nav', className);
-  const fade = `linear-gradient(to right, ${formatColor(fadeColor, 0)} 0%, ${formatColor(fadeColor, 1)} 100%)`;
 
   return (
     <div { ...rest } className={ classes }>
       <ul className="horizontal-nav__items">
-        { items.map(navItem) }
-        <span
-          className="horizontal-nav__fade"
-          style={ { backgroundImage: fade } }
-        />
+        { items.map(navItemRenderer || navItem) }
+        { fadeRenderer ? fadeRenderer(fadeColor) : fade(fadeColor) }
       </ul>
     </div>
   );
@@ -62,6 +69,8 @@ HorizontalNav.propTypes = {
     active: PropTypes.bool,
   })),
   fadeColor: PropTypes.string,
+  fadeRenderer: PropTypes.func,
+  navItemRenderer: PropTypes.func,
 };
 
 export default HorizontalNav;

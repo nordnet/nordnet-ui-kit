@@ -24,6 +24,7 @@ const entry = {
     flag: ['./src/components/flag/flag.jsx'],
     graph: './src/components/graph',
     'graph-tooltip': './src/components/graph-tooltip',
+    'horizontal-nav': './src/components/horizontal-nav/horizontal-nav.jsx',
     icon: ['./src/components/icon/icon.jsx'],
     input: './src/components/input/input.jsx',
     'labeled-value': './src/components/labeled-value/labeled-value.jsx',

@@ -6,6 +6,7 @@ import Dropdown from './components/dropdown/dropdown';
 import Flag from './components/flag/flag';
 import Graph from './components/graph';
 import GraphTooltip from './components/graph-tooltip';
+import HorizontalNav from './components/horizontal-nav';
 import Icon from './components/icon/icon';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
@@ -39,6 +40,7 @@ export {
   GraphTooltip,
   Icon,
   Input,
+  HorizontalNav,
   LabeledValue,
   Legend,
   Logo,
