@@ -41,7 +41,6 @@ export {
   HorizontalNav,
   Icon,
   Input,
-  HorizontalNav,
   LabeledValue,
   Legend,
   Logo,
