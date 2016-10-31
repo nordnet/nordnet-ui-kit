@@ -7,6 +7,12 @@ $modifiers: (
   error: $color-danger
 );
 
+$modifiers--focus: (
+  success: $color-success--focus,
+  warning: $color-warning--focus,
+  error: $color-danger--focus
+);
+
 .input-checkbox-radio {
   display: block;
   margin-bottom: rem(16px);
@@ -19,6 +25,36 @@ $modifiers: (
     > input {
       position: absolute;
       opacity: 0;
+
+      &:focus {
+        + .checkbox,
+        + .radio {
+          &::before {
+            position: absolute;
+            display: block;
+            width: calc(100% + #{rem(8px)});
+            height: calc(100% + #{rem(8px)});
+            top: rem(-4px);
+            left: rem(-4px);
+            content: '';
+            border-radius: inherit;
+            border: rem(2px) solid $color-primary-dark;
+          }
+        }
+      }
+    }
+  }
+
+  @each $modifier, $color in $modifiers {
+    &--has-#{$modifier} {
+      .input-checkbox-radio__element > input:focus {
+        + .checkbox,
+        + .radio {
+          &::before {
+            border-color: map-get($modifiers--focus, $modifier);
+          }
+        }
+      }
     }
   }
 
@@ -65,6 +101,7 @@ $modifiers: (
 
 .checkbox,
 .radio {
+  position: relative;
   display: block;
   width: rem(16px);
   height: rem(16px);
@@ -73,6 +110,7 @@ $modifiers: (
   transition: all .1s $ease-out;
   user-select: none;
   color: $color-base;
+  outline-color: $color-primary-dark;
 
   &--is-checked {
     color: $color-base;
@@ -101,15 +139,15 @@ $modifiers: (
   border-radius: 50%;
 
   &--is-checked {
-    &:after {
+    &::after {
       content: '';
       position: absolute;
       display: block;
       width: rem(8px);
       height: rem(8px);
       background: #FFF;
-      top: rem(4px);
-      left: rem(4px);
+      top: rem(3px);
+      left: rem(3px);
       border-radius: 50%;
     }
   }
