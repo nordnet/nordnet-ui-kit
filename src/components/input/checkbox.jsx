@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/icon';
-import variables from '../../utilities/variables';
 
 function Checkbox(props) {
   const { checked, disabled } = props;
@@ -13,7 +12,8 @@ function Checkbox(props) {
 
   const icon = (<Icon
     type="checkmark"
-    stroke={ disabled ? variables.colorDisabled : '#FFFFFF' }
+    stroke="currentColor"
+    renderInline
     style={ { display: 'block' } }
   />);
 

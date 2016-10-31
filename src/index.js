@@ -38,6 +38,7 @@ export {
   Flag,
   Graph,
   GraphTooltip,
+  HorizontalNav,
   Icon,
   Input,
   HorizontalNav,
