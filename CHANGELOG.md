@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.48
+* Added possibility to send in custom fadeRenderer to Horizontal-nav
+* Fixed styling of radiobuttons and checkboxes
+* Added RadioGroup to be able to group radiobuttons
+* Changed default color of alert box
+
 ## 0.0.47
 * Horizontal-nav: Added missing entry points.
 * Search: Moved Transition to renderResults.
