@@ -8,26 +8,29 @@
 
   &__items {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-bottom: rem(-8px);
   }
 
   &__item {
     display: inline-block;
+    padding-bottom: rem(8px);
 
     &-indicator {
       display: inline-block;
-      width: .8rem;
-      height: .8rem;
+      width: rem(8px);
+      height: rem(8px);
       border-radius: 50%;
-      margin: 0 .4rem .1rem 0;
+      margin: 0 rem(4px) rem(1px) 0;
     }
 
     &-value {
-      font-size: 1.2rem;
-      margin-left: .8rem;
+      font-size: rem(12px);
+      margin-left: rem(8px);
     }
   }
 }
