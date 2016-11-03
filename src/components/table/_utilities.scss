@@ -116,3 +116,11 @@ $borders: 'top', 'right', 'bottom', 'left';
     flex-grow: 0;
   }
 }
+
+@mixin ellipsis() {
+  &--ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

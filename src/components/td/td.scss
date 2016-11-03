@@ -10,5 +10,6 @@
   @include highlights();
   @include borders();
   @include align();
+  @include ellipsis();
   font-weight: inherit;
 }
