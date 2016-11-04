@@ -42,7 +42,7 @@ function Th({
     'th--align-left': align === 'left',
     'th--align-right': align === 'right',
     'th--align-center': align === 'center',
-    'td--ellipsis': ellipsis,
+    'th--ellipsis': ellipsis,
   }, className);
 
   const thStyle = assign(
