@@ -18,6 +18,7 @@ function Td({
   borderBottom,
   borderLeft,
   align,
+  ellipsis,
   ...rest,
 }) {
   const classes = classNames('td', {
@@ -41,6 +42,7 @@ function Td({
     'td--align-left': align === 'left',
     'td--align-right': align === 'right',
     'td--align-center': align === 'center',
+    'td--ellipsis': ellipsis,
   }, className);
 
   const tdStyle = assign(
@@ -59,6 +61,7 @@ Td.defaultProps = {
   borderRight: false,
   borderBottom: false,
   borderLeft: false,
+  ellipsis: true,
 };
 
 Td.propTypes = {
@@ -77,6 +80,8 @@ Td.propTypes = {
   borderBottom: PropTypes.bool,
   borderLeft: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center']),
+  /** By default a column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
+  ellipsis: PropTypes.bool,
 };
 
 export default Td;

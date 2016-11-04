@@ -18,6 +18,7 @@ function Th({
   borderBottom,
   borderLeft,
   align,
+  ellipsis,
   ...rest,
 }) {
   const classes = classNames('th', {
@@ -41,6 +42,7 @@ function Th({
     'th--align-left': align === 'left',
     'th--align-right': align === 'right',
     'th--align-center': align === 'center',
+    'th--ellipsis': ellipsis,
   }, className);
 
   const thStyle = assign(
@@ -59,6 +61,7 @@ Th.defaultProps = {
   borderRight: false,
   borderBottom: false,
   borderLeft: false,
+  ellipsis: true,
 };
 
 Th.propTypes = {
@@ -77,6 +80,8 @@ Th.propTypes = {
   borderBottom: PropTypes.bool,
   borderLeft: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center']),
+  /** By default a header column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
+  ellipsis: PropTypes.bool,
 };
 
 export default Th;
