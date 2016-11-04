@@ -80,7 +80,7 @@ Th.propTypes = {
   borderBottom: PropTypes.bool,
   borderLeft: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center']),
-  /** By default a column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
+  /** By default a header column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
   ellipsis: PropTypes.bool,
 };
 
