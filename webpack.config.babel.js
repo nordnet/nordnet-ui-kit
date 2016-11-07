@@ -133,7 +133,11 @@ module.exports = (() => {
   ];
 
   if (NODE_ENV === 'production') {
-    postcss.push(cssnano({ zindex: false }));
+    postcss.push(cssnano({
+      zindex: false,
+      convertValues: false,
+      reduceIdents: false,
+    }));
   }
 
   config.merge({

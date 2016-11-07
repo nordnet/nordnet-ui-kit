@@ -67,7 +67,11 @@ module.exports = {
     }
 
     if (env === 'production') {
-      postcss.push(cssnano);
+      postcss.push(cssnano({
+        zindex: false,
+        convertValues: false,
+        reduceIdents: false,
+      }));
 
       config.module.loaders.push(Object.assign({}, loaders.sass, {
         loader: ExtractTextPlugin.extract('css!postcss!sass'),
