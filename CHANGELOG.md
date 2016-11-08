@@ -1,10 +1,15 @@
 # Changelog
 
+## 0.0.49
+* Legend component now scales more predictably.
+* [cssnano](http://cssnano.co/) was messing up the spinner css, it is now configured more appropriately.
+* Tweaks to table components.
+
 ## 0.0.48
-* Added possibility to send in custom fadeRenderer to Horizontal-nav
-* Fixed styling of radiobuttons and checkboxes
-* Added RadioGroup to be able to group radiobuttons
-* Changed default color of alert box
+* Added possibility to send in custom fadeRenderer to HorizontalNav component.
+* Fixed styling of radio and checkbox inputs.
+* Added RadioGroup component.
+* Changed default color of alert box.
 
 ## 0.0.47
 * Horizontal-nav: Added missing entry points.
@@ -17,16 +22,16 @@
 * Added key to search results in `Search` component to get rid of warning from `react-motion`.
 
 ## 0.0.44
-* Added arrow right icon
-* Tweak style for `Search`
-* Replaced react-addons-css-transition-group with react-motion
-* Tweaked results view for `Search`
+* Added arrow right icon.
+* Tweak style for `Search`.
+* Replaced react-addons-css-transition-group with react-motion.
+* Tweaked results view for `Search`.
 
 ## 0.0.43
-* Added search component
-* Added muted graph theme
-* Added muted range selector variant
-* Styled "no-data" view for graphs correctly
+* Added search component.
+* Added muted graph theme.
+* Added muted range selector variant.
+* Styled "no-data" view for graphs correctly.
 
 ## 0.0.42
 * Made sure sticky prop isn't passed to `<tr />` in `<Tr />` component.
