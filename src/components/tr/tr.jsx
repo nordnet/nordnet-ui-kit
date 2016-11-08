@@ -54,11 +54,16 @@ class Tr extends React.Component { // eslint-disable-line
     }
   }
 
+  getDistanceFromBottom() {
+    if (!this.tr.closest('tbody')) return this.tr.closest('table').getBoundingClientRect().bottom;
+    return this.tr.closest('tbody').getBoundingClientRect().bottom;
+  }
+
   setSticky() {
     const { top: trTop, height } = this.tr.getBoundingClientRect();
     const offset = this.props.stickyOffset;
-    const tableHeight = this.tr.closest('table').offsetHeight;
-
+    const tableHeight = this.tr.closest('tbody') ? this.tr.closest('tbody').offsetHeight : this.tr.closest('table').offsetHeight;
+    const fromBottom = this.getDistanceFromBottom() - offset - height;
     let top;
 
     if (!this.state.sticky) {
@@ -67,7 +72,7 @@ class Tr extends React.Component { // eslint-disable-line
       top = this.tr.nextSibling.getBoundingClientRect().top;
     }
 
-    if (top <= offset && top > (tableHeight - height - offset) * -1) {
+    if (fromBottom > 0 && top <= offset && top > (tableHeight - height - offset) * -1) {
       this.setState({
         sticky: true,
       });
