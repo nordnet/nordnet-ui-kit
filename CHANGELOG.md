@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.50
+* Table: Sticky rows now dissapearing when they should.
+* Search: Text entered before server-side rendering complete now triggers a search.
+
 ## 0.0.49
 * Legend component now scales more predictably.
 * [cssnano](http://cssnano.co/) was messing up the spinner css, it is now configured more appropriately.
