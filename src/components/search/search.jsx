@@ -25,6 +25,18 @@ class Search extends React.Component {
     this.renderResult = this.renderResult.bind(this);
   }
 
+  componentDidMount() {
+    // This is done in order to handle users entering text in the input-field before
+    // server-side rendering is complete.
+    if (this.input.value && this.input.value.length) {
+      this.setState({ //eslint-disable-line
+        value: this.input.value,
+        showResults: true,
+      });
+      this.search();
+    }
+  }
+
   componentWillReceiveProps({ results }) {
     this.setState({
       results,
@@ -167,6 +179,7 @@ class Search extends React.Component {
           onFocus={ this.onFocus }
           onBlur={ this.onBlur }
           value={ this.state.value }
+          ref={ input => { this.input = input; } }
         />
         <span className="search__icon" dangerouslySetInnerHTML={ { __html: searchIcon } } />
           { show ? this.renderResults() : null }
