@@ -35,10 +35,7 @@ Legend.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({
     color: PropTypes.string.isRequired,
-    label: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.object,
-    ]).isRequired,
+    label: React.PropTypes.node.isRequired,
     value: PropTypes.node,
   })),
 };
