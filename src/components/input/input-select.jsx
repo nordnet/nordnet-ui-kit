@@ -15,6 +15,7 @@ class InputSelect extends InputDefault {
         className={ className }
         stroke={ variables.colorPrimary }
         type={ this.state.hasFocus ? 'chevronUp' : 'chevronDown' }
+        renderInline
       />
     );
   }
