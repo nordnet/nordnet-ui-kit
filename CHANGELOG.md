@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.51
+* Input Select: Cater for long options and placeholder.
+* Legend: Accept nodes instead of just strings as labels.
+
 ## 0.0.50
 * Table: Sticky rows now dissapearing when they should.
 * Search: Text entered before server-side rendering complete now triggers a search.
