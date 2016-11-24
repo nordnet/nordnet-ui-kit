@@ -5,6 +5,7 @@
   .input {
     &__element {
       appearance: none;
+      padding-right: rem(24px);
 
       &-wrapper {
         position: relative;
@@ -15,8 +16,12 @@
       position: absolute;
       top: rem(-4px);
       left: 0;
-      color: $color-text-muted;
+      width: 100%;
+      height: 1.2em;
+      overflow: hidden;
+      padding-right: 2.4rem;
       pointer-events: none;
+      color: $color-text-muted;
     }
 
     &__select-arrow {
@@ -32,6 +37,10 @@
       > img {
         display: block;
         max-height: 100%;
+      }
+
+      svg {
+        display: block;
       }
     }
   }
