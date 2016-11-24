@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.51
+## 0.0.52
 * Input Select: Cater for long options and placeholder.
 * Legend: Accept nodes instead of just strings as labels.
 
