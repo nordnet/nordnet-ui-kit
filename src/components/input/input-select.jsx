@@ -39,6 +39,19 @@ class InputSelect extends InputDefault {
     );
   }
 
+  renderValueLabel() {
+    const option = this.props.options.find(opt => `${opt.value}` === this.state.value);
+    if (!option) {
+      return null;
+    }
+
+    return (
+      <span className="input__value-label">
+        { option.label }
+      </span>
+    );
+  }
+
   showValue() {
     const { value, hasFocus } = this.state;
     const hasStringValue = typeof value === 'string' && value.length;
@@ -65,12 +78,12 @@ class InputSelect extends InputDefault {
           onChange={ this.onChange }
           placeholder=""
           value={ this.state.value }
-          style={ this.showValue() ? { } : { color: 'transparent' } }
         >
           { placeholder ? <option value="" disabled>{ placeholder }</option> : null }
           { options.map(this.renderOption) }
         </select>
         { this.renderFakePlaceholder() }
+        { this.showValue() ? this.renderValueLabel() : null }
         { this.renderSelectArrow() }
       </div>
     );
