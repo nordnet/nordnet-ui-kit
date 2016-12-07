@@ -5,6 +5,7 @@
   .input {
     &__element {
       appearance: none;
+      opacity: 0;
       padding-right: rem(24px);
 
       &-wrapper {
@@ -12,16 +13,24 @@
       }
     }
 
-    &__placeholder {
+    &__placeholder, &__value-label {
       position: absolute;
-      top: rem(-4px);
       left: 0;
       width: 100%;
       height: 1.2em;
       overflow: hidden;
-      padding-right: 2.4rem;
+      padding-right: rem(24px);
       pointer-events: none;
+    }
+
+    &__placeholder {
+      top: rem(-4px);
       color: $color-text-muted;
+    }
+
+    &__value-label {
+      top: 0;
+      text-overflow: ellipsis;
     }
 
     &__select-arrow {
