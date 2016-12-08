@@ -1,4 +1,6 @@
 # Changelog
+## 0.0.53
+* Input select fix for IE11
 
 ## 0.0.52
 * Input Select: Cater for long options and placeholder.
