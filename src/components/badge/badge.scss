@@ -24,4 +24,7 @@ $modifiers: (
       background-color: $color;
     }
   }
+  &--warning {
+    color: $color-black;
+  }
 }
