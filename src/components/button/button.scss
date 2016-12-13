@@ -84,6 +84,10 @@ $sizePaddings: (
     border: rem(2px solid $color-primary);
     color: #fff;
 
+    &--warning {
+      color: $color-black;
+    }
+
     &:hover {
       background: $color-primary--focus;
       border-color: $color-primary--focus;
