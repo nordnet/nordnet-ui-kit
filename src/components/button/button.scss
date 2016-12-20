@@ -65,6 +65,9 @@ $sizePaddings: (
     &:disabled {
       cursor: not-allowed;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &--block {
