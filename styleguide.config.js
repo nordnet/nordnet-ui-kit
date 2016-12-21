@@ -80,7 +80,7 @@ module.exports = {
       config.plugins.push(new ExtractTextPlugin('build/styles.css'));
     }
 
-    config.entry = ['babel-polyfill', ...config.entry];
+    config.entry.push('babel-polyfill');
 
     config.plugins.push(new webpack.DefinePlugin({ __STYLEGUIDE__: true }));
 
