@@ -17,6 +17,8 @@ $sizePaddings: (
 
 @mixin btn--modifier ($variant, $modifier, $color, $color-focus) {
   &--#{ $modifier } {
+    outline-color: $color;
+
     @if $variant == 'primary' {
       background: $color;
       border-color: $color;
@@ -60,7 +62,6 @@ $sizePaddings: (
     text-decoration: none;
     user-select: none;
     text-align: center;
-    outline: none;
 
     &:disabled {
       cursor: not-allowed;
