@@ -4,7 +4,6 @@ import Button from './components/button/button';
 import DatePicker from './components/date-picker';
 import Dropdown from './components/dropdown/dropdown';
 import Flag from './components/flag/flag';
-import Graph from './components/graph';
 import GraphTooltip from './components/graph-tooltip';
 import HorizontalNav from './components/horizontal-nav';
 import Icon from './components/icon/icon';
@@ -37,7 +36,6 @@ export {
   DatePicker,
   Dropdown,
   Flag,
-  Graph,
   GraphTooltip,
   HorizontalNav,
   Icon,

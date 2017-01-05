@@ -22,7 +22,6 @@ const entry = {
     'date-picker': './src/components/date-picker',
     dropdown: './src/components/dropdown/dropdown.jsx',
     flag: ['./src/components/flag/flag.jsx'],
-    graph: './src/components/graph',
     'graph-tooltip': './src/components/graph-tooltip',
     'horizontal-nav': './src/components/horizontal-nav',
     icon: ['./src/components/icon/icon.jsx'],
