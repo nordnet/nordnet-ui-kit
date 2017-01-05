@@ -119,6 +119,7 @@
     "tojson-loader": "^1.0.3",
     "webpack": "^1.13.1",
     "webpack-configurator": "^0.3.1",
+    "webpack-hot-middleware": "^2.13.2",
     "webpack-node-externals": "^1.2.0"
   }
 }
