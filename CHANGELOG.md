@@ -1,6 +1,17 @@
 # Changelog
+
+## 0.0.54
+* Fixed development support for node 4.
+* Icon: Added circle-arrow and ticking-clock icons.
+* Badge: Changed text color of warning badge to NN Black.
+* Button: Changed text color of warning button to NN Black.
+* Button: Changed cursor to pointer on hover.
+* Button: Changed link button color to primary.
+* Button: Changed outline color to match button color.
+* **BREAKING**: Removed graph themes.
+
 ## 0.0.53
-* Input select fix for IE11
+* Input Select: Fix for IE11.
 
 ## 0.0.52
 * Input Select: Cater for long options and placeholder.
