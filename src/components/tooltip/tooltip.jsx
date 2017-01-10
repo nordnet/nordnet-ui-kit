@@ -41,7 +41,7 @@ class Tooltip extends React.Component {
     return (
       <div className="tooltip">
         <div className="tooltip-questionmark" tabIndex="-1" onClick={ this.toggleShow }>
-          <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={ 16 } height={ 16 } />
+          { this.props.container }
         </div>
         { this.renderPopup(text) }
         { this.renderCloser() }
@@ -56,8 +56,15 @@ class Tooltip extends React.Component {
   }
 }
 
+Tooltip.defaultProps = {
+  container: <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={ 16 } height={ 16 } />,
+};
+
 Tooltip.propTypes = {
+  /** The text found in the tooltip */
   text: React.PropTypes.string,
+  /** The content that, when clicked, will show the tooltip */
+  container: React.PropTypes.string,
 };
 
 export default Tooltip;
