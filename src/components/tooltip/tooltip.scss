@@ -2,7 +2,6 @@
 @import '../../functions';
 
 $z-index-tooltip: 2;
-$z-index-tooltip-closer: 5;
 
 .tooltip {
   color: #00A9EC;
@@ -58,14 +57,6 @@ $z-index-tooltip-closer: 5;
       left: 0;
       width: 100%;
       height: rem(8px);
-    }
-    &__closer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: $z-index-tooltip-closer;
     }
   }
 }
