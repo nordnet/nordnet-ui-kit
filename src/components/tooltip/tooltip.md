@@ -1,3 +1,5 @@
+Note: onClickOutside doesn't work with Styleguidist atm. Known issue with HOCs.
+
     <div>
       <div>
         <span>This is some text that requires a tooltip.</span>
