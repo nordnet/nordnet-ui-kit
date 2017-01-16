@@ -23,14 +23,24 @@ class Tooltip extends React.Component {
 
   mouseEnter() {
     if (!this.state.toggled) {
-      this.setState({ hover: true });
+      this.setState({
+        hover: true,
+      });
     }
   }
 
   mouseLeave() {
     if (!this.state.toggled) {
-      this.setState({ hover: false });
+      this.setState({
+        hover: false,
+      });
     }
+  }
+
+  handleClickOutside() {
+    this.setState({
+      toggled: false,
+    });
   }
 
   renderPopup(text) {
@@ -48,15 +58,6 @@ class Tooltip extends React.Component {
     return null;
   }
 
-  renderCloser() {
-    if (this.state.toggled) {
-      return (
-        <div className="tooltip-popup__closer" onClick={ this.toggleShow }></div>
-      );
-    }
-    return null;
-  }
-
   renderTooltip(text) {
     return (
       <div className="tooltip">
@@ -64,7 +65,6 @@ class Tooltip extends React.Component {
           { this.props.container }
         </div>
         { this.renderPopup(text) }
-        { this.renderCloser() }
       </div>
     );
   }

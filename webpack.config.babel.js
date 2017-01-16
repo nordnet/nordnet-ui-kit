@@ -43,7 +43,7 @@ const entry = {
     tfoot: './src/components/tfoot',
     th: './src/components/th',
     thead: './src/components/thead',
-    tooltip: './src/components/tooltip/tooltip.jsx',
+    tooltip: './src/components/tooltip',
     tr: './src/components/tr',
     variables: ['./src/utilities/variables.js'],
     widget: ['./src/components/widget/widget'],

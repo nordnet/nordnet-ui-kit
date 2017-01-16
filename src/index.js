@@ -25,7 +25,7 @@ import Td from './components/td';
 import Tfoot from './components/tfoot';
 import Th from './components/th';
 import Thead from './components/thead';
-import Tooltip from './components/tooltip/tooltip';
+import Tooltip from './components/tooltip';
 import Tr from './components/tr';
 import variables from './utilities/variables';
 import Widget from './components/widget/widget';
