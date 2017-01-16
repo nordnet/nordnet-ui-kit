@@ -43,13 +43,13 @@ class Tooltip extends React.Component {
     });
   }
 
-  renderPopup(text) {
+  renderPopup(content) {
     if (this.state.hover || this.state.toggled) {
       return (
         <div className="tooltip-popup" onMouseEnter={ this.mouseEnter } onMouseLeave={ this.mouseLeave }>
           <div className="tooltip-popup__content">
             <div className="tooltip-popup__content-text">
-              { text }
+              { content }
             </div>
           </div>
         </div>
@@ -58,20 +58,20 @@ class Tooltip extends React.Component {
     return null;
   }
 
-  renderTooltip(text) {
+  renderTooltip(content) {
     return (
       <div className="tooltip">
         <div className="tooltip-container" onClick={ this.toggleShow } onMouseEnter={ this.mouseEnter } onMouseLeave={ this.mouseLeave }>
           { this.props.container }
         </div>
-        { this.renderPopup(text) }
+        { this.renderPopup(content) }
       </div>
     );
   }
 
   render() {
     return (
-      this.renderTooltip(this.props.text)
+      this.renderTooltip(this.props.content)
     );
   }
 }
@@ -81,10 +81,10 @@ Tooltip.defaultProps = {
 };
 
 Tooltip.propTypes = {
-  /** The text found in the tooltip */
-  text: React.PropTypes.string,
-  /** The content that, when clicked, will show the tooltip */
-  container: React.PropTypes.string,
+  /** The content found in the tooltip */
+  content: React.PropTypes.node,
+  /** The container that, when clicked, will show the tooltip */
+  container: React.PropTypes.node,
 };
 
 export default Tooltip;
