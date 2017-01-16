@@ -5,18 +5,38 @@ import './tooltip.scss';
 class Tooltip extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = {
+      hover: false,
+      toggled: false,
+    };
     this.toggleShow = this.toggleShow.bind(this);
+    this.mouseEnter = this.mouseEnter.bind(this);
+    this.mouseLeave = this.mouseLeave.bind(this);
   }
 
   toggleShow() {
-    this.setState({ show: !this.state.show });
+    this.setState({
+      toggled: !this.state.toggled,
+      hover: false,
+    });
+  }
+
+  mouseEnter() {
+    if (!this.state.toggled) {
+      this.setState({ hover: true });
+    }
+  }
+
+  mouseLeave() {
+    if (!this.state.toggled) {
+      this.setState({ hover: false });
+    }
   }
 
   renderPopup(text) {
-    if (this.state.show) {
+    if (this.state.hover || this.state.toggled) {
       return (
-        <div className="tooltip-popup" >
+        <div className="tooltip-popup" onMouseEnter={ this.mouseEnter } onMouseLeave={ this.mouseLeave }>
           <div className="tooltip-popup__content">
             <div className="tooltip-popup__content-text">
               { text }
@@ -29,7 +49,7 @@ class Tooltip extends React.Component {
   }
 
   renderCloser() {
-    if (this.state.show) {
+    if (this.state.toggled) {
       return (
         <div className="tooltip-popup__closer" onClick={ this.toggleShow }></div>
       );
@@ -40,7 +60,7 @@ class Tooltip extends React.Component {
   renderTooltip(text) {
     return (
       <div className="tooltip">
-        <div className="tooltip-questionmark" tabIndex="-1" onClick={ this.toggleShow }>
+        <div className="tooltip-container" onClick={ this.toggleShow } onMouseEnter={ this.mouseEnter } onMouseLeave={ this.mouseLeave }>
           { this.props.container }
         </div>
         { this.renderPopup(text) }
