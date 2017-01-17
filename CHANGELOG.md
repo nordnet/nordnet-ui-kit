@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.55
+* Icon: Added vertical-ellipsis icon.
+* Tooltip: Created a tooltip component.
+* Bump react-svg-sprite-icon to fix errors with IE11.
+
 ## 0.0.54
 * Fixed development support for node 4.
 * Icon: Added circle-arrow and ticking-clock icons.
