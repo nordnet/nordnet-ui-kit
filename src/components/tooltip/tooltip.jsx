@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import Icon from '../icon/icon';
 import './tooltip.scss';
 
@@ -12,6 +13,11 @@ class Tooltip extends React.Component {
     this.toggleShow = this.toggleShow.bind(this);
     this.mouseEnter = this.mouseEnter.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
+  }
+
+  componentDidMount() {
+    const rect = this.container.getBoundingClientRect();
+    this.contentTop = (rect.height || 0) + 8;
   }
 
   toggleShow() {
@@ -44,47 +50,55 @@ class Tooltip extends React.Component {
   }
 
   renderPopup(content) {
-    if (this.state.hover || this.state.toggled) {
-      return (
-        <div className="tooltip-popup" onMouseEnter={ this.mouseEnter } onMouseLeave={ this.mouseLeave }>
-          <div className="tooltip-popup__content">
-            <div className="tooltip-popup__content-text">
-              { content }
-            </div>
-          </div>
-        </div>
-      );
-    }
-    return null;
-  }
+    const style = {
+      top: this.contentTop,
+      opacity: this.state.hover || this.state.toggled ? 1 : 0,
+    };
 
-  renderTooltip(content) {
     return (
-      <div className="tooltip">
-        <div className="tooltip-container" onClick={ this.toggleShow } onMouseEnter={ this.mouseEnter } onMouseLeave={ this.mouseLeave }>
-          { this.props.container }
+      <div
+        style={ style }
+        className="tooltip-popup"
+        onMouseEnter={ this.mouseEnter }
+        onMouseLeave={ this.mouseLeave }
+      >
+        <div className="tooltip-popup__content">
+          { content }
         </div>
-        { this.renderPopup(content) }
       </div>
     );
   }
 
   render() {
+    const { children, content, className } = this.props;
+
     return (
-      this.renderTooltip(this.props.content)
+      <div className={ classnames('tooltip', className) }>
+        <div
+          ref={ (container) => { this.container = container; } }
+          className="tooltip-container"
+          onClick={ this.toggleShow }
+          onMouseEnter={ this.mouseEnter }
+          onMouseLeave={ this.mouseLeave }
+        >
+          { children }
+        </div>
+        { this.renderPopup(content) }
+      </div>
     );
   }
 }
 
 Tooltip.defaultProps = {
-  container: <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={ 16 } height={ 16 } />,
+  children: <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={ 16 } height={ 16 } />,
 };
 
 Tooltip.propTypes = {
+  className: React.PropTypes.string,
   /** The content found in the tooltip */
   content: React.PropTypes.node,
   /** The container that, when clicked, will show the tooltip */
-  container: React.PropTypes.node,
+  children: React.PropTypes.node,
 };
 
 export default Tooltip;

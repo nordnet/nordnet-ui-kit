@@ -8,9 +8,13 @@ Note: onClickOutside doesn't work with Styleguidist atm. Known issue with HOCs.
       <br />
       <div>
         <span>Hover to show, click to toggle:</span>
-        <Tooltip container="Hello world!" content="Text as the container will appear as a link." />
+        <Tooltip content="Text as the container will appear as a link.">
+          <span style={{fontSize: '40px'}}>Hello world!</span>
+        </Tooltip>
       </div>
       <br />
-      <span>This Tooltip contains some HTML:</span>
-      <Tooltip content={ <span>This is a <u>span</u>!</span> } />
+      <div>
+        <span>This Tooltip contains some HTML:</span>
+        <Tooltip content={ <span>This is a <u>span</u>!</span> } />
+      </div>
     </div>
