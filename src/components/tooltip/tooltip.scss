@@ -45,14 +45,5 @@ $z-index-tooltip: 2;
       border-color: transparent transparent rgba(0, 0, 0, 0.75);
       z-index: $z-index-tooltip;
     }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: rem(-8px);
-      left: 0;
-      width: 100%;
-      height: rem(8px);
-    }
   }
 }
