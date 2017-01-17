@@ -1,0 +1,62 @@
+@import '../../variables';
+@import '../../functions';
+
+$z-index-tooltip: 2;
+
+.tooltip {
+  color: #00A9EC;
+  margin-left: rem(10px);
+  position: relative;
+  display: inline;
+  p {
+    margin: 0;
+  }
+  &-container {
+    width: rem(16px);
+    height: rem(16px);
+    cursor: pointer;
+    display: inline;
+  }
+  &-popup {
+    position: absolute;
+    top: rem(24px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: rem(300px);
+    text-align: left;
+    padding: rem(13px);
+    background: rgba(0, 0, 0, 0.75);
+    color: rgba(255, 255, 255, 1);
+    z-index: $z-index-tooltip;
+    &__content {
+      &-text {
+        font-size: rem(11px);
+        p, span, ul {
+          font-size: rem(11px);
+        }
+      }
+    }
+    &:before {
+      position: absolute;
+      top: rem(-8px);
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 rem(6px) rem(8px) rem(6px);
+      border-color: transparent transparent rgba(0, 0, 0, 0.75);
+      z-index: $z-index-tooltip;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: rem(-8px);
+      left: 0;
+      width: 100%;
+      height: rem(8px);
+    }
+  }
+}
