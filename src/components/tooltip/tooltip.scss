@@ -21,7 +21,6 @@ $z-index-tooltip: 2;
     width: rem(300px);
     padding: rem(8px);
     color: $color-base;
-    pointer-events: none;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.75);
     z-index: $z-index-tooltip;

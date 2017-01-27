@@ -1,4 +1,5 @@
 --colors
 --webpack-config test/webpack.config.test.js
 --require source-map-support/register
+--require test/setup.jsdom.js
 test/**/*.test.js
