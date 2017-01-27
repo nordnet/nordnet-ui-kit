@@ -4,7 +4,6 @@ import { expect } from 'chai';
 import Input from '../../../src/components/input/input';
 import InputDefault from '../../../src/components/input/input-default';
 import InputDate from '../../../src/components/input/input-date';
-import InputPassword from '../../../src/components/input/input-password';
 import InputSelect from '../../../src/components/input/input-select';
 import InputCheckboxRadio from '../../../src/components/input/input-checkbox-radio';
 
@@ -14,10 +13,6 @@ describe('<Input />', () => {
     name: 'text',
     elementName: '<InputDefault />',
     value: InputDefault,
-  }, {
-    name: 'password',
-    elementName: '<InputPassword />',
-    value: InputPassword,
   }, {
     name: 'date',
     elementName: '<InputDate />',
@@ -114,26 +109,6 @@ describe('<Input />', () => {
             const defaultInput = wrapper.shallow();
             defaultInput.find('input').simulate('change', { target: { value: 'abc' } });
             expect(defaultInput.find('input').html()).to.contain('value="ABC"');
-          });
-          break;
-        case 'password':
-          it('should have class input--password', () => {
-            expect(wrapper.shallow().hasClass('input--password')).to.equals(true);
-          });
-          it('should have no show button when no password is entered', () => {
-            wrapper.setProps({ value: '' });
-            expect(wrapper.shallow().find('label.input__toggle').props().style.display).to.equal('none');
-          });
-          it('should have show button when password is entered', () => {
-            expect(wrapper.shallow().find('label.input__toggle').props().style.display).to.not.equal('none');
-          });
-          it('should have input type password as standard', () => {
-            expect(wrapper.shallow().find('input[type="password"]')).to.have.length(1);
-          });
-          it('should change to input type text when show button is clicked', () => {
-            const inputPassword = wrapper.shallow();
-            inputPassword.find('input[type="checkbox"]').simulate('change', { target: { checked: true } });
-            expect(inputPassword.find('input[type="text"]')).to.have.length(1);
           });
           break;
         case 'date':
