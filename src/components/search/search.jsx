@@ -21,11 +21,13 @@ class Search extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.search = debounce(this.search.bind(this), props.searchDebounceWait).bind(this);
     this.onFocus = this.onFocus.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.renderResult = this.renderResult.bind(this);
   }
 
   componentDidMount() {
+    document.addEventListener('click', this.handleClick);
     // This is done in order to handle users entering text in the input-field before
     // server-side rendering is complete.
     if (this.input.value && this.input.value.length) {
@@ -43,6 +45,10 @@ class Search extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick);
+  }
+
   onChange(event) {
     const { value } = event.target;
 
@@ -57,6 +63,12 @@ class Search extends React.Component {
     this.setState({
       showResults: true,
     });
+  }
+
+  handleClick({ target } = {}) {
+    if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
+      this.handleClickOutside();
+    }
   }
 
   handleClickOutside() {
@@ -168,7 +180,7 @@ class Search extends React.Component {
     const show = (results || isLoading) && showResults && value.length > 0;
 
     return (
-      <div className={ classes }>
+      <div className={ classes } ref={ (element) => { this.onOutsideElement = element; } }>
         <input
           { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait', 'isLoading', 'alignResults',
             'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'showNoResults', 'resultRenderer']) }

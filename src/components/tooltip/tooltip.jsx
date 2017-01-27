@@ -13,11 +13,25 @@ class Tooltip extends React.Component {
     this.toggleShow = this.toggleShow.bind(this);
     this.mouseEnter = this.mouseEnter.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   componentDidMount() {
+    document.addEventListener('click', this.handleClick);
     const rect = this.container.getBoundingClientRect();
     this.contentTop = (rect.height || 0) + 8;
+  }
+
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick);
+  }
+
+  handleClick({ target } = {}) {
+    if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
+      this.handleClickOutside();
+    }
   }
 
   toggleShow() {
@@ -44,23 +58,24 @@ class Tooltip extends React.Component {
   }
 
   handleClickOutside() {
-    this.setState({
-      toggled: false,
-    });
+    if (this.state.toggled) {
+      this.setState({
+        toggled: false,
+      });
+    }
   }
 
   renderPopup(content) {
     const style = {
       top: this.contentTop,
       opacity: this.state.hover || this.state.toggled ? 1 : 0,
+      pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
     };
 
     return (
       <div
         style={ style }
         className="tooltip-popup"
-        onMouseEnter={ this.mouseEnter }
-        onMouseLeave={ this.mouseLeave }
       >
         <div className="tooltip-popup__content">
           { content }
@@ -73,7 +88,7 @@ class Tooltip extends React.Component {
     const { children, content, className } = this.props;
 
     return (
-      <div className={ classnames('tooltip', className) }>
+      <div className={ classnames('tooltip', className) } ref={ (element) => { this.onOutsideElement = element; } }>
         <div
           ref={ (container) => { this.container = container; } }
           className="tooltip-container"
