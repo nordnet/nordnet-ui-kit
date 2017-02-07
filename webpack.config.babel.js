@@ -97,6 +97,12 @@ module.exports = (() => {
         commonjs: 'react-addons-css-transition-group',
         amd: 'react-addons-css-transition-group',
       },
+      'react-date-picker': {
+        root: 'ReactDatePicker',
+        commonjs2: 'react-date-picker',
+        commonjs: 'react-date-picker',
+        amd: 'react-date-picker',
+      },
     }],
     resolve: {
       extensions: [

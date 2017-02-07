@@ -1,4 +1,3 @@
-Note: onOutsideClick doesn't work with Styleguidist atm. Known issue with HOCs.
 
 With results:
 
