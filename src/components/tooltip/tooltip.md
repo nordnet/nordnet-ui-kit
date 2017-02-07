@@ -11,6 +11,12 @@
         </Tooltip>
       </li>
       <li style={{marginBottom: '11px'}}>
+        <span>Hover to show, click to toggle:</span>
+        <Tooltip content="Using text as the container will change the appearance of the text to a link." placement={'left'}>
+          <span>Hello world!</span>
+        </Tooltip>
+      </li>
+      <li style={{marginBottom: '11px'}}>
         <span>This Tooltip contains some HTML:</span>
         <Tooltip content={ <span>This is a <u>span</u>!</span> } />
       </li>
@@ -36,5 +42,13 @@
       <li style={{marginBottom: '11px'}}>
         <span>Position right:</span>
         <Tooltip content={ <span>right</span> } placement={'right'} />
+      </li>
+      <li style={{marginBottom: '11px'}}>
+        <span>Position left:</span>
+        <Tooltip content={ <span>left</span> } placement={'left'} />
+      </li>
+      <li style={{marginBottom: '11px'}}>
+        <span>Fixed width 345px:</span>
+        <Tooltip content={ <span>right</span> } fixedWidth={345} />
       </li>
     </ul>

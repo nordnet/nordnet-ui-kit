@@ -32,6 +32,12 @@ $z-index-tooltip: 2;
       transform: translateY(-50%);
     }
 
+    &--left {
+      left: inherit;
+      top: rem(8px);
+      transform: translateY(-50%);
+    }
+
     &__content {
       font-size: .8em;
     }
@@ -56,12 +62,13 @@ $z-index-tooltip: 2;
       }
     }
 
-    &--below {
+    &--left {
       &:before {
-        top: rem(-8px);
-        border-left: rem(8px) solid transparent;
-        border-right: rem(8px) solid transparent;
-        border-bottom: rem(8px) solid rgba(0, 0, 0, 0.75);
+        left: inherit;
+        right: rem(-12px);
+        border-top: rem(8px) solid transparent;
+        border-bottom: rem(8px) solid transparent;
+        border-left: rem(8px) solid rgba(0, 0, 0, 0.75);
       }
     }
 
@@ -71,6 +78,15 @@ $z-index-tooltip: 2;
         border-top: rem(8px) solid transparent;
         border-bottom: rem(8px) solid transparent;
         border-right: rem(8px) solid rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    &--below {
+      &:before {
+        top: rem(-8px);
+        border-left: rem(8px) solid transparent;
+        border-right: rem(8px) solid transparent;
+        border-bottom: rem(8px) solid rgba(0, 0, 0, 0.75);
       }
     }
   }
