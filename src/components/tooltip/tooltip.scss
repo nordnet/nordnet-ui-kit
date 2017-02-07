@@ -12,30 +12,49 @@ $z-index-tooltip: 2;
   &-container {
     cursor: pointer;
     display: inline;
+
+    .icon {
+      vertical-align: text-bottom;
+    }
   }
 
   &-popup {
     position: absolute;
     text-align: justify;
-    left: 50%;
     min-width: rem(50px);
     white-space: nowrap;
     padding: rem(8px);
     color: $color-base;
-    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.75);
     z-index: $z-index-tooltip;
     transition: opacity .3s $ease-out;
 
-    &--right {
-      top: rem(8px);
-      transform: translateY(-50%);
+    &--above {
+      left: 50%;
+      bottom: rem(12px);
+      margin-bottom: 100%;
+      transform: translateX(-50%);
     }
 
     &--left {
-      left: inherit;
+      right: rem(12px);
+      top: rem(12px);
+      margin-right: 100%;
+      transform: translate(0, -50%);
+    }
+
+    &--right {
       top: rem(8px);
-      transform: translateY(-50%);
+      left: rem(12px);
+      margin-left: 100%;
+      transform: translate(0, -50%);
+    }
+
+    &--below {
+      left: 50%;
+      top: rem(12px);
+      margin-top: 100%;
+      transform: translateX(-50%);
     }
 
     &__content {
@@ -88,40 +107,6 @@ $z-index-tooltip: 2;
         border-right: rem(8px) solid transparent;
         border-bottom: rem(8px) solid rgba(0, 0, 0, 0.75);
       }
-    }
-  }
-
-  &-popup-below {
-    position: absolute;
-    text-align: justify;
-    left: 50%;
-    top: rem(26px);
-    min-width: rem(50px);
-    white-space: nowrap;
-    padding: rem(8px);
-    color: $color-base;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.75);
-    z-index: $z-index-tooltip;
-    transition: opacity .3s $ease-out;
-
-    &__content {
-      font-size: .8em;
-    }
-
-    &:before {
-      position: absolute;
-      top: rem(-8px);
-      left: 50%;
-      transform: translateX(-50%);
-      display: block;
-      content: '';
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 rem(8px) rem(8px) rem(8px);
-      border-color: transparent transparent rgba(0, 0, 0, 0.75);
-      z-index: $z-index-tooltip;
     }
   }
 }

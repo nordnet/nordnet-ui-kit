@@ -11,9 +11,9 @@
         </Tooltip>
       </li>
       <li style={{marginBottom: '11px'}}>
-        <span>Hover to show, click to toggle:</span>
-        <Tooltip content="Using text as the container will change the appearance of the text to a link." placement={'left'}>
-          <span>Hello world!</span>
+        <span>Left of text</span>
+        <Tooltip content="Long tooltip left of text" placement={'left'}>
+          <span>Left of Hello world!</span>
         </Tooltip>
       </li>
       <li style={{marginBottom: '11px'}}>
@@ -36,19 +36,19 @@
         </Tooltip>
       </li>
       <li style={{marginBottom: '11px'}}>
-        <span>Position above:</span>
-        <Tooltip content={ <span>above</span> } placement={'above'} />
+        <span>Placement 'above':</span>
+        <Tooltip content={ <span>Above</span> } placement={'above'} />
       </li>
       <li style={{marginBottom: '11px'}}>
-        <span>Position right:</span>
-        <Tooltip content={ <span>right</span> } placement={'right'} />
+        <span>Placement 'right':</span>
+        <Tooltip content={ <span>Right</span> } placement={'right'} />
       </li>
       <li style={{marginBottom: '11px'}}>
-        <span>Position left:</span>
-        <Tooltip content={ <span>left</span> } placement={'left'} />
+        <span>Placement 'left:'</span>
+        <Tooltip content={ <span>Left 123</span> } placement={'left'} />
       </li>
       <li style={{marginBottom: '11px'}}>
         <span>Fixed width 345px:</span>
-        <Tooltip content={ <span>right</span> } fixedWidth={345} />
+        <Tooltip content={ <span>Fixed width</span> } fixedWidth={345} />
       </li>
     </ul>

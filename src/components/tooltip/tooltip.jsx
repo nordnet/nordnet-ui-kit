@@ -29,14 +29,6 @@ class Tooltip extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.handleClick);
-    const rect = this.container.getBoundingClientRect();
-    console.log(rect);
-    console.log(this.container);
-    this.contentTop = (rect.height || 0) + 8;
-    this.contentRight = (this.container.offsetWidth || 0) + 16;
-    this.contentLeft = (this.container.offsetWidth || 0) + 16;
-    console.log((this.container.offsetWidth));
-    this.contentBottom = -(rect.height || 0) + 50;
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -48,14 +40,7 @@ class Tooltip extends React.Component {
   }
 
   getPlacement(el, placement = 'below') {
-    console.log(el);
-    console.log('parent', el.parentNode);
     const rect = el.parentNode.querySelector('.tooltip-popup').getBoundingClientRect();
-    console.log({el});
-
-    console.log('getPlacement:', placement, rect);
-    console.log('1111111');
-
 
     // Try the position last used
     if (this.placement && this.checkPosition[this.placement](rect)) {
@@ -66,15 +51,6 @@ class Tooltip extends React.Component {
     if (this.checkPosition[placement](rect)) {
       return placement;
     }
-    console.log('222222');
-
-
-
-
-    console.log('3333333');
-    console.log('rect.top', rect.top);
-    console.log('rect.bottom', rect.bottom);
-    console.log((window.innerHeight || document.documentElement.clientHeight));
 
     // Try figure out a new position that will fit, otherwise use default
     if (this.checkPosition.below(rect)) {
@@ -136,23 +112,6 @@ class Tooltip extends React.Component {
     if (this.props.fixedWidth) {
       style.width = this.props.fixedWidth;
       style.whiteSpace = 'inherit';
-    }
-
-    console.log('placement', placement);
-    switch (placement) {
-      case 'below':
-        style.top = this.contentTop;
-        break;
-      case 'right':
-        style.left = this.contentRight;
-        break;
-      case 'left':
-        style.right = this.contentLeft;
-        break;
-      case 'above':
-      default:
-        style.bottom = this.contentBottom;
-        break;
     }
 
     return (
