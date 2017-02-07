@@ -18,7 +18,70 @@ $z-index-tooltip: 2;
     position: absolute;
     text-align: justify;
     left: 50%;
-    width: rem(300px);
+    min-width: rem(50px);
+    white-space: nowrap;
+    padding: rem(8px);
+    color: $color-base;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    z-index: $z-index-tooltip;
+    transition: opacity .3s $ease-out;
+
+    &--right {
+      top: rem(8px);
+      transform: translateY(-50%);
+    }
+
+    &__content {
+      font-size: .8em;
+    }
+
+    &:before {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+      z-index: $z-index-tooltip;
+    }
+
+    &--above {
+      &:before {
+        bottom: rem(-8px);
+        border-left: rem(8px) solid transparent;
+        border-right: rem(8px) solid transparent;
+        border-top: rem(8px) solid rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    &--below {
+      &:before {
+        top: rem(-8px);
+        border-left: rem(8px) solid transparent;
+        border-right: rem(8px) solid transparent;
+        border-bottom: rem(8px) solid rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    &--right {
+      &:before {
+        left: rem(-4px);
+        border-top: rem(8px) solid transparent;
+        border-bottom: rem(8px) solid transparent;
+        border-right: rem(8px) solid rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+
+  &-popup-below {
+    position: absolute;
+    text-align: justify;
+    left: 50%;
+    top: rem(26px);
+    min-width: rem(50px);
+    white-space: nowrap;
     padding: rem(8px);
     color: $color-base;
     transform: translateX(-50%);
