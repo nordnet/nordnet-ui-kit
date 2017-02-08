@@ -32,6 +32,23 @@ describe('<Tooltip />', () => {
     expect(wrapper.state('toggled')).to.equal(true);
   });
 
+  it('should have fixedWidth', () => {
+    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={ 123 } />);
+    expect(wrapper.find('.tooltip-popup').props().style.width).to.equal(123);
+  });
+
+  it('should set className to above', () => {
+    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={ 'above' } />);
+    wrapper.find('.tooltip-container').simulate('mouseEnter');
+    expect(wrapper.find('.tooltip-popup').hasClass('tooltip-popup--above')).to.equal(true);
+  });
+
+  it('should set className to left', () => {
+    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={ 'left' } />);
+    wrapper.find('.tooltip-container').simulate('mouseEnter');
+    expect(wrapper.find('.tooltip-popup').hasClass('tooltip-popup--left')).to.equal(true);
+  });
+
   describe('click outside functionality', () => {
     const target = { attachTo: document.getElementById('app') };
     let component;
