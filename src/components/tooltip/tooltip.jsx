@@ -150,8 +150,8 @@ class Tooltip extends React.Component {
           onMouseLeave={ this.mouseLeave }
         >
           { children }
-          { this.renderPopup(content, this.placement) }
         </div>
+        { this.renderPopup(content, this.placement) }
       </div>
     );
   }

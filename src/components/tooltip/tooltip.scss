@@ -21,16 +21,13 @@ $z-index-tooltip: 2;
   &-popup {
     position: absolute;
     text-align: justify;
-
+    font-size: .8em;
     padding: rem(8px);
     color: $color-base;
     background: rgba(0, 0, 0, 0.75);
+    white-space: nowrap;
     z-index: $z-index-tooltip;
     transition: opacity .3s $ease-out;
-
-    &__content {
-      font-size: .8em;
-    }
 
     &:before {
       position: absolute;
