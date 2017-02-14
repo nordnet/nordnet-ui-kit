@@ -17,11 +17,11 @@ class Tooltip extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
 
     this.checkPosition = {
-      above: (rect) => (rect.top > 1),
-      left: (rect) => (rect.left > 1 && this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      right: (rect) => (((window.innerWidth || document.documentElement.clientWidth) - rect.right > 1) &&
+      above: (rect) => (rect.top > 0),
+      left: (rect) => (rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect)),
+      right: (rect) => ((((window.innerWidth || document.documentElement.clientWidth) - rect.right) > 0) &&
         this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      below: (rect) => ((window.innerHeight || document.documentElement.clientHeight) - rect.bottom > 1),
+      below: (rect) => (((window.innerHeight || document.documentElement.clientHeight) - rect.bottom) > 0),
     };
 
     this.placement = props.placement;
@@ -32,15 +32,15 @@ class Tooltip extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return !(nextState.hover === this.state.hover && nextState.toggled === this.state.toggled);
+    return (nextState.hover !== this.state.hover || nextState.toggled !== this.state.toggled);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick);
   }
 
-  getPlacement(el, placement = 'below') {
-    const rect = el.parentNode.querySelector('.tooltip-popup').getBoundingClientRect();
+  getPlacement(placement = 'below') {
+    const rect = this.popup.getBoundingClientRect();
 
     // Try the position last used
     if (this.placement && this.checkPosition[this.placement](rect)) {
@@ -88,7 +88,7 @@ class Tooltip extends React.Component {
   }
 
   mouseEnter() {
-    if (!this.state.toggled || !this.state.hover) {
+    if (!this.state.toggled) {
       this.setState({
         hover: true,
       });
@@ -96,7 +96,7 @@ class Tooltip extends React.Component {
   }
 
   mouseLeave() {
-    if (!this.state.toggled || this.state.hover) {
+    if (!this.state.toggled) {
       this.setState({
         hover: false,
       });
@@ -114,10 +114,15 @@ class Tooltip extends React.Component {
       style.whiteSpace = 'inherit';
     }
 
+    if (placement === 'above') {
+      style.bottom = this.contentHeight;
+    }
+
     return (
       <div
         style={ style }
         className={ `tooltip-popup tooltip-popup--${placement}` }
+        ref={ (popup) => { this.popup = popup; } }
       >
         <div className="tooltip-popup__content">
           { content }
@@ -128,8 +133,11 @@ class Tooltip extends React.Component {
 
   render() {
     const { children, content, className, placement } = this.props;
-    if (this.container && this.state.hover) {
-      this.placement = this.getPlacement(this.container, placement);
+    if (this.container && this.popup && this.state.hover) {
+      this.placement = this.getPlacement(placement);
+
+      const rect = this.container.getBoundingClientRect();
+      this.contentHeight = (rect.height || 0) - 3;
     }
 
     return (

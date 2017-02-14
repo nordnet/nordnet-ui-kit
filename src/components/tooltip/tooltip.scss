@@ -11,7 +11,7 @@ $z-index-tooltip: 2;
 
   &-container {
     cursor: pointer;
-    display: inline;
+    display: inline-block;
 
     .icon {
       vertical-align: text-bottom;
@@ -21,45 +21,13 @@ $z-index-tooltip: 2;
   &-popup {
     position: absolute;
     text-align: justify;
-    min-width: rem(50px);
-    white-space: nowrap;
+    font-size: .8em;
     padding: rem(8px);
     color: $color-base;
     background: rgba(0, 0, 0, 0.75);
+    white-space: nowrap;
     z-index: $z-index-tooltip;
     transition: opacity .3s $ease-out;
-
-    &--above {
-      left: 50%;
-      bottom: rem(12px);
-      margin-bottom: 100%;
-      transform: translateX(-50%);
-    }
-
-    &--left {
-      right: rem(12px);
-      top: rem(12px);
-      margin-right: 100%;
-      transform: translate(0, -50%);
-    }
-
-    &--right {
-      top: rem(8px);
-      left: rem(12px);
-      margin-left: 100%;
-      transform: translate(0, -50%);
-    }
-
-    &--below {
-      left: 50%;
-      top: rem(12px);
-      margin-top: 100%;
-      transform: translateX(-50%);
-    }
-
-    &__content {
-      font-size: .8em;
-    }
 
     &:before {
       position: absolute;
@@ -72,19 +40,30 @@ $z-index-tooltip: 2;
       z-index: $z-index-tooltip;
     }
 
-    &--above {
+    &--below {
+      left: 50%;
+      margin-top: rem(8px);
+      transform: translateX(-50%);
+
       &:before {
-        bottom: rem(-8px);
+        top: rem(-8px);
         border-left: rem(8px) solid transparent;
         border-right: rem(8px) solid transparent;
-        border-top: rem(8px) solid rgba(0, 0, 0, 0.75);
+        border-bottom: rem(8px) solid rgba(0, 0, 0, 0.75);
       }
     }
 
     &--left {
+      right: rem(12px);
+      top: rem(12px);
+      margin-right: 100%;
+      transform: translate(0, -50%);
+
       &:before {
         left: inherit;
         right: rem(-12px);
+        margin-top: -0.8rem;
+        top: 50%;
         border-top: rem(8px) solid transparent;
         border-bottom: rem(8px) solid transparent;
         border-left: rem(8px) solid rgba(0, 0, 0, 0.75);
@@ -92,20 +71,31 @@ $z-index-tooltip: 2;
     }
 
     &--right {
+      top: rem(8px);
+      left: rem(12px);
+      margin-left: 100%;
+      transform: translate(0, -50%);
+
       &:before {
         left: rem(-4px);
+        margin-top: -0.8rem;
+        top: 50%;
         border-top: rem(8px) solid transparent;
         border-bottom: rem(8px) solid transparent;
         border-right: rem(8px) solid rgba(0, 0, 0, 0.75);
       }
     }
 
-    &--below {
+    &--above {
+      left: 50%;
+      margin-bottom: rem(8px);
+      transform: translateX(-50%);
+
       &:before {
-        top: rem(-8px);
+        bottom: rem(-8px);
         border-left: rem(8px) solid transparent;
         border-right: rem(8px) solid transparent;
-        border-bottom: rem(8px) solid rgba(0, 0, 0, 0.75);
+        border-top: rem(8px) solid rgba(0, 0, 0, 0.75);
       }
     }
   }
