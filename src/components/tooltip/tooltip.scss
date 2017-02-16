@@ -20,7 +20,7 @@ $z-index-tooltip: 2;
 
   &-popup {
     position: absolute;
-    text-align: justify;
+    text-align: left;
     font-size: .8em;
     padding: rem(8px);
     color: $color-base;
