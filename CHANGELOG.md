@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.57
+* **BREAKING**: Move ReactDatePicker to external dependency. Need to be imported when used.
+* Tooltip: Multiple fixes. Added placement prop.
+
 ## 0.0.56
 * Input Password: Removed show password toggle.
 * Replaced react-onclickoutside with a custom solution that works in all browsers >= IE11.
