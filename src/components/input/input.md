@@ -92,14 +92,6 @@ Type: `select`
       options={ options }
     />
 
-Type: `date`
-
-    <Input
-      label="Text input"
-      placeholder="Enter text"
-      type="date"
-    />
-
 Type: `checkbox`
 
     <div>
