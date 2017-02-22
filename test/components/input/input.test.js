@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import Input from '../../../src/components/input/input';
 import InputDefault from '../../../src/components/input/input-default';
-import InputDate from '../../../src/components/input/input-date';
 import InputSelect from '../../../src/components/input/input-select';
 import InputCheckboxRadio from '../../../src/components/input/input-checkbox-radio';
 
@@ -13,10 +12,6 @@ describe('<Input />', () => {
     name: 'text',
     elementName: '<InputDefault />',
     value: InputDefault,
-  }, {
-    name: 'date',
-    elementName: '<InputDate />',
-    value: InputDate,
   }, {
     name: 'select',
     elementName: '<InputSelect />',
@@ -46,11 +41,6 @@ describe('<Input />', () => {
         it('should print the label if text is entered', () => {
           expect(wrapper.shallow().find('Label').shallow().childAt(0).text()).to.equal('label');
         });
-        if (type.value === InputDate || type.value === InputDefault) {
-          it('should set the input value to the property value', () => {
-            expect(wrapper.shallow().find('input').html()).to.contain('value="value"');
-          });
-        }
         it('should set the placeholder to the property placeholder', () => {
           if (type.value === InputSelect) {
             expect(wrapper.shallow().find('span.input__placeholder').childAt(0).text()).to.equal('placeholder');
@@ -109,14 +99,6 @@ describe('<Input />', () => {
             const defaultInput = wrapper.shallow();
             defaultInput.find('input').simulate('change', { target: { value: 'abc' } });
             expect(defaultInput.find('input').html()).to.contain('value="ABC"');
-          });
-          break;
-        case 'date':
-          it('should have class input--date', () => {
-            expect(wrapper.shallow().hasClass('input--date')).to.equals(true);
-          });
-          it('should have a calendar icon', () => {
-            expect(wrapper.shallow().find('Icon').props().type).to.equal('calendar');
           });
           break;
         case 'select':

@@ -19,7 +19,6 @@ const entry = {
     alert: './src/components/alert/alert.jsx',
     badge: './src/components/badge/badge.jsx',
     button: './src/components/button/button.jsx',
-    'date-picker': './src/components/date-picker',
     dropdown: './src/components/dropdown/dropdown.jsx',
     flag: ['./src/components/flag/flag.jsx'],
     'graph-tooltip': './src/components/graph-tooltip',
@@ -96,12 +95,6 @@ module.exports = (() => {
         commonjs2: 'react-addons-css-transition-group',
         commonjs: 'react-addons-css-transition-group',
         amd: 'react-addons-css-transition-group',
-      },
-      'react-date-picker': {
-        root: 'ReactDatePicker',
-        commonjs2: 'react-date-picker',
-        commonjs: 'react-date-picker',
-        amd: 'react-date-picker',
       },
     }],
     resolve: {

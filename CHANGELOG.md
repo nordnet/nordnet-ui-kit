@@ -1,5 +1,8 @@
 # Changelog
 
+## upcoming version
+* **BREAKING**: Removed ReactDatePicker component.
+
 ## 0.0.57
 * **BREAKING**: Move ReactDatePicker to external dependency. Need to be imported when used.
 * Tooltip: Multiple fixes. Added placement prop.
