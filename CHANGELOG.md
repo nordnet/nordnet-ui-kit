@@ -1,6 +1,6 @@
 # Changelog
 
-## upcoming version
+## 0.1.0
 * **BREAKING**: Removed ReactDatePicker component.
 
 ## 0.0.57
