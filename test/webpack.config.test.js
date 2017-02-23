@@ -10,18 +10,17 @@ module.exports = {
   module: {
     loaders: [{
       test: /.jsx?$/,
-      loader: 'babel',
+      use: 'babel-loader',
     }, {
       test: /\.scss$/,
-      loader: 'null-loader',
+      use: 'null-loader',
     }, {
       test: /\.svg$/,
-      loader: 'null-loader',
+      use: 'null-loader',
     }],
   },
   resolve: {
     extensions: [
-      '',
       '.js',
       '.jsx',
     ],
