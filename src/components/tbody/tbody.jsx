@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import assign from 'lodash.assign';
 import rem from '../../utilities/rem';
 import './tbody.scss';
 
@@ -32,7 +31,7 @@ function Tbody({
     'tbody--border-left': borderLeft,
   }, className);
 
-  const tbodyStyle = assign(maxHeight ? { maxHeight: rem(`${maxHeight}px`) } : {}, style);
+  const tbodyStyle = Object.assign(maxHeight ? { maxHeight: rem(`${maxHeight}px`) } : {}, style);
 
   return (
     <tbody { ...rest } className={ classes } style={ tbodyStyle }>

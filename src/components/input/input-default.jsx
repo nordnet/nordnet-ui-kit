@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react';
-import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
-import isNumber from 'lodash.isnumber';
-import isEmpty from 'lodash.isempty';
 import ValidationIcon from './validation-icon';
 import Label from './label';
 import HelpText from './help-text';
@@ -11,7 +8,7 @@ import './input-default.scss';
 
 const isUndefined = value => value === undefined;
 
-class InputDefault extends PureComponent {
+class InputDefault extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -82,7 +79,8 @@ class InputDefault extends PureComponent {
   }
 
   hasValue(value) {
-    return isNumber(value) || typeof value === 'boolean' || !!(value && value.length) || !isEmpty(value);
+    const type = typeof value;
+    return type === 'boolean' || type === 'number' || (value && (type === 'object' || type === 'string') && Object.keys(value).length);
   }
 
   renderInput(id, type) {

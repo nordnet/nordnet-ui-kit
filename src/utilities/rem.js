@@ -1,5 +1,3 @@
-import isNumber from 'lodash.isnumber';
-
 function rem(value) {
   if (__USE_REM__) {
     return convertToRem(value);
@@ -12,7 +10,7 @@ function convertToRem(value) {
   const baselinePx = 10;
   const matchNumber = /(\d*\.?\d+)\s*px/g;
 
-  if (isNumber(value)) {
+  if (Number.isFinite(value)) {
     return value / baselinePx;
   }
 

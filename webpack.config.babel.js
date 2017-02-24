@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = args => {
@@ -155,6 +156,11 @@ module.exports = args => {
       __STYLEGUIDE__: false,
     }),
   ];
+
+  if (process.env.ANALYZE === 'true') {
+    plugins.push(new BundleAnalyzerPlugin());
+    plugins.push(new webpack.optimize.UglifyJsPlugin()); // Also minify code to get prod-like stats
+  }
 
   return {
     entry: entry[env.type],

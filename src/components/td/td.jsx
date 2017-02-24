@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import assign from 'lodash.assign';
 import './td.scss';
 
 function Td({
@@ -45,7 +44,7 @@ function Td({
     'td--ellipsis': ellipsis,
   }, className);
 
-  const tdStyle = assign(
+  const tdStyle = Object.assign(
     {},
     width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
     style
