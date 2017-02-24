@@ -1,5 +1,6 @@
 export default function omit(object = {}, ...keys) {
-  const copy = Object.assign({}, object);
-  keys.forEach(key => delete copy[key]);
-  return copy;
+  return Object.keys(object)
+    .filter(objectKey => keys.every(omitKey => objectKey !== omitKey))
+    .map(key => ({ [key]: object[key] }))
+    .reduce((prev, entry) => Object.assign(prev, entry), {});
 }
