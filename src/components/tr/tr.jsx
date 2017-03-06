@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import throttle from 'lodash.throttle';
-import debounce from 'lodash.debounce';
+import { throttle, debounce } from 'lodash';
 import omit from '../../utilities/omit';
 import rem from '../../utilities/rem';
 import './tr.scss';

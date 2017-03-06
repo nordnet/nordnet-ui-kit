@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import Icon from '../icon/icon';
 import variables from '../../utilities/variables';
 import './dropdown.scss';

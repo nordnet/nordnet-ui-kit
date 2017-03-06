@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
-import debounce from 'lodash.debounce';
+import { debounce } from 'lodash';
 import arrayEqual from 'array-equal';
 import bezierEasing from 'bezier-easing';
 import {

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -154,6 +155,10 @@ module.exports = args => {
       },
       __USE_REM__: JSON.stringify(useRem),
       __STYLEGUIDE__: false,
+    }),
+    new LodashModuleReplacementPlugin({
+      deburring: true, // used by camelCase and kebabCase
+      coercions: true, // used by deburring
     }),
   ];
 

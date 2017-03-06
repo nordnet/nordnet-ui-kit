@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import HelpText from './help-text.jsx';

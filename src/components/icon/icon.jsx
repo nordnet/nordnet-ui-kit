@@ -2,7 +2,7 @@ import React from 'react';
 import { elementType } from 'react-prop-types';
 import { IconStateless } from 'react-svg-sprite-icon';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import omit from '../../utilities/omit';
 import icons from './icons';
 

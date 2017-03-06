@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import Transition from 'react-motion-ui-pack';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
-import debounce from 'lodash.debounce';
+import { kebabCase, debounce } from 'lodash';
 import omit from '../../utilities/omit';
 import Flag from '../flag';
 import Spinner from '../spinner';
