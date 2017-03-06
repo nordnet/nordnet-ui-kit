@@ -8,7 +8,7 @@ const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = args => {
   let env;
-  if (args === 'development') {
+  if (args === 'development' || args === 'production') {
     // its styleguidist
     env = {
       'use-rem': true,
