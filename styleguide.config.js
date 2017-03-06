@@ -1,17 +1,10 @@
 const path = require('path');
 const fs = require('fs');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
 const docgen = require('react-docgen');
 const dir = path.join(__dirname, 'src');
-const webpack = require('webpack');
-const svgoConfig = require('./svgo.config');
 
 module.exports = {
   title: 'Nordnet UI Kit',
-  serverHost: '0.0.0.0',
-  serverPort: 4000,
   styleguideDir: path.join(__dirname, 'documentation/dist'),
   components() {
     const folders = fs.readdirSync(`${dir}/components`);
@@ -34,64 +27,8 @@ module.exports = {
 
     return docgen.parse(source);
   },
-  updateWebpackConfig(webpackConfig, env) {
-    const config = webpackConfig;
-    const loaderDirs = [dir, path.join(__dirname, 'documentation')];
-
-    const loaders = {
-      js: {
-        test: /.jsx?$/,
-        loader: 'babel',
-        include: loaderDirs,
-      },
-      sass: {
-        test: /\.scss$/,
-        loader: 'style!css!postcss!sass',
-        include: loaderDirs,
-      },
-      svg: {
-        test: /\.svg$/,
-        loader: `raw!svgo?${svgoConfig}`,
-        include: loaderDirs,
-      },
-    };
-
-    config.module.loaders.push(loaders.js, loaders.svg);
-
-    const postcss = [
-      autoprefixer,
-    ];
-
-    if (env === 'development') {
-      config.module.loaders.push(loaders.sass);
-    }
-
-    if (env === 'production') {
-      postcss.push(cssnano({
-        zindex: false,
-        convertValues: false,
-        reduceIdents: false,
-      }));
-
-      config.module.loaders.push(Object.assign({}, loaders.sass, {
-        loader: ExtractTextPlugin.extract('css!postcss!sass'),
-      }));
-
-      config.plugins.push(new ExtractTextPlugin('build/styles.css'));
-    }
-
-    config.plugins.push(new webpack.DefinePlugin({ __STYLEGUIDE__: true }));
-
-    config.postcss = postcss;
-
-    config.entry.push(path.join(__dirname, 'documentation/documentation.scss'));
-
-    config.resolve.alias['rsg-components/Layout/Renderer'] = path.join(__dirname, 'documentation/rsg-components/Layout/Renderer');
-
-    config.plugins.push(new webpack.DefinePlugin({ __USE_REM__: true }));
-
-    config.entry.unshift('babel-polyfill');
-
-    return config;
+  webpackConfigFile: './webpack.config.babel.js',
+  webpackConfig: {
+    entry: ['babel-polyfill', path.join(__dirname, 'documentation/documentation.scss')],
   },
 };

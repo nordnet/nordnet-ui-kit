@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
-import debounce from 'lodash.debounce';
-import assign from 'lodash.assign';
+import { debounce } from 'lodash';
 import arrayEqual from 'array-equal';
 import bezierEasing from 'bezier-easing';
 import {
@@ -122,7 +121,7 @@ class SparkGraph extends React.Component {
       ...rest,
     } = this.props;
     const { width, height, pointsFrom, pointsTo } = this.state;
-    const styles = assign({
+    const styles = Object.assign({
       width: !this.props.width ? '100%' : `${width}px`,
       height: !this.props.height ? '100%' : `${height}px`,
     }, style);

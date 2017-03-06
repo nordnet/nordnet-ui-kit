@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
-import assign from 'lodash.assign';
+import { kebabCase } from 'lodash';
 import flags from './flags';
 
 function Flag({
@@ -14,7 +13,7 @@ function Flag({
 }) {
   const flag = flags[countryCode.toLowerCase()];
   const classes = classNames('flag', `flag--${kebabCase(countryCode)}`, className);
-  const styles = assign({
+  const styles = Object.assign({
     display: 'inline-block',
     width: `${width / 10}rem`,
     height: `${height / 10}rem`,

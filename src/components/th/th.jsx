@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import assign from 'lodash.assign';
 import './th.scss';
 
 function Th({
@@ -45,7 +44,7 @@ function Th({
     'th--ellipsis': ellipsis,
   }, className);
 
-  const thStyle = assign(
+  const thStyle = Object.assign(
     {},
     width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
     style

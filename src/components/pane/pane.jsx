@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
-import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import './pane.scss';
 
-class Pane extends PureComponent {
+class Pane extends React.PureComponent {
   constructor(props) {
     super(props);
 

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import InputDefault from './input-default';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import variables from '../../utilities/variables';
 import Icon from '../icon/icon';
 import './input-select.scss';

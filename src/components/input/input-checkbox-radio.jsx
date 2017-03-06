@@ -1,13 +1,12 @@
 import React from 'react';
-import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import HelpText from './help-text.jsx';
 import './input-checkbox-radio.scss';
 
-class InputCheckboxRadio extends PureComponent {
+class InputCheckboxRadio extends React.PureComponent {
   constructor(props) {
     super(props);
 

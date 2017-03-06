@@ -1,4 +1,4 @@
-import camelCase from 'lodash.camelcase';
+import { camelCase } from 'lodash';
 const icons = require.context('./../../icons/', false, /\.svg$/).keys();
 
 export default icons.reduce((prev, curr) => {

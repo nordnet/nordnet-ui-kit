@@ -1,14 +1,12 @@
 import React from 'react';
-import PureComponent from 'react-pure-render/component';
 import { elementType } from 'react-prop-types';
 import { IconStateless } from 'react-svg-sprite-icon';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
-import assign from 'lodash.assign';
-import omit from 'lodash.omit';
+import { kebabCase } from 'lodash';
+import omit from '../../utilities/omit';
 import icons from './icons';
 
-class Icon extends PureComponent {
+class Icon extends React.PureComponent {
   constructor(props) {
     super(props);
     this.icons = icons;
@@ -29,7 +27,7 @@ class Icon extends PureComponent {
 
     const icon = this.icons[type]({ rootElement: 'svg', fill, stroke, strokeWidth });
     const classes = classNames('icon', `icon--${kebabCase(type)}`, className);
-    const styles = assign({
+    const styles = Object.assign({
       display: 'inline-block',
       width: `${(width || icon.info.width) / 10}rem`,
       height: `${(height || icon.info.height) / 10}rem`,

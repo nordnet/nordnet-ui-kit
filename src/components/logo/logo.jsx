@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import defaultLogo from './nordnet-logo-default.svg';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import './logo.scss';
 
 function Logo(props) {

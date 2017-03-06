@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
+import { kebabCase } from 'lodash';
 import c from 'color';
 import './horizontal-nav.scss';
 

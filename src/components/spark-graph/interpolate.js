@@ -1,5 +1,4 @@
 import { interpolateObject, interpolateRgb } from 'd3-interpolate';
-import assign from 'lodash.assign';
 import arrayEqual from 'array-equal';
 import variables from '../../utilities/variables';
 
@@ -113,8 +112,8 @@ function generateForwardMotionPoints(coordsFrom, coordsTo, steps) {
   const xMax = from[from.length - 1].x;
 
   for (let i = steps - 1; i >= 0; i--) {
-    from = [...from, assign({}, to[to.length - i - 1], { x: xMax + xStep * (steps - i) })];
-    to = [assign({}, from[i], { x: -xStep * (steps - i) }), ...to];
+    from = [...from, Object.assign({}, to[to.length - i - 1], { x: xMax + xStep * (steps - i) })];
+    to = [Object.assign({}, from[i], { x: -xStep * (steps - i) }), ...to];
   }
 
   return { from, to };

@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import Transition from 'react-motion-ui-pack';
 import classNames from 'classnames';
-import kebabCase from 'lodash.kebabcase';
-import debounce from 'lodash.debounce';
-import omit from 'lodash.omit';
+import { kebabCase, debounce } from 'lodash';
+import omit from '../../utilities/omit';
 import Flag from '../flag';
 import Spinner from '../spinner';
 import searchIcon from '../../icons/search.svg';
@@ -182,8 +181,8 @@ class Search extends React.Component {
     return (
       <div className={ classes } ref={ (element) => { this.onOutsideElement = element; } }>
         <input
-          { ...omit(rest, ['search', 'results', 'noResults', 'searchDebounceWait', 'isLoading', 'alignResults',
-            'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'showNoResults', 'resultRenderer']) }
+          { ...omit(rest, 'search', 'results', 'noResults', 'searchDebounceWait', 'isLoading', 'alignResults',
+            'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'showNoResults', 'resultRenderer') }
           className="search__input"
           type="search"
           placeholder={ placeholder }
