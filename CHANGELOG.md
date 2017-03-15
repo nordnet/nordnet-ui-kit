@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+* Updated to Webpack 2
+* Bumped styleguidist
+* Removed some unused dependencies
+* Replaced lodash.assign with Object.assign
+* Replaced react-pure-render with React.PureComponent
+* Replaced a few other lodash modules with own code.
+
 ## 0.1.0
 * **BREAKING**: Removed ReactDatePicker component.
 
