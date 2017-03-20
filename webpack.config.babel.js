@@ -48,6 +48,7 @@ module.exports = args => {
       table: './src/components/table',
       tbody: './src/components/tbody',
       td: './src/components/td',
+      'text-icon': './src/components/text-icon',
       tfoot: './src/components/tfoot',
       th: './src/components/th',
       thead: './src/components/thead',
