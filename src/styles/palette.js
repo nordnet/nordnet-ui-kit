@@ -1,26 +1,35 @@
+const color = {
+  white: '#FFF',
+  black: '#222',
+  gray: '#C8C8C8',
+  grayDark: '#969696',
+  grayDarker: '#646464',
+  grayLight: '#DEDEDE',
+};
+
+const variant = {
+  primary: '#00A9EC',
+  info: '#365299',
+  success: '#00BD76',
+  warning: '#FFBD55',
+  danger: '#EF472F',
+};
+
 export const light = {
   text: {
-    primary: 'rgba(0, 0, 0, 0.87)',
-    secondary: 'rgba(0, 0, 0, 0.54)',
-  },
-  action: {
-    active: 'rgba(0, 0, 0, 0.54)',
-    disabled: 'rgba(0, 0, 0, 0.26)',
+    default: color.black,
+    muted: color.grayDarker,
   },
   background: {
-    default: '#ccc',
-    status: '#cc0',
+    default: color.white,
+    disabled: color.gray,
   },
 };
 
 export const dark = {
   text: {
-    primary: 'rgba(255, 255, 255, 0.87)',
+    default: color.white,
     secondary: 'rgba(255, 255, 255, 0.54)',
-  },
-  action: {
-    active: 'rgba(255, 255, 255, 0.54)',
-    disabled: 'rgba(255, 255, 255, 0.26)',
   },
   background: {
     default: '#000',
@@ -38,14 +47,15 @@ export default function createPalette({
 } = {}) {
   return {
     type,
+    color,
+    variant,
     text: shades[type].text,
-    action: shades[type].action,
+    // action: shades[type].action,
     background: shades[type].background,
     shades,
     primary,
     accent,
     error,
-    // grey,
     // // functions
     // getContrastText,
   };

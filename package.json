@@ -2,19 +2,14 @@
   "name": "nordnet-ui-kit",
   "version": "0.2.0",
   "description": "Nordnets React powered UI kit",
-  "main": "dist/nordnet-ui-kit.js",
+  "main": "dist",
   "scripts": {
-    "analyze": "ANALYZE=true npm run webpack:bundle-use-rem",
     "clean": "rimraf dist",
-    "build": "NODE_ENV=production npm-run-all clean webpack:bundle-use-rem webpack:bundle-use-rem:umd webpack:bundle webpack:individual-use-rem webpack:individual",
-    "webpack:bundle-use-rem": "webpack --env.type bundle --env.use-rem --progress --colors --config webpack.config.js",
-    "webpack:bundle-use-rem:umd": "webpack --env.type bundle --env.libraryTarget umd --env.use-rem --progress --colors --config webpack.config.js",
-    "webpack:bundle": "webpack --env.type bundle --progress --colors --config webpack.config.js",
-    "webpack:individual-use-rem": "webpack --env.type individual --env.use-rem --progress --colors --config webpack.config.js",
-    "webpack:individual": "webpack --env.type individual --progress --colors --config webpack.config.js",
+    "build": "npm-run-all clean babel",
+    "babel": "babel src -d dist --copy-files --ignore .md",
+    "lint": "eslint --ext=.jsx --ext=.js src test",
     "test": "__USE_REM__=true mocha-webpack --opts test/mocha.webpack.opts",
     "tdd": "npm test -- --watch",
-    "lint": "eslint --ext=.jsx --ext=.js src test",
     "prepush": "npm-run-all lint test",
     "prepublish": "npm-run-all lint test build",
     "postpublish": "npm run clean && git push --follow-tags --no-verify && npm run docs-publish",
@@ -24,6 +19,10 @@
     "predocs-publish": "npm run docs-build",
     "docs-publish": "git-directory-deploy --directory ./documentation/dist --branch gh-pages"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "keywords": [
     "nordnet",
     "react",

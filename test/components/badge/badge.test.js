@@ -1,9 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import Badge from '../../../src/components/badge/badge';
+import { createShallow } from '../../../src/test-utils';
+import Badge, { styleSheet } from '../../../src/components/badge/badge';
 
 describe('<Badge />', () => {
+  const shallow = createShallow();
+  const classes = shallow.context.styleManager.render(styleSheet);
   let wrapper;
 
   it('should render <span> as container', () => {
@@ -13,7 +15,7 @@ describe('<Badge />', () => {
 
   it('should have the class badge', () => {
     wrapper = shallow(<Badge />);
-    expect(wrapper.hasClass('badge')).to.equal(true);
+    expect(wrapper.hasClass(classes.badge)).to.equal(true);
   });
 
   it('should render children', () => {
@@ -21,25 +23,25 @@ describe('<Badge />', () => {
     expect(wrapper.contains('child')).to.equal(true);
   });
 
-  it('should have class badge--success with success modifier', () => {
+  it('should have class success when modifier = sucess', () => {
     wrapper = shallow(<Badge modifier="success" />);
-    expect(wrapper.hasClass('badge--success')).to.equal(true);
+    expect(wrapper.hasClass(classes.success)).to.equal(true);
   });
 
   it('should have class badge--danger with danger modifier', () => {
     wrapper = shallow(<Badge modifier="danger" />);
-    expect(wrapper.hasClass('badge--danger')).to.equal(true);
+    expect(wrapper.hasClass(classes.danger)).to.equal(true);
   });
 
   it('should have class badge--warning with warning modifier', () => {
     wrapper = shallow(<Badge modifier="warning" />);
-    expect(wrapper.hasClass('badge--warning')).to.equal(true);
+    expect(wrapper.hasClass(classes.warning)).to.equal(true);
   });
 
   it('should have 3 classes if a modifier and className is given', () => {
     wrapper = shallow(<Badge className="test" modifier="warning" />);
-    expect(wrapper.hasClass('badge')
-    && wrapper.hasClass('badge--warning')
+    expect(wrapper.hasClass(classes.badge)
+    && wrapper.hasClass(classes.warning)
     && wrapper.hasClass('test')).to.equal(true);
   });
 });
