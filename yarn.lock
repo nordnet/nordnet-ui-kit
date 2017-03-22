@@ -2910,10 +2910,6 @@ ieee754@^1.1.4:
   version "1.1.8"
   resolved "https://registry.npmjs.org/ieee754/-/ieee754-1.1.8.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
 
-ignore-styles@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/ignore-styles/-/ignore-styles-5.0.1.tgz#b49ef2274bdafcd8a4880a966bfe38d1a0bf4671"
-
 ignore@^3.2.0:
   version "3.2.6"
   resolved "https://registry.npmjs.org/ignore/-/ignore-3.2.6.tgz#26e8da0644be0bb4cb39516f6c79f0e0f4ffe48c"
