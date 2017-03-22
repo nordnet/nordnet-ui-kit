@@ -34,12 +34,12 @@ describe('<Alert />', () => {
   });
 
   it('should close if the dismiss button is clicked', () => {
-    wrapper.find('span.alert__close').simulate('click');
+    wrapper.find('button.alert__close').simulate('click');
     expect(wrapper.html()).to.equal(null);
   });
 
   it('should not render the dismiss button if dismissable is set to false', () => {
     wrapper.setProps({ dismissable: false });
-    expect(wrapper.find('span.alert__close')).to.have.length(0);
+    expect(wrapper.find('button.alert__close')).to.have.length(0);
   });
 });
