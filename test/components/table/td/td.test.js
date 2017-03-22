@@ -19,7 +19,7 @@ describe('<Td />', () => {
   });
 
   it('should not render a component with td--ellipsis, when ellipsis have false input', () => {
-    wrapper = shallow(<Td ellipsis={ false } />);
+    wrapper = shallow(<Td ellipsis={false} />);
     expect(wrapper.find('.td--ellipsis')).to.have.length(0);
   });
 });

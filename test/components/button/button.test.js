@@ -13,14 +13,14 @@ describe('<Button />', () => {
 
   ['primary', 'secondary', 'link'].forEach((variant) => {
     it(`should have class btn-${variant} if variant is set to ${variant}`, () => {
-      wrapper = shallow(<Button variant={ variant }>Button</Button>);
+      wrapper = shallow(<Button variant={variant}>Button</Button>);
       expect(wrapper.hasClass(`btn-${variant}`)).to.equal(true);
     });
   });
 
   ['danger', 'warning', 'success'].forEach((modifier) => {
     it(`should have class btn-primary--${modifier} if modifier is set to ${modifier}`, () => {
-      wrapper = shallow(<Button modifier={ modifier }>Button</Button>);
+      wrapper = shallow(<Button modifier={modifier}>Button</Button>);
       expect(wrapper.hasClass(`btn-primary--${modifier}`)).to.equal(true);
     });
   });

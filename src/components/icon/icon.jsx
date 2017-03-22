@@ -22,7 +22,7 @@ class Icon extends React.PureComponent {
       strokeWidth,
       width,
       height,
-      ...rest,
+      ...rest
     } = this.props;
 
     const icon = this.icons[type]({ rootElement: 'svg', fill, stroke, strokeWidth });
@@ -35,10 +35,10 @@ class Icon extends React.PureComponent {
 
     return (
       <span
-        className={ classes }
-        style={ styles }
-        dangerouslySetInnerHTML={ { __html: icon.data } }
-        { ...omit(rest, 'renderInline') }
+        className={classes}
+        style={styles}
+        dangerouslySetInnerHTML={{ __html: icon.data }}
+        {...omit(rest, 'renderInline')}
       />
     );
   }
@@ -48,7 +48,7 @@ class Icon extends React.PureComponent {
       return this.renderInline();
     }
 
-    return <IconStateless { ...this.props } name={ this.props.type } svg={ this.icons[this.props.type] } />;
+    return <IconStateless {...this.props} name={this.props.type} svg={this.icons[this.props.type]} />;
   }
 }
 

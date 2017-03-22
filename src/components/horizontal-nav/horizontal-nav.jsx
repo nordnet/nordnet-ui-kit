@@ -12,8 +12,8 @@ function navItem(item) {
   });
 
   return (
-    <li { ...rest } key={ key || kebabCase(label) } className={ classes }>
-      { url ? <a href={ url }>{ label }</a> : <span>{ label }</span> }
+    <li {...rest} key={key || kebabCase(label)} className={classes}>
+      { url ? <a href={url}>{ label }</a> : <span>{ label }</span> }
     </li>
   );
 }
@@ -38,7 +38,7 @@ function fade(fadeColor) {
   return (
     <li
       className="horizontal-nav__fade"
-      style={ { backgroundImage: fadeStyle } }
+      style={{ backgroundImage: fadeStyle }}
     />
   );
 }
@@ -47,7 +47,7 @@ function HorizontalNav({ className, items, fadeColor, navItemRenderer, fadeRende
   const classes = classNames('horizontal-nav', className);
 
   return (
-    <div { ...rest } className={ classes }>
+    <div {...rest} className={classes}>
       <ul className="horizontal-nav__items">
         { items.map(navItemRenderer || navItem) }
         { fadeRenderer ? fadeRenderer(fadeColor) : fade(fadeColor) }

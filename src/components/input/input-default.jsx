@@ -8,6 +8,23 @@ import './input-default.scss';
 
 const isUndefined = value => value === undefined;
 
+function renderAddon(content, position) {
+  if (!content) {
+    return null;
+  }
+
+  const classes = classNames('input__addon', `input__addon--${position}`);
+
+  return (
+    <div className={classes}>{ typeof content === 'function' ? content() : content }</div>
+  );
+}
+
+function hasValue(value) {
+  const type = typeof value;
+  return type === 'boolean' || type === 'number' || (value && (type === 'object' || type === 'string') && Object.keys(value).length);
+}
+
 class InputDefault extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -21,7 +38,7 @@ class InputDefault extends React.PureComponent {
       hasAddon: !!props.rightAddon || !!props.leftAddon,
     };
 
-    this.state.hasValue = this.hasValue(this.state.value);
+    this.state.hasValue = hasValue(this.state.value);
 
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
@@ -33,7 +50,7 @@ class InputDefault extends React.PureComponent {
       hasSuccess: !!hasSuccess,
       hasWarning: !!hasWarning,
       hasError: !!hasError,
-      hasValue: this.hasValue(value),
+      hasValue: hasValue(value),
       value: isUndefined(value) ? this.state.value : value,
     });
   }
@@ -65,10 +82,10 @@ class InputDefault extends React.PureComponent {
       const value = this.props.valueFormatter(event.target.value);
 
       state.value = value;
-      state.hasValue = this.hasValue(value);
+      state.hasValue = hasValue(value);
     } else {
       state.value = event.target.value;
-      state.hasValue = this.hasValue(event.target.value);
+      state.hasValue = hasValue(event.target.value);
     }
 
     this.setState(state);
@@ -78,26 +95,21 @@ class InputDefault extends React.PureComponent {
     }
   }
 
-  hasValue(value) {
-    const type = typeof value;
-    return type === 'boolean' || type === 'number' || (value && (type === 'object' || type === 'string') && Object.keys(value).length);
-  }
-
   renderInput(id, type) {
     const classes = `input__element input__element--${this.props.type}`;
     const placeholder = this.props.placeholder || this.props.label;
 
     return (
       <input
-        { ...this.props }
-        id={ id }
-        className={ classes }
-        type={ type || this.props.type }
-        onFocus={ this.onFocus }
-        onBlur={ this.onBlur }
-        onChange={ this.onChange }
-        placeholder={ placeholder }
-        value={ this.state.value }
+        {...this.props}
+        id={id}
+        className={classes}
+        type={type || this.props.type}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
+        onChange={this.onChange}
+        placeholder={placeholder}
+        value={this.state.value}
       />
     );
   }
@@ -111,7 +123,7 @@ class InputDefault extends React.PureComponent {
       hasValue: this.state.hasValue,
     };
 
-    return <Label { ...props } />;
+    return <Label {...props} />;
   }
 
   renderHelpText() {
@@ -126,7 +138,7 @@ class InputDefault extends React.PureComponent {
     }
 
     return (
-      <HelpText { ...modifiers }>{ this.props.helpText }</HelpText>
+      <HelpText {...modifiers}>{ this.props.helpText }</HelpText>
     );
   }
 
@@ -134,29 +146,17 @@ class InputDefault extends React.PureComponent {
     const { hasSuccess, hasWarning, hasError } = this.state;
 
     return (
-      <ValidationIcon hasSuccess={ hasSuccess } hasWarning={ hasWarning } hasError={ hasError } />
-    );
-  }
-
-  renderAddon(content, position) {
-    if (!content) {
-      return null;
-    }
-
-    const classes = classNames('input__addon', `input__addon--${position}`);
-
-    return (
-      <div className={ classes }>{ typeof content === 'function' ? content() : content }</div>
+      <ValidationIcon hasSuccess={hasSuccess} hasWarning={hasWarning} hasError={hasError} />
     );
   }
 
   renderField(id) {
     return (
       <div className="input__field">
-        { this.renderAddon(this.props.leftAddon, 'left') }
+        { renderAddon(this.props.leftAddon, 'left') }
         { this.renderInput(id) }
         { this.renderLabel(id) }
-        { this.renderAddon(this.props.rightAddon, 'right') }
+        { renderAddon(this.props.rightAddon, 'right') }
         { this.renderValidationIcon() }
       </div>
     );
@@ -175,7 +175,7 @@ class InputDefault extends React.PureComponent {
     }, `input--${kebabCase(this.props.type)}`, this.props.className);
 
     return (
-      <div className={ classes } style={ this.props.style }>
+      <div className={classes} style={this.props.style}>
         { this.renderField(id) }
         { this.renderHelpText() }
       </div>
@@ -185,8 +185,10 @@ class InputDefault extends React.PureComponent {
 
 InputDefault.propTypes = {
   className: PropTypes.string,
+  style: PropTypes.object,
   /** Needs to be a valid input type */
   type: PropTypes.string,
+  disabled: PropTypes.bool,
   label: PropTypes.node,
   placeholder: PropTypes.string,
   id: PropTypes.string,
@@ -206,6 +208,8 @@ InputDefault.propTypes = {
   hasError: PropTypes.bool,
   hasWarning: PropTypes.bool,
   helpText: PropTypes.node,
+  leftAddon: PropTypes.node,
+  rightAddon: PropTypes.node,
 };
 
 InputDefault.defaultProps = {

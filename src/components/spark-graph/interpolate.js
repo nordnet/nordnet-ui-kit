@@ -1,3 +1,4 @@
+/* eslint no-plusplus: 0, no-mixed-operators: 0 */
 import { interpolateObject, interpolateRgb } from 'd3-interpolate';
 import arrayEqual from 'array-equal';
 import variables from '../../utilities/variables';

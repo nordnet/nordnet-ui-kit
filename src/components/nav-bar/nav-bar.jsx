@@ -12,7 +12,7 @@ function renderSubItems(subItems) {
   return (
     <div className="nav-bar__sub-items">
       <div className="nav-bar__wrapper">
-        <HorizontalNav className="nav-bar__sub-nav" items={ subItems } />
+        <HorizontalNav className="nav-bar__sub-nav" items={subItems} />
       </div>
     </div>
   );
@@ -34,10 +34,10 @@ function NavBar({ className, items, subItems, other, ...rest }) {
   const classes = classNames('nav-bar', className);
 
   return (
-    <header { ...rest } className={ classes }>
+    <header {...rest} className={classes}>
       <div className="nav-bar__wrapper">
         <Logo className="nav-bar__logo" />
-        <HorizontalNav className="nav-bar__nav" items={ items } />
+        <HorizontalNav className="nav-bar__nav" items={items} />
         { renderOther(other) }
       </div>
       { renderSubItems(subItems) }
@@ -50,9 +50,9 @@ NavBar.defaultProps = {};
 NavBar.propTypes = {
   className: PropTypes.string,
   /** Passed to HorizontalNav component */
-  items: PropTypes.array,
+  items: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   /** Passed to HorizontalNav component */
-  subItems: PropTypes.array,
+  subItems: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   other: PropTypes.node,
 };
 

@@ -7,7 +7,7 @@ function Thead({
   children,
   size,
   variant,
-  ...rest,
+  ...rest
 }) {
   const classes = classNames('thead', {
     'thead--xs': size === 'xs',
@@ -19,7 +19,7 @@ function Thead({
   }, className);
 
   return (
-    <thead { ...rest } className={ classes }>
+    <thead {...rest} className={classes}>
       { children }
     </thead>
   );

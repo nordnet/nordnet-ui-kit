@@ -17,7 +17,7 @@ describe('<Pane />', () => {
   }];
 
   beforeEach(() => {
-    wrapper = shallow(<Pane tabs={ tabs } />);
+    wrapper = shallow(<Pane tabs={tabs} />);
   });
 
   it('should render a <div />', () => {

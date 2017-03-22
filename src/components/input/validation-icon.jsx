@@ -6,15 +6,15 @@ function ValidationIcon(props) {
   const iconClass = 'input__validation-icon';
 
   if (props.hasSuccess) {
-    return <Icon className={ iconClass } type="checkmark" />;
+    return <Icon className={iconClass} type="checkmark" />;
   }
 
   if (props.hasWarning) {
-    return <Icon className={ iconClass } type="exclamationPoint" stroke={ variables.colorWarning } />;
+    return <Icon className={iconClass} type="exclamationPoint" stroke={variables.colorWarning} />;
   }
 
   if (props.hasError) {
-    return <Icon className={ iconClass } type="exclamationPoint" />;
+    return <Icon className={iconClass} type="exclamationPoint" />;
   }
 
   return <span />; // Stateless functions in React 0.14.X do not support returning null

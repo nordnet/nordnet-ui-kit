@@ -15,7 +15,7 @@ function Tbody({
   borderRight,
   borderBottom,
   borderLeft,
-  ...rest,
+  ...rest
 }) {
   const classes = classNames('tbody', {
     'tbody--xs': size === 'xs',
@@ -34,7 +34,7 @@ function Tbody({
   const tbodyStyle = Object.assign(maxHeight ? { maxHeight: rem(`${maxHeight}px`) } : {}, style);
 
   return (
-    <tbody { ...rest } className={ classes } style={ tbodyStyle }>
+    <tbody {...rest} className={classes} style={tbodyStyle}>
       { children }
     </tbody>
   );

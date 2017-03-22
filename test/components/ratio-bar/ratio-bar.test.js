@@ -19,7 +19,7 @@ describe('<RatioBar />', () => {
   const widthPercent = `${(1 / 3) * 100}%`;
 
   beforeEach(() => {
-    component = shallow(<RatioBar data={ data } />);
+    component = shallow(<RatioBar data={data} />);
   });
 
   it(`positive bar should have a width of ${widthPercent}`, () => {

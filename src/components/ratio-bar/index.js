@@ -1,2 +1,1 @@
-import RatioBar from './ratio-bar';
-export default RatioBar;
+export { default } from './ratio-bar';

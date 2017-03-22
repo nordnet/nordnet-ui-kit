@@ -11,7 +11,7 @@ function Tfoot(props) {
     'tfoot--lg': size === 'lg',
   }, className);
 
-  return <tfoot { ...rest } className={ classes }>{ children }</tfoot>;
+  return <tfoot {...rest} className={classes}>{ children }</tfoot>;
 }
 
 Tfoot.defaultProps = {};

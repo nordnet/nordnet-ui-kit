@@ -19,7 +19,7 @@ describe('<Th />', () => {
   });
 
   it('should not render a component with th--ellipsis, when ellipsis have false input', () => {
-    wrapper = shallow(<Th ellipsis={ false } />);
+    wrapper = shallow(<Th ellipsis={false} />);
     expect(wrapper.find('.th--ellipsis')).to.have.length(0);
   });
 });

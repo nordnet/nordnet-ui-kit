@@ -14,11 +14,11 @@ function Checkbox(props) {
     type="checkmark"
     stroke="currentColor"
     renderInline
-    style={ { display: 'block' } }
+    style={{ display: 'block' }}
   />);
 
   return (
-    <span className={ classes }>
+    <span className={classes}>
       { checked ? icon : <span /> }
     </span>
   );

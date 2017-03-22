@@ -1,11 +1,3 @@
-function rem(value) {
-  if (__USE_REM__) {
-    return convertToRem(value);
-  }
-
-  return value;
-}
-
 function convertToRem(value) {
   const baselinePx = 10;
   const matchNumber = /(\d*\.?\d+)\s*px/g;
@@ -21,6 +13,14 @@ function convertToRem(value) {
       const inRem = parseFloat(match, 10) / baselinePx;
       return result.replace(match, `${inRem}rem`);
     }, value);
+  }
+
+  return value;
+}
+
+function rem(value) {
+  if (process.env.__USE_REM__) { // eslint-disable-line no-underscore-dangle
+    return convertToRem(value);
   }
 
   return value;

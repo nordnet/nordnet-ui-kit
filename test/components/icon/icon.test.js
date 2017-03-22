@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import Icon from '../../../src/components/icon/icon';
 import { IconStateless } from 'react-svg-sprite-icon';
+import Icon from '../../../src/components/icon/icon';
 import icons from '../../../src/components/icon/icons';
 
 describe('<Icon />', () => {

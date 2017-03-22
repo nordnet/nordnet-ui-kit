@@ -9,7 +9,7 @@ export default function LabeledValue({
   id: idProp,
   className,
   size,
-  ...rest,
+  ...rest
 }) {
   const id = idProp || `${kebabCase(label)}-label`;
   const classes = classNames('labeled-value', {
@@ -20,9 +20,9 @@ export default function LabeledValue({
   }, className);
 
   return (
-    <div { ...rest } className={ classes }>
-      <span className="labeled-value__label" id={ id }>{ label }</span>
-      <span className="labeled-value__value" aria-labelledby={ id } >{ children }</span>
+    <div {...rest} className={classes}>
+      <span className="labeled-value__label" id={id}>{ label }</span>
+      <span className="labeled-value__value" aria-labelledby={id} >{ children }</span>
     </div>
   );
 }

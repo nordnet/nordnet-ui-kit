@@ -24,9 +24,9 @@ export default function Widget({ header, children, fullWidth, className, ...rest
   });
 
   return (
-    <div { ...rest } className={ classes }>
+    <div {...rest} className={classes}>
       { header ? renderHeader(header) : <span /> }
-      <div className={ bodyClasses }>
+      <div className={bodyClasses}>
         { children }
       </div>
     </div>

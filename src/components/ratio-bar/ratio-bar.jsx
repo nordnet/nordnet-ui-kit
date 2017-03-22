@@ -24,8 +24,8 @@ function calculatePercentages(data) {
       direction = 'neutral';
     }
 
-    values[direction] = values[direction] + curr.value;
-    values.total = values.total + curr.value;
+    values[direction] += curr.value;
+    values.total += curr.value;
 
     return values;
   }, {
@@ -49,7 +49,7 @@ function renderBar(direction, value, naturalLanguage) {
   };
 
   return (
-    <div className={ classes } style={ styles }>
+    <div className={classes} style={styles}>
       <span className="ratio-bar__bar-background">
         { `${value.toFixed(2)}% ${naturalLanguage[direction]}.` }
       </span>
@@ -81,7 +81,7 @@ function RatioBar({ data, label, labelPositive, labelNeutral, labelNegative, sho
   };
 
   return (
-    <div className={ classes } { ...rest }>
+    <div className={classes} {...rest}>
       { label ? <span className="ratio-bar__label">{ label }</span> : <span /> }
       { renderBar('negative', negative, naturalLanguage) }
       { renderBar('neutral', neutral, naturalLanguage) }

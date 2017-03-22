@@ -1,3 +1,4 @@
+/* eslint jsx-a11y/no-static-element-interactions: 0, react/no-array-index-key: 0 */
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
@@ -28,9 +29,9 @@ class Dropdown extends React.PureComponent {
     };
 
     return (
-      <ul className="dropdown__actions" style={ style }>
+      <ul className="dropdown__actions" style={style}>
         { this.props.actions.map((action, index) => (
-          <li className="dropdown__action" key={ `${index}-${kebabCase(action.label)}` } onClick={ action.action }>
+          <li className="dropdown__action" key={`${index}-${kebabCase(action.label)}`} onClick={action.action}>
             { action.label }
           </li>
         )) }
@@ -42,15 +43,15 @@ class Dropdown extends React.PureComponent {
     const classes = classNames('dropdown', this.props.className);
 
     return (
-      <div className={ classes }>
-        <button className="dropdown__toggle" onClick={ this.handleToggleClick }>
+      <div className={classes}>
+        <button className="dropdown__toggle" onClick={this.handleToggleClick}>
           { this.props.toggle }
           <Icon
             className="dropdown__toggle-icon"
-            stroke={ variables.colorPrimary }
-            width={ 8 }
-            height={ 8 }
-            type={ this.state.actionsOpen ? 'chevronUp' : 'chevronDown' }
+            stroke={variables.colorPrimary}
+            width={8}
+            height={8}
+            type={this.state.actionsOpen ? 'chevronUp' : 'chevronDown'}
           />
         </button>
         { this.renderActions() }

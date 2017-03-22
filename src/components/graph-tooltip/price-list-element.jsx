@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 function renderValue(key, value, percentValue) {
   return (
-    <td key={ key } className="graph-tooltip__cell graph-tooltip__cell--value">
+    <td key={key} className="graph-tooltip__cell graph-tooltip__cell--value">
       { `${value}${percentValue ? '%' : ''}` }
     </td>
   );
@@ -32,7 +32,7 @@ function PriceListElement({
   return (
     <tr className="graph-tooltip__item">
       <td className="graph-tooltip__cell graph-tooltip__cell--name">
-        <span className="graph-tooltip__indicator" style={ { background: color } } />
+        <span className="graph-tooltip__indicator" style={{ background: color }} />
         { name }
       </td>
       { ohlc ? ohlcValues.map(([key, val]) => renderValue(key, val, percentValue)) : renderValue(name, value, percentValue) }

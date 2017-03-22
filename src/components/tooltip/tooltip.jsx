@@ -1,3 +1,4 @@
+/* eslint jsx-a11y/no-static-element-interactions: 0 */
 import React from 'react';
 import classnames from 'classnames';
 import Icon from '../icon/icon';
@@ -17,11 +18,11 @@ class Tooltip extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
 
     this.checkPosition = {
-      above: (rect) => (rect.top > 0),
-      left: (rect) => (rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      right: (rect) => ((((window.innerWidth || document.documentElement.clientWidth) - rect.right) > 0) &&
+      above: rect => (rect.top > 0),
+      left: rect => (rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect)),
+      right: rect => ((((window.innerWidth || document.documentElement.clientWidth) - rect.right) > 0) &&
         this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      below: (rect) => (((window.innerHeight || document.documentElement.clientHeight) - rect.bottom) > 0),
+      below: rect => (((window.innerHeight || document.documentElement.clientHeight) - rect.bottom) > 0),
     };
 
     this.placement = props.placement;
@@ -120,9 +121,9 @@ class Tooltip extends React.Component {
 
     return (
       <div
-        style={ style }
-        className={ `tooltip-popup tooltip-popup--${placement}` }
-        ref={ (popup) => { this.popup = popup; } }
+        style={style}
+        className={`tooltip-popup tooltip-popup--${placement}`}
+        ref={(popup) => { this.popup = popup; }}
       >
         <div className="tooltip-popup__content">
           { content }
@@ -141,13 +142,13 @@ class Tooltip extends React.Component {
     }
 
     return (
-      <div className={ classnames('tooltip', className) } ref={ (element) => { this.onOutsideElement = element; } }>
+      <div className={classnames('tooltip', className)} ref={(element) => { this.onOutsideElement = element; }}>
         <div
-          ref={ (container) => { this.container = container; } }
+          ref={(container) => { this.container = container; }}
           className="tooltip-container"
-          onClick={ this.toggleShow }
-          onMouseEnter={ this.mouseEnter }
-          onMouseLeave={ this.mouseLeave }
+          onClick={this.toggleShow}
+          onMouseEnter={this.mouseEnter}
+          onMouseLeave={this.mouseLeave}
         >
           { children }
         </div>
@@ -158,7 +159,7 @@ class Tooltip extends React.Component {
 }
 
 Tooltip.defaultProps = {
-  children: <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={ 16 } height={ 16 } />,
+  children: <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
   placement: 'below',
 };
 

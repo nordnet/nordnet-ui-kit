@@ -28,15 +28,15 @@ class Alert extends React.PureComponent {
     }
 
     return (
-      <span className="alert__close" onClick={ this.handleCloseClick }>
+      <button className="alert__close" onClick={this.handleCloseClick}>
         <Icon
           type="close"
-          stroke={ variables.colorPrimary }
-          width={ 8 }
-          height={ 8 }
-          style={ { display: 'block' } }
+          stroke={variables.colorPrimary}
+          width={8}
+          height={8}
+          style={{ display: 'block' }}
         />
-      </span>
+      </button>
     );
   }
 
@@ -52,7 +52,7 @@ class Alert extends React.PureComponent {
     }, this.props.className);
 
     return (
-      <div className={ classes }>
+      <div className={classes}>
         <div className="alert__header">{ this.props.header }</div>
         <div className="alert__body">{ this.props.children }</div>
         { this.renderClose() }

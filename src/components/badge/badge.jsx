@@ -6,7 +6,7 @@ function Badge({
   modifier,
   children,
   className,
-  ...rest,
+  ...rest
 }) {
   const classes = classNames('badge', {
     'badge--success': modifier === 'success',
@@ -15,7 +15,7 @@ function Badge({
   }, className);
 
   return (
-    <span { ...rest } className={ classes }>{ children }</span>
+    <span {...rest} className={classes}>{ children }</span>
   );
 }
 
