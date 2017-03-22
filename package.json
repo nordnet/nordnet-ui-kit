@@ -12,7 +12,7 @@
     "webpack:bundle": "webpack --env.type bundle --progress --colors --config webpack.config.js",
     "webpack:individual-use-rem": "webpack --env.type individual --env.use-rem --progress --colors --config webpack.config.js",
     "webpack:individual": "webpack --env.type individual --progress --colors --config webpack.config.js",
-    "test": "mocha-webpack --opts test/mocha.webpack.opts",
+    "test": "__USE_REM__=true mocha-webpack --opts test/mocha.webpack.opts",
     "tdd": "npm test -- --watch",
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "prepush": "npm-run-all lint test",
