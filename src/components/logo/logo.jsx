@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import defaultLogo from './nordnet-logo-default.svg';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
+import defaultLogo from './nordnet-logo-default.svg';
 import './logo.scss';
 
 function Logo(props) {
@@ -11,10 +11,10 @@ function Logo(props) {
   const classes = classNames(
     'logo',
     `logo--${kebabCase(props.type)}`,
-    props.className
+    props.className,
   );
 
-  return <span { ...props } className={ classes } dangerouslySetInnerHTML={ { __html: logos[props.type] } } />;
+  return <span {...props} className={classes} dangerouslySetInnerHTML={{ __html: logos[props.type] }} />;
 }
 
 Logo.defaultProps = {

@@ -1,2 +1,1 @@
-import SparkGraph from './spark-graph';
-export default SparkGraph;
+export { default } from './spark-graph';

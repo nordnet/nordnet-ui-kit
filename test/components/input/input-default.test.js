@@ -23,7 +23,7 @@ describe('<InputDefault />', () => {
       { someProp: 'a value' },
     ];
 
-    nonEmtpyValues.forEach(v => {
+    nonEmtpyValues.forEach((v) => {
       wrapper.setProps({ value: v });
       assert(wrapper.hasClass('input--has-value'), `"${v}" did not set the value class`);
     });
@@ -38,7 +38,7 @@ describe('<InputDefault />', () => {
       {},
     ];
 
-    emtpyValues.forEach(v => {
+    emtpyValues.forEach((v) => {
       wrapper.setProps({ value: v });
       assert(!wrapper.hasClass('input--has-value'), `"${v}" did set the value class`);
     });

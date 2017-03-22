@@ -12,7 +12,7 @@ function Table(props) {
   }, className);
 
   return (
-    <table { ...rest } className={ classes }>
+    <table {...rest} className={classes}>
       { children }
     </table>
   );

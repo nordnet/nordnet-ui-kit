@@ -4,7 +4,7 @@ function Label(props) {
   const { label, id } = props;
 
   return (
-    <label htmlFor={ id } className="input__label">
+    <label htmlFor={id} className="input__label">
       { label }
     </label>
   );

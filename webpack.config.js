@@ -4,12 +4,12 @@ const cssnano = require('cssnano');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 const NODE_ENV = process.env.NODE_ENV;
 
-module.exports = args => {
+module.exports = (args) => {
   let env;
-  if (args === 'development' || args === 'production') {
-    // its styleguidist
+  if (args === 'styleguidist') {
     env = {
       'use-rem': true,
       type: 'bundle',

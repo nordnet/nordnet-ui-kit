@@ -1,7 +1,14 @@
 const path = require('path');
+const camelCase = require('lodash.camelcase');
 const fs = require('fs');
-const docgen = require('react-docgen');
+// const docgen = require('react-docgen');
+const config = require('./webpack.config')('styleguidist');
+
 const dir = path.join(__dirname, 'src');
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 module.exports = {
   title: 'Nordnet UI Kit',
@@ -13,22 +20,22 @@ module.exports = {
   template: path.join(__dirname, 'documentation/template.html'),
   getComponentPathLine(componentPath) {
     const fileName = path.basename(componentPath, '.jsx');
-    const name = fileName.replace(/(\w)(\w*)/g, (g0, g1, g2) => g1.toUpperCase() + g2.toLowerCase());
-    return `import { ${name.replace('-', '')} } from 'nordnet-ui-kit'`;
-  },
-  getExampleFilename(componentpath) {
-    return componentpath.replace(/\.jsx?$/, '.md');
-  },
-  propsParser(filePath, source) {
-    if (filePath === `${dir}/components/input/input.jsx`) {
-      const inputPath = `${dir}/components/input/input-default.jsx`;
-      return docgen.parse(fs.readFileSync(inputPath, { encoding: 'UTF-8' }));
-    }
+    const componentName = capitalize(camelCase(fileName));
 
-    return docgen.parse(source);
+    return `import { ${componentName} } from 'nordnet-ui-kit';`;
   },
-  webpackConfigFile: './webpack.config.babel.js',
-  webpackConfig: {
-    entry: ['babel-polyfill', path.join(__dirname, 'documentation/documentation.scss')],
+  getExampleFilename(componentPath) {
+    return componentPath.replace(/\.jsx?$/, '.md');
   },
+  // propsParser(filePath, source) {
+  //   if (filePath === `${dir}/components/input/input.jsx`) {
+  //     const inputPath = `${dir}/components/input/input-default.jsx`;
+  //     return docgen.parse(fs.readFileSync(inputPath, { encoding: 'UTF-8' }));
+  //   }
+  //
+  //   return docgen.parse(source);
+  // },
+  webpackConfig: Object.assign({}, config, {
+    entry: ['babel-polyfill'].concat(config.entry),
+  }),
 };

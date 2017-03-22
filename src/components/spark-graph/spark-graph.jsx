@@ -9,8 +9,16 @@ import {
   colorInterpolator,
   getStrokeColor,
   transformPoints,
-} from './interpolate.js';
+} from './interpolate';
 import './spark-graph.scss';
+
+function constructPathString(points) {
+  const [first, ...rest] = points;
+
+  return rest.reduce((prev, curr) => (
+    `${prev} L ${curr.x} ${curr.y}`
+  ), `M ${first.x} ${first.y}`);
+}
 
 class SparkGraph extends React.Component {
   constructor(props) {
@@ -68,7 +76,7 @@ class SparkGraph extends React.Component {
 
         if (pInterpolator) {
           const values = pInterpolator.map(ip => ip(easing(progress)));
-          this.path.setAttribute('d', this.constructPathString(values));
+          this.path.setAttribute('d', constructPathString(values));
         }
 
         if (cInterpolator) {
@@ -103,14 +111,6 @@ class SparkGraph extends React.Component {
     }
   }
 
-  constructPathString(points) {
-    const [first, ...rest] = points;
-
-    return rest.reduce((prev, curr) => (
-      `${prev} L ${curr.x} ${curr.y}`
-    ), `M ${first.x} ${first.y}`);
-  }
-
   render() {
     const {
       points,
@@ -118,7 +118,7 @@ class SparkGraph extends React.Component {
       strokeWidth,
       className,
       style,
-      ...rest,
+      ...rest
     } = this.props;
     const { width, height, pointsFrom, pointsTo } = this.state;
     const styles = Object.assign({
@@ -133,24 +133,24 @@ class SparkGraph extends React.Component {
 
     return (
       <svg
-        { ...rest }
-        className={ classNames('spark-graph', className) }
-        style={ styles }
-        viewBox={ `0 0 ${width} ${height}` }
-        ref={ (node) => {
+        {...rest}
+        className={classNames('spark-graph', className)}
+        style={styles}
+        viewBox={`0 0 ${width} ${height}`}
+        ref={(node) => {
           this.svgNode = node;
-        } }
+        }}
       >
         <path
           className="spark-graph__path"
-          d={ pointsFrom ? '' : this.constructPathString(pointsToRender) }
-          stroke={ pointsFrom ? getStrokeColor(pointsFrom, stroke) : getStrokeColor(points, stroke) }
-          strokeWidth={ strokeWidth }
+          d={pointsFrom ? '' : constructPathString(pointsToRender)}
+          stroke={pointsFrom ? getStrokeColor(pointsFrom, stroke) : getStrokeColor(points, stroke)}
+          strokeWidth={strokeWidth}
           strokeLinecap="square"
           strokeLinejoin="round"
-          ref={ (node) => {
+          ref={(node) => {
             this.path = node;
-          } }
+          }}
         />
       </svg>
     );

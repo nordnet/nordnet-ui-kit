@@ -38,7 +38,7 @@ class RangeSelector extends React.Component {
     });
 
     return (
-      <button key={ button.text } className={ classes } onClick={ () => this.handleClick(button) }>
+      <button key={button.text} className={classes} onClick={() => this.handleClick(button)}>
         { button.text }
       </button>
     );
@@ -46,7 +46,7 @@ class RangeSelector extends React.Component {
 
   render() {
     return (
-      <div className={ `range-selector range-selector--${this.props.variant}` }>
+      <div className={`range-selector range-selector--${this.props.variant}`}>
         { this.props.ranges.map(this.renderButton) }
       </div>
     );
@@ -77,7 +77,6 @@ RangeSelector.defaultProps = {
 };
 
 RangeSelector.propTypes = {
-  zoom: PropTypes.number,
   ranges: PropTypes.arrayOf(React.PropTypes.shape({
     type: PropTypes.string,
     text: PropTypes.string,

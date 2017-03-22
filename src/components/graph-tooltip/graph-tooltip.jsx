@@ -7,9 +7,9 @@ import './graph-tooltip.scss';
 function renderContent(type, rest) {
   switch (type) {
     case 'compare':
-      return <CompareTooltip { ...rest } />;
+      return <CompareTooltip {...rest} />;
     case 'instrument':
-      return <InstrumentTooltip { ...rest } />;
+      return <InstrumentTooltip {...rest} />;
     default:
       return <tbody />;
   }
@@ -19,7 +19,7 @@ function GraphTooltip({ type, date, time, ...rest }) {
   const classes = classNames('graph-tooltip', `graph-tooltip--${type.toLowerCase()}`);
 
   return (
-    <div className={ classes }>
+    <div className={classes}>
       <div className="graph-tooltip__date">
         { date }
         { time ? <span className="graph-tooltip__date-time">{ time }</span> : null }

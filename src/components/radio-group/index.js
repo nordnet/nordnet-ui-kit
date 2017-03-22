@@ -1,2 +1,1 @@
-import RadioGroup from './radio-group';
-export default RadioGroup;
+export { default } from './radio-group';

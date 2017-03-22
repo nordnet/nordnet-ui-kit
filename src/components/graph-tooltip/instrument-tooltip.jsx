@@ -14,7 +14,7 @@ function InstrumentTooltip({ points }) {
         </tr>
       </thead>
       <tbody>
-        { points.map(p => <PriceListElement ohlc key={ p.name } { ...p } />) }
+        { points.map(p => <PriceListElement ohlc key={p.name} {...p} />) }
       </tbody>
     </table>
   );

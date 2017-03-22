@@ -22,7 +22,7 @@ describe('<Spinner />', () => {
 
   describe('<Spinner size={ 100 } />', () => {
     beforeEach(() => {
-      wrapper = shallow(<Spinner size={ 100 } />);
+      wrapper = shallow(<Spinner size={100} />);
     });
 
     it('should have a height of 10rem', () => {
@@ -35,7 +35,7 @@ describe('<Spinner />', () => {
 
   describe('<Spinner gradientStops={ 90 } />', () => {
     beforeEach(() => {
-      wrapper = shallow(<Spinner gradientStops={ 90 } />);
+      wrapper = shallow(<Spinner gradientStops={90} />);
     });
 
     it('should have 90 gradient stops in total', () => {

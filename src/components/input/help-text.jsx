@@ -12,7 +12,7 @@ function HelpText(props) {
   });
 
   if (props.children) {
-    return <span className={ classes }>{ props.children }</span>;
+    return <span className={classes}>{ props.children }</span>;
   }
 
   return <span />; // Stateless functions in React 0.14.X do not support returning null

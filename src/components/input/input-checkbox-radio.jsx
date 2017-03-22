@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
 import Radio from './radio';
-import HelpText from './help-text.jsx';
+import HelpText from './help-text';
 import './input-checkbox-radio.scss';
 
 class InputCheckboxRadio extends React.PureComponent {
@@ -55,16 +56,16 @@ class InputCheckboxRadio extends React.PureComponent {
     }
 
     return (
-      <HelpText { ...props }>{ this.props.helpText }</HelpText>
+      <HelpText {...props}>{ this.props.helpText }</HelpText>
     );
   }
 
   renderFakeInput() {
     switch (this.props.type) {
       case 'checkbox':
-        return <Checkbox { ...this.state } />;
+        return <Checkbox {...this.state} />;
       case 'radio':
-        return <Radio { ...this.state } />;
+        return <Radio {...this.state} />;
       default:
         return null;
     }
@@ -74,15 +75,15 @@ class InputCheckboxRadio extends React.PureComponent {
     return (
       <div className="input-checkbox-radio__element">
         <input
-          { ...this.props }
-          type={ this.props.type }
-          checked={ this.state.checked }
-          disabled={ this.state.disabled }
-          value={ this.props.value }
-          onChange={ this.onChange }
-          aria-labelledby={ `${kebabCase(this.props.label)}-label` }
+          {...this.props}
+          type={this.props.type}
+          checked={this.state.checked}
+          disabled={this.state.disabled}
+          value={this.props.value}
+          onChange={this.onChange}
+          aria-labelledby={`${kebabCase(this.props.label)}-label`}
         />
-      { this.renderFakeInput() }
+        { this.renderFakeInput() }
       </div>
     );
   }
@@ -91,7 +92,7 @@ class InputCheckboxRadio extends React.PureComponent {
     if (!this.props.label) return null;
 
     return (
-      <span id={ `${kebabCase(this.props.label)}-label` } className="input-checkbox-radio__label">
+      <span id={`${kebabCase(this.props.label)}-label`} className="input-checkbox-radio__label">
         { this.props.label }
       </span>
     );
@@ -106,7 +107,7 @@ class InputCheckboxRadio extends React.PureComponent {
 
     return (
       <span>
-        <label className={ classes }>
+        <label className={classes}>
           { this.renderInput() }
           { this.renderLabel() }
         </label>
@@ -118,10 +119,16 @@ class InputCheckboxRadio extends React.PureComponent {
 
 InputCheckboxRadio.propTypes = {
   className: React.PropTypes.string,
+  type: React.PropTypes.string,
   checked: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   value: React.PropTypes.string,
   label: React.PropTypes.string,
+  onChange: React.PropTypes.func,
+  hasSuccess: React.PropTypes.bool,
+  hasError: React.PropTypes.bool,
+  hasWarning: React.PropTypes.bool,
+  helpText: React.PropTypes.node,
 };
 
 InputCheckboxRadio.defaultProps = {

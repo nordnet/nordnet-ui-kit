@@ -1,5 +1,9 @@
 # Changelog
 
+## Beta
+* Update eslint and styleguidist
+* Remove scss from styleguidist and move esential styles to style tag
+
 ## 0.1.1
 * Updated to Webpack 2
 * Bumped styleguidist

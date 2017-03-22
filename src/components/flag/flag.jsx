@@ -9,7 +9,7 @@ function Flag({
   countryCode,
   width,
   height,
-  ...rest,
+  ...rest
 }) {
   const flag = flags[countryCode.toLowerCase()];
   const classes = classNames('flag', `flag--${kebabCase(countryCode)}`, className);
@@ -21,10 +21,10 @@ function Flag({
 
   return (
     <span
-      className={ classes }
-      style={ styles }
-      dangerouslySetInnerHTML={ { __html: flag } }
-      { ...rest }
+      className={classes}
+      style={styles}
+      dangerouslySetInnerHTML={{ __html: flag }}
+      {...rest}
     />
   );
 }

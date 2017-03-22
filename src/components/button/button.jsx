@@ -11,7 +11,7 @@ function Button({
   modifier,
   href,
   size,
-  ...rest,
+  ...rest
 }) {
   const Element = href ? 'a' : 'button';
   const isPrimary = variant === 'primary';
@@ -37,7 +37,7 @@ function Button({
   }, `btn--${size}`, className);
 
   return (
-    <Element { ...rest } className={ classes } disabled={ disabled } href={ href }>
+    <Element {...rest} className={classes} disabled={disabled} href={href}>
       { children }
     </Element>
   );

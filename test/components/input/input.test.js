@@ -26,10 +26,10 @@ describe('<Input />', () => {
     value: InputCheckboxRadio,
   }];
 
-  inputTypes.forEach(type => {
+  inputTypes.forEach((type) => {
     describe(`with type=${type.name}`, () => {
       beforeEach(() => {
-        wrapper = shallow(<Input type={ type.name } label="label" value="value" placeholder="placeholder" />);
+        wrapper = shallow(<Input type={type.name} label="label" value="value" placeholder="placeholder" />);
       });
       it(`should render an ${type.elementName}`, () => {
         expect(wrapper.type()).to.equal(type.value);
@@ -39,7 +39,8 @@ describe('<Input />', () => {
           expect(wrapper.shallow().hasClass('input')).to.equals(true);
         });
         it('should print the label if text is entered', () => {
-          expect(wrapper.shallow().find('Label').shallow().childAt(0).text()).to.equal('label');
+          expect(wrapper.shallow().find('Label').shallow().childAt(0)
+          .text()).to.equal('label');
         });
         it('should set the placeholder to the property placeholder', () => {
           if (type.value === InputSelect) {
@@ -95,7 +96,7 @@ describe('<Input />', () => {
             expect(wrapper.shallow().hasClass('input--text')).to.equals(true);
           });
           it('should format the input if a formatter is provided', () => {
-            wrapper.setProps({ valueFormatter: (val) => val.toUpperCase() });
+            wrapper.setProps({ valueFormatter: val => val.toUpperCase() });
             const defaultInput = wrapper.shallow();
             defaultInput.find('input').simulate('change', { target: { value: 'abc' } });
             expect(defaultInput.find('input').html()).to.contain('value="ABC"');

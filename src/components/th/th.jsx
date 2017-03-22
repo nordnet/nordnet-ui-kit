@@ -18,7 +18,7 @@ function Th({
   borderLeft,
   align,
   ellipsis,
-  ...rest,
+  ...rest
 }) {
   const classes = classNames('th', {
     'th--xs': size === 'xs',
@@ -47,10 +47,10 @@ function Th({
   const thStyle = Object.assign(
     {},
     width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
-    style
+    style,
   );
 
-  return <th { ...rest } className={ classes } style={ thStyle }>{ children }</th>;
+  return <th {...rest} className={classes} style={thStyle}>{ children }</th>;
 }
 
 Th.defaultProps = {

@@ -18,7 +18,7 @@ function Td({
   borderLeft,
   align,
   ellipsis,
-  ...rest,
+  ...rest
 }) {
   const classes = classNames('td', {
     'td--xs': size === 'xs',
@@ -47,10 +47,10 @@ function Td({
   const tdStyle = Object.assign(
     {},
     width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
-    style
+    style,
   );
 
-  return <td { ...rest } className={ classes } style={ tdStyle }>{ children }</td>;
+  return <td {...rest} className={classes} style={tdStyle}>{ children }</td>;
 }
 
 Td.defaultProps = {

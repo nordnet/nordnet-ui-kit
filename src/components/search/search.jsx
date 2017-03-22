@@ -8,6 +8,34 @@ import Spinner from '../spinner';
 import searchIcon from '../../icons/search.svg';
 import './search.scss';
 
+function renderDevelopment(development) {
+  if (!development) {
+    return null;
+  }
+
+  const developmentClass = classNames('search__result-development', {
+    'search__result-development--positive': development > 0,
+    'search__result-development--negative': development < 0,
+  });
+
+  const positiveArrowPath = 'M0,16 L16,16 L8,0';
+  const negativeArrowPath = 'M0,0 L16,0 L8,16';
+  const arrowStyle = {
+    marginRight: '.2em',
+    fill: 'currentcolor',
+    height: '.6em',
+  };
+
+  return (
+    <div className={developmentClass}>
+      <svg aria-hidden="true" role="presentation" viewBox="0 0 16 16" style={arrowStyle}>
+        <path d={development > 0 ? positiveArrowPath : negativeArrowPath} />
+      </svg>
+      { `${development}%` }
+    </div>
+  );
+}
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -80,34 +108,6 @@ class Search extends React.Component {
     this.props.search(this.state.value);
   }
 
-  renderDevelopment(development) {
-    if (!development) {
-      return null;
-    }
-
-    const developmentClass = classNames('search__result-development', {
-      'search__result-development--positive': development > 0,
-      'search__result-development--negative': development < 0,
-    });
-
-    const positiveArrowPath = 'M0,16 L16,16 L8,0';
-    const negativeArrowPath = 'M0,0 L16,0 L8,16';
-    const arrowStyle = {
-      marginRight: '.2em',
-      fill: 'currentcolor',
-      height: '.6em',
-    };
-
-    return (
-      <div className={ developmentClass }>
-        <svg aria-hidden="true" role="presentation" viewBox="0 0 16 16" style={ arrowStyle }>
-          <path d={ development > 0 ? positiveArrowPath : negativeArrowPath } />
-        </svg>
-        { `${development}%` }
-      </div>
-    );
-  }
-
   renderResult(item) {
     if (this.props.resultRenderer) {
       return this.props.resultRenderer(item);
@@ -117,16 +117,16 @@ class Search extends React.Component {
     const Wrapper = href ? 'a' : 'span';
 
     return (
-      <li className="search__result" key={ kebabCase(name + market) }>
-        <Wrapper href={ href }>
+      <li className="search__result" key={kebabCase(name + market)}>
+        <Wrapper href={href}>
           <div className="search__result-info">
             <div className="search__result-name">{ name }</div>
             <div className="search__result-market">
-              <Flag countryCode={ countryCode } />
+              <Flag countryCode={countryCode} />
               <span>{ market }</span>
             </div>
           </div>
-          { this.renderDevelopment(development) }
+          { renderDevelopment(development) }
         </Wrapper>
       </li>
     );
@@ -158,12 +158,12 @@ class Search extends React.Component {
 
     return (
       <Transition
-        component={ false }
-        measure={ false }
-        enter={ { opacity: 1 } }
-        leave={ { opacity: 0 } }
+        component={false}
+        measure={false}
+        enter={{ opacity: 1 }}
+        leave={{ opacity: 0 }}
       >
-        <ul key="search__results" className={ searchResultsClass }>
+        <ul key="search__results" className={searchResultsClass}>
           { results && results.length > 0 ? results.map(this.renderResult) : null }
           { isLoading ? spinner : null }
           { !isLoading && results && showNoResults && results.length === 0 ? noResults : null }
@@ -179,21 +179,21 @@ class Search extends React.Component {
     const show = (results || isLoading) && showResults && value.length > 0;
 
     return (
-      <div className={ classes } ref={ (element) => { this.onOutsideElement = element; } }>
+      <div className={classes} ref={(element) => { this.onOutsideElement = element; }}>
         <input
-          { ...omit(rest, 'search', 'results', 'noResults', 'searchDebounceWait', 'isLoading', 'alignResults',
-            'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'showNoResults', 'resultRenderer') }
+          {...omit(rest, 'search', 'results', 'noResults', 'searchDebounceWait', 'isLoading', 'alignResults',
+            'disableOnClickOutside', 'enableOnClickOutside', 'showResults', 'showNoResults', 'resultRenderer')}
           className="search__input"
           type="search"
-          placeholder={ placeholder }
-          onChange={ this.onChange }
-          onFocus={ this.onFocus }
-          onBlur={ this.onBlur }
-          value={ this.state.value }
-          ref={ input => { this.input = input; } }
+          placeholder={placeholder}
+          onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          value={this.state.value}
+          ref={(input) => { this.input = input; }}
         />
-        <span className="search__icon" dangerouslySetInnerHTML={ { __html: searchIcon } } />
-          { show ? this.renderResults() : null }
+        <span className="search__icon" dangerouslySetInnerHTML={{ __html: searchIcon }} />
+        { show ? this.renderResults() : null }
       </div>
     );
   }

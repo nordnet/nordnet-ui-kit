@@ -22,7 +22,7 @@ describe('<GraphTooltip />', () => {
   types.forEach((type) => {
     describe(`with type=${type.name}`, () => {
       beforeEach(() => {
-        wrapper = shallow(<GraphTooltip type={ type.name } { ...data } />);
+        wrapper = shallow(<GraphTooltip type={type.name} {...data} />);
       });
       it('should render a div', () => {
         expect(wrapper.shallow().type()).to.equal('div');
@@ -35,20 +35,20 @@ describe('<GraphTooltip />', () => {
       });
       it('should render the names of the series', () => {
         const html = wrapper.shallow().html();
-        data.points.forEach(point => {
+        data.points.forEach((point) => {
           expect(html).to.contain(point.name);
         });
       });
       if (type.name === 'compare') {
         it('should show values as percentage', () => {
           const html = wrapper.shallow().html();
-          data.points.forEach(point => {
+          data.points.forEach((point) => {
             expect(html).to.contain(`${point.value}%`);
           });
         });
         it('should not render ohlc', () => {
           const html = wrapper.shallow().html();
-          ['open', 'high', 'low', 'close'].map(key => data[key]).forEach(t => {
+          ['open', 'high', 'low', 'close'].map(key => data[key]).forEach((t) => {
             if (t) {
               expect(html).to.not.contain(t);
             }
@@ -57,7 +57,7 @@ describe('<GraphTooltip />', () => {
       } else {
         it('should render ohlc', () => {
           const html = wrapper.shallow().html();
-          ['open', 'high', 'low', 'close'].map(key => data[key]).forEach(t => {
+          ['open', 'high', 'low', 'close'].map(key => data[key]).forEach((t) => {
             if (t) {
               expect(html).to.contain(t);
             }

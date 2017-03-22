@@ -27,14 +27,14 @@ class Tr extends React.Component { // eslint-disable-line
     if (this.props.sticky) {
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('resize', this.handleResize);
-      this.setWidth(ReactDOM.findDOMNode(this.tr));
+      this.setWidth(ReactDOM.findDOMNode(this.tr)); // eslint-disable-line react/no-find-dom-node
       this.addClone();
     }
   }
 
   componentDidUpdate() {
     if (this.props.sticky) {
-      this.setWidth(ReactDOM.findDOMNode(this.tr));
+      this.setWidth(ReactDOM.findDOMNode(this.tr)); // eslint-disable-line react/no-find-dom-node
     }
   }
 
@@ -128,10 +128,10 @@ class Tr extends React.Component { // eslint-disable-line
 
     return (
       <tr
-        { ...(omit(rest, 'sticky')) }
-        className={ classes }
-        style={ stickyStyle }
-        ref={ node => this.addRef(node, 'tr') }
+        {...(omit(rest, 'sticky'))}
+        className={classes}
+        style={stickyStyle}
+        ref={node => this.addRef(node, 'tr')}
       >
         { children }
       </tr>

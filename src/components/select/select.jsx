@@ -22,8 +22,8 @@ import './select.scss';
 function Select({ label, ...rest }) {
   return (
     <div className="select">
-      { label ? <label className="select__label" htmlFor={ rest.id ? rest.id : null }>{ label }</label> : null }
-      <ReactSelect clearable={ false } { ...rest } />
+      { label ? <label className="select__label" htmlFor={rest.id ? rest.id : null}>{ label }</label> : null }
+      <ReactSelect clearable={false} {...rest} />
     </div>
   );
 }

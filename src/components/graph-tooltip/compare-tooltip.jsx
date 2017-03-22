@@ -5,7 +5,7 @@ function CompareTooltip({ points }) {
   return (
     <table className="graph-tooltip__items">
       <tbody>
-        { points.map(p => <PriceListElement key={ p.name } percentValue { ...p } />) }
+        { points.map(p => <PriceListElement key={p.name} percentValue {...p} />) }
       </tbody>
     </table>
   );

@@ -10,7 +10,7 @@ describe('<LabeledValue />', () => {
     wrapper = shallow(
       <LabeledValue className="testclass" label="label" >
         myvalue
-      </LabeledValue>
+      </LabeledValue>,
     );
   });
 
@@ -38,7 +38,7 @@ describe('<LabeledValue />', () => {
     expect(wrapper.hasClass('labeled-value--md'));
   });
 
-  ['xs', 'sm', 'md', 'lg'].forEach(size => {
+  ['xs', 'sm', 'md', 'lg'].forEach((size) => {
     it(`should have class labeled-value--${size} if prop size is ${size}`, () => {
       wrapper.setProps({ size });
       expect(wrapper.hasClass(`labeled-value--${size}`));

@@ -33,18 +33,18 @@ describe('<Tooltip />', () => {
   });
 
   it('should have fixedWidth', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={ 123 } />);
+    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
     expect(wrapper.find('.tooltip-popup').props().style.width).to.equal(123);
   });
 
   it('should set className to above', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={ 'above' } />);
+    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'above'} />);
     wrapper.find('.tooltip-container').simulate('mouseEnter');
     expect(wrapper.find('.tooltip-popup').hasClass('tooltip-popup--above')).to.equal(true);
   });
 
   it('should set className to left', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={ 'left' } />);
+    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'left'} />);
     wrapper.find('.tooltip-container').simulate('mouseEnter');
     expect(wrapper.find('.tooltip-popup').hasClass('tooltip-popup--left')).to.equal(true);
   });
@@ -60,7 +60,7 @@ describe('<Tooltip />', () => {
       addEventSpy = sandbox.spy(document, 'addEventListener');
       removeEventSpy = sandbox.spy(document, 'removeEventListener');
       component = mount(
-        <Tooltip content={ 'abc' }>
+        <Tooltip content={'abc'}>
           <div id="child">child</div>
         </Tooltip>,
         target);
