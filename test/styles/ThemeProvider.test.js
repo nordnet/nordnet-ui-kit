@@ -7,7 +7,7 @@ import { expect } from 'chai';
 import { ThemeProvider, createTheme } from '../../src/styles';
 import Badge from '../../src/components/badge/badge';
 
-describe.only('ThemeProvider', () => {
+describe('ThemeProvider', () => {
   it('should expose createDefaultContext function', () => {
     expect(ThemeProvider.createDefaultContext).to.be.a('function');
   });
