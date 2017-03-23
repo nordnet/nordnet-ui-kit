@@ -29,11 +29,11 @@ export const light = {
 export const dark = {
   text: {
     default: color.white,
-    secondary: 'rgba(255, 255, 255, 0.54)',
+    secondary: color.grayLighter,
   },
   background: {
-    default: '#000',
-    status: '#cc0',
+    default: color.black,
+    disabled: color.grayDark,
   },
 };
 
