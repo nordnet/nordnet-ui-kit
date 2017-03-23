@@ -7,7 +7,7 @@ export const styleSheet = createStyleSheet('Badge', (theme) => {
   const { palette } = theme;
 
   return {
-    badge: {
+    root: {
       display: 'inline-block',
       fontSize: rem('12px'),
       padding: rem('2px 8px'),
@@ -40,7 +40,7 @@ function Badge({
 }, { styleManager }) {
   const classes = styleManager.render(styleSheet);
 
-  const className = cn([classes.badge], {
+  const className = cn([classes.root], {
     [classes.success]: modifier === 'success',
     [classes.warning]: modifier === 'warning',
     [classes.danger]: modifier === 'danger',

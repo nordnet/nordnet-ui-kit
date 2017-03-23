@@ -1,11 +1,4 @@
-const color = {
-  white: '#FFF',
-  black: '#222',
-  gray: '#C8C8C8',
-  grayDark: '#969696',
-  grayDarker: '#646464',
-  grayLight: '#DEDEDE',
-};
+import color from './color';
 
 const variant = {
   primary: '#00A9EC',
@@ -40,12 +33,14 @@ export const dark = {
 export const shades = { light, dark };
 
 export default function createPalette({
-  primary = 'rgba(75, 0, 130, 1)',
-  accent = 'rgba(255, 192, 203, 1)',
-  error = 'rgba(255, 0, 0, 1)',
-  type = 'light',
+  primary = variant.primary,
+  accent = variant.info,
+  error = variant.danger,
+  type = 'light', // TODO
+  name = 'nordnet',
 } = {}) {
   return {
+    name,
     type,
     color,
     variant,
