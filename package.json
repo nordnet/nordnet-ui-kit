@@ -9,7 +9,7 @@
     "babel": "babel src -d dist --copy-files --ignore .md",
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "test": "__USE_REM__=true mocha-webpack --opts test/mocha.webpack.opts",
-    "tdd": "run-s test -- --watch",
+    "tdd": "npm test -- --watch",
     "prepush": "run-p lint test",
     "prepublish": "run-s lint test build",
     "postpublish": "run-s clean && git push --follow-tags --no-verify && run-s docs-publish",
