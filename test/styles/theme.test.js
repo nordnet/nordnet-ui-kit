@@ -3,7 +3,7 @@ import color from '../../src/styles/color';
 import { createPalette } from '../../src/styles/palette';
 import { createTheme } from '../../src/styles';
 
-describe.only('theme', () => {
+describe('theme', () => {
   it('should expose a createTheme function', () => {
     expect(createTheme).to.be.a('function');
   });
