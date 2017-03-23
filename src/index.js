@@ -22,12 +22,16 @@ import Badge from './components/badge/badge';
 // import Tbody from './components/tbody';
 // import Td from './components/td';
 // import Tfoot from './components/tfoot';
-import Th from './components/th';
+// import Th from './components/th';
 // import Thead from './components/thead';
 // import Tooltip from './components/tooltip';
 // import Tr from './components/tr';
 // import variables from './utilities/variables';
 // import Widget from './components/widget/widget';
+
+// Theming
+import { ThemeProvider } from './styles';
+// import ThemeProvider from './styles/ThemeProvider';
 
 export {
   // Alert,
@@ -54,10 +58,13 @@ export {
   // Tbody,
   // Td,
   // Tfoot,
-  Th,
+  // Th,
   // Thead,
   // Tooltip,
   // Tr,
   // variables,
   // Widget,
+
+  // Theming
+  ThemeProvider,
 };

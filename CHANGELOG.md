@@ -1,8 +1,10 @@
 # Changelog
 
-## Beta
+## Upcoming release
 * Update eslint and styleguidist
 * Remove scss from styleguidist and move essential styles to style tag
+* Export ThemeProvider, which will provide all children with context.styleManager
+* Export test-utils for createShallow, createMount and createRenderToString
 
 ## 0.1.1
 * Updated to Webpack 2

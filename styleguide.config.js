@@ -13,9 +13,10 @@ function capitalize(string) {
 module.exports = {
   title: 'Nordnet UI Kit',
   styleguideDir: path.join(__dirname, 'documentation/dist'),
+  // components: 'src/components/**/*.jsx',
   components() {
     const folders = fs.readdirSync(`${dir}/components`);
-    return folders.map(folder => `${dir}/components/${folder}/${folder}.jsx`);
+    return folders.filter(c => c === 'badge').map(folder => `${dir}/components/${folder}/${folder}.jsx`);
   },
   template: path.join(__dirname, 'documentation/template.html'),
   getComponentPathLine(componentPath) {
@@ -37,5 +38,10 @@ module.exports = {
   // },
   webpackConfig: Object.assign({}, config, {
     entry: ['babel-polyfill'].concat(config.entry),
+    resolve: {
+      alias: {
+        'rsg-components/Wrapper': path.join(__dirname, 'documentation', 'wrapper.jsx'),
+      },
+    },
   }),
 };
