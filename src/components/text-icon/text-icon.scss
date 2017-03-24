@@ -1,0 +1,29 @@
+@import '../../variables';
+@import '../../functions';
+
+$sizes: (
+  xs: 30px,
+  sm: 40px,
+  md: 50px,
+  lg: 60px,
+);
+
+@mixin sizes() {
+  @each $size, $height in $sizes {
+    &--#{$size} {
+      height: rem($height);
+      width: rem($height);
+      border-radius: rem($height / 2);
+      font-size: rem($height / 3);
+    }
+  }
+}
+
+.text-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-gray-darker;
+  color: $color-gray-lighter;
+  @include sizes();
+}
