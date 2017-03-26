@@ -7,7 +7,7 @@ import Badge from './components/badge/badge';
 // import HorizontalNav from './components/horizontal-nav';
 // import Icon from './components/icon/icon';
 // import Input from './components/input/input';
-// import LabeledValue from './components/labeled-value/labeled-value';
+import LabeledValue from './components/labeled-value/labeled-value';
 // import Legend from './components/legend';
 // import Logo from './components/logo/logo';
 // import Pane from './components/pane/pane';
@@ -44,7 +44,7 @@ export {
   // HorizontalNav,
   // Icon,
   // Input,
-  // LabeledValue,
+  LabeledValue,
   // Legend,
   // Logo,
   // Pane,
