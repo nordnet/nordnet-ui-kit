@@ -6,6 +6,8 @@ const config = require('./webpack.config')('styleguidist');
 
 const dir = path.join(__dirname, 'src');
 
+const portedComponents = ['badge', 'labeled-value'];
+
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -16,7 +18,7 @@ module.exports = {
   // components: 'src/components/**/*.jsx',
   components() {
     const folders = fs.readdirSync(`${dir}/components`);
-    return folders.filter(c => c === 'badge').map(folder => `${dir}/components/${folder}/${folder}.jsx`);
+    return folders.filter(c => portedComponents.indexOf(c) !== -1).map(folder => `${dir}/components/${folder}/${folder}.jsx`);
   },
   template: path.join(__dirname, 'documentation/template.html'),
   getComponentPathLine(componentPath) {

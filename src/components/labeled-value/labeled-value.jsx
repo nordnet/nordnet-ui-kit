@@ -1,7 +1,47 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { kebabCase } from 'lodash';
-import './labeled-value.scss';
+import { createStyleSheet } from 'jss-theme-reactor';
+
+export const styleSheet = createStyleSheet('LabeledValue', () => {
+  const modifiers = {
+    xs: '12',
+    sm: '14',
+    md: '16',
+    lg: '18',
+  };
+
+  const valueSizes = Object.keys(modifiers).reduce((sizes, size) => {
+    const fontSize = modifiers[size];
+    const paddingTop = size !== 'lg' ? fontSize - 12 : fontSize - 14;
+    const className = `value-${size}`;
+
+    return {
+      ...sizes,
+      [className]: {
+        fontSize: `${fontSize}px`,
+        paddingTop: `${paddingTop}px`,
+      },
+    };
+  }, {});
+
+  return {
+    root: {
+      display: 'inline-block',
+    },
+    label: {
+      display: 'block',
+      fontSize: '16px',
+      lineHeight: 1.2,
+    },
+    value: {
+      display: 'block',
+      fontSize: '16px',
+      lineHeight: 1.2,
+    },
+    ...valueSizes,
+  };
+});
 
 export default function LabeledValue({
   label,
@@ -10,19 +50,19 @@ export default function LabeledValue({
   className,
   size,
   ...rest
-}) {
+}, { styleManager }) {
   const id = idProp || `${kebabCase(label)}-label`;
-  const classes = classNames('labeled-value', {
-    'labeled-value--xs': size === 'xs',
-    'labeled-value--sm': size === 'sm',
-    'labeled-value--md': size === 'md',
-    'labeled-value--lg': size === 'lg',
-  }, className);
+
+  const classes = styleManager.render(styleSheet);
+
+  const rootClasses = cn(classes.root, className);
+  const labelClasses = cn(classes.label);
+  const valueClasses = cn(classes.value, classes[`value-${size}`]);
 
   return (
-    <div {...rest} className={classes}>
-      <span className="labeled-value__label" id={id}>{ label }</span>
-      <span className="labeled-value__value" aria-labelledby={id} >{ children }</span>
+    <div {...rest} className={rootClasses}>
+      <span className={labelClasses} id={id}>{ label }</span>
+      <span className={valueClasses} aria-labelledby={id} >{ children }</span>
     </div>
   );
 }
@@ -39,4 +79,8 @@ LabeledValue.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+};
+
+LabeledValue.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
