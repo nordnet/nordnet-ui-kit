@@ -31,7 +31,7 @@ export const styleSheet = createStyleSheet('LabeledValue', () => {
     },
     label: {
       display: 'block',
-      fontSize: '16px',
+      fontSize: '12px',
       lineHeight: 1.2,
     },
     value: {
