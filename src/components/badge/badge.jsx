@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
-import rem from '../../utilities/rem';
 
 export const styleSheet = createStyleSheet('Badge', (theme) => {
   const { palette } = theme;
@@ -9,15 +8,15 @@ export const styleSheet = createStyleSheet('Badge', (theme) => {
   return {
     root: {
       display: 'inline-block',
-      fontSize: rem('12px'),
-      padding: rem('2px 8px'),
+      fontSize: '12px',
+      padding: '2px 8px',
       lineHeight: 1,
       color: palette.shades.dark.text.default,
       textAlign: 'center',
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',
-      backgroundColor: palette.background.disabled,
-      borderRadius: rem('10px'),
+      backgroundColor: palette.variant.primary,
+      borderRadius: '10px',
     },
     success: {
       backgroundColor: palette.variant.success,

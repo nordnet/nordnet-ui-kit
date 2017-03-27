@@ -1,32 +1,32 @@
 import color from './color';
 
 const variant = {
-  primary: '#00A9EC',
-  info: '#365299',
-  success: '#00BD76',
-  warning: '#FFBD55',
-  danger: '#EF472F',
+  primary: color.blue,
+  info: color.blueDark,
+  success: color.green,
+  warning: color.yellow,
+  danger: color.red,
 };
 
 export const light = {
   text: {
     default: color.black,
-    muted: color.grayDarker,
+    muted: color.grayDark,
   },
   background: {
     default: color.white,
-    disabled: color.gray,
+    muted: color.grayLightest,
   },
 };
 
 export const dark = {
   text: {
     default: color.white,
-    secondary: color.grayLighter,
+    muted: color.grayLighter, // For now
   },
   background: {
-    default: color.black,
-    disabled: color.grayDark,
+    default: color.blueDark,
+    muted: color.grayDark, // For now
   },
 };
 
@@ -36,7 +36,7 @@ export default function createPalette({
   primary = variant.primary,
   accent = variant.info,
   error = variant.danger,
-  type = 'light', // TODO
+  type = 'light',
   name = 'nordnet',
 } = {}) {
   return {
