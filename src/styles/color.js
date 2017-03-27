@@ -15,7 +15,7 @@ export default {
   green: '#26A699', // Plus performance, success
   red: '#D54E16', // Minus performance, error
 
-  yellow: '#FFBD55', // Placeholder
+  yellow: '#E5AA4C', // Notification Logo
   yellowLight: '#FFF1DD', // Notification
   white: '#FFF', // Background
 };
