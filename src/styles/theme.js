@@ -1,6 +1,6 @@
 // import shadows from './shadows';
 // import transitions from './transitions';
-// import createTypography from './typography';
+import createTypography from './typography';
 // import createBreakpoints from './breakpoints';
 import { createPalette } from './palette';
 // import zIndex from './zIndex';
@@ -12,7 +12,7 @@ export function createTheme(config = {}) {
     palette = createPalette(),
     breakpoints = {},
     mixins = {},
-    typography = {},
+    typography = createTypography(),
     ...more
   } = config;
 
