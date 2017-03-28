@@ -15,7 +15,7 @@ function TextIcon({ text, iconSize, iconColor, textColor, ...rest }) {
     'text-icon--lg': iconSize === 'lg',
   }, 'text-icon');
   return (
-    <div className={ classes } style={ styles } { ...rest }>
+    <div className={classes} style={styles} {...rest}>
       { text }
     </div>
   );
