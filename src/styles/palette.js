@@ -13,6 +13,10 @@ export const light = {
     default: color.black,
     muted: color.grayDark,
   },
+  action: { // TODO define
+    active: color.blue,
+    disabled: color.gray,
+  },
   background: {
     default: color.white,
     muted: color.grayLightest,
@@ -23,6 +27,10 @@ export const dark = {
   text: {
     default: color.white,
     muted: color.grayLighter, // For now
+  },
+  action: { // TODO define
+    active: color.blue,
+    disabled: color.gray,
   },
   background: {
     default: color.blueDark,
@@ -45,7 +53,7 @@ export default function createPalette({
     color,
     variant,
     text: shades[type].text,
-    // action: shades[type].action,
+    action: shades[type].action,
     background: shades[type].background,
     shades,
     primary,
