@@ -31,7 +31,13 @@ import LabeledValue from './components/labeled-value/labeled-value';
 
 // Theming
 import { ThemeProvider } from './styles';
-// import ThemeProvider from './styles/ThemeProvider';
+
+// Test utils
+import {
+  createMount,
+  createShallow,
+  createRenderToString,
+} from './test-utils';
 
 export {
   // Alert,
@@ -67,4 +73,9 @@ export {
 
   // Theming
   ThemeProvider,
+
+  // Test utils
+  createMount,
+  createShallow,
+  createRenderToString,
 };
