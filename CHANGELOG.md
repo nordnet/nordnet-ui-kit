@@ -6,7 +6,10 @@
 * Export ThemeProvider, which will provide all children with context.styleManager
 * Export test-utils for createShallow, createMount and createRenderToString
 * Added new colors and typography to the theme
-* Ported components: Badge, LabeledValue
+* Ported components to JSS
+
+### Ported components:
+Badge, LabeledValue
 
 ## 0.1.1
 * Updated to Webpack 2
