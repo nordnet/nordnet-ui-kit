@@ -1,8 +1,7 @@
-import { shallow as enzymeShallow } from 'enzyme';
 import { ThemeProvider } from '../styles';
 
 export default function createShallow(
-  shallow = enzymeShallow,
+  shallow,
   otherContext = {},
 ) {
   const { theme, styleManager } = ThemeProvider.createDefaultContext();

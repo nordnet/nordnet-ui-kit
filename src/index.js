@@ -21,7 +21,7 @@ import LabeledValue from './components/labeled-value/labeled-value';
 // import Table from './components/table';
 // import Tbody from './components/tbody';
 // import Td from './components/td';
-import TextIcon from './components/text-icon';
+// import TextIcon from './components/text-icon';
 // import Tfoot from './components/tfoot';
 // import Th from './components/th';
 // import Thead from './components/thead';
@@ -64,7 +64,7 @@ export {
   // Table,
   // Tbody,
   // Td,
-  TextIcon,
+  // TextIcon,
   // Tfoot,
   // Th,
   // Thead,

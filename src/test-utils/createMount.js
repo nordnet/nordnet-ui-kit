@@ -1,5 +1,4 @@
 import { PropTypes } from 'react';
-import { mount as enzymeMount } from 'enzyme';
 import { ThemeProvider } from '../styles';
 
 function cleanStyles() {
@@ -12,7 +11,7 @@ function cleanStyles() {
   }
 }
 
-export default function createMount(mount = enzymeMount) {
+export default function createMount(mount) {
   cleanStyles();
 
   const attachTo = window.document.createElement('div');

@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "run-s clean babel",
+    "watch": "npm run babel -- --watch",
     "babel": "babel src -d dist --copy-files --ignore .md",
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "test": "__USE_REM__=true mocha-webpack --opts test/mocha.webpack.opts",
@@ -69,7 +70,7 @@
     "chai-enzyme": "^0.6.1",
     "css-loader": "^0.27.3",
     "cssnano": "^3.10.0",
-    "enzyme": "^2.7.1",
+    "enzyme": "^2.8.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",

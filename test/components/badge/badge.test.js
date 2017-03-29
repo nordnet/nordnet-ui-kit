@@ -1,10 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
+import { shallow as enzymeShallow } from 'enzyme';
 import { createShallow } from '../../../src/test-utils';
 import Badge, { styleSheet } from '../../../src/components/badge/badge';
 
 describe('<Badge />', () => {
-  const shallow = createShallow();
+  const shallow = createShallow(enzymeShallow);
   const classes = shallow.context.styleManager.render(styleSheet);
   let wrapper;
 
