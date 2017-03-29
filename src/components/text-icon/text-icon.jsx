@@ -1,37 +1,81 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-import './text-icon.scss';
+import cn from 'classnames';
+import { createStyleSheet } from 'jss-theme-reactor';
 
-function TextIcon({ text, iconSize, iconColor, textColor, ...rest }) {
+export const styleSheet = createStyleSheet('TextIcon', (theme) => {
+  const { palette, typography } = theme;
+
   const styles = {
-    backgroundColor: iconColor,
-    color: textColor,
+    root: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: typography.secondary.fontFamily,
+      color: palette.shades.dark.text.default,
+      backgroundColor: palette.color.grayDarkest,
+      overflow: 'hidden',
+      borderRadius: '50%',
+      textTransform: 'capitalize',
+      height: '2.4em',
+      width: '2.4em',
+    },
+    small: {
+      fontSize: 14,
+      height: 32,
+      width: 32,
+    },
+    large: {
+      fontSize: 16,
+      height: 48,
+      width: 48,
+    },
   };
 
-  const classes = classNames('table', {
-    'text-icon--xs': iconSize === 'xs',
-    'text-icon--sm': iconSize === 'sm',
-    'text-icon--md': iconSize === 'md',
-    'text-icon--lg': iconSize === 'lg',
-  }, 'text-icon');
+  return styles;
+});
+
+function TextIcon({
+  text,
+  className: classNameProp,
+  style: styleProp,
+  iconSize,
+  iconColor,
+  textColor,
+  ...rest
+}, { styleManager }) {
+  const classes = styleManager.render(styleSheet);
+  const style = Object.assign({}, {
+    backgroundColor: iconColor,
+    color: textColor,
+  }, styleProp);
+
+  const className = cn([classes.root], {
+    [classes.small]: iconSize === 'small',
+    [classes.large]: iconSize === 'large',
+  }, classNameProp);
+
   return (
-    <div className={classes} style={styles} {...rest}>
+    <div className={className} style={style} {...rest}>
       { text }
     </div>
   );
 }
 
 TextIcon.propTypes = {
+  className: PropTypes.string,
+  style: PropTypes.object,
   text: PropTypes.string.isRequired,
-  iconSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  iconSize: PropTypes.oneOf(['small', 'large', 'custom']),
   iconColor: PropTypes.string,
   textColor: PropTypes.string,
 };
 
 TextIcon.defaultProps = {
-  iconSize: 'md',
-  iconColor: null,
-  textColor: null,
+  iconSize: 'small',
+};
+
+TextIcon.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default TextIcon;

@@ -1,28 +1,22 @@
-# A basic example
+    const color = require('../../styles/color').default;
+
     <div style={{display: 'flex'}}>
       <TextIcon
-        iconSize={ 'xs' }
-        text={ 'TEX' }
+        text={ 'Er' }
       />
       <TextIcon
-        text={ 'TIC' }
-        iconSize={ 'sm' }
-        iconColor={ 'yellow' }
-        textColor={ 'black' }
+        iconSize={ 'large' }
+        text={ 'ISK' }
       />
       <TextIcon
-        iconSize={ 'md' }
-        text={ 'ONS' }
-        iconColor={ 'orange' }
+        text={ 'Hm' }
+        iconColor={ color.blueDarker }
       />
       <TextIcon
-        iconSize={ 'lg' }
-        text={ 'FOR' }
-        iconColor={ 'red' }
-      />
-      <TextIcon
-        iconSize={ 'md' }
-        text={ 'YOU' }
-        iconColor={ 'grey' }
+        style={{ fontSize: 30 }}
+        iconSize={ 'custom' }
+        text={ 'CC' }
+        iconColor={ color.grayLight }
+        textColor={ color.black }
       />
     </div>
