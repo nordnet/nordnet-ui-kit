@@ -9,6 +9,7 @@ import Icon from './components/icon/icon';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Legend from './components/legend';
+import Li from './components/li';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
@@ -28,6 +29,7 @@ import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
 import variables from './utilities/variables';
+import Ul from './components/ul';
 import Widget from './components/widget/widget';
 
 export {
@@ -42,6 +44,7 @@ export {
   Input,
   LabeledValue,
   Legend,
+  Li,
   Logo,
   Pane,
   RadioGroup,
@@ -61,5 +64,6 @@ export {
   Tooltip,
   Tr,
   variables,
+  Ul,
   Widget,
 };
