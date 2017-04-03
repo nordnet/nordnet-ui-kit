@@ -22,7 +22,7 @@ class Icon extends React.PureComponent {
       strokeWidth,
       width,
       height,
-      ...rest,
+      ...rest // eslint-disable-line comma-dangle
     } = this.props;
 
     const icon = this.icons[type]({ rootElement: 'svg', fill, stroke, strokeWidth });

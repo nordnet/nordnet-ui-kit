@@ -7,7 +7,7 @@ function Thead({
   children,
   size,
   variant,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle
 }) {
   const classes = classNames('thead', {
     'thead--xs': size === 'xs',

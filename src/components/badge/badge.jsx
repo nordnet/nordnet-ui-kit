@@ -6,7 +6,7 @@ function Badge({
   modifier,
   children,
   className,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle,
 }) {
   const classes = classNames('badge', {
     'badge--success': modifier === 'success',

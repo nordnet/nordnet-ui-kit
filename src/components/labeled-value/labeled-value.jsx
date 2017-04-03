@@ -9,7 +9,7 @@ export default function LabeledValue({
   id: idProp,
   className,
   size,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle
 }) {
   const id = idProp || `${kebabCase(label)}-label`;
   const classes = classNames('labeled-value', {

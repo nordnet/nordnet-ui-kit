@@ -118,7 +118,7 @@ class SparkGraph extends React.Component {
       strokeWidth,
       className,
       style,
-      ...rest,
+      ...rest // eslint-disable-line comma-dangle
     } = this.props;
     const { width, height, pointsFrom, pointsTo } = this.state;
     const styles = Object.assign({
