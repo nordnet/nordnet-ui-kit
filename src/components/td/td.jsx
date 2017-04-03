@@ -18,7 +18,7 @@ function Td({
   borderLeft,
   align,
   ellipsis,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle
 }) {
   const classes = classNames('td', {
     'td--xs': size === 'xs',

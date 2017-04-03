@@ -15,7 +15,7 @@ function Tbody({
   borderRight,
   borderBottom,
   borderLeft,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle
 }) {
   const classes = classNames('tbody', {
     'tbody--xs': size === 'xs',

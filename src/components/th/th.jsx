@@ -18,7 +18,7 @@ function Th({
   borderLeft,
   align,
   ellipsis,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle
 }) {
   const classes = classNames('th', {
     'th--xs': size === 'xs',

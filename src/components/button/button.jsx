@@ -11,7 +11,7 @@ function Button({
   modifier,
   href,
   size,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle
 }) {
   const Element = href ? 'a' : 'button';
   const isPrimary = variant === 'primary';

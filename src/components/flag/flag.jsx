@@ -9,7 +9,7 @@ function Flag({
   countryCode,
   width,
   height,
-  ...rest,
+  ...rest // eslint-disable-line comma-dangle
 }) {
   const flag = flags[countryCode.toLowerCase()];
   const classes = classNames('flag', `flag--${kebabCase(countryCode)}`, className);
