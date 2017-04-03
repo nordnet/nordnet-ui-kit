@@ -32,6 +32,7 @@
     font-size: rem(12px);
     padding: rem(8px 16px);
     cursor: pointer;
+    outline: none;
 
     &--selected {
       color: $color-primary;
