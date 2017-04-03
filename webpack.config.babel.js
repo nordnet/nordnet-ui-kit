@@ -36,7 +36,7 @@ module.exports = args => {
       input: './src/components/input/input.jsx',
       'labeled-value': './src/components/labeled-value/labeled-value.jsx',
       legend: './src/components/legend',
-      li: './src/components/li';
+      li: './src/components/li',
       logo: './src/components/logo/logo.jsx',
       pane: './src/components/pane/pane.jsx',
       'radio-group': './src/components/radio-group/radio-group.jsx',
@@ -55,6 +55,7 @@ module.exports = args => {
       thead: './src/components/thead',
       tooltip: './src/components/tooltip',
       tr: './src/components/tr',
+      ul: './src/components/ul',
       variables: ['./src/utilities/variables.js'],
       widget: ['./src/components/widget/widget'],
     },

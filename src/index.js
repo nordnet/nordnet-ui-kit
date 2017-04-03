@@ -29,6 +29,7 @@ import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
 import variables from './utilities/variables';
+import Ul from './components/ul';
 import Widget from './components/widget/widget';
 
 export {
@@ -63,5 +64,6 @@ export {
   Tooltip,
   Tr,
   variables,
+  Ul,
   Widget,
 };
