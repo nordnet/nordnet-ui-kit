@@ -19,12 +19,11 @@ describe('<Logo />', () => {
   });
 
   it('should be possible to customize the width', () => {
-    let newElement = shallow(<Logo width={200} />);
+    const newElement = shallow(<Logo width={200} />);
     expect(newElement.prop('style').width).to.equal(200);
   });
 
   it('should have type default if no type is specified', () => {
     expect(wrapper.find('span[type="default"]')).to.have.length(1);
   });
-
 });
