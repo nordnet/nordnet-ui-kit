@@ -2,7 +2,7 @@
     const style = {
       display: 'inline-block',
       textAlign: 'center',
-      padding: '1.6rem',
+      padding: 16,
       minWidth: '20%',
     };
 
@@ -14,10 +14,9 @@
             type={ icon }
             stroke="#00A9EC"
             fill="#00A9EC"
-            renderInline
           />
 
-          <div style={{ fontSize: '1.2rem', fontFamily: '"Hack", monospace' }}>{ icon }</div>
+          <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ icon }</div>
         </div>
       ))}
     </div>

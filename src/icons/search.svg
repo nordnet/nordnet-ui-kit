@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <g id="search" fill="none" stroke-width="2">
-    <circle id="Oval" cx="7" cy="7" r="6" vector-effect="non-scaling-stroke"></circle>
-    <path d="M15.25,15.25 L11,11" vector-effect="non-scaling-stroke"></path>
+  <g id="search" stroke-width="2">
+    <circle id="Oval" fill="none" stroke="#FFF" cx="7" cy="7" r="6" vector-effect="non-scaling-stroke"></circle>
+    <path d="M15.25,15.25 L11,11" fill="#FFF" stroke="#FFF" vector-effect="non-scaling-stroke"></path>
   </g>
 </svg>
