@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react';
-import defaultLogo from './nordnet-logo-default.svg';
 import { createStyleSheet } from 'jss-theme-reactor';
+import defaultLogo from './nordnet-logo-default.svg';
 
-const styleSheet = createStyleSheet('Logo', (theme) => {
-  const { palette } = theme;
-  return {
+const styleSheet = createStyleSheet('Logo', () => (
+  {
     logo: {
       display: 'inline-flex',
     },
-  };
-});
+  }
+));
 
 function Logo(props, { styleManager }) {
   const classes = styleManager.render(styleSheet);
