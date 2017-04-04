@@ -1,63 +1,46 @@
 import React, { PropTypes } from 'react';
 import cn from 'classnames';
-import { createStyleSheet } from 'jss-theme-reactor';
+import Color from 'color';
+import { withTheme, injectSheet } from '../../';
 
-export const styleSheet = createStyleSheet('Badge', (theme) => {
-  const { palette } = theme;
+// TODO: Move these UTILS to styles
+const CONTRAST_THRESHOLD = 5;
+const getContrastRatio = (c1, c2) => Color(c1).contrast(Color(c2));
+const isContrast = (c1, c2, threshold = CONTRAST_THRESHOLD) => getContrastRatio(c1, c2) >= threshold;
+const getTextColor = (theme, light) => theme.palette.shades[light ? 'light' : 'dark'].text.default;
 
-  return {
-    root: {
-      display: 'inline-block',
-      fontSize: '12px',
-      padding: '2px 8px',
-      lineHeight: 1,
-      color: palette.shades.dark.text.default,
-      textAlign: 'center',
-      whiteSpace: 'nowrap',
-      verticalAlign: 'middle',
-      backgroundColor: palette.variant.primary,
-      borderRadius: '10px',
-    },
-    success: {
-      backgroundColor: palette.variant.success,
-    },
-    warning: {
-      backgroundColor: palette.variant.warning,
-      color: palette.text.default,
-    },
-    danger: {
-      backgroundColor: palette.variant.danger,
-    },
-  };
-});
+const bgc = ({ theme, modifier }) => theme.palette.variant[modifier || 'primary'];
+const col = p => getTextColor(p.theme, isContrast(bgc(p), getTextColor(p.theme, true)));
 
-function Badge({
-  modifier,
-  children,
-  className: classNameProp,
-  ...rest
-}, { styleManager }) {
-  const classes = styleManager.render(styleSheet);
+export const styles = {
+  badge: {
+    display: 'inline-block',
+    fontSize: 12,
+    padding: '.15em .5em',
+    lineHeight: 1,
+    color: col,
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+    verticalAlign: 'middle',
+    'background-color': bgc,
+    borderRadius: '1em',
+  },
+};
 
-  const className = cn([classes.root], {
-    [classes.success]: modifier === 'success',
-    [classes.warning]: modifier === 'warning',
-    [classes.danger]: modifier === 'danger',
-  }, classNameProp);
-
+function Badge({ classes, children, className, style }) {
   return (
-    <span {...rest} className={className}>{ children }</span>
+    <span style={style} className={cn(classes.badge, className)}>
+      { children }
+    </span>
   );
 }
 
 Badge.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
+  modifier: PropTypes.oneOf(['success', 'warning', 'danger']), // eslint-disable-line react/no-unused-prop-types
+  classes: PropTypes.object.isRequired,
+  style: PropTypes.object,
 };
 
-Badge.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Badge;
+export default withTheme(injectSheet(styles)(Badge));

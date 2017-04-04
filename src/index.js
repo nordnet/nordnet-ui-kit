@@ -31,7 +31,11 @@ import LabeledValue from './components/labeled-value/labeled-value';
 // import Widget from './components/widget/widget';
 
 // Theming
-import { ThemeProvider } from './styles';
+import { ThemeProvider, createTheme } from './styles';
+import injectSheet from './inject-sheet';
+import provideTheme from './provide-theme';
+import withTheme from './with-theme';
+
 
 // Test utils
 import {
@@ -80,4 +84,12 @@ export {
   createMount,
   createShallow,
   createRenderToString,
+
+  // reactJss injectSheet
+  injectSheet,
+
+  // theming
+  createTheme,  // theme
+  provideTheme, // for app
+  withTheme,    // for component
 };

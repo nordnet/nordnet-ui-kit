@@ -1,15 +1,19 @@
 Primary button:
 
+    const { provideTheme, createTheme } = require('../../'); // 'nordnet-ui-kit'
+    const App = ({ children }) => (<div>{ children }</div>);
+    const AppWithTheme = provideTheme(createTheme(), App);
+
     const style = {
       marginRight: '1.6rem',
     };
 
-    <div>
+    <AppWithTheme>
       <Button variant="primary" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="danger" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="warning" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="success" style= { style }>Click Me</Button>
-    </div>
+    </AppWithTheme>
 
 Secondary button:
 

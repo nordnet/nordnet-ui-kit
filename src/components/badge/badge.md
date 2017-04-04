@@ -1,5 +1,5 @@
     const style = {
-      marginRight: '1.6rem',
+      marginRight: 16,
     };
 
     <div>

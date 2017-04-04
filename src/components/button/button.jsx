@@ -1,43 +1,56 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-import './button.scss';
+import cn from 'classnames';
+import { withTheme, injectSheet } from '../../';
+import styles from './styles';
 
 function Button({
-  variant,
+  classes,
+  // variant,
   block,
   disabled,
   className,
   children,
-  modifier,
+  // modifier,
   href,
-  size,
+  // size,
   ...rest
 }) {
   const Element = href ? 'a' : 'button';
+  /*
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
   const isLink = variant === 'link';
   const isSuccess = modifier === 'success';
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
-  const classes = classNames({
-    'btn--block': block,
-    'btn-primary': isPrimary,
-    'btn-primary--success': isPrimary && isSuccess,
-    'btn-primary--warning': isPrimary && isWarning,
-    'btn-primary--danger': isPrimary && isDanger,
-    'btn-secondary': isSecondary,
-    'btn-secondary--success': isSecondary && isSuccess,
-    'btn-secondary--warning': isSecondary && isWarning,
-    'btn-secondary--danger': isSecondary && isDanger,
-    'btn-link': isLink,
-    'btn-link--success': isLink && isSuccess,
-    'btn-link--warning': isLink && isWarning,
-    'btn-link--danger': isLink && isDanger,
-  }, `btn--${size}`, className);
+  */
 
   return (
-    <Element {...rest} className={classes} disabled={disabled} href={href}>
+    <Element
+      className={cn({
+        [classes.button]: true,
+        [classes.block]: block,
+        /*
+        'btn--block': block,
+        'btn--block': block,
+        'btn-primary': isPrimary,
+        'btn-primary--success': isPrimary && isSuccess,
+        'btn-primary--warning': isPrimary && isWarning,
+        'btn-primary--danger': isPrimary && isDanger,
+        'btn-secondary': isSecondary,
+        'btn-secondary--success': isSecondary && isSuccess,
+        'btn-secondary--warning': isSecondary && isWarning,
+        'btn-secondary--danger': isSecondary && isDanger,
+        'btn-link': isLink,
+        'btn-link--success': isLink && isSuccess,
+        'btn-link--warning': isLink && isWarning,
+        'btn-link--danger': isLink && isDanger,
+        */
+      }, className)}
+      disabled={disabled}
+      href={href}
+      {...rest}
+    >
       { children }
     </Element>
   );
@@ -58,6 +71,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
   disabled: PropTypes.bool,
+  classes: PropTypes.object.isRequired,
 };
 
-export default Button;
+export default withTheme(injectSheet(styles)(Button));

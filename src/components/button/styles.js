@@ -1,3 +1,17 @@
+const styles = {
+  button: {
+    display: 'inline-block',
+    color: p => p.theme.palette.color.blue,
+    'background-color': p => p.theme.palette.color.white,
+  },
+  block: {
+    display: 'block',
+  },
+};
+
+export default styles;
+
+/*
 @import '../../variables';
 @import '../../functions';
 
@@ -165,3 +179,4 @@ $sizePaddings: (
     @include btn--modifier('link', 'danger', $color-danger, $color-danger--focus);
   }
 }
+*/
