@@ -1,10 +1,11 @@
-import { camelCase } from 'lodash';
+import React from 'react'; // eslint-disable-line
 
-const icons = require.context('./../../flags/', false, /\.svg$/).keys();
+import ca from './../../flags/ca.svg';
+import de from './../../flags/de.svg';
+import dk from './../../flags/dk.svg';
+import fi from './../../flags/fi.svg';
+import no from './../../flags/no.svg';
+import se from './../../flags/se.svg';
+import us from './../../flags/us.svg';
 
-export default icons.reduce((prev, curr) => {
-  const icon = curr.replace(/\.\//, '');
-  const iconName = camelCase(icon.replace(/\.svg$/, ''));
-  prev[iconName] = require(`../../flags/${icon}`); // eslint-disable-line
-  return prev;
-}, {});
+export default { ca, de, dk, fi, no, se, us };
