@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './table.scss';
+// TODO: Move SCSS into JSS
+// import './table.scss';
 
 function Table(props) {
   const { className, children, size, ...rest } = props;

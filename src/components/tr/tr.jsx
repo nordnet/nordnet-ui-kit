@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import { throttle, debounce } from 'lodash';
 import omit from '../../utilities/omit';
 import rem from '../../utilities/rem';
-import './tr.scss';
+// TODO: Move SCSS into JSS
+// import './tr.scss';
 
 // Needs to be a class so that a ref can be assigned to it from Thead
 class Tr extends React.Component { // eslint-disable-line

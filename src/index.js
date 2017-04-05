@@ -18,15 +18,15 @@ import LabeledValue from './components/labeled-value/labeled-value';
 // import Select from './components/select/select';
 // import SparkGraph from './components/spark-graph';
 // import Spinner from './components/spinner';
-// import Table from './components/table';
-// import Tbody from './components/tbody';
-// import Td from './components/td';
+import Table from './components/table';
+import Tbody from './components/tbody';
+import Td from './components/td';
 // import TextIcon from './components/text-icon';
-// import Tfoot from './components/tfoot';
-// import Th from './components/th';
-// import Thead from './components/thead';
+import Tfoot from './components/tfoot';
+import Th from './components/th';
+import Thead from './components/thead';
 // import Tooltip from './components/tooltip';
-// import Tr from './components/tr';
+import Tr from './components/tr';
 // import variables from './utilities/variables';
 // import Widget from './components/widget/widget';
 
@@ -61,15 +61,15 @@ export {
   // Select,
   // SparkGraph,
   // Spinner,
-  // Table,
-  // Tbody,
-  // Td,
+  Table,
+  Tbody,
+  Td,
   // TextIcon,
-  // Tfoot,
-  // Th,
-  // Thead,
+  Tfoot,
+  Th,
+  Thead,
   // Tooltip,
-  // Tr,
+  Tr,
   // variables,
   // Widget,
 
