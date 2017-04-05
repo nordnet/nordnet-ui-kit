@@ -1,1 +1,1 @@
-export { default } from './horizontal-nav.jsx';
+export { default } from './horizontal-nav';

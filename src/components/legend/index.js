@@ -1,1 +1,1 @@
-export { default } from './legend.jsx';
+export { default } from './legend';
