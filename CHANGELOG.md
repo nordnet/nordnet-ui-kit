@@ -9,7 +9,7 @@
 * Ported components to JSS
 
 ### Ported components:
-Badge, LabeledValue
+Badge, LabeledValue, Table (without the styling, also Tbody, Thead, Tfoot, Tr, Th, Td moved over in the same way)
 
 ## 0.1.1
 * Updated to Webpack 2
