@@ -247,7 +247,7 @@ ast-types@^0.7.2:
   version "0.7.8"
   resolved "https://registry.npmjs.org/ast-types/-/ast-types-0.7.8.tgz#902d2e0d60d071bdcd46dc115e1809ed11c138a9"
 
-ast-types@^0.9.5:
+ast-types@^0.9.10:
   version "0.9.10"
   resolved "https://registry.npmjs.org/ast-types/-/ast-types-0.9.10.tgz#4472a8508726269562c766307133e0d4ed7ada52"
 
@@ -1313,7 +1313,7 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codemirror@^5.18.2, codemirror@^5.24.2:
+codemirror@^5.18.2, codemirror@^5.25.0:
   version "5.25.0"
   resolved "https://registry.npmjs.org/codemirror/-/codemirror-5.25.0.tgz#78e06939c7bb41f65707b8aa9c5328111948b756"
 
@@ -1566,9 +1566,9 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.npmjs.org/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-loader@^0.26.4:
-  version "0.26.4"
-  resolved "https://registry.npmjs.org/css-loader/-/css-loader-0.26.4.tgz#b61e9e30db94303e6ffc892f10ecd09ad025a1fd"
+css-loader@^0.27.3:
+  version "0.27.3"
+  resolved "https://registry.npmjs.org/css-loader/-/css-loader-0.27.3.tgz#69ab6f47b69bfb1b5acee61bac2aab14302ff0dc"
   dependencies:
     babel-code-frame "^6.11.0"
     css-selector-tokenizer "^0.7.0"
@@ -1583,9 +1583,9 @@ css-loader@^0.26.4:
     postcss-modules-values "^1.1.0"
     source-list-map "^0.1.7"
 
-css-loader@^0.27.3:
-  version "0.27.3"
-  resolved "https://registry.npmjs.org/css-loader/-/css-loader-0.27.3.tgz#69ab6f47b69bfb1b5acee61bac2aab14302ff0dc"
+css-loader@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.npmjs.org/css-loader/-/css-loader-0.28.0.tgz#417cfa9789f8cde59a30ccbf3e4da7a806889bad"
   dependencies:
     babel-code-frame "^6.11.0"
     css-selector-tokenizer "^0.7.0"
@@ -2042,9 +2042,9 @@ es6-map@^0.1.3:
     es6-symbol "~3.1.1"
     event-emitter "~0.3.5"
 
-es6-object-assign@~1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/es6-object-assign/-/es6-object-assign-1.0.3.tgz#40a192e0fda5ee44ee8cf6f5b5d9b47cd0f69b14"
+es6-object-assign@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
 
 es6-set@~0.1.5:
   version "0.1.5"
@@ -3376,13 +3376,13 @@ jss-camel-case@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/jss-camel-case/-/jss-camel-case-3.0.0.tgz#46aa18eb149e95afce074532ad47df1c2a7d45cb"
 
-jss-compose@^2.0.0, jss-compose@^2.0.1:
+jss-compose@^2.0.0, jss-compose@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/jss-compose/-/jss-compose-2.1.0.tgz#3751d613fb61c715e3d91140dea5f1794968847d"
   dependencies:
     warning "^3.0.0"
 
-jss-default-unit@^5.0.2:
+jss-default-unit@^5.0.2, jss-default-unit@^5.0.3:
   version "5.0.3"
   resolved "https://registry.npmjs.org/jss-default-unit/-/jss-default-unit-5.0.3.tgz#b9450f31c37feaed3151554b2938363974780af1"
 
@@ -3535,7 +3535,7 @@ loader-utils@^0.2.12, loader-utils@^0.2.13, loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.0.3:
+loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/loader-utils/-/loader-utils-1.1.0.tgz#c98aef488bcceda2ffb5e2de646d6a754429f5cd"
   dependencies:
@@ -3639,10 +3639,6 @@ lodash.isarray@^3.0.0:
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.npmjs.org/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
-
-lodash.kebabcase@^4.0.0:
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
 
 lodash.keys@^3.0.0:
   version "3.1.2"
@@ -4957,12 +4953,6 @@ react-motion@^0.4.5:
     performance-now "^0.2.0"
     raf "^3.1.0"
 
-react-prop-types@^0.3.0:
-  version "0.3.2"
-  resolved "https://registry.npmjs.org/react-prop-types/-/react-prop-types-0.3.2.tgz#e2763ac6f3a80199d8981c3647c44b0554c97b7f"
-  dependencies:
-    warning "^2.0.0"
-
 react-prop-types@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/react-prop-types/-/react-prop-types-0.4.0.tgz#f99b0bfb4006929c9af2051e7c1414a5c75b93d0"
@@ -4976,18 +4966,18 @@ react-select@^1.0.0-rc.3:
     classnames "^2.2.4"
     react-input-autosize "^1.1.0"
 
-react-styleguidist@5.0.0-rc.1:
-  version "5.0.0-rc.1"
-  resolved "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-5.0.0-rc.1.tgz#8679d883f6099156b667a0072ffe81b96fb507c2"
+react-styleguidist@5.0.3:
+  version "5.0.3"
+  resolved "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-5.0.3.tgz#baee8a4902ec804ed7206cbd5dbed3862101a490"
   dependencies:
-    ast-types "^0.9.5"
+    ast-types "^0.9.10"
     buble "^0.15.2"
     chalk "^1.1.3"
     classnames "^2.2.5"
-    codemirror "^5.24.2"
+    codemirror "^5.25.0"
     common-dir "^1.0.1"
-    css-loader "^0.26.4"
-    es6-object-assign "~1.0.3"
+    css-loader "^0.28.0"
+    es6-object-assign "~1.1.0"
     escodegen "^1.8.1"
     findup "^0.1.5"
     function.name-polyfill "^1.0.5"
@@ -4997,15 +4987,15 @@ react-styleguidist@5.0.0-rc.1:
     html-webpack-plugin "^2.28.0"
     is-directory "^0.3.1"
     json-loader "^0.5.4"
-    jss "^6.3.0"
+    jss "^6.5.0"
     jss-camel-case "^3.0.0"
-    jss-compose "^2.0.1"
-    jss-default-unit "^5.0.2"
+    jss-compose "^2.1.0"
+    jss-default-unit "^5.0.3"
     jss-isolate "^2.0.1"
     jss-nested "^3.0.1"
     leven "^2.1.0"
     listify "^1.0.0"
-    loader-utils "^1.0.3"
+    loader-utils "^1.1.0"
     lodash "^4.17.4"
     markdown-to-jsx "^5.0.1"
     minimist "^1.2.0"
@@ -5017,19 +5007,11 @@ react-styleguidist@5.0.0-rc.1:
     react-group "^1.0.3"
     remark "^7.0.0"
     semver-utils "^1.1.1"
-    style-loader "^0.13.2"
+    style-loader "^0.16.1"
     to-ast "^1.0.0"
     unist-util-visit "^1.1.1"
     webpack-dev-server "^1.16.3"
-    webpack-merge "^4.0.0"
-
-react-svg-sprite-icon@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/react-svg-sprite-icon/-/react-svg-sprite-icon-0.1.0.tgz#59e3b37c1c74a36216fac69f62f520386bb91676"
-  dependencies:
-    classnames "^2.2.3"
-    lodash.kebabcase "^4.0.0"
-    react-prop-types "^0.3.0"
+    webpack-merge "^4.1.0"
 
 react@^15.4.2:
   version "15.4.2"
@@ -5802,9 +5784,15 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@^0.13.1, style-loader@^0.13.2:
+style-loader@^0.13.1:
   version "0.13.2"
   resolved "https://registry.npmjs.org/style-loader/-/style-loader-0.13.2.tgz#74533384cf698c7104c7951150b49717adc2f3bb"
+  dependencies:
+    loader-utils "^1.0.2"
+
+style-loader@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.npmjs.org/style-loader/-/style-loader-0.16.1.tgz#50e325258d4e78421dd9680636b41e8661595d10"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -6230,12 +6218,6 @@ warning@3.0.0, warning@^3.0.0:
   dependencies:
     loose-envify "^1.0.0"
 
-warning@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/warning/-/warning-2.1.0.tgz#21220d9c63afc77a8c92111e011af705ce0c6901"
-  dependencies:
-    loose-envify "^1.0.0"
-
 watchpack@^1.2.0:
   version "1.3.1"
   resolved "https://registry.npmjs.org/watchpack/-/watchpack-1.3.1.tgz#7d8693907b28ce6013e7f3610aa2a1acf07dad87"
@@ -6300,7 +6282,7 @@ webpack-info-plugin@^0.1.0:
   dependencies:
     chalk "^1.1.1"
 
-webpack-merge@^4.0.0:
+webpack-merge@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/webpack-merge/-/webpack-merge-4.1.0.tgz#6ad72223b3e0b837e531e4597c199f909361511e"
   dependencies:
