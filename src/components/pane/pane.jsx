@@ -2,7 +2,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import './pane.scss';
+// TODO: Move SCSS into JSS
+// import './pane.scss';
 
 class Pane extends React.PureComponent {
   constructor(props) {

@@ -6,7 +6,12 @@ const config = require('./webpack.config')('styleguidist');
 
 const dir = path.join(__dirname, 'src');
 
-const portedComponents = ['badge', 'labeled-value', 'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td'];
+const portedComponents = [
+  'badge', 'labeled-value',
+  // Quickfix added
+  'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
+  'button', 'graph-tooltip', 'horizontal-nav', 'legend', 'pane',
+];
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
