@@ -6,7 +6,7 @@ const config = require('./webpack.config')('styleguidist');
 
 const dir = path.join(__dirname, 'src');
 
-const portedComponents = ['badge', 'labeled-value'];
+const portedComponents = ['badge', 'labeled-value', 'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td'];
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

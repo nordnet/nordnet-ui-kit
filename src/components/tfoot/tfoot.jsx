@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './tfoot.scss';
+// TODO: Move SCSS into JSS
+// import './tfoot.scss';
 
 function Tfoot(props) {
   const { className, children, size, ...rest } = props;
