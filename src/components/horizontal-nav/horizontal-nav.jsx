@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import c from 'color';
-import './horizontal-nav.scss';
+// TODO: Move SCSS into JSS
+// import './horizontal-nav.scss';
 
 function navItem(item) {
   const { label, url, key, active, ...rest } = item;

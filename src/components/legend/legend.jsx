@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import './legend.scss';
+// TODO: Move SCSS into JSS
+// import './legend.scss';
 
 function legendItem({ color, label, value, ...rest }) {
   return (
