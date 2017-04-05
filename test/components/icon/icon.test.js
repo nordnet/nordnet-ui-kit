@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { Icon } from '../../../src';
-// import icons from '../../../src/components/icon/icons';
 
 describe('<Icon />', () => {
   let wrapper;
