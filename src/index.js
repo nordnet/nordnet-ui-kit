@@ -1,9 +1,9 @@
-// import Alert from './components/alert/alert';
+import Alert from './components/alert/alert';
 import Avatar from './components/avatar';
 import Badge from './components/badge/badge';
 import Button from './components/button/button';
-// import Dropdown from './components/dropdown/dropdown';
-// import Flag from './components/flag/flag';
+import Dropdown from './components/dropdown/dropdown';
+import Flag from './components/flag/flag';
 import GraphTooltip from './components/graph-tooltip';
 import HorizontalNav from './components/horizontal-nav';
 import Apartment from './components/icon/icons/apartment';
@@ -51,10 +51,11 @@ import TrashAlternate from './components/icon/icons/trashAlternate';
 import User from './components/icon/icons/user';
 import UserShirt from './components/icon/icons/userShirt';
 import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
-// import Input from './components/input/input';
+import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Legend from './components/legend';
 import Logo from './components/logo/logo';
+import NavBar from './components/nav-bar';
 import Pane from './components/pane/pane';
 // import RadioGroup from './components/radio-group';
 // import RangeSelector from './components/range-selector/';
@@ -133,18 +134,20 @@ const Icon = {
 };
 
 export {
-  // Alert,
+  Alert,
+  Avatar,
   Badge,
   Button,
-  // Dropdown,
-  // Flag,
+  Flag,
+  Dropdown,
   GraphTooltip,
   HorizontalNav,
   Icon,
-  // Input,
+  Input,
   LabeledValue,
   Legend,
   Logo,
+  NavBar,
   Pane,
   // RadioGroup,
   // RangeSelector,
@@ -156,7 +159,6 @@ export {
   Table,
   Tbody,
   Td,
-  Avatar,
   Tfoot,
   Th,
   Thead,
