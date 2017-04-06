@@ -1,52 +1,46 @@
 import React, { PropTypes } from 'react';
 import cn from 'classnames';
-import { withTheme, injectSheet } from '../../';
+import withThemedStyles from '../../hocs/with-themed-styles';
 import styles from './styles';
 
 function Button({
   classes,
-  // variant,
+  variant,
   block,
   disabled,
   className,
   children,
-  // modifier,
+  modifier,
   href,
-  // size,
+  size,
   ...rest
 }) {
   const Element = href ? 'a' : 'button';
-  /*
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
   const isLink = variant === 'link';
   const isSuccess = modifier === 'success';
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
-  */
 
   return (
     <Element
       className={cn({
         [classes.button]: true,
         [classes.block]: block,
-        /*
-        'btn--block': block,
-        'btn--block': block,
-        'btn-primary': isPrimary,
-        'btn-primary--success': isPrimary && isSuccess,
-        'btn-primary--warning': isPrimary && isWarning,
-        'btn-primary--danger': isPrimary && isDanger,
-        'btn-secondary': isSecondary,
-        'btn-secondary--success': isSecondary && isSuccess,
-        'btn-secondary--warning': isSecondary && isWarning,
-        'btn-secondary--danger': isSecondary && isDanger,
-        'btn-link': isLink,
-        'btn-link--success': isLink && isSuccess,
-        'btn-link--warning': isLink && isWarning,
-        'btn-link--danger': isLink && isDanger,
-        */
-      }, className)}
+        [classes.primary]: isPrimary,
+        [classes['primary--success']]: isPrimary && isSuccess,
+        [classes['primary--warning']]: isPrimary && isWarning,
+        [classes['primary--danger']]: isPrimary && isDanger,
+        [classes.secondary]: isSecondary,
+        [classes.secondarySuccess]: isSecondary && isSuccess,
+        [classes.secondaryWarning]: isSecondary && isWarning,
+        [classes.secondaryDanger]: isSecondary && isDanger,
+        [classes.link]: isLink,
+        [classes.linkSuccess]: isLink && isSuccess,
+        [classes.linkWarning]: isLink && isWarning,
+        [classes.linkDanger]: isLink && isDanger,
+      }, classes[`size--${size}`], className)}
       disabled={disabled}
       href={href}
       {...rest}
@@ -74,4 +68,4 @@ Button.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withTheme(injectSheet(styles)(Button));
+export default withThemedStyles(styles, Button);

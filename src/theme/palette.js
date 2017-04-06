@@ -40,7 +40,7 @@ export const dark = {
 
 export const shades = { light, dark };
 
-export default function createPalette({
+function createPalette({
   primary = variant.primary,
   accent = variant.info,
   error = variant.danger,
@@ -64,4 +64,6 @@ export default function createPalette({
   };
 }
 
-export { createPalette };
+const palette = createPalette();
+
+export default palette;

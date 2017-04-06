@@ -1,95 +1,15 @@
-// import Alert from './components/alert/alert';
-import Badge from './components/badge/badge';
-// import Button from './components/button/button';
-// import Dropdown from './components/dropdown/dropdown';
-// import Flag from './components/flag/flag';
-// import GraphTooltip from './components/graph-tooltip';
-// import HorizontalNav from './components/horizontal-nav';
-// import Icon from './components/icon/icon';
-// import Input from './components/input/input';
-import LabeledValue from './components/labeled-value/labeled-value';
-// import Legend from './components/legend';
-// import Logo from './components/logo/logo';
-// import Pane from './components/pane/pane';
-// import RadioGroup from './components/radio-group';
-// import RangeSelector from './components/range-selector/';
-// import RatioBar from './components/ratio-bar';
-// import Search from './components/search';
-// import Select from './components/select/select';
-// import SparkGraph from './components/spark-graph';
-// import Spinner from './components/spinner';
-// import Table from './components/table';
-// import Tbody from './components/tbody';
-// import Td from './components/td';
-// import TextIcon from './components/text-icon';
-// import Tfoot from './components/tfoot';
-// import Th from './components/th';
-// import Thead from './components/thead';
-// import Tooltip from './components/tooltip';
-// import Tr from './components/tr';
-// import variables from './utilities/variables';
-// import Widget from './components/widget/widget';
+import components from './components';
+import theme from './theme';
+import hocs from './hocs';
 
-// Theming
-import { ThemeProvider, createTheme } from './styles';
-import injectSheet from './inject-sheet';
-import provideTheme from './provide-theme';
-import withTheme from './with-theme';
+console.log({ components });
 
-
-// Test utils
-import {
-  createMount,
-  createShallow,
-  createRenderToString,
-} from './test-utils';
-
-export {
-  // Alert,
-  Badge,
-  // Button,
-  // Dropdown,
-  // Flag,
-  // GraphTooltip,
-  // HorizontalNav,
-  // Icon,
-  // Input,
-  LabeledValue,
-  // Legend,
-  // Logo,
-  // Pane,
-  // RadioGroup,
-  // RangeSelector,
-  // RatioBar,
-  // Search,
-  // Select,
-  // SparkGraph,
-  // Spinner,
-  // Table,
-  // Tbody,
-  // Td,
-  // TextIcon,
-  // Tfoot,
-  // Th,
-  // Thead,
-  // Tooltip,
-  // Tr,
-  // variables,
-  // Widget,
-
-  // Theming
-  ThemeProvider,
-
-  // Test utils
-  createMount,
-  createShallow,
-  createRenderToString,
-
-  // reactJss injectSheet
-  injectSheet,
-
-  // theming
-  createTheme,  // theme
-  provideTheme, // for app
-  withTheme,    // for component
+const kit = {
+  ...components,
+  theme,
+  ...hocs,
 };
+
+console.log({ kit });
+
+export default kit;

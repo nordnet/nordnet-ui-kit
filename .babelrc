@@ -2,11 +2,11 @@
   "presets": [
     ["env", {
       "targets": {
-        "node": "current",
+        "node": 6.2,
         "browsers": ["last 2 versions"]
-      }
+      },
     }],
-    "react"
+    "react",
   ],
   "plugins": [
     "transform-class-properties",

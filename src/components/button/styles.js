@@ -1,182 +1,114 @@
+const merge = (x, y) => Object.assign({}, x, y);
+
+const fontSizes = {
+  xs: 12,
+  sm: 14,
+  md: 16,
+  lg: 18,
+};
+
+const sizePaddings = {
+  xs: 4,
+  sm: 7,
+  md: 10,
+  lg: 13,
+};
+
+const modifier = (variant, color, colorFocus) => {
+  const base = {
+    'outline-color': color,
+  };
+  if (variant === 'primary') {
+    return merge(base, {
+      background: color,
+      borderColor: color,
+      '&:hover': {
+        background: colorFocus,
+        borderColor: colorFocus,
+      },
+    });
+  }
+
+  if (variant === 'secondary') {
+    return merge(base, {
+      color,
+      borderColor: color,
+      '&:hover': {
+        color: colorFocus,
+        borderColor: colorFocus,
+      },
+    });
+  }
+  if (variant === 'link') {
+    return merge(base, {
+      color,
+      '&:hover': {
+        color: colorFocus,
+      },
+    });
+  }
+};
+
+const size = x => ({
+  fontSize: fontSizes[x],
+  padding: sizePaddings[x],
+});
+
 const styles = {
   button: {
     display: 'inline-block',
-    color: p => p.theme.palette.color.blue,
-    'background-color': p => p.theme.palette.color.white,
+    border: 0,
+    fontFamily: 'inherit',
+    fontWeight: 700,
+    lineHeight: 1,
+    // transition: props => `all .1s ${props.theme.transitions.easeOut}`,
+    textDecoration: 'none',
+    userSelect: 'none',
+    textAlign: 'center',
+    '&:disabled': {
+      cursor: 'not-allowed',
+    },
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   block: {
     display: 'block',
+    width: '100%',
   },
+  'size--xs': size('xs'),
+  'size--sm': size('sm'),
+  'size--md': size('md'),
+  'size--lg': size('lg'),
+  primary: {
+    background: props => props.theme.palette.variant.primary,
+    border: props => `2px solid ${props.theme.palette.variant.primary}`,
+    color: props => props.theme.palette.shades.light.text.default,
+
+    '&--warning': {
+      color: props => props.theme.palette.shades.dark.text.default,
+    },
+
+    '&:hover': {
+      // background: props => props.theme.pa.'$color-primary--focus',
+      // borderColor: props => props.theme.pa.'$color-primary--focus',
+    },
+
+    '&:disabled': {
+      background: '$color-background-disabled',
+      border: '2px solid $color-background-disabled',
+      color: '$colorDisabled',
+
+      '&:hover': {
+        background: '$color-background-disabled',
+        borderColor: '$color-background-disabled',
+      },
+    },
+  },
+  'primary--success': modifier('primary', '$color-success', '$color-success--focus'),
+  'primary--warning': modifier('primary', '$color-warning', '$color-warning--focus'),
+  'primary--danger': modifier('primary', '$color-danger', '$color-danger--focus'),
 };
 
+
 export default styles;
-
-/*
-@import '../../variables';
-@import '../../functions';
-
-$sizes: (
-  xs: 12px,
-  sm: 14px,
-  md: 16px,
-  lg: 18px,
-);
-
-$sizePaddings: (
-  xs: 4px,
-  sm: 7px,
-  md: 10px,
-  lg: 13px,
-);
-
-@mixin btn--modifier ($variant, $modifier, $color, $color-focus) {
-  &--#{ $modifier } {
-    outline-color: $color;
-
-    @if $variant == 'primary' {
-      background: $color;
-      border-color: $color;
-
-      &:hover {
-        background: $color-focus;
-        border-color: $color-focus;
-      }
-    }
-
-    @if $variant == 'secondary' {
-      color: $color;
-      border-color: $color;
-
-      &:hover {
-        color: $color-focus;
-        border-color: $color-focus;
-      }
-    }
-
-    @if $variant == 'link' {
-      color: $color;
-
-      &:hover {
-        color: $color-focus;
-      }
-    }
-  }
-}
-
-.btn {
-  &-primary,
-  &-secondary,
-  &-link {
-    display: inline-block;
-    border: 0;
-    font-family: inherit;
-    font-weight: 700;
-    line-height: 1;
-    transition: all .1s $ease-out;
-    text-decoration: none;
-    user-select: none;
-    text-align: center;
-
-    &:disabled {
-      cursor: not-allowed;
-    }
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  &--block {
-    display: block;
-    width: 100%;
-  }
-
-  @each $size, $font-size in $sizes {
-    &--#{$size} {
-      font-size: rem($font-size);
-      padding: rem(map-get($sizePaddings, #{$size}));
-    }
-  }
-
-  &-primary {
-    background: $color-primary;
-    // border: rem(2px solid $color-primary);
-    border: rem(2px solid $color-primary);
-    color: #fff;
-
-    &--warning {
-      color: $color-black;
-    }
-
-    &:hover {
-      background: $color-primary--focus;
-      border-color: $color-primary--focus;
-    }
-
-    &:disabled {
-      background: $color-background-disabled;
-      border: rem(2px solid $color-background-disabled);
-      color: $color-disabled;
-
-      &:hover {
-        background: $color-background-disabled;
-        border-color: $color-background-disabled;
-      }
-    }
-
-    @include btn--modifier('primary', 'success', $color-success, $color-success--focus);
-    @include btn--modifier('primary', 'warning', $color-warning, $color-warning--focus);
-    @include btn--modifier('primary', 'danger', $color-danger, $color-danger--focus);
-  }
-
-  &-secondary {
-    background: none;
-    color: $color-primary;
-    border: rem(2px solid $color-primary);
-
-    &:hover {
-      color: $color-primary--focus;
-      border-color: $color-primary--focus;
-    }
-
-    &:disabled {
-      border: rem(2px solid $color-background-disabled);
-      color: $color-background-disabled;
-
-      &:hover {
-        color: $color-background-disabled;
-        border-color: $color-background-disabled;
-      }
-    }
-
-    @include btn--modifier('secondary', 'success', $color-success, $color-success--focus);
-    @include btn--modifier('secondary', 'warning', $color-warning, $color-warning--focus);
-    @include btn--modifier('secondary', 'danger', $color-danger, $color-danger--focus);
-  }
-
-  &-link {
-    background: none;
-    padding-left: 0;
-    padding-right: 0;
-    color: $color-primary;
-    border: rem(2px solid transparent);
-    font-weight: 600;
-    cursor: pointer;
-
-    &:hover {
-      color: $color-primary-dark;
-    }
-
-    &:disabled {
-      color: $color-background-disabled;
-
-      &:hover {
-        color: $color-background-disabled;
-      }
-    }
-
-    @include btn--modifier('link', 'success', $color-success, $color-success--focus);
-    @include btn--modifier('link', 'warning', $color-warning, $color-warning--focus);
-    @include btn--modifier('link', 'danger', $color-danger, $color-danger--focus);
-  }
-}
-*/

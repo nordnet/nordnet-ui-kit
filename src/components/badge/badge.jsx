@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import cn from 'classnames';
 import Color from 'color';
-import { withTheme, injectSheet } from '../../';
+import withThemedStyles from '../../hocs/with-themed-styles';
 
 // TODO: Move these UTILS to styles
 const CONTRAST_THRESHOLD = 5;
@@ -12,7 +12,7 @@ const getTextColor = (theme, light) => theme.palette.shades[light ? 'light' : 'd
 const bgc = ({ theme, modifier }) => theme.palette.variant[modifier || 'primary'];
 const col = p => getTextColor(p.theme, isContrast(bgc(p), getTextColor(p.theme, true)));
 
-export const styles = {
+const styles = {
   badge: {
     display: 'inline-block',
     fontSize: 12,
@@ -43,4 +43,4 @@ Badge.propTypes = {
   style: PropTypes.object,
 };
 
-export default withTheme(injectSheet(styles)(Badge));
+export default withThemedStyles(styles, Badge);

@@ -1,4 +1,5 @@
-import { createThemeProvider, theme } from './index';
+import theme from '../theme';
+import createThemeProvider from './create-theme-provider';
 
 function ThemeProvider({ children }) {
   return createThemeProvider(theme, children);
