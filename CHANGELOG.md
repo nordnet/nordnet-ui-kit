@@ -8,6 +8,7 @@
 * Added new colors and typography to the theme
 * Ported components to JSS
 * Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
+* Removed variables
 
 ### Ported components:
 Badge, LabeledValue, Icon, Logo, Flag
