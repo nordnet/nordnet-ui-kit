@@ -78,6 +78,13 @@ import Tr from './components/tr';
 // Theming
 import { ThemeProvider } from './styles';
 
+
+export {
+  injectSheet,
+  withTheme,
+  withThemedStyles,
+} from './hocs';
+
 // Test utils
 import {
   createMount,
@@ -174,4 +181,9 @@ export {
   createMount,
   createShallow,
   createRenderToString,
+
+  // hocs
+  injectSheet,
+  withTheme,
+  withThemedStyles,
 };
