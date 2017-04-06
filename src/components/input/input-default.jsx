@@ -4,7 +4,8 @@ import { kebabCase } from 'lodash';
 import ValidationIcon from './validation-icon';
 import Label from './label';
 import HelpText from './help-text';
-import './input-default.scss';
+// TODO: Move SCSS into JSS
+// import './input-default.scss';
 
 const isUndefined = value => value === undefined;
 

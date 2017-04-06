@@ -5,7 +5,8 @@ import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import HelpText from './help-text';
-import './input-checkbox-radio.scss';
+// TODO: Move SCSS into JSS
+// import './input-checkbox-radio.scss';
 
 class InputCheckboxRadio extends React.PureComponent {
   constructor(props) {
