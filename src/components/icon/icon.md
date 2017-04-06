@@ -1,22 +1,27 @@
-    const icons = require('./icons.js');
+    const { Icon } = require('../../'); // nordnet-ui-kit
+
     const style = {
       display: 'inline-block',
       textAlign: 'center',
       padding: 16,
       minWidth: '20%',
     };
+    const icons = Object.keys(Icon);
 
     <div>
-      {Object.keys(icons.default).map(icon => (
-        <div key={ icon } style={ style }>
+      {icons.map(iconName => {
+        const IconComponent = Icon[iconName];
 
-          <Icon
-            type={ icon }
-            stroke="#00A9EC"
-            fill="#00A9EC"
-          />
+        return (
+          <div key={ iconName } style={ style }>
 
-          <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ icon }</div>
-        </div>
-      ))}
+            <IconComponent
+              stroke="#00A9EC"
+              fill="#00A9EC"
+            />
+
+            <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ iconName }</div>
+          </div>
+        );
+      })}
     </div>

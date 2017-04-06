@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './thead.scss';
+// TODO: Move SCSS into JSS
+// import './thead.scss';
 
 function Thead({
   className,

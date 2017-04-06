@@ -10,7 +10,6 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "transform-object-rest-spread",
-    "inline-react-svg"
+    "transform-object-rest-spread"
   ]
 }
