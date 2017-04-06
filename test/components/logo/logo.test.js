@@ -1,9 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import { shallow as enzymeShallow } from 'enzyme';
+import { createShallow } from '../../../src/test-utils';
 import Logo from '../../../src/components/logo/logo';
 
 describe('<Logo />', () => {
+  const shallow = createShallow(enzymeShallow);
   let wrapper;
 
   beforeEach(() => {
