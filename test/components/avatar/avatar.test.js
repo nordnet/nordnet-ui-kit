@@ -2,16 +2,20 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow as enzymeShallow } from 'enzyme';
 import { createShallow } from '../../../src/test-utils';
-import TextIcon, { styleSheet } from '../../../src/components/text-icon/text-icon';
+import Avatar, { styleSheet } from '../../../src/components/avatar/avatar';
 
-describe('<TextIcon />', () => {
+describe('<Avatar />', () => {
   const inputText = 'ISK';
   const shallow = createShallow(enzymeShallow);
   const classes = shallow.context.styleManager.render(styleSheet);
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<TextIcon text={inputText} />);
+    wrapper = shallow(
+      <Avatar>
+        { inputText }
+      </Avatar>,
+    );
   });
 
   it('should render a div', () => {
@@ -27,12 +31,12 @@ describe('<TextIcon />', () => {
   });
 
   it('should have the class large if iconSize is set to "large"', () => {
-    wrapper = shallow(<TextIcon iconSize="large" />);
+    wrapper = shallow(<Avatar iconSize="large" />);
     expect(wrapper.hasClass(classes.large)).to.equal(true);
   });
 
   it('should not have large or small classes if iconSize is set to "custom"', () => {
-    wrapper = shallow(<TextIcon iconSize="custom" />);
+    wrapper = shallow(<Avatar iconSize="custom" />);
     expect(wrapper.hasClass(classes.large)).to.equal(false);
     expect(wrapper.hasClass(classes.small)).to.equal(false);
   });
@@ -41,28 +45,22 @@ describe('<TextIcon />', () => {
     expect(wrapper.text()).to.equal(inputText);
   });
 
-  it('should render a <TextIcon /> with custom textColor', () => {
-    const textColor = 'red';
-    wrapper = shallow(<TextIcon textColor={textColor} />);
-    expect(wrapper.prop('style').color).to.equal(textColor);
-  });
-
-  it('should render a <TextIcon /> with custom iconColor', () => {
+  it('should render a <Avatar /> with custom iconColor', () => {
     const iconColor = 'red';
-    wrapper = shallow(<TextIcon iconColor={iconColor} />);
+    wrapper = shallow(<Avatar iconColor={iconColor} />);
     expect(wrapper.prop('style').backgroundColor).to.equal(iconColor);
   });
 
   it('should be possibe to send in a custom className', () => {
     const className = 'custom-class';
-    wrapper = shallow(<TextIcon className={className} />);
+    wrapper = shallow(<Avatar className={className} />);
     expect(wrapper.hasClass(className)).to.equal(true);
   });
 
   it('should be possibe to send in custom styles', () => {
     const fontSize = 10;
     const style = { fontSize };
-    wrapper = shallow(<TextIcon style={style} />);
+    wrapper = shallow(<Avatar style={style} />);
     expect(wrapper.prop('style').fontSize).to.equal(fontSize);
   });
 });
