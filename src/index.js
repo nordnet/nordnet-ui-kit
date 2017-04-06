@@ -2,7 +2,7 @@
 import Badge from './components/badge/badge';
 import Button from './components/button/button';
 // import Dropdown from './components/dropdown/dropdown';
-// import Flag from './components/flag/flag';
+import Flag from './components/flag/flag';
 import GraphTooltip from './components/graph-tooltip';
 import HorizontalNav from './components/horizontal-nav';
 import Apartment from './components/icon/icons/apartment';
@@ -137,7 +137,7 @@ export {
   Badge,
   Button,
   // Dropdown,
-  // Flag,
+  Flag,
   GraphTooltip,
   HorizontalNav,
   Icon,

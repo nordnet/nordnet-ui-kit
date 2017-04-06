@@ -9,7 +9,7 @@
 * Ported components to JSS
 
 ### Ported components:
-Badge, LabeledValue
+Badge, LabeledValue, Icon, Logo, Flag
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
