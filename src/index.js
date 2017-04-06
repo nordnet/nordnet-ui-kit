@@ -33,6 +33,7 @@ import Lock from './components/icon/icons/lock';
 import Mail from './components/icon/icons/mail';
 import MailOpen from './components/icon/icons/mailOpen';
 import News from './components/icon/icons/news';
+import NordnetLogo from './components/icon/icons/nordnetLogo';
 import Print from './components/icon/icons/print';
 import Questionmark from './components/icon/icons/questionmark';
 import Search from './components/icon/icons/search';
@@ -52,7 +53,7 @@ import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
 // import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Legend from './components/legend';
-// import Logo from './components/logo/logo';
+import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 // import RadioGroup from './components/radio-group';
 // import RangeSelector from './components/range-selector/';
@@ -112,6 +113,7 @@ const Icon = {
   Mail,
   MailOpen,
   News,
+  NordnetLogo,
   Print,
   Questionmark,
   Search,
@@ -142,7 +144,7 @@ export {
   // Input,
   LabeledValue,
   Legend,
-  // Logo,
+  Logo,
   Pane,
   // RadioGroup,
   // RangeSelector,
