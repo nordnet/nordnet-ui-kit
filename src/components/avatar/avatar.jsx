@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export const styleSheet = createStyleSheet('TextIcon', (theme) => {
+export const styleSheet = createStyleSheet('Avatar', (theme) => {
   const { palette, typography } = theme;
 
   const styles = {
@@ -34,19 +34,17 @@ export const styleSheet = createStyleSheet('TextIcon', (theme) => {
   return styles;
 });
 
-function TextIcon({
-  text,
+function Avatar({
+  children,
   className: classNameProp,
   style: styleProp,
   iconSize,
   iconColor,
-  textColor,
   ...rest
 }, { styleManager }) {
   const classes = styleManager.render(styleSheet);
   const style = Object.assign({}, {
     backgroundColor: iconColor,
-    color: textColor,
   }, styleProp);
 
   const className = cn([classes.root], {
@@ -56,26 +54,25 @@ function TextIcon({
 
   return (
     <div className={className} style={style} {...rest}>
-      { text }
+      { children }
     </div>
   );
 }
 
-TextIcon.propTypes = {
+Avatar.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
-  text: PropTypes.string.isRequired,
+  children: PropTypes.node,
   iconSize: PropTypes.oneOf(['small', 'large', 'custom']),
   iconColor: PropTypes.string,
-  textColor: PropTypes.string,
 };
 
-TextIcon.defaultProps = {
+Avatar.defaultProps = {
   iconSize: 'small',
 };
 
-TextIcon.contextTypes = {
+Avatar.contextTypes = {
   styleManager: PropTypes.object.isRequired,
 };
 
-export default TextIcon;
+export default Avatar;
