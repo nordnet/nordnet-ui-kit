@@ -14,8 +14,8 @@ describe('<Flag />', () => {
     expect(wrapper.type()).to.equal('span');
   });
 
-  it('should render a span', () => {
+  it('should scale according to size', () => {
     const newElement = shallow(<Flag countryCode="se" size={64} />);
-    expect(newElement.prop('style').width).to.equal('64px');
+    expect(newElement.prop('style').width).to.equal(64);
   });
 });
