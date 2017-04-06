@@ -20,14 +20,14 @@ function Flag({
   const styles = Object.assign({
     display: 'inline-block',
     position: 'relative',
-    width: `${size}px`,
-    height: `${size}px`,
+    width: size,
+    height: size,
     'clip-path': `circle(${circleSize}px)`,
   }, style);
 
   const primaryStyling = Object.assign({
-    width: `${width}px`,
-    height: `${height}px`,
+    width: width,
+    height: height,
     position: 'absolute',
     top: '0',
     left: `${countryCode === 'ca' ? canadianLeftPos : 0}`, // Position canadian flag better
