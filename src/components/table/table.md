@@ -13,7 +13,7 @@ Sticky header table:
       </Thead>
       <Tbody size="xs" colorAlternateRows={false} borderBottom>
         { data.map((instrument, index) => (
-          <Tr border={index === 0 ? true : false} sticky={index === 0 ? true : false}>
+          <Tr key={instrument[0]} border={index === 0 ? true : false} sticky={index === 0 ? true : false}>
             <Td width={40}>
               { instrument[0] }
             </Td>
@@ -46,7 +46,7 @@ Scrollable table:
       </Thead>
       <Tbody size="xs" maxHeight={ 128 }>
         { data.map(instrument => (
-          <Tr>
+          <Tr key={instrument[0]}>
             <Td>{ instrument[0] }</Td>
             <Td mono borderLeft>{ Math.floor(Math.random() * instrument[1]) }</Td>
             <Td mono highlight="warning">{ instrument[2] }</Td>
