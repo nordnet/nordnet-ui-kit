@@ -6,4 +6,4 @@ export {
   injectSheet,
   withTheme,
   ThemeProvider,
-}
+};

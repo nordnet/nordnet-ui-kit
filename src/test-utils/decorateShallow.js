@@ -1,13 +1,13 @@
 import { theme } from '../styles/theme';
 
-const selector = x => x.split(' ').map(x => '.' + x).join('');
+const selector = x => x.split(' ').map(_ => `.${_}`).join('');
 const merge = (x, y) => Object.assign({}, x, y);
 const selectorsReducer = classes => (state, item) => merge(state, {
-  [item]: selector(classes[item])
+  [item]: selector(classes[item]),
 });
 const selectors = classes => Object.keys(classes)
   .filter(y => y[0] !== '.')
-  .reduce(selectorsReducer(classes), {})
+  .reduce(selectorsReducer(classes), {});
 
 function decorateShallow(enzymeShallow) {
   return function shallow(child) {
@@ -17,7 +17,7 @@ function decorateShallow(enzymeShallow) {
     w.classes = classes;
     w.selectors = selectors(classes);
     return w;
-  }
+  };
 }
 
 export default decorateShallow;
