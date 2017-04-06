@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './td.scss';
+// TODO: Move SCSS into JSS
+// import './td.scss';
 
 function Td({
   className,

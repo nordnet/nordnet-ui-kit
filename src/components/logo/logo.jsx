@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
-import defaultLogo from './nordnet-logo-default.svg';
+import { Icon } from '../../../src';
 
 const styleSheet = createStyleSheet('Logo', () => (
   {
@@ -13,7 +13,7 @@ const styleSheet = createStyleSheet('Logo', () => (
 function Logo(props, { styleManager }) {
   const classes = styleManager.render(styleSheet);
   const logos = {
-    default: defaultLogo,
+    default: Icon.NordnetLogo,
   };
   const NordnetLogo = logos[props.type];
   const logoStyle = {
