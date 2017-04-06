@@ -1,4 +1,5 @@
 import Alert from './components/alert/alert';
+import Avatar from './components/avatar';
 import Badge from './components/badge/badge';
 import Button from './components/button/button';
 import Dropdown from './components/dropdown/dropdown';
@@ -66,7 +67,6 @@ import Pane from './components/pane/pane';
 import Table from './components/table';
 import Tbody from './components/tbody';
 import Td from './components/td';
-// import TextIcon from './components/text-icon';
 import Tfoot from './components/tfoot';
 import Th from './components/th';
 import Thead from './components/thead';
@@ -135,6 +135,7 @@ const Icon = {
 
 export {
   Alert,
+  Avatar,
   Badge,
   Button,
   Flag,
@@ -158,7 +159,6 @@ export {
   Table,
   Tbody,
   Td,
-  // TextIcon,
   Tfoot,
   Th,
   Thead,
