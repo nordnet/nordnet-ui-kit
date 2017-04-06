@@ -79,7 +79,7 @@ import Tr from './components/tr';
 import { ThemeProvider } from './styles';
 
 
-export {
+import {
   injectSheet,
   withTheme,
   withThemedStyles,

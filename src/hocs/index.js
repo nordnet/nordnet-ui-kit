@@ -7,6 +7,6 @@ import withThemedStyles from './with-themed-styles';
 export {
   injectSheet,
   withTheme,
-  ThemeProvider,
+  ThemeProvider,  
   withThemedStyles
 };
