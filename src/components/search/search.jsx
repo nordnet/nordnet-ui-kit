@@ -5,7 +5,7 @@ import { kebabCase, debounce } from 'lodash';
 import omit from '../../utilities/omit';
 import Flag from '../flag';
 import Spinner from '../spinner';
-import searchIcon from '../../icons/search.svg';
+import SearchIcon from '../icon/icons/search';
 import './search.scss';
 
 function renderDevelopment(development) {
@@ -192,7 +192,7 @@ class Search extends React.Component {
           value={this.state.value}
           ref={(input) => { this.input = input; }}
         />
-        <span className="search__icon" dangerouslySetInnerHTML={{ __html: searchIcon }} />
+        <SearchIcon className="search__icon" />
         { show ? this.renderResults() : null }
       </div>
     );
