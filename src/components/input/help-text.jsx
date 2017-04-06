@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './help-text.scss';
+// TODO: Move SCSS into JSS
+// import './help-text.scss';
 
 function HelpText(props) {
   const { hasSuccess, hasWarning, hasError } = props;

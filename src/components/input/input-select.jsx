@@ -3,7 +3,8 @@ import { kebabCase } from 'lodash';
 import InputDefault from './input-default';
 import variables from '../../utilities/variables';
 import Icon from '../icon/icon';
-import './input-select.scss';
+// TODO: Move SCSS into JSS
+// import './input-select.scss';
 
 function renderOption(option) {
   const { label, value, key: keyOption, ...rest } = option;

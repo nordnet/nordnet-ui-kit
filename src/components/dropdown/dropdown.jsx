@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import Icon from '../icon/icon';
 import variables from '../../utilities/variables';
-import './dropdown.scss';
+// TODO: Move SCSS into JSS
+// import './dropdown.scss';
 
 class Dropdown extends React.PureComponent {
   constructor(props) {
