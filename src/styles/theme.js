@@ -27,4 +27,5 @@ export function createTheme(config = {}) {
   return theme;
 }
 
+export const theme = createTheme();
 export default createTheme;
