@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
-import { Icon } from '../../../src';
+import { Icon } from '../../..';
 
 const styleSheet = createStyleSheet('Logo', () => (
   {
