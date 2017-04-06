@@ -1,6 +1,6 @@
 {
   "name": "nordnet-ui-kit",
-  "version": "0.2.0-beta.4",
+  "version": "0.2.0-beta.5",
   "description": "Nordnets React powered UI kit",
   "main": "dist",
   "scripts": {
