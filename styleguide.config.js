@@ -7,7 +7,7 @@ const config = require('./webpack.config')('styleguidist');
 const dir = path.join(__dirname, 'src');
 
 const portedComponents = [
-  'badge', 'labeled-value', 'icon',
+  'badge', 'labeled-value', 'icon', 'logo',
   // Quickfix added
   'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
   'button', 'graph-tooltip', 'horizontal-nav', 'legend', 'pane',
