@@ -139,7 +139,6 @@ export {
   Button,
   Flag,
   Dropdown,
-  Flag,
   GraphTooltip,
   HorizontalNav,
   Icon,
