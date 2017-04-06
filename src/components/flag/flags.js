@@ -1,5 +1,3 @@
-import React from 'react'; // eslint-disable-line
-
 import ca from './../../flags/flagCa';
 import de from './../../flags/flagDe';
 import dk from './../../flags/flagDk';

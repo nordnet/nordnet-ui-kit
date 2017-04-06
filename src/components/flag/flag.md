@@ -20,14 +20,14 @@ Classic usage: single flag
 Advanced usage: combined flag
 
     <div>
-      <Flag size={64} countryCode={ 'no' } secondaryCountryCode={ 'dk' } />
-      <Flag size={64} countryCode={ 'dk' } secondaryCountryCode={ 'no' } />
-      <Flag size={64} countryCode={ 'no' } secondaryCountryCode={ 'se' } />
-      <Flag size={64} countryCode={ 'se' } secondaryCountryCode={ 'no' } />
-      <Flag size={64} countryCode={ 'us' } secondaryCountryCode={ 'se' } />
-      <Flag size={64} countryCode={ 'se' } secondaryCountryCode={ 'us' } />
-      <Flag size={64} countryCode={ 'us' } secondaryCountryCode={ 'de' } />
-      <Flag size={64} countryCode={ 'de' } secondaryCountryCode={ 'us' } />
-      <Flag size={64} countryCode={ 'us' } secondaryCountryCode={ 'ca' } />
-      <Flag size={64} countryCode={ 'ca' } secondaryCountryCode={ 'us' } />
+      <Flag size={64} countryCode="no" secondaryCountryCode="dk" />
+      <Flag size={64} countryCode="dk" secondaryCountryCode="no" />
+      <Flag size={64} countryCode="no" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="se" secondaryCountryCode="no" />
+      <Flag size={64} countryCode="us" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="se" secondaryCountryCode="us" />
+      <Flag size={64} countryCode="us" secondaryCountryCode="de" />
+      <Flag size={64} countryCode="de" secondaryCountryCode="us" />
+      <Flag size={64} countryCode="us" secondaryCountryCode="ca" />
+      <Flag size={64} countryCode="ca" secondaryCountryCode="us" />
     </div>
