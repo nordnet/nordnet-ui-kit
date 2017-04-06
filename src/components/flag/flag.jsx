@@ -26,8 +26,8 @@ function Flag({
   }, style);
 
   const primaryStyling = Object.assign({
-    width: width,
-    height: height,
+    width,
+    height,
     position: 'absolute',
     top: '0',
     left: `${countryCode === 'ca' ? canadianLeftPos : 0}`, // Position canadian flag better
