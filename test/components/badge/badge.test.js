@@ -1,46 +1,50 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../src/test-utils';
-import Badge, { styleSheet } from '../../../src/components/badge/badge';
+import { decorateShallow } from '../../../src/test-utils';
+import Badge from '../../../src/components/badge/badge';
 
-describe('<Badge />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(styleSheet);
-  let wrapper;
+const shallow = decorateShallow(enzymeShallow);
+// console.log(Badge)
 
+describe.only('<Badge />', () => {
   it('should render <span> as container', () => {
-    wrapper = shallow(<Badge />);
+    const wrapper = shallow(<Badge />);
     expect(wrapper.type()).to.equal('span');
   });
 
   it('should have the class root', () => {
-    wrapper = shallow(<Badge />);
+    const wrapper = shallow(<Badge />);
+    const { classes } = wrapper;
     expect(wrapper.hasClass(classes.root)).to.equal(true);
   });
 
   it('should render children', () => {
-    wrapper = shallow(<Badge>child</Badge>);
+    const wrapper = shallow(<Badge>child</Badge>);
     expect(wrapper.contains('child')).to.equal(true);
   });
 
   it('should have class success when modifier = sucess', () => {
-    wrapper = shallow(<Badge modifier="success" />);
+    const wrapper = shallow(<Badge modifier="success" />);
+    const { classes } = wrapper;
     expect(wrapper.hasClass(classes.success)).to.equal(true);
   });
 
   it('should have class badge--danger with danger modifier', () => {
-    wrapper = shallow(<Badge modifier="danger" />);
+    const wrapper = shallow(<Badge modifier="danger" />);
+    const { classes } = wrapper;
     expect(wrapper.hasClass(classes.danger)).to.equal(true);
   });
 
   it('should have class badge--warning with warning modifier', () => {
-    wrapper = shallow(<Badge modifier="warning" />);
+    const wrapper = shallow(<Badge modifier="warning" />);
+    const { classes } = wrapper;
     expect(wrapper.hasClass(classes.warning)).to.equal(true);
   });
 
   it('should have 3 classes if a modifier and className is given', () => {
-    wrapper = shallow(<Badge className="test" modifier="warning" />);
+    const wrapper = shallow(<Badge className="test" modifier="warning" />);
+    const { classes } = wrapper;
     expect(wrapper.hasClass(classes.root)
     && wrapper.hasClass(classes.warning)
     && wrapper.hasClass('test')).to.equal(true);

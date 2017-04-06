@@ -1,44 +1,39 @@
 import React, { PropTypes } from 'react';
 import cn from 'classnames';
-import { createStyleSheet } from 'jss-theme-reactor';
+import { withThemedStyles } from '../../hocs';
 
-export const styleSheet = createStyleSheet('Badge', (theme) => {
-  const { palette } = theme;
-
-  return {
-    root: {
-      display: 'inline-block',
-      fontSize: '12px',
-      padding: '2px 8px',
-      lineHeight: 1,
-      color: palette.shades.dark.text.default,
-      textAlign: 'center',
-      whiteSpace: 'nowrap',
-      verticalAlign: 'middle',
-      backgroundColor: palette.variant.primary,
-      borderRadius: '10px',
-    },
-    success: {
-      backgroundColor: palette.variant.success,
-    },
-    warning: {
-      backgroundColor: palette.variant.warning,
-      color: palette.text.default,
-    },
-    danger: {
-      backgroundColor: palette.variant.danger,
-    },
-  };
-});
+const styles = {
+  root: {
+    display: 'inline-block',
+    fontSize: '12px',
+    padding: '2px 8px',
+    lineHeight: 1,
+    color: ({ theme }) => theme.palette.shades.dark.text.default,
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+    verticalAlign: 'middle',
+    'background-color': ({ theme }) => theme.palette.variant.primary,
+    borderRadius: '10px',
+  },
+  success: {
+    'background-color': ({ theme }) => theme.palette.variant.success,
+  },
+  warning: {
+    'background-color': ({ theme }) => theme.palette.variant.warning,
+    color: ({ theme }) => theme.palette.text.default,
+  },
+  danger: {
+    'background-color': ({ theme }) => theme.palette.variant.danger,
+  },
+};
 
 function Badge({
+  classes,
   modifier,
   children,
   className: classNameProp,
   ...rest
-}, { styleManager }) {
-  const classes = styleManager.render(styleSheet);
-
+}) {
   const className = cn([classes.root], {
     [classes.success]: modifier === 'success',
     [classes.warning]: modifier === 'warning',
@@ -56,8 +51,4 @@ Badge.propTypes = {
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
 };
 
-Badge.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Badge;
+export default withThemedStyles(styles, Badge);
