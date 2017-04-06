@@ -1,11 +1,11 @@
 import React from 'react'; // eslint-disable-line
 
-import ca from './../../flags/ca.svg';
-import de from './../../flags/de.svg';
-import dk from './../../flags/dk.svg';
-import fi from './../../flags/fi.svg';
-import no from './../../flags/no.svg';
-import se from './../../flags/se.svg';
-import us from './../../flags/us.svg';
+import ca from './../../flags/flagCa';
+import de from './../../flags/flagDe';
+import dk from './../../flags/flagDk';
+import fi from './../../flags/flagFi';
+import no from './../../flags/flagNo';
+import se from './../../flags/flagSe';
+import us from './../../flags/flagUs';
 
 export default { ca, de, dk, fi, no, se, us };
