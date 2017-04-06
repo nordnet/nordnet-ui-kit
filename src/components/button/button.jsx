@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './button.scss';
+// TODO: Move SCSS into JSS
+// import './button.scss';
 
 function Button({
   variant,

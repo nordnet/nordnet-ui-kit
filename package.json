@@ -50,8 +50,7 @@
     "react-addons-shallow-compare": "^15.1.0",
     "react-motion-ui-pack": "^0.10.2",
     "react-prop-types": "^0.4.0",
-    "react-select": "^1.0.0-rc.3",
-    "react-svg-sprite-icon": "^0.1.0"
+    "react-select": "^1.0.0-rc.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
@@ -96,7 +95,7 @@
     "react-addons-test-utils": "^15.4.2",
     "react-docgen": "^2.13.0",
     "react-dom": "^15.4.2",
-    "react-styleguidist": "5.0.0-rc.1",
+    "react-styleguidist": "5.0.3",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.1",
     "sass-variable-loader": "^0.1.1",
@@ -104,7 +103,6 @@
     "source-map-support": "^0.4.0",
     "style-loader": "^0.13.1",
     "svg-icon-template-loader": "0.0.6",
-    "svgo-loader": "^1.1.2",
     "webpack": "2.2.1",
     "webpack-bundle-analyzer": "^2.3.0",
     "webpack-node-externals": "^1.2.0"

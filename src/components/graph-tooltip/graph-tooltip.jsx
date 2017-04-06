@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import CompareTooltip from './compare-tooltip';
 import InstrumentTooltip from './instrument-tooltip';
-import './graph-tooltip.scss';
+// TODO: Move SCSS into JSS
+// import './graph-tooltip.scss';
 
 function renderContent(type, rest) {
   switch (type) {

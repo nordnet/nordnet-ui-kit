@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './th.scss';
+// TODO: Move SCSS into JSS
+// import './th.scss';
 
 function Th({
   className,

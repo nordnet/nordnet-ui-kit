@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import rem from '../../utilities/rem';
-import './tbody.scss';
+// TODO: Move SCSS into JSS
+// import './tbody.scss';
 
 function Tbody({
   className,
