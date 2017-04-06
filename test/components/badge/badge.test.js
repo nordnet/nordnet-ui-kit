@@ -5,9 +5,8 @@ import { decorateShallow } from '../../../src/test-utils';
 import Badge from '../../../src/components/badge/badge';
 
 const shallow = decorateShallow(enzymeShallow);
-// console.log(Badge)
 
-describe.only('<Badge />', () => {
+describe('<Badge />', () => {
   it('should render <span> as container', () => {
     const wrapper = shallow(<Badge />);
     expect(wrapper.type()).to.equal('span');
