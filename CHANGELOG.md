@@ -7,6 +7,7 @@
 * Export test-utils for createShallow, createMount and createRenderToString
 * Added new colors and typography to the theme
 * Ported components to JSS
+* Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
 
 ### Ported components:
 Badge, LabeledValue, Icon, Logo, Flag
