@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import Icon from '../icon/icon';
-import variables from '../../utilities/variables';
+// import variables from '../../utilities/variables';
 // TODO: Move SCSS into JSS
 // import './dropdown.scss';
 
@@ -49,7 +49,7 @@ class Dropdown extends React.PureComponent {
           { this.props.toggle }
           <Icon
             className="dropdown__toggle-icon"
-            stroke={variables.colorPrimary}
+            stroke={'variables.colorPrimary'}
             width={8}
             height={8}
             type={this.state.actionsOpen ? 'chevronUp' : 'chevronDown'}

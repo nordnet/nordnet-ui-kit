@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../icon/icon';
-import variables from '../../utilities/variables';
+// import variables from '../../utilities/variables';
 
 function ValidationIcon(props) {
   const iconClass = 'input__validation-icon';
@@ -10,7 +10,7 @@ function ValidationIcon(props) {
   }
 
   if (props.hasWarning) {
-    return <Icon className={iconClass} type="exclamationPoint" stroke={variables.colorWarning} />;
+    return <Icon className={iconClass} type="exclamationPoint" stroke={'variables.colorWarning'} />;
   }
 
   if (props.hasError) {

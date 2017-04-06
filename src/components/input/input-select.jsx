@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { kebabCase } from 'lodash';
 import InputDefault from './input-default';
-import variables from '../../utilities/variables';
+// import variables from '../../utilities/variables';
 import Icon from '../icon/icon';
 // TODO: Move SCSS into JSS
 // import './input-select.scss';
@@ -24,7 +24,7 @@ class InputSelect extends InputDefault {
     return (
       <Icon
         className={className}
-        stroke={variables.colorPrimary}
+        stroke={'variables.colorPrimary'}
         type={this.state.hasFocus ? 'chevronUp' : 'chevronDown'}
         renderInline
       />
