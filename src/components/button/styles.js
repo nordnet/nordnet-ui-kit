@@ -14,6 +14,7 @@ const sizePaddings = {
   lg: 13,
 };
 
+// eslint-disable-next-line consistent-return
 const modifier = (variant, color, colorFocus) => {
   const base = {
     'outline-color': color,
@@ -85,9 +86,11 @@ const styles = {
     border: props => `2px solid ${props.theme.palette.variant.primary}`,
     color: props => props.theme.palette.shades.light.text.default,
 
+    /** why do you need this, if you have &--warning in the bottom
     '&--warning': {
       color: props => props.theme.palette.shades.dark.text.default,
     },
+    */
 
     '&:hover': {
       // background: props => props.theme.palette.$color-primary--focus',
