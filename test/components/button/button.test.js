@@ -25,8 +25,6 @@ describe('<Button />', () => {
     it.skip(`should have class primary--${modifier} if modifier is set to ${modifier}`, () => {
       const wrapper = shallow(<Button modifier={modifier}>Button</Button>);
       const { classes } = wrapper;
-      console.log(`primary--${modifier}`)
-      console.log(classes)
       expect(wrapper.hasClass(classes[`primary--${modifier}`])).to.equal(true);
     });
   });

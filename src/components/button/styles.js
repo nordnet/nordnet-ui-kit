@@ -106,7 +106,7 @@ const styles = {
     },
     '&--success': modifier('primary', '$color-success', '$color-success--focus'),
     '&--warning': modifier('primary', '$color-warning', '$color-warning--focus'),
-    '&--danger':  modifier('primary', '$color-danger',  '$color-danger--focus'),
+    '&--danger': modifier('primary', '$color-danger', '$color-danger--focus'),
   },
   secondary: {
     background: 'none',
@@ -125,12 +125,12 @@ const styles = {
       '&:hover': {
         color: '$color-background-disabled',
         'border-color': '$color-background-disabled',
-      }
+      },
     },
 
     '&--success': modifier('secondary', '$color-success', '$color-success--focus'),
     '&--warning': modifier('secondary', '$color-warning', '$color-warning--focus'),
-    '&--danger':  modifier('secondary', '$color-danger',  '$color-danger--focus'),
+    '&--danger': modifier('secondary', '$color-danger', '$color-danger--focus'),
   },
   link: {
     background: 'none',
@@ -149,14 +149,14 @@ const styles = {
       color: '$color-background-disabled',
 
       '&:hover': {
-        color: '$color-background-disabled'
-      }
+        color: '$color-background-disabled',
+      },
     },
 
     '&--success': modifier('link', '$color-success', '$color-success--focus'),
     '&--warning': modifier('link', '$color-warning', '$color-warning--focus'),
-    '&--danger':  modifier('link', '$color-danger',  '$color-danger--focus'),
-  }
+    '&--danger': modifier('link', '$color-danger', '$color-danger--focus'),
+  },
 };
 
 
