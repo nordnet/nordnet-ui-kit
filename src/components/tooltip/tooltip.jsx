@@ -1,8 +1,8 @@
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
 import React from 'react';
 import classnames from 'classnames';
-import Icon from '../icon/icon';
-import './tooltip.scss';
+import Questionmark from '../icon/icons/questionmark';
+// import './tooltip.scss';
 
 class Tooltip extends React.Component {
   constructor(props) {
@@ -159,7 +159,7 @@ class Tooltip extends React.Component {
 }
 
 Tooltip.defaultProps = {
-  children: <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
+  children: <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
   placement: 'below',
 };
 
