@@ -11,7 +11,7 @@ const portedComponents = [
   // Quickfix added
   'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
   'button', 'graph-tooltip', 'horizontal-nav', 'legend', 'pane',
-  'input', 'dropdown', 'alert', 'nav-bar',
+  'input', 'dropdown', 'alert', 'nav-bar', 'tooltip',
 ];
 
 function capitalize(string) {
