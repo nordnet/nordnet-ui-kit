@@ -1,23 +1,23 @@
 import React from 'react';
-import Icon from '../icon/icon';
+import { Icon } from '../../';
 // import variables from '../../utilities/variables';
 
 function ValidationIcon(props) {
   const iconClass = 'input__validation-icon';
 
   if (props.hasSuccess) {
-    return <Icon className={iconClass} type="checkmark" />;
+    return <Icon.Checkmark className={iconClass} />;
   }
 
   if (props.hasWarning) {
-    return <Icon className={iconClass} type="exclamationPoint" stroke={'variables.colorWarning'} />;
+    return <Icon.ExclamationPoint className={iconClass} stroke={'variables.colorWarning'} />;
   }
 
   if (props.hasError) {
-    return <Icon className={iconClass} type="exclamationPoint" />;
+    return <Icon.ExclamationPoint className={iconClass} />;
   }
 
-  return <span />; // Stateless functions in React 0.14.X do not support returning null
+  return null; // Stateless functions in React 0.14.X do not support returning null
 }
 
 ValidationIcon.propTypes = {

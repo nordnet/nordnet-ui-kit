@@ -4,6 +4,7 @@ import { kebabCase } from 'lodash';
 import ValidationIcon from './validation-icon';
 import Label from './label';
 import HelpText from './help-text';
+import omit from '../../utilities/omit';
 // TODO: Move SCSS into JSS
 // import './input-default.scss';
 
@@ -102,7 +103,7 @@ class InputDefault extends React.PureComponent {
 
     return (
       <input
-        {...this.props}
+        {...omit(this.props, 'valueFormatter', 'hasSuccess', 'hasWarning', 'hasError', 'helpText')}
         id={id}
         className={classes}
         type={type || this.props.type}
