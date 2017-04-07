@@ -10,7 +10,6 @@ import {
   getStrokeColor,
   transformPoints,
 } from './interpolate';
-import './spark-graph.scss';
 
 function constructPathString(points) {
   const [first, ...rest] = points;
@@ -142,7 +141,7 @@ class SparkGraph extends React.Component {
         }}
       >
         <path
-          className="spark-graph__path"
+          style={{ fill: 'none' }}
           d={pointsFrom ? '' : constructPathString(pointsToRender)}
           stroke={pointsFrom ? getStrokeColor(pointsFrom, stroke) : getStrokeColor(points, stroke)}
           strokeWidth={strokeWidth}
