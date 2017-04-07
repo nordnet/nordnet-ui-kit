@@ -55,6 +55,7 @@ function renderCircleAsHtml(radius, color, maskId) {
   };
 }
 
+/* eslint-disable react/no-danger */
 function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }) {
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
@@ -85,6 +86,7 @@ function Spinner({ className, size, color, gradientStops, strokeWidth, style, ..
     </div>
   );
 }
+/* eslint-enable react/no-danger */export default Spinner;
 
 Spinner.defaultProps = {
   size: 16,
@@ -102,5 +104,3 @@ Spinner.propTypes = {
   strokeWidth: PropTypes.number,
   style: PropTypes.object,
 };
-
-export default Spinner;

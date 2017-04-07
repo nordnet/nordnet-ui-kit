@@ -47,6 +47,8 @@ function Badge({
 
 Badge.propTypes = {
   children: PropTypes.node,
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
 };

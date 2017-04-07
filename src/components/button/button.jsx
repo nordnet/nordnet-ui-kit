@@ -65,6 +65,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
   disabled: PropTypes.bool,
+  /** @ignore */
   classes: PropTypes.object.isRequired,
 };
 
