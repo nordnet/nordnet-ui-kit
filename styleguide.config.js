@@ -8,11 +8,17 @@ const dir = path.join(__dirname, 'src');
 
 const portedComponents = [
   'badge', 'labeled-value', 'icon', 'logo', 'flag', 'avatar',
-  // Quickfix added
+  'spark-graph',
+];
+
+const quickFixedComponents = [
   'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
   'button', 'graph-tooltip', 'horizontal-nav', 'legend', 'pane',
-  'input', 'dropdown', 'alert', 'nav-bar', 'tooltip',
+  'input', 'dropdown', 'alert', 'nav-bar', 'tooltip', 'search',
+  'spinner', 'widget',
 ];
+
+const allComponents = [...portedComponents, ...quickFixedComponents];
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -24,14 +30,17 @@ module.exports = {
   // components: 'src/components/**/*.jsx',
   components() {
     const folders = fs.readdirSync(`${dir}/components`);
-    return folders.filter(c => portedComponents.indexOf(c) !== -1).map(folder => `${dir}/components/${folder}/${folder}.jsx`);
+    return folders.filter(c => allComponents.indexOf(c) !== -1).map(folder => `${dir}/components/${folder}/${folder}.jsx`);
   },
   template: path.join(__dirname, 'documentation/template.html'),
   getComponentPathLine(componentPath) {
     const fileName = path.basename(componentPath, '.jsx');
     const componentName = capitalize(camelCase(fileName));
 
-    return `import { ${componentName} } from 'nordnet-ui-kit';`;
+    const isQuickFixed = quickFixedComponents.indexOf(fileName) !== -1;
+    const extra = isQuickFixed ? ' // ⚠️ NOTE: This component is quick fixed (no styles)' : '';
+
+    return `import { ${componentName} } from 'nordnet-ui-kit';${extra}`;
   },
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.md');
