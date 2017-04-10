@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import InputDefault from './input-default';
-// import variables from '../../utilities/variables';
-import Icon from '../icon/icon';
+import { Icon } from '../../';
+import styleSheet from './input-select-styles';
+import color from '../../styles/color';
+
 // TODO: Move SCSS into JSS
 // import './input-select.scss';
 
@@ -20,14 +23,9 @@ function renderOption(option) {
 class InputSelect extends InputDefault {
   renderSelectArrow() {
     const className = 'input__select-arrow';
-
+    const IconUsed = this.state.hasFocus ? Icon.ChevronUp : Icon.ChevronDown;
     return (
-      <Icon
-        className={className}
-        stroke={'variables.colorPrimary'}
-        type={this.state.hasFocus ? 'chevronUp' : 'chevronDown'}
-        renderInline
-      />
+      <IconUsed className={className} stroke={color.blue} />
     );
   }
 
@@ -66,9 +64,11 @@ class InputSelect extends InputDefault {
 
   renderInput() {
     const { id, placeholder, options, ...rest } = this.props;
+    const classes = this.context.styleManager.render(styleSheet);
+    const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
 
     return (
-      <div className="input__element-wrapper">
+      <div className={className}>
         <select
           {...rest}
           id={id}
