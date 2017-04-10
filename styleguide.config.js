@@ -54,7 +54,6 @@ module.exports = {
   //   return docgen.parse(source);
   // },
   webpackConfig: Object.assign({}, config, {
-    entry: ['babel-polyfill'].concat(config.entry),
     resolve: {
       alias: {
         'rsg-components/Wrapper': path.join(__dirname, 'documentation', 'wrapper.jsx'),

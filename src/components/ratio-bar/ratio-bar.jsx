@@ -59,7 +59,7 @@ function renderBar(direction, value, naturalLanguage) {
 
 function renderLabels(show, labelPositive, labelNegative) {
   if (!show) {
-    return <span />;
+    return null;
   }
 
   return (
@@ -82,7 +82,7 @@ function RatioBar({ data, label, labelPositive, labelNeutral, labelNegative, sho
 
   return (
     <div className={classes} {...rest}>
-      { label ? <span className="ratio-bar__label">{ label }</span> : <span /> }
+      { label ? <span className="ratio-bar__label">{ label }</span> : null }
       { renderBar('negative', negative, naturalLanguage) }
       { renderBar('neutral', neutral, naturalLanguage) }
       { renderBar('positive', positive, naturalLanguage) }
