@@ -7,7 +7,7 @@ export default createStyleSheet('InputDefault', (theme) => {
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
-  const modifierFunction = color => ({
+  const modifierFn = color => ({
     '& .input__label': {
       color,
     },
@@ -29,7 +29,7 @@ export default createStyleSheet('InputDefault', (theme) => {
     },
   });
 
-  const modifierFocusFunction = color => ({
+  const modifierFocusFn = color => ({
     '& .input': {
       '&__label': {
         color,
@@ -43,14 +43,14 @@ export default createStyleSheet('InputDefault', (theme) => {
 
   return {
     input: {
-      fontSize: '1.6rem',
+      fontSize: '16px',
       color: palette.text.default,
-      marginBottom: '1.6rem',
+      marginBottom: '16px',
       position: 'relative',
 
-      '&--has-success': modifierFunction(palette.variant.success),
-      '&--has-warning': modifierFunction(palette.variant.warning),
-      '&--has-error': modifierFunction(palette.variant.danger),
+      '&--has-success': modifierFn(palette.variant.success),
+      '&--has-warning': modifierFn(palette.variant.warning),
+      '&--has-error': modifierFn(palette.variant.danger),
 
       '&--has-focus': {
         '& .input': {
@@ -65,18 +65,18 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
         },
 
-        '& .input-has-success': modifierFocusFunction(palette.variant.success),
-        '& .input-has-warning': modifierFocusFunction(palette.variant.warning),
-        '& .input-has-error': modifierFocusFunction(palette.variant.danger),
+        '& .input-has-success': modifierFocusFn(palette.variant.success),
+        '& .input-has-warning': modifierFocusFn(palette.variant.warning),
+        '& .input-has-error': modifierFocusFn(palette.variant.danger),
       },
 
       '&--has-success .input__field': {
-        paddingRight: '1.6rem',
+        paddingRight: '16px',
       },
 
       '&--has-warning, &--has-error': {
         '& .input__field': {
-          paddingRight: '0.8rem',
+          paddingRight: '8px',
         },
       },
 
@@ -117,19 +117,19 @@ export default createStyleSheet('InputDefault', (theme) => {
       '& .input__field': {
         position: 'relative',
         width: '100%',
-        borderBottom: `0.1rem solid ${palette.action.disabled}`,
-        paddingTop: '1.2rem',
+        borderBottom: `1px solid ${palette.action.disabled}`,
+        paddingTop: '12px',
         transition: `border-color .2s ${variables.easeOut}`,
       },
 
       '& .input__label': {
         position: 'absolute',
-        top: '-0.4rem',
+        top: '-4px',
         left: 0,
         cursor: 'text',
         transition: `opacity .2s ${variables.easeOut}, transform .2s ${variables.easeOut}, color .2s ${variables.easeOut}`,
-        fontSize: '1.2rem',
-        transform: 'translateY(1.1rem)',
+        fontSize: '12px',
+        transform: 'translateY(11px)',
         opacity: 0,
         color: palette.action.disabled,
         pointerEvents: 'none',
@@ -144,12 +144,12 @@ export default createStyleSheet('InputDefault', (theme) => {
         background: 'none',
         border: 0,
         borderRadius: 0,
-        padding: '0 0 0.5rem',
+        padding: '0 0 5px',
         width: '100%',
         transition: `border-color .2s ${variables.easeOut}, transform .2s ${variables.easeOut}`,
-        fontSize: '1.6rem',
-        transform: 'translateY(-0.4rem)',
-        maxHeight: '2.7rem',
+        fontSize: '16px',
+        transform: 'translateY(-4px)',
+        maxHeight: '27px',
         fontFamily: 'inherit',
         fontWeight: 'inherit',
 
@@ -171,9 +171,9 @@ export default createStyleSheet('InputDefault', (theme) => {
       '& .input__validation-icon': {
         position: 'absolute',
         display: 'block',
-        right: '0.4rem',
-        bottom: '1rem',
-        height: '0.8rem',
+        right: '4px',
+        bottom: '10px',
+        height: '8px',
         transition: `all .2s ${variables.easeOut}`,
 
         '> img': {

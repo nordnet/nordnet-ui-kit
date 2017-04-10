@@ -6,9 +6,6 @@ import { Icon } from '../../';
 import styleSheet from './input-select-styles';
 import color from '../../styles/color';
 
-// TODO: Move SCSS into JSS
-// import './input-select.scss';
-
 function renderOption(option) {
   const { label, value, key: keyOption, ...rest } = option;
   const key = keyOption || kebabCase(value); // Assumes value is a string
