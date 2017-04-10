@@ -37,7 +37,7 @@ import News from './components/icon/icons/news';
 import NordnetLogo from './components/icon/icons/nordnetLogo';
 import Print from './components/icon/icons/print';
 import Questionmark from './components/icon/icons/questionmark';
-import Search from './components/icon/icons/search';
+import SearchIcon from './components/icon/icons/search';
 import Share from './components/icon/icons/share';
 import SocialFacebook from './components/icon/icons/socialFacebook';
 import SocialGplus from './components/icon/icons/socialGplus';
@@ -60,10 +60,10 @@ import Pane from './components/pane/pane';
 // import RadioGroup from './components/radio-group';
 // import RangeSelector from './components/range-selector/';
 // import RatioBar from './components/ratio-bar';
-// import Search from './components/search';
+import Search from './components/search';
 // import Select from './components/select/select';
-// import SparkGraph from './components/spark-graph';
-// import Spinner from './components/spinner';
+import SparkGraph from './components/spark-graph';
+import Spinner from './components/spinner';
 import Table from './components/table';
 import Tbody from './components/tbody';
 import Td from './components/td';
@@ -72,8 +72,7 @@ import Th from './components/th';
 import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
-// import variables from './utilities/variables';
-// import Widget from './components/widget/widget';
+import Widget from './components/widget/widget';
 
 // Theming
 import { ThemeProvider } from './styles';
@@ -117,7 +116,7 @@ const Icon = {
   NordnetLogo,
   Print,
   Questionmark,
-  Search,
+  Search: SearchIcon,
   Share,
   SocialFacebook,
   SocialGplus,
@@ -152,10 +151,10 @@ export {
   // RadioGroup,
   // RangeSelector,
   // RatioBar,
-  // Search,
+  Search,
   // Select,
-  // SparkGraph,
-  // Spinner,
+  SparkGraph,
+  Spinner,
   Table,
   Tbody,
   Td,
@@ -164,8 +163,7 @@ export {
   Thead,
   Tooltip,
   Tr,
-  // variables,
-  // Widget,
+  Widget,
 
   // Theming
   ThemeProvider,

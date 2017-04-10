@@ -22,7 +22,7 @@ function Flag({
     position: 'relative',
     width: size,
     height: size,
-    'clip-path': `circle(${circleSize}px)`,
+    clipPath: `circle(${circleSize}px)`,
   }, style);
 
   const primaryStyling = Object.assign({
@@ -30,15 +30,15 @@ function Flag({
     height,
     position: 'absolute',
     top: '0',
-    left: `${countryCode === 'ca' ? canadianLeftPos : 0}`, // Position canadian flag better
+    left: countryCode === 'ca' ? `${canadianLeftPos}px` : 0, // Position canadian flag better
   });
 
   const secondaryStyling = Object.assign(
     {},
     primaryStyling,
     {
-      'clip-path': `polygon(${size}px ${size}px, 0px ${size}px, ${size}px 0px, ${size}px ${size}px)`,
-      left: `${secondaryCountryCode === 'ca' ? canadianLeftPos : 0}`,
+      clipPath: `polygon(${size}px ${size}px, 0px ${size}px, ${size}px 0px, ${size}px ${size}px)`,
+      left: secondaryCountryCode === 'ca' ? `${canadianLeftPos}px` : 0,
     },
   );
 

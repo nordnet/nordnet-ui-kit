@@ -5,6 +5,7 @@ import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
 import Radio from './radio';
 import HelpText from './help-text';
+import omit from '../../utilities/omit';
 // TODO: Move SCSS into JSS
 // import './input-checkbox-radio.scss';
 
@@ -76,7 +77,7 @@ class InputCheckboxRadio extends React.PureComponent {
     return (
       <div className="input-checkbox-radio__element">
         <input
-          {...this.props}
+          {...omit(this.props, 'hasSuccess', 'hasError', 'isCheckbox', 'isRadio', 'helpText')}
           type={this.props.type}
           checked={this.state.checked}
           disabled={this.state.disabled}

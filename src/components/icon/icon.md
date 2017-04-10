@@ -1,3 +1,23 @@
+Usage:
+```js
+import { Icon } from 'nordnet-ui-kit';
+
+render() {
+  // ...
+  return (
+    <Icon.Trash fill="tomato" stroke="tomato" />
+  )
+}
+```
+
+Basic usage example:
+
+    const { Icon } = require('../../'); // nordnet-ui-kit
+
+    <Icon.Trash fill="tomato" stroke="tomato" />
+
+All available icons:
+
     const { Icon } = require('../../'); // nordnet-ui-kit
 
     const style = {

@@ -6,7 +6,7 @@ import omit from '../../utilities/omit';
 import Flag from '../flag';
 import Spinner from '../spinner';
 import SearchIcon from '../icon/icons/search';
-import './search.scss';
+// import './search.scss';
 
 function renderDevelopment(development) {
   if (!development) {
