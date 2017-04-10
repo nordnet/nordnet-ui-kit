@@ -8,14 +8,14 @@ const dir = path.join(__dirname, 'src');
 
 const portedComponents = [
   'badge', 'labeled-value', 'icon', 'logo', 'flag', 'avatar',
-  'spark-graph',
+  'spark-graph', 'radio-group',
 ];
 
 const quickFixedComponents = [
   'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
   'button', 'graph-tooltip', 'horizontal-nav', 'legend', 'pane',
   'input', 'dropdown', 'alert', 'nav-bar', 'tooltip', 'search',
-  'spinner', 'widget',
+  'spinner', 'widget', 'range-selector', 'ratio-bar', 'select',
 ];
 
 const allComponents = [...portedComponents, ...quickFixedComponents];
@@ -54,7 +54,6 @@ module.exports = {
   //   return docgen.parse(source);
   // },
   webpackConfig: Object.assign({}, config, {
-    entry: ['babel-polyfill'].concat(config.entry),
     resolve: {
       alias: {
         'rsg-components/Wrapper': path.join(__dirname, 'documentation', 'wrapper.jsx'),

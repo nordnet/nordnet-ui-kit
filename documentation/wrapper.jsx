@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React, { PropTypes } from 'react';
 import ThemeProvider from '../src/styles/ThemeProvider';
 import { createPalette } from '../src/styles/palette';

@@ -17,7 +17,7 @@ function ValidationIcon(props) {
     return <Icon.ExclamationPoint className={iconClass} />;
   }
 
-  return null; // Stateless functions in React 0.14.X do not support returning null
+  return null;
 }
 
 ValidationIcon.propTypes = {
