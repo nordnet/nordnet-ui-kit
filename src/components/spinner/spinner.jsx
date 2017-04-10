@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import variables from '../../utilities/variables';
+// import variables from '../../utilities/variables';
 import rem from '../../utilities/rem';
-import './spinner.scss';
+// import './spinner.scss';
 
 function generateRgb(degree, limit) {
   const multiplier = 255 / limit;
@@ -88,7 +88,7 @@ function Spinner({ className, size, color, gradientStops, strokeWidth, style, ..
 
 Spinner.defaultProps = {
   size: 16,
-  color: variables.colorPrimary,
+  color: 'variables.colorPrimary',
   gradientStops: 20,
 };
 

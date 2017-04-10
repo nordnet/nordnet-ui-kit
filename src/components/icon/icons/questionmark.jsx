@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import defaultProps from './defaultProps';
 
-export default function QuestionMark({
+export default function Questionmark({
   stroke,
   fill,
   strokeWidth,
@@ -29,13 +29,13 @@ export default function QuestionMark({
   );
 }
 
-QuestionMark.propTypes = {
+Questionmark.propTypes = {
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
-QuestionMark.defaultProps = {
+Questionmark.defaultProps = {
   ...defaultProps,
   width: 14,
   height: 14,

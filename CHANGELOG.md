@@ -7,16 +7,19 @@
 * Export test-utils for createShallow, createMount and createRenderToString
 * Added new colors and typography to the theme
 * Ported components to JSS
+* Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
+* Removed variables
 
 ### Ported components:
-Badge, LabeledValue, Icon, Logo, Flag
+Badge, LabeledValue, Icon, Logo, Flag, SparkGraph
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
 
 Table, Tbody, Thead, Tfoot, Tr, Th, Td,
 Button, GraphTooltip, HorizontalNav, Legend, Pane,
-Input, Dropdown, Alert, NavBar,
+Input, Dropdown, Alert, NavBar, Tooltip, Search,
+Spinner, Widget
 
 ## 0.1.1
 * Updated to Webpack 2

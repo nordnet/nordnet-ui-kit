@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/icon';
-import variables from '../../utilities/variables';
+// import variables from '../../utilities/variables';
 // TODO: Move SCSS into JSS
 // import './alert.scss';
 
@@ -32,7 +32,7 @@ class Alert extends React.PureComponent {
       <button className="alert__close" onClick={this.handleCloseClick}>
         <Icon
           type="close"
-          stroke={variables.colorPrimary}
+          stroke={'variables.colorPrimary'}
           width={8}
           height={8}
           style={{ display: 'block' }}

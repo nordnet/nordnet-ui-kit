@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './widget.scss';
+// import './widget.scss';
 
 function renderHeader(header) {
   let headerBody = header;

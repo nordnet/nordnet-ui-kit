@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Logo from '../logo/logo';
 import HorizontalNav from '../horizontal-nav';
-import './nav-bar.scss';
+// TODO: Move SCSS into JSS
+// import './nav-bar.scss';
 
 function renderSubItems(subItems) {
   if (!subItems || subItems.length === 0) {
