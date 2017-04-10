@@ -3,10 +3,9 @@ import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import ValidationIcon from './validation-icon';
 import Label from './label';
+import styleSheet from './input-default-styles';
 import HelpText from './help-text';
 import omit from '../../utilities/omit';
-// TODO: Move SCSS into JSS
-// import './input-default.scss';
 
 const isUndefined = value => value === undefined;
 
@@ -28,8 +27,8 @@ function hasValue(value) {
 }
 
 class InputDefault extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       value: isUndefined(props.value) ? '' : props.value,
@@ -165,19 +164,20 @@ class InputDefault extends React.PureComponent {
   }
 
   render() {
+    const classes = this.context.styleManager.render(styleSheet);
     const id = this.props.id || kebabCase(this.props.label);
-    const classes = classNames('input', {
-      'input--has-focus': this.state.hasFocus,
-      'input--has-value': this.state.hasValue,
-      'input--has-addon': this.state.hasAddon,
-      'input--has-success': this.state.hasSuccess,
-      'input--has-warning': this.state.hasWarning,
-      'input--has-error': this.state.hasError,
-      'input--is-disabled': this.props.disabled,
-    }, `input--${kebabCase(this.props.type)}`, this.props.className);
+    const className = classNames([classes.input], {
+      [`${classes.input}--has-focus`]: this.state.hasFocus,
+      [`${classes.input}--has-value`]: this.state.hasValue,
+      [`${classes.input}--has-addon`]: this.state.hasAddon,
+      [`${classes.input}--has-success`]: this.state.hasSuccess,
+      [`${classes.input}--has-warning`]: this.state.hasWarning,
+      [`${classes.input}--has-error`]: this.state.hasError,
+      [`${classes.input}--is-disabled`]: this.props.disabled,
+    }, `${classes.input}--${kebabCase(this.props.type)}`, this.props.className);
 
     return (
-      <div className={classes} style={this.props.style}>
+      <div className={className} style={this.props.style}>
         { this.renderField(id) }
         { this.renderHelpText() }
       </div>
@@ -217,5 +217,10 @@ InputDefault.propTypes = {
 InputDefault.defaultProps = {
   type: 'text',
 };
+
+InputDefault.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
+};
+
 
 export default InputDefault;
