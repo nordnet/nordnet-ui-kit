@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './ratio-bar.scss';
+// import './ratio-bar.scss';
 
 function percentage(value, total) {
   return (value / total) * 100;
