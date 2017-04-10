@@ -12,7 +12,7 @@ export default createStyleSheet('InputSelect', (theme) => {
         '&__element': {
           appearance: 'none',
           opacity: 0,
-          paddingRight: '2.4rem',
+          paddingRight: '24px',
         },
 
         '&__placeholder, &__value-label': {
@@ -21,12 +21,12 @@ export default createStyleSheet('InputSelect', (theme) => {
           width: '100%',
           height: '1.2em',
           overflow: 'hidden',
-          paddingRight: '2.4rem',
+          paddingRight: '24pxm',
           pointerEvents: 'none',
         },
 
         '&__placeholder': {
-          top: '0.4rem',
+          top: '4px',
           color: palette.text.muted,
         },
 
@@ -38,11 +38,11 @@ export default createStyleSheet('InputSelect', (theme) => {
         '&__select-arrow': {
           position: 'absolute',
           display: 'block',
-          right: '0.4rem',
-          bottom: '1rem',
-          height: '0.8rem',
+          right: '4px',
+          bottom: '10px',
+          height: '8px',
           transition: `transform .2s ${variables.easeOut}`,
-          transform: 'translateY(-0.4rem)',
+          transform: 'translateY(-4px)',
           pointerEvents: 'none',
 
           '> img': {
