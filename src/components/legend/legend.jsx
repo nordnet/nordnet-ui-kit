@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-// TODO: Move SCSS into JSS
-// import './legend.scss';
+import styleSheet from './legend-styles';
 
 function legendItem({ color, label, value, ...rest }) {
   return (
@@ -20,11 +19,12 @@ legendItem.propTypes = {
   value: PropTypes.node,
 };
 
-function Legend({ className, items, ...rest }) {
-  const classes = classNames('legend', className);
+function Legend({ className, items, ...rest }, { styleManager }) {
+  const classes = styleManager.render(styleSheet);
+  const legendClassName = classNames(classes.legend, className);
 
   return (
-    <div {...rest} className={classes}>
+    <div {...rest} className={legendClassName}>
       <ul className="legend__items">
         { items.map(legendItem) }
       </ul>
@@ -39,6 +39,10 @@ Legend.propTypes = {
     label: React.PropTypes.node.isRequired,
     value: PropTypes.node,
   })),
+};
+
+Legend.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Legend;
