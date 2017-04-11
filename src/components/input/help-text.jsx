@@ -1,19 +1,38 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-// TODO: Move SCSS into JSS
-// import './help-text.scss';
+import { createStyleSheet } from 'jss-theme-reactor';
 
-function HelpText(props) {
+const styleSheet = createStyleSheet('HelpText', (theme) => {
+  const { palette } = theme;
+
+  return {
+    'help-text': {
+      position: 'absolute',
+      display: 'block',
+      width: '100%',
+      textAlign: 'right',
+      bottom: '-16px',
+      fontSize: '12px',
+      color: palette.text.muted,
+    },
+    success: { color: palette.variant.success },
+    warning: { color: palette.variant.warning },
+    error: { color: palette.variant.danger },
+  };
+});
+
+function HelpText(props, { styleManager }) {
   const { hasSuccess, hasWarning, hasError } = props;
-  const classes = classNames('help-text', {
-    'help-text--has-success': hasSuccess,
-    'help-text--has-warning': hasWarning,
-    'help-text--has-error': hasError,
+  const classes = styleManager.render(styleSheet);
+  const className = classNames(['help-text', classes['help-text']], {
+    [classes.success]: hasSuccess,
+    [classes.warning]: hasWarning,
+    [classes.error]: hasError,
     'help-text--checkbox-radio': props.isCheckbox || props.isRadio,
   });
 
   if (props.children) {
-    return <span className={classes}>{ props.children }</span>;
+    return <span className={className}>{ props.children }</span>;
   }
 
   return null;
@@ -26,6 +45,10 @@ HelpText.propTypes = {
   hasError: PropTypes.bool,
   isCheckbox: PropTypes.bool,
   isRadio: PropTypes.bool,
+};
+
+HelpText.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default HelpText;
