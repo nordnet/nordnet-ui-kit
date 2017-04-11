@@ -1,9 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { assert } from 'chai';
+import { shallow as enzymeShallow } from 'enzyme';
+import { createShallow } from '../../../src/test-utils';
 import InputDefault from '../../../src/components/input/input-default';
 
 describe('<InputDefault />', () => {
+  const shallow = createShallow(enzymeShallow);
   let wrapper;
 
   beforeEach(() => {

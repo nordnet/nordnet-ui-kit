@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import InputDefault from './input-default';
-// import variables from '../../utilities/variables';
-import Icon from '../icon/icon';
-// TODO: Move SCSS into JSS
-// import './input-select.scss';
+import IconChevronUp from '../icon/icons/chevronUp';
+import IconChevronDown from '../icon/icons/chevronDown';
+import styleSheet from './input-select-styles';
 
 function renderOption(option) {
   const { label, value, key: keyOption, ...rest } = option;
@@ -20,14 +20,9 @@ function renderOption(option) {
 class InputSelect extends InputDefault {
   renderSelectArrow() {
     const className = 'input__select-arrow';
-
+    const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
     return (
-      <Icon
-        className={className}
-        stroke={'variables.colorPrimary'}
-        type={this.state.hasFocus ? 'chevronUp' : 'chevronDown'}
-        renderInline
-      />
+      <IconUsed className={className} stroke={this.context.styleManager.theme.palette.variant.primary} />
     );
   }
 
@@ -66,9 +61,11 @@ class InputSelect extends InputDefault {
 
   renderInput() {
     const { id, placeholder, options, ...rest } = this.props;
+    const classes = this.context.styleManager.render(styleSheet);
+    const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
 
     return (
-      <div className="input__element-wrapper">
+      <div className={className}>
         <select
           {...rest}
           id={id}
