@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactSelect from 'react-select';
 // import Icon from '../icon/icon';
 // import variables from '../../utilities/variables';
-import './select.scss';
+// import './select.scss';
 
 // TODO: react-select with arrowRenderer prop not yet published on npm
 // function arrowRenderer({ onMouseDown }) {

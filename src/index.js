@@ -57,11 +57,11 @@ import Legend from './components/legend';
 import Logo from './components/logo/logo';
 import NavBar from './components/nav-bar';
 import Pane from './components/pane/pane';
-// import RadioGroup from './components/radio-group';
-// import RangeSelector from './components/range-selector/';
-// import RatioBar from './components/ratio-bar';
+import RadioGroup from './components/radio-group';
+import RangeSelector from './components/range-selector/';
+import RatioBar from './components/ratio-bar';
 import Search from './components/search';
-// import Select from './components/select/select';
+import Select from './components/select/select';
 import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
 import Table from './components/table';
@@ -148,11 +148,11 @@ export {
   Logo,
   NavBar,
   Pane,
-  // RadioGroup,
-  // RangeSelector,
-  // RatioBar,
+  RadioGroup,
+  RangeSelector,
+  RatioBar,
   Search,
-  // Select,
+  Select,
   SparkGraph,
   Spinner,
   Table,

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './range-selector.scss';
+// import './range-selector.scss';
 
 class RangeSelector extends React.Component {
   constructor(props) {

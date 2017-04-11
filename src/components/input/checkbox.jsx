@@ -19,7 +19,7 @@ function Checkbox(props) {
 
   return (
     <span className={classes}>
-      { checked ? icon : <span /> }
+      { checked ? icon : null }
     </span>
   );
 }
