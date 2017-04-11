@@ -7,7 +7,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
   const modifierFn = color => ({
     color,
 
-    '& .checkbox, .radio': {
+    '& .checkbox, & .radio': {
       borderColor: color,
 
       '&--is-checked': {
@@ -16,7 +16,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
     },
 
     '& .input-checkbox-radio__element > input:focus': {
-      '+ .checkbox, + .radio': {
+      '& + .checkbox, & + .radio': {
         '&::before': {
           borderColor: color,
         },
@@ -39,7 +39,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
           opacity: 0,
 
           '&:focus': {
-            '+ .checkbox, + .radio': {
+            '& + .checkbox, & + .radio': {
               '&::before': {
                 position: 'absolute',
                 display: 'block',
@@ -85,7 +85,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
         marginLeft: '20px',
       },
 
-      '& .checkbox, .radio': {
+      '& .checkbox, & .radio': {
         position: 'relative',
         display: 'block',
         width: '16px',
@@ -113,7 +113,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
         display: 'block',
       },
 
-      '& .checkbox--is-disabled.checkbox--is-checked, .radio--is-disabled.radio--is-checked': {
+      '& .checkbox--is-disabled.checkbox--is-checked, & .radio--is-disabled.radio--is-checked': {
         background: palette.action.disabled,
       },
 

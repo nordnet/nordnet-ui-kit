@@ -48,11 +48,11 @@ export default createStyleSheet('InputDefault', (theme) => {
       marginBottom: '16px',
       position: 'relative',
 
-      '&--has-success': modifierFn(palette.variant.success),
-      '&--has-warning': modifierFn(palette.variant.warning),
-      '&--has-error': modifierFn(palette.variant.danger),
+      '&.input--has-success': modifierFn(palette.variant.success),
+      '&.input--has-warning': modifierFn(palette.variant.warning),
+      '&.input--has-error': modifierFn(palette.variant.danger),
 
-      '&--has-focus': {
+      '&.input--has-focus': {
         '& .input': {
           '&__label': {
             color: palette.action.active,
@@ -70,17 +70,17 @@ export default createStyleSheet('InputDefault', (theme) => {
         '& .input-has-error': modifierFocusFn(palette.variant.danger),
       },
 
-      '&--has-success .input__field': {
+      '&.input--has-success .input__field': {
         paddingRight: '16px',
       },
 
-      '&--has-warning, &--has-error': {
+      '&.input--has-warning, &.input--has-error': {
         '& .input__field': {
           paddingRight: '8px',
         },
       },
 
-      '&--is-disabled': {
+      '&.input--is-disabled': {
         color: palette.action.disabled,
 
         '& .input': {
@@ -98,7 +98,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         },
       },
 
-      '&--has-addon': {
+      '&.input--has-addon': {
         '& .input': {
           '&__field': {
             display: 'table',
@@ -162,7 +162,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         },
       },
 
-      '&--has-focus, &--has-value': {
+      '&.input--has-focus, &.input--has-value': {
         '& .input__element': {
           transform: 'translateY(0)',
         },

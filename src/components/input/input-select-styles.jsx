@@ -67,7 +67,7 @@ export default createStyleSheet('InputSelect', (theme) => {
       },
 
       '&.input--is-disabled': {
-        '.input__element, .input__placeholder': {
+        '& .input__element, & .input__placeholder': {
           cursor: 'not-allowed',
         },
       },
