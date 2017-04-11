@@ -1,9 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import Pane from '../../../src/components/pane/pane';
+import { shallow as enzymeShallow } from 'enzyme';
+import { createShallow } from '../../../src/test-utils';
+import Pane from '../../../src/components/pane';
+import PaneStyles from '../../../src/components/pane/pane-styles';
 
 describe('<Pane />', () => {
+  const shallow = createShallow(enzymeShallow);
+  const classes = shallow.context.styleManager.render(PaneStyles);
   let wrapper;
   const tabs = [{
     label: 'tab1label',
@@ -24,8 +28,8 @@ describe('<Pane />', () => {
     expect(wrapper.type()).to.equal('div');
   });
 
-  it('should have class name pane', () => {
-    expect(wrapper.hasClass('pane')).to.equal(true);
+  it(`should have the ${classes.pane} class`, () => {
+    expect(wrapper.hasClass(classes.pane)).to.equal(true);
   });
 
   it('should only have one active tab', () => {

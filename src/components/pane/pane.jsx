@@ -2,12 +2,11 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-// TODO: Move SCSS into JSS
-// import './pane.scss';
+import PaneStyles from './pane-styles';
 
 class Pane extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       activeTab: props.activeTab || 0,
@@ -54,10 +53,11 @@ class Pane extends React.PureComponent {
   }
 
   render() {
-    const classes = classNames('pane', this.props.className);
+    const classes = this.context.styleManager.render(PaneStyles);
+    const className = classNames(classes.pane, this.props.className);
 
     return (
-      <div className={classes}>
+      <div className={className}>
         { this.renderTabs() }
         { this.renderBody() }
       </div>
@@ -75,5 +75,10 @@ Pane.propTypes = {
 };
 
 Pane.defaultProps = {};
+
+Pane.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
+};
+
 
 export default Pane;
