@@ -2,7 +2,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import color from '../../styles/color';
 import IconChevronUp from '../icon/icons/chevronUp';
 import IconChevronDown from '../icon/icons/chevronDown';
 import styleSheet from './dropdown-styles';
@@ -51,7 +50,7 @@ class Dropdown extends React.PureComponent {
           { this.props.toggle }
           <IconUsed
             className="dropdown__toggle-icon"
-            stroke={color.blue}
+            stroke={this.context.styleManager.theme.palette.variant.primary}
             width={8}
             height={8}
           />
