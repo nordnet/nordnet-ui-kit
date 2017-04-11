@@ -5,7 +5,6 @@ import InputDefault from './input-default';
 import IconChevronUp from '../icon/icons/chevronUp';
 import IconChevronDown from '../icon/icons/chevronDown';
 import styleSheet from './input-select-styles';
-import color from '../../styles/color';
 
 function renderOption(option) {
   const { label, value, key: keyOption, ...rest } = option;
@@ -23,7 +22,7 @@ class InputSelect extends InputDefault {
     const className = 'input__select-arrow';
     const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
     return (
-      <IconUsed className={className} stroke={color.blue} />
+      <IconUsed className={className} stroke={this.context.styleManager.theme.palette.variant.primary} />
     );
   }
 

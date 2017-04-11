@@ -77,7 +77,6 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
       },
 
       '& + .help-text': {
-        color: 'red',
         position: 'relative',
         textAlign: 'left',
         width: 'auto',

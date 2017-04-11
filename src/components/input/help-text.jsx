@@ -14,10 +14,10 @@ const styleSheet = createStyleSheet('HelpText', (theme) => {
       bottom: '-16px',
       fontSize: '12px',
       color: palette.text.muted,
-      '&.help-text--has-success': { color: palette.variant.success },
-      '&.help-text--has-warning': { color: palette.variant.warning },
-      '&.help-text--has-error': { color: palette.variant.danger },
     },
+    success: { color: palette.variant.success },
+    warning: { color: palette.variant.warning },
+    error: { color: palette.variant.danger },
   };
 });
 
@@ -25,9 +25,9 @@ function HelpText(props, { styleManager }) {
   const { hasSuccess, hasWarning, hasError } = props;
   const classes = styleManager.render(styleSheet);
   const className = classNames(['help-text', classes['help-text']], {
-    'help-text--has-success': hasSuccess,
-    'help-text--has-warning': hasWarning,
-    'help-text--has-error': hasError,
+    [classes.success]: hasSuccess,
+    [classes.warning]: hasWarning,
+    [classes.error]: hasError,
     'help-text--checkbox-radio': props.isCheckbox || props.isRadio,
   });
 
