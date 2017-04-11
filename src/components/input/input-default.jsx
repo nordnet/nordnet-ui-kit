@@ -166,15 +166,15 @@ class InputDefault extends React.PureComponent {
   render() {
     const classes = this.context.styleManager.render(styleSheet);
     const id = this.props.id || kebabCase(this.props.label);
-    const className = classNames([classes.input], {
-      [`${classes.input}--has-focus`]: this.state.hasFocus,
-      [`${classes.input}--has-value`]: this.state.hasValue,
-      [`${classes.input}--has-addon`]: this.state.hasAddon,
-      [`${classes.input}--has-success`]: this.state.hasSuccess,
-      [`${classes.input}--has-warning`]: this.state.hasWarning,
-      [`${classes.input}--has-error`]: this.state.hasError,
-      [`${classes.input}--is-disabled`]: this.props.disabled,
-    }, `${classes.input}--${kebabCase(this.props.type)}`, this.props.className);
+    const className = classNames(['input', classes.input], {
+      'input--has-focus': this.state.hasFocus,
+      'input--has-value': this.state.hasValue,
+      'input--has-addon': this.state.hasAddon,
+      'input--has-success': this.state.hasSuccess,
+      'input--has-warning': this.state.hasWarning,
+      'input--has-error': this.state.hasError,
+      'input--is-disabled': this.props.disabled,
+    }, `input--${kebabCase(this.props.type)}`, this.props.className);
 
     return (
       <div className={className} style={this.props.style}>

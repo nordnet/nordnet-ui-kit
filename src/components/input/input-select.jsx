@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import InputDefault from './input-default';
-import { Icon } from '../../';
+import IconChevronUp from '../icon/icons/chevronUp';
+import IconChevronDown from '../icon/icons/chevronDown';
 import styleSheet from './input-select-styles';
 import color from '../../styles/color';
 
@@ -20,7 +21,7 @@ function renderOption(option) {
 class InputSelect extends InputDefault {
   renderSelectArrow() {
     const className = 'input__select-arrow';
-    const IconUsed = this.state.hasFocus ? Icon.ChevronUp : Icon.ChevronDown;
+    const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
     return (
       <IconUsed className={className} stroke={color.blue} />
     );
