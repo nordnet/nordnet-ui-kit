@@ -2,14 +2,14 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import Icon from '../icon/icon';
-// import variables from '../../utilities/variables';
-// TODO: Move SCSS into JSS
-// import './dropdown.scss';
+import color from '../../styles/color';
+import IconChevronUp from '../icon/icons/chevronUp';
+import IconChevronDown from '../icon/icons/chevronDown';
+import styleSheet from './dropdown-styles';
 
 class Dropdown extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       actionsOpen: props.actionsOpen,
@@ -41,18 +41,19 @@ class Dropdown extends React.PureComponent {
   }
 
   render() {
-    const classes = classNames('dropdown', this.props.className);
+    const classes = this.context.styleManager.render(styleSheet);
+    const className = classNames(classes.dropdown, this.props.className);
+    const IconUsed = this.state.actionsOpen ? IconChevronUp : IconChevronDown;
 
     return (
-      <div className={classes}>
+      <div className={className}>
         <button className="dropdown__toggle" onClick={this.handleToggleClick}>
           { this.props.toggle }
-          <Icon
+          <IconUsed
             className="dropdown__toggle-icon"
-            stroke={'variables.colorPrimary'}
+            stroke={color.blue}
             width={8}
             height={8}
-            type={this.state.actionsOpen ? 'chevronUp' : 'chevronDown'}
           />
         </button>
         { this.renderActions() }
@@ -73,6 +74,10 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   actionsOpen: false,
+};
+
+Dropdown.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Dropdown;
