@@ -1,17 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-for */
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
 import Radio from './radio';
+import styleSheet from './input-checkbox-radio-styles';
 import HelpText from './help-text';
 import omit from '../../utilities/omit';
-// TODO: Move SCSS into JSS
-// import './input-checkbox-radio.scss';
 
 class InputCheckboxRadio extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       checked: props.checked,
@@ -101,7 +100,8 @@ class InputCheckboxRadio extends React.PureComponent {
   }
 
   render() {
-    const classes = classNames('input-checkbox-radio', {
+    const classes = this.context.styleManager.render(styleSheet);
+    const className = classNames(classes['input-checkbox-radio'], {
       'input-checkbox-radio--has-success': this.state.hasSuccess,
       'input-checkbox-radio--has-error': this.state.hasError,
       'input-checkbox-radio--is-disabled': this.state.disabled,
@@ -109,7 +109,7 @@ class InputCheckboxRadio extends React.PureComponent {
 
     return (
       <span>
-        <label className={classes}>
+        <label className={className}>
           { this.renderInput() }
           { this.renderLabel() }
         </label>
@@ -136,6 +136,10 @@ InputCheckboxRadio.propTypes = {
 InputCheckboxRadio.defaultProps = {
   checked: false,
   disabled: false,
+};
+
+InputCheckboxRadio.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default InputCheckboxRadio;

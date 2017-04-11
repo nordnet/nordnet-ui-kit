@@ -12,7 +12,7 @@
 
 ### Ported components:
 Badge, LabeledValue, Icon, Logo, Flag, SparkGraph,
-RadioGroup, Pane,
+RadioGroup, Input, Pane,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
