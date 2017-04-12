@@ -15,6 +15,7 @@ class Dropdown extends React.PureComponent {
     };
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.classes = this.context.styleManager.render(styleSheet);
   }
 
   handleToggleClick() {
@@ -29,9 +30,9 @@ class Dropdown extends React.PureComponent {
     };
 
     return (
-      <ul className="actions" style={style}>
+      <ul className={this.classes.actions} style={style}>
         { this.props.actions.map((action, index) => (
-          <li className="action" key={`${index}-${kebabCase(action.label)}`} onClick={action.action}>
+          <li className={this.classes.action} key={`${index}-${kebabCase(action.label)}`} onClick={action.action}>
             { action.label }
           </li>
         )) }
@@ -40,16 +41,15 @@ class Dropdown extends React.PureComponent {
   }
 
   render() {
-    const classes = this.context.styleManager.render(styleSheet);
-    const className = classNames(classes.dropdown, this.props.className);
+    const className = classNames(this.classes.dropdown, this.props.className);
     const IconUsed = this.state.actionsOpen ? IconChevronUp : IconChevronDown;
 
     return (
       <div className={className}>
-        <button className="toggle" onClick={this.handleToggleClick}>
+        <button className={this.classes.toggle} onClick={this.handleToggleClick}>
           { this.props.toggle }
           <IconUsed
-            className="toggle-icon"
+            className={this.classes.toggleIcon}
             stroke={this.context.styleManager.theme.palette.variant.primary}
             width={8}
             height={8}
