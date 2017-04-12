@@ -5,10 +5,10 @@ import styleSheet from './legend-styles';
 
 function legendItem({ color, label, value, ...rest }) {
   return (
-    <li key={kebabCase(label)} {...rest} className="legend__item">
-      <span className="legend__item-indicator" style={{ backgroundColor: color }} />
-      <span className="legend__item-label">{ label }</span>
-      { value ? <span className="legend__item-value">{ value }</span> : null }
+    <li key={kebabCase(label)} {...rest} className="item">
+      <span className="indicator" style={{ backgroundColor: color }} />
+      <span className="label">{ label }</span>
+      { value ? <span className="value">{ value }</span> : null }
     </li>
   );
 }
@@ -25,7 +25,7 @@ function Legend({ className, items, ...rest }, { styleManager }) {
 
   return (
     <div {...rest} className={legendClassName}>
-      <ul className="legend__items">
+      <ul className="items">
         { items.map(legendItem) }
       </ul>
     </div>

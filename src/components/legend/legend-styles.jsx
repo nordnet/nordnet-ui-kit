@@ -9,7 +9,7 @@ export default createStyleSheet('Legend', (theme) => {
       fontSize: '1.4rem',
       color: palette.text.muted,
 
-      '& .legend__items': {
+      '& .items': {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
@@ -19,22 +19,22 @@ export default createStyleSheet('Legend', (theme) => {
         marginBottom: '-8px',
       },
 
-      '& .legend__item': {
+      '& .item': {
         display: 'inline-block',
         paddingBottom: '8px',
+      },
 
-        '&-indicator': {
-          display: 'inline-block',
-          width: '8px',
-          height: '8px',
-          borderRadius: '50%',
-          margin: '0 4px 1px 0',
-        },
+      '& .indicator': {
+        display: 'inline-block',
+        width: '8px',
+        height: '8px',
+        borderRadius: '50%',
+        margin: '0 4px 1px 0',
+      },
 
-        '&-value': {
-          fontSize: '12px',
-          marginLeft: '8px',
-        },
+      '& .value': {
+        fontSize: '12px',
+        marginLeft: '8px',
       },
     },
   };
