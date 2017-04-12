@@ -13,6 +13,8 @@ class Pane extends React.PureComponent {
     };
 
     this.handleTabClick = this.handleTabClick.bind(this);
+
+    this.classes = this.context.styleManager.render(PaneStyles);
   }
 
   handleTabClick(index) {
@@ -25,11 +27,11 @@ class Pane extends React.PureComponent {
     const tabWidth = 100 / this.props.tabs.length;
 
     return (
-      <ul className="tabs">
+      <ul className={this.classes.tabs}>
         { this.props.tabs.map((tab, index) => (
           <li
             key={`${kebabCase(tab.label)}_${index}`}
-            className={classNames('tab', { 'active': this.state.activeTab === index })}
+            className={classNames(this.classes.tab, { [this.classes.active]: this.state.activeTab === index })}
             style={{ width: `${tabWidth}%` }}
             onClick={() => this.handleTabClick(index)}
           >
@@ -53,8 +55,7 @@ class Pane extends React.PureComponent {
   }
 
   render() {
-    const classes = this.context.styleManager.render(PaneStyles);
-    const className = classNames(classes.pane, this.props.className);
+    const className = classNames(this.classes.pane, this.props.className);
 
     return (
       <div className={className}>

@@ -33,11 +33,11 @@ describe('<Pane />', () => {
   });
 
   it('should only have one active tab', () => {
-    expect(wrapper.find('li.active')).to.have.length(1);
+    expect(wrapper.find(`li.${classes.active}`)).to.have.length(1);
   });
 
   it('should have number of tabs equal to input tabs', () => {
-    expect(wrapper.find('li.tab')).to.have.length(3);
+    expect(wrapper.find(`li.${classes.tab}`)).to.have.length(3);
   });
 
   it('should only have one visible tab body', () => {
@@ -60,11 +60,11 @@ describe('<Pane />', () => {
 
   describe('when tab #2 is clicked', () => {
     beforeEach(() => {
-      wrapper.find('li.tab').at(1).simulate('click');
+      wrapper.find(`li.${classes.tab}`).at(1).simulate('click');
     });
 
     it('should set class active on tab 2', () => {
-      expect(wrapper.find('li.tab').at(1).hasClass('active')).to.equal(true);
+      expect(wrapper.find(`li.${classes.tab}`).at(1).hasClass(classes.active)).to.equal(true);
     });
 
     it('should set body #2 to visible', () => {
@@ -72,7 +72,7 @@ describe('<Pane />', () => {
     });
 
     it('should only have one active tab', () => {
-      expect(wrapper.find('li.active')).to.have.length(1);
+      expect(wrapper.find(`li.${classes.active}`)).to.have.length(1);
     });
 
     it('should only have one visible tab body', () => {
