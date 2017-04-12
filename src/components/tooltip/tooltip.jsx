@@ -1,9 +1,8 @@
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import Questionmark from '../icon/icons/questionmark';
 import TooltipStyles from './tooltip-styles';
-// import './tooltip.scss';
 
 class Tooltip extends React.Component {
   constructor(props, context) {
@@ -27,6 +26,7 @@ class Tooltip extends React.Component {
     };
 
     this.placement = props.placement;
+    this.classes = this.context.styleManager.render(TooltipStyles);
   }
 
   componentDidMount() {
@@ -123,7 +123,7 @@ class Tooltip extends React.Component {
     return (
       <div
         style={style}
-        className={`popup ${placement}`}
+        className={classnames(this.classes.popup, placement)}
         ref={(popup) => { this.popup = popup; }}
       >
         <div className="content">
@@ -134,7 +134,6 @@ class Tooltip extends React.Component {
   }
 
   render() {
-    const classes = this.context.styleManager.render(TooltipStyles);
     const { children, content, className, placement } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = this.getPlacement(placement);
@@ -144,10 +143,10 @@ class Tooltip extends React.Component {
     }
 
     return (
-      <div className={classnames(classes.tooltip, className)} ref={(element) => { this.onOutsideElement = element; }}>
+      <div className={classnames(this.classes.tooltip, className)} ref={(element) => { this.onOutsideElement = element; }}>
         <div
           ref={(container) => { this.container = container; }}
-          className="container"
+          className={this.classes.container}
           onClick={this.toggleShow}
           onMouseEnter={this.mouseEnter}
           onMouseLeave={this.mouseLeave}

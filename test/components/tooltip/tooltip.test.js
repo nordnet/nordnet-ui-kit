@@ -26,32 +26,32 @@ describe('<Tooltip />', () => {
   });
 
   it('should show the tooltip when hovered', () => {
-    wrapper.find('.container').simulate('mouseEnter');
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.state('hover')).to.equal(true);
-    wrapper.find('.container').simulate('mouseLeave');
+    wrapper.find(`.${classes.container}`).simulate('mouseLeave');
     expect(wrapper.state('hover')).to.equal(false);
   });
 
   it('should toggle the tooltip when clicked', () => {
-    wrapper.find('.container').simulate('click');
+    wrapper.find(`.${classes.container}`).simulate('click');
     expect(wrapper.state('toggled')).to.equal(true);
   });
 
   it('should have fixedWidth', () => {
     wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
-    expect(wrapper.find('.popup').props().style.width).to.equal(123);
+    expect(wrapper.find(`.${classes.popup}`).props().style.width).to.equal(123);
   });
 
   it('should set className to above', () => {
     wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'above'} />);
-    wrapper.find('.container').simulate('mouseEnter');
-    expect(wrapper.find('.popup').hasClass('above')).to.equal(true);
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    expect(wrapper.find(`.${classes.popup}`).hasClass('above')).to.equal(true);
   });
 
   it('should set className to left', () => {
     wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'left'} />);
-    wrapper.find('.container').simulate('mouseEnter');
-    expect(wrapper.find('.popup').hasClass('left')).to.equal(true);
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    expect(wrapper.find(`.${classes.popup}`).hasClass('left')).to.equal(true);
   });
 
   describe('click outside functionality', () => {
@@ -86,13 +86,13 @@ describe('<Tooltip />', () => {
     });
 
     it('should untoggle tooltip when clicked outside', () => {
-      component.find('.container').simulate('click');
+      component.find(`.${classes.container}`).simulate('click');
       document.getElementById('app').click();
       expect(component.state('toggled')).to.equal(false);
     });
 
     it('should not untoggle tooltip when clicked inside', () => {
-      component.find('.container').simulate('click');
+      component.find(`.${classes.container}`).simulate('click');
       component.find('.content').simulate('click');
       expect(component.state('toggled')).to.equal(true);
     });
