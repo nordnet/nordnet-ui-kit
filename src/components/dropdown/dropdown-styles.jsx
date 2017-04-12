@@ -9,7 +9,7 @@ export default createStyleSheet('Dropdown', (theme) => {
       position: 'relative',
       marginBottom: '16px',
 
-      '& .dropdown__toggle': {
+      '& .toggle': {
         position: 'relative',
         background: 'none',
         border: 0,
@@ -26,7 +26,7 @@ export default createStyleSheet('Dropdown', (theme) => {
         },
       },
 
-      '& .dropdown__actions': {
+      '& .actions': {
         position: 'absolute',
         top: 0,
         left: '-16px',
@@ -39,7 +39,7 @@ export default createStyleSheet('Dropdown', (theme) => {
         zIndex: 3,
       },
 
-      '& .dropdown__action': {
+      '& .action': {
         display: 'block',
         padding: '4px 0',
         borderBottom: '1px solid #C5C5C5',

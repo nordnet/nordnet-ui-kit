@@ -19,10 +19,10 @@ describe('<Dropdown />', () => {
   });
 
   it('should render <div> as container', () => expect(wrapper.type()).to.equal('div'));
-  it('should contain a <button> with class \'dropdown__toggle\'', () => assert.ok(wrapper.find('button').hasClass('dropdown__toggle')));
+  it('should contain a <button> with class \'toggle\'', () => assert.ok(wrapper.find('button').hasClass('toggle')));
   it('should be closed by default', () => expect(wrapper.state('actionsOpen')).to.equal(false));
   it('should be open after click', () => {
-    wrapper.find('button.dropdown__toggle').simulate('click');
+    wrapper.find('button.toggle').simulate('click');
     expect(wrapper.state('actionsOpen')).to.equal(true);
   });
 
