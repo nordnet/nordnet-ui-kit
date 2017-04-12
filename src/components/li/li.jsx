@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
 
-const styleSheet = createStyleSheet('Li', () => ({
+const styleSheet = createStyleSheet('Li', theme => ({
   li: {
     listStyle: 'none',
-    borderBottom: '1px solid #E4E4E7',
+    borderBottom: `1px solid ${theme.palette.color.grayLighter}`,
     margin: 0,
     '&:last-child': {
-      borderBottom: '0px',
+      borderBottom: 0,
     },
   },
 }));

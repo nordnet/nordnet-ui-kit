@@ -1,15 +1,11 @@
 import React, { PropTypes } from 'react';
-import { createStyleSheet } from 'jss-theme-reactor';
-
-const styleSheet = createStyleSheet('Ul', () => ({
-  ul: {},
-}));
+import classNames from 'classnames';
 
 // not currently doing anything
-function Ul({ children, style, ...rest }, { styleManager }) {
-  const classes = styleManager.render(styleSheet);
+function Ul({ children, style, className, ...rest }) {
+  const classes = classNames('ul', className);
   return (
-    <ul {...rest} className={classes.ul} style={style}>
+    <ul {...rest} className={classes} style={style}>
       { children }
     </ul>
   );
@@ -20,10 +16,5 @@ Ul.propTypes = {
   style: PropTypes.string,
   className: PropTypes.string,
 };
-
-Ul.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
 
 export default Ul;
