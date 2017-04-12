@@ -1,12 +1,13 @@
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
-import React from 'react';
+import React, {PropTypes} from 'react';
 import classnames from 'classnames';
 import Questionmark from '../icon/icons/questionmark';
+import TooltipStyles from './tooltip-styles';
 // import './tooltip.scss';
 
 class Tooltip extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       hover: false,
       toggled: false,
@@ -122,10 +123,10 @@ class Tooltip extends React.Component {
     return (
       <div
         style={style}
-        className={`tooltip-popup tooltip-popup--${placement}`}
+        className={`popup ${placement}`}
         ref={(popup) => { this.popup = popup; }}
       >
-        <div className="tooltip-popup__content">
+        <div className="content">
           { content }
         </div>
       </div>
@@ -133,6 +134,7 @@ class Tooltip extends React.Component {
   }
 
   render() {
+    const classes = this.context.styleManager.render(TooltipStyles);
     const { children, content, className, placement } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = this.getPlacement(placement);
@@ -142,10 +144,10 @@ class Tooltip extends React.Component {
     }
 
     return (
-      <div className={classnames('tooltip', className)} ref={(element) => { this.onOutsideElement = element; }}>
+      <div className={classnames(classes.tooltip, className)} ref={(element) => { this.onOutsideElement = element; }}>
         <div
           ref={(container) => { this.container = container; }}
-          className="tooltip-container"
+          className="container"
           onClick={this.toggleShow}
           onMouseEnter={this.mouseEnter}
           onMouseLeave={this.mouseLeave}
@@ -164,13 +166,17 @@ Tooltip.defaultProps = {
 };
 
 Tooltip.propTypes = {
-  className: React.PropTypes.string,
+  className: PropTypes.string,
   /** The content found in the tooltip */
-  content: React.PropTypes.node,
+  content: PropTypes.node,
   /** The container that, when clicked, will show the tooltip */
-  children: React.PropTypes.node,
-  placement: React.PropTypes.oneOf(['above', 'below', 'right', 'left']),
-  fixedWidth: React.PropTypes.number,
+  children: PropTypes.node,
+  placement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
+  fixedWidth: PropTypes.number,
+};
+
+Tooltip.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Tooltip;

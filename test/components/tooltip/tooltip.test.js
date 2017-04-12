@@ -1,10 +1,15 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
+import { shallow as enzymeShallow, mount as enzymeMount } from 'enzyme';
+import { createShallow, createMount } from '../../../src/test-utils';
 import Tooltip from '../../../src/components/tooltip/tooltip';
+import TooltipStyles from '../../../src/components/tooltip/tooltip-styles';
 
 describe('<Tooltip />', () => {
+  const shallow = createShallow(enzymeShallow);
+  const mount = createMount(enzymeMount);
+  const classes = shallow.context.styleManager.render(TooltipStyles);
   let wrapper;
 
   beforeEach(() => {
@@ -21,32 +26,32 @@ describe('<Tooltip />', () => {
   });
 
   it('should show the tooltip when hovered', () => {
-    wrapper.find('.tooltip-container').simulate('mouseEnter');
+    wrapper.find('.container').simulate('mouseEnter');
     expect(wrapper.state('hover')).to.equal(true);
-    wrapper.find('.tooltip-container').simulate('mouseLeave');
+    wrapper.find('.container').simulate('mouseLeave');
     expect(wrapper.state('hover')).to.equal(false);
   });
 
   it('should toggle the tooltip when clicked', () => {
-    wrapper.find('.tooltip-container').simulate('click');
+    wrapper.find('.container').simulate('click');
     expect(wrapper.state('toggled')).to.equal(true);
   });
 
   it('should have fixedWidth', () => {
     wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
-    expect(wrapper.find('.tooltip-popup').props().style.width).to.equal(123);
+    expect(wrapper.find('.popup').props().style.width).to.equal(123);
   });
 
   it('should set className to above', () => {
     wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'above'} />);
-    wrapper.find('.tooltip-container').simulate('mouseEnter');
-    expect(wrapper.find('.tooltip-popup').hasClass('tooltip-popup--above')).to.equal(true);
+    wrapper.find('.container').simulate('mouseEnter');
+    expect(wrapper.find('.popup').hasClass('above')).to.equal(true);
   });
 
   it('should set className to left', () => {
     wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'left'} />);
-    wrapper.find('.tooltip-container').simulate('mouseEnter');
-    expect(wrapper.find('.tooltip-popup').hasClass('tooltip-popup--left')).to.equal(true);
+    wrapper.find('.container').simulate('mouseEnter');
+    expect(wrapper.find('.popup').hasClass('left')).to.equal(true);
   });
 
   describe('click outside functionality', () => {
@@ -81,14 +86,14 @@ describe('<Tooltip />', () => {
     });
 
     it('should untoggle tooltip when clicked outside', () => {
-      component.find('.tooltip-container').simulate('click');
+      component.find('.container').simulate('click');
       document.getElementById('app').click();
       expect(component.state('toggled')).to.equal(false);
     });
 
     it('should not untoggle tooltip when clicked inside', () => {
-      component.find('.tooltip-container').simulate('click');
-      component.find('.tooltip-popup__content').simulate('click');
+      component.find('.container').simulate('click');
+      component.find('.content').simulate('click');
       expect(component.state('toggled')).to.equal(true);
     });
   });
