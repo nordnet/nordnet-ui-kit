@@ -18,15 +18,6 @@ function navItem(item) {
   );
 }
 
-navItem.propTypes = {
-  item: PropTypes.shape({
-    label: PropTypes.string,
-    url: PropTypes.string,
-    key: PropTypes.string,
-    active: PropTypes.bool,
-  }),
-};
-
 function formatColor(color, opacity) {
   const { r, g, b } = c(color).rgb();
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
