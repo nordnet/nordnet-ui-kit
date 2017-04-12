@@ -11,8 +11,7 @@
 * Removed variables
 
 ### Ported components:
-Badge, LabeledValue, Icon, Logo, Flag, SparkGraph,
-RadioGroup, Input
+Badge, LabeledValue, Icon, Logo, Flag, RadioGroup, Input
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
@@ -21,6 +20,9 @@ Table, Tbody, Thead, Tfoot, Tr, Th, Td,
 Button, GraphTooltip, HorizontalNav, Legend, Pane,
 Dropdown, Alert, NavBar, Tooltip, Search,
 Spinner, Widget, RangeSelector, RatioBar, Select
+
+### Not yet ported
+SparkGraph (issues with d3-interpolate and d3-color)
 
 ## 0.1.1
 * Updated to Webpack 2

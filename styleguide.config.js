@@ -8,7 +8,7 @@ const dir = path.join(__dirname, 'src');
 
 const portedComponents = [
   'badge', 'labeled-value', 'icon', 'logo', 'flag', 'avatar',
-  'spark-graph', 'radio-group', 'input',
+  'radio-group', 'input',
 ];
 
 const quickFixedComponents = [
