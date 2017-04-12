@@ -2,18 +2,17 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import c from 'color';
-// TODO: Move SCSS into JSS
-// import './horizontal-nav.scss';
+import HorizontalNavStyles from './horizontal-nav-styles';
 
 function navItem(item) {
   const { label, url, key, active, ...rest } = item;
-  const classes = classNames('horizontal-nav__item', {
-    'horizontal-nav__item--active': active,
-    'horizontal-nav__item--has-link': url,
+  const className = classNames(this.classes.item, {
+    [this.classes.active]: active,
+    [this.classes.hasLink]: url,
   });
 
   return (
-    <li {...rest} key={key || kebabCase(label)} className={classes}>
+    <li {...rest} key={key || kebabCase(label)} className={className}>
       { url ? <a href={url}>{ label }</a> : <span>{ label }</span> }
     </li>
   );
@@ -33,32 +32,32 @@ function formatColor(color, opacity) {
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
 
-function fade(fadeColor) {
+function fade(fadeColor, classes) {
   const fadeStyle = `linear-gradient(to right, ${formatColor(fadeColor, 0)} 0%, ${formatColor(fadeColor, 1)} 100%)`;
 
   return (
     <li
-      className="horizontal-nav__fade"
+      className={classes.fade}
       style={{ backgroundImage: fadeStyle }}
     />
   );
 }
 
-function HorizontalNav({ className, items, fadeColor, navItemRenderer, fadeRenderer, ...rest }) {
-  const classes = classNames('horizontal-nav', className);
+function HorizontalNav({ className, items, fadeColor, navItemRenderer, fadeRenderer, ...rest }, { styleManager }) {
+  const classes = styleManager.render(HorizontalNavStyles);
 
   return (
-    <div {...rest} className={classes}>
-      <ul className="horizontal-nav__items">
-        { items.map(navItemRenderer || navItem) }
-        { fadeRenderer ? fadeRenderer(fadeColor) : fade(fadeColor) }
+    <div {...rest} className={classNames(classes.horizontalNav, className)}>
+      <ul className={classes.items}>
+        { items.map(navItemRenderer || navItem, { classes }) }
+        { fadeRenderer ? fadeRenderer(fadeColor) : fade(fadeColor, classes) }
       </ul>
     </div>
   );
 }
 
 HorizontalNav.defaultProps = {
-  fadeColor: '#ffffff',
+  fadeColor: '#fff',
 };
 
 HorizontalNav.propTypes = {
@@ -73,5 +72,10 @@ HorizontalNav.propTypes = {
   fadeRenderer: PropTypes.func,
   navItemRenderer: PropTypes.func,
 };
+
+HorizontalNav.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
+};
+
 
 export default HorizontalNav;
