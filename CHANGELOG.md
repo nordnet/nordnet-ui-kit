@@ -12,14 +12,14 @@
 
 ### Ported components:
 Badge, LabeledValue, Icon, Logo, Flag, SparkGraph,
-RadioGroup, Input
+RadioGroup, Input, Search,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
 
 Table, Tbody, Thead, Tfoot, Tr, Th, Td,
 Button, GraphTooltip, HorizontalNav, Legend, Pane,
-Dropdown, Alert, NavBar, Tooltip, Search,
+Dropdown, Alert, NavBar, Tooltip,
 Spinner, Widget, RangeSelector, RatioBar, Select
 
 ## 0.1.1
