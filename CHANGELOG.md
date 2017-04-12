@@ -24,10 +24,10 @@ Spinner, Widget, RangeSelector, RatioBar, Select
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
 
-## 0.2.0-beta.7
+## 0.2.0-beta.8
 * Remove SparkGraph because of issues with d3-interpolate
 
-## 0.2.0-beta.6
+## 0.2.0-beta.7
 * All components ported to JSS
 
 ## 0.1.1
