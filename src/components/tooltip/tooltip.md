@@ -1,3 +1,4 @@
+    const { Icon } = require('../../'); // nordnet-ui-kit
 
     <ul>
       <li style={{marginBottom: '11px'}}>
@@ -61,7 +62,7 @@
       <li style={{marginBottom: '11px'}}>
         <span>How it looks when using another icon:</span>
         <Tooltip content={ <span>A heart</span> }>
-          <Icon type="heart" fill="#00A9EC" stroke="#00A9EC" width={ 16 } height={ 16 } />
+          <Icon.Heart fill="tomato" stroke="tomato" width={ 16 } height={ 16 } />
         </Tooltip>
       </li>
 
