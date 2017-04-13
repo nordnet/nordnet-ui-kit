@@ -29,7 +29,7 @@ export default createStyleSheet('Tr', (theme) => {
 
       '&.sticky': {
         position: 'fixed',
-        // background: palette.background.default,
+        background: palette.background.default,
 
         '& + .tr--clone': {
           display: 'flex',
