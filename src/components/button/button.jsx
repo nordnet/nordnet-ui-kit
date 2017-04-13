@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-// TODO: Move SCSS into JSS
-// import './button.scss';
+import ButtonStyles from './button-styles';
 
 function Button({
   variant,
@@ -13,7 +12,7 @@ function Button({
   href,
   size,
   ...rest
-}) {
+}, { styleManager }) {
   const Element = href ? 'a' : 'button';
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
@@ -21,24 +20,19 @@ function Button({
   const isSuccess = modifier === 'success';
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
-  const classes = classNames({
-    'btn--block': block,
-    'btn-primary': isPrimary,
-    'btn-primary--success': isPrimary && isSuccess,
-    'btn-primary--warning': isPrimary && isWarning,
-    'btn-primary--danger': isPrimary && isDanger,
-    'btn-secondary': isSecondary,
-    'btn-secondary--success': isSecondary && isSuccess,
-    'btn-secondary--warning': isSecondary && isWarning,
-    'btn-secondary--danger': isSecondary && isDanger,
-    'btn-link': isLink,
-    'btn-link--success': isLink && isSuccess,
-    'btn-link--warning': isLink && isWarning,
-    'btn-link--danger': isLink && isDanger,
-  }, `btn--${size}`, className);
+  const classes = styleManager.render(ButtonStyles);
+  const usedClassName = classNames(classes.button, {
+    [classes.block]: block,
+    [classes.primary]: isPrimary,
+    [classes.secondary]: isSecondary,
+    [classes.link]: isLink,
+    success: isSuccess,
+    warning: isWarning,
+    danger: isDanger,
+  }, classes[size], className);
 
   return (
-    <Element {...rest} className={classes} disabled={disabled} href={href}>
+    <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
       { children }
     </Element>
   );
@@ -60,5 +54,10 @@ Button.propTypes = {
   href: PropTypes.string,
   disabled: PropTypes.bool,
 };
+
+Button.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
+};
+
 
 export default Button;

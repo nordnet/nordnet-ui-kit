@@ -19,6 +19,8 @@ const portedComponents = [
   'dropdown',
   'pane',
   'horizontal-nav',
+  'tooltip',
+  'button',
   'search',
 ];
 
@@ -30,11 +32,9 @@ const quickFixedComponents = [
   'tr',
   'th',
   'td',
-  'button',
   'graph-tooltip',
   'alert',
   'nav-bar',
-  'tooltip',
   'select',
   'spinner',
   'widget',
