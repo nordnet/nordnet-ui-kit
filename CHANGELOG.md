@@ -23,6 +23,7 @@ Dropdown,
 Pane,
 HorizontalNav,
 Button,
+Tooltip,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
@@ -37,7 +38,6 @@ Td,
 GraphTooltip,
 Alert,
 NavBar,
-Tooltip,
 Search,
 Select,
 Spinner,
