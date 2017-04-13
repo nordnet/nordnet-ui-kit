@@ -7,15 +7,39 @@ const config = require('./webpack.config')('styleguidist');
 const dir = path.join(__dirname, 'src');
 
 const portedComponents = [
-  'badge', 'labeled-value', 'icon', 'logo', 'flag', 'avatar',
-  'spark-graph', 'radio-group', 'input', 'tooltip',
+  'badge',
+  'labeled-value',
+  'icon',
+  'logo',
+  'flag',
+  'avatar',
+  'radio-group',
+  'input',
+  'legend',
+  'dropdown',
+  'pane',
+  'horizontal-nav',
+  'tooltip',
 ];
 
 const quickFixedComponents = [
-  'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
-  'button', 'graph-tooltip', 'horizontal-nav', 'legend', 'pane',
-  'dropdown', 'alert', 'nav-bar', 'search',
-  'spinner', 'widget', 'range-selector', 'ratio-bar', 'select',
+  'table',
+  'tbody',
+  'thead',
+  'tfoot',
+  'tr',
+  'th',
+  'td',
+  'button',
+  'graph-tooltip',
+  'alert',
+  'nav-bar',
+  'search',
+  'select',
+  'spinner',
+  'widget',
+  'range-selector',
+  'ratio-bar',
 ];
 
 const allComponents = [...portedComponents, ...quickFixedComponents];
