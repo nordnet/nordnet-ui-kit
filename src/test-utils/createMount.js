@@ -25,8 +25,18 @@ export default function createMount(mount) {
     styleManager: PropTypes.object,
   };
 
-  const mountWithContext = function mountWithContext(node) {
-    return mount(node, { context, attachTo, childContextTypes });
+  const mountWithContext = function mountWithContext(node, options = {}) {
+    return mount(node, {
+      context: {
+        ...context,
+        ...options.context,
+      },
+      attachTo,
+      childContextTypes: {
+        ...childContextTypes,
+        ...options.childContextTypes,
+      },
+    });
   };
 
   mountWithContext.context = context;
