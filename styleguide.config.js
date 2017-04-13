@@ -8,12 +8,12 @@ const dir = path.join(__dirname, 'src');
 
 const portedComponents = [
   'badge', 'labeled-value', 'icon', 'logo', 'flag', 'avatar',
-  'radio-group', 'input', 'legend', 'dropdown',
+  'radio-group', 'input', 'legend', 'dropdown', 'pane',
 ];
 
 const quickFixedComponents = [
   'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
-  'button', 'graph-tooltip', 'horizontal-nav', 'pane',
+  'button', 'graph-tooltip', 'horizontal-nav',
   'alert', 'nav-bar', 'tooltip', 'search', 'select',
   'spinner', 'widget', 'range-selector', 'ratio-bar',
 ];
