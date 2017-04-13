@@ -8,14 +8,14 @@ const dir = path.join(__dirname, 'src');
 
 const portedComponents = [
   'badge', 'labeled-value', 'icon', 'logo', 'flag', 'avatar',
-  'spark-graph', 'radio-group', 'input',
+  'radio-group', 'input', 'legend', 'dropdown', 'pane',
 ];
 
 const quickFixedComponents = [
   'table', 'tbody', 'thead', 'tfoot', 'tr', 'th', 'td',
-  'button', 'graph-tooltip', 'horizontal-nav', 'legend', 'pane',
-  'dropdown', 'alert', 'nav-bar', 'tooltip', 'search',
-  'spinner', 'widget', 'range-selector', 'ratio-bar', 'select',
+  'button', 'graph-tooltip', 'horizontal-nav',
+  'alert', 'nav-bar', 'tooltip', 'search', 'select',
+  'spinner', 'widget', 'range-selector', 'ratio-bar',
 ];
 
 const allComponents = [...portedComponents, ...quickFixedComponents];

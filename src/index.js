@@ -62,7 +62,7 @@ import RangeSelector from './components/range-selector/';
 import RatioBar from './components/ratio-bar';
 import Search from './components/search';
 import Select from './components/select/select';
-import SparkGraph from './components/spark-graph';
+// import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
 import Table from './components/table';
 import Tbody from './components/tbody';
@@ -153,7 +153,7 @@ export {
   RatioBar,
   Search,
   Select,
-  SparkGraph,
+  // SparkGraph,
   Spinner,
   Table,
   Tbody,

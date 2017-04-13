@@ -2,18 +2,19 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-// TODO: Move SCSS into JSS
-// import './pane.scss';
+import PaneStyles from './pane-styles';
 
 class Pane extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       activeTab: props.activeTab || 0,
     };
 
     this.handleTabClick = this.handleTabClick.bind(this);
+
+    this.classes = this.context.styleManager.render(PaneStyles);
   }
 
   handleTabClick(index) {
@@ -26,11 +27,11 @@ class Pane extends React.PureComponent {
     const tabWidth = 100 / this.props.tabs.length;
 
     return (
-      <ul className="pane__tabs">
+      <ul className={this.classes.tabs}>
         { this.props.tabs.map((tab, index) => (
           <li
             key={`${kebabCase(tab.label)}_${index}`}
-            className={classNames('pane__tab', { 'pane__tab--is-active': this.state.activeTab === index })}
+            className={classNames(this.classes.tab, { [this.classes.active]: this.state.activeTab === index })}
             style={{ width: `${tabWidth}%` }}
             onClick={() => this.handleTabClick(index)}
           >
@@ -43,7 +44,7 @@ class Pane extends React.PureComponent {
 
   renderBody() {
     return (
-      <div className="pane__body">
+      <div className="body">
         { this.props.tabs.map((tab, index) => (
           <div key={`${kebabCase(tab.label)}_body_${index}`} style={{ display: this.state.activeTab === index ? 'block' : 'none' }}>
             { tab.body }
@@ -54,10 +55,10 @@ class Pane extends React.PureComponent {
   }
 
   render() {
-    const classes = classNames('pane', this.props.className);
+    const className = classNames(this.classes.pane, this.props.className);
 
     return (
-      <div className={classes}>
+      <div className={className}>
         { this.renderTabs() }
         { this.renderBody() }
       </div>
@@ -75,5 +76,10 @@ Pane.propTypes = {
 };
 
 Pane.defaultProps = {};
+
+Pane.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
+};
+
 
 export default Pane;
