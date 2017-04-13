@@ -77,6 +77,13 @@ import Widget from './components/widget/widget';
 // Theming
 import { ThemeProvider } from './styles';
 
+
+import {
+  injectSheet,
+  withTheme,
+  withThemedStyles,
+} from './hocs';
+
 // Test utils
 import {
   createMount,
@@ -172,4 +179,9 @@ export {
   createMount,
   createShallow,
   createRenderToString,
+
+  // hocs
+  injectSheet,
+  withTheme,
+  withThemedStyles,
 };
