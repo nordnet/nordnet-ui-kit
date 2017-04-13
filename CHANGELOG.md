@@ -22,17 +22,17 @@ Legend,
 Dropdown,
 Pane,
 HorizontalNav,
-
-### Quickfix ported components
-These components have removed the SCSS styling, but has not added it as JSS.
-
 Table,
-Tbody, 
+Tbody,
 Thead,
 Tfoot,
 Tr,
 Th,
 Td,
+
+### Quickfix ported components
+These components have removed the SCSS styling, but has not added it as JSS.
+
 Button,
 GraphTooltip,
 Alert,

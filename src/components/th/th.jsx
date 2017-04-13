@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-// TODO: Move SCSS into JSS
-// import './th.scss';
+import ThStyles from './th-styles';
 
 function Th({
   className,
@@ -20,30 +19,24 @@ function Th({
   align,
   ellipsis,
   ...rest
-}) {
-  const classes = classNames('th', {
-    'th--xs': size === 'xs',
-    'th--sm': size === 'sm',
-    'th--md': size === 'md',
-    'th--lg': size === 'lg',
-    'th--has-width': width,
-    'th--mono': mono,
-    'th--success': modifier === 'success',
-    'th--warning': modifier === 'warning',
-    'th--danger': modifier === 'danger',
-    'th--highlight-success': highlight === 'success',
-    'th--highlight-warning': highlight === 'warning',
-    'th--highlight-danger': highlight === 'danger',
-    'th--border': border,
-    'th--border-top': borderTop,
-    'th--border-right': borderRight,
-    'th--border-bottom': borderBottom,
-    'th--border-left': borderLeft,
-    'th--align-left': align === 'left',
-    'th--align-right': align === 'right',
-    'th--align-center': align === 'center',
-    'th--ellipsis': ellipsis,
-  }, className);
+}, { styleManager }) {
+  const classes = styleManager.render(ThStyles);
+  const usedClassName = classNames(
+    classes.th, size, modifier,
+    modifier ? [`highlight-${modifier}`] : [],
+    align ? [`align-${align}`] : [],
+    {
+      mono,
+      hasWidth: width,
+      border,
+      borderTop,
+      borderRight,
+      borderBottom,
+      borderLeft,
+      ellipsis,
+    },
+    className,
+  );
 
   const thStyle = Object.assign(
     {},
@@ -51,7 +44,7 @@ function Th({
     style,
   );
 
-  return <th {...rest} className={classes} style={thStyle}>{ children }</th>;
+  return <th {...rest} className={usedClassName} style={thStyle}>{ children }</th>;
 }
 
 Th.defaultProps = {
@@ -82,6 +75,10 @@ Th.propTypes = {
   align: PropTypes.oneOf(['left', 'right', 'center']),
   /** By default a header column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
   ellipsis: PropTypes.bool,
+};
+
+Th.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Th;
