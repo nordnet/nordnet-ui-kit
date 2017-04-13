@@ -20,6 +20,7 @@ const portedComponents = [
   'pane',
   'horizontal-nav',
   'tooltip',
+  'button',
 ];
 
 const quickFixedComponents = [
@@ -30,7 +31,6 @@ const quickFixedComponents = [
   'tr',
   'th',
   'td',
-  'button',
   'graph-tooltip',
   'alert',
   'nav-bar',
