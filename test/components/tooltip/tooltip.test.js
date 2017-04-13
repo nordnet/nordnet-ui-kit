@@ -26,9 +26,9 @@ describe('<Tooltip />', () => {
   });
 
   it('should show the tooltip when hovered', () => {
-    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    wrapper.find(`.${classes.tooltip}`).simulate('mouseEnter');
     expect(wrapper.state('hover')).to.equal(true);
-    wrapper.find(`.${classes.container}`).simulate('mouseLeave');
+    wrapper.find(`.${classes.tooltip}`).simulate('mouseLeave');
     expect(wrapper.state('hover')).to.equal(false);
   });
 
