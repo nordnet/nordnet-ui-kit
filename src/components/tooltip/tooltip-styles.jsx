@@ -9,17 +9,45 @@ export default createStyleSheet('Tooltip', (theme) => {
   return {
     tooltip: {
       color: palette.variant.primary,
-      marginLeft: '.2em',
       position: 'relative',
-      display: 'inline',
+      display: 'inline-block',
     },
 
     container: {
       cursor: 'pointer',
+      paddingLeft: '.2em',
       display: 'inline-block',
 
       ' .icon': {
         verticalAlign: 'text-bottom',
+      },
+
+      '&:after': {
+        position: 'absolute',
+        content: '""',
+      },
+
+      '&.below:after, &.above:after': {
+        width: '100%',
+        height: 8,
+        left: 0,
+      },
+
+      '&.below:after': {
+        bottom: -4,
+      },
+
+      '&.above:after': {
+        top: -8,
+      },
+
+      '&.right:after, &.left:after': {
+        height: '100%',
+        width: 12,
+      },
+
+      '&.left:after': {
+        left: -12,
       },
     },
 
@@ -27,9 +55,10 @@ export default createStyleSheet('Tooltip', (theme) => {
       position: 'absolute',
       textAlign: 'left',
       fontSize: '.8em',
-      padding: '8px',
+      padding: 8,
       color: '#fff',
       background: 'rgba(0, 0, 0, 0.75)',
+      borderRadius: 5,
       whiteSpace: 'nowrap',
       zIndex: zIndexTooltip,
       transition: `opacity .3s ${variables.easeOut}`,
@@ -47,11 +76,11 @@ export default createStyleSheet('Tooltip', (theme) => {
 
       '&.below': {
         left: '50%',
-        marginTop: '8px',
+        marginTop: 4,
         transform: 'translateX(-50%)',
 
         '&:before': {
-          top: '-8px',
+          top: -8,
           borderLeft: '8px solid transparent',
           borderRight: '8px solid transparent',
           borderBottom: '8px solid rgba(0, 0, 0, 0.75)',
@@ -59,16 +88,17 @@ export default createStyleSheet('Tooltip', (theme) => {
       },
 
       '&.left': {
-        right: '12px',
-        top: '12px',
+        right: 12,
+        top: '50%',
         marginRight: '100%',
         transform: 'translate(0, -50%)',
 
         '&:before': {
           left: 'inherit',
-          right: '-12px',
-          marginTop: '-0.8rem',
+          right: -12,
+          marginTop: -8,
           top: '50%',
+          content: '""', // Need the extra inner "", otherwise stripped away
           borderTop: '8px solid transparent',
           borderBottom: '8px solid transparent',
           borderLeft: '8px solid rgba(0, 0, 0, 0.75)',
@@ -76,15 +106,17 @@ export default createStyleSheet('Tooltip', (theme) => {
       },
 
       '&.right': {
-        top: '8px',
-        left: '12px',
+        left: 12,
+        top: '50%',
         marginLeft: '100%',
         transform: 'translate(0, -50%)',
 
         '&:before': {
-          left: '-4px',
+          right: 'inherit',
+          left: -4,
+          marginTop: -8,
           top: '50%',
-          marginTop: '-0.8rem',
+          content: '""', // Need the extra inner "", otherwise stripped away
           borderTop: '8px solid transparent',
           borderBottom: '8px solid transparent',
           borderRight: '8px solid rgba(0, 0, 0, 0.75)',
@@ -93,11 +125,12 @@ export default createStyleSheet('Tooltip', (theme) => {
 
       '&.above': {
         left: '50%',
-        marginBottom: '8px',
+        bottom: '100%',
+        marginBottom: 8,
         transform: 'translateX(-50%)',
 
         '&:before': {
-          bottom: '-8px',
+          bottom: -8,
           borderTop: '8px solid rgba(0, 0, 0, 0.75)',
           borderRight: '8px solid transparent',
           borderLeft: '8px solid transparent',

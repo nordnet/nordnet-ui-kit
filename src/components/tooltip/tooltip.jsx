@@ -107,17 +107,13 @@ class Tooltip extends React.Component {
 
   renderPopup(content, placement) {
     const style = {
-      opacity: this.state.hover || this.state.toggled ? 1 : 0,
-      pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
+      opacity: (this.state.hover || this.state.toggled) ? 1 : 0,
+      pointerEvents: (this.state.hover || this.state.toggled) ? 'all' : 'none',
     };
 
     if (this.props.fixedWidth) {
       style.width = this.props.fixedWidth;
       style.whiteSpace = 'inherit';
-    }
-
-    if (placement === 'above') {
-      style.bottom = this.contentHeight;
     }
 
     return (
@@ -143,13 +139,16 @@ class Tooltip extends React.Component {
     }
 
     return (
-      <div className={classnames(this.classes.tooltip, className)} ref={(element) => { this.onOutsideElement = element; }}>
+      <div
+        className={classnames(this.classes.tooltip, className)}
+        ref={(element) => { this.onOutsideElement = element; }}
+        onMouseEnter={this.mouseEnter}
+        onMouseLeave={this.mouseLeave}
+      >
         <div
           ref={(container) => { this.container = container; }}
-          className={this.classes.container}
+          className={classnames(this.classes.container, this.placement)}
           onClick={this.toggleShow}
-          onMouseEnter={this.mouseEnter}
-          onMouseLeave={this.mouseLeave}
         >
           { children }
         </div>
