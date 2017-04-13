@@ -11,16 +11,39 @@
 * Removed variables
 
 ### Ported components:
-Badge, LabeledValue, Icon, Logo, Flag, RadioGroup, Input,
-Legend, Dropdown, Pane
+Badge,
+LabeledValue,
+Icon,
+Logo,
+Flag,
+RadioGroup,
+Input,
+Legend,
+Dropdown,
+Pane,
+HorizontalNav,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
 
-Table, Tbody, Thead, Tfoot, Tr, Th, Td,
-Button, GraphTooltip, HorizontalNav,
-Alert, NavBar, Tooltip, Search, Select,
-Spinner, Widget, RangeSelector, RatioBar
+Table,
+Tbody, 
+Thead,
+Tfoot,
+Tr,
+Th,
+Td,
+Button,
+GraphTooltip,
+Alert,
+NavBar,
+Tooltip,
+Search,
+Select,
+Spinner,
+Widget,
+RangeSelector,
+RatioBar
 
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
