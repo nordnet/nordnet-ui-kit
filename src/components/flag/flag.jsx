@@ -44,6 +44,7 @@ function Flag({
 
   return (
     <span
+      className="flag"
       style={styles}
       {...rest}
     >
