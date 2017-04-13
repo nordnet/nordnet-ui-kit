@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-// TODO: Move SCSS into JSS
-// import './legend.scss';
+import styleSheet from './legend-styles';
 
 function legendItem({ color, label, value, ...rest }) {
   return (
-    <li key={kebabCase(label)} {...rest} className="legend__item">
-      <span className="legend__item-indicator" style={{ backgroundColor: color }} />
-      <span className="legend__item-label">{ label }</span>
-      { value ? <span className="legend__item-value">{ value }</span> : null }
+    <li key={kebabCase(label)} {...rest} className={this.classes.item}>
+      <span className={this.classes.indicator} style={{ backgroundColor: color }} />
+      <span className={this.classes.label}>{ label }</span>
+      { value ? <span className={this.classes.value}>{ value }</span> : null }
     </li>
   );
 }
@@ -20,13 +19,14 @@ legendItem.propTypes = {
   value: PropTypes.node,
 };
 
-function Legend({ className, items, ...rest }) {
-  const classes = classNames('legend', className);
+function Legend({ className, items, ...rest }, { styleManager }) {
+  const classes = styleManager.render(styleSheet);
+  const legendClassName = classNames(classes.legend, className);
 
   return (
-    <div {...rest} className={classes}>
-      <ul className="legend__items">
-        { items.map(legendItem) }
+    <div {...rest} className={legendClassName}>
+      <ul className={classes.items}>
+        { items.map(legendItem, { classes }) }
       </ul>
     </div>
   );
@@ -39,6 +39,10 @@ Legend.propTypes = {
     label: React.PropTypes.node.isRequired,
     value: PropTypes.node,
   })),
+};
+
+Legend.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Legend;
