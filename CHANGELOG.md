@@ -25,6 +25,7 @@ HorizontalNav,
 Button,
 Tooltip,
 Search,
+Widget,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
@@ -41,7 +42,6 @@ Alert,
 NavBar,
 Select,
 Spinner,
-Widget,
 RangeSelector,
 RatioBar
 
