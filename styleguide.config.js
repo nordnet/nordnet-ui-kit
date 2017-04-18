@@ -22,9 +22,6 @@ const portedComponents = [
   'tooltip',
   'button',
   'search',
-];
-
-const quickFixedComponents = [
   'table',
   'tbody',
   'thead',
@@ -32,6 +29,9 @@ const quickFixedComponents = [
   'tr',
   'th',
   'td',
+];
+
+const quickFixedComponents = [
   'graph-tooltip',
   'alert',
   'nav-bar',
