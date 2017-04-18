@@ -27,5 +27,4 @@ Table.contextTypes = {
   styleManager: PropTypes.object.isRequired,
 };
 
-
 export default Table;
