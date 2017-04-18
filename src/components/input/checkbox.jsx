@@ -13,7 +13,6 @@ function Checkbox(props) {
 
   const icon = (<Icon.Checkmark
     stroke={color.white}
-    renderInline
     style={{ display: 'block' }}
   />);
 

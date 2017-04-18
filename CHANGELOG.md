@@ -34,6 +34,7 @@ Th,
 Td,
 Widget,
 Spinner,
+RatioBar,
 Alert,
 
 ### Quickfix ported components
@@ -43,7 +44,6 @@ GraphTooltip,
 NavBar,
 Select,
 RangeSelector,
-RatioBar
 
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
