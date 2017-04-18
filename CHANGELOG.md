@@ -34,6 +34,7 @@ Th,
 Td,
 Widget,
 Spinner,
+RatioBar,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
@@ -43,7 +44,6 @@ Alert,
 NavBar,
 Select,
 RangeSelector,
-RatioBar
 
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
