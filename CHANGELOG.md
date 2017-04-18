@@ -35,12 +35,12 @@ Td,
 Widget,
 Spinner,
 RatioBar,
+Alert,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
 
 GraphTooltip,
-Alert,
 NavBar,
 Select,
 RangeSelector,
