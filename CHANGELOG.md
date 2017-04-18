@@ -32,6 +32,7 @@ Tfoot,
 Tr,
 Th,
 Td,
+Widget,
 Spinner,
 
 ### Quickfix ported components
@@ -41,7 +42,6 @@ GraphTooltip,
 Alert,
 NavBar,
 Select,
-Widget,
 RangeSelector,
 RatioBar
 

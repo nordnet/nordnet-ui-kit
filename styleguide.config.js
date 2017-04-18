@@ -29,6 +29,7 @@ const portedComponents = [
   'tr',
   'th',
   'td',
+  'widget',
   'spinner',
 ];
 
@@ -37,7 +38,6 @@ const quickFixedComponents = [
   'alert',
   'nav-bar',
   'select',
-  'widget',
   'range-selector',
   'ratio-bar',
 ];
