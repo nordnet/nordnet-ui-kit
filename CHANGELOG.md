@@ -48,6 +48,10 @@ RatioBar
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
 
+## 0.2.0-beta.9
+* Port Legend, Dropdown, Pane, Horizontal nav, Tooltip, Button and Search
+* Add support to pass custom context to mount helper
+
 ## 0.2.0-beta.8
 * Remove SparkGraph because of issues with d3-interpolate
 
