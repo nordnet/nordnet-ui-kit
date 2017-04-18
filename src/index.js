@@ -53,7 +53,6 @@ import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Logo from './components/logo/logo';
-import NavBar from './components/nav-bar';
 import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
 import RangeSelector from './components/range-selector/';
@@ -142,7 +141,6 @@ export {
   Input,
   LabeledValue,
   Logo,
-  NavBar,
   Pane,
   RadioGroup,
   RangeSelector,
