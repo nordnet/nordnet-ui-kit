@@ -57,7 +57,6 @@ import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
 import RatioBar from './components/ratio-bar';
 import Search from './components/search';
-import Select from './components/select/select';
 // import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
 import Table from './components/table';
@@ -144,7 +143,6 @@ export {
   RadioGroup,
   RatioBar,
   Search,
-  Select,
   // SparkGraph,
   Spinner,
   Table,
