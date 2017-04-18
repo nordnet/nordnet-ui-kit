@@ -55,7 +55,6 @@ import LabeledValue from './components/labeled-value/labeled-value';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
-import RangeSelector from './components/range-selector/';
 import RatioBar from './components/ratio-bar';
 import Search from './components/search';
 import Select from './components/select/select';
@@ -143,7 +142,6 @@ export {
   Logo,
   Pane,
   RadioGroup,
-  RangeSelector,
   RatioBar,
   Search,
   Select,
