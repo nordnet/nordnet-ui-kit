@@ -67,7 +67,13 @@ class Tr extends React.Component { // eslint-disable-line
     if (!this.state.sticky) {
       top = trTop;
     } else {
+      // To calculate getBoundingClientRect correct the nextSibling must be visible,
+      // but when it is a clone it is not because it gets 'display: none'
+      // from clone class. Temporarily setting 'display: block' fixes this.
+      // Since it is syncronous it should not cause any flickering.
+      this.tr.nextSibling.style.display = 'block';
       top = this.tr.nextSibling.getBoundingClientRect().top;
+      this.tr.nextSibling.style.display = '';
     }
 
     if (fromBottom > 0 && top <= offset && top > (tableHeight - height - offset) * -1) {
