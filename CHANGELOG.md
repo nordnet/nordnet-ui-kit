@@ -25,11 +25,6 @@ HorizontalNav,
 Button,
 Tooltip,
 Search,
-Spinner,
-
-### Quickfix ported components
-These components have removed the SCSS styling, but has not added it as JSS.
-
 Table,
 Tbody,
 Thead,
@@ -37,6 +32,11 @@ Tfoot,
 Tr,
 Th,
 Td,
+Spinner,
+
+### Quickfix ported components
+These components have removed the SCSS styling, but has not added it as JSS.
+
 GraphTooltip,
 Alert,
 NavBar,

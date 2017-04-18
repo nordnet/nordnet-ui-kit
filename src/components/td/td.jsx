@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-// TODO: Move SCSS into JSS
-// import './td.scss';
+import TdStyles from './td-styles';
 
 function Td({
   className,
@@ -20,30 +19,25 @@ function Td({
   align,
   ellipsis,
   ...rest
-}) {
-  const classes = classNames('td', {
-    'td--xs': size === 'xs',
-    'td--sm': size === 'sm',
-    'td--md': size === 'md',
-    'td--lg': size === 'lg',
-    'td--has-width': width,
-    'td--mono': mono,
-    'td--success': modifier === 'success',
-    'td--warning': modifier === 'warning',
-    'td--danger': modifier === 'danger',
-    'td--highlight-success': highlight === 'success',
-    'td--highlight-warning': highlight === 'warning',
-    'td--highlight-danger': highlight === 'danger',
-    'td--border': border,
-    'td--border-top': borderTop,
-    'td--border-right': borderRight,
-    'td--border-bottom': borderBottom,
-    'td--border-left': borderLeft,
-    'td--align-left': align === 'left',
-    'td--align-right': align === 'right',
-    'td--align-center': align === 'center',
-    'td--ellipsis': ellipsis,
-  }, className);
+}, { styleManager }) {
+  const classes = styleManager.render(TdStyles);
+  const usedClassName = classNames(
+    classes.td, size,
+    {
+      hasWidth: width,
+      [modifier]: modifier,
+      [`highlight-${highlight}`]: highlight,
+      [`align-${align}`]: align,
+      mono,
+      border,
+      borderTop,
+      borderRight,
+      borderBottom,
+      borderLeft,
+      ellipsis,
+    },
+    className,
+  );
 
   const tdStyle = Object.assign(
     {},
@@ -51,7 +45,7 @@ function Td({
     style,
   );
 
-  return <td {...rest} className={classes} style={tdStyle}>{ children }</td>;
+  return <td {...rest} className={usedClassName} style={tdStyle}>{ children }</td>;
 }
 
 Td.defaultProps = {
@@ -83,5 +77,10 @@ Td.propTypes = {
   /** By default a column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
   ellipsis: PropTypes.bool,
 };
+
+Td.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
+};
+
 
 export default Td;
