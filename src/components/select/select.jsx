@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactSelect from 'react-select';
+import SelectStyles from './select-styles';
 // import Icon from '../icon/icon';
-// import variables from '../../utilities/variables';
-// import './select.scss';
 
 // TODO: react-select with arrowRenderer prop not yet published on npm
 // function arrowRenderer({ onMouseDown }) {
@@ -19,10 +18,11 @@ import ReactSelect from 'react-select';
 //   );
 // }
 
-function Select({ label, ...rest }) {
+function Select({ label, ...rest }, { styleManager }) {
+  const classes = styleManager.render(SelectStyles);
   return (
-    <div className="select">
-      { label ? <label className="select__label" htmlFor={rest.id ? rest.id : null}>{ label }</label> : null }
+    <div className={classes.select}>
+      { label ? <label className={classes.label} htmlFor={rest.id ? rest.id : null}>{ label }</label> : null }
       <ReactSelect clearable={false} {...rest} />
     </div>
   );
@@ -30,6 +30,10 @@ function Select({ label, ...rest }) {
 
 Select.propTypes = {
   label: PropTypes.string,
+};
+
+Select.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Select;
