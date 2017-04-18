@@ -111,9 +111,8 @@ class Tr extends React.Component { // eslint-disable-line
     const { width, sticky } = this.state;
     const usedClassName = classNames(
       classes.tr, size,
-      variant ? [variant] : [],
       {
-        variant,
+        [variant]: variant,
         border,
         sticky,
       },

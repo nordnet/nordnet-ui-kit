@@ -22,10 +22,11 @@ function Th({
 }, { styleManager }) {
   const classes = styleManager.render(ThStyles);
   const usedClassName = classNames(
-    classes.th, size, modifier,
-    modifier ? [`highlight-${modifier}`] : [],
-    align ? [`align-${align}`] : [],
+    classes.th, size,
     {
+      [modifier]: modifier,
+      [`highlight-${highlight}`]: highlight,
+      [`align-${align}`]: align,
       mono,
       hasWidth: width,
       border,

@@ -23,11 +23,11 @@ function Td({
   const classes = styleManager.render(TdStyles);
   const usedClassName = classNames(
     classes.td, size,
-    modifier ? [modifier] : [],
-    highlight ? [`highlight-${highlight}`] : [],
-    align ? [`align-${align}`] : [],
     {
       hasWidth: width,
+      [modifier]: modifier,
+      [`highlight-${highlight}`]: highlight,
+      [`align-${align}`]: align,
       mono,
       border,
       borderTop,
