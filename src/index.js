@@ -33,7 +33,6 @@ import Lock from './components/icon/icons/lock';
 import Mail from './components/icon/icons/mail';
 import MailOpen from './components/icon/icons/mailOpen';
 import News from './components/icon/icons/news';
-import NordnetLogo from './components/icon/icons/nordnetLogo';
 import Print from './components/icon/icons/print';
 import Questionmark from './components/icon/icons/questionmark';
 import SearchIcon from './components/icon/icons/search';
@@ -108,7 +107,6 @@ const Icon = {
   Mail,
   MailOpen,
   News,
-  NordnetLogo,
   Print,
   Questionmark,
   Search: SearchIcon,

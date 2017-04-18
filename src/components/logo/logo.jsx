@@ -1,46 +1,31 @@
 import React, { PropTypes } from 'react';
-import { createStyleSheet } from 'jss-theme-reactor';
-import { Icon } from '../../';
+import NordnetLogo from './nordnetLogo';
 
-const styleSheet = createStyleSheet('Logo', () => ({
-  logo: {
-    display: 'inline-flex',
-  },
-}));
-
-function Logo(props, { styleManager }) {
-  const classes = styleManager.render(styleSheet);
-  const logos = {
-    default: Icon.NordnetLogo,
-  };
-  const NordnetLogo = logos[props.type];
-  const logoStyle = {
-    width: props.width,
-  };
-  const svgStyle = {
-    display: 'block',
-    height: '100%',
-    width: '100%',
-  };
+function Logo(props) {
   return (
-    <span {...props} className={classes.logo} style={logoStyle}>
-      <NordnetLogo style={svgStyle} />
-    </span>
+    <NordnetLogo
+      className={props.className}
+      style={props.style}
+      height="100%"
+      width={props.width}
+      fill={props.iconColor}
+      stroke={props.textColor}
+    />
   );
 }
 
 Logo.defaultProps = {
-  type: 'default',
+  iconColor: '#00A9EC',
+  textColor: '#222222',
   width: 130,
 };
 
 Logo.propTypes = {
-  type: PropTypes.oneOf(['default']),
+  className: PropTypes.string,
+  style: PropTypes.object,
+  iconColor: PropTypes.string,
+  textColor: PropTypes.string,
   width: PropTypes.number,
-};
-
-Logo.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
 };
 
 export default Logo;
