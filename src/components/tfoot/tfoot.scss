@@ -1,8 +1,0 @@
-@import '../../functions';
-@import '../../variables';
-@import '../table/utilities';
-
-.tfoot {
-  display: block;
-  @include sizes();
-}
