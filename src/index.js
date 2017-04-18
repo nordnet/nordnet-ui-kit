@@ -4,7 +4,6 @@ import Badge from './components/badge/badge';
 import Button from './components/button/button';
 import Dropdown from './components/dropdown/dropdown';
 import Flag from './components/flag/flag';
-import GraphTooltip from './components/graph-tooltip';
 import HorizontalNav from './components/horizontal-nav';
 import Apartment from './components/icon/icons/apartment';
 import ArrowDown from './components/icon/icons/arrowDown';
@@ -139,7 +138,6 @@ export {
   Button,
   Flag,
   Dropdown,
-  GraphTooltip,
   HorizontalNav,
   Icon,
   Input,
