@@ -52,7 +52,6 @@ import UserShirt from './components/icon/icons/userShirt';
 import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
-import Legend from './components/legend';
 import Logo from './components/logo/logo';
 import NavBar from './components/nav-bar';
 import Pane from './components/pane/pane';
@@ -142,7 +141,6 @@ export {
   Icon,
   Input,
   LabeledValue,
-  Legend,
   Logo,
   NavBar,
   Pane,
