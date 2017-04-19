@@ -7,6 +7,7 @@ import Flag from './components/flag/flag';
 import HorizontalNav from './components/horizontal-nav';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
+import Li from './components/li/li';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
@@ -22,6 +23,7 @@ import Th from './components/th';
 import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
+import Ul from './components/ul/ul';
 import Widget from './components/widget/widget';
 
 // Icons
@@ -104,6 +106,7 @@ const Icon = {
   GraphCandlestick,
   Heart,
   Key,
+  Li,
   LightningBolt,
   Lock,
   Mail,
@@ -153,6 +156,7 @@ export {
   Thead,
   Tooltip,
   Tr,
+  Ul,
   Widget,
 
   // Theming
