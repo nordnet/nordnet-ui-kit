@@ -30,9 +30,9 @@ class Alert extends React.PureComponent {
     return (
       <button className={this.classes.close} onClick={this.handleCloseClick}>
         <IconClose
-          stroke={this.context.styleManager.theme.palette.variant.primary}
-          width={8}
-          height={8}
+          stroke={this.context.styleManager.theme.palette.text.default}
+          width={10}
+          height={10}
           style={{ display: 'block' }}
         />
       </button>

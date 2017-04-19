@@ -6,7 +6,6 @@ export default createStyleSheet('Alert', (theme) => {
   return {
     alert: {
       background: palette.background.default,
-      boxShadow: '0 2px 4px 2px rgba(0, 0, 0, .1)',
       fontSize: '12px',
       padding: '4px 8px',
       position: 'relative',
@@ -37,18 +36,24 @@ export default createStyleSheet('Alert', (theme) => {
     },
 
     success: {
+      borderLeft: `2px solid ${palette.variant.success}`,
+
       '& .header': {
         color: palette.variant.success,
       },
     },
 
     warning: {
+      borderLeft: `2px solid ${palette.variant.warning}`,
+
       '& .header': {
         color: palette.variant.warning,
       },
     },
 
     danger: {
+      borderLeft: `2px solid ${palette.variant.danger}`,
+
       '& .header': {
         color: palette.variant.danger,
       },
