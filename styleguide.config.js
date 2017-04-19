@@ -14,9 +14,12 @@ module.exports = {
   styleguideDir: path.join(__dirname, 'documentation/dist'),
   // components: 'src/components/**/*.jsx',
   components() {
-    const folders = fs.readdirSync(`${dir}/components`);
-    // SparkGraph is not yet fixed, leaving here for now!
-    return folders.filter(c => c !== 'spark-graph').map(folder => `${dir}/components/${folder}/${folder}.jsx`);
+    const componentPath = `${dir}/components`;
+    const folders = fs.readdirSync(componentPath);
+    return folders
+      .filter(c => fs.statSync(path.join(componentPath, c)).isDirectory()) // Filter out directories
+      .filter(c => c !== 'spark-graph') // SparkGraph is not yet fixed, leaving here for now!
+      .map(folder => `${dir}/components/${folder}/${folder}.jsx`);
   },
   template: path.join(__dirname, 'documentation/template.html'),
   getComponentPathLine(componentPath) {
