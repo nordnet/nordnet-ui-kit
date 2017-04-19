@@ -2,14 +2,14 @@
 // https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
 // https://material.io/guidelines/motion/duration-easing.html#duration-easing-common-durations
 
-const _easing = { // eslint-disable-line no-underscore-dangle
+const easingInternal = {
   easeInOut: 'cubic-bezier(.4, 0, .2, 1)',
   easeOut: 'cubic-bezier(0, 0, .2, 1)',
   easeIn: 'cubic-bezier(.4, 0, 1, 1)',
   sharp: 'cubic-bezier(.4, 0, .6, 1)',
 };
 
-const _duration = { // eslint-disable-line no-underscore-dangle
+const durationInternal = {
   shortest: 150,
   shorter: 200,
   short: 250,
@@ -22,12 +22,12 @@ const _duration = { // eslint-disable-line no-underscore-dangle
 };
 
 export default {
-  easing: _easing,
-  duration: _duration,
+  easing: easingInternal,
+  duration: durationInternal,
 
   create(props = ['all'], {
-    easing = _easing.easeInOut,
-    duration = _duration.standard,
+    easing = easingInternal.easeInOut,
+    duration = durationInternal.standard,
     delay = 0,
   } = {}) {
     return props
