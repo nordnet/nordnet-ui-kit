@@ -17,7 +17,7 @@
     "start": "styleguidist server --colors",
     "build:docs": "rimraf documentation/build && styleguidist build",
     "predocs-publish": "run-s build:docs",
-    "docs-publish": "git-directory-deploy --directory ./documentation/dist --branch gh-pages"
+    "docs-publish": "gh-pages -d documentation/dist"
   },
   "files": [
     "dist",
@@ -69,7 +69,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
-    "git-directory-deploy": "^1.5.0",
+    "gh-pages": "^0.12.0",
     "jsdom": "^9.11.0",
     "jss": "^7.0.3",
     "jss-preset-default": "^2.0.0",
