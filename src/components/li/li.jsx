@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
+import classNames from 'classnames';
 
 const styleSheet = createStyleSheet('Li', theme => ({
   li: {
@@ -12,10 +13,11 @@ const styleSheet = createStyleSheet('Li', theme => ({
   },
 }));
 
-function Li({ children, style, ...rest }, { styleManager }) {
-  const classes = styleManager.render(styleSheet);
+function Li({ children, style, className, ...rest }, { styleManager }) {
+  const styles = styleManager.render(styleSheet);
+  const classes = classNames('ul', className, styles.li);
   return (
-    <li {...rest} className={classes.li} style={style}>
+    <li {...rest} className={classes} style={style}>
       {children}
     </li>
   );
@@ -24,6 +26,7 @@ function Li({ children, style, ...rest }, { styleManager }) {
 Li.propTypes = {
   children: PropTypes.node,
   style: PropTypes.object,
+  className: PropTypes.string,
 };
 
 Li.contextTypes = {
