@@ -3,17 +3,18 @@ import cn from 'classnames';
 import { kebabCase } from 'lodash';
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export const styleSheet = createStyleSheet('LabeledValue', () => {
+export const styleSheet = createStyleSheet('LabeledValue', (theme) => {
+  const { palette, typography } = theme
   const modifiers = {
     xs: '12',
     sm: '14',
-    md: '16',
-    lg: '18',
+    md: '20',
+    lg: '32',
   };
 
   const valueSizes = Object.keys(modifiers).reduce((sizes, size) => {
     const fontSize = modifiers[size];
-    const paddingTop = size !== 'lg' ? fontSize - 12 : fontSize - 14;
+    const paddingTop = size !== 'lg' ? fontSize - 12 : fontSize - 26;
     const className = `value-${size}`;
 
     return {
@@ -28,6 +29,8 @@ export const styleSheet = createStyleSheet('LabeledValue', () => {
   return {
     root: {
       display: 'inline-block',
+      color: palette.text.secondary,
+      fontFamily: typography.primary.fontFamily,
     },
     label: {
       display: 'block',
