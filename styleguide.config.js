@@ -2,7 +2,6 @@ const path = require('path');
 const camelCase = require('lodash.camelcase');
 const fs = require('fs');
 // const docgen = require('react-docgen');
-const config = require('./webpack.config')('styleguidist');
 
 const dir = path.join(__dirname, 'src');
 
@@ -37,11 +36,18 @@ module.exports = {
   //
   //   return docgen.parse(source);
   // },
-  webpackConfig: Object.assign({}, config, {
+  webpackConfig: {
+    module: {
+      rules: [{
+        test: /.jsx?$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      }],
+    },
     resolve: {
       alias: {
         'rsg-components/Wrapper': path.join(__dirname, 'documentation', 'wrapper.jsx'),
       },
     },
-  }),
+  },
 };
