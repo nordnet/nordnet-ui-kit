@@ -1,8 +1,7 @@
 import { createStyleSheet } from 'jss-theme-reactor';
-import variables from '../../utilities/variables';
 
 export default createStyleSheet('InputCheckboxRadio', (theme) => {
-  const { palette } = theme;
+  const { palette, transitions } = theme;
 
   const modifierFn = color => ({
     color,
@@ -42,12 +41,12 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
             '& + .checkbox, & + .radio': {
               '&::before': {
                 position: 'absolute',
+                content: '""',
                 display: 'block',
                 width: 'calc(100% + 8px)',
                 height: 'calc(100% + 8px)',
                 top: '-4px',
                 left: '-4px',
-                content: '',
                 borderRadius: 'inherit',
                 border: `2px solid ${palette.variant.info}`,
               },
@@ -91,7 +90,9 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
         height: '16px',
         border: `1px solid ${palette.action.disabled}`,
         padding: '3px 2px',
-        transition: `all .1s ${variables.easeOut}`,
+        transition: transitions.create(['all'], {
+          duration: transitions.duration.shortest,
+        }),
         userSelect: 'none',
         color: palette.text.default,
         outlineColor: palette.background.default,
@@ -120,7 +121,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
         borderRadius: '50%',
 
         '&--is-checked::after': {
-          content: '',
+          content: '""',
           position: 'absolute',
           display: 'block',
           width: '8px',

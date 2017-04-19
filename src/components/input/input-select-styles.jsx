@@ -1,8 +1,7 @@
 import { createStyleSheet } from 'jss-theme-reactor';
-import variables from '../../utilities/variables';
 
 export default createStyleSheet('InputSelect', (theme) => {
-  const { palette } = theme;
+  const { palette, transitions } = theme;
 
   return {
     'select-wrapper': {
@@ -41,7 +40,7 @@ export default createStyleSheet('InputSelect', (theme) => {
           right: '4px',
           bottom: '10px',
           height: '8px',
-          transition: `transform .2s ${variables.easeOut}`,
+          transition: transitions.create(['transform']),
           transform: 'translateY(-4px)',
           pointerEvents: 'none',
 

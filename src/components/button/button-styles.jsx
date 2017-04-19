@@ -1,6 +1,5 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 import c from 'color';
-import variables from '../../utilities/variables';
 
 // This function was created because 'focused' versions on colors were not found in the palette
 const focusColor = color => (c(color).darken(0.1).hex());
@@ -43,7 +42,7 @@ const buttonModifierFn = (variant, color, colorFocus) => {
 };
 
 export default createStyleSheet('Button', (theme) => {
-  const { palette } = theme;
+  const { palette, transitions } = theme;
 
   return {
     button: {
@@ -52,7 +51,7 @@ export default createStyleSheet('Button', (theme) => {
       fontFamily: 'inherit',
       fontWeight: 700,
       lineHeight: 1,
-      transition: `all .1s ${variables.easeOut}`,
+      transition: transitions.create(),
       textDecoration: 'none',
       userSelect: 'none',
       textAlign: 'center',
