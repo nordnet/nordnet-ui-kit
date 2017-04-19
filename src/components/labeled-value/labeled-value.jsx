@@ -4,7 +4,7 @@ import { kebabCase } from 'lodash';
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export const styleSheet = createStyleSheet('LabeledValue', (theme) => {
-  const { palette, typography } = theme
+  const { palette, typography } = theme;
   const modifiers = {
     xs: '12',
     sm: '14',
