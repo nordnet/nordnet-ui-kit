@@ -50,7 +50,7 @@ class Dropdown extends React.PureComponent {
           { this.props.toggle }
           <IconUsed
             className={this.classes.toggleIcon}
-            stroke={this.context.styleManager.theme.palette.variant.primary}
+            stroke={this.context.styleManager.theme.palette.text.secondary}
             width={8}
             height={8}
           />
