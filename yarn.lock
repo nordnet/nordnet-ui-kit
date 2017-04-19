@@ -3305,13 +3305,14 @@ jss-props-sort@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/jss-props-sort/-/jss-props-sort-4.0.0.tgz#ef4239c6795ca304c18dce9e0395a1789ed9f78a"
 
-jss-theme-reactor@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.npmjs.org/jss-theme-reactor/-/jss-theme-reactor-0.11.0.tgz#c0e1f67330645130ac0a808dff5ef758c61c850e"
+jss-theme-reactor@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.npmjs.org/jss-theme-reactor/-/jss-theme-reactor-0.11.1.tgz#48eb9465ec37ca3dfdc415a08f005d06363f2b31"
   dependencies:
     jss "^7.0.3"
     jss-preset-default "^2.0.0"
     jss-vendor-prefixer "^5.1.0"
+    murmurhash-js "^1.0.0"
 
 jss-vendor-prefixer@^5.0.0, jss-vendor-prefixer@^5.1.0:
   version "5.1.0"
