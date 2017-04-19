@@ -35,8 +35,17 @@ describe('ThemeProvider', () => {
   describe('createDefaultContext', () => {
     it('should return the default theme', () => {
       const { theme } = ThemeProvider.createDefaultContext();
-      // Workaroud for unique id's
-      expect(theme).to.deep.equal(Object.assign({}, createTheme(), { id: theme.id }));
+      const expectedTheme = createTheme();
+
+      expect(theme.palette).to.deep.equal(expectedTheme.palette);
+      expect(theme.typography).to.deep.equal(expectedTheme.typography);
+      expect(theme.mixins).to.deep.equal(expectedTheme.mixins);
+      expect(theme.breakpoints).to.deep.equal(expectedTheme.breakpoints);
+
+      expect(theme.transitions.easing).to.deep.equal(expectedTheme.transitions.easing);
+      expect(theme.transitions.duration).to.deep.equal(expectedTheme.transitions.duration);
+      expect(theme.transitions.create.toString()).to.equal(expectedTheme.transitions.create.toString());
+      expect(theme.transitions.getAutoHeightDuration.toString()).to.equal(expectedTheme.transitions.getAutoHeightDuration.toString());
     });
 
     it('should return a styleManager that exposes a render function', () => {
