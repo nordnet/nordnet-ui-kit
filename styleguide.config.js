@@ -33,6 +33,8 @@ const portedComponents = [
   'spinner',
   'ratio-bar',
   'alert',
+  'li',
+  'ul',
 ];
 
 const quickFixedComponents = [

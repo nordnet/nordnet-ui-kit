@@ -34,6 +34,7 @@ module.exports = (args) => {
       'horizontal-nav': './src/components/horizontal-nav',
       icon: ['./src/components/icon/icon.jsx'],
       input: './src/components/input/input.jsx',
+      li: './src/components/li',
       'labeled-value': './src/components/labeled-value/labeled-value.jsx',
       legend: './src/components/legend',
       logo: './src/components/logo/logo.jsx',
@@ -55,6 +56,7 @@ module.exports = (args) => {
       tooltip: './src/components/tooltip',
       tr: './src/components/tr',
       variables: ['./src/utilities/variables.js'],
+      ul: './src/components/ul',
       widget: ['./src/components/widget/widget'],
     },
   };

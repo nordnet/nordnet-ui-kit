@@ -29,6 +29,7 @@ import GraphArea from './components/icon/icons/graphArea';
 import GraphCandlestick from './components/icon/icons/graphCandlestick';
 import Heart from './components/icon/icons/heart';
 import Key from './components/icon/icons/key';
+import Li from './components/li/li';
 import LightningBolt from './components/icon/icons/lightningBolt';
 import Lock from './components/icon/icons/lock';
 import Mail from './components/icon/icons/mail';
@@ -72,6 +73,7 @@ import Th from './components/th';
 import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
+import Ul from './components/ul/ul';
 import Widget from './components/widget/widget';
 
 // Theming
@@ -108,6 +110,7 @@ const Icon = {
   GraphCandlestick,
   Heart,
   Key,
+  Li,
   LightningBolt,
   Lock,
   Mail,
@@ -163,6 +166,7 @@ export {
   Thead,
   Tooltip,
   Tr,
+  Ul,
   Widget,
 
   // Theming
