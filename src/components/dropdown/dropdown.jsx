@@ -53,6 +53,7 @@ class Dropdown extends React.PureComponent {
             stroke={this.context.styleManager.theme.palette.text.secondary}
             width={8}
             height={8}
+            style={{ position: 'absolute', right: '8px', top: '12px' }}
           />
         </button>
         { this.renderActions() }
