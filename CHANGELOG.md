@@ -11,16 +11,52 @@
 * Removed variables
 
 ### Ported components:
-Badge, LabeledValue, Icon, Logo, Flag, SparkGraph,
-RadioGroup, Input
+Badge,
+LabeledValue,
+Icon,
+Logo,
+Flag,
+RadioGroup,
+Input,
+Legend,
+Dropdown,
+Pane,
+HorizontalNav,
+Button,
+Tooltip,
+Search,
+Table,
+Tbody,
+Thead,
+Tfoot,
+Tr,
+Th,
+Td,
+Widget,
+Spinner,
+RatioBar,
+Alert,
 
 ### Quickfix ported components
 These components have removed the SCSS styling, but has not added it as JSS.
 
-Table, Tbody, Thead, Tfoot, Tr, Th, Td,
-Button, GraphTooltip, HorizontalNav, Legend, Pane,
-Dropdown, Alert, NavBar, Tooltip, Search,
-Spinner, Widget, RangeSelector, RatioBar, Select
+GraphTooltip,
+NavBar,
+Select,
+RangeSelector,
+
+### Not yet ported
+SparkGraph (issues with d3-interpolate and d3-color)
+
+## 0.2.0-beta.9
+* Port Legend, Dropdown, Pane, Horizontal nav, Tooltip, Button and Search
+* Add support to pass custom context to mount helper
+
+## 0.2.0-beta.8
+* Remove SparkGraph because of issues with d3-interpolate
+
+## 0.2.0-beta.7
+* All components ported to JSS
 
 ## 0.1.1
 * Updated to Webpack 2
