@@ -3,20 +3,21 @@ import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export const styleSheet = createStyleSheet('Badge', (theme) => {
-  const { palette } = theme;
+  const { palette, typography } = theme;
 
   return {
     root: {
       display: 'inline-block',
-      fontSize: '12px',
-      padding: '2px 8px',
+      fontSize: '14px',
+      fontFamily: typography.primary.fontFamily,
+      padding: '6px 8px',
       lineHeight: 1,
       color: palette.shades.dark.text.default,
       textAlign: 'center',
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',
-      backgroundColor: palette.variant.primary,
-      borderRadius: '10px',
+      backgroundColor: palette.shades.dark.background.default,
+      borderRadius: '4px',
     },
     success: {
       backgroundColor: palette.variant.success,
