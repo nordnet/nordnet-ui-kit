@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function ExcalmationPoint({
   stroke,
@@ -26,7 +26,7 @@ ExcalmationPoint.propTypes = {
 };
 
 ExcalmationPoint.defaultProps = {
-  ...defaultProps,
+  ...Icon.defaultProps,
   width: 4,
   height: 16,
   viewBox: '0 0 2 8',

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function ArrowUp({
   stroke,
@@ -27,4 +27,4 @@ ArrowUp.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-ArrowUp.defaultProps = defaultProps;
+ArrowUp.defaultProps = Icon.defaultProps;

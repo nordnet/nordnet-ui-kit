@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function MailOpen({
   stroke,
@@ -27,4 +27,4 @@ MailOpen.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-MailOpen.defaultProps = defaultProps;
+MailOpen.defaultProps = Icon.defaultProps;

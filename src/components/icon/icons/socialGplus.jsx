@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function SocialGPlus({
   stroke,
@@ -31,4 +31,4 @@ SocialGPlus.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-SocialGPlus.defaultProps = defaultProps;
+SocialGPlus.defaultProps = Icon.defaultProps;

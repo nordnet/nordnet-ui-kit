@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Print({
   stroke,
@@ -29,4 +29,4 @@ Print.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Print.defaultProps = defaultProps;
+Print.defaultProps = Icon.defaultProps;

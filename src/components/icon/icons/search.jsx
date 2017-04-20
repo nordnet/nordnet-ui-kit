@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Search({
   stroke,
@@ -23,4 +23,4 @@ Search.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Search.defaultProps = defaultProps;
+Search.defaultProps = Icon.defaultProps;

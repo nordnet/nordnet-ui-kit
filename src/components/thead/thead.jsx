@@ -11,7 +11,7 @@ function Thead({
 }, { styleManager }) {
   const classes = styleManager.render(TheadStyles);
   const usedClassName = classNames(classes.thead, size, (variant ? [variant] : []), className);
-  
+
   return (
     <thead {...rest} className={usedClassName}>
       { children }

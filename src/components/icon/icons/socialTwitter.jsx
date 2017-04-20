@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function SocialTwitter({
   stroke,
@@ -40,4 +40,4 @@ SocialTwitter.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-SocialTwitter.defaultProps = defaultProps;
+SocialTwitter.defaultProps = Icon.defaultProps;

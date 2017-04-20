@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function FloppyDisk({
   stroke,
@@ -29,4 +29,4 @@ FloppyDisk.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-FloppyDisk.defaultProps = defaultProps;
+FloppyDisk.defaultProps = Icon.defaultProps;

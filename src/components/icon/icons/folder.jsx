@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Folder({
   stroke,
@@ -26,4 +26,4 @@ Folder.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Folder.defaultProps = defaultProps;
+Folder.defaultProps = Icon.defaultProps;

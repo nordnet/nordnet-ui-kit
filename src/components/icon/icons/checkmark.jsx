@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Checkmark({
   stroke,
@@ -25,7 +25,7 @@ Checkmark.propTypes = {
 };
 
 Checkmark.defaultProps = {
-  ...defaultProps,
+  ...Icon.defaultProps,
   width: 10,
   height: 8,
   viewBox: '0 0 10 8',

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Calendar({
   stroke,
@@ -33,4 +33,4 @@ Calendar.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Calendar.defaultProps = defaultProps;
+Calendar.defaultProps = Icon.defaultProps;

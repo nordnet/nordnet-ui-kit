@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function TrashAlternate({
   stroke,
@@ -30,4 +30,4 @@ TrashAlternate.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-TrashAlternate.defaultProps = defaultProps;
+TrashAlternate.defaultProps = Icon.defaultProps;

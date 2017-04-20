@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Apartment({
   stroke,
@@ -35,4 +35,4 @@ Apartment.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Apartment.defaultProps = defaultProps;
+Apartment.defaultProps = Icon.defaultProps;

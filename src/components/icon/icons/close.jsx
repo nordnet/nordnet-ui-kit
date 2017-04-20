@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Close({
   stroke,
@@ -27,4 +27,4 @@ Close.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Close.defaultProps = defaultProps;
+Close.defaultProps = Icon.defaultProps;

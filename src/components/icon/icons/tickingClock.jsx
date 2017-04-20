@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function TickingClock({
   stroke,
@@ -31,4 +31,4 @@ TickingClock.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-TickingClock.defaultProps = defaultProps;
+TickingClock.defaultProps = Icon.defaultProps;

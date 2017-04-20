@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function CircleArrow({
   stroke,
@@ -28,4 +28,4 @@ CircleArrow.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-CircleArrow.defaultProps = defaultProps;
+CircleArrow.defaultProps = Icon.defaultProps;

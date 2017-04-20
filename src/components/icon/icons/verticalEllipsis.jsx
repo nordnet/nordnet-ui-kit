@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function VerticalEllipsis({
   stroke,
@@ -35,7 +35,7 @@ VerticalEllipsis.propTypes = {
 };
 
 VerticalEllipsis.defaultProps = {
-  ...defaultProps,
+  ...Icon.defaultProps,
   width: 4,
   height: 16,
   viewBox: '0 0 4 16',

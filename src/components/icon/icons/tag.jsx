@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Tag({
   stroke,
@@ -27,4 +27,4 @@ Tag.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Tag.defaultProps = defaultProps;
+Tag.defaultProps = Icon.defaultProps;

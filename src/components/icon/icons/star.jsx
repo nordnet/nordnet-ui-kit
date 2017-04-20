@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Star({
   stroke,
@@ -30,4 +30,4 @@ Star.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Star.defaultProps = defaultProps;
+Star.defaultProps = Icon.defaultProps;

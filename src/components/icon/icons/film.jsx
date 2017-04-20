@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Film({
   stroke,
@@ -34,4 +34,4 @@ Film.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Film.defaultProps = defaultProps;
+Film.defaultProps = Icon.defaultProps;

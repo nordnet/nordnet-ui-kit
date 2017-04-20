@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function GraphArea({
   stroke,
@@ -27,4 +27,4 @@ GraphArea.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-GraphArea.defaultProps = defaultProps;
+GraphArea.defaultProps = Icon.defaultProps;

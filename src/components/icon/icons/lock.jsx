@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Lock({
   stroke,
@@ -33,4 +33,4 @@ Lock.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Lock.defaultProps = defaultProps;
+Lock.defaultProps = Icon.defaultProps;

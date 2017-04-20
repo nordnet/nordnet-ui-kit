@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from '../icon/icons/defaultProps';
+import Icon from '../icon/icon';
 
 export default function NordnetLogo({
   fill,
@@ -171,7 +171,7 @@ NordnetLogo.propTypes = {
 };
 
 NordnetLogo.defaultProps = {
-  ...defaultProps,
+  ...Icon.defaultProps,
   width: 130,
   fill: '#00A9EC',
   stroke: '#222222',

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function GraphCandlestick({
   stroke,
@@ -34,4 +34,4 @@ GraphCandlestick.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-GraphCandlestick.defaultProps = defaultProps;
+GraphCandlestick.defaultProps = Icon.defaultProps;

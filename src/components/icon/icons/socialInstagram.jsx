@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function SocialInstagram({
   stroke,
@@ -30,4 +30,4 @@ SocialInstagram.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-SocialInstagram.defaultProps = defaultProps;
+SocialInstagram.defaultProps = Icon.defaultProps;

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function LightningBolt({
   stroke,
@@ -30,4 +30,4 @@ LightningBolt.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-LightningBolt.defaultProps = defaultProps;
+LightningBolt.defaultProps = Icon.defaultProps;

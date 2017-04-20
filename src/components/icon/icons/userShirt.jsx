@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function UserShirt({
   stroke,
@@ -36,4 +36,4 @@ UserShirt.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-UserShirt.defaultProps = defaultProps;
+UserShirt.defaultProps = Icon.defaultProps;

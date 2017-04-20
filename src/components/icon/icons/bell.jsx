@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Bell({
   stroke,
@@ -27,4 +27,4 @@ Bell.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Bell.defaultProps = defaultProps;
+Bell.defaultProps = Icon.defaultProps;

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Share({
   stroke,
@@ -30,4 +30,4 @@ Share.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Share.defaultProps = defaultProps;
+Share.defaultProps = Icon.defaultProps;

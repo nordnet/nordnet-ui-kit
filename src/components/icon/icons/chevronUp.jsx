@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function ChevronUp({
   stroke,
@@ -27,7 +27,7 @@ ChevronUp.propTypes = {
 };
 
 ChevronUp.defaultProps = {
-  ...defaultProps,
+  ...Icon.defaultProps,
   width: 10,
   height: 8,
   viewBox: '0 0 10 8',

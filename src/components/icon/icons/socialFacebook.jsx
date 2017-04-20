@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function SocialFacebook({
   stroke,
@@ -28,4 +28,4 @@ SocialFacebook.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-SocialFacebook.defaultProps = defaultProps;
+SocialFacebook.defaultProps = Icon.defaultProps;

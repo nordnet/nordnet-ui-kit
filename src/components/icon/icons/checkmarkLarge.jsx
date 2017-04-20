@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function CheckmarkLarge({
   stroke,
@@ -26,4 +26,4 @@ CheckmarkLarge.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-CheckmarkLarge.defaultProps = defaultProps;
+CheckmarkLarge.defaultProps = Icon.defaultProps;

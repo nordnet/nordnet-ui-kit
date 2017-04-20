@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function CircleSlash({
   stroke,
@@ -29,4 +29,4 @@ CircleSlash.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-CircleSlash.defaultProps = defaultProps;
+CircleSlash.defaultProps = Icon.defaultProps;

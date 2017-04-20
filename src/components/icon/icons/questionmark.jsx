@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Questionmark({
   stroke,
@@ -36,7 +36,7 @@ Questionmark.propTypes = {
 };
 
 Questionmark.defaultProps = {
-  ...defaultProps,
+  ...Icon.defaultProps,
   width: 14,
   height: 14,
   viewBox: '0 0 14 14',

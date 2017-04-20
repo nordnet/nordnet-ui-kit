@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import defaultProps from './defaultProps';
+import Icon from '../icon';
 
 export default function Cloud({
   stroke,
@@ -31,4 +31,4 @@ Cloud.propTypes = {
   strokeWidth: PropTypes.number,
 };
 
-Cloud.defaultProps = defaultProps;
+Cloud.defaultProps = Icon.defaultProps;
