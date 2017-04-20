@@ -9,41 +9,11 @@
 * Ported components to JSS
 * Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
 * Removed variables
+* Removed components: GraphTooltip, Legend, NavBar, RangeSelector, Select
 
-### Ported components:
-Badge,
-LabeledValue,
-Icon,
-Logo,
-Flag,
-RadioGroup,
-Input,
-Legend,
-Dropdown,
-Pane,
-HorizontalNav,
-Button,
-Tooltip,
-Search,
-Table,
-Tbody,
-Thead,
-Tfoot,
-Tr,
-Th,
-Td,
-Widget,
-Spinner,
-RatioBar,
-Alert,
-
-### Quickfix ported components
-These components have removed the SCSS styling, but has not added it as JSS.
-
-GraphTooltip,
-NavBar,
-Select,
-RangeSelector,
+## TODO
+* Removed everything related to webpack
+* Port SparkGraph
 
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)

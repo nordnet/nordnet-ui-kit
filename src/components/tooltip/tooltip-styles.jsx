@@ -1,10 +1,9 @@
 import { createStyleSheet } from 'jss-theme-reactor';
-import variables from '../../utilities/variables';
 
 const zIndexTooltip = 2;
 
 export default createStyleSheet('Tooltip', (theme) => {
-  const { palette } = theme;
+  const { palette, transitions } = theme;
 
   return {
     tooltip: {
@@ -61,14 +60,14 @@ export default createStyleSheet('Tooltip', (theme) => {
       borderRadius: 5,
       whiteSpace: 'nowrap',
       zIndex: zIndexTooltip,
-      transition: `opacity .3s ${variables.easeOut}`,
+      transition: transitions.create(['opacity']),
 
       '&:before': {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
         display: 'block',
-        content: '""', // Need the extra inner "", otherwise stripped away
+        content: '""',
         width: 0,
         height: 0,
         zIndex: zIndexTooltip,
@@ -98,7 +97,7 @@ export default createStyleSheet('Tooltip', (theme) => {
           right: -12,
           marginTop: -8,
           top: '50%',
-          content: '""', // Need the extra inner "", otherwise stripped away
+          content: '""',
           borderTop: '8px solid transparent',
           borderBottom: '8px solid transparent',
           borderLeft: '8px solid rgba(0, 0, 0, 0.75)',
@@ -116,7 +115,7 @@ export default createStyleSheet('Tooltip', (theme) => {
           left: -4,
           marginTop: -8,
           top: '50%',
-          content: '""', // Need the extra inner "", otherwise stripped away
+          content: '""',
           borderTop: '8px solid transparent',
           borderBottom: '8px solid transparent',
           borderRight: '8px solid rgba(0, 0, 0, 0.75)',
