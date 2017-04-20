@@ -27,28 +27,27 @@ describe('<Avatar />', () => {
   });
 
   it('should have the class small by default', () => {
-    expect(wrapper.hasClass(classes.small)).to.equal(true);
+    expect(wrapper.hasClass(classes.sm)).to.equal(true);
   });
 
-  it('should have the class large if iconSize is set to "large"', () => {
-    wrapper = shallow(<Avatar iconSize="large" />);
-    expect(wrapper.hasClass(classes.large)).to.equal(true);
+  it('should have the class md if size is set to "md"', () => {
+    wrapper = shallow(<Avatar size="md" />);
+    expect(wrapper.hasClass(classes.md)).to.equal(true);
   });
 
-  it('should not have large or small classes if iconSize is set to "custom"', () => {
-    wrapper = shallow(<Avatar iconSize="custom" />);
-    expect(wrapper.hasClass(classes.large)).to.equal(false);
-    expect(wrapper.hasClass(classes.small)).to.equal(false);
+  it('should have the class lg if size is set to "lg"', () => {
+    wrapper = shallow(<Avatar size="lg" />);
+    expect(wrapper.hasClass(classes.lg)).to.equal(true);
   });
 
   it(`should render the text ${inputText}`, () => {
     expect(wrapper.text()).to.equal(inputText);
   });
 
-  it('should render a <Avatar /> with custom iconColor', () => {
-    const iconColor = 'red';
-    wrapper = shallow(<Avatar iconColor={iconColor} />);
-    expect(wrapper.prop('style').backgroundColor).to.equal(iconColor);
+  it('should render a <Avatar /> with custom color', () => {
+    const color = 'red';
+    wrapper = shallow(<Avatar color={color} />);
+    expect(wrapper.prop('style').backgroundColor).to.equal(color);
   });
 
   it('should be possibe to send in a custom className', () => {
