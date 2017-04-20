@@ -158,7 +158,6 @@ class InputDefault extends React.PureComponent {
         { this.renderInput(id) }
         { this.renderLabel(id) }
         { renderAddon(this.props.rightAddon, 'right') }
-        { this.renderValidationIcon() }
       </div>
     );
   }
