@@ -1,8 +1,6 @@
 
 With results:
 
-    const search = () => {}
-
     const results=[{
       name: 'Hennes & Mauritz AB',
       market: 'Nasdaq Stockholm',
@@ -17,8 +15,8 @@ With results:
       development: 1,
     }];
 
-    <Search search={ search } results={ results } value={"Test"} />
+    <Search search={ a => a } results={ results } value={"Test"} />
 
 With no results:
 
-    <Search search={ search } />
+    <Search search={ a => a } />

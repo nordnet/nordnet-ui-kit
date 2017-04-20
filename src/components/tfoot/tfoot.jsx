@@ -1,17 +1,12 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './tfoot.scss';
+import TfootStyles from './tfoot-styles';
 
-function Tfoot(props) {
+function Tfoot(props, { styleManager }) {
   const { className, children, size, ...rest } = props;
-  const classes = classNames('tfoot', {
-    'tfoot--xs': size === 'xs',
-    'tfoot--sm': size === 'sm',
-    'tfoot--md': size === 'md',
-    'tfoot--lg': size === 'lg',
-  }, className);
-
-  return <tfoot { ...rest } className={ classes }>{ children }</tfoot>;
+  const classes = styleManager.render(TfootStyles);
+  const usedClassName = classNames(classes.tfoot, size, className);
+  return <tfoot {...rest} className={usedClassName}>{ children }</tfoot>;
 }
 
 Tfoot.defaultProps = {};
@@ -20,6 +15,10 @@ Tfoot.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+};
+
+Tfoot.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Tfoot;

@@ -9,7 +9,7 @@ describe('<SparkGraph />', () => {
 
   describe('with default props', () => {
     beforeEach(() => {
-      component = shallow(<SparkGraph points={ points } />);
+      component = shallow(<SparkGraph points={points} />);
     });
 
     it('should have a svg height of 100%', () => {
@@ -27,7 +27,7 @@ describe('<SparkGraph />', () => {
 
   describe('with points [1, 2], height=32, width=128', () => {
     beforeEach(() => {
-      component = shallow(<SparkGraph points={ [1, 2] } height={ 32 } width={ 128 } />);
+      component = shallow(<SparkGraph points={[1, 2]} height={32} width={128} />);
     });
 
     it('should have a path equal to: M 0 31.5 L 128 0.5', () => {
@@ -36,7 +36,7 @@ describe('<SparkGraph />', () => {
 
     describe('and strokeWidth=10', () => {
       beforeEach(() => {
-        component = shallow(<SparkGraph points={ [1, 2] } strokeWidth={ 10 } height={ 32 } width={ 128 } />);
+        component = shallow(<SparkGraph points={[1, 2]} strokeWidth={10} height={32} width={128} />);
       });
 
       it('should have a path with a strokeWidth of 10', () => {
@@ -51,7 +51,7 @@ describe('<SparkGraph />', () => {
 
   describe('with stroke=green, height=100, width=200', () => {
     beforeEach(() => {
-      component = shallow(<SparkGraph points={ points } stroke="green" height={ 100 } width={ 200 } />);
+      component = shallow(<SparkGraph points={points} stroke="green" height={100} width={200} />);
     });
 
     it('should have a svg width of 200px', () => {
@@ -70,7 +70,7 @@ describe('<SparkGraph />', () => {
   describe('no dimensions set and points=[1, 2]', () => {
     beforeEach(() => {
       component = shallow(
-        <SparkGraph points={ [1, 2] } />
+        <SparkGraph points={[1, 2]} />,
       );
     });
 

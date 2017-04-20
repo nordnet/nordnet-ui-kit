@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { throttle, debounce } from 'lodash';
 import omit from '../../utilities/omit';
-import rem from '../../utilities/rem';
-import './tr.scss';
+import TrStyles from './tr-styles';
 
 // Needs to be a class so that a ref can be assigned to it from Thead
 class Tr extends React.Component { // eslint-disable-line
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       width: 0,
@@ -27,14 +26,14 @@ class Tr extends React.Component { // eslint-disable-line
     if (this.props.sticky) {
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('resize', this.handleResize);
-      this.setWidth(ReactDOM.findDOMNode(this.tr));
+      this.setWidth(ReactDOM.findDOMNode(this.tr)); // eslint-disable-line react/no-find-dom-node
       this.addClone();
     }
   }
 
   componentDidUpdate() {
     if (this.props.sticky) {
-      this.setWidth(ReactDOM.findDOMNode(this.tr));
+      this.setWidth(ReactDOM.findDOMNode(this.tr)); // eslint-disable-line react/no-find-dom-node
     }
   }
 
@@ -68,7 +67,13 @@ class Tr extends React.Component { // eslint-disable-line
     if (!this.state.sticky) {
       top = trTop;
     } else {
+      // To calculate getBoundingClientRect correct the nextSibling must be visible,
+      // but when it is a clone it is not because it gets 'display: none'
+      // from clone class. Temporarily setting 'display: block' fixes this.
+      // Since it is syncronous it should not cause any flickering.
+      this.tr.nextSibling.style.display = 'block';
       top = this.tr.nextSibling.getBoundingClientRect().top;
+      this.tr.nextSibling.style.display = '';
     }
 
     if (fromBottom > 0 && top <= offset && top > (tableHeight - height - offset) * -1) {
@@ -100,38 +105,38 @@ class Tr extends React.Component { // eslint-disable-line
     // Returning sibling elements from render will eventually be supported.
     // https://github.com/facebook/react/issues/2127#issuecomment-232331521
     const clone = this.tr.cloneNode(true);
-    clone.classList.remove('tr--sticky');
-    clone.classList.add('tr--clone');
+    clone.classList.remove('sticky');
+    clone.classList.add('clone');
 
     this.tr.parentNode.insertBefore(clone, this.tr.nextSibling);
   }
 
   render() {
     const { className, children, size, border, variant, stickyOffset, ...rest } = this.props;
+    const classes = this.context.styleManager.render(TrStyles);
     const { width, sticky } = this.state;
-    const classes = classNames('tr', {
-      'tr--xs': size === 'xs',
-      'tr--sm': size === 'sm',
-      'tr--md': size === 'md',
-      'tr--lg': size === 'lg',
-      'tr--primary': variant === 'primary',
-      'tr--secondary': variant === 'secondary',
-      'tr--border': border,
-      'tr--sticky': sticky,
-    }, className);
+    const usedClassName = classNames(
+      classes.tr, size,
+      {
+        [variant]: variant,
+        border,
+        sticky,
+      },
+      className,
+    );
     const stickyStyle = {};
 
     if (sticky && width && typeof stickyOffset !== 'undefined') {
-      stickyStyle.top = rem(`${stickyOffset}px`);
-      stickyStyle.width = rem(`${width}px`);
+      stickyStyle.top = `${stickyOffset}px`;
+      stickyStyle.width = `${width}px`;
     }
 
     return (
       <tr
-        { ...(omit(rest, 'sticky')) }
-        className={ classes }
-        style={ stickyStyle }
-        ref={ node => this.addRef(node, 'tr') }
+        {...(omit(rest, 'sticky'))}
+        className={usedClassName}
+        style={stickyStyle}
+        ref={node => this.addRef(node, 'tr')}
       >
         { children }
       </tr>
@@ -154,6 +159,10 @@ Tr.propTypes = {
   sticky: PropTypes.bool,
   /** Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate */
   stickyOffset: PropTypes.number,
+};
+
+Tr.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Tr;

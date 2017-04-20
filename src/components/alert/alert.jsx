@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Icon from '../icon/icon';
-import variables from '../../utilities/variables';
-import './alert.scss';
+import IconClose from '../icon/icons/close';
+import AlertStyles from './alert-styles';
 
 class Alert extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       dismissable: props.dismissable,
@@ -14,6 +13,7 @@ class Alert extends React.PureComponent {
     };
 
     this.handleCloseClick = this.handleCloseClick.bind(this);
+    this.classes = context.styleManager.render(AlertStyles);
   }
 
   handleCloseClick() {
@@ -28,15 +28,14 @@ class Alert extends React.PureComponent {
     }
 
     return (
-      <span className="alert__close" onClick={ this.handleCloseClick }>
-        <Icon
-          type="close"
-          stroke={ variables.colorPrimary }
-          width={ 8 }
-          height={ 8 }
-          style={ { display: 'block' } }
+      <button className={this.classes.close} onClick={this.handleCloseClick}>
+        <IconClose
+          stroke={this.context.styleManager.theme.palette.text.default}
+          width={10}
+          height={10}
+          style={{ display: 'block' }}
         />
-      </span>
+      </button>
     );
   }
 
@@ -45,16 +44,14 @@ class Alert extends React.PureComponent {
       return null;
     }
 
-    const classes = classNames('alert', {
-      'alert--success': this.props.modifier === 'success',
-      'alert--warning': this.props.modifier === 'warning',
-      'alert--danger': this.props.modifier === 'danger',
+    const usedClassName = classNames(this.classes.alert, {
+      [`${this.classes[this.props.modifier]}`]: this.props.modifier,
     }, this.props.className);
 
     return (
-      <div className={ classes }>
-        <div className="alert__header">{ this.props.header }</div>
-        <div className="alert__body">{ this.props.children }</div>
+      <div className={usedClassName}>
+        <div className="header">{ this.props.header }</div>
+        <div className={this.classes.body}>{ this.props.children }</div>
         { this.renderClose() }
       </div>
     );
@@ -73,6 +70,10 @@ Alert.propTypes = {
 Alert.defaultProps = {
   dismissable: true,
   dismissed: false,
+};
+
+Alert.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Alert;

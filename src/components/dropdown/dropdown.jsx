@@ -1,19 +1,21 @@
+/* eslint jsx-a11y/no-static-element-interactions: 0, react/no-array-index-key: 0 */
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import Icon from '../icon/icon';
-import variables from '../../utilities/variables';
-import './dropdown.scss';
+import IconChevronUp from '../icon/icons/chevronUp';
+import IconChevronDown from '../icon/icons/chevronDown';
+import styleSheet from './dropdown-styles';
 
 class Dropdown extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       actionsOpen: props.actionsOpen,
     };
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.classes = this.context.styleManager.render(styleSheet);
   }
 
   handleToggleClick() {
@@ -28,9 +30,9 @@ class Dropdown extends React.PureComponent {
     };
 
     return (
-      <ul className="dropdown__actions" style={ style }>
+      <ul className={this.classes.actions} style={style}>
         { this.props.actions.map((action, index) => (
-          <li className="dropdown__action" key={ `${index}-${kebabCase(action.label)}` } onClick={ action.action }>
+          <li className={this.classes.action} key={`${index}-${kebabCase(action.label)}`} onClick={action.action}>
             { action.label }
           </li>
         )) }
@@ -39,18 +41,19 @@ class Dropdown extends React.PureComponent {
   }
 
   render() {
-    const classes = classNames('dropdown', this.props.className);
+    const className = classNames(this.classes.dropdown, this.props.className);
+    const IconUsed = this.state.actionsOpen ? IconChevronUp : IconChevronDown;
 
     return (
-      <div className={ classes }>
-        <button className="dropdown__toggle" onClick={ this.handleToggleClick }>
+      <div className={className}>
+        <button className={this.classes.toggle} onClick={this.handleToggleClick}>
           { this.props.toggle }
-          <Icon
-            className="dropdown__toggle-icon"
-            stroke={ variables.colorPrimary }
-            width={ 8 }
-            height={ 8 }
-            type={ this.state.actionsOpen ? 'chevronUp' : 'chevronDown' }
+          <IconUsed
+            className={this.classes.toggleIcon}
+            stroke={this.context.styleManager.theme.palette.text.secondary}
+            width={8}
+            height={8}
+            style={{ position: 'absolute', right: '8px', top: '12px' }}
           />
         </button>
         { this.renderActions() }
@@ -71,6 +74,10 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   actionsOpen: false,
+};
+
+Dropdown.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Dropdown;

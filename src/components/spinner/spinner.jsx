@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import variables from '../../utilities/variables';
-import rem from '../../utilities/rem';
-import './spinner.scss';
+import SpinnerStyles from './spinner-styles';
 
 function generateRgb(degree, limit) {
   const multiplier = 255 / limit;
@@ -17,16 +15,16 @@ function conicalGradient(size, limit, clipPathId) {
   const gradientSectionsB = [];
   const rotationMultiplier = 360 / limit;
 
-  for (let i = 0; i < limit; i++) {
+  for (let i = 0; i < limit; i += 1) {
     const rotation = i * rotationMultiplier;
     const item = (
       <rect
-        key={ rotation }
-        width={ sectionSize }
-        height={ sectionSize }
-        fill={ generateRgb(i, limit) }
-        x={ sectionSize }
-        transform={ `rotate(${rotation} ${sectionSize} ${sectionSize})` }
+        key={rotation}
+        width={sectionSize}
+        height={sectionSize}
+        fill={generateRgb(i, limit)}
+        x={sectionSize}
+        transform={`rotate(${rotation} ${sectionSize} ${sectionSize})`}
       />
     );
 
@@ -42,7 +40,7 @@ function conicalGradient(size, limit, clipPathId) {
       <g>
         { gradientSectionsA.map(section => section) }
       </g>
-      <g clipPath={ `url(#${clipPathId})` }>
+      <g clipPath={`url(#${clipPathId})`}>
         { gradientSectionsB.map(section => section) }
       </g>
     </g>
@@ -55,32 +53,34 @@ function renderCircleAsHtml(radius, color, maskId) {
   };
 }
 
-function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }) {
+function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }, { styleManager }) {
+  const classes = styleManager.render(SpinnerStyles);
+  const usedColor = color || styleManager.theme.palette.variant.primary;
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
   const maskId = `spinner__mask--${size}-${stroke}-${gradientStops}`;
   const clipPathId = `spinner__clip-path--${size}`;
   const wrapperStyle = {
-    width: rem(`${size}px`),
-    height: rem(`${size}px`),
+    width: size,
+    height: size,
     ...style,
   };
 
   return (
-    <div { ...rest } className={ classNames('spinner', className) } style={ wrapperStyle }>
-      <svg className="spinner__element" viewBox={ `0 0 ${size} ${size}` }>
+    <div {...rest} className={classNames(classes.spinner, className)} style={wrapperStyle}>
+      <svg className={classes.element} viewBox={`0 0 ${size} ${size}`}>
         <defs>
-          <clipPath id={ clipPathId }>
-            <rect x="0" y="0" width={ radius } height={ size } />
+          <clipPath id={clipPathId}>
+            <rect x="0" y="0" width={radius} height={size} />
           </clipPath>
-          <mask id={ maskId } maskUnits="objectBoundingBox">
-            <rect width={ size } height={ size } fill="#fff" />
+          <mask id={maskId} maskUnits="objectBoundingBox">
+            <rect width={size} height={size} fill="#fff" />
             { conicalGradient(size, gradientStops, clipPathId) }
-            <circle cx={ radius } cy={ radius } r={ radius - stroke } fill="#000" />
-            <circle cx={ radius } cy={ stroke / 2 } r={ stroke / 2 } fill="#fff" />
+            <circle cx={radius} cy={radius} r={radius - stroke} fill="#000" />
+            <circle cx={radius} cy={stroke / 2} r={stroke / 2} fill="#fff" />
           </mask>
         </defs>
-        <g dangerouslySetInnerHTML={ renderCircleAsHtml(radius, color, maskId) } />
+        <g dangerouslySetInnerHTML={renderCircleAsHtml(radius, usedColor, maskId)} />
       </svg>
     </div>
   );
@@ -88,7 +88,6 @@ function Spinner({ className, size, color, gradientStops, strokeWidth, style, ..
 
 Spinner.defaultProps = {
   size: 16,
-  color: variables.colorPrimary,
   gradientStops: 20,
 };
 
@@ -101,6 +100,10 @@ Spinner.propTypes = {
   gradientStops: PropTypes.number,
   strokeWidth: PropTypes.number,
   style: PropTypes.object,
+};
+
+Spinner.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Spinner;

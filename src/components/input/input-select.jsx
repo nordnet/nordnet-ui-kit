@@ -1,22 +1,28 @@
 import React, { PropTypes } from 'react';
-import InputDefault from './input-default';
+import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import variables from '../../utilities/variables';
-import Icon from '../icon/icon';
-import './input-select.scss';
+import InputDefault from './input-default';
+import IconChevronUp from '../icon/icons/chevronUp';
+import IconChevronDown from '../icon/icons/chevronDown';
+import styleSheet from './input-select-styles';
+
+function renderOption(option) {
+  const { label, value, key: keyOption, ...rest } = option;
+  const key = keyOption || kebabCase(value); // Assumes value is a string
+
+  return (
+    <option {...rest} key={key} value={value}>
+      { label }
+    </option>
+  );
+}
 
 class InputSelect extends InputDefault {
-
   renderSelectArrow() {
     const className = 'input__select-arrow';
-
+    const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
     return (
-      <Icon
-        className={ className }
-        stroke={ variables.colorPrimary }
-        type={ this.state.hasFocus ? 'chevronUp' : 'chevronDown' }
-        renderInline
-      />
+      <IconUsed className={className} stroke={this.context.styleManager.theme.palette.variant.primary} />
     );
   }
 
@@ -25,17 +31,6 @@ class InputSelect extends InputDefault {
       <span className="input__placeholder">
         { this.props.placeholder || this.props.label }
       </span>
-    );
-  }
-
-  renderOption(option) {
-    const { label, value, key: keyOption, ...rest } = option;
-    const key = keyOption || kebabCase(value); // Assumes value is a string
-
-    return (
-      <option { ...rest } key={ key } value={ value }>
-        { label }
-      </option>
     );
   }
 
@@ -66,21 +61,23 @@ class InputSelect extends InputDefault {
 
   renderInput() {
     const { id, placeholder, options, ...rest } = this.props;
+    const classes = this.context.styleManager.render(styleSheet);
+    const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
 
     return (
-      <div className="input__element-wrapper">
+      <div className={className}>
         <select
-          { ...rest }
-          id={ id }
+          {...rest}
+          id={id}
           className="input__element input__element--select"
-          onFocus={ this.onFocus }
-          onBlur={ this.onBlur }
-          onChange={ this.onChange }
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          onChange={this.onChange}
           placeholder=""
-          value={ this.state.value }
+          value={this.state.value}
         >
           { placeholder ? <option value="" disabled>{ placeholder }</option> : null }
-          { options.map(this.renderOption) }
+          { options.map(renderOption) }
         </select>
         { this.renderFakePlaceholder() }
         { this.showValue() ? this.renderValueLabel() : null }

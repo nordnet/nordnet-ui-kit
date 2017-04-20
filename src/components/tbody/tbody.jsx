@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import rem from '../../utilities/rem';
-import './tbody.scss';
+import TbodyStyles from './tbody-styles';
 
 function Tbody({
   className,
@@ -15,26 +14,23 @@ function Tbody({
   borderRight,
   borderBottom,
   borderLeft,
-  ...rest // eslint-disable-line comma-dangle
-}) {
-  const classes = classNames('tbody', {
-    'tbody--xs': size === 'xs',
-    'tbody--sm': size === 'sm',
-    'tbody--md': size === 'md',
-    'tbody--lg': size === 'lg',
-    'tbody--alternate-rows': colorAlternateRows,
-    'tbody--scroll': maxHeight,
-    'tbody--border': border,
-    'tbody--border-top': borderTop,
-    'tbody--border-right': borderRight,
-    'tbody--border-bottom': borderBottom,
-    'tbody--border-left': borderLeft,
+  ...rest
+}, { styleManager }) {
+  const classes = styleManager.render(TbodyStyles);
+  const usedClassName = classNames(classes.tbody, size, {
+    'alternate-rows': colorAlternateRows,
+    scroll: maxHeight,
+    border,
+    borderTop,
+    borderRight,
+    borderBottom,
+    borderLeft,
   }, className);
 
-  const tbodyStyle = Object.assign(maxHeight ? { maxHeight: rem(`${maxHeight}px`) } : {}, style);
+  const tbodyStyle = Object.assign(maxHeight ? { maxHeight } : {}, style);
 
   return (
-    <tbody { ...rest } className={ classes } style={ tbodyStyle }>
+    <tbody {...rest} className={usedClassName} style={tbodyStyle}>
       { children }
     </tbody>
   );
@@ -62,6 +58,10 @@ Tbody.propTypes = {
   borderRight: PropTypes.bool,
   borderBottom: PropTypes.bool,
   borderLeft: PropTypes.bool,
+};
+
+Tbody.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Tbody;

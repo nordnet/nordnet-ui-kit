@@ -1,25 +1,19 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './thead.scss';
+import TheadStyles from './thead-styles';
 
 function Thead({
   className,
   children,
   size,
   variant,
-  ...rest // eslint-disable-line comma-dangle
-}) {
-  const classes = classNames('thead', {
-    'thead--xs': size === 'xs',
-    'thead--sm': size === 'sm',
-    'thead--md': size === 'md',
-    'thead--lg': size === 'lg',
-    'thead--primary': variant === 'primary',
-    'thead--secondary': variant === 'secondary',
-  }, className);
+  ...rest
+}, { styleManager }) {
+  const classes = styleManager.render(TheadStyles);
+  const usedClassName = classNames(classes.thead, size, (variant ? [variant] : []), className);
 
   return (
-    <thead { ...rest } className={ classes }>
+    <thead {...rest} className={usedClassName}>
       { children }
     </thead>
   );
@@ -32,6 +26,10 @@ Thead.propTypes = {
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
+};
+
+Thead.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Thead;

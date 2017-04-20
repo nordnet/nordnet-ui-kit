@@ -9,7 +9,7 @@ function Radio(props) {
     'radio--is-disabled': disabled,
   }, props.className);
 
-  return <span className={ classes } />;
+  return <span className={classes} />;
 }
 
 Radio.propTypes = {

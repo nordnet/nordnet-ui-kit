@@ -1,10 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import RatioBar from '../../../src/components/ratio-bar';
+import { shallow as enzymeShallow } from 'enzyme';
+import { createShallow } from '../../../src/test-utils';
+import RatioBar from '../../../src/components/ratio-bar/ratio-bar';
+import styleSheet from '../../../src/components/ratio-bar/ratio-bar-styles';
 
 describe('<RatioBar />', () => {
-  let component;
+  const shallow = createShallow(enzymeShallow);
+  const classes = shallow.context.styleManager.render(styleSheet);
+  let wrapper;
   const data = [{
     value: 100,
     change: 1,
@@ -19,18 +23,21 @@ describe('<RatioBar />', () => {
   const widthPercent = `${(1 / 3) * 100}%`;
 
   beforeEach(() => {
-    component = shallow(<RatioBar data={ data } />);
+    wrapper = shallow(<RatioBar data={data} />);
   });
 
   it(`positive bar should have a width of ${widthPercent}`, () => {
-    expect(component.find('.ratio-bar__bar--positive').prop('style').width).to.equal(widthPercent);
+    const selector = `.${classes['barBg--positive']}`;
+    expect(wrapper.find(selector).parent().prop('style').width).to.equal(widthPercent);
   });
 
   it(`neutral bar should have a width of ${widthPercent}`, () => {
-    expect(component.find('.ratio-bar__bar--neutral').prop('style').width).to.equal(widthPercent);
+    const selector = `.${classes['barBg--neutral']}`;
+    expect(wrapper.find(selector).parent().prop('style').width).to.equal(widthPercent);
   });
 
   it(`negative bar should have a width of ${widthPercent}`, () => {
-    expect(component.find('.ratio-bar__bar--negative').prop('style').width).to.equal(widthPercent);
+    const selector = `.${classes['barBg--negative']}`;
+    expect(wrapper.find(selector).parent().prop('style').width).to.equal(widthPercent);
   });
 });

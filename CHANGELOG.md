@@ -1,5 +1,33 @@
 # Changelog
 
+## Upcoming release
+* Update eslint and styleguidist
+* Remove scss from styleguidist and move essential styles to style tag
+* Export ThemeProvider, which will provide all children with context.styleManager
+* Export test-utils for createShallow, createMount and createRenderToString
+* Added new colors and typography to the theme
+* Ported components to JSS
+* Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
+* Removed variables
+* Removed components: GraphTooltip, Legend, NavBar, RangeSelector, Select
+
+## TODO
+* Removed everything related to webpack
+* Port SparkGraph
+
+### Not yet ported
+SparkGraph (issues with d3-interpolate and d3-color)
+
+## 0.2.0-beta.9
+* Port Legend, Dropdown, Pane, Horizontal nav, Tooltip, Button and Search
+* Add support to pass custom context to mount helper
+
+## 0.2.0-beta.8
+* Remove SparkGraph because of issues with d3-interpolate
+
+## 0.2.0-beta.7
+* All components ported to JSS
+
 ## 0.1.1
 * Updated to Webpack 2
 * Bumped styleguidist

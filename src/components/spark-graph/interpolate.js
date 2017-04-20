@@ -1,6 +1,7 @@
+/* eslint no-plusplus: 0, no-mixed-operators: 0 */
 import { interpolateObject, interpolateRgb } from 'd3-interpolate';
 import arrayEqual from 'array-equal';
-import variables from '../../utilities/variables';
+import color from '../../styles/color';
 
 function findSequencePositionInArray(array, sequence) {
   let start = -1;
@@ -71,15 +72,15 @@ function getStrokeColor(points, stroke) {
     const last = points[points.length - 1];
 
     if (first > last) {
-      return variables.colorDanger;
+      return color.red;
     }
 
     if (first < last) {
-      return variables.colorSuccess;
+      return color.green;
     }
   }
 
-  return variables.colorText;
+  return color.black;
 }
 
 function getArrayOfObjectReferences(object, numberOfCopies) {

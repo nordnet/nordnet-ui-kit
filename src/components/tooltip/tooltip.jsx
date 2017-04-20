@@ -1,11 +1,12 @@
-import React from 'react';
+/* eslint jsx-a11y/no-static-element-interactions: 0 */
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import Icon from '../icon/icon';
-import './tooltip.scss';
+import Questionmark from '../icon/icons/questionmark';
+import TooltipStyles from './tooltip-styles';
 
 class Tooltip extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       hover: false,
       toggled: false,
@@ -17,14 +18,15 @@ class Tooltip extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
 
     this.checkPosition = {
-      above: (rect) => (rect.top > 0),
-      left: (rect) => (rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      right: (rect) => ((((window.innerWidth || document.documentElement.clientWidth) - rect.right) > 0) &&
+      above: rect => (rect.top > 0),
+      left: rect => (rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect)),
+      right: rect => ((((window.innerWidth || document.documentElement.clientWidth) - rect.right) > 0) &&
         this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      below: (rect) => (((window.innerHeight || document.documentElement.clientHeight) - rect.bottom) > 0),
+      below: rect => (((window.innerHeight || document.documentElement.clientHeight) - rect.bottom) > 0),
     };
 
     this.placement = props.placement;
+    this.classes = this.context.styleManager.render(TooltipStyles);
   }
 
   componentDidMount() {
@@ -105,8 +107,8 @@ class Tooltip extends React.Component {
 
   renderPopup(content, placement) {
     const style = {
-      opacity: this.state.hover || this.state.toggled ? 1 : 0,
-      pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
+      opacity: (this.state.hover || this.state.toggled) ? 1 : 0,
+      pointerEvents: (this.state.hover || this.state.toggled) ? 'all' : 'none',
     };
 
     if (this.props.fixedWidth) {
@@ -114,17 +116,13 @@ class Tooltip extends React.Component {
       style.whiteSpace = 'inherit';
     }
 
-    if (placement === 'above') {
-      style.bottom = this.contentHeight;
-    }
-
     return (
       <div
-        style={ style }
-        className={ `tooltip-popup tooltip-popup--${placement}` }
-        ref={ (popup) => { this.popup = popup; } }
+        style={style}
+        className={classnames(this.classes.popup, placement)}
+        ref={(popup) => { this.popup = popup; }}
       >
-        <div className="tooltip-popup__content">
+        <div className="content">
           { content }
         </div>
       </div>
@@ -141,13 +139,16 @@ class Tooltip extends React.Component {
     }
 
     return (
-      <div className={ classnames('tooltip', className) } ref={ (element) => { this.onOutsideElement = element; } }>
+      <div
+        className={classnames(this.classes.tooltip, className)}
+        ref={(element) => { this.onOutsideElement = element; }}
+        onMouseEnter={this.mouseEnter}
+        onMouseLeave={this.mouseLeave}
+      >
         <div
-          ref={ (container) => { this.container = container; } }
-          className="tooltip-container"
-          onClick={ this.toggleShow }
-          onMouseEnter={ this.mouseEnter }
-          onMouseLeave={ this.mouseLeave }
+          ref={(container) => { this.container = container; }}
+          className={classnames(this.classes.container, this.placement)}
+          onClick={this.toggleShow}
         >
           { children }
         </div>
@@ -158,18 +159,22 @@ class Tooltip extends React.Component {
 }
 
 Tooltip.defaultProps = {
-  children: <Icon type="questionmark" fill="#00A9EC" stroke="#00A9EC" width={ 16 } height={ 16 } />,
+  children: <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
   placement: 'below',
 };
 
 Tooltip.propTypes = {
-  className: React.PropTypes.string,
+  className: PropTypes.string,
   /** The content found in the tooltip */
-  content: React.PropTypes.node,
+  content: PropTypes.node,
   /** The container that, when clicked, will show the tooltip */
-  children: React.PropTypes.node,
-  placement: React.PropTypes.oneOf(['above', 'below', 'right', 'left']),
-  fixedWidth: React.PropTypes.number,
+  children: PropTypes.node,
+  placement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
+  fixedWidth: PropTypes.number,
+};
+
+Tooltip.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
 };
 
 export default Tooltip;

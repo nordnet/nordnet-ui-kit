@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
 import { debounce } from 'lodash';
 import arrayEqual from 'array-equal';
@@ -9,10 +8,18 @@ import {
   colorInterpolator,
   getStrokeColor,
   transformPoints,
-} from './interpolate.js';
-import './spark-graph.scss';
+} from './interpolate';
+import omit from '../../utilities/omit';
 
-class SparkGraph extends React.Component {
+function constructPathString(points) {
+  const [first, ...rest] = points;
+
+  return rest.reduce((prev, curr) => (
+    `${prev} L ${curr.x} ${curr.y}`
+  ), `M ${first.x} ${first.y}`);
+}
+
+class SparkGraph extends React.PureComponent {
   constructor(props) {
     super(props);
     const width = props.width || 0;
@@ -48,10 +55,6 @@ class SparkGraph extends React.Component {
     this.setState(state);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
-  }
-
   componentDidUpdate() {
     const { strokeWidth, transitionDuration } = this.props;
     const { height, width, pointsFrom, pointsTo, strokeFrom, strokeTo } = this.state;
@@ -68,7 +71,7 @@ class SparkGraph extends React.Component {
 
         if (pInterpolator) {
           const values = pInterpolator.map(ip => ip(easing(progress)));
-          this.path.setAttribute('d', this.constructPathString(values));
+          this.path.setAttribute('d', constructPathString(values));
         }
 
         if (cInterpolator) {
@@ -103,14 +106,6 @@ class SparkGraph extends React.Component {
     }
   }
 
-  constructPathString(points) {
-    const [first, ...rest] = points;
-
-    return rest.reduce((prev, curr) => (
-      `${prev} L ${curr.x} ${curr.y}`
-    ), `M ${first.x} ${first.y}`);
-  }
-
   render() {
     const {
       points,
@@ -118,7 +113,7 @@ class SparkGraph extends React.Component {
       strokeWidth,
       className,
       style,
-      ...rest // eslint-disable-line comma-dangle
+      ...rest
     } = this.props;
     const { width, height, pointsFrom, pointsTo } = this.state;
     const styles = Object.assign({
@@ -133,24 +128,24 @@ class SparkGraph extends React.Component {
 
     return (
       <svg
-        { ...rest }
-        className={ classNames('spark-graph', className) }
-        style={ styles }
-        viewBox={ `0 0 ${width} ${height}` }
-        ref={ (node) => {
+        {...omit(rest, 'transitionDuration')}
+        className={classNames('spark-graph', className)}
+        style={styles}
+        viewBox={`0 0 ${width} ${height}`}
+        ref={(node) => {
           this.svgNode = node;
-        } }
+        }}
       >
         <path
-          className="spark-graph__path"
-          d={ pointsFrom ? '' : this.constructPathString(pointsToRender) }
-          stroke={ pointsFrom ? getStrokeColor(pointsFrom, stroke) : getStrokeColor(points, stroke) }
-          strokeWidth={ strokeWidth }
+          style={{ fill: 'none' }}
+          d={pointsFrom ? '' : constructPathString(pointsToRender)}
+          stroke={pointsFrom ? getStrokeColor(pointsFrom, stroke) : getStrokeColor(points, stroke)}
+          strokeWidth={strokeWidth}
           strokeLinecap="square"
           strokeLinejoin="round"
-          ref={ (node) => {
+          ref={(node) => {
             this.path = node;
-          } }
+          }}
         />
       </svg>
     );

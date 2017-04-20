@@ -14,15 +14,8 @@ describe('<Flag />', () => {
     expect(wrapper.type()).to.equal('span');
   });
 
-  it('should default width to 1.6rem', () => {
-    expect(wrapper.prop('style').width).to.equal('1.6rem');
-  });
-
-  it('should default width to 1.2rem', () => {
-    expect(wrapper.prop('style').height).to.equal('1.2rem');
-  });
-
-  it('should have "flag flag--se" as className', () => {
-    expect(wrapper.prop('className')).to.equal('flag flag--se');
+  it('should scale according to size', () => {
+    const newElement = shallow(<Flag countryCode="se" size={64} />);
+    expect(newElement.prop('style').width).to.equal(64);
   });
 });

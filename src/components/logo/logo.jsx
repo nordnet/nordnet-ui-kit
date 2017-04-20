@@ -1,29 +1,31 @@
 import React, { PropTypes } from 'react';
-import defaultLogo from './nordnet-logo-default.svg';
-import classNames from 'classnames';
-import { kebabCase } from 'lodash';
-import './logo.scss';
+import NordnetLogo from './nordnetLogo';
 
 function Logo(props) {
-  const logos = {
-    default: defaultLogo,
-  };
-  const classes = classNames(
-    'logo',
-    `logo--${kebabCase(props.type)}`,
-    props.className
+  return (
+    <NordnetLogo
+      className={props.className}
+      style={props.style}
+      height="100%"
+      width={props.width}
+      fill={props.iconColor}
+      stroke={props.textColor}
+    />
   );
-
-  return <span { ...props } className={ classes } dangerouslySetInnerHTML={ { __html: logos[props.type] } } />;
 }
 
 Logo.defaultProps = {
-  type: 'default',
+  iconColor: '#00A9EC',
+  textColor: '#222222',
+  width: 130,
 };
 
 Logo.propTypes = {
-  type: PropTypes.string,
   className: PropTypes.string,
+  style: PropTypes.object,
+  iconColor: PropTypes.string,
+  textColor: PropTypes.string,
+  width: PropTypes.number,
 };
 
 export default Logo;

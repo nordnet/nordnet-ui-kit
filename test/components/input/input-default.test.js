@@ -1,9 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { assert } from 'chai';
+import { shallow as enzymeShallow } from 'enzyme';
+import { createShallow } from '../../../src/test-utils';
 import InputDefault from '../../../src/components/input/input-default';
 
 describe('<InputDefault />', () => {
+  const shallow = createShallow(enzymeShallow);
   let wrapper;
 
   beforeEach(() => {
@@ -23,7 +25,7 @@ describe('<InputDefault />', () => {
       { someProp: 'a value' },
     ];
 
-    nonEmtpyValues.forEach(v => {
+    nonEmtpyValues.forEach((v) => {
       wrapper.setProps({ value: v });
       assert(wrapper.hasClass('input--has-value'), `"${v}" did not set the value class`);
     });
@@ -38,7 +40,7 @@ describe('<InputDefault />', () => {
       {},
     ];
 
-    emtpyValues.forEach(v => {
+    emtpyValues.forEach((v) => {
       wrapper.setProps({ value: v });
       assert(!wrapper.hasClass('input--has-value'), `"${v}" did set the value class`);
     });
