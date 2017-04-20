@@ -11,6 +11,7 @@ const variant = {
 export const light = {
   text: {
     default: color.black,
+    secondary: color.grayDarker,
     muted: color.grayDark,
   },
   action: { // TODO define
@@ -19,6 +20,7 @@ export const light = {
   },
   background: {
     default: color.white,
+    secondary: color.grayLight,
     muted: color.grayLightest,
   },
 };
