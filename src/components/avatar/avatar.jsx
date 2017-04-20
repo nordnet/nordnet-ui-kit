@@ -19,15 +19,20 @@ export const styleSheet = createStyleSheet('Avatar', (theme) => {
       height: '2.4em',
       width: '2.4em',
     },
-    small: {
+    sm: {
       fontSize: 14,
       height: 32,
       width: 32,
     },
-    large: {
+    md: {
       fontSize: 16,
       height: 48,
       width: 48,
+    },
+    lg: {
+      fontSize: 20,
+      height: 56,
+      width: 56,
     },
   };
 
@@ -38,19 +43,16 @@ function Avatar({
   children,
   className: classNameProp,
   style: styleProp,
-  iconSize,
-  iconColor,
+  size,
+  color,
   ...rest
 }, { styleManager }) {
   const classes = styleManager.render(styleSheet);
   const style = Object.assign({}, {
-    backgroundColor: iconColor,
+    backgroundColor: color,
   }, styleProp);
 
-  const className = cn([classes.root], {
-    [classes.small]: iconSize === 'small',
-    [classes.large]: iconSize === 'large',
-  }, classNameProp);
+  const className = cn(classes.root, [classes[`${size}`]], classNameProp);
 
   return (
     <div className={className} style={style} {...rest}>
@@ -63,12 +65,12 @@ Avatar.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   children: PropTypes.node,
-  iconSize: PropTypes.oneOf(['small', 'large', 'custom']),
-  iconColor: PropTypes.string,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  color: PropTypes.string,
 };
 
 Avatar.defaultProps = {
-  iconSize: 'small',
+  size: 'sm',
 };
 
 Avatar.contextTypes = {

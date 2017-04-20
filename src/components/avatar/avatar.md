@@ -3,15 +3,18 @@
 
     <div style={{display: 'flex'}}>
       <Avatar>
-        Er
+        Aa
       </Avatar>
-      <Avatar iconSize={ 'large' }>
+      <Avatar size={ 'md' }>
+        AF
+      </Avatar>
+      <Avatar size={ 'lg' }>
         ISK
       </Avatar>
-      <Avatar iconColor={ color.blueDarker }>
+      <Avatar color={ color.blueDarker }>
         Hm
       </Avatar>
-      <Avatar style={{ fontSize: 24 }} iconSize={ 'custom' } iconColor={ color.red }>
-        <Icon.Trash width={24} height={24} stroke={color.white} />
+      <Avatar style={{ width: 40, height: 40 }} color={ color.red }>
+        <Icon.Trash width={18} height={18} stroke={color.white} />
       </Avatar>
     </div>
