@@ -48,7 +48,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
                 top: '-4px',
                 left: '-4px',
                 borderRadius: 'inherit',
-                border: `2px solid ${palette.variant.info}`,
+                border: `2px solid ${palette.variant.primary}`,
               },
             },
           },
@@ -88,7 +88,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
         display: 'block',
         width: '16px',
         height: '16px',
-        border: `1px solid ${palette.action.disabled}`,
+        border: `1px solid ${palette.shades.dark.text.muted}`,
         padding: '3px 2px',
         transition: transitions.create(['all'], {
           duration: transitions.duration.shortest,
@@ -98,14 +98,15 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
         outlineColor: palette.background.default,
 
         '&--is-checked': {
-          color: palette.text.default,
-          borderColor: palette.text.default,
-          background: palette.text.default,
+          color: palette.variant.primary,
+          borderColor: palette.variant.primary,
+          background: palette.variant.primary,
         },
 
         '&--is-disabled': {
           color: palette.action.disabled,
           borderColor: palette.action.disabled,
+          background: palette.action.disabled,
         },
       },
 

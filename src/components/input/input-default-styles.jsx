@@ -6,13 +6,15 @@ export default createStyleSheet('InputDefault', (theme) => {
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
+  const bottomBorderSize = '3px';
+
   const modifierFn = color => ({
     '& .input__label': {
       color,
     },
 
     '& .input__field': {
-      borderColor: color,
+      borderBottom: `${bottomBorderSize} solid ${color}`,
     },
 
     '&--is-disabled': {
@@ -22,7 +24,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         },
 
         '&__field': {
-          borderColor: disabledColor(color),
+          borderBottom: `${bottomBorderSize} solid ${disabledColor(color)}`,
         },
       },
     },
@@ -36,6 +38,7 @@ export default createStyleSheet('InputDefault', (theme) => {
 
       '&__field': {
         borderColor: color,
+        borderBottom: `3px solid ${color}`,
       },
     },
   });
@@ -44,7 +47,7 @@ export default createStyleSheet('InputDefault', (theme) => {
     input: {
       fontSize: '16px',
       color: palette.text.default,
-      marginBottom: '16px',
+      marginBottom: '20px',
       position: 'relative',
 
       '&.input--has-success': modifierFn(palette.variant.success),
@@ -56,7 +59,7 @@ export default createStyleSheet('InputDefault', (theme) => {
           '&__label': {
             color: palette.action.active,
             opacity: 1,
-            transform: 'translateY(0)',
+            transform: 'translateY(15px)',
           },
 
           '&__field': {
@@ -81,6 +84,7 @@ export default createStyleSheet('InputDefault', (theme) => {
 
       '&.input--is-disabled': {
         color: palette.action.disabled,
+        backgroundColor: palette.background.muted,
 
         '& .input': {
           '&__label': {
@@ -110,25 +114,35 @@ export default createStyleSheet('InputDefault', (theme) => {
           '&__element': {
             width: '100%',
           },
+
+          '&__addon': {
+            position: 'absolute',
+            fontSize: '12px',
+            color: palette.text.muted,
+            right: '10px',
+            top: '10px',
+          },
         },
       },
 
       '& .input__field': {
         position: 'relative',
         width: '100%',
-        borderBottom: `1px solid ${palette.action.disabled}`,
+        border: `1px solid ${palette.action.disabled}`,
+        borderRadius: '4px',
+        padding: '3px 8px',
         paddingTop: '12px',
         transition: transitions.create(['border-color']),
       },
 
       '& .input__label': {
         position: 'absolute',
-        top: '-4px',
+        bottom: '-4px',
         left: 0,
         cursor: 'text',
         transition: transitions.create(['opacity', 'transform', 'color']),
         fontSize: '12px',
-        transform: 'translateY(11px)',
+        transform: 'translateY(0)',
         opacity: 0,
         color: palette.action.disabled,
         pointerEvents: 'none',
@@ -143,7 +157,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         background: 'none',
         border: 0,
         borderRadius: 0,
-        padding: '0 0 5px',
+        padding: '0 0 3px',
         width: '100%',
         transition: transitions.create(['border-color', 'transform']),
         fontSize: '16px',
