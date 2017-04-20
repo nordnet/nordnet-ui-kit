@@ -42,14 +42,14 @@ const buttonModifierFn = (variant, color, colorFocus) => {
 };
 
 export default createStyleSheet('Button', (theme) => {
-  const { palette, transitions } = theme;
+  const { palette, typography, transitions } = theme;
 
   return {
     button: {
       display: 'inline-block',
       border: 0,
-      fontFamily: 'inherit',
-      fontWeight: 700,
+      borderRadius: '16px',
+      fontFamily: typography.primary.fontFamily,
       lineHeight: 1,
       transition: transitions.create(),
       textDecoration: 'none',
@@ -72,22 +72,26 @@ export default createStyleSheet('Button', (theme) => {
 
     xs: {
       fontSize: '12px',
-      padding: '4px',
+      borderRadius: '12px',
+      padding: '4px 10px',
     },
 
     sm: {
       fontSize: '14px',
-      padding: '7px',
+      borderRadius: '16px',
+      padding: '7px 15px',
     },
 
     md: {
       fontSize: '16px',
-      padding: '10px',
+      borderRadius: '20px',
+      padding: '10px 18px',
     },
 
     lg: {
       fontSize: '18px',
-      padding: '13px',
+      borderRadius: '24px',
+      padding: '13px 24px',
     },
 
     primary: {
