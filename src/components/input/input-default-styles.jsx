@@ -1,9 +1,8 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 import Color from 'color';
-import variables from '../../utilities/variables';
 
 export default createStyleSheet('InputDefault', (theme) => {
-  const { palette } = theme;
+  const { palette, transitions } = theme;
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
@@ -119,7 +118,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         width: '100%',
         borderBottom: `1px solid ${palette.action.disabled}`,
         paddingTop: '12px',
-        transition: `border-color .2s ${variables.easeOut}`,
+        transition: transitions.create(['border-color']),
       },
 
       '& .input__label': {
@@ -127,7 +126,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         top: '-4px',
         left: 0,
         cursor: 'text',
-        transition: `opacity .2s ${variables.easeOut}, transform .2s ${variables.easeOut}, color .2s ${variables.easeOut}`,
+        transition: transitions.create(['opacity', 'transform', 'color']),
         fontSize: '12px',
         transform: 'translateY(11px)',
         opacity: 0,
@@ -146,7 +145,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         borderRadius: 0,
         padding: '0 0 5px',
         width: '100%',
-        transition: `border-color .2s ${variables.easeOut}, transform .2s ${variables.easeOut}`,
+        transition: transitions.create(['border-color', 'transform']),
         fontSize: '16px',
         transform: 'translateY(-4px)',
         maxHeight: '27px',
@@ -174,7 +173,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         right: '4px',
         bottom: '10px',
         height: '8px',
-        transition: `all .2s ${variables.easeOut}`,
+        transition: transitions.create(),
 
         '> img': {
           display: 'block',

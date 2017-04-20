@@ -4,8 +4,29 @@ import Badge from './components/badge/badge';
 import Button from './components/button/button';
 import Dropdown from './components/dropdown/dropdown';
 import Flag from './components/flag/flag';
-import GraphTooltip from './components/graph-tooltip';
 import HorizontalNav from './components/horizontal-nav';
+import Input from './components/input/input';
+import LabeledValue from './components/labeled-value/labeled-value';
+import Li from './components/li/li';
+import Logo from './components/logo/logo';
+import Pane from './components/pane/pane';
+import RadioGroup from './components/radio-group';
+import RatioBar from './components/ratio-bar';
+import Search from './components/search';
+// import SparkGraph from './components/spark-graph';
+import Spinner from './components/spinner';
+import Table from './components/table';
+import Tbody from './components/tbody';
+import Td from './components/td';
+import Tfoot from './components/tfoot';
+import Th from './components/th';
+import Thead from './components/thead';
+import Tooltip from './components/tooltip';
+import Tr from './components/tr';
+import Ul from './components/ul/ul';
+import Widget from './components/widget/widget';
+
+// Icons
 import Apartment from './components/icon/icons/apartment';
 import ArrowDown from './components/icon/icons/arrowDown';
 import ArrowRight from './components/icon/icons/arrowRight';
@@ -29,13 +50,11 @@ import GraphArea from './components/icon/icons/graphArea';
 import GraphCandlestick from './components/icon/icons/graphCandlestick';
 import Heart from './components/icon/icons/heart';
 import Key from './components/icon/icons/key';
-import Li from './components/li/li';
 import LightningBolt from './components/icon/icons/lightningBolt';
 import Lock from './components/icon/icons/lock';
 import Mail from './components/icon/icons/mail';
 import MailOpen from './components/icon/icons/mailOpen';
 import News from './components/icon/icons/news';
-import NordnetLogo from './components/icon/icons/nordnetLogo';
 import Print from './components/icon/icons/print';
 import Questionmark from './components/icon/icons/questionmark';
 import SearchIcon from './components/icon/icons/search';
@@ -52,29 +71,6 @@ import TrashAlternate from './components/icon/icons/trashAlternate';
 import User from './components/icon/icons/user';
 import UserShirt from './components/icon/icons/userShirt';
 import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
-import Input from './components/input/input';
-import LabeledValue from './components/labeled-value/labeled-value';
-import Legend from './components/legend';
-import Logo from './components/logo/logo';
-import NavBar from './components/nav-bar';
-import Pane from './components/pane/pane';
-import RadioGroup from './components/radio-group';
-import RangeSelector from './components/range-selector/';
-import RatioBar from './components/ratio-bar';
-import Search from './components/search';
-import Select from './components/select/select';
-// import SparkGraph from './components/spark-graph';
-import Spinner from './components/spinner';
-import Table from './components/table';
-import Tbody from './components/tbody';
-import Td from './components/td';
-import Tfoot from './components/tfoot';
-import Th from './components/th';
-import Thead from './components/thead';
-import Tooltip from './components/tooltip';
-import Tr from './components/tr';
-import Ul from './components/ul/ul';
-import Widget from './components/widget/widget';
 
 // Theming
 import { ThemeProvider } from './styles';
@@ -110,13 +106,11 @@ const Icon = {
   GraphCandlestick,
   Heart,
   Key,
-  Li,
   LightningBolt,
   Lock,
   Mail,
   MailOpen,
   News,
-  NordnetLogo,
   Print,
   Questionmark,
   Search: SearchIcon,
@@ -140,22 +134,18 @@ export {
   Avatar,
   Badge,
   Button,
-  Flag,
   Dropdown,
-  GraphTooltip,
+  Flag,
   HorizontalNav,
   Icon,
   Input,
   LabeledValue,
-  Legend,
+  Li,
   Logo,
-  NavBar,
   Pane,
   RadioGroup,
-  RangeSelector,
   RatioBar,
   Search,
-  Select,
   // SparkGraph,
   Spinner,
   Table,

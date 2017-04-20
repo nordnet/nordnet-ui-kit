@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
 import { debounce } from 'lodash';
 import arrayEqual from 'array-equal';
@@ -20,7 +19,7 @@ function constructPathString(points) {
   ), `M ${first.x} ${first.y}`);
 }
 
-class SparkGraph extends React.Component {
+class SparkGraph extends React.PureComponent {
   constructor(props) {
     super(props);
     const width = props.width || 0;
@@ -54,10 +53,6 @@ class SparkGraph extends React.Component {
     state.strokeFrom = this.props.stroke;
     state.strokeTo = stroke;
     this.setState(state);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
   }
 
   componentDidUpdate() {

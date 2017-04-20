@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import defaultProps from '../icon/icons/defaultProps';
 
 export default function NordnetLogo({
+  fill,
+  stroke,
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
     <svg {...rest}>
       <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Artboard-1">
-          <g id="nordnet" transform="translate(77.000000, 5.000000)" fill="#222222">
+          <g id="nordnet" transform="translate(77.000000, 5.000000)" fill={stroke}>
             <path
               d="M235.356492,37.9973333 C233.504982,39.3301052 231.666948,40.0060351 229.890667,40.0060351
               C227.247018,40.0060351 225.668351,38.2370526 225.668351,35.2734035 L225.668351,19.2032281
@@ -106,7 +109,7 @@ export default function NordnetLogo({
               id="Fill-6"
             />
           </g>
-          <g id="mark" fill="#00A9EC">
+          <g id="mark" fill={fill}>
             <path
               d="M11.3515789,32.5226667 C13.1458245,29.8812632 14.5897544,27.7367018 15.749614,26.0143158
               L17.0341052,24.1083508 C18.2843508,22.2613333 19.2252632,20.8814035 19.9573333,19.933193
@@ -162,8 +165,16 @@ export default function NordnetLogo({
   );
 }
 
+NordnetLogo.propTypes = {
+  fill: PropTypes.string,
+  stroke: PropTypes.string,
+};
+
 NordnetLogo.defaultProps = {
-  width: 313,
-  height: 64,
+  ...defaultProps,
+  width: 130,
+  fill: '#00A9EC',
+  stroke: '#222222',
+  height: '100%',
   viewBox: '0 0 313 64',
 };

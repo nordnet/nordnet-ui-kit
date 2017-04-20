@@ -28,39 +28,14 @@ All available icons:
     };
     const icons = Object.keys(Icon);
 
-    const specialIcons = ['NordnetLogo'];
-
     <div>
       {icons
-        .filter(iconName => specialIcons.indexOf(iconName) === -1)
         .map(iconName => {
           const IconComponent = Icon[iconName];
 
           return (
             <div key={ iconName } style={ style }>
-
-              <IconComponent
-                stroke="#00A9EC"
-                fill="#00A9EC"
-              />
-
-              <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ iconName }</div>
-            </div>
-          );
-        }
-      )}
-      {specialIcons
-        .map(iconName => {
-          const IconComponent = Icon[iconName];
-
-          return (
-            <div key={ iconName } style={ style }>
-
-              <IconComponent
-                stroke="#00A9EC"
-                fill="#00A9EC"
-              />
-
+              <IconComponent stroke="#00A9EC" fill="#00A9EC" />
               <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ iconName }</div>
             </div>
           );
