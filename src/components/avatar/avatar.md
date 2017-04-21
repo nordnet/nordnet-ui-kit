@@ -2,6 +2,9 @@
     const color = require('../../styles/color').default;
 
     <div style={{display: 'flex'}}>
+      <Avatar size={ 'xs' }>
+        xs
+      </Avatar>
       <Avatar>
         Aa
       </Avatar>
