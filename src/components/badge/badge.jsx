@@ -8,16 +8,17 @@ export const styleSheet = createStyleSheet('Badge', (theme) => {
   return {
     root: {
       display: 'inline-block',
-      fontSize: '14px',
+      fontSize: '12px',
       fontFamily: typography.primary.fontFamily,
-      padding: '6px 8px',
-      lineHeight: 1,
+      padding: '2.5px 10px',
+      minWidth: '80px',
+      lineHeight: '17px',
       color: palette.shades.dark.text.default,
       textAlign: 'center',
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',
       backgroundColor: palette.shades.dark.background.default,
-      borderRadius: '4px',
+      borderRadius: '3px',
     },
     success: {
       backgroundColor: palette.variant.success,
