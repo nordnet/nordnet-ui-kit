@@ -13,10 +13,6 @@ function Table({ className, children, size, ...rest }, { styleManager }) {
   );
 }
 
-Table.defaultProps = {
-  size: 'sm',
-};
-
 Table.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,

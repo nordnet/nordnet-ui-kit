@@ -2,22 +2,30 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
-export default createStyleSheet('Thead', () => ({
-  thead: {
-    display: 'block',
-    fontWeight: 'bold',
-    borderColor: color.gray,
-    ...styleUtils.sizes(),
+export default createStyleSheet('Thead', (theme) => {
+  const { palette } = theme;
 
-    '&.primary': {
-      background: color.gray,
-      borderColor: color.grayDark,
-    },
+  return {
+    thead: {
+      display: 'block',
+      fontWeight: 'bold',
+      borderColor: color.gray,
+      borderBottom: `2px solid ${palette.shades.dark.text.muted}`,
+      paddingBottom: '10px',
+      letterSpacing: '1px',
+      fontSize: '12px',
+      ...styleUtils.sizes(),
 
-    '&.secondary': {
-      background: color.grayDarker,
-      borderColor: color.black,
-      color: color.white,
+      '&.primary': {
+        background: color.gray,
+        borderColor: color.grayDark,
+      },
+
+      '&.secondary': {
+        background: color.grayDarker,
+        borderColor: color.black,
+        color: color.white,
+      },
     },
-  },
-}));
+  };
+});
