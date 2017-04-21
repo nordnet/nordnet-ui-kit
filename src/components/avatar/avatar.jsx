@@ -19,6 +19,11 @@ export const styleSheet = createStyleSheet('Avatar', (theme) => {
       height: '2.4em',
       width: '2.4em',
     },
+    xs: {
+      fontSize: 9,
+      height: 24,
+      width: 24,
+    },
     sm: {
       fontSize: 14,
       height: 32,
@@ -65,7 +70,7 @@ Avatar.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   children: PropTypes.node,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   color: PropTypes.string,
 };
 
