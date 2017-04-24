@@ -67,9 +67,9 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
         },
 
-        '& .input-has-success': modifierFocusFn(palette.variant.success),
-        '& .input-has-warning': modifierFocusFn(palette.variant.warning),
-        '& .input-has-error': modifierFocusFn(palette.variant.danger),
+        '&.input--has-success': modifierFocusFn(palette.variant.success),
+        '&.input--has-warning': modifierFocusFn(palette.variant.warning),
+        '&.input--has-error': modifierFocusFn(palette.variant.danger),
       },
 
       '&.input--has-success .input__field': {
