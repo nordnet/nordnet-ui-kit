@@ -5,14 +5,19 @@
 [![Dependency Status][depstat-image]][depstat-url]
 
 ## Installation
-`npm install --save nordnet-ui-kit`
+```js
+npm install --save nordnet-ui-kit # or
+yarn add nordnet-ui-kit
+```
 
 ## Usage
 ``` javascript
-import { Button } from 'nordnet-ui-kit';
+import { ThemeProvider, Button } from 'nordnet-ui-kit';
 
-const button = (
-  <Button primary type="success">Success</Button>
+const themedButton = (
+  <ThemeProvider>
+    <Button variant="primary" modifier="success">Success</Button>
+  </ThemeProvider>
 );
 
 ReactDOM.render(button, mountNode);
