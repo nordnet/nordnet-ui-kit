@@ -39,7 +39,8 @@ describe('ThemeProvider', () => {
 
       expect(theme.palette).to.deep.equal(expectedTheme.palette);
       expect(theme.typography).to.deep.equal(expectedTheme.typography);
-      expect(theme.mixins).to.deep.equal(expectedTheme.mixins);
+      expect(theme.mixins.basicBoxSizing).to.deep.equal(expectedTheme.mixins.basicBoxSizing);
+      expect(theme.mixins.media.toString()).to.deep.equal(expectedTheme.mixins.media.toString());
       expect(theme.breakpoints).to.deep.equal(expectedTheme.breakpoints);
 
       expect(theme.transitions.easing).to.deep.equal(expectedTheme.transitions.easing);
