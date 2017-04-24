@@ -29,6 +29,7 @@ import Widget from './components/widget/widget';
 // Icons
 import Apartment from './components/icon/icons/apartment';
 import ArrowDown from './components/icon/icons/arrowDown';
+import ArrowLeft from './components/icon/icons/arrowLeft';
 import ArrowRight from './components/icon/icons/arrowRight';
 import ArrowUp from './components/icon/icons/arrowUp';
 import ArrowUpDown from './components/icon/icons/arrowUpDown';
@@ -42,6 +43,7 @@ import CircleArrow from './components/icon/icons/circleArrow';
 import CircleSlash from './components/icon/icons/circleSlash';
 import Close from './components/icon/icons/close';
 import Cloud from './components/icon/icons/cloud';
+import Ellipsis from './components/icon/icons/ellipsis';
 import ExclamationPoint from './components/icon/icons/exclamationPoint';
 import Film from './components/icon/icons/film';
 import FloppyDisk from './components/icon/icons/floppyDisk';
@@ -85,6 +87,7 @@ import {
 const Icon = {
   Apartment,
   ArrowDown,
+  ArrowLeft,
   ArrowRight,
   ArrowUp,
   ArrowUpDown,
@@ -98,6 +101,7 @@ const Icon = {
   CircleSlash,
   Close,
   Cloud,
+  Ellipsis,
   ExclamationPoint,
   Film,
   FloppyDisk,
