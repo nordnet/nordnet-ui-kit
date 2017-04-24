@@ -7,6 +7,7 @@ export default createStyleSheet('SegmentedControl', (theme) => {
     root: {
       marginRight: '6px',
       borderRadius: '8px',
+      display: 'inline-flex',
 
       '& input': {
         display: 'none',
@@ -27,6 +28,10 @@ export default createStyleSheet('SegmentedControl', (theme) => {
       paddingRight: '10px',
       backgroundColor: 'inherit',
 
+      '& + &': {
+        borderLeft: `1px solid ${palette.color.grayLight}`,
+      },
+
       '& label': {
         cursor: 'pointer',
       },
@@ -40,13 +45,11 @@ export default createStyleSheet('SegmentedControl', (theme) => {
       borderTopLeftRadius: '8px',
       borderBottomLeftRadius: '8px',
       borderLeft: `2px solid ${palette.color.grayLight}`,
-      borderRight: `1px solid ${palette.color.grayLight}`,
     },
 
     buttonRight: {
       borderTopRightRadius: '8px',
       borderBottomRightRadius: '8px',
-      borderLeft: `1px solid ${palette.color.grayLight}`,
       borderRight: `2px solid ${palette.color.grayLight}`,
     },
   };
