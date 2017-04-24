@@ -3327,9 +3327,9 @@ jss@^6.5.0:
     is-in-browser "1.0.2"
     warning "3.0.0"
 
-jss@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.npmjs.org/jss/-/jss-7.0.3.tgz#87a4ff5c9398f7ee7ddc06a6b02255a4c74d9e1b"
+jss@^7.0.3, jss@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.npmjs.org/jss/-/jss-7.1.0.tgz#8528213f868f05d0ef41deaeb02269bb82780e4b"
   dependencies:
     is-in-browser "1.0.2"
     warning "3.0.0"
