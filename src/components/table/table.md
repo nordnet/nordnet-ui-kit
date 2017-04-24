@@ -5,15 +5,19 @@ Sticky header table:
     <Table>
       <Thead>
         <Tr>
+          <Th width="30px">&nbsp;</Th>
           <Th width={40}>Instrument</Th>
           <Th width="80px" align="center">Quantity</Th>
           <Th>Price</Th>
           <Th align="right">Performance 1D</Th>
         </Tr>
       </Thead>
-      <Tbody size="xs" colorAlternateRows={false} borderBottom>
+      <Tbody colorAlternateRows={true} borderBottom>
         { data.map((instrument, index) => (
           <Tr key={instrument[0]} border={index === 0 ? true : false} sticky={index === 0 ? true : false}>
+            <Td width="30px">
+              <Avatar size="xs">{ instrument[0].substring(0, 3) }</Avatar>
+            </Td>
             <Td width={40}>
               { instrument[0] }
             </Td>

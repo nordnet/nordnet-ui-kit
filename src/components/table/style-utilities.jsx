@@ -18,12 +18,6 @@ const sizes = () => ({
   },
 });
 
-const mono = () => ({
-  '&.mono': {
-    fontFamily: '"Value Nordnet Mono", menlo, monospace',
-  },
-});
-
 // Modifiers
 const modifierItem = color => ({
   color,
@@ -121,7 +115,6 @@ const ellipsis = () => ({
 
 export default {
   sizes,
-  mono,
   modifiers,
   highlights,
   borders,
