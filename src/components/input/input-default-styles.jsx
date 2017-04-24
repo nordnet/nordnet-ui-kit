@@ -171,14 +171,9 @@ export default createStyleSheet('InputDefault', (theme) => {
         width: '100%',
         transition: transitions.create(['border-color', 'transform']),
         fontSize: '16px',
-        transform: 'translateY(-4px)',
         maxHeight: '27px',
         fontFamily: 'inherit',
         fontWeight: 'inherit',
-
-        '&.input--has-focus, &.input--has-value': {
-          transform: 'translateY(0)',
-        },
 
         '&:focus': {
           outline: 'none',
