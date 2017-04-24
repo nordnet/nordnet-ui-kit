@@ -20,6 +20,12 @@
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
 
+## Upcoming release candidate
+* Updated readme
+* Add breakpoints to theme
+* Add mixins to theme
+* Improve styling of Badge, Avatar, Table and Icon
+
 ## 0.2.0-rc.1
 * Port remaining components to JSS. (SparkGraph is still missing)
 * Clean up webpack dependencies
