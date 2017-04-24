@@ -20,10 +20,10 @@ const themedButton = (
   </ThemeProvider>
 );
 
-ReactDOM.render(button, mountNode);
+ReactDOM.render(themedButton, mountNode);
 ```
 
-## Documentation is available [here](https://nordnet.github.io/nordnet-ui-kit).
+## Documentation for the latest release is available [here](https://nordnet.github.io/nordnet-ui-kit).
 
 ## License
 This open source project released by Nordnet is licensed under the MIT license.
