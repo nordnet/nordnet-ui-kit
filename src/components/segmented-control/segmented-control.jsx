@@ -55,22 +55,19 @@ class SegmentedControl extends React.PureComponent {
 
   handleChange(e) {
     const index = e.currentTarget.value;
+    const callOnChange = () => {
+      if (this.props.onChange) {
+        this.props.onChange(this.childSelectedState());
+      }
+    };
     if (this.props.type === 'radio') {
       this.setState({
         selected: index,
-      }, () => {
-        if (this.props.onChange) {
-          this.props.onChange(this.childSelectedState());
-        }
-      });
+      }, callOnChange);
     } else if (this.props.type === 'checkbox') {
       this.setState({
         [index]: !this.state[index],
-      }, () => {
-        if (this.props.onChange) {
-          this.props.onChange(this.childSelectedState());
-        }
-      });
+      }, callOnChange);
     }
   }
 
