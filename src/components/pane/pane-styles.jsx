@@ -1,10 +1,11 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export default createStyleSheet('Pane', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     pane: {
+      ...mixins.basicBoxSizing,
       background: palette.background.default,
       boxShadow: '0 2px 4px 2px rgba(0, 0, 0, .1)',
       marginBottom: '16px',

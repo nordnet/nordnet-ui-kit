@@ -1,7 +1,7 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export default createStyleSheet('InputCheckboxRadio', (theme) => {
-  const { palette, transitions } = theme;
+  const { palette, transitions, mixins } = theme;
 
   const modifierFn = color => ({
     color,
@@ -18,6 +18,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
       '& + .checkbox, & + .radio': {
         '&::before': {
           borderColor: color,
+          boxSizing: 'border-box',
         },
       },
     },
@@ -25,6 +26,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
 
   return {
     'input-checkbox-radio': {
+      ...mixins.basicBoxSizing,
       display: 'block',
       marginBottom: '16px',
 
@@ -49,6 +51,7 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
                 left: '-4px',
                 borderRadius: 'inherit',
                 border: `2px solid ${palette.variant.primary}`,
+                boxSizing: 'border-box',
               },
             },
           },

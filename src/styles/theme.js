@@ -4,14 +4,14 @@ import createTypography from './typography';
 import createBreakpoints from './breakpoints';
 import { createPalette } from './palette';
 // import zIndex from './zIndex';
-// import createMixins from './mixins';
+import createMixins from './mixins';
 // import spacing from './spacing';
 
 export function createTheme(config = {}) {
   const {
     palette = createPalette(),
     breakpoints = createBreakpoints(),
-    mixins = {},
+    mixins = createMixins(breakpoints),
     typography = createTypography(),
     ...more
   } = config;

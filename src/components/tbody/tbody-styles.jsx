@@ -2,9 +2,10 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 
 export default createStyleSheet('Tbody', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
   return {
     tbody: {
+      ...mixins.basicBoxSizing,
       display: 'block',
       ...styleUtils.sizes(),
       ...styleUtils.borders(palette),

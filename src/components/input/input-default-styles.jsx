@@ -2,7 +2,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import Color from 'color';
 
 export default createStyleSheet('InputDefault', (theme) => {
-  const { palette, transitions } = theme;
+  const { palette, transitions, mixins } = theme;
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
@@ -45,6 +45,7 @@ export default createStyleSheet('InputDefault', (theme) => {
 
   return {
     input: {
+      ...mixins.basicBoxSizing,
       fontSize: '16px',
       color: palette.text.default,
       marginBottom: '20px',

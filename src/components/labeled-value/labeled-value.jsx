@@ -4,7 +4,7 @@ import { kebabCase } from 'lodash';
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export const styleSheet = createStyleSheet('LabeledValue', (theme) => {
-  const { palette, typography } = theme;
+  const { palette, typography, mixins } = theme;
   const modifiers = {
     xs: '12',
     sm: '14',
@@ -28,6 +28,7 @@ export const styleSheet = createStyleSheet('LabeledValue', (theme) => {
 
   return {
     root: {
+      ...mixins.basicBoxSizing,
       display: 'inline-block',
       color: palette.text.secondary,
       fontFamily: typography.primary.fontFamily,

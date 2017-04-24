@@ -1,10 +1,11 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export default createStyleSheet('Dropdown', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     dropdown: {
+      ...mixins.basicBoxSizing,
       display: 'inline-block',
       position: 'relative',
       marginBottom: '16px',

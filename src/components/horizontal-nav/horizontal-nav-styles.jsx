@@ -1,10 +1,11 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export default createStyleSheet('HorizontalNav', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     horizontalNav: {
+      ...mixins.basicBoxSizing,
       position: 'relative',
     },
 

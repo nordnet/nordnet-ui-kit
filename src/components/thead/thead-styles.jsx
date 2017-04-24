@@ -3,10 +3,11 @@ import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
 export default createStyleSheet('Thead', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     thead: {
+      ...mixins.basicBoxSizing,
       display: 'block',
       fontWeight: 'bold',
       borderColor: color.gray,
