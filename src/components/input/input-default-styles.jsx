@@ -64,6 +64,7 @@ export default createStyleSheet('InputDefault', (theme) => {
 
           '&__field': {
             borderColor: palette.action.active,
+            borderBottom: `3px solid ${palette.action.active}`,
           },
         },
 
