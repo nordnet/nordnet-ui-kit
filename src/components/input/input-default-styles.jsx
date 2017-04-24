@@ -52,7 +52,16 @@ export default createStyleSheet('InputDefault', (theme) => {
 
       '&.input--has-success': modifierFn(palette.variant.success),
       '&.input--has-warning': modifierFn(palette.variant.warning),
-      '&.input--has-error': modifierFn(palette.variant.danger),
+      '&.input--has-error': {
+        '& .input': {
+          '&__label': {
+            color: palette.variant.danger,
+            opacity: 1,
+            transform: 'translateY(15px)',
+          },
+        },
+        ...modifierFn(palette.variant.danger),
+      },
 
       '&.input--has-focus': {
         '& .input': {
