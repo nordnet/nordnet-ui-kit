@@ -14,13 +14,17 @@ yarn add nordnet-ui-kit
 ``` javascript
 import { ThemeProvider, Button } from 'nordnet-ui-kit';
 
-const themedButton = (
+const Root = (
   <ThemeProvider>
-    <Button variant="primary" modifier="success">Success</Button>
+    <Component />
   </ThemeProvider>
 );
 
-ReactDOM.render(themedButton, mountNode);
+const Component = (
+  <Button variant="primary" modifier="success">Success</Button>
+);
+
+ReactDOM.render(Root, document.getElementById('app'));
 ```
 
 ## Documentation for the latest release is available [here](https://nordnet.github.io/nordnet-ui-kit).
