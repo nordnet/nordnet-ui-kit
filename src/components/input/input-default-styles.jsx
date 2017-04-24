@@ -6,7 +6,9 @@ export default createStyleSheet('InputDefault', (theme) => {
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
-  const bottomBorderSize = '3px';
+  const inputMarginBottom = 20;
+  const borderSize = 1;
+  const bottomBorderSize = 3;
 
   const modifierFn = color => ({
     '& .input__label': {
@@ -14,7 +16,8 @@ export default createStyleSheet('InputDefault', (theme) => {
     },
 
     '& .input__field': {
-      borderBottom: `${bottomBorderSize} solid ${color}`,
+      marginBottom: 0,
+      borderBottom: `${bottomBorderSize}px solid ${color}`,
     },
 
     '&--is-disabled': {
@@ -24,7 +27,8 @@ export default createStyleSheet('InputDefault', (theme) => {
         },
 
         '&__field': {
-          borderBottom: `${bottomBorderSize} solid ${disabledColor(color)}`,
+          marginBottom: 0,
+          borderBottom: `${bottomBorderSize}px solid ${disabledColor(color)}`,
         },
       },
     },
@@ -37,8 +41,9 @@ export default createStyleSheet('InputDefault', (theme) => {
       },
 
       '&__field': {
+        marginBottom: 0,
         borderColor: color,
-        borderBottom: `3px solid ${color}`,
+        borderBottom: `${bottomBorderSize}px solid ${color}`,
       },
     },
   });
@@ -47,7 +52,7 @@ export default createStyleSheet('InputDefault', (theme) => {
     input: {
       fontSize: '16px',
       color: palette.text.default,
-      marginBottom: '20px',
+      marginBottom: inputMarginBottom,
       position: 'relative',
 
       '&.input--has-success': modifierFn(palette.variant.success),
@@ -72,6 +77,7 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
 
           '&__field': {
+            marginBottom: '0px',
             borderColor: palette.action.active,
             borderBottom: `3px solid ${palette.action.active}`,
           },
@@ -138,11 +144,12 @@ export default createStyleSheet('InputDefault', (theme) => {
       '& .input__field': {
         position: 'relative',
         width: '100%',
-        border: `1px solid ${palette.action.disabled}`,
+        border: `${borderSize}px solid ${palette.action.disabled}`,
         borderRadius: '4px',
         padding: '3px 8px',
         paddingTop: '12px',
         transition: transitions.create(['border-color']),
+        marginBottom: (inputMarginBottom + bottomBorderSize) - borderSize,
       },
 
       '& .input__label': {
