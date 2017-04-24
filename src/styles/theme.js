@@ -1,7 +1,7 @@
 // import shadows from './shadows';
 import transitions from './transitions';
 import createTypography from './typography';
-// import createBreakpoints from './breakpoints';
+import createBreakpoints from './breakpoints';
 import { createPalette } from './palette';
 // import zIndex from './zIndex';
 // import createMixins from './mixins';
@@ -10,7 +10,7 @@ import { createPalette } from './palette';
 export function createTheme(config = {}) {
   const {
     palette = createPalette(),
-    breakpoints = {},
+    breakpoints = createBreakpoints(),
     mixins = {},
     typography = createTypography(),
     ...more
@@ -20,7 +20,7 @@ export function createTheme(config = {}) {
     palette,
     typography,
     mixins,
-    breakpoints, /* shadows, spacing, zIndex */
+    breakpoints /* shadows, spacing, zIndex */,
     transitions,
     ...more,
   };
