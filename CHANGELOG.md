@@ -13,7 +13,6 @@
 * Removed components: GraphTooltip, Legend, NavBar, RangeSelector, Select
 
 ## TODO
-* Removed everything related to webpack
 * Port SparkGraph
 
 ### Not yet ported
