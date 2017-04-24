@@ -1,3 +1,5 @@
+*Note: Styles are broken here currently, please open this in an isolated view*
+
     const { Icon } = require('../../');
     const color = require('../../styles/color').default;
 
