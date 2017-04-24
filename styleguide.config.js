@@ -21,7 +21,6 @@ module.exports = {
       .filter(c => c !== 'spark-graph') // SparkGraph is not yet fixed, leaving here for now!
       .map(folder => `${dir}/components/${folder}/${folder}.jsx`);
   },
-  template: path.join(__dirname, 'documentation/template.html'),
   getComponentPathLine(componentPath) {
     const fileName = path.basename(componentPath, '.jsx');
     const componentName = capitalize(camelCase(fileName));

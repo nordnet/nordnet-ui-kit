@@ -16,10 +16,11 @@ const directionLabel = {
 };
 
 export default createStyleSheet('RatioBar', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     root: {
+      ...mixins.basicBoxSizing,
       display: 'block',
       margin: '0px -1px',
       fontSize: 0,

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 const styleSheet = createStyleSheet('Li', theme => ({
   li: {
+    ...theme.mixins.basicBoxSizing,
     listStyle: 'none',
     borderBottom: `1px solid ${theme.palette.color.grayLighter}`,
     margin: 0,

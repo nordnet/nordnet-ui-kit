@@ -42,10 +42,11 @@ const buttonModifierFn = (variant, color, colorFocus) => {
 };
 
 export default createStyleSheet('Button', (theme) => {
-  const { palette, transitions, typography } = theme;
+  const { palette, transitions, typography, mixins } = theme;
 
   return {
     button: {
+      ...mixins.basicBoxSizing,
       display: 'inline-block',
       border: 0,
       borderRadius: '16px',

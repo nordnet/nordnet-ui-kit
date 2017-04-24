@@ -3,10 +3,11 @@ import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
 export default createStyleSheet('Tr', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     tr: {
+      ...mixins.basicBoxSizing,
       ...styleUtils.flexRow(),
       ...styleUtils.sizes(),
       borderLeft: '1px solid transparent',

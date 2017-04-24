@@ -3,10 +3,11 @@ import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export const styleSheet = createStyleSheet('Badge', (theme) => {
-  const { palette, typography } = theme;
+  const { palette, typography, mixins } = theme;
 
   return {
     root: {
+      ...mixins.basicBoxSizing,
       display: 'inline-block',
       fontSize: '12px',
       fontFamily: typography.primary.fontFamily,

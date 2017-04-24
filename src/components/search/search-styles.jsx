@@ -1,10 +1,11 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export default createStyleSheet('Search', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     search: {
+      ...mixins.basicBoxSizing,
       display: 'inline-block',
       position: 'relative',
       textAlign: 'left',

@@ -3,10 +3,11 @@ import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export const styleSheet = createStyleSheet('Avatar', (theme) => {
-  const { palette, typography } = theme;
+  const { palette, typography, mixins } = theme;
 
   const styles = {
     root: {
+      ...mixins.basicBoxSizing,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
