@@ -13,5 +13,5 @@ export default function VerticalEllipsis({ style: styleProp, ...rest }) {
 }
 
 VerticalEllipsis.propTypes = {
-  style: PropTypes.Object,
+  style: PropTypes.object,
 };
