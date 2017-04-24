@@ -75,7 +75,7 @@ import UserShirt from './components/icon/icons/userShirt';
 import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
 
 // Theming
-import { ThemeProvider } from './styles';
+import { ThemeProvider, createTheme } from './styles';
 
 // Test utils
 import {
@@ -83,6 +83,8 @@ import {
   createShallow,
   createRenderToString,
 } from './test-utils';
+
+const theme = createTheme();
 
 const Icon = {
   Apartment,
@@ -165,6 +167,8 @@ export {
 
   // Theming
   ThemeProvider,
+  createTheme,
+  theme,
 
   // Test utils
   createMount,
