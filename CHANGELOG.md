@@ -9,15 +9,21 @@
 * Ported components to JSS
 * Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
 * New Avatar component
+* New Ul component
+* New Li component
 * Removed variables
 * Removed components: GraphTooltip, Legend, NavBar, RangeSelector, Select
 
 ## TODO
-* Removed everything related to webpack
 * Port SparkGraph
 
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
+
+## 0.2.0-rc.1
+* Port remaining components to JSS. (SparkGraph is still missing)
+* Clean up webpack dependencies
+* New Li and Ul components
 
 ## 0.2.0-beta.9
 * Port Legend, Dropdown, Pane, Horizontal nav, Tooltip, Button and Search
