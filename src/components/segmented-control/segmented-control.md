@@ -12,7 +12,7 @@ Checkbox type:
 
     <SegmentedControl
       onChange={ console.log }
-      value="green" name="colorCheck" type="checkbox">
+      name="colorCheck" type="checkbox">
       <span value="red" checked={true}>Red</span>
       <span value="green">Green</span>
       <span value="blue" checked={true}>Blue</span>
