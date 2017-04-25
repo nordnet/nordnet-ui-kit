@@ -13,6 +13,7 @@ module.exports = {
   title: 'Nordnet UI Kit',
   styleguideDir: path.join(__dirname, 'documentation/dist'),
   // components: 'src/components/**/*.jsx',
+  template: path.resolve(__dirname, './documentation/template.html'),
   components() {
     const componentPath = `${dir}/components`;
     const folders = fs.readdirSync(componentPath);
