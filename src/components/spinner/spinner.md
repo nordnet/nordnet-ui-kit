@@ -1,5 +1,5 @@
     const spinnerStyle = {
-      marginRight: '.8rem',
+      marginRight: 8,
     };
 
     <div>

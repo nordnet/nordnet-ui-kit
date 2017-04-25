@@ -11,6 +11,19 @@ Type: `text`
       />
 
       <Input
+        label="Text input with left addon"
+        leftAddon="LFT"
+        placeholder="Enter text with left addon"
+      />
+
+      <Input
+        label="Text input with right addon"
+        rightAddon="USD"
+        hasSuccess
+        placeholder="Enter text with right addon"
+      />
+
+      <Input
         label="Text input with custom formatter"
         placeholder="Enter text to see how the formatter works"
         valueFormatter={toUpperCase}

@@ -61,8 +61,8 @@ export default createStyleSheet('Search', (theme) => {
         display: 'block',
         position: 'absolute',
         overflow: 'hidden',
-        maxWidth: '40rem',
-        minWidth: '25rem',
+        maxWidth: 40,
+        minWidth: 25,
         minHeight: '32px',
         top: '100%',
         listStyle: 'none',
@@ -134,8 +134,8 @@ export default createStyleSheet('Search', (theme) => {
     development: {
       display: 'inline-block',
       flexGrow: 0,
-      paddingLeft: '.8rem',
-      fontSize: '1.2rem',
+      paddingLeft: 8,
+      fontSize: 12,
 
       '&--positive': {
         color: palette.variant.success,
@@ -157,7 +157,7 @@ export default createStyleSheet('Search', (theme) => {
       color: palette.text.default,
 
       '& .flag': {
-        marginRight: '.5rem',
+        marginRight: 5,
       },
     },
   };
