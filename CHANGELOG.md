@@ -10,7 +10,7 @@
 * Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
 * New components: Avatar, Li, SegmentedControl, Ul
 * Removed variables
-* Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, Pane, RangeSelector, RatioBar, Select, Widget
+* Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, Pane, RangeSelector, RatioBar, Search, Select, Widget
 
 ## Upcoming release
 * Port SparkGraph
