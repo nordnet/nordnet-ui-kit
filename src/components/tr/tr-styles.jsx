@@ -10,6 +10,7 @@ export default createStyleSheet('Tr', (theme) => {
       ...mixins.basicBoxSizing,
       ...styleUtils.flexRow(),
       ...styleUtils.sizes(),
+      alignItems: 'center',
       borderLeft: '1px solid transparent',
       borderRight: '1px solid transparent',
 
