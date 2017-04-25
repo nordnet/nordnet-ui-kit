@@ -138,7 +138,7 @@ class SparkGraph extends React.PureComponent {
       >
         <path
           style={{ fill: 'none' }}
-          d={pointsFrom ? '' : constructPathString(pointsToRender)}
+          d={pointsToRender ? constructPathString(pointsToRender) : ''}
           stroke={pointsFrom ? getStrokeColor(pointsFrom, stroke) : getStrokeColor(points, stroke)}
           strokeWidth={strokeWidth}
           strokeLinecap="square"
