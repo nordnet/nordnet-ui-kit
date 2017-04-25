@@ -1,11 +1,21 @@
 Sticky header table:
 
     const data = require('./data.js');
+    const iconStyle = {
+      backgroundColor: '#454545',
+      color: '#fff',
+      width: 35,
+      height: 35,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '50%',
+    };
 
     <Table>
       <Thead>
         <Tr>
-          <Th width="30px">&nbsp;</Th>
+          <Th width={"50px"}>&nbsp;</Th>
           <Th width={40}>Instrument</Th>
           <Th width="80px" align="center">Quantity</Th>
           <Th>Price</Th>
@@ -15,8 +25,8 @@ Sticky header table:
       <Tbody colorAlternateRows={true} borderBottom>
         { data.map((instrument, index) => (
           <Tr key={instrument[0]} border={index === 0 ? true : false} sticky={index === 0 ? true : false}>
-            <Td width="30px">
-              <Avatar size="xs">{ instrument[0].substring(0, 3) }</Avatar>
+            <Td width={"50px"}>
+              <span style={iconStyle}>{ instrument[0].substring(0, 3) }</span>
             </Td>
             <Td width={40}>
               { instrument[0] }
