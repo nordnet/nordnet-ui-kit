@@ -1,7 +1,6 @@
 const path = require('path');
 const camelCase = require('lodash.camelcase');
 const fs = require('fs');
-// const docgen = require('react-docgen');
 
 const dir = path.join(__dirname, 'src');
 
@@ -31,14 +30,6 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.md');
   },
-  // propsParser(filePath, source, resolver, handlers) {
-  //   if (filePath === `${dir}/components/input/input.jsx`) {
-  //     const inputPath = `${dir}/components/input/input-default.jsx`;
-  //     return docgen.parse(fs.readFileSync(inputPath, { encoding: 'UTF-8' }));
-  //   }
-  //
-  //   return docgen.parse(source, resolver, handlers);
-  // },
   webpackConfig: {
     module: {
       rules: [{
