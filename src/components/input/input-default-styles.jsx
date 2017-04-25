@@ -6,7 +6,9 @@ export default createStyleSheet('InputDefault', (theme) => {
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
-  const bottomBorderSize = '3px';
+  const inputMarginBottom = 20;
+  const borderSize = 1;
+  const bottomBorderSize = 3;
 
   const modifierFn = color => ({
     '& .input__label': {
@@ -14,7 +16,8 @@ export default createStyleSheet('InputDefault', (theme) => {
     },
 
     '& .input__field': {
-      borderBottom: `${bottomBorderSize} solid ${color}`,
+      marginBottom: 0,
+      borderBottom: `${bottomBorderSize}px solid ${color}`,
     },
 
     '&--is-disabled': {
@@ -24,7 +27,8 @@ export default createStyleSheet('InputDefault', (theme) => {
         },
 
         '&__field': {
-          borderBottom: `${bottomBorderSize} solid ${disabledColor(color)}`,
+          marginBottom: 0,
+          borderBottom: `${bottomBorderSize}px solid ${disabledColor(color)}`,
         },
       },
     },
@@ -37,8 +41,9 @@ export default createStyleSheet('InputDefault', (theme) => {
       },
 
       '&__field': {
+        marginBottom: 0,
         borderColor: color,
-        borderBottom: `3px solid ${color}`,
+        borderBottom: `${bottomBorderSize}px solid ${color}`,
       },
     },
   });
@@ -48,12 +53,21 @@ export default createStyleSheet('InputDefault', (theme) => {
       ...mixins.basicBoxSizing,
       fontSize: '16px',
       color: palette.text.default,
-      marginBottom: '20px',
+      marginBottom: inputMarginBottom,
       position: 'relative',
 
       '&.input--has-success': modifierFn(palette.variant.success),
       '&.input--has-warning': modifierFn(palette.variant.warning),
-      '&.input--has-error': modifierFn(palette.variant.danger),
+      '&.input--has-error': {
+        '& .input': {
+          '&__label': {
+            color: palette.variant.danger,
+            opacity: 1,
+            transform: 'translateY(15px)',
+          },
+        },
+        ...modifierFn(palette.variant.danger),
+      },
 
       '&.input--has-focus': {
         '& .input': {
@@ -64,13 +78,15 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
 
           '&__field': {
+            marginBottom: '0px',
             borderColor: palette.action.active,
+            borderBottom: `3px solid ${palette.action.active}`,
           },
         },
 
-        '& .input-has-success': modifierFocusFn(palette.variant.success),
-        '& .input-has-warning': modifierFocusFn(palette.variant.warning),
-        '& .input-has-error': modifierFocusFn(palette.variant.danger),
+        '&.input--has-success': modifierFocusFn(palette.variant.success),
+        '&.input--has-warning': modifierFocusFn(palette.variant.warning),
+        '&.input--has-error': modifierFocusFn(palette.variant.danger),
       },
 
       '&.input--has-success .input__field': {
@@ -129,11 +145,12 @@ export default createStyleSheet('InputDefault', (theme) => {
       '& .input__field': {
         position: 'relative',
         width: '100%',
-        border: `1px solid ${palette.action.disabled}`,
+        border: `${borderSize}px solid ${palette.action.disabled}`,
         borderRadius: '4px',
         padding: '3px 8px',
         paddingTop: '12px',
         transition: transitions.create(['border-color']),
+        marginBottom: (inputMarginBottom + bottomBorderSize) - borderSize,
       },
 
       '& .input__label': {
@@ -162,14 +179,9 @@ export default createStyleSheet('InputDefault', (theme) => {
         width: '100%',
         transition: transitions.create(['border-color', 'transform']),
         fontSize: '16px',
-        transform: 'translateY(-4px)',
         maxHeight: '27px',
         fontFamily: 'inherit',
         fontWeight: 'inherit',
-
-        '&.input--has-focus, &.input--has-value': {
-          transform: 'translateY(0)',
-        },
 
         '&:focus': {
           outline: 'none',
