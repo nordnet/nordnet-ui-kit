@@ -12,11 +12,8 @@
 * Removed variables
 * Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, Pane, RangeSelector, RatioBar, Select, Widget
 
-## TODO
-* Port SparkGraph
-
-### Not yet ported
-SparkGraph (issues with d3-interpolate and d3-color)
+## Upcoming release
+* Ported SparkGraph
 
 ## 0.2.0-rc.4
 * Remove obsolete components: HorizontalNav, Pane, RatioBar, Widget
