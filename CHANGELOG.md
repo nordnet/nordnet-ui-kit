@@ -18,8 +18,10 @@
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
 
-## Upcoming release
+## 0.2.0-rc.4
 * Remove obsolete components: HorizontalNav, Pane, RatioBar, Widget
+* Styling tweaks to: Table, Input
+* New component: SegmentedControl
 
 ## 0.2.0-rc.3
 * More Avatar sizes
