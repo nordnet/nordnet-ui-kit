@@ -9,7 +9,6 @@ import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
 import RadioGroup from './components/radio-group';
-import Search from './components/search';
 // import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
 import Table from './components/table';
@@ -144,7 +143,6 @@ export {
   Li,
   Logo,
   RadioGroup,
-  Search,
   // SparkGraph,
   Spinner,
   Table,
