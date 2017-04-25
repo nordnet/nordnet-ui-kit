@@ -13,7 +13,7 @@
 * Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, Pane, RangeSelector, RatioBar, Select, Widget
 
 ## Upcoming release
-* Ported SparkGraph
+* Port SparkGraph
 
 ## 0.2.0-rc.4
 * Remove obsolete components: HorizontalNav, Pane, RatioBar, Widget
