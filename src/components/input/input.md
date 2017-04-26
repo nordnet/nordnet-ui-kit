@@ -12,7 +12,7 @@ Type: `text`
 
       <Input
         label="Text input with left addon"
-        leftAddon="LFT"
+        leftAddon="$"
         placeholder="Enter text with left addon"
       />
 

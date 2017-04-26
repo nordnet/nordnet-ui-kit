@@ -126,10 +126,6 @@ export default createStyleSheet('InputDefault', (theme) => {
             alignItems: 'baseline',
           },
 
-          '&__element, &__addon': {
-            display: 'div',
-          },
-
           '&__element': {
             width: '100%',
           },
