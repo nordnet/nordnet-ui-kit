@@ -5,14 +5,14 @@ Classic usage: single flag
     const style = {
       display: 'inline-block',
       textAlign: 'center',
-      padding: '1.6rem'
+      padding: 16
     };
 
     <div>
       {Object.keys(flags.default).map(flag => (
         <div key={ flag } style={ style }>
           <Flag size={32} countryCode={ flag } />
-          <div style={{ fontSize: '1.2rem', fontFamily: '"Hack", monospace' }}>{ flag }</div>
+          <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
         </div>
       ))}
     </div>

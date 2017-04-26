@@ -10,7 +10,7 @@ export default function Wrapper({ children }) {
   const theme = createTheme({ palette });
 
   return (
-    <ThemeProvider style={{ padding: '1rem' }} theme={theme}>
+    <ThemeProvider style={{ padding: 10 }} theme={theme}>
       {children}
     </ThemeProvider>
   );
