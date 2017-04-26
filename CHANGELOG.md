@@ -18,6 +18,10 @@
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
 
+## 0.2.0-rc.5
+* Remove Search component
+* Tweak input styles
+
 ## 0.2.0-rc.4
 * Remove obsolete components: HorizontalNav, Pane, RatioBar, Widget
 * Styling tweaks to: Table, Input
