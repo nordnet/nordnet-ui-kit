@@ -1,7 +1,7 @@
 Primary button:
 
     const style = {
-      marginRight: '1.6rem',
+      marginRight: 16,
     };
 
     <div>
@@ -14,7 +14,7 @@ Primary button:
 Secondary button:
 
     const style = {
-      marginRight: '1.6rem',
+      marginRight: 16,
     };
 
     <div>
@@ -27,7 +27,7 @@ Secondary button:
 Link button:
 
     const style = {
-      marginRight: '1.6rem',
+      marginRight: 16,
     };
 
     <div>
@@ -40,7 +40,7 @@ Link button:
 Sizes:
 
     const style = {
-      marginRight: '1.6rem',
+      marginRight: 16,
       verticalAlign: 'bottom',
     };
 

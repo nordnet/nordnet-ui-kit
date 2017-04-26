@@ -2,7 +2,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import Color from 'color';
 
 export default createStyleSheet('InputDefault', (theme) => {
-  const { palette, transitions, mixins } = theme;
+  const { palette, transitions, mixins, typography } = theme;
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
@@ -51,7 +51,8 @@ export default createStyleSheet('InputDefault', (theme) => {
   return {
     input: {
       ...mixins.basicBoxSizing,
-      fontSize: '16px',
+      fontSize: 14,
+      fontFamily: typography.primary.fontFamily,
       color: palette.text.default,
       marginBottom: inputMarginBottom,
       position: 'relative',
@@ -78,7 +79,7 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
 
           '&__field': {
-            marginBottom: '0px',
+            marginBottom: 0,
             borderColor: palette.action.active,
             borderBottom: `3px solid ${palette.action.active}`,
           },
@@ -90,12 +91,12 @@ export default createStyleSheet('InputDefault', (theme) => {
       },
 
       '&.input--has-success .input__field': {
-        paddingRight: '16px',
+        paddingRight: 16,
       },
 
       '&.input--has-warning, &.input--has-error': {
         '& .input__field': {
-          paddingRight: '8px',
+          paddingRight: 8,
         },
       },
 
@@ -121,11 +122,8 @@ export default createStyleSheet('InputDefault', (theme) => {
       '&.input--has-addon': {
         '& .input': {
           '&__field': {
-            display: 'table',
-          },
-
-          '&__element, &__addon': {
-            display: 'table-cell',
+            display: 'flex',
+            alignItems: 'baseline',
           },
 
           '&__element': {
@@ -133,11 +131,18 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
 
           '&__addon': {
-            position: 'absolute',
-            fontSize: '12px',
+            fontSize: 12,
             color: palette.text.muted,
-            right: '10px',
-            top: '10px',
+
+            '&--left': {
+              left: 10,
+              paddingRight: 8,
+            },
+
+            '&--right': {
+              right: 10,
+              paddingLeft: 8,
+            },
           },
         },
       },
@@ -146,9 +151,9 @@ export default createStyleSheet('InputDefault', (theme) => {
         position: 'relative',
         width: '100%',
         border: `${borderSize}px solid ${palette.action.disabled}`,
-        borderRadius: '4px',
-        padding: '3px 8px',
-        paddingTop: '12px',
+        borderRadius: 4,
+        padding: 8,
+        paddingTop: 10,
         transition: transitions.create(['border-color']),
         marginBottom: (inputMarginBottom + bottomBorderSize) - borderSize,
       },
@@ -159,7 +164,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         left: 0,
         cursor: 'text',
         transition: transitions.create(['opacity', 'transform', 'color']),
-        fontSize: '12px',
+        fontSize: 12,
         transform: 'translateY(0)',
         opacity: 0,
         color: palette.action.disabled,
@@ -175,11 +180,10 @@ export default createStyleSheet('InputDefault', (theme) => {
         background: 'none',
         border: 0,
         borderRadius: 0,
-        padding: '0 0 3px',
         width: '100%',
         transition: transitions.create(['border-color', 'transform']),
-        fontSize: '16px',
-        maxHeight: '27px',
+        fontSize: 14,
+        maxHeight: 27,
         fontFamily: 'inherit',
         fontWeight: 'inherit',
 
@@ -197,9 +201,9 @@ export default createStyleSheet('InputDefault', (theme) => {
       '& .input__validation-icon': {
         position: 'absolute',
         display: 'block',
-        right: '4px',
-        bottom: '10px',
-        height: '8px',
+        right: 4,
+        bottom: 10,
+        height: 8,
         transition: transitions.create(),
 
         '> img': {
