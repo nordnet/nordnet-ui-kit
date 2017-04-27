@@ -243,9 +243,9 @@ ast-types@^0.7.2:
   version "0.7.8"
   resolved "https://registry.npmjs.org/ast-types/-/ast-types-0.7.8.tgz#902d2e0d60d071bdcd46dc115e1809ed11c138a9"
 
-ast-types@^0.9.10:
-  version "0.9.10"
-  resolved "https://registry.npmjs.org/ast-types/-/ast-types-0.9.10.tgz#4472a8508726269562c766307133e0d4ed7ada52"
+ast-types@^0.9.11:
+  version "0.9.11"
+  resolved "https://registry.npmjs.org/ast-types/-/ast-types-0.9.11.tgz#371177bb59232ff5ceaa1d09ee5cad705b1a5aa9"
 
 async-each@^1.0.0:
   version "1.0.1"
@@ -260,6 +260,12 @@ async@2.1.2, async@^2.1.2:
 async@^1.4.2:
   version "1.5.2"
   resolved "https://registry.npmjs.org/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+
+async@^2.1.4:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/async/-/async-2.3.0.tgz#1013d1051047dd320fe24e494d5c66ecaf6147d9"
+  dependencies:
+    lodash "^4.14.0"
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -1272,9 +1278,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codemirror@^5.18.2, codemirror@^5.25.0:
-  version "5.25.0"
-  resolved "https://registry.npmjs.org/codemirror/-/codemirror-5.25.0.tgz#78e06939c7bb41f65707b8aa9c5328111948b756"
+codemirror@^5.18.2, codemirror@^5.25.2:
+  version "5.25.2"
+  resolved "https://registry.npmjs.org/codemirror/-/codemirror-5.25.2.tgz#8c77677ca9c9248d757d3a07ed1e89a8404850b7"
 
 collapse-white-space@^1.0.2:
   version "1.0.2"
@@ -2663,9 +2669,9 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.npmjs.org/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
-highlight.js@^9.10.0:
-  version "9.10.0"
-  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-9.10.0.tgz#f9f0b14c0be00f0e4fb1e577b749fed9e6f52f55"
+highlight.js@^9.11.0:
+  version "9.11.0"
+  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-9.11.0.tgz#47f98c7399918700db2caf230ded12cec41a84ae"
 
 hmac-drbg@^1.0.0:
   version "1.0.0"
@@ -3229,31 +3235,17 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.3.6"
 
-jss-camel-case@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/jss-camel-case/-/jss-camel-case-3.0.0.tgz#46aa18eb149e95afce074532ad47df1c2a7d45cb"
-
 jss-camel-case@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/jss-camel-case/-/jss-camel-case-4.0.0.tgz#39ef2a137aaa1e2f160ab826845305f8efabcfd5"
 
-jss-compose@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/jss-compose/-/jss-compose-2.1.0.tgz#3751d613fb61c715e3d91140dea5f1794968847d"
-  dependencies:
-    warning "^3.0.0"
-
-jss-compose@^3.0.0:
+jss-compose@^3.0.0, jss-compose@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/jss-compose/-/jss-compose-3.0.1.tgz#0ac07f20baf1d523c211016d383dab08dcfe4186"
   dependencies:
     warning "^3.0.0"
 
-jss-default-unit@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.npmjs.org/jss-default-unit/-/jss-default-unit-5.0.3.tgz#b9450f31c37feaed3151554b2938363974780af1"
-
-jss-default-unit@^6.0.0:
+jss-default-unit@^6.0.0, jss-default-unit@^6.1.1:
   version "6.1.1"
   resolved "https://registry.npmjs.org/jss-default-unit/-/jss-default-unit-6.1.1.tgz#a9a04887a3860d2a8ceb73ddfbc2ddcf808bacb2"
 
@@ -3275,13 +3267,7 @@ jss-isolate@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/jss-isolate/-/jss-isolate-2.0.1.tgz#7ee5591e0dc5d358a2fbed25ccf0f2510413c896"
 
-jss-nested@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/jss-nested/-/jss-nested-3.0.1.tgz#14c10265c8fc5bd61b450b48f1e9fb36d90ae569"
-  dependencies:
-    warning "^3.0.0"
-
-jss-nested@^4.0.0:
+jss-nested@^4.0.0, jss-nested@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/jss-nested/-/jss-nested-4.0.1.tgz#f50cc206430c8a920ccd54e3b756f7fc72455130"
   dependencies:
@@ -3319,13 +3305,6 @@ jss-vendor-prefixer@^5.0.0, jss-vendor-prefixer@^5.1.0:
   resolved "https://registry.npmjs.org/jss-vendor-prefixer/-/jss-vendor-prefixer-5.1.0.tgz#59b73544de81e6b2efd71f6d3b744671826865a2"
   dependencies:
     css-vendor "^0.3.8"
-
-jss@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.npmjs.org/jss/-/jss-6.5.0.tgz#9294a367b658daa2036c36f563ff6bfb0c7b12a1"
-  dependencies:
-    is-in-browser "1.0.2"
-    warning "3.0.0"
 
 jss@^7.0.3, jss@^7.1.0:
   version "7.1.0"
@@ -3595,13 +3574,14 @@ markdown-table@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/markdown-table/-/markdown-table-1.1.0.tgz#1f5ae61659ced8808d882554c32e8b3f38dd1143"
 
-markdown-to-jsx@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-5.0.1.tgz#1c2aafd3a00a1a4a217c9549f0e7e506f2e38ee3"
+markdown-to-jsx@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-5.2.0.tgz#a8eaad21f5a6f747c17982f5dda8715464271c8c"
   dependencies:
     lodash.get "^4.4.2"
-    remark-parse "^2.0.1"
-    unified "^5.0.0"
+    prop-types "^15.5.8"
+    remark-parse "^3.0.0"
+    unified "^6.1.2"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.16"
@@ -4482,7 +4462,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.4:
+prop-types@^15.5.4, prop-types@^15.5.8:
   version "15.5.8"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -4647,6 +4627,18 @@ react-docgen@^2.13.0:
     node-dir "^0.1.10"
     recast "^0.11.5"
 
+react-docgen@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.npmjs.org/react-docgen/-/react-docgen-2.14.1.tgz#29810af1b181957c989390f18048a12c11812169"
+  dependencies:
+    async "^2.1.4"
+    babel-runtime "^6.9.2"
+    babylon "~5.8.3"
+    commander "^2.9.0"
+    doctrine "^2.0.0"
+    node-dir "^0.1.10"
+    recast "^0.11.5"
+
 react-dom@^15.4.2:
   version "15.4.2"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
@@ -4655,9 +4647,11 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-group@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/react-group/-/react-group-1.0.3.tgz#553f50e3588324c4bbb161a3e6832677a33c7a5b"
+react-group@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/react-group/-/react-group-1.0.4.tgz#13cd52f80169daf24bfc74847eb975c5d08d7a69"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-motion-ui-pack@^0.10.2:
   version "0.10.2"
@@ -4679,16 +4673,16 @@ react-prop-types@^0.4.0:
   dependencies:
     warning "^3.0.0"
 
-react-styleguidist@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-5.0.6.tgz#3bdd6f9e1697f129e417fe988992f7a8aa75f2b4"
+react-styleguidist@^5.1.6:
+  version "5.1.6"
+  resolved "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-5.1.6.tgz#fa6211b37bfbf28189fe9d33a2754fafc70e21a8"
   dependencies:
-    ast-types "^0.9.10"
+    ast-types "^0.9.11"
     buble "^0.15.2"
     chalk "^1.1.3"
     classnames "^2.2.5"
     clean-webpack-plugin "^0.1.16"
-    codemirror "^5.25.0"
+    codemirror "^5.25.2"
     common-dir "^1.0.1"
     css-loader "^0.28.0"
     es6-object-assign "~1.1.0"
@@ -4697,32 +4691,34 @@ react-styleguidist@^5.0.6:
     function.name-polyfill "^1.0.5"
     github-slugger "^1.1.1"
     glob "^7.1.1"
-    highlight.js "^9.10.0"
+    highlight.js "^9.11.0"
     html-webpack-plugin "^2.28.0"
     is-directory "^0.3.1"
     json-loader "^0.5.4"
-    jss "^6.5.0"
-    jss-camel-case "^3.0.0"
-    jss-compose "^2.1.0"
-    jss-default-unit "^5.0.3"
+    jss "^7.1.0"
+    jss-camel-case "^4.0.0"
+    jss-compose "^3.0.1"
+    jss-default-unit "^6.1.1"
     jss-isolate "^2.0.1"
-    jss-nested "^3.0.1"
+    jss-nested "^4.0.1"
     leven "^2.1.0"
     listify "^1.0.0"
     loader-utils "^1.1.0"
     lodash "^4.17.4"
-    markdown-to-jsx "^5.0.1"
+    markdown-to-jsx "5.2.0"
     minimist "^1.2.0"
     pretty-format "^19.0.0"
+    prop-types "^15.5.8"
     react-codemirror "^0.3.0"
     react-dev-utils "^0.5.2"
-    react-docgen "^2.13.0"
+    react-docgen "^2.14.1"
     react-docgen-displayname-handler "^1.0.0"
-    react-group "^1.0.3"
+    react-group "^1.0.4"
     remark "^7.0.0"
     semver-utils "^1.1.1"
     style-loader "^0.16.1"
     to-ast "^1.0.0"
+    type-detect "^4.0.3"
     unist-util-visit "^1.1.1"
     webpack-dev-server "^1.16.3"
     webpack-merge "^4.1.0"
@@ -4892,27 +4888,6 @@ regjsparser@^0.1.4:
 relateurl@0.2.x:
   version "0.2.7"
   resolved "https://registry.npmjs.org/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
-
-remark-parse@^2.0.1:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/remark-parse/-/remark-parse-2.3.0.tgz#ced58bfbef9999374f9ff33fbc2e63fe2b0c5c37"
-  dependencies:
-    collapse-white-space "^1.0.2"
-    has "^1.0.1"
-    is-alphabetical "^1.0.0"
-    is-decimal "^1.0.0"
-    is-whitespace-character "^1.0.0"
-    is-word-character "^1.0.0"
-    markdown-escapes "^1.0.0"
-    parse-entities "^1.0.2"
-    repeat-string "^1.5.4"
-    state-toggle "^1.0.0"
-    trim "0.0.1"
-    trim-trailing-lines "^1.0.0"
-    unherit "^1.0.4"
-    unist-util-remove-position "^1.0.0"
-    vfile-location "^2.0.0"
-    xtend "^4.0.1"
 
 remark-parse@^3.0.0:
   version "3.0.0"
@@ -5601,6 +5576,10 @@ type-detect@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/type-detect/-/type-detect-4.0.0.tgz#62053883542a321f2f7b25746dc696478b18ff6b"
 
+type-detect@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.npmjs.org/type-detect/-/type-detect-4.0.3.tgz#0e3f2670b44099b0b46c284d136a7ef49c74c2ea"
+
 type-is@~1.6.14:
   version "1.6.14"
   resolved "https://registry.npmjs.org/type-is/-/type-is-1.6.14.tgz#e219639c17ded1ca0789092dd54a03826b817cb2"
@@ -5640,22 +5619,23 @@ unherit@^1.0.4:
     inherits "^2.0.1"
     xtend "^4.0.1"
 
-unified@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/unified/-/unified-5.1.0.tgz#61268da9b91ce925be1f3d198c0278b0e9716094"
+unified@^6.0.0:
+  version "6.1.1"
+  resolved "https://registry.npmjs.org/unified/-/unified-6.1.1.tgz#0abb4d2ffd8f42c0bc06e4a62ff8eb8fd77f8d11"
   dependencies:
     bail "^1.0.0"
     extend "^3.0.0"
     has "^1.0.1"
-    is-buffer "^1.1.4"
-    once "^1.3.3"
+    is-plain-obj "^1.1.0"
+    isarray "^2.0.1"
     trough "^1.0.0"
     vfile "^2.0.0"
+    x-is-function "^1.0.4"
     x-is-string "^0.1.0"
 
-unified@^6.0.0:
-  version "6.1.1"
-  resolved "https://registry.npmjs.org/unified/-/unified-6.1.1.tgz#0abb4d2ffd8f42c0bc06e4a62ff8eb8fd77f8d11"
+unified@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.npmjs.org/unified/-/unified-6.1.2.tgz#b3904c3254ffbea7ff6d806c5d5b6248838cecb6"
   dependencies:
     bail "^1.0.0"
     extend "^3.0.0"
