@@ -11,6 +11,7 @@
 * New Avatar component
 * Removed variables
 * Removed components: GraphTooltip, Legend, NavBar, RangeSelector, Select
+* Fixed proptypes of Flag, so doesn't incorrectly reject uppercase country codes
 
 ## TODO
 * Removed everything related to webpack
