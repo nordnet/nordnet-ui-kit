@@ -11,6 +11,7 @@
 * New components: Avatar, Li, SegmentedControl, Ul
 * Removed variables
 * Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, Pane, RangeSelector, RatioBar, Search, Select, Widget
+* Fixed proptypes of Flag, so doesn't incorrectly reject uppercase country codes
 
 ## TODO
 * Port SparkGraph
