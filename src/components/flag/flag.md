@@ -11,7 +11,7 @@ Classic usage: single flag
     <div>
       { Object.keys(flags.default).map(flag => (
         <div key={ flag } style={ style }>
-          <Flag size={32} countryCode={ flag } type="flag" />
+          <Flag size={32} countryCode={ flag } />
           <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
         </div>
       )) }
