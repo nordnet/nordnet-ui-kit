@@ -28,8 +28,10 @@ import ArrowLeft from './components/icon/icons/arrowLeft';
 import ArrowRight from './components/icon/icons/arrowRight';
 import ArrowUp from './components/icon/icons/arrowUp';
 import ArrowUpDown from './components/icon/icons/arrowUpDown';
+import Balloon from './components/icon/icons/balloon';
 import Bell from './components/icon/icons/bell';
 import Calendar from './components/icon/icons/calendar';
+import Cart from './components/icon/icons/cart';
 import Checkmark from './components/icon/icons/checkmark';
 import CheckmarkLarge from './components/icon/icons/checkmarkLarge';
 import ChevronDown from './components/icon/icons/chevronDown';
@@ -56,6 +58,7 @@ import Print from './components/icon/icons/print';
 import Questionmark from './components/icon/icons/questionmark';
 import SearchIcon from './components/icon/icons/search';
 import Share from './components/icon/icons/share';
+import SignOut from './components/icon/icons/signOut';
 import SocialFacebook from './components/icon/icons/socialFacebook';
 import SocialGplus from './components/icon/icons/socialGplus';
 import SocialInstagram from './components/icon/icons/socialInstagram';
@@ -64,7 +67,6 @@ import Star from './components/icon/icons/star';
 import Tag from './components/icon/icons/tag';
 import TickingClock from './components/icon/icons/tickingClock';
 import Trash from './components/icon/icons/trash';
-import TrashAlternate from './components/icon/icons/trashAlternate';
 import User from './components/icon/icons/user';
 import UserShirt from './components/icon/icons/userShirt';
 import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
@@ -88,8 +90,10 @@ const Icon = {
   ArrowRight,
   ArrowUp,
   ArrowUpDown,
+  Balloon,
   Bell,
   Calendar,
+  Cart,
   Checkmark,
   CheckmarkLarge,
   ChevronDown,
@@ -116,6 +120,7 @@ const Icon = {
   Questionmark,
   Search: SearchIcon,
   Share,
+  SignOut,
   SocialFacebook,
   SocialGplus,
   SocialInstagram,
@@ -124,7 +129,6 @@ const Icon = {
   Tag,
   TickingClock,
   Trash,
-  TrashAlternate,
   User,
   UserShirt,
   VerticalEllipsis,
