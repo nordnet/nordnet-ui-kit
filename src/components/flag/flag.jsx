@@ -58,12 +58,18 @@ Flag.defaultProps = {
   size: 32,
 };
 
+const unNest = (acc, i) => acc.concat(i);
+const dupInUpperCase = arr => arr.map(code => [code, code.toUpperCase()]).reduce(unNest, []);
+
+const countryCodes = dupInUpperCase(['ca', 'de', 'dk', 'fi', 'no', 'se', 'us']);
+
+
 Flag.propTypes = {
   className: PropTypes.string,
   /** A valid 2-character country code */
-  countryCode: PropTypes.oneOf(['ca', 'de', 'dk', 'fi', 'no', 'se', 'us']),
+  countryCode: PropTypes.oneOf(countryCodes),
   /** A valid 2-character country code */
-  secondaryCountryCode: PropTypes.oneOf(['ca', 'de', 'dk', 'fi', 'no', 'se', 'us']),
+  secondaryCountryCode: PropTypes.oneOf(countryCodes),
   /** Unitless pixel value */
   size: PropTypes.number,
   style: PropTypes.object,

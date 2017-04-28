@@ -15,6 +15,10 @@
 ## Upcoming release
 * Port SparkGraph
 
+## 0.2.0-rc.6
+* Flag: Now accepts both uppercase and lowercase country codes
+* Tooltip: Pixel pushing
+
 ## 0.2.0-rc.5
 * Remove Search component
 * Tweak input styles
