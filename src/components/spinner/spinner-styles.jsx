@@ -2,7 +2,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 
 const identifier = `spinner-${Math.round(1000 * Math.random())}`;
 
-export default createStyleSheet('Spinner', () => ({
+export default createStyleSheet('Spinner', theme => ({
 
   [`@keyframes ${identifier}`]: {
     from: {
@@ -14,6 +14,7 @@ export default createStyleSheet('Spinner', () => ({
   },
 
   spinner: {
+    ...theme.mixins.basicBoxSizing,
     display: 'inline-block',
     animation: `${identifier} 1s linear infinite`,
   },

@@ -4,15 +4,11 @@ import Badge from './components/badge/badge';
 import Button from './components/button/button';
 import Dropdown from './components/dropdown/dropdown';
 import Flag from './components/flag/flag';
-import HorizontalNav from './components/horizontal-nav';
 import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
-import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
-import RatioBar from './components/ratio-bar';
-import Search from './components/search';
 // import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
 import Table from './components/table';
@@ -24,7 +20,6 @@ import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
 import Ul from './components/ul/ul';
-import Widget from './components/widget/widget';
 
 // Icons
 import Apartment from './components/icon/icons/apartment';
@@ -75,7 +70,7 @@ import UserShirt from './components/icon/icons/userShirt';
 import VerticalEllipsis from './components/icon/icons/verticalEllipsis';
 
 // Theming
-import { ThemeProvider } from './styles';
+import { ThemeProvider, createTheme } from './styles';
 
 // Test utils
 import {
@@ -83,6 +78,8 @@ import {
   createShallow,
   createRenderToString,
 } from './test-utils';
+
+const theme = createTheme();
 
 const Icon = {
   Apartment,
@@ -140,16 +137,12 @@ export {
   Button,
   Dropdown,
   Flag,
-  HorizontalNav,
   Icon,
   Input,
   LabeledValue,
   Li,
   Logo,
-  Pane,
   RadioGroup,
-  RatioBar,
-  Search,
   // SparkGraph,
   Spinner,
   Table,
@@ -161,10 +154,11 @@ export {
   Tooltip,
   Tr,
   Ul,
-  Widget,
 
   // Theming
   ThemeProvider,
+  createTheme,
+  theme,
 
   // Test utils
   createMount,

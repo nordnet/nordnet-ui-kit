@@ -2,11 +2,13 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import Color from 'color';
 
 export default createStyleSheet('InputDefault', (theme) => {
-  const { palette, transitions } = theme;
+  const { palette, transitions, mixins, typography } = theme;
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
 
-  const bottomBorderSize = '3px';
+  const inputMarginBottom = 20;
+  const borderSize = 1;
+  const bottomBorderSize = 3;
 
   const modifierFn = color => ({
     '& .input__label': {
@@ -14,7 +16,8 @@ export default createStyleSheet('InputDefault', (theme) => {
     },
 
     '& .input__field': {
-      borderBottom: `${bottomBorderSize} solid ${color}`,
+      marginBottom: 0,
+      borderBottom: `${bottomBorderSize}px solid ${color}`,
     },
 
     '&--is-disabled': {
@@ -24,7 +27,8 @@ export default createStyleSheet('InputDefault', (theme) => {
         },
 
         '&__field': {
-          borderBottom: `${bottomBorderSize} solid ${disabledColor(color)}`,
+          marginBottom: 0,
+          borderBottom: `${bottomBorderSize}px solid ${disabledColor(color)}`,
         },
       },
     },
@@ -37,22 +41,34 @@ export default createStyleSheet('InputDefault', (theme) => {
       },
 
       '&__field': {
+        marginBottom: 0,
         borderColor: color,
-        borderBottom: `3px solid ${color}`,
+        borderBottom: `${bottomBorderSize}px solid ${color}`,
       },
     },
   });
 
   return {
     input: {
-      fontSize: '16px',
+      ...mixins.basicBoxSizing,
+      fontSize: 14,
+      fontFamily: typography.primary.fontFamily,
       color: palette.text.default,
-      marginBottom: '20px',
+      marginBottom: inputMarginBottom,
       position: 'relative',
 
       '&.input--has-success': modifierFn(palette.variant.success),
       '&.input--has-warning': modifierFn(palette.variant.warning),
-      '&.input--has-error': modifierFn(palette.variant.danger),
+      '&.input--has-error': {
+        '& .input': {
+          '&__label': {
+            color: palette.variant.danger,
+            opacity: 1,
+            transform: 'translateY(15px)',
+          },
+        },
+        ...modifierFn(palette.variant.danger),
+      },
 
       '&.input--has-focus': {
         '& .input': {
@@ -63,22 +79,24 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
 
           '&__field': {
+            marginBottom: 0,
             borderColor: palette.action.active,
+            borderBottom: `3px solid ${palette.action.active}`,
           },
         },
 
-        '& .input-has-success': modifierFocusFn(palette.variant.success),
-        '& .input-has-warning': modifierFocusFn(palette.variant.warning),
-        '& .input-has-error': modifierFocusFn(palette.variant.danger),
+        '&.input--has-success': modifierFocusFn(palette.variant.success),
+        '&.input--has-warning': modifierFocusFn(palette.variant.warning),
+        '&.input--has-error': modifierFocusFn(palette.variant.danger),
       },
 
       '&.input--has-success .input__field': {
-        paddingRight: '16px',
+        paddingRight: 16,
       },
 
       '&.input--has-warning, &.input--has-error': {
         '& .input__field': {
-          paddingRight: '8px',
+          paddingRight: 8,
         },
       },
 
@@ -104,11 +122,8 @@ export default createStyleSheet('InputDefault', (theme) => {
       '&.input--has-addon': {
         '& .input': {
           '&__field': {
-            display: 'table',
-          },
-
-          '&__element, &__addon': {
-            display: 'table-cell',
+            display: 'flex',
+            alignItems: 'baseline',
           },
 
           '&__element': {
@@ -116,11 +131,18 @@ export default createStyleSheet('InputDefault', (theme) => {
           },
 
           '&__addon': {
-            position: 'absolute',
-            fontSize: '12px',
+            fontSize: 12,
             color: palette.text.muted,
-            right: '10px',
-            top: '10px',
+
+            '&--left': {
+              left: 10,
+              paddingRight: 8,
+            },
+
+            '&--right': {
+              right: 10,
+              paddingLeft: 8,
+            },
           },
         },
       },
@@ -128,11 +150,12 @@ export default createStyleSheet('InputDefault', (theme) => {
       '& .input__field': {
         position: 'relative',
         width: '100%',
-        border: `1px solid ${palette.action.disabled}`,
-        borderRadius: '4px',
-        padding: '3px 8px',
-        paddingTop: '12px',
+        border: `${borderSize}px solid ${palette.action.disabled}`,
+        borderRadius: 4,
+        padding: 8,
+        paddingTop: 10,
         transition: transitions.create(['border-color']),
+        marginBottom: (inputMarginBottom + bottomBorderSize) - borderSize,
       },
 
       '& .input__label': {
@@ -141,7 +164,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         left: 0,
         cursor: 'text',
         transition: transitions.create(['opacity', 'transform', 'color']),
-        fontSize: '12px',
+        fontSize: 12,
         transform: 'translateY(0)',
         opacity: 0,
         color: palette.action.disabled,
@@ -157,18 +180,12 @@ export default createStyleSheet('InputDefault', (theme) => {
         background: 'none',
         border: 0,
         borderRadius: 0,
-        padding: '0 0 3px',
         width: '100%',
         transition: transitions.create(['border-color', 'transform']),
-        fontSize: '16px',
-        transform: 'translateY(-4px)',
-        maxHeight: '27px',
+        fontSize: 14,
+        maxHeight: 27,
         fontFamily: 'inherit',
         fontWeight: 'inherit',
-
-        '&.input--has-focus, &.input--has-value': {
-          transform: 'translateY(0)',
-        },
 
         '&:focus': {
           outline: 'none',
@@ -184,9 +201,9 @@ export default createStyleSheet('InputDefault', (theme) => {
       '& .input__validation-icon': {
         position: 'absolute',
         display: 'block',
-        right: '4px',
-        bottom: '10px',
-        height: '8px',
+        right: 4,
+        bottom: 10,
+        height: 8,
         transition: transitions.create(),
 
         '> img': {

@@ -1,10 +1,11 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export default createStyleSheet('Alert', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     alert: {
+      ...mixins.basicBoxSizing,
       background: palette.background.default,
       fontSize: '12px',
       padding: '4px 8px',

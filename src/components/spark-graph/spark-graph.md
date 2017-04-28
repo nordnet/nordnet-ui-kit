@@ -1,7 +1,7 @@
     const { eric, abb } = require('./data.js');
 
     const style = {
-      marginRight: '1.6rem',
+      marginRight: 16,
       background: '#f5f5f5',
       display: 'inline-block',
       height: 32,

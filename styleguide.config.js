@@ -1,7 +1,6 @@
 const path = require('path');
 const camelCase = require('lodash.camelcase');
 const fs = require('fs');
-// const docgen = require('react-docgen');
 
 const dir = path.join(__dirname, 'src');
 
@@ -13,6 +12,7 @@ module.exports = {
   title: 'Nordnet UI Kit',
   styleguideDir: path.join(__dirname, 'documentation/dist'),
   // components: 'src/components/**/*.jsx',
+  template: path.resolve(__dirname, './documentation/template.html'),
   components() {
     const componentPath = `${dir}/components`;
     const folders = fs.readdirSync(componentPath);
@@ -21,7 +21,6 @@ module.exports = {
       .filter(c => c !== 'spark-graph') // SparkGraph is not yet fixed, leaving here for now!
       .map(folder => `${dir}/components/${folder}/${folder}.jsx`);
   },
-  template: path.join(__dirname, 'documentation/template.html'),
   getComponentPathLine(componentPath) {
     const fileName = path.basename(componentPath, '.jsx');
     const componentName = capitalize(camelCase(fileName));
@@ -31,14 +30,6 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.md');
   },
-  // propsParser(filePath, source, resolver, handlers) {
-  //   if (filePath === `${dir}/components/input/input.jsx`) {
-  //     const inputPath = `${dir}/components/input/input-default.jsx`;
-  //     return docgen.parse(fs.readFileSync(inputPath, { encoding: 'UTF-8' }));
-  //   }
-  //
-  //   return docgen.parse(source, resolver, handlers);
-  // },
   webpackConfig: {
     module: {
       rules: [{

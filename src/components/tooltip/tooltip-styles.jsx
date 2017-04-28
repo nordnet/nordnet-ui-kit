@@ -3,10 +3,11 @@ import { createStyleSheet } from 'jss-theme-reactor';
 const zIndexTooltip = 2;
 
 export default createStyleSheet('Tooltip', (theme) => {
-  const { palette, transitions } = theme;
+  const { palette, transitions, mixins } = theme;
 
   return {
     tooltip: {
+      ...mixins.basicBoxSizing,
       color: palette.variant.primary,
       position: 'relative',
       display: 'inline-block',

@@ -1,10 +1,11 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
 export default createStyleSheet('InputSelect', (theme) => {
-  const { palette, transitions } = theme;
+  const { palette, transitions, mixins } = theme;
 
   return {
     'select-wrapper': {
+      ...mixins.basicBoxSizing,
       position: 'relative',
 
       '& .input': {

@@ -2,10 +2,11 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import styleUtils from './style-utilities';
 
 export default createStyleSheet('Table', (theme) => {
-  const { palette } = theme;
+  const { palette, mixins } = theme;
 
   return {
     table: {
+      ...mixins.basicBoxSizing,
       display: 'block',
       width: '100%',
       textAlign: 'left',

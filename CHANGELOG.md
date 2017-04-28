@@ -8,20 +8,41 @@
 * Added new colors and typography to the theme
 * Ported components to JSS
 * Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
-* New Avatar component
+* New components: Avatar, Li, SegmentedControl, Ul
 * Removed variables
-* Removed components: GraphTooltip, Legend, NavBar, RangeSelector, Select
+* Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, Pane, RangeSelector, RatioBar, Search, Select, Widget
 * Fixed proptypes of Flag, so doesn't incorrectly reject uppercase country codes
 
 ## TODO
-* Removed everything related to webpack
 * Port SparkGraph
 
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
 
+## 0.2.0-rc.5
+* Remove Search component
+* Tweak input styles
+
+## 0.2.0-rc.4
+* Remove obsolete components: HorizontalNav, Pane, RatioBar, Widget
+* Styling tweaks to: Table, Input
+* New component: SegmentedControl
+
+## 0.2.0-rc.3
+* More Avatar sizes
+* Improved Table styles
+* Add breakpoints and mixins to theme
+* Fix for hardcoded styles in styleguidist
+* Move JSS related dependencies from devdeps to deps
+
+## 0.2.0-rc.1
+* Port remaining components to JSS. (SparkGraph is still missing)
+* Clean up webpack dependencies
+* New Li and Ul components
+
 ## 0.2.0-beta.9
-* Port Legend, Dropdown, Pane, Horizontal nav, Tooltip, Button and Search
+* Port Legend,
+Dropdown, Pane, Horizontal nav, Tooltip, Button and Search
 * Add support to pass custom context to mount helper
 
 ## 0.2.0-beta.8

@@ -1,6 +1,6 @@
 {
   "name": "nordnet-ui-kit",
-  "version": "0.2.0-rc.1",
+  "version": "0.2.0-rc.5",
   "description": "Nordnets React powered UI kit",
   "main": "dist",
   "scripts": {
@@ -46,6 +46,9 @@
     "classnames": "^2.2.3",
     "color": "^1.0.3",
     "d3-interpolate": "^1.0.0",
+    "jss": "^7.1.0",
+    "jss-preset-default": "^2.0.0",
+    "jss-theme-reactor": "^0.11.1",
     "lodash": "^4.17.4",
     "react-motion-ui-pack": "^0.10.2",
     "react-prop-types": "^0.4.0"
@@ -72,9 +75,6 @@
     "gh-pages": "^0.12.0",
     "in-publish": "^2.0.0",
     "jsdom": "^9.11.0",
-    "jss": "^7.0.3",
-    "jss-preset-default": "^2.0.0",
-    "jss-theme-reactor": "^0.11.1",
     "lodash.camelcase": "^4.3.0",
     "mocha": "^3.2.0",
     "mocha-webpack": "^0.7.0",
