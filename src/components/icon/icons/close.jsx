@@ -10,11 +10,9 @@ export default function Close({
   return (
     <svg {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-210.000000, -330.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <g id="close" transform="translate(210.000000, 330.000000)">
-            <path d="M1.875,1.875 L14.125,14.125" id="Shape" />
-            <path d="M14.1249998,1.875 L1.875,14.1249998" id="Shape" />
-          </g>
+        <g id="close" stroke={stroke} strokeWidth={strokeWidth}>
+          <path d="M1.875,1.875 L14.125,14.125" id="Shape" />
+          <path d="M14.1249998,1.875 L1.875,14.1249998" id="Shape" />
         </g>
       </g>
     </svg>
