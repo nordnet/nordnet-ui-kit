@@ -1,6 +1,5 @@
 /* eslint jsx-a11y/no-static-element-interactions: 0, react/no-array-index-key: 0 */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import PaneStyles from './pane-styles';
@@ -24,8 +23,6 @@ class Pane extends React.PureComponent {
   }
 
   renderTabs() {
-    const tabWidth = 100 / this.props.tabs.length;
-
     return (
       <ul className={this.classes.tabs}>
         { this.props.tabs.map((tab, index) => (
@@ -36,7 +33,6 @@ class Pane extends React.PureComponent {
               this.classes[this.props.size],
               { [this.classes.active]: this.state.activeTab === index },
             )}
-            style={{ width: `${tabWidth}%` }}
             onClick={() => this.handleTabClick(index)}
           >
             { tab.label }
@@ -77,6 +73,7 @@ class Pane extends React.PureComponent {
 
 Pane.propTypes = {
   className: PropTypes.string,
+  /** The number of the active tab. */
   activeTab: PropTypes.number,
   tabs: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.node,
@@ -92,6 +89,5 @@ Pane.defaultProps = {
 Pane.contextTypes = {
   styleManager: PropTypes.object.isRequired,
 };
-
 
 export default Pane;

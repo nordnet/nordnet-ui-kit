@@ -13,7 +13,7 @@ export default createStyleSheet('Pane', (theme) => {
     },
 
     tabs: {
-      display: 'block',
+      display: 'flex',
       margin: 0,
       padding: 0,
       listStyle: 'none',
@@ -28,6 +28,7 @@ export default createStyleSheet('Pane', (theme) => {
       textAlign: 'center',
       cursor: 'pointer',
       letterSpacing: 1,
+      flexGrow: 1,
     },
 
     xs: {
