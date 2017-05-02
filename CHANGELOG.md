@@ -12,6 +12,9 @@
 * Removed variables
 * Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, RangeSelector, RatioBar, Search, Select, Widget
 
+## 0.2.0-rc.9
+* Remove SparkGraph again (issues with d3-interpolate and d3-color)
+
 ## 0.2.0-rc.8
 * Port SparkGraph
 
