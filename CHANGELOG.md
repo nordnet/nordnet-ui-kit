@@ -12,7 +12,7 @@
 * Removed variables
 * Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, RangeSelector, RatioBar, Search, Select, Widget
 
-## Upcoming release
+## 0.2.0-rc.8
 * Port SparkGraph
 
 ## 0.2.0-rc.7
