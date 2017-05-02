@@ -28,7 +28,7 @@ describe('<Icon />', () => {
 
   it('should be able to override fill', () => {
     const color = 'crimson';
-    wrapper = shallow(<Icon.Search fill={color} />);
-    expect(wrapper.find('path').prop('fill')).to.equal(color);
+    wrapper = shallow(<Icon.Trash fill={color} />);
+    expect(wrapper.find('#Artboard').prop('fill')).to.equal(color);
   });
 });
