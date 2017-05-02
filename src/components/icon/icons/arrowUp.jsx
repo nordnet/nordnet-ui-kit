@@ -1,30 +1,14 @@
 import React, { PropTypes } from 'react';
-import Icon from '../icon';
+import ArrowLeft from './arrowLeft';
 
-export default function ArrowUp({
-  stroke,
-  fill,
-  strokeWidth,
-  ...rest // eslint-disable-line comma-dangle
-}) {
-  return (
-    <svg {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-69.000000, -141.000000)" strokeWidth={strokeWidth} stroke={stroke}>
-          <g id="arrow-up" transform="translate(69.000000, 141.000000)">
-            <polyline id="Shape" points="5 1 15 1 15 11" />
-            <path d="M15,1 L0.699996948,15.3000031" id="Shape" />
-          </g>
-        </g>
-      </g>
-    </svg>
-  );
+export default function ArrowUp({ style: styleProp, ...rest }) {
+  const style = {
+    transform: 'rotate(0.375turn)',
+    ...styleProp,
+  };
+  return <ArrowLeft style={style} {...rest} />;
 }
 
 ArrowUp.propTypes = {
-  stroke: PropTypes.string,
-  fill: PropTypes.string,
-  strokeWidth: PropTypes.number,
+  style: PropTypes.object,
 };
-
-ArrowUp.defaultProps = Icon.defaultProps;

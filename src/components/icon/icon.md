@@ -1,20 +1,18 @@
-Usage:
+Basic usage:
 ```js
 import { Icon } from 'nordnet-ui-kit';
 
 render() {
   // ...
   return (
-    <Icon.Trash fill="tomato" stroke="tomato" />
+    <Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />
   )
 }
 ```
 
-Basic usage example:
-
     const { Icon } = require('../../'); // nordnet-ui-kit
 
-    <Icon.Trash fill="tomato" stroke="tomato" />
+    <Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />
 
 All available icons:
 
