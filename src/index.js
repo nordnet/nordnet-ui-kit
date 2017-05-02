@@ -8,6 +8,7 @@ import Input from './components/input/input';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
+import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
 // import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
@@ -146,6 +147,7 @@ export {
   LabeledValue,
   Li,
   Logo,
+  Pane,
   RadioGroup,
   // SparkGraph,
   Spinner,
