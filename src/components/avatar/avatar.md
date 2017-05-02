@@ -18,6 +18,6 @@
         Hm
       </Avatar>
       <Avatar style={{ width: 40, height: 40 }} color={ color.red }>
-        <Icon.Trash width={18} height={18} stroke={color.white} />
+        <Icon.Trash width={18} height={18} fill={color.white} />
       </Avatar>
     </div>

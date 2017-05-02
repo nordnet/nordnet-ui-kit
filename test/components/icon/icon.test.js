@@ -7,7 +7,7 @@ describe('<Icon />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Icon.Trash />);
+    wrapper = shallow(<Icon.ArrowLeft />);
   });
 
   it('should render an svg', () => {
@@ -22,13 +22,13 @@ describe('<Icon />', () => {
 
   it('should be able to override stroke', () => {
     const color = 'tomato';
-    wrapper = shallow(<Icon.Trash stroke={color} />);
+    wrapper = shallow(<Icon.Cloud stroke={color} />);
     expect(wrapper.find('#Artboard-1').prop('stroke')).to.equal(color);
   });
 
   it('should be able to override fill', () => {
     const color = 'crimson';
-    wrapper = shallow(<Icon.Search fill={color} />);
-    expect(wrapper.find('path').prop('fill')).to.equal(color);
+    wrapper = shallow(<Icon.Trash fill={color} />);
+    expect(wrapper.find('#Artboard').prop('fill')).to.equal(color);
   });
 });

@@ -9,11 +9,15 @@ export default function ChevronUp({
 }) {
   return (
     <svg {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-213.000000, -98.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <g id="chevron-up" transform="translate(213.000000, 98.000000)">
-            <path d="M0.75,6.5 L5,2.25 L9.25,6.5" id="Shape" />
-          </g>
+      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g id="chevron-up" fillRule="nonzero" fill={fill}>
+          <path
+            d="M0.8,8 C0.8,8.1024 0.8392,8.2048 0.9168,8.2832 C1.0728,8.4392 1.3264,8.4392 1.4824,8.2832
+            L8.3992,1.3664 L15.316,8.2832 C15.472,8.4392 15.7256,8.4392 15.8816,8.2832 C16.0376,8.1272
+            16.0376,7.8736 15.8816,7.7176 L8.6816,0.5176 C8.5256,0.3616 8.272,0.3616 8.116,0.5176 L0.916,7.7176
+            C0.8376,7.796 0.7992,7.8984 0.7992,8.0008 L0.8,8 Z"
+            id="Shape"
+          />
         </g>
       </g>
     </svg>
@@ -28,7 +32,7 @@ ChevronUp.propTypes = {
 
 ChevronUp.defaultProps = {
   ...Icon.defaultProps,
-  width: 10,
-  height: 8,
-  viewBox: '0 0 10 8',
+  width: 16,
+  height: 9,
+  viewBox: '0 0 16 9',
 };
