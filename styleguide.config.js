@@ -18,7 +18,6 @@ module.exports = {
     const folders = fs.readdirSync(componentPath);
     return folders
       .filter(c => fs.statSync(path.join(componentPath, c)).isDirectory()) // Filter out directories
-      .filter(c => c !== 'spark-graph') // SparkGraph is not yet fixed, leaving here for now!
       .map(folder => `${dir}/components/${folder}/${folder}.jsx`);
   },
   getComponentPathLine(componentPath) {
