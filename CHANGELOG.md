@@ -18,7 +18,7 @@
 ### Not yet ported
 SparkGraph (issues with d3-interpolate and d3-color)
 
-## Upcoming release
+## 0.2.0-rc.7
 * Pane: Re-add Pane component
 * Icons: Add more icons
 * Flag: Add new combined flags
