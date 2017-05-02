@@ -1,9 +1,14 @@
-import ca from './../../flags/flagCa';
-import de from './../../flags/flagDe';
-import dk from './../../flags/flagDk';
-import fi from './../../flags/flagFi';
-import no from './../../flags/flagNo';
-import se from './../../flags/flagSe';
-import us from './../../flags/flagUs';
+import ca from './../../flags/ca';
+import de from './../../flags/de';
+import fr from './../../flags/fr';
+import ru from './../../flags/ru';
+import gb from './../../flags/gb';
+import dk from './../../flags/dk';
+import fi from './../../flags/fi';
+import no from './../../flags/no';
+import se from './../../flags/se';
+import us from './../../flags/us';
+import jp from './../../flags/jp';
+import cn from './../../flags/cn';
 
-export default { ca, de, dk, fi, no, se, us };
+export default { ca, de, fr, ru, gb, dk, fi, no, se, us, jp, cn };
