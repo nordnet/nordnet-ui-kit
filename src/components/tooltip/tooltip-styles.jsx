@@ -3,7 +3,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 const zIndexTooltip = 2;
 
 export default createStyleSheet('Tooltip', (theme) => {
-  const { palette, transitions, mixins } = theme;
+  const { palette, transitions, mixins, typography } = theme;
 
   return {
     tooltip: {
@@ -15,7 +15,6 @@ export default createStyleSheet('Tooltip', (theme) => {
 
     container: {
       cursor: 'pointer',
-      paddingLeft: '.2em',
       display: 'inline-block',
 
       ' .icon': {
@@ -43,22 +42,23 @@ export default createStyleSheet('Tooltip', (theme) => {
 
       '&.right:after, &.left:after': {
         height: '100%',
-        width: 12,
+        width: 8,
       },
 
       '&.left:after': {
-        left: -12,
+        left: -8,
       },
     },
 
     popup: {
       position: 'absolute',
       textAlign: 'left',
-      fontSize: '.8em',
-      padding: 8,
-      color: '#fff',
-      background: 'rgba(0, 0, 0, 0.75)',
-      borderRadius: 5,
+      fontSize: 12,
+      padding: '4px 16px',
+      color: palette.background.default,
+      background: palette.text.default,
+      fontFamily: typography.primary.default,
+      borderRadius: 4,
       whiteSpace: 'nowrap',
       zIndex: zIndexTooltip,
       transition: transitions.create(['opacity']),
@@ -83,43 +83,43 @@ export default createStyleSheet('Tooltip', (theme) => {
           top: -8,
           borderLeft: '8px solid transparent',
           borderRight: '8px solid transparent',
-          borderBottom: '8px solid rgba(0, 0, 0, 0.75)',
+          borderBottom: `8px solid ${palette.text.default}`,
         },
       },
 
       '&.left': {
-        right: 12,
+        right: 8,
         top: '50%',
         marginRight: '100%',
         transform: 'translate(0, -50%)',
 
         '&:before': {
           left: 'inherit',
-          right: -12,
-          marginTop: -8,
+          right: -8,
+          marginTop: -6,
           top: '50%',
           content: '""',
-          borderTop: '8px solid transparent',
-          borderBottom: '8px solid transparent',
-          borderLeft: '8px solid rgba(0, 0, 0, 0.75)',
+          borderTop: '6px solid transparent',
+          borderBottom: '6px solid transparent',
+          borderLeft: `6px solid ${palette.text.default}`,
         },
       },
 
       '&.right': {
-        left: 12,
+        left: 8,
         top: '50%',
         marginLeft: '100%',
         transform: 'translate(0, -50%)',
 
         '&:before': {
           right: 'inherit',
-          left: -4,
-          marginTop: -8,
+          left: -2,
+          marginTop: -6,
           top: '50%',
           content: '""',
-          borderTop: '8px solid transparent',
-          borderBottom: '8px solid transparent',
-          borderRight: '8px solid rgba(0, 0, 0, 0.75)',
+          borderTop: '6px solid transparent',
+          borderBottom: '6px solid transparent',
+          borderRight: `6px solid ${palette.text.default}`,
         },
       },
 
@@ -131,7 +131,7 @@ export default createStyleSheet('Tooltip', (theme) => {
 
         '&:before': {
           bottom: -8,
-          borderTop: '8px solid rgba(0, 0, 0, 0.75)',
+          borderTop: `8px solid ${palette.text.default}`,
           borderRight: '8px solid transparent',
           borderLeft: '8px solid transparent',
         },

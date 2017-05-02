@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import flags from './flags';
+import currencyFlags from './currencyFlags';
 
 function Flag({
   className,
@@ -9,48 +10,25 @@ function Flag({
   size,
   ...rest
 }) {
-  const PrimarySvgFlag = flags[countryCode.toLowerCase()];
-  const SecondarySvgFlag = secondaryCountryCode ? flags[secondaryCountryCode.toLowerCase()] : null;
-  // width / height ratio of our SVGs are 4 / 3
-  const width = size * (4 / 3);
-  const height = size;
-  const circleSize = size / 2.1;
-  const canadianLeftPos = -size * (3 / 16);
+  let SvgFlag;
+  if (secondaryCountryCode) {
+    const currencyKey = `${countryCode.toLowerCase()}-${secondaryCountryCode.toLowerCase()}`;
+    if (!currencyFlags[currencyKey]) {
+      // This combination does not exist
+      return null;
+    }
+    SvgFlag = currencyFlags[currencyKey];
+  } else {
+    SvgFlag = flags[countryCode.toLowerCase()];
+  }
 
-  const styles = Object.assign({
+  const flagStyle = Object.assign({
     display: 'inline-block',
-    position: 'relative',
     width: size,
-    height: size,
-    clipPath: `circle(${circleSize}px)`,
   }, style);
 
-  const primaryStyling = Object.assign({
-    width,
-    height,
-    position: 'absolute',
-    top: '0',
-    left: countryCode === 'ca' ? `${canadianLeftPos}px` : 0, // Position canadian flag better
-  });
-
-  const secondaryStyling = Object.assign(
-    {},
-    primaryStyling,
-    {
-      clipPath: `polygon(${size}px ${size}px, 0px ${size}px, ${size}px 0px, ${size}px ${size}px)`,
-      left: secondaryCountryCode === 'ca' ? `${canadianLeftPos}px` : 0,
-    },
-  );
-
   return (
-    <span
-      className="flag"
-      style={styles}
-      {...rest}
-    >
-      <PrimarySvgFlag style={primaryStyling} />
-      { SecondarySvgFlag ? <SecondarySvgFlag style={secondaryStyling} /> : null }
-    </span>
+    <SvgFlag className="flag" style={flagStyle} {...rest} />
   );
 }
 
@@ -58,12 +36,17 @@ Flag.defaultProps = {
   size: 32,
 };
 
+const unNest = (acc, i) => acc.concat(i);
+const dupInUpperCase = arr => arr.map(code => [code, code.toUpperCase()]).reduce(unNest, []);
+
+const countryCodes = dupInUpperCase(['ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu']);
+const currencyCountryCodes = dupInUpperCase(['dk', 'no', 'se', 'us', 'eu']);
+
 Flag.propTypes = {
   className: PropTypes.string,
   /** A valid 2-character country code */
-  countryCode: PropTypes.oneOf(['ca', 'de', 'dk', 'fi', 'no', 'se', 'us']),
-  /** A valid 2-character country code */
-  secondaryCountryCode: PropTypes.oneOf(['ca', 'de', 'dk', 'fi', 'no', 'se', 'us']),
+  countryCode: PropTypes.oneOf(countryCodes),
+  secondaryCountryCode: PropTypes.oneOf(currencyCountryCodes),
   /** Unitless pixel value */
   size: PropTypes.number,
   style: PropTypes.object,

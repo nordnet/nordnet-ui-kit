@@ -1,15 +1,12 @@
 import React, { PropTypes } from 'react';
-import ArrowUp from './arrowUp';
+import ArrowLeft from './arrowLeft';
 
 export default function ArrowDown({ style: styleProp, ...rest }) {
   const style = {
-    transform: 'rotate(0.25turn)',
+    transform: 'rotate(0.625turn)',
     ...styleProp,
   };
-
-  return (
-    <ArrowUp style={style} {...rest} />
-  );
+  return <ArrowLeft style={style} {...rest} />;
 }
 
 ArrowDown.propTypes = {

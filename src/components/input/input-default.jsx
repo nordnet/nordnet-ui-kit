@@ -102,7 +102,7 @@ class InputDefault extends React.PureComponent {
 
     return (
       <input
-        {...omit(this.props, 'valueFormatter', 'hasSuccess', 'hasWarning', 'hasError', 'helpText')}
+        {...omit(this.props, 'valueFormatter', 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon')}
         id={id}
         className={classes}
         type={type || this.props.type}
