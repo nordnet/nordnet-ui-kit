@@ -20,12 +20,12 @@ Classic usage: single flag
 Currencies:
 
     <div>
-      <Flag size={64} countryCode="eu" secondaryCountryCode="dk" type="currency" />
-      <Flag size={64} countryCode="eu" secondaryCountryCode="no" type="currency" />
-      <Flag size={64} countryCode="eu" secondaryCountryCode="se" type="currency" />
-      <Flag size={64} countryCode="dk" secondaryCountryCode="se" type="currency" />
-      <Flag size={64} countryCode="no" secondaryCountryCode="se" type="currency" />
-      <Flag size={64} countryCode="us" secondaryCountryCode="se" type="currency" />
+      <Flag size={64} countryCode="eu" secondaryCountryCode="dk" />
+      <Flag size={64} countryCode="eu" secondaryCountryCode="no" />
+      <Flag size={64} countryCode="eu" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="dk" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="no" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="us" secondaryCountryCode="se" />
     </div>
 
 At the moment these are all the supported currency combinations, but we can easily create more.
