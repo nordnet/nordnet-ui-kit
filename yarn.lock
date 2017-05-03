@@ -5572,11 +5572,7 @@ type-detect@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/type-detect/-/type-detect-1.0.0.tgz#762217cc06db258ec48908a1298e8b95121e8ea2"
 
-type-detect@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/type-detect/-/type-detect-4.0.0.tgz#62053883542a321f2f7b25746dc696478b18ff6b"
-
-type-detect@^4.0.3:
+type-detect@^4.0.0, type-detect@^4.0.3:
   version "4.0.3"
   resolved "https://registry.npmjs.org/type-detect/-/type-detect-4.0.3.tgz#0e3f2670b44099b0b46c284d136a7ef49c74c2ea"
 
@@ -5619,21 +5615,7 @@ unherit@^1.0.4:
     inherits "^2.0.1"
     xtend "^4.0.1"
 
-unified@^6.0.0:
-  version "6.1.1"
-  resolved "https://registry.npmjs.org/unified/-/unified-6.1.1.tgz#0abb4d2ffd8f42c0bc06e4a62ff8eb8fd77f8d11"
-  dependencies:
-    bail "^1.0.0"
-    extend "^3.0.0"
-    has "^1.0.1"
-    is-plain-obj "^1.1.0"
-    isarray "^2.0.1"
-    trough "^1.0.0"
-    vfile "^2.0.0"
-    x-is-function "^1.0.4"
-    x-is-string "^0.1.0"
-
-unified@^6.1.2:
+unified@^6.0.0, unified@^6.1.2:
   version "6.1.2"
   resolved "https://registry.npmjs.org/unified/-/unified-6.1.2.tgz#b3904c3254ffbea7ff6d806c5d5b6248838cecb6"
   dependencies:
