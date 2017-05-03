@@ -922,10 +922,6 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bezier-easing@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/bezier-easing/-/bezier-easing-2.0.3.tgz#cb493fddb7f8920ecca00973344ce0518885f17e"
-
 big.js@^3.1.3:
   version "3.1.3"
   resolved "https://registry.npmjs.org/big.js/-/big.js-3.1.3.tgz#4cada2193652eb3ca9ec8e55c9015669c9806978"
@@ -1628,16 +1624,6 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   resolved "https://registry.npmjs.org/cssstyle/-/cssstyle-0.2.37.tgz#541097234cb2513c83ceed3acddc27ff27987d54"
   dependencies:
     cssom "0.3.x"
-
-d3-color@1:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/d3-color/-/d3-color-1.0.3.tgz#bc7643fca8e53a8347e2fbdaffa236796b58509b"
-
-d3-interpolate@^1.0.0:
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/d3-interpolate/-/d3-interpolate-1.1.4.tgz#a43ec5b3bee350d8516efdf819a4c08c053db302"
-  dependencies:
-    d3-color "1"
 
 d@1:
   version "1.0.0"
@@ -2512,10 +2498,6 @@ generate-object-property@^1.1.0:
 get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
-
-get-prefix@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/get-prefix/-/get-prefix-1.0.0.tgz#0d305448a4e3176f9c277175b14e16dbe6fba0b5"
 
 getpass@^0.1.1:
   version "0.1.6"
@@ -4143,7 +4125,7 @@ pbkdf2@^3.0.3:
   dependencies:
     create-hmac "^1.1.2"
 
-performance-now@^0.2.0, performance-now@~0.2.0:
+performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
 
@@ -4549,12 +4531,6 @@ querystringify@0.0.x:
   version "0.0.4"
   resolved "https://registry.npmjs.org/querystringify/-/querystringify-0.0.4.tgz#0cf7f84f9463ff0ae51c4c4b142d95be37724d9c"
 
-raf@^3.1.0:
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/raf/-/raf-3.3.0.tgz#93845eeffc773f8129039f677f80a36044eee2c3"
-  dependencies:
-    performance-now "~0.2.0"
-
 randomatic@^1.1.3:
   version "1.1.6"
   resolved "https://registry.npmjs.org/randomatic/-/randomatic-1.1.6.tgz#110dcabff397e9dcff7c0789ccc0a49adf1ec5bb"
@@ -4652,20 +4628,6 @@ react-group@^1.0.4:
   resolved "https://registry.npmjs.org/react-group/-/react-group-1.0.4.tgz#13cd52f80169daf24bfc74847eb975c5d08d7a69"
   dependencies:
     prop-types "^15.5.8"
-
-react-motion-ui-pack@^0.10.2:
-  version "0.10.2"
-  resolved "https://registry.npmjs.org/react-motion-ui-pack/-/react-motion-ui-pack-0.10.2.tgz#adcf3c4fe280eded93cee04669c60b390d5416a7"
-  dependencies:
-    get-prefix "^1.0.0"
-    react-motion "^0.4.5"
-
-react-motion@^0.4.5:
-  version "0.4.7"
-  resolved "https://registry.npmjs.org/react-motion/-/react-motion-0.4.7.tgz#f77331ec7920bdb0d0cfc37eb6ffa10571bf42c7"
-  dependencies:
-    performance-now "^0.2.0"
-    raf "^3.1.0"
 
 react-prop-types@^0.4.0:
   version "0.4.0"
@@ -5572,11 +5534,7 @@ type-detect@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/type-detect/-/type-detect-1.0.0.tgz#762217cc06db258ec48908a1298e8b95121e8ea2"
 
-type-detect@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/type-detect/-/type-detect-4.0.0.tgz#62053883542a321f2f7b25746dc696478b18ff6b"
-
-type-detect@^4.0.3:
+type-detect@^4.0.0, type-detect@^4.0.3:
   version "4.0.3"
   resolved "https://registry.npmjs.org/type-detect/-/type-detect-4.0.3.tgz#0e3f2670b44099b0b46c284d136a7ef49c74c2ea"
 
@@ -5619,21 +5577,7 @@ unherit@^1.0.4:
     inherits "^2.0.1"
     xtend "^4.0.1"
 
-unified@^6.0.0:
-  version "6.1.1"
-  resolved "https://registry.npmjs.org/unified/-/unified-6.1.1.tgz#0abb4d2ffd8f42c0bc06e4a62ff8eb8fd77f8d11"
-  dependencies:
-    bail "^1.0.0"
-    extend "^3.0.0"
-    has "^1.0.1"
-    is-plain-obj "^1.1.0"
-    isarray "^2.0.1"
-    trough "^1.0.0"
-    vfile "^2.0.0"
-    x-is-function "^1.0.4"
-    x-is-string "^0.1.0"
-
-unified@^6.1.2:
+unified@^6.0.0, unified@^6.1.2:
   version "6.1.2"
   resolved "https://registry.npmjs.org/unified/-/unified-6.1.2.tgz#b3904c3254ffbea7ff6d806c5d5b6248838cecb6"
   dependencies:
