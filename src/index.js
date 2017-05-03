@@ -10,7 +10,6 @@ import Li from './components/li/li';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
 import RadioGroup from './components/radio-group';
-// import SparkGraph from './components/spark-graph';
 import Spinner from './components/spinner';
 import Table from './components/table';
 import Tbody from './components/tbody';
@@ -155,7 +154,6 @@ export {
   Logo,
   Pane,
   RadioGroup,
-  // SparkGraph,
   Spinner,
   Table,
   Tbody,
