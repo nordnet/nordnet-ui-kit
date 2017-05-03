@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import InputDefault from './input-default';
 import InputSelect from './input-select';
 import InputCheckboxRadio from './input-checkbox-radio';

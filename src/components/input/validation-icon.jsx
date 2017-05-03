@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Icon } from '../../';
 
 function ValidationIcon(props, { styleManager }) {
@@ -20,9 +21,9 @@ function ValidationIcon(props, { styleManager }) {
 }
 
 ValidationIcon.propTypes = {
-  hasSuccess: React.PropTypes.bool,
-  hasWarning: React.PropTypes.bool,
-  hasError: React.PropTypes.bool,
+  hasSuccess: PropTypes.bool,
+  hasWarning: PropTypes.bool,
+  hasError: PropTypes.bool,
 };
 
 ValidationIcon.contextTypes = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function CurrencyEuNo({
@@ -844,5 +845,5 @@ CurrencyEuNo.defaultProps = {
 };
 
 CurrencyEuNo.propTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 };

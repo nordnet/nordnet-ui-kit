@@ -1,5 +1,5 @@
 const path = require('path');
-const camelCase = require('lodash.camelcase');
+const camelCase = require('lodash').camelCase;
 const fs = require('fs');
 
 const dir = path.join(__dirname, 'src');
