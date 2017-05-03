@@ -36,21 +36,16 @@
   },
   "homepage": "https://nordnet.github.io/nordnet-ui-kit",
   "license": "MIT",
-  "peerDependencies": {
-    "react": "15.x",
-    "react-dom": "15.x"
-  },
   "dependencies": {
-    "array-equal": "^1.0.0",
-    "bezier-easing": "^2.0.3",
     "classnames": "^2.2.3",
     "color": "^1.0.3",
-    "d3-interpolate": "^1.0.0",
     "jss": "^7.1.0",
     "jss-preset-default": "^2.0.0",
     "jss-theme-reactor": "^0.11.1",
     "lodash": "^4.17.4",
-    "react-motion-ui-pack": "^0.10.2",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-prop-types": "^0.4.0"
   },
   "devDependencies": {
@@ -79,11 +74,9 @@
     "mocha": "^3.2.0",
     "mocha-webpack": "^0.7.0",
     "npm-run-all": "^4.0.2",
-    "react": "^15.4.2",
-    "react-addons-test-utils": "^15.4.2",
     "react-docgen": "^2.13.0",
-    "react-dom": "^15.4.2",
-    "react-styleguidist": "^5.1.6",
+    "react-styleguidist": "^5.1.9",
+    "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "sinon": "^2.1.0",
     "webpack": "2.2.1",

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 function Label(props) {
@@ -11,8 +12,8 @@ function Label(props) {
 }
 
 Label.propTypes = {
-  label: React.PropTypes.string,
-  id: React.PropTypes.string,
+  label: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default Label;

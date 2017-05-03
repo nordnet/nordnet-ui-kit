@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function CurrencyUsSe({
@@ -158,5 +159,5 @@ CurrencyUsSe.defaultProps = {
 };
 
 CurrencyUsSe.propTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 };

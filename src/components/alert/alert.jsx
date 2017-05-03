@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import IconClose from '../icon/icons/close';
 import AlertStyles from './alert-styles';

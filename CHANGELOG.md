@@ -1,16 +1,125 @@
 # Changelog
 
 ## Upcoming release
+
+### Breaking changes 💥
+* (S)CSS replaced with [JSS](http://cssinjs.org/?v=v7.1.1)
+* Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
+* Removed variables (both scss and js versions)
+* Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, RangeSelector, RatioBar, Search, Select, SparkGraph, Widget
+
+### Other changes 👾
 * Update eslint and styleguidist
-* Remove scss from styleguidist and move essential styles to style tag
+* Remove scss from styleguidist and move essential styles to style tag in template
 * Export ThemeProvider, which will provide all children with context.styleManager
 * Export test-utils for createShallow, createMount and createRenderToString
 * Added new colors and typography to the theme
-* Ported components to JSS
-* Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
+
+### New stuff 🌟
 * New components: Avatar, Li, SegmentedControl, Ul
-* Removed variables
-* Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, RangeSelector, RatioBar, Search, Select, Widget
+* New theming functionality built in 💄
+
+```js
+// ℹ️ In your provider
+import React, { Component } from 'react';
+// import it
+import { ThemeProvider } from 'nordnet-ui-kit';
+
+export default class Wrapper extends Component {
+  // ...
+
+  render() {
+    return ( // this will get a default theme, you can override this with the `theme` prop to ThemeProvider
+      <ThemeProvider>
+        {this.props.children}
+      </ThemeProvider>
+    );
+  }
+}
+```
+
+```js
+// ℹ️ Styling your component with the theme from nordnet-ui-kit
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+// import any component from the ui-kit that you want to use
+import { Badge } from 'nordnet-ui-kit';
+// import createStyleSheet
+import { createStyleSheet } from 'jss-theme-reactor';
+
+// Export styleSheet to make testing easier later
+export const styleSheet = createStyleSheet('YourComponent', theme => ({
+  root: {
+    display: 'block',
+  },
+  header: {
+    color: theme.palette.text.default,
+    backgroundColor: theme.palette.text.default,
+  },
+}));
+
+// 1. If your component is a class do this:
+export class YourComponent extends Component {
+  static contextTypes = {
+    styleManager: PropTypes.object.isRequired,
+  };
+
+
+  render() {
+    const isHeader = { this.props }
+    const classes = this.context.styleManager.render(styleSheet);
+    return (
+      <div className={cn(classes.root, {[classes.header]: isHeader})}>
+        Hello world!
+      </div>
+    );
+  }
+}
+
+
+// 2. If your component is a function do this:
+export function YourComponent({ isHeader }, { styleManager }) {
+  const classes = styleManager.render(styleSheet);
+  return (
+    <div className={cn(classes.root, {[classes.header]: isHeader})}>
+      Hello world!
+    </div>
+  );
+}
+
+YourComponent.contextTypes = {
+  styleManager: PropTypes.object.isRequired,
+};
+```
+
+```js
+// ℹ️ Testing your themed components (example in mocha, but ava shouldn't be that different)
+import React from 'react';
+import { expect } from 'chai';
+import { shallow as enzymeShallow } from 'enzyme';
+import { createShallow } from 'nordnet-ui-kit';
+import YourComponent, { styleSheet } from './YourComponent';
+
+
+describe('<YourComponent />', () => {
+  const shallow = createShallow(enzymeShallow);
+  const classes = shallow.context.styleManager.render(styleSheet);
+  let wrapper;
+
+  it('should have the class root', () => {
+    wrapper = shallow(<YourComponent />);
+    expect(wrapper.hasClass(classes.root)).to.equal(true);
+  });
+
+
+  it('should have the class header when isHeader is set', () => {
+    wrapper = shallow(<YourComponent isHeader />);
+    expect(wrapper.hasClass(classes.header)).to.equal(true);
+  });
+});
+```
+
 
 ## 0.2.0-rc.9
 * Remove SparkGraph again (issues with d3-interpolate and d3-color)

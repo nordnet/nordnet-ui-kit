@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 /* eslint-disable jsx-a11y/label-has-for */
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
@@ -120,17 +121,17 @@ class InputCheckboxRadio extends React.PureComponent {
 }
 
 InputCheckboxRadio.propTypes = {
-  className: React.PropTypes.string,
-  type: React.PropTypes.string,
-  checked: React.PropTypes.bool,
-  disabled: React.PropTypes.bool,
-  value: React.PropTypes.string,
-  label: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  hasSuccess: React.PropTypes.bool,
-  hasError: React.PropTypes.bool,
-  hasWarning: React.PropTypes.bool,
-  helpText: React.PropTypes.node,
+  className: PropTypes.string,
+  type: PropTypes.string,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  value: PropTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  hasSuccess: PropTypes.bool,
+  hasError: PropTypes.bool,
+  hasWarning: PropTypes.bool,
+  helpText: PropTypes.node,
 };
 
 InputCheckboxRadio.defaultProps = {
