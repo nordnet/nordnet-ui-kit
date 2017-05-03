@@ -74,15 +74,15 @@ const borders = (palette) => {
 };
 
 const align = () => ({
-  '& .align-left': {
+  '&.align-left': {
     textAlign: 'left',
   },
 
-  '& .align-right': {
+  '&.align-right': {
     textAlign: 'right',
   },
 
-  '& .align-center': {
+  '&.align-center': {
     textAlign: 'center',
   },
 });
