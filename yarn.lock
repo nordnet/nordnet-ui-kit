@@ -3241,7 +3241,7 @@ jss-extend@^4.0.0:
   dependencies:
     warning "^3.0.0"
 
-jss-global@^1.0.0:
+jss-global@^1.0.0, jss-global@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/jss-global/-/jss-global-1.0.1.tgz#36731778f6d8649110611f7c178dbcd60fd92b24"
 
@@ -3556,9 +3556,9 @@ markdown-table@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/markdown-table/-/markdown-table-1.1.0.tgz#1f5ae61659ced8808d882554c32e8b3f38dd1143"
 
-markdown-to-jsx@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-5.2.0.tgz#a8eaad21f5a6f747c17982f5dda8715464271c8c"
+markdown-to-jsx@^5.3.0:
+  version "5.3.3"
+  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-5.3.3.tgz#3e48548e15da0426f019eb95fa96f3397b95e012"
   dependencies:
     lodash.get "^4.4.2"
     prop-types "^15.5.8"
@@ -4635,9 +4635,9 @@ react-prop-types@^0.4.0:
   dependencies:
     warning "^3.0.0"
 
-react-styleguidist@^5.1.6:
-  version "5.1.6"
-  resolved "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-5.1.6.tgz#fa6211b37bfbf28189fe9d33a2754fafc70e21a8"
+react-styleguidist@^5.1.9:
+  version "5.1.9"
+  resolved "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-5.1.9.tgz#e5fcdeb58d0f16d1fd095f2c2ba24d9dc06d151f"
   dependencies:
     ast-types "^0.9.11"
     buble "^0.15.2"
@@ -4661,13 +4661,14 @@ react-styleguidist@^5.1.6:
     jss-camel-case "^4.0.0"
     jss-compose "^3.0.1"
     jss-default-unit "^6.1.1"
+    jss-global "^1.0.1"
     jss-isolate "^2.0.1"
     jss-nested "^4.0.1"
     leven "^2.1.0"
     listify "^1.0.0"
     loader-utils "^1.1.0"
     lodash "^4.17.4"
-    markdown-to-jsx "5.2.0"
+    markdown-to-jsx "^5.3.0"
     minimist "^1.2.0"
     pretty-format "^19.0.0"
     prop-types "^15.5.8"
