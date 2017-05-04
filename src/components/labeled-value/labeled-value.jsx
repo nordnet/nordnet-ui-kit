@@ -53,6 +53,8 @@ export default function LabeledValue({
   children,
   id: idProp,
   className,
+  labelClassName,
+  valueClassName,
   size,
   ...rest
 }, { styleManager }) {
@@ -61,8 +63,8 @@ export default function LabeledValue({
   const classes = styleManager.render(styleSheet);
 
   const rootClasses = cn(classes.root, className);
-  const labelClasses = cn(classes.label);
-  const valueClasses = cn(classes.value, classes[`value-${size}`]);
+  const labelClasses = cn(classes.label, labelClassName);
+  const valueClasses = cn(classes.value, valueClassName, classes[`value-${size}`]);
 
   return (
     <div {...rest} className={rootClasses}>
@@ -83,6 +85,8 @@ LabeledValue.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   className: PropTypes.string,
+  labelClassName: PropTypes.string,
+  valueClassName: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
 };
 
