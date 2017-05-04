@@ -51,6 +51,8 @@ import FloppyDisk from './components/icon/icons/floppyDisk';
 import Folder from './components/icon/icons/folder';
 import GraphArea from './components/icon/icons/graphArea';
 import GraphCandlestick from './components/icon/icons/graphCandlestick';
+import GraphLine from './components/icon/icons/graphLine';
+import GraphVolume from './components/icon/icons/graphVolume';
 import Heart from './components/icon/icons/heart';
 import Key from './components/icon/icons/key';
 import LightningBolt from './components/icon/icons/lightningBolt';
@@ -58,6 +60,7 @@ import Lock from './components/icon/icons/lock';
 import Mail from './components/icon/icons/mail';
 import MailOpen from './components/icon/icons/mailOpen';
 import News from './components/icon/icons/news';
+import OrderDepth from './components/icon/icons/orderDepth';
 import Print from './components/icon/icons/print';
 import Profile from './components/icon/icons/profile';
 import Questionmark from './components/icon/icons/questionmark';
@@ -116,6 +119,8 @@ const Icon = {
   Folder,
   GraphArea,
   GraphCandlestick,
+  GraphLine,
+  GraphVolume,
   Heart,
   Key,
   LightningBolt,
@@ -123,6 +128,7 @@ const Icon = {
   Mail,
   MailOpen,
   News,
+  OrderDepth,
   Print,
   Profile,
   Questionmark,
