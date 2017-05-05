@@ -11,12 +11,10 @@ export default function GraphVolume({
   return (
     <svg {...rest}>
       <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g transform="translate(-184.0, -98.0)" id="GraphVolume" stroke={stroke}>
-          <g transform="translate(191.0, 105.5) rotate(180.0) translate(-191.0, -105.5) translate(184.5, 99.0)">
-            <rect id="Rectangle-2" x="0" y="0" width="3" height="10" rx="0.2" />
-            <rect id="Rectangle-2" x="5" y="0" width="3" height="5" rx="0.2" />
-            <rect id="Rectangle-2" x="10" y="0" width="3" height="13" rx="0.2" />
-          </g>
+        <g transform="translate(-1.0, 0)" id="graphBars" stroke={stroke}>
+          <rect id="Rectangle" x="11.5" y="6.5" width="3" height="9" rx="0.7" />
+          <rect id="Rectangle" x="6.5" y="10.5" width="3" height="5" rx="0.7" />
+          <rect id="Rectangle" x="1.5" y="0.5" width="3" height="15" rx="0.7" />
         </g>
       </g>
     </svg>
@@ -31,7 +29,7 @@ GraphVolume.propTypes = {
 
 GraphVolume.defaultProps = {
   ...Icon.defaultProps,
-  viewBox: '0 0 14 15',
+  viewBox: '0 0 14 16',
   width: 14,
-  height: 15,
+  height: 16,
 };
