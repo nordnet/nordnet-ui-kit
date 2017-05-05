@@ -10,13 +10,13 @@ Radio type (using icons):
       type="radio"
     >
       <span value="red">
-        <Icon.Trash  width={18} height={18} stroke={color.red} />
+        <Icon.Trash  width={18} height={18} fill={color.red} />
       </span>
       <span value="green">
-        <Icon.Trash  width={18} height={18} stroke={color.green} />
+        <Icon.Trash  width={18} height={18} fill={color.green} />
       </span>
       <span value="blue">
-        <Icon.Trash  width={18} height={18} stroke={color.blue} />
+        <Icon.Trash  width={18} height={18} fill={color.blue} />
       </span>
     </SegmentedControl>
 
