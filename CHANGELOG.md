@@ -1,12 +1,13 @@
 # Changelog
 
-## Upcoming release
+## 0.2.0
 
 ### Breaking changes 💥
 * (S)CSS replaced with [JSS](http://cssinjs.org/?v=v7.1.1)
 * Icon api changed from `<Icon type="icon-type" />` to `<Icon.IconType />`
 * Removed variables (both scss and js versions)
 * Removed components: GraphTooltip, HorizontalNav, Legend, NavBar, RangeSelector, RatioBar, Search, Select, SparkGraph, Widget
+* Removed some icon types from Icon, see documentation for more information
 
 ### Other changes 👾
 * Update eslint and styleguidist
@@ -14,10 +15,14 @@
 * Export ThemeProvider, which will provide all children with context.styleManager
 * Export test-utils for createShallow, createMount and createRenderToString
 * Added new colors and typography to the theme
+* Change how icons are presented in the documentation
 
 ### New stuff 🌟
 * New components: Avatar, Li, SegmentedControl, Ul
 * New theming functionality built in 💄
+* A lot of new icons added and default icon style is updated (strokeWidth 2 -> 1)
+* Flag component has a `round` option for rounded flags
+* Flag component has a `secondaryCountryCode` option for currency flags
 
 ```js
 // ℹ️ In your provider
@@ -119,7 +124,6 @@ describe('<YourComponent />', () => {
   });
 });
 ```
-
 
 ## 0.2.0-rc.9
 * Remove SparkGraph again (issues with d3-interpolate and d3-color)
