@@ -43,7 +43,7 @@ All available icons:
           const IconComponent = Icon[iconName];
 
           return (
-            <div style={{display: 'inline-block', width: '100%', padding: 4, height: 20,}}>
+            <div key={iconName} style={{display: 'inline-block', width: '100%', padding: 4, height: 20,}}>
               <div key={ iconName } style={ style }>
                 <div style={iconStyle}>
                   <IconComponent stroke="#00A9EC" fill="#00A9EC" />
