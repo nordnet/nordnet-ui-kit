@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import flags from './flags';
-import currencyFlags from './currencyFlags';
+import currencyFlags from './flags/currencies';
 
 function Flag({
   className,
@@ -9,6 +9,7 @@ function Flag({
   countryCode,
   secondaryCountryCode,
   size,
+  round,
   ...rest
 }) {
   let SvgFlag;
@@ -26,15 +27,30 @@ function Flag({
   const flagStyle = Object.assign({
     display: 'inline-block',
     width: size,
+    marginLeft: round ? -size * 0.25 * 0.5 : null,
   }, style);
 
-  return (
-    <SvgFlag className="flag" style={flagStyle} {...rest} />
-  );
+  const flagContainerStyle = {
+    display: 'inline-block',
+    position: 'relative',
+    width: size * 0.75,
+    height: size * 0.75,
+    overflow: 'hidden',
+    borderRadius: '50%',
+  };
+
+  const flag = <SvgFlag className="flag" style={flagStyle} {...rest} />;
+
+  if (round) {
+    return <span style={flagContainerStyle}>{flag}</span>;
+  }
+
+  return flag;
 }
 
 Flag.defaultProps = {
   size: 32,
+  round: false,
 };
 
 const unNest = (acc, i) => acc.concat(i);
@@ -51,6 +67,7 @@ Flag.propTypes = {
   /** Unitless pixel value */
   size: PropTypes.number,
   style: PropTypes.object,
+  round: PropTypes.bool,
 };
 
 export default Flag;

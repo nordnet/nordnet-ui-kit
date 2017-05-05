@@ -1,6 +1,6 @@
 Classic usage: single flag
 
-    const flags = require('./flags.js');
+    const flags = require('./flags');
 
     const style = {
       display: 'inline-block',
@@ -12,6 +12,25 @@ Classic usage: single flag
       { Object.keys(flags.default).map(flag => (
         <div key={ flag } style={ style }>
           <Flag size={32} countryCode={ flag } />
+          <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
+        </div>
+      )) }
+    </div>
+
+Rounded flags:
+
+    const flags = require('./flags');
+
+    const style = {
+      display: 'inline-block',
+      textAlign: 'center',
+      padding: 16
+    };
+
+    <div>
+      { Object.keys(flags.default).map(flag => (
+        <div key={ flag } style={ style }>
+          <Flag size={32} countryCode={ flag } round />
           <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
         </div>
       )) }
