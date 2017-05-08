@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import flags from './flags';
-import currencyFlags from './flags/currencies';
+import CurrencyFlag from './flags/currencies';
 
 function Flag({
   className,
@@ -12,23 +12,23 @@ function Flag({
   round,
   ...rest
 }) {
-  let SvgFlag;
-  if (secondaryCountryCode) {
-    const currencyKey = `${countryCode.toLowerCase()}-${secondaryCountryCode.toLowerCase()}`;
-    if (!currencyFlags[currencyKey]) {
-      // This combination does not exist
-      return null;
-    }
-    SvgFlag = currencyFlags[currencyKey];
-  } else {
-    SvgFlag = flags[countryCode.toLowerCase()];
-  }
-
   const flagStyle = Object.assign({
     display: 'inline-block',
     width: size,
-    marginLeft: round ? -size * 0.25 * 0.5 : null,
+    marginLeft: round ? -size * 0.125 : null,
   }, style);
+
+  if (secondaryCountryCode) {
+    return (
+      <CurrencyFlag
+        className="flag"
+        style={flagStyle}
+        size={size}
+        primaryCC={countryCode.toLowerCase()}
+        secondaryCC={secondaryCountryCode.toLowerCase()}
+      />
+    );
+  }
 
   const flagContainerStyle = {
     display: 'inline-block',
@@ -39,6 +39,7 @@ function Flag({
     borderRadius: '50%',
   };
 
+  const SvgFlag = flags[countryCode.toLowerCase()];
   const flag = <SvgFlag className="flag" style={flagStyle} {...rest} />;
 
   if (round) {
@@ -53,17 +54,17 @@ Flag.defaultProps = {
   round: false,
 };
 
-const unNest = (acc, i) => acc.concat(i);
-const dupInUpperCase = arr => arr.map(code => [code, code.toUpperCase()]).reduce(unNest, []);
-
-const countryCodes = dupInUpperCase(['ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu']);
-const currencyCountryCodes = dupInUpperCase(['dk', 'no', 'se', 'us', 'eu']);
-
 Flag.propTypes = {
   className: PropTypes.string,
   /** A valid 2-character country code */
-  countryCode: PropTypes.oneOf(countryCodes),
-  secondaryCountryCode: PropTypes.oneOf(currencyCountryCodes),
+  countryCode: PropTypes.oneOf([
+    'ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu',
+    'CA', 'DE', 'FR', 'RU', 'GB', 'DK', 'FI', 'NO', 'SE', 'US', 'JP', 'CN', 'EU',
+  ]),
+  secondaryCountryCode: PropTypes.oneOf([
+    'ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu',
+    'CA', 'DE', 'FR', 'RU', 'GB', 'DK', 'FI', 'NO', 'SE', 'US', 'JP', 'CN', 'EU',
+  ]),
   /** Unitless pixel value */
   size: PropTypes.number,
   style: PropTypes.object,
