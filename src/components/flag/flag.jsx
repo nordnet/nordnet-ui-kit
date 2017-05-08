@@ -54,17 +54,16 @@ Flag.defaultProps = {
   round: false,
 };
 
+const countryCodes = [
+  'ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu',
+  'CA', 'DE', 'FR', 'RU', 'GB', 'DK', 'FI', 'NO', 'SE', 'US', 'JP', 'CN', 'EU',
+];
+
 Flag.propTypes = {
   className: PropTypes.string,
   /** A valid 2-character country code */
-  countryCode: PropTypes.oneOf([
-    'ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu',
-    'CA', 'DE', 'FR', 'RU', 'GB', 'DK', 'FI', 'NO', 'SE', 'US', 'JP', 'CN', 'EU',
-  ]),
-  secondaryCountryCode: PropTypes.oneOf([
-    'ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu',
-    'CA', 'DE', 'FR', 'RU', 'GB', 'DK', 'FI', 'NO', 'SE', 'US', 'JP', 'CN', 'EU',
-  ]),
+  countryCode: PropTypes.oneOf(countryCodes),
+  secondaryCountryCode: PropTypes.oneOf(countryCodes),
   /** Unitless pixel value */
   size: PropTypes.number,
   style: PropTypes.object,
