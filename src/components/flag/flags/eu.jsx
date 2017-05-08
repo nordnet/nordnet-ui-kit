@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function FlagRu({
+export default function FlagEu({
   ...rest
 }) {
   return (
@@ -35,6 +35,6 @@ export default function FlagRu({
   );
 }
 
-FlagRu.defaultProps = {
+FlagEu.defaultProps = {
   viewBox: '0 0 640 480',
 };
