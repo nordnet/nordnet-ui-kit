@@ -24,6 +24,8 @@ export default function CombinedFlag({
       width="100%"
       height="100%"
       style={usedStyle}
+      aria-hidden="true"
+      focusable="false"
       {...rest}
     >
       <g id={`${primaryCC}/${secondaryCC}`}>
