@@ -4,6 +4,7 @@ const defaultConstants = {
   fontSize: 16,
   fontWeightLight: 300,
   fontWeightRegular: 400,
+  fontWeightMedium: 400,
   fontWeightSemiBold: 600,
   fontWeightBold: 700,
   fontWeightExtraBold: 800,
