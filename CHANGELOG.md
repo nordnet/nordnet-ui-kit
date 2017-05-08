@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1
+* Flag: Is now dynamic, and accepts more combinations of countryCode + secondaryCountryCode.
+* Icon, Flag: Add screen reader attributes.
+* Theme.typography:
+  * Add fallback fonts to fontFamily declarations
+  * Add more fontWeight declarations
+
 ## 0.2.0
 
 ### Breaking changes 💥
