@@ -4,7 +4,7 @@ export default function FlagCa({
   ...rest
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g fillOpacity="1" transform="translate(74.118) scale(.9375)">
         <path fill="#fff" d="M81.137 0h362.276v512H81.137z" />
         <path

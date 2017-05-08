@@ -4,7 +4,7 @@ export default function FlagGb({
   ...rest
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <defs>
         <clipPath id="a">
           <path fillOpacity=".67" d="M-85.333 0h682.67v512h-682.67z" />

@@ -4,7 +4,7 @@ export default function FlagSe({
   ...rest
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g transform="translate(50.082) scale(.9375)">
         <g fillRule="evenodd" strokeWidth="1pt">
           <path fill="#006aa7" d="M-121.103.302h256V205.1h-256zM-121.103 307.178h256v204.8h-256z" />

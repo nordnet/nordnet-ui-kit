@@ -4,7 +4,7 @@ export default function FlagCn({
   ...rest
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <defs>
         <path id="a" fill="#ffde00" d="M-.588.81L0-1 .588.81-.952-.31H.952z" />
       </defs>
