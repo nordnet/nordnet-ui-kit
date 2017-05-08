@@ -9,7 +9,7 @@ export default function Balloon({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard" transform="translate(-165.000000, -7.000000)" fillRule="nonzero" fill={fill}>
           <g id="bubble" transform="translate(165.000000, 7.000000)">

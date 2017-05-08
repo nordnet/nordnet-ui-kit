@@ -9,7 +9,7 @@ export default function TickingClock({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="ticking-clock" transform="translate(1.000000, 1.000000)">
           <polyline id="Shape" stroke={stroke} strokeWidth={strokeWidth} points="7 4 7 7 9 9" />

@@ -9,7 +9,7 @@ export default function CheckmarkLarge({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard-1" transform="translate(-113.000000, -330.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <g id="checkmark-large" transform="translate(113.000000, 330.000000)">

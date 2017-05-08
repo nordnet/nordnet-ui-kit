@@ -9,7 +9,7 @@ export default function Search({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="search" fillRule="nonzero" fill={fill}>
           <path

@@ -9,7 +9,7 @@ export default function News({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard-1" transform="translate(-727.000000, -188.000000)" stroke={stroke}>
           <g id="news" transform="translate(727.000000, 188.000000)">

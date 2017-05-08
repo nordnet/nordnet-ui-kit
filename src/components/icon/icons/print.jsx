@@ -9,7 +9,7 @@ export default function Print({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard-1" transform="translate(-304.000000, -141.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <g id="print" transform="translate(304.000000, 141.000000)">

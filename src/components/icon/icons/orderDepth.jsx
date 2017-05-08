@@ -9,7 +9,7 @@ export default function OrderDepth({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(0, -3)" id="OrderDepth" stroke={stroke}>
           <rect id="Rectangle" x="0.5" y="3.5" width="9" height="2" rx="0.7" />

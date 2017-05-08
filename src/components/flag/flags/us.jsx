@@ -4,7 +4,7 @@ export default function FlagUs({
   ...rest
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g fillRule="evenodd" transform="scale(.9375)">
         <g strokeWidth="1pt">
           <g fill="#bd3d44">

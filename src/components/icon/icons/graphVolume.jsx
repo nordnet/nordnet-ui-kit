@@ -9,7 +9,7 @@ export default function GraphVolume({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-1.0, 0)" id="graphBars" stroke={stroke}>
           <rect id="Rectangle" x="11.5" y="6.5" width="3" height="9" rx="0.7" />

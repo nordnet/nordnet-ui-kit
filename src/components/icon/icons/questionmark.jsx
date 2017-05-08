@@ -9,7 +9,7 @@ export default function Questionmark({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Symbols" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="KYC-form-divided" transform="translate(-660.000000, -99.000000)">
           <g id="FATCA-&amp;-PEP" transform="translate(34.000000, -40.000000)">

@@ -4,7 +4,7 @@ export default function FlagJp({
   ...rest
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <defs>
         <clipPath id="a">
           <path fillOpacity=".67" d="M-88.001 32h640v480h-640z" />

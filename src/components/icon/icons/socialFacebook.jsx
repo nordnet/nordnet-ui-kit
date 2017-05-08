@@ -9,7 +9,7 @@ export default function SocialFacebook({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="social-facebook" stroke={stroke} strokeWidth={strokeWidth}>
           <rect id="Rectangle-path" x="1" y="1" width="14" height="14" />

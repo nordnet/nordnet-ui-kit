@@ -9,7 +9,7 @@ export default function GraphArea({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard-1" transform="translate(-1103.000000, -235.000000)">
           <g id="graph-area" transform="translate(1103.000000, 235.000000)">
