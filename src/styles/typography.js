@@ -1,10 +1,12 @@
 const defaultConstants = {
-  fontFamilyOpen: '"Open Sans"',
-  fontFamilyBitter: 'Bitter',
+  fontFamilyOpen: '"Open Sans", sans-serif',
+  fontFamilyBitter: 'Bitter, serif',
   fontSize: 16,
   fontWeightLight: 300,
   fontWeightRegular: 400,
-  fontWeightMedium: 500,
+  fontWeightSemiBold: 600,
+  fontWeightBold: 700,
+  fontWeightExtraBold: 800,
 };
 
 export default function createTypography(constants = defaultConstants) {
