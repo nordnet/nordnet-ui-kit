@@ -9,7 +9,7 @@ export default function CircleSlash({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Atoms" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Icons" transform="translate(-903.000000, -151.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <g id="Icon-set" transform="translate(56.000000, 151.000000)">

@@ -9,7 +9,7 @@ export default function ExcalmationPoint({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="exclamation-point-error" transform="translate(-1.000000, 0.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M2,0 L2,5" id="Path-5" />

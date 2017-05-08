@@ -9,7 +9,7 @@ export default function ArrowUpDown({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard-1" transform="translate(-163.000000, -141.000000)" strokeWidth={strokeWidth} stroke={stroke}>
           <g id="arrow-up-down" transform="translate(163.000000, 141.000000)">

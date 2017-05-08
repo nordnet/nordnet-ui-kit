@@ -9,7 +9,7 @@ export default function SignOut({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard" transform="translate(-342.000000, -12.000000)" fillRule="nonzero" fill={fill}>
           <g id="exit-right" transform="translate(342.000000, 12.000000)">

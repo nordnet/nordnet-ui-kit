@@ -9,7 +9,7 @@ export default function Mail({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard-1" transform="translate(-398.000000, -188.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <g id="mail" transform="translate(398.000000, 188.000000)">

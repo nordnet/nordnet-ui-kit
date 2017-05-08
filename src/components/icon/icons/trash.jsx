@@ -9,7 +9,7 @@ export default function Trash({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg {...rest}>
+    <svg aria-hidden="true" focusable="false" {...rest}>
       <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="Artboard" transform="translate(-66.000000, -6.000000)" fillRule="nonzero" fill={fill}>
           <g id="trash" transform="translate(66.000000, 6.000000)">
