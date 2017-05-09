@@ -7,7 +7,7 @@ function Logo(props) {
     <NordnetLogo
       className={props.className}
       style={props.style}
-      height="100%"
+      height={props.width * 0.204}
       width={props.width}
       fill={props.iconColor}
       stroke={props.textColor}
