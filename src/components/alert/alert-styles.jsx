@@ -28,6 +28,11 @@ export default createStyleSheet('Alert', (theme) => {
 
     close: {
       all: 'initial',
+      background: 'none repeat scroll 0 0 transparent',
+      border: 'none',
+      borderSpacing: 0,
+      color: '#26589F',
+      listStyle: 'none',
       display: 'block',
       position: 'absolute',
       top: 0,
