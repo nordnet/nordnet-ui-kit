@@ -15,6 +15,7 @@ function Flag({
   const flagStyle = Object.assign({
     display: 'inline-block',
     width: size,
+    height: size * 0.75,
     marginLeft: round ? -size * 0.125 : null,
   }, style);
 
