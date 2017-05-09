@@ -10,7 +10,8 @@ export default createStyleSheet('SegmentedControl', (theme) => {
       display: 'inline-flex',
 
       '& input': {
-        display: 'none',
+        opacity: 0,
+        position: 'absolute',
       },
     },
 
