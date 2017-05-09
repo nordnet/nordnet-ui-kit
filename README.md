@@ -27,7 +27,23 @@ const Component = (
 ReactDOM.render(Root, document.getElementById('app'));
 ```
 
+*To see what is exported from nordnet-ui-kit, please see the documentation below or [index.js](https://github.com/nordnet/nordnet-ui-kit/blob/master/src/index.js)*
+
 ## Documentation for the latest release is available [here](https://nordnet.github.io/nordnet-ui-kit).
+
+## [Changelog](https://github.com/nordnet/nordnet-ui-kit/blob/master/CHANGELOG.md)
+
+## Developing
+```fish
+git clone git@github.com:nordnet/nordnet-ui-kit.git
+cd nordnet-ui-kit
+yarn install
+yarn start # This will start a local instance of the documentation
+```
+
+* Components can be found under `src/components`
+* Examples of component usage (documentation) can be found in the same directory as the component, but with an `.md` extension instead
+* Theming code can be found in `src/styles` (color, palette, breakpoints, typography, etc.)
 
 ## License
 This open source project released by Nordnet is licensed under the MIT license.
