@@ -173,9 +173,9 @@ NordnetLogo.propTypes = {
 
 NordnetLogo.defaultProps = {
   ...Icon.defaultProps,
-  width: 130,
+  width: 132,
+  height: 27,
   fill: '#00A9EC',
   stroke: '#222222',
-  height: '100%',
   viewBox: '0 0 313 64',
 };
