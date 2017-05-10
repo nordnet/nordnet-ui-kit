@@ -26,6 +26,7 @@ class SegmentedControl extends React.PureComponent {
     }
     this.renderChild = this.renderChild.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
     this.childSelectedState = this.childSelectedState.bind(this);
     this.classes = this.context.styleManager.render(SegmentedControlStyles);
   }
@@ -52,6 +53,13 @@ class SegmentedControl extends React.PureComponent {
       };
     }
     return null;
+  }
+
+  handleFocus(e, index) {
+    const focus = e.type === 'focus' ? index : '';
+    this.setState({
+      focus,
+    });
   }
 
   handleChange(e) {
@@ -84,6 +92,9 @@ class SegmentedControl extends React.PureComponent {
       [this.classes.selected]: selected,
       [this.classes.buttonLeft]: index === 0,
       [this.classes.buttonRight]: this.props.children.map ? index === this.props.children.length - 1 : true,
+      [this.classes.focus]: index === this.state.focus,
+      [this.classes.radio]: this.props.type === 'radio',
+      [this.classes.checkbox]: this.props.type === 'checkbox',
     });
     const inputId = `sc-${this.props.name}-${index}`;
     return (<span className={usedClassName} key={`sc-${this.props.name}-${childValue}`}>
@@ -94,6 +105,8 @@ class SegmentedControl extends React.PureComponent {
         value={childValue || index}
         checked={selected}
         onChange={this.handleChange}
+        onFocus={event => this.handleFocus(event, index)}
+        onBlur={event => this.handleFocus(event, index)}
       />
       <label htmlFor={inputId}>{ child }</label>
     </span>);

@@ -4,7 +4,6 @@ Radio type (using icons):
     const color = require('../../styles/color').default;
 
     <SegmentedControl
-      onChange={ console.log }
       value="green"
       name="colorRadio"
       type="radio"
@@ -23,7 +22,6 @@ Radio type (using icons):
 Checkbox type:
 
     <SegmentedControl
-      onChange={ console.log }
       name="colorCheck" type="checkbox">
       <span value="red" checked={true}>Red</span>
       <span value="green">Green</span>
@@ -34,7 +32,6 @@ Checkbox type:
 With single option, "checkbox" type:
 
     <SegmentedControl
-      onChange={ console.log }
       name="colors"
       type="checkbox">
       <span value="red" checked={true}>Red</span>
