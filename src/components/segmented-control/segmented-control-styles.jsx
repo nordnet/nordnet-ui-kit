@@ -53,9 +53,7 @@ export default createStyleSheet('SegmentedControl', (theme) => {
     },
 
     focus: {
-      borderStyle: 'dotted',
-      borderRight: `2px dotted ${palette.color.grayLight} !important`,
-      borderLeftStyle: 'dotted !important',
+      boxShadow: `inset 0 0 1px 1px ${palette.variant.primary}`,
     },
 
     buttonLeft: {
