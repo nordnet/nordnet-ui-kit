@@ -12,6 +12,17 @@ export default createStyleSheet('SegmentedControl', (theme) => {
       '& input': {
         opacity: 0,
         position: 'absolute',
+        left: 0,
+        width: '100%',
+        height: '100%',
+        margin: 0,
+      },
+    },
+
+    radio: {
+      '& label': {
+        paddingTop: '8px',
+        display: 'block',
       },
     },
 
@@ -23,11 +34,8 @@ export default createStyleSheet('SegmentedControl', (theme) => {
       fontSize: '12px',
       fontFamily: typography.primary.fontFamily,
       color: palette.text.default,
-      paddingTop: '8px',
-      paddingBottom: '8px',
-      paddingLeft: '10px',
-      paddingRight: '10px',
       backgroundColor: 'inherit',
+      position: 'relative',
 
       '& + &': {
         borderLeft: `1px solid ${palette.color.grayLight}`,
@@ -35,11 +43,19 @@ export default createStyleSheet('SegmentedControl', (theme) => {
 
       '& label': {
         cursor: 'pointer',
+        margin: '0 12px',
+        lineHeight: '28px',
       },
     },
 
     selected: {
       backgroundColor: palette.color.grayLighter,
+    },
+
+    focus: {
+      borderStyle: 'dotted',
+      borderRight: `2px dotted ${palette.color.grayLight} !important`,
+      borderLeftStyle: 'dotted !important',
     },
 
     buttonLeft: {
