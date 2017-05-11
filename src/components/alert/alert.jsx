@@ -48,10 +48,13 @@ class Alert extends React.PureComponent {
     const usedClassName = classNames(this.classes.alert, {
       [`${this.classes[this.props.modifier]}`]: this.props.modifier,
     }, this.props.className);
+    const headerClassName = classNames('header', {
+      vertical: this.props.vertical,
+    });
 
     return (
-      <div className={usedClassName}>
-        <div className="header">{ this.props.header }</div>
+      <div className={usedClassName} style={this.props.style}>
+        {this.props.header ? <div className={headerClassName}>{ this.props.header }</div> : null}
         <div className={this.classes.body}>{ this.props.children }</div>
         { this.renderClose() }
       </div>
@@ -62,13 +65,17 @@ class Alert extends React.PureComponent {
 Alert.propTypes = {
   className: PropTypes.string,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
+  style: PropTypes.object,
   header: PropTypes.node,
   children: PropTypes.node,
+  vertical: PropTypes.bool,
   dismissable: PropTypes.bool,
   dismissed: PropTypes.bool,
 };
 
 Alert.defaultProps = {
+  style: {},
+  vertical: false,
   dismissable: true,
   dismissed: false,
 };
