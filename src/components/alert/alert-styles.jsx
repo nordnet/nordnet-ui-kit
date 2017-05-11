@@ -12,12 +12,18 @@ export default createStyleSheet('Alert', (theme) => {
       position: 'relative',
       lineHeight: 1.4,
       marginBottom: '16px',
+      color: palette.text.default,
 
       '& .header': {
         display: 'inline-block',
         fontWeight: 'bold',
         padding: '4px',
         color: palette.variant.info,
+
+        '&.vertical': {
+          display: 'block',
+          color: 'inherit',
+        },
       },
     },
 
