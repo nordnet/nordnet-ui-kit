@@ -6,11 +6,11 @@ export default function FlagGb({
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <defs>
-        <clipPath id="a">
+        <clipPath id="gb_a">
           <path fillOpacity=".67" d="M-85.333 0h682.67v512h-682.67z" />
         </clipPath>
       </defs>
-      <g clipPath="url(#a)" transform="translate(80) scale(.94)">
+      <g clipPath="url(#gb_a)" transform="translate(80) scale(.94)">
         <g strokeWidth="1pt">
           <path fill="#006" d="M-256 0H768.02v512.01H-256z" />
           <path
