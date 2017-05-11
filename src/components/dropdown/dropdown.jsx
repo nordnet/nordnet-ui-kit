@@ -15,8 +15,32 @@ class Dropdown extends React.PureComponent {
       actionsOpen: props.actionsOpen,
     };
 
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleToggleClick = this.handleToggleClick.bind(this);
     this.classes = this.context.styleManager.render(styleSheet);
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.handleClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick);
+  }
+
+  handleClick({ target } = {}) {
+    if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
+      this.handleClickOutside();
+    }
+  }
+
+  handleClickOutside() {
+    if (this.state.actionsOpen) {
+      this.setState({
+        actionsOpen: false,
+      });
+    }
   }
 
   handleToggleClick() {
@@ -46,7 +70,10 @@ class Dropdown extends React.PureComponent {
     const IconUsed = this.state.actionsOpen ? IconChevronUp : IconChevronDown;
 
     return (
-      <div className={className}>
+      <div
+        className={className}
+        ref={(element) => { this.onOutsideElement = element; }}
+      >
         <button className={this.classes.toggle} onClick={this.handleToggleClick}>
           { this.props.toggle }
           <IconUsed
