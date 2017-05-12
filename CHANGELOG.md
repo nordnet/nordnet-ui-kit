@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.2
+* Docs: Expand usage section in Readme & add a `Development` section.
+* SegmentedControl: Allow tabbing between options in `checkbox` mode.
+* SegmentedControl: Allow using arrow keys to go between options in `radio` mode.
+* Alert: Fix styling in M$ browsers.
+* Flag/Logo: Fix svg styling issues in M$ browsers.
+* Flag: Fix id-clashes.
+* Alert: Add `vertical` option.
+* Dropdown: Now closes when clicking outside.
+
 ## 0.2.1
 * Flag: Is now dynamic, and accepts more combinations of countryCode + secondaryCountryCode.
 * Icon, Flag: Add screen reader attributes.
