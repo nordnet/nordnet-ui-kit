@@ -8,7 +8,6 @@ export default createStyleSheet('Pane', (theme) => {
       ...mixins.basicBoxSizing,
       background: palette.background.default,
       fontFamily: typography.primary.fontFamily,
-      marginBottom: 16,
     },
 
     tabs: {
