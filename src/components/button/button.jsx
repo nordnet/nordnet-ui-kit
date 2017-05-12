@@ -18,6 +18,7 @@ function Button({
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
   const isLink = variant === 'link';
+  const isAction = modifier === 'action';
   const isSuccess = modifier === 'success';
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
@@ -27,6 +28,7 @@ function Button({
     [classes.primary]: isPrimary,
     [classes.secondary]: isSecondary,
     [classes.link]: isLink,
+    action: isAction,
     success: isSuccess,
     warning: isWarning,
     danger: isDanger,
