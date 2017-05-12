@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+* Input[type="select"]: Styling fixes 💄.
+* Button: Default buttons are now gray, blue button is now `modifier="action"`.
+
 ## 0.2.2
 * Docs: Expand usage section in Readme & add a `Development` section.
 * SegmentedControl: Allow tabbing between options in `checkbox` mode.
