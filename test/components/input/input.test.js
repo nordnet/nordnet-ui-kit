@@ -51,7 +51,9 @@ describe('<Input />', () => {
         });
         it('should set the placeholder to the property placeholder', () => {
           if (type.value === InputSelect) {
-            expect(wrapper.shallow(opts).find('span.input__placeholder').childAt(0).text()).to.equal('placeholder');
+            // For the InputSelect the placeholder is only visible if no "value" is set
+            const wrapperWithoutValue = shallow(<Input type={type.name} label="label" placeholder="placeholder" />);
+            expect(wrapperWithoutValue.shallow(opts).find('span.input__placeholder').childAt(0).text()).to.equal('placeholder');
           } else {
             expect(wrapper.shallow(opts).find('input.input__element').html()).to.contain('placeholder="placeholder"');
           }

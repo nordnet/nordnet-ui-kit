@@ -19,14 +19,13 @@ export default createStyleSheet('InputSelect', (theme) => {
           position: 'absolute',
           left: 0,
           width: '100%',
-          height: '1.2em',
           overflow: 'hidden',
           paddingRight: '24pxm',
           pointerEvents: 'none',
         },
 
         '&__placeholder': {
-          top: '4px',
+          top: 0,
           color: palette.text.muted,
         },
 
@@ -39,7 +38,7 @@ export default createStyleSheet('InputSelect', (theme) => {
           position: 'absolute',
           display: 'block',
           right: '4px',
-          bottom: '10px',
+          top: '6px',
           height: '8px',
           transition: transitions.create(['transform']),
           transform: 'translateY(-4px)',

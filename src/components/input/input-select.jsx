@@ -80,7 +80,7 @@ class InputSelect extends InputDefault {
           { placeholder ? <option value="" disabled>{ placeholder }</option> : null }
           { options.map(renderOption) }
         </select>
-        { this.renderFakePlaceholder() }
+        { this.state.value ? null : this.renderFakePlaceholder() }
         { this.showValue() ? this.renderValueLabel() : null }
         { this.renderSelectArrow() }
       </div>
