@@ -6,6 +6,7 @@ Primary button:
 
     <div>
       <Button variant="primary" style= { style }>Click Me</Button>
+      <Button variant="primary" modifier="action" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="danger" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="warning" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="success" style= { style }>Click Me</Button>
@@ -19,6 +20,7 @@ Secondary button:
 
     <div>
       <Button variant="secondary" style={ style }>Click Me</Button>
+      <Button variant="secondary" modifier="action" style={ style }>Click Me</Button>
       <Button variant="secondary" modifier="danger" style={ style }>Click Me</Button>
       <Button variant="secondary" modifier="warning" style={ style }>Click Me</Button>
       <Button variant="secondary" modifier="success" style={ style }>Click Me</Button>
@@ -32,6 +34,7 @@ Link button:
 
     <div>
       <Button variant="link" style={ style }>Click Me</Button>
+      <Button variant="link" modifier="action" style={ style }>Click Me</Button>
       <Button variant="link" modifier="danger" style={ style }>Click Me</Button>
       <Button variant="link" modifier="warning" style={ style }>Click Me</Button>
       <Button variant="link" modifier="success" style={ style }>Click Me</Button>

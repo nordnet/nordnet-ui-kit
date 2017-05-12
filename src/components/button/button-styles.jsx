@@ -96,13 +96,13 @@ export default createStyleSheet('Button', (theme) => {
     },
 
     primary: {
-      background: palette.variant.primary,
-      border: `2px solid ${palette.variant.primary}`,
+      background: palette.background.secondary,
+      border: `2px solid ${palette.background.secondary}`,
       color: palette.shades.dark.text.default,
 
       '&:hover': {
-        background: focusColor(palette.variant.primary),
-        borderColor: focusColor(palette.variant.primary),
+        background: focusColor(palette.background.secondary),
+        borderColor: focusColor(palette.background.secondary),
       },
 
       '&:disabled': {
@@ -116,6 +116,7 @@ export default createStyleSheet('Button', (theme) => {
         },
       },
 
+      '&.action': buttonModifierFn('primary', palette.variant.primary, focusColor(palette.variant.primary)),
       '&.success': buttonModifierFn('primary', palette.variant.success, focusColor(palette.variant.success)),
       '&.warning': {
         ...buttonModifierFn('primary', palette.variant.warning, focusColor(palette.variant.warning)),
@@ -126,12 +127,12 @@ export default createStyleSheet('Button', (theme) => {
 
     secondary: {
       background: 'none',
-      color: palette.variant.primary,
-      border: `2px solid ${palette.variant.primary}`,
+      color: palette.background.secondary,
+      border: `2px solid ${palette.background.secondary}`,
 
       '&:hover': {
-        color: c(palette.variant.primary).darken(0.1).hex(),
-        borderColor: c(palette.variant.primary).darken(0.1).hex(),
+        color: c(palette.background.secondary).darken(0.1).hex(),
+        borderColor: c(palette.background.secondary).darken(0.1).hex(),
       },
 
       '&:disabled': {
@@ -144,6 +145,7 @@ export default createStyleSheet('Button', (theme) => {
         },
       },
 
+      '&.action': buttonModifierFn('secondary', palette.variant.primary, focusColor(palette.variant.primary)),
       '&.success': buttonModifierFn('secondary', palette.variant.success, focusColor(palette.variant.success)),
       '&.warning': buttonModifierFn('secondary', palette.variant.warning, focusColor(palette.variant.warning)),
       '&.danger': buttonModifierFn('secondary', palette.variant.danger, focusColor(palette.variant.danger)),
@@ -153,13 +155,13 @@ export default createStyleSheet('Button', (theme) => {
       background: 'none',
       paddingLeft: 0,
       paddingRight: 0,
-      color: palette.variant.primary,
+      color: palette.background.secondary,
       border: '2px solid transparent',
       fontWeight: 600,
       cursor: 'pointer',
 
       '&:hover': {
-        color: c(palette.variant.primary).darken(0.2).hex(), // was $color-primary-dark
+        color: c(palette.background.secondary).darken(0.2).hex(), // was $color-primary-dark
       },
 
       '&:disabled': {
@@ -170,6 +172,7 @@ export default createStyleSheet('Button', (theme) => {
         },
       },
 
+      '&.action': buttonModifierFn('link', palette.variant.primary, focusColor(palette.variant.primary)),
       '&.success': buttonModifierFn('link', palette.variant.success, focusColor(palette.variant.success)),
       '&.warning': buttonModifierFn('link', palette.variant.warning, focusColor(palette.variant.warning)),
       '&.danger': buttonModifierFn('link', palette.variant.danger, focusColor(palette.variant.danger)),
