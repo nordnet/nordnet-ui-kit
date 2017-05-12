@@ -52,7 +52,7 @@ Button.propTypes = {
   /** Block level button that spans the full width of its parent */
   block: PropTypes.bool,
   variant: PropTypes.oneOf(['primary', 'secondary', 'link']),
-  modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
+  modifier: PropTypes.oneOf(['action', 'success', 'warning', 'danger']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
   disabled: PropTypes.bool,
