@@ -90,16 +90,6 @@ export default createStyleSheet('InputDefault', (theme) => {
         '&.input--has-error': modifierFocusFn(palette.variant.danger),
       },
 
-      '&.input--has-success .input__field': {
-        paddingRight: 16,
-      },
-
-      '&.input--has-warning, &.input--has-error': {
-        '& .input__field': {
-          paddingRight: 8,
-        },
-      },
-
       '&.input--is-disabled': {
         color: palette.action.disabled,
         backgroundColor: palette.background.muted,
@@ -186,6 +176,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         maxHeight: 27,
         fontFamily: 'inherit',
         fontWeight: 'inherit',
+        minWidth: 0,
 
         '&:focus': {
           outline: 'none',
