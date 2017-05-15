@@ -11,7 +11,7 @@ export default function ExcalmationPoint({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="exclamation-point-error" transform="translate(-1.000000, 0.000000)" stroke={stroke} strokeWidth={strokeWidth}>
+        <g transform="translate(-1.000000, 0.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M2,0 L2,5" id="Path-5" />
           <path d="M2.0035995,6.0260159 L1.9964005,8" id="Path-6" />
         </g>

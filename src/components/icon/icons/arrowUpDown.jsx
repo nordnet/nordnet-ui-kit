@@ -12,7 +12,7 @@ export default function ArrowUpDown({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-163.000000, -141.000000)" strokeWidth={strokeWidth} stroke={stroke}>
-          <g id="arrow-up-down" transform="translate(163.000000, 141.000000)">
+          <g transform="translate(163.000000, 141.000000)">
             <polyline points="13 15 8 15 8 10" />
             <path d="M8,15 L15.25,7.75" />
             <polyline points="3 1 8 1 8 6" />

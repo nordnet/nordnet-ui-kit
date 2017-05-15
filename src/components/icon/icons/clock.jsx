@@ -11,7 +11,7 @@ export default function Clock({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="clock" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M13.6572632,2.34273684 C12.1465263,0.832 10.1372632,0 8,0 C5.86273684,0 3.85431579,0.832
             2.34273684,2.34273684 C0.832,3.85347368 0,5.86273684 0,7.99915789 C0,10.1355789 0.832,12.1448421

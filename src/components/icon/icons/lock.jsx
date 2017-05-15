@@ -12,8 +12,8 @@ export default function Lock({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-492.000000, -141.000000)" stroke={stroke}>
-          <g id="lock" transform="translate(492.000000, 141.000000)">
-            <rect id="Rectangle-path" strokeWidth={strokeWidth} x="3" y="6" width="10" height="9" />
+          <g transform="translate(492.000000, 141.000000)">
+            <rect strokeWidth={strokeWidth} x="3" y="6" width="10" height="9" />
             <path
               d="M8,10.5 C8.55228475,10.5 9,10.0522847 9,9.5 C9,8.94771525 8.55228475,8.5 8,8.5 C7.44771525,8.5
               7,8.94771525 7,9.5 C7,10.0522847 7.44771525,10.5 8,10.5 Z M7.25,12.5 L8.75,12.5 L8,10.75 L7.25,12.5

@@ -11,7 +11,7 @@ export default function Chart({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="cart" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M6.11764706,16 C5.33905882,16 4.70588235,15.3668235 4.70588235,14.5882353 C4.70588235,13.8096471 5.33905882,13.1764706
             6.11764706,13.1764706 C6.89623529,13.1764706 7.52941176,13.8096471 7.52941176,14.5882353 C7.52941176,15.3668235 6.89623529,16

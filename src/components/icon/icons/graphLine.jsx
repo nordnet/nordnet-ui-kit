@@ -11,7 +11,7 @@ export default function GraphLine({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="graph-line" stroke={stroke}>
+        <g stroke={stroke}>
           <polyline points="0 9.6 5.6 4 8.8 7.2 16 0" />
         </g>
       </g>

@@ -12,8 +12,8 @@ export default function Key({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-727.000000, -94.000000)" stroke={stroke}>
-          <g id="key" transform="translate(727.000000, 94.000000)">
-            <circle id="Oval" cx="11" cy="5" r="0.5" />
+          <g transform="translate(727.000000, 94.000000)">
+            <circle cx="11" cy="5" r="0.5" />
             <path
               d="M6.10526774,6.47208481 L1,11.5 L1,15 L5,15 L5,13 L7,13 L7,11 L8.5,11 L9.59170771,9.90829229
               C9.88507592,9.96842069 10.1888501,10 10.5,10 C12.9852814,10 15,7.98528137 15,5.5 C15,3.01471863

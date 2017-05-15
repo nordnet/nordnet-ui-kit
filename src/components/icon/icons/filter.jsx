@@ -11,7 +11,7 @@ export default function Filter({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="filter" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M11.8465882,0.569411765 C10.5609412,0.202352941 8.86117647,0 7.05882353,0 C5.25647059,0 3.55576471,0.202352941
             2.27105882,0.569411765 C1.61788235,0.755764706 1.09835294,0.977882353 0.724705882,1.23011765 C0.125176471,1.63482353

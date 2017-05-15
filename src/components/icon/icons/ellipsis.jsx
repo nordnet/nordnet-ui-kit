@@ -19,9 +19,9 @@ export default function Ellipsis({
           fill={fill}
         >
           <g id="ellipsis">
-            <circle id="Oval" cx="1" cy="1" r="1" />
-            <circle id="Oval" cx="7" cy="1" r="1" />
-            <circle id="Oval" cx="13" cy="1" r="1" />
+            <circle cx="1" cy="1" r="1" />
+            <circle cx="7" cy="1" r="1" />
+            <circle cx="13" cy="1" r="1" />
           </g>
         </g>
       </g>

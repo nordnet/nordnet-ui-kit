@@ -12,7 +12,7 @@ export default function Cloud({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-210.000000, -143.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <g id="cloud" transform="translate(210.000000, 143.000000)">
+          <g transform="translate(210.000000, 143.000000)">
             <path
               d="M12.5,11 C13.8807119,11 15,9.88071187 15,8.5 C15,7.29043469 14.1409975,6.28150016 12.9997556,6.04995945
               C12.9999184,6.03332561 13,6.01667234 13,6 C13,3.23857625 10.7614237,1 8,1 C5.87356524,1 4.05716713,2.32742474

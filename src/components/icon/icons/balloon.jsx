@@ -12,7 +12,7 @@ export default function Balloon({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-165.000000, -7.000000)" fillRule="nonzero" fill={fill}>
-          <g id="bubble" transform="translate(165.000000, 7.000000)">
+          <g transform="translate(165.000000, 7.000000)">
             <path
               d="M0.421052632,15.1578947 C0.231578947,15.1578947 0.0656842105,15.0315789 0.0151578947,14.8488421
               C-0.0353684211,14.6661053 0.0421052632,14.4724211 0.204631579,14.3755789 C1.62863158,13.5216842

@@ -12,8 +12,8 @@ export default function Film({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-821.000000, -141.000000)" stroke={stroke}>
-          <g id="film" transform="translate(821.000000, 141.000000)">
-            <rect id="Rectangle-path" strokeWidth={strokeWidth} x="1" y="2" width="14" height="13" />
+          <g transform="translate(821.000000, 141.000000)">
+            <rect strokeWidth={strokeWidth} x="1" y="2" width="14" height="13" />
             <path d="M4.5,3 L4.5,14" />
             <path d="M11.5,3 L11.5,14" />
             <path d="M2,5.5 L4,5.5" />

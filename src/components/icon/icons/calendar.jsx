@@ -12,8 +12,8 @@ export default function Calendar({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-210.000000, -188.000000)" stroke={stroke}>
-          <g id="calendar" transform="translate(210.000000, 188.000000)">
-            <rect id="Rectangle-path" strokeWidth={strokeWidth} x="2" y="4" width="13" height="10" />
+          <g transform="translate(210.000000, 188.000000)">
+            <rect strokeWidth={strokeWidth} x="2" y="4" width="13" height="10" />
             <path d="M14,2 L12,2" strokeWidth={strokeWidth} fill={fill} />
             <path d="M5,2 L3,2" strokeWidth={strokeWidth} fill={fill} />
             <path d="M3,7.5 L14,7.5" id="Path-502" />

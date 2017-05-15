@@ -11,7 +11,7 @@ export default function SocialTwitter({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="social-twitter" fill={fill}>
+        <g fill={fill}>
           <path
             d="M10.3,3 C11,3 11.7,3.3 12.2,3.9 C12.8,3.8 13.3,3.6 13.8,3.3 C13.6,3.9 13.2,4.4
             12.7,4.7 C13.2,4.7 13.7,4.5 14.1,4.3 C13.9,4.9 13.5,5.3 12.9,5.6 C13,9.4 10,12.8

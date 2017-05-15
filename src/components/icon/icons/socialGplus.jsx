@@ -11,7 +11,7 @@ export default function SocialGPlus({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="social-gplus" stroke={stroke} strokeWidth={strokeWidth}>
+        <g stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M16,8 L10,8" id="+-hor" fill={fill} />
           <path d="M13,5 L13,11" id="+-vert" fill={fill} />
           <path

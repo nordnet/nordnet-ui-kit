@@ -12,7 +12,7 @@ export default function SignOut({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-342.000000, -12.000000)" fillRule="nonzero" fill={fill}>
-          <g id="exit-right" transform="translate(342.000000, 12.000000)">
+          <g transform="translate(342.000000, 12.000000)">
             <path
               d="M0,13.7058824 L0,1.41176471 C0,0.633411765 0.633411765,0 1.41176471,0 L8.94117647,0 C9.71952941,0
               10.3529412,0.633411765 10.3529412,1.41176471 L10.3529412,4.17647059 C10.3529412,4.43623529 10.1421176,4.64705882

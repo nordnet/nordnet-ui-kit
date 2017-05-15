@@ -11,7 +11,7 @@ export default function ChevronUp({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="chevron-up" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M0.8,8 C0.8,8.1024 0.8392,8.2048 0.9168,8.2832 C1.0728,8.4392 1.3264,8.4392 1.4824,8.2832
             L8.3992,1.3664 L15.316,8.2832 C15.472,8.4392 15.7256,8.4392 15.8816,8.2832 C16.0376,8.1272

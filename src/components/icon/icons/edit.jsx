@@ -11,7 +11,7 @@ export default function Edit({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="edit" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M15.4551084,3.9628483 C15.4551084,1.77773375 13.6773746,0 11.4922601,0 C10.8954551,0 10.3208421,0.129981424
             9.78585759,0.385188854 C9.74385139,0.405003096 9.70739319,0.431950464 9.67648297,0.462860681 L9.67648297,0.462860681

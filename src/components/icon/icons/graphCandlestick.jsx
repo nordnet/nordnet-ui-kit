@@ -12,7 +12,7 @@ export default function GraphCandlestick({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-350.000000, -330.000000)" stroke={stroke}>
-          <g id="graph-candlestick" transform="translate(350.000000, 330.000000)">
+          <g transform="translate(350.000000, 330.000000)">
             <rect id="Rectangle-3" x="1.5" y="0.5" width="1" height="4" />
             <rect id="Rectangle-4" x="1.5" y="11.5" width="1" height="4" />
             <rect id="Rectangle-3" x="7.5" y="0.5" width="1" height="6" />

@@ -11,7 +11,7 @@ export default function Profile({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="profile" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M7.6,8.8 C5.1736,8.8 3.2,6.8264 3.2,4.4 C3.2,1.9736 5.1736,0 7.6,0 C10.0264,0 12,1.9736 12,4.4 C12,6.8264
             10.0264,8.8 7.6,8.8 Z M7.6,0.8 C5.6152,0.8 4,2.4152 4,4.4 C4,6.3848 5.6152,8 7.6,8 C9.5848,8 11.2,6.3848

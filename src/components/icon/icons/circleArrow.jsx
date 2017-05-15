@@ -11,7 +11,7 @@ export default function CircleArrow({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="refresh" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M12.4148521,3.58560674 C11.2488774,2.58406902 9.7803811,1.875 8.11101235,1.875 C4.67994889,1.875
             1.88887654,4.6225 1.88887654,8 C1.88887654,11.3775 4.67994889,14.125 8.11101235,14.125 C10.424758,14.125

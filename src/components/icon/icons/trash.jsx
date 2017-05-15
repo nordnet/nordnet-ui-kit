@@ -12,7 +12,7 @@ export default function Trash({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-66.000000, -6.000000)" fillRule="nonzero" fill={fill}>
-          <g id="trash" transform="translate(66.000000, 6.000000)">
+          <g transform="translate(66.000000, 6.000000)">
             <path
               d="M10.8,1.6 L8,1.6 L8,1.2 C8,0.5384 7.4616,0 6.8,0 L5.2,0 C4.5384,0 4,0.5384 4,1.2 L4,1.6 L1.2,1.6 C0.5384,1.6 0,2.1384
               0,2.8 L0,3.6 C0,4.1216 0.3344,4.5664 0.8,4.7312 L0.8,14.8 C0.8,15.4616 1.3384,16 2,16 L10,16 C10.6616,16 11.2,15.4616

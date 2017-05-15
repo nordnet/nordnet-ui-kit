@@ -11,7 +11,7 @@ export default function Expand({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="expand" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M6.2832,5.7168 L1.3664,0.8 L4.4008,0.8 C4.6216,0.8 4.8008,0.6208 4.8008,0.4 C4.8008,0.1792 4.6216,0
             4.4008,0 L0.4008,0 C0.18,0 0.0008,0.1792 0.0008,0.4 L0.0008,4.4 C0.0008,4.6208 0.18,4.8 0.4008,4.8 C0.6216,4.8

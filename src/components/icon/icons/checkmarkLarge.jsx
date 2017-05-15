@@ -12,7 +12,7 @@ export default function CheckmarkLarge({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-113.000000, -330.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <g id="checkmark-large" transform="translate(113.000000, 330.000000)">
+          <g transform="translate(113.000000, 330.000000)">
             <path d="M14.4000244,3 L5.40002441,12 L1.40002441,8" />
           </g>
         </g>

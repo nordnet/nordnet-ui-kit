@@ -11,7 +11,7 @@ export default function Search({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="search" fillRule="nonzero" fill={fill}>
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M15.0952,15.3296 L10.3408,10.1424 C11.412,9.0216 12.0008,7.556 12.0008,6 C12.0008,4.3976
               11.3768,2.8904 10.2432,1.7576 C9.1096,0.6248 7.6032,-8.8817842e-16 6.0008,-8.8817842e-16

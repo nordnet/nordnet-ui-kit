@@ -11,9 +11,9 @@ export default function OrderDepth({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g transform="translate(0, -3)" id="OrderDepth" stroke={stroke}>
-          <rect id="Rectangle" x="0.5" y="3.5" width="9" height="2" rx="0.7" />
-          <rect id="Rectangle" x="0.5" y="7.5" width="5" height="2" rx="0.7" />
+        <g transform="translate(0, -3)" stroke={stroke}>
+          <rect x="0.5" y="3.5" width="9" height="2" rx="0.7" />
+          <rect x="0.5" y="7.5" width="5" height="2" rx="0.7" />
           <rect id="Rectangle-3-" x="0.5" y="11.5" width="15" height="2" rx="0.7" />
         </g>
       </g>
