@@ -11,13 +11,11 @@ export default function FloppyDisk({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g transform="translate(-351.000000, -141.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <g transform="translate(351.000000, 141.000000)">
-            <path d="M15,15 L1,15 L1,1 L13.5,1 L15,2.5 L15,15 Z" />
-            <rect x="5" y="1" width="6" height="4" />
-            <path d="M4,9 L12,9" fill={fill} />
-            <path d="M4,12 L12,12" fill={fill} />
-          </g>
+        <g stroke={stroke} strokeWidth={strokeWidth}>
+          <path d="M15,15 L1,15 L1,1 L13.5,1 L15,2.5 L15,15 Z" />
+          <rect x="5" y="1" width="6" height="4" />
+          <path d="M4,9 L12,9" fill={fill} />
+          <path d="M4,12 L12,12" fill={fill} />
         </g>
       </g>
     </svg>

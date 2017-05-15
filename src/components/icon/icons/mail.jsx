@@ -11,11 +11,9 @@ export default function Mail({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g transform="translate(-398.000000, -188.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <g transform="translate(398.000000, 188.000000)">
-            <path d="M1,3 L1,8 L1,13 L15,13 L15,8 L15,3 L1,3 Z" />
-            <path d="M1,3.5 L8,7.5 L15,3.5" />
-          </g>
+        <g stroke={stroke} strokeWidth={strokeWidth}>
+          <path d="M1,3 L1,8 L1,13 L15,13 L15,8 L15,3 L1,3 Z" />
+          <path d="M1,3.5 L8,7.5 L15,3.5" />
         </g>
       </g>
     </svg>

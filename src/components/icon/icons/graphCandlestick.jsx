@@ -11,18 +11,16 @@ export default function GraphCandlestick({
   return (
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g transform="translate(-350.000000, -330.000000)" stroke={stroke}>
-          <g transform="translate(350.000000, 330.000000)">
-            <rect x="1.5" y="0.5" width="1" height="4" />
-            <rect x="1.5" y="11.5" width="1" height="4" />
-            <rect x="7.5" y="0.5" width="1" height="6" />
-            <rect x="13.5" y="0.5" width="1" height="2" />
-            <rect x="13.5" y="12.5" width="1" height="3" />
-            <rect x="7.5" y="11.5" width="1" height="4" />
-            <rect x="0.5" y="5.5" width="3" height="5" />
-            <rect x="6.5" y="7.5" width="3" height="3" />
-            <rect x="12.5" y="3.5" width="3" height="8" />
-          </g>
+        <g stroke={stroke}>
+          <rect x="1.5" y="0.5" width="1" height="4" />
+          <rect x="1.5" y="11.5" width="1" height="4" />
+          <rect x="7.5" y="0.5" width="1" height="6" />
+          <rect x="13.5" y="0.5" width="1" height="2" />
+          <rect x="13.5" y="12.5" width="1" height="3" />
+          <rect x="7.5" y="11.5" width="1" height="4" />
+          <rect x="0.5" y="5.5" width="3" height="5" />
+          <rect x="6.5" y="7.5" width="3" height="3" />
+          <rect x="12.5" y="3.5" width="3" height="8" />
         </g>
       </g>
     </svg>
