@@ -13,7 +13,7 @@ export default function MailOpen({
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-445.000000, -188.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <g transform="translate(445.000000, 188.000000)">
-            <path d="M1,15 L1,5 L8,1.1499939 L15,5 L15,15 L1,15 Z" id="Path-503" />
+            <path d="M1,15 L1,5 L8,1.1499939 L15,5 L15,15 L1,15 Z" />
             <path d="M1,6 L8,10.1499939 L15,6" />
           </g>
         </g>

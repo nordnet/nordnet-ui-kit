@@ -12,7 +12,7 @@ export default function Questionmark({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-660.000000, -99.000000)">
-          <g id="FATCA-&amp;-PEP" transform="translate(34.000000, -40.000000)">
+          <g transform="translate(34.000000, -40.000000)">
             <g transform="translate(627.000000, 140.000000)">
               <circle stroke={stroke} strokeWidth="1.71428571" cx="6" cy="6" r="6" />
               <path

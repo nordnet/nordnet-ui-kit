@@ -12,8 +12,8 @@ export default function ExcalmationPoint({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-1.000000, 0.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <path d="M2,0 L2,5" id="Path-5" />
-          <path d="M2.0035995,6.0260159 L1.9964005,8" id="Path-6" />
+          <path d="M2,0 L2,5" />
+          <path d="M2.0035995,6.0260159 L1.9964005,8" />
         </g>
       </g>
     </svg>

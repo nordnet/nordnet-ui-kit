@@ -12,7 +12,7 @@ export default function Checkmark({
     <svg {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke} strokeWidth={strokeWidth}>
-          <path d="M0.700012207,3.44100952 L3.69873047,6.43997192 L9.29998779,0.839996338" id="Path-5" />
+          <path d="M0.700012207,3.44100952 L3.69873047,6.43997192 L9.29998779,0.839996338" />
         </g>
       </g>
     </svg>

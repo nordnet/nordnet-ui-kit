@@ -16,8 +16,8 @@ export default function Calendar({
             <rect strokeWidth={strokeWidth} x="2" y="4" width="13" height="10" />
             <path d="M14,2 L12,2" strokeWidth={strokeWidth} fill={fill} />
             <path d="M5,2 L3,2" strokeWidth={strokeWidth} fill={fill} />
-            <path d="M3,7.5 L14,7.5" id="Path-502" />
-            <path d="M3,10.5 L14,10.5" id="Path-502" />
+            <path d="M3,7.5 L14,7.5" />
+            <path d="M3,10.5 L14,10.5" />
             <path d="M5.5,5 L5.5,13" fill={fill} />
             <path d="M8.5,5 L8.5,13" fill={fill} />
             <path d="M11.5,5 L11.5,13" fill={fill} />
