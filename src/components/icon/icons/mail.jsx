@@ -6,10 +6,15 @@ export default function Mail({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M1,3 L1,8 L1,13 L15,13 L15,8 L15,3 L1,3 Z" />
@@ -21,6 +26,7 @@ export default function Mail({
 }
 
 Mail.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

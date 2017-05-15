@@ -6,10 +6,15 @@ export default function GraphVolume({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-1.0, 0)" stroke={stroke}>
           <rect x="11.5" y="6.5" width="3" height="9" rx="0.7" />
@@ -22,6 +27,7 @@ export default function GraphVolume({
 }
 
 GraphVolume.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

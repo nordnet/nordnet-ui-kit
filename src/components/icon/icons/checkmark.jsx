@@ -6,10 +6,15 @@ export default function Checkmark({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M0.700012207,3.44100952 L3.69873047,6.43997192 L9.29998779,0.839996338" />
@@ -20,6 +25,7 @@ export default function Checkmark({
 }
 
 Checkmark.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

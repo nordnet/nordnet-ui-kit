@@ -6,10 +6,15 @@ export default function TickingClock({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(1.000000, 1.000000)">
           <polyline stroke={stroke} strokeWidth={strokeWidth} points="7 4 7 7 9 9" />
@@ -26,6 +31,7 @@ export default function TickingClock({
 }
 
 TickingClock.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

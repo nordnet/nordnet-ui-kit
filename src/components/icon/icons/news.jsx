@@ -6,10 +6,15 @@ export default function News({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke}>
           <path d="M3.00000002,14 L13,14 C14.1,14 15,13.1 15,12 L15,2 L4,2 L4,6" strokeWidth={strokeWidth} />
@@ -29,6 +34,7 @@ export default function News({
 }
 
 News.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

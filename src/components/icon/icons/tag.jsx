@@ -6,10 +6,15 @@ export default function Tag({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M1,1 L1,7 L8.5,14.5 L14.5,8.5 L7,1 L1,1 Z" />
@@ -21,6 +26,7 @@ export default function Tag({
 }
 
 Tag.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

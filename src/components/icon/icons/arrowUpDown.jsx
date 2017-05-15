@@ -6,10 +6,16 @@ export default function ArrowUpDown({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
+
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g strokeWidth={strokeWidth} stroke={stroke}>
           <polyline points="13 15 8 15 8 10" />
@@ -23,6 +29,7 @@ export default function ArrowUpDown({
 }
 
 ArrowUpDown.propTypes = {
+  ...Icon.defaultProps,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

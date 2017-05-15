@@ -6,10 +6,15 @@ export default function GraphCandlestick({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke}>
           <rect x="1.5" y="0.5" width="1" height="4" />
@@ -28,6 +33,7 @@ export default function GraphCandlestick({
 }
 
 GraphCandlestick.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

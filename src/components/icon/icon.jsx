@@ -31,4 +31,5 @@ Icon.defaultProps = {
   height: 16,
   width: 16,
   viewBox: '0 0 16 16',
+  style: { pointerEvents: 'none' },
 };

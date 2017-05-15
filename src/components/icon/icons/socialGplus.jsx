@@ -6,10 +6,15 @@ export default function SocialGPlus({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M16,8 L10,8" fill={fill} />
@@ -24,6 +29,7 @@ export default function SocialGPlus({
 }
 
 SocialGPlus.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,
