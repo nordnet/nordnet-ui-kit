@@ -6,10 +6,15 @@ export default function ExcalmationPoint({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(-1.000000, 0.000000)" stroke={stroke} strokeWidth={strokeWidth}>
           <path d="M2,0 L2,5" />
@@ -21,6 +26,7 @@ export default function ExcalmationPoint({
 }
 
 ExcalmationPoint.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

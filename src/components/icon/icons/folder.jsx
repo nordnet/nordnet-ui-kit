@@ -6,10 +6,15 @@ export default function Folder({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g strokeWidth={strokeWidth} stroke={stroke}>
           <path d="M15,4 L15,14 L1,14 L1,2 L6,2 L8,4 L15,4 Z" />
@@ -20,6 +25,7 @@ export default function Folder({
 }
 
 Folder.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

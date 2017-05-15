@@ -6,10 +6,15 @@ export default function Ellipsis({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g
           transform="translate(8.000000, 8.000000) translate(-2.000000, -8.000000) translate(-5.000000, 7.000000)"
@@ -29,6 +34,7 @@ export default function Ellipsis({
 }
 
 Ellipsis.propTypes = {
+  ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

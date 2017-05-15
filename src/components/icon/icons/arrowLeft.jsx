@@ -6,10 +6,16 @@ export default function ArrowLeft({
   stroke,
   fill,
   strokeWidth,
+  style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
+  const style = {
+    ...styleProp,
+    ...Icon.defaultProps.style,
+  };
+
   return (
-    <svg {...rest}>
+    <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g transform="translate(0, 2.7)" fillRule="nonzero" fill={fill}>
           <g>
@@ -34,6 +40,7 @@ ArrowLeft.propTypes = {
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,
+  ...Icon.propTypes,
 };
 
 ArrowLeft.defaultProps = {

@@ -31,4 +31,14 @@ describe('<Icon />', () => {
     wrapper = shallow(<Icon.Trash fill={color} />);
     expect(wrapper.find('g > g').prop('fill')).to.equal(color);
   });
+
+  it('should have pointerEvents set to none', () => {
+    Object.keys(Icon).map((key) => {
+      const Component = Icon[key];
+      const element = shallow(<Component />);
+      // If a test breaks, uncomment this to see which icon is broken:
+      // console.log(`${key}: ${element.props().style.pointerEvents}`);
+      return expect(element.props().style.pointerEvents).to.equal('none');
+    });
+  });
 });
