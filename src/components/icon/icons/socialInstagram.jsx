@@ -9,8 +9,8 @@ export default function SocialInstagram({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="social-instagram" stroke={stroke} strokeWidth={strokeWidth}>
           <rect id="base" x="1" y="1" width="14" height="14" />
           <path d="M11,7 L15,7" id="divider-right" fill={fill} />

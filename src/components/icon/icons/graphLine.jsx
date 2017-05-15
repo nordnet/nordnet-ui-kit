@@ -9,10 +9,10 @@ export default function GraphLine({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="graph-line" stroke={stroke}>
-          <polyline id="Shape" points="0 9.6 5.6 4 8.8 7.2 16 0" />
+          <polyline points="0 9.6 5.6 4 8.8 7.2 16 0" />
         </g>
       </g>
     </svg>

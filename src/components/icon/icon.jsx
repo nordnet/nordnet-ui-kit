@@ -25,6 +25,8 @@ Icon.propTypes = {
 Icon.defaultProps = {
   fill: '#222',
   stroke: '#222',
+  'aria-hidden': 'true',
+  focusable: 'false',
   strokeWidth: 1,
   height: 16,
   width: 16,

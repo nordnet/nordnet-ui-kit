@@ -9,8 +9,8 @@ export default function Filter({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="filter" fillRule="nonzero" fill={fill}>
           <path
             d="M11.8465882,0.569411765 C10.5609412,0.202352941 8.86117647,0 7.05882353,0 C5.25647059,0 3.55576471,0.202352941
@@ -32,7 +32,6 @@ export default function Filter({
             1.94447059,4.04423529 2.27105882,4.13647059 C3.55670588,4.50352941 5.25647059,4.70588235 7.05882353,4.70588235
             C8.86117647,4.70588235 10.5618824,4.50352941 11.8465882,4.13647059 C12.1722353,4.04329412 12.4658824,3.94164706
             12.7237647,3.83058824 L8.13082353,10.72 C7.79388235,11.2263529 7.52941176,12.0988235 7.52941176,12.7058824 Z"
-            id="Shape"
           />
         </g>
       </g>

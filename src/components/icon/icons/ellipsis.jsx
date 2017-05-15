@@ -9,8 +9,8 @@ export default function Ellipsis({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g
           id="icon"
           transform="translate(8.000000, 8.000000) translate(-2.000000, -8.000000) translate(-5.000000, 7.000000)"

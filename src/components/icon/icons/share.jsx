@@ -9,9 +9,9 @@ export default function Share({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-1009.000000, -282.000000)" stroke={stroke}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-1009.000000, -282.000000)" stroke={stroke}>
           <g id="share" transform="translate(1009.000000, 282.000000)">
             <circle id="Oval" strokeWidth="1.5" cx="12.75" cy="3.25" r="2.5" />
             <circle id="Oval" strokeWidth="1.5" cx="3.25" cy="8" r="2.5" />

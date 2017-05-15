@@ -9,9 +9,9 @@ export default function ArrowLeft({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard" transform="translate(0, 2.7)" fillRule="nonzero" fill={fill}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(0, 2.7)" fillRule="nonzero" fill={fill}>
           <g>
             <path
               d="M0.589263762,5.00241556 L5.47287655,0.118802768 C5.63159397,-0.0399146481 5.88961151,-0.0399146481
@@ -22,7 +22,6 @@ export default function ArrowLeft({
               6.04832893,10.4606668 C5.96856325,10.5404325 5.86437951,10.5795014 5.76019577,10.5795014
               C5.65601203,10.5795014 5.55182829,10.5396185 5.47206262,10.4606668 L0.588449827,5.577054
               C0.429732411,5.41833658 0.429732411,5.16031904 0.588449827,5.00160162 L0.589263762,5.00241556 Z"
-              id="Shape"
             />
           </g>
         </g>

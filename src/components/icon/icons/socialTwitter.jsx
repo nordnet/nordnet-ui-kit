@@ -9,8 +9,8 @@ export default function SocialTwitter({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="social-twitter" fill={fill}>
           <path
             d="M10.3,3 C11,3 11.7,3.3 12.2,3.9 C12.8,3.8 13.3,3.6 13.8,3.3 C13.6,3.9 13.2,4.4
@@ -25,7 +25,6 @@ export default function SocialTwitter({
             C15.4,6.2 15.7,5.6 15.9,5 C16.1,4.4 16.1,3.8 15.7,3.2 C15.7,2.1 14.8,1.3 13.7,1.3 L13.7,1.3 L13.7,1.3
             L13.7,1.3 L13.7,1.3 L13.7,1.3 C13.3,1.3 12.9,1.4 12.6,1.6 L12.6,1.6 C11.9,1.2 11.1,1 10.3,1 L10.3,1
             L10.3,1 Z"
-            id="twitter-bird"
           />
         </g>
       </g>

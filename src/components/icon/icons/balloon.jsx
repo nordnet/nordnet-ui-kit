@@ -9,9 +9,9 @@ export default function Balloon({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard" transform="translate(-165.000000, -7.000000)" fillRule="nonzero" fill={fill}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-165.000000, -7.000000)" fillRule="nonzero" fill={fill}>
           <g id="bubble" transform="translate(165.000000, 7.000000)">
             <path
               d="M0.421052632,15.1578947 C0.231578947,15.1578947 0.0656842105,15.0315789 0.0151578947,14.8488421
@@ -30,7 +30,6 @@ export default function Balloon({
               1.99747368,13.9949474 C3.09389474,13.6109474 4.27452632,12.9448421 5.14610526,12.3452632 C5.24968421,12.2736842
               5.37936842,12.2526316 5.50063158,12.2871579 C6.29894737,12.5153684 7.14021053,12.6315789 8,12.6315789
               C11.9469474,12.6315789 15.1578947,10.176 15.1578947,7.15789474 C15.1578947,4.13978947 11.9469474,1.68421053 8,1.68421053 Z"
-              id="Shape"
             />
           </g>
         </g>

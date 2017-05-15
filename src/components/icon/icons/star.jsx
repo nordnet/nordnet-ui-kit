@@ -9,8 +9,8 @@ export default function Star({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="star" strokeWidth={strokeWidth} stroke={stroke}>
           <path
             d="M8.01000071,2.1000061 L6.01000068,6.10000616 L1.61000061,6.74000617 L4.81000066,9.86000622 L4.09000065,14.2600063

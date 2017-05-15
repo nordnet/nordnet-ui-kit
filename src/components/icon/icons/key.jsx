@@ -9,9 +9,9 @@ export default function Key({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-727.000000, -94.000000)" stroke={stroke}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-727.000000, -94.000000)" stroke={stroke}>
           <g id="key" transform="translate(727.000000, 94.000000)">
             <circle id="Oval" cx="11" cy="5" r="0.5" />
             <path

@@ -9,8 +9,8 @@ export default function Search({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g id="search" fillRule="nonzero" fill={fill}>
           <path
             d="M15.0952,15.3296 L10.3408,10.1424 C11.412,9.0216 12.0008,7.556 12.0008,6 C12.0008,4.3976
@@ -20,7 +20,6 @@ export default function Search({
               L14.5056,15.8704 C14.5848,15.9568 14.692,16 14.8008,16 C14.8976,16 14.9944,15.9656 15.0712,15.8952
               C15.2344,15.7456 15.2448,15.4928 15.096,15.3304 L15.0952,15.3296 Z M0.8,6 C0.8,3.1328 3.1328,0.8 6,0.8
               C8.8672,0.8 11.2,3.1328 11.2,6 C11.2,8.8672 8.8672,11.2 6,11.2 C3.1328,11.2 0.8,8.8672 0.8,6 Z"
-            id="Shape"
           />
         </g>
       </g>

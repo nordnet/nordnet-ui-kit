@@ -9,9 +9,9 @@ export default function Folder({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-351.000000, -188.000000)" strokeWidth={strokeWidth} stroke={stroke}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-351.000000, -188.000000)" strokeWidth={strokeWidth} stroke={stroke}>
           <g id="folder" transform="translate(351.000000, 188.000000)">
             <path d="M15,4 L15,14 L1,14 L1,2 L6,2 L8,4 L15,4 Z" />
           </g>

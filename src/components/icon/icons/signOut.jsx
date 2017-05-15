@@ -9,9 +9,9 @@ export default function SignOut({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard" transform="translate(-342.000000, -12.000000)" fillRule="nonzero" fill={fill}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-342.000000, -12.000000)" fillRule="nonzero" fill={fill}>
           <g id="exit-right" transform="translate(342.000000, 12.000000)">
             <path
               d="M0,13.7058824 L0,1.41176471 C0,0.633411765 0.633411765,0 1.41176471,0 L8.94117647,0 C9.71952941,0
@@ -23,7 +23,6 @@ export default function SignOut({
               L9.41176471,9.94117647 C9.41176471,9.68141176 9.62258824,9.47058824 9.88235294,9.47058824 C10.1421176,9.47058824
               10.3529412,9.68141176 10.3529412,9.94117647 L10.3529412,12.7058824 C10.3529412,13.4842353 9.71952941,14.1176471
               8.94117647,14.1176471 L1.41176471,14.1176471 C0.633411765,14.1176471 0,14.4842353 0,13.7058824 Z"
-              id="Shape"
             />
             <path
               d="M15.392,7.39105882 C15.5755294,7.20752941 15.5755294,6.90917647 15.392,6.72564706 L12.5684706,3.90211765
@@ -33,7 +32,6 @@ export default function SignOut({
               L11.9030588,9.55011765 C11.8108235,9.64235294 11.7656471,9.76282353 11.7656471,9.88235294 C11.7656471,10.0018824
               11.8117647,10.1232941 11.9030588,10.2145882 C12.0865882,10.3981176 12.3849412,10.3981176 12.5684706,10.2145882
               L15.392,7.39105882 Z"
-              id="Shape"
             />
           </g>
         </g>

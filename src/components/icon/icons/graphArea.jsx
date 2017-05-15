@@ -9,12 +9,12 @@ export default function GraphArea({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-1103.000000, -235.000000)">
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-1103.000000, -235.000000)">
           <g id="graph-area" transform="translate(1103.000000, 235.000000)">
-            <polyline id="Shape" stroke={stroke} strokeWidth={strokeWidth} points="1 0 1 15 16 15" />
-            <polygon id="Shape" fill={fill} points="3 13 3 9 6 6 9 9 16 2 16 13" />
+            <polyline stroke={stroke} strokeWidth={strokeWidth} points="1 0 1 15 16 15" />
+            <polygon fill={fill} points="3 13 3 9 6 6 9 9 16 2 16 13" />
           </g>
         </g>
       </g>

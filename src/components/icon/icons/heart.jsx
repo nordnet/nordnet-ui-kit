@@ -9,9 +9,9 @@ export default function Heart({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-257.000000, -188.000000)" strokeWidth={strokeWidth} stroke={stroke}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-257.000000, -188.000000)" strokeWidth={strokeWidth} stroke={stroke}>
           <g id="heart" transform="translate(257.000000, 188.000000)">
             <path
               d="M2.1,2.79999695 C2.8,2.09999695 3.7,1.69999695 4.7,1.69999695 C5.7,1.69999695 6.6,2.09999695 7.3,2.79999695

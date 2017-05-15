@@ -9,9 +9,9 @@ export default function Lock({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-492.000000, -141.000000)" stroke={stroke}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g transform="translate(-492.000000, -141.000000)" stroke={stroke}>
           <g id="lock" transform="translate(492.000000, 141.000000)">
             <rect id="Rectangle-path" strokeWidth={strokeWidth} x="3" y="6" width="10" height="9" />
             <path
@@ -20,7 +20,7 @@ export default function Lock({
               Z M7.5,9 L8.5,9 L8.5,10 L7.5,10 L7.5,9 Z"
               id="Combined-Shape"
             />
-            <path d="M5,6 L5,4 C5,2.3 6.3,1 8,1 L8,1 C9.7,1 11,2.3 11,4 L11,6" id="Shape" strokeWidth={strokeWidth} />
+            <path d="M5,6 L5,4 C5,2.3 6.3,1 8,1 L8,1 C9.7,1 11,2.3 11,4 L11,6" strokeWidth={strokeWidth} />
           </g>
         </g>
       </g>
