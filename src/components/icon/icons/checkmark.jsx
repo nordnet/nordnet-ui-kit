@@ -9,10 +9,10 @@ export default function Checkmark({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="checkmark" stroke={stroke} strokeWidth={strokeWidth}>
-          <path d="M0.700012207,3.44100952 L3.69873047,6.43997192 L9.29998779,0.839996338" id="Path-5" />
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g stroke={stroke} strokeWidth={strokeWidth}>
+          <path d="M0.700012207,3.44100952 L3.69873047,6.43997192 L9.29998779,0.839996338" />
         </g>
       </g>
     </svg>

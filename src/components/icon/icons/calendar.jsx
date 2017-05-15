@@ -9,19 +9,17 @@ export default function Calendar({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-210.000000, -188.000000)" stroke={stroke}>
-          <g id="calendar" transform="translate(210.000000, 188.000000)">
-            <rect id="Rectangle-path" strokeWidth={strokeWidth} x="2" y="4" width="13" height="10" />
-            <path d="M14,2 L12,2" id="Shape" strokeWidth={strokeWidth} fill={fill} />
-            <path d="M5,2 L3,2" id="Shape" strokeWidth={strokeWidth} fill={fill} />
-            <path d="M3,7.5 L14,7.5" id="Path-502" />
-            <path d="M3,10.5 L14,10.5" id="Path-502" />
-            <path d="M5.5,5 L5.5,13" id="Shape" fill={fill} />
-            <path d="M8.5,5 L8.5,13" id="Shape" fill={fill} />
-            <path d="M11.5,5 L11.5,13" id="Shape" fill={fill} />
-          </g>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g stroke={stroke}>
+          <rect strokeWidth={strokeWidth} x="2" y="4" width="13" height="10" />
+          <path d="M14,2 L12,2" strokeWidth={strokeWidth} fill={fill} />
+          <path d="M5,2 L3,2" strokeWidth={strokeWidth} fill={fill} />
+          <path d="M3,7.5 L14,7.5" />
+          <path d="M3,10.5 L14,10.5" />
+          <path d="M5.5,5 L5.5,13" fill={fill} />
+          <path d="M8.5,5 L8.5,13" fill={fill} />
+          <path d="M11.5,5 L11.5,13" fill={fill} />
         </g>
       </g>
     </svg>

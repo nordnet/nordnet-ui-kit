@@ -9,13 +9,11 @@ export default function Tag({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="Artboard-1" transform="translate(-915.000000, -141.000000)" stroke={stroke} strokeWidth={strokeWidth}>
-          <g id="tag" transform="translate(915.000000, 141.000000)">
-            <path d="M1,1 L1,7 L8.5,14.5 L14.5,8.5 L7,1 L1,1 Z" id="base" />
-            <path d="M3,4 L5,4" id="hole" />
-          </g>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g stroke={stroke} strokeWidth={strokeWidth}>
+          <path d="M1,1 L1,7 L8.5,14.5 L14.5,8.5 L7,1 L1,1 Z" />
+          <path d="M3,4 L5,4" />
         </g>
       </g>
     </svg>

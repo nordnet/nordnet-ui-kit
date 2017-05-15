@@ -9,9 +9,9 @@ export default function Edit({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="icons" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="edit" fillRule="nonzero" fill={fill}>
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g fillRule="nonzero" fill={fill}>
           <path
             d="M15.4551084,3.9628483 C15.4551084,1.77773375 13.6773746,0 11.4922601,0 C10.8954551,0 10.3208421,0.129981424
             9.78585759,0.385188854 C9.74385139,0.405003096 9.70739319,0.431950464 9.67648297,0.462860681 L9.67648297,0.462860681
@@ -35,7 +35,6 @@ export default function Edit({
             5.72710836,10.2883467 L5.72631579,10.2891393 Z M1.47497214,12.6866625 C1.51143034,12.6834923 1.54788854,12.6811146
             1.58513932,12.6811146 C2.24059443,12.6811146 2.77399381,13.2145139 2.77399381,13.869969 C2.77399381,13.9072198
             2.77240867,13.943678 2.76844582,13.9801362 L1.25939319,14.1957152 L1.47497214,12.6866625 L1.47497214,12.6866625 Z"
-            id="Shape"
           />
         </g>
       </g>

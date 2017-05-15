@@ -9,11 +9,11 @@ export default function Close({
   ...rest // eslint-disable-line comma-dangle
 }) {
   return (
-    <svg aria-hidden="true" focusable="false" {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g id="close" stroke={stroke} strokeWidth={strokeWidth}>
-          <path d="M1.875,1.875 L14.125,14.125" id="Shape" />
-          <path d="M14.1249998,1.875 L1.875,14.1249998" id="Shape" />
+    <svg {...rest}>
+      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
+        <g stroke={stroke} strokeWidth={strokeWidth}>
+          <path d="M1.875,1.875 L14.125,14.125" />
+          <path d="M14.1249998,1.875 L1.875,14.1249998" />
         </g>
       </g>
     </svg>
