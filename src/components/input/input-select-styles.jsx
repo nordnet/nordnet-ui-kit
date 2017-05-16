@@ -12,26 +12,23 @@ export default createStyleSheet('InputSelect', (theme) => {
         '&__element': {
           appearance: 'none',
           opacity: 0,
-          paddingRight: '24px',
+          paddingRight: 24,
         },
 
         '&__placeholder, &__value-label': {
           position: 'absolute',
           left: 0,
+          top: 0,
           width: '100%',
           overflow: 'hidden',
-          paddingRight: '24pxm',
+          paddingRight: 24,
           pointerEvents: 'none',
+          whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis',
         },
 
         '&__placeholder': {
-          top: 0,
           color: palette.text.muted,
-        },
-
-        '&__value-label': {
-          top: 0,
-          textOverflow: 'ellipsis',
         },
 
         '&__select-arrow': {

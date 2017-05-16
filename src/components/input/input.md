@@ -94,7 +94,7 @@ Type: `select`
       label: 'Option 2',
       value: 2,
     }, {
-      label: 'Option 3',
+      label: 'Super mega very long option 3 - this is a test to show that the option is properly cut after a specific length and that the whole option text is shown in a title tag',
       value: 3,
     }];
 
