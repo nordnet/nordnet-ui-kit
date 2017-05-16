@@ -11,6 +11,7 @@
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "test": "mocha-webpack --opts test/mocha.webpack.opts",
     "tdd": "npm test -- --watch",
+    "coverage": "cross-env NODE_ENV=coverage nyc npm test",
     "prepush": "run-p lint test",
     "prepublish": "in-publish && run-s lint test build || not-in-publish",
     "postpublish": "run-s clean && git push --follow-tags --no-verify && run-s docs-publish",
@@ -29,6 +30,19 @@
     "ui",
     "kit"
   ],
+  "nyc": {
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
+    "all": true,
+    "instrument": false,
+    "sourceMap": false,
+    "reporter": [
+      "text-summary",
+      "text"
+    ]
+  },
   "author": "Gustaf Zetterlund <gustaf.zetterlund@nordnet.se>",
   "repository": "nordnet/nordnet-ui-kit",
   "bugs": {
@@ -61,6 +75,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-register": "^6.24.0",
     "chai": "^3.5.0",
+    "cross-env": "^5.0.0",
     "enzyme": "^2.8.2",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
@@ -69,11 +84,13 @@
     "eslint-plugin-react": "^6.10.0",
     "gh-pages": "^0.12.0",
     "in-publish": "^2.0.0",
+    "istanbul-instrumenter-loader": "^2.0.0",
     "jsdom": "^9.11.0",
     "lodash.camelcase": "^4.3.0",
     "mocha": "^3.2.0",
     "mocha-webpack": "^0.7.0",
     "npm-run-all": "^4.0.2",
+    "nyc": "^10.3.2",
     "react-docgen": "^2.13.0",
     "react-styleguidist": "^5.1.9",
     "react-test-renderer": "^15.5.4",

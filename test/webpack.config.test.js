@@ -1,11 +1,24 @@
 const nodeExternals = require('webpack-node-externals');
+const path = require('path');
+
+const isCoverage = process.env.NODE_ENV === 'coverage';
+
+const loaders = [{
+  test: /.jsx?$/,
+  use: 'babel-loader',
+}];
+
+if (isCoverage) {
+  loaders.unshift({
+    test: /.jsx?$/,
+    include: path.resolve('src'), // instrument only testing sources with Istanbul
+    loader: 'istanbul-instrumenter-loader',
+  });
+}
 
 module.exports = {
   module: {
-    loaders: [{
-      test: /.jsx?$/,
-      use: 'babel-loader',
-    }],
+    loaders,
   },
   resolve: {
     extensions: [
