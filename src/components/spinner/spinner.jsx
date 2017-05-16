@@ -54,10 +54,7 @@ function renderCircleAsHtml(radius, color, maskId) {
   };
 }
 
-function Spinner(
-  { className, size, color, gradientStops, strokeWidth, style, ...rest },
-  { styleManager },
-) {
+function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }, { styleManager }) {
   const classes = styleManager.render(SpinnerStyles);
   const usedColor = color || styleManager.theme.palette.variant.primary;
   const stroke = strokeWidth || size / 8;
@@ -71,11 +68,7 @@ function Spinner(
   };
 
   return (
-    <div
-      {...rest}
-      className={classNames(classes.spinner, className)}
-      style={wrapperStyle}
-    >
+    <div {...rest} className={classNames(classes.spinner, className)} style={wrapperStyle}>
       <svg className={classes.element} viewBox={`0 0 ${size} ${size}`}>
         <defs>
           <clipPath id={clipPathId}>
@@ -88,13 +81,7 @@ function Spinner(
             <circle cx={radius} cy={stroke / 2} r={stroke / 2} fill="#fff" />
           </mask>
         </defs>
-        <g
-          dangerouslySetInnerHTML={renderCircleAsHtml(
-            radius,
-            usedColor,
-            maskId,
-          )}
-        />
+        <g dangerouslySetInnerHTML={renderCircleAsHtml(radius, usedColor, maskId)} />
       </svg>
     </div>
   );

@@ -2,13 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import flags from './';
 
-export default function CombinedFlag({
-  style,
-  primaryCC,
-  secondaryCC,
-  size,
-  ...rest
-}) {
+export default function CombinedFlag({ style, primaryCC, secondaryCC, size, ...rest }) {
   const usedStyle = Object.assign(
     {},
     {
@@ -24,22 +18,10 @@ export default function CombinedFlag({
   const primaryX = -24;
   const secondaryX = -primaryX;
   return (
-    <svg
-      width="100%"
-      height="100%"
-      style={usedStyle}
-      aria-hidden="true"
-      focusable="false"
-      {...rest}
-    >
+    <svg width="100%" height="100%" style={usedStyle} aria-hidden="true" focusable="false" {...rest}>
       <g id={`${primaryCC}/${secondaryCC}`}>
         <g id={`${secondaryCC}-container`}>
-          <circle
-            cx="116.094"
-            cy="68.031"
-            r="68.031"
-            style={{ fill: '#f6f6f6' }}
-          />
+          <circle cx="116.094" cy="68.031" r="68.031" style={{ fill: '#f6f6f6' }} />
           <g id={secondaryCC}>
             <clipPath id="_clip1">
               <ellipse cx="115.969" cy="68.385" rx="60.887" ry="60.945" />
@@ -57,12 +39,7 @@ export default function CombinedFlag({
           </g>
         </g>
         <g id={`${primaryCC}-container`}>
-          <circle
-            cx="68.031"
-            cy="68.031"
-            r="68.031"
-            style={{ fill: '#f6f6f6' }}
-          />
+          <circle cx="68.031" cy="68.031" r="68.031" style={{ fill: '#f6f6f6' }} />
           <g id={primaryCC}>
             <clipPath id="_clip3">
               <ellipse cx="67.666" cy="68.145" rx="60.887" ry="60.945" />

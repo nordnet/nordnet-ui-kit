@@ -106,19 +106,14 @@ class SegmentedControl extends React.PureComponent {
     const usedClassName = cn(this.classes.label, {
       [this.classes.selected]: selected,
       [this.classes.buttonLeft]: index === 0,
-      [this.classes.buttonRight]: this.props.children.map
-        ? index === this.props.children.length - 1
-        : true,
+      [this.classes.buttonRight]: this.props.children.map ? index === this.props.children.length - 1 : true,
       [this.classes.focus]: index === this.state.focus,
       [this.classes.radio]: this.props.type === 'radio',
       [this.classes.checkbox]: this.props.type === 'checkbox',
     });
     const inputId = `sc-${this.props.name}-${index}`;
     return (
-      <span
-        className={usedClassName}
-        key={`sc-${this.props.name}-${childValue}`}
-      >
+      <span className={usedClassName} key={`sc-${this.props.name}-${childValue}`}>
         <input
           type={this.props.type}
           id={inputId}
@@ -137,13 +132,8 @@ class SegmentedControl extends React.PureComponent {
   render() {
     // If we have an array of children, then we have the map function
     return (
-      <span
-        style={this.props.style}
-        className={cn(this.classes.root, this.props.className)}
-      >
-        {this.props.children.map
-          ? this.props.children.map(this.renderChild)
-          : this.renderChild(this.props.children)}
+      <span style={this.props.style} className={cn(this.classes.root, this.props.className)}>
+        {this.props.children.map ? this.props.children.map(this.renderChild) : this.renderChild(this.props.children)}
       </span>
     );
   }

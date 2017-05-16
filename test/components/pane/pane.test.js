@@ -82,9 +82,7 @@ describe('<Pane />', () => {
     });
 
     it('should have class lg', () => {
-      expect(
-        wrapper.children().children().find('li').at(0).hasClass(classes.lg),
-      ).to.equal(true);
+      expect(wrapper.children().children().find('li').at(0).hasClass(classes.lg)).to.equal(true);
     });
   });
 });

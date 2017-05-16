@@ -41,11 +41,7 @@ module.exports = {
     },
     resolve: {
       alias: {
-        'rsg-components/Wrapper': path.join(
-          __dirname,
-          'documentation',
-          'wrapper.jsx',
-        ),
+        'rsg-components/Wrapper': path.join(__dirname, 'documentation', 'wrapper.jsx'),
       },
     },
   },

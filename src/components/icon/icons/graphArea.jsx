@@ -16,11 +16,7 @@ export default function GraphArea({
   return (
     <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <polyline
-          stroke={stroke}
-          strokeWidth={strokeWidth}
-          points="1 0 1 15 16 15"
-        />
+        <polyline stroke={stroke} strokeWidth={strokeWidth} points="1 0 1 15 16 15" />
         <polygon fill={fill} points="3 13 3 9 6 6 9 9 16 2 16 13" />
       </g>
     </svg>

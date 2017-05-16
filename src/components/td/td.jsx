@@ -44,15 +44,9 @@ function Td(
     className,
   );
 
-  const tdStyle = Object.assign(
-    {},
-    width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
-    style,
-  );
+  const tdStyle = Object.assign({}, width && { width: `${width}${typeof width === 'number' ? '%' : ''}` }, style);
 
-  return (
-    <td {...rest} className={usedClassName} style={tdStyle}>{children}</td>
-  );
+  return <td {...rest} className={usedClassName} style={tdStyle}>{children}</td>;
 }
 
 Td.defaultProps = {

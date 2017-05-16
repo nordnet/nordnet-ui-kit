@@ -227,26 +227,10 @@ export default createStyleSheet('Button', theme => {
         },
       },
 
-      '&.action': buttonModifierFn(
-        'link',
-        palette.variant.primary,
-        focusColor(palette.variant.primary),
-      ),
-      '&.success': buttonModifierFn(
-        'link',
-        palette.variant.success,
-        focusColor(palette.variant.success),
-      ),
-      '&.warning': buttonModifierFn(
-        'link',
-        palette.variant.warning,
-        focusColor(palette.variant.warning),
-      ),
-      '&.danger': buttonModifierFn(
-        'link',
-        palette.variant.danger,
-        focusColor(palette.variant.danger),
-      ),
+      '&.action': buttonModifierFn('link', palette.variant.primary, focusColor(palette.variant.primary)),
+      '&.success': buttonModifierFn('link', palette.variant.success, focusColor(palette.variant.success)),
+      '&.warning': buttonModifierFn('link', palette.variant.warning, focusColor(palette.variant.warning)),
+      '&.danger': buttonModifierFn('link', palette.variant.danger, focusColor(palette.variant.danger)),
     },
   };
 });

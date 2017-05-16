@@ -22,12 +22,7 @@ class InputSelect extends InputDefault {
   renderSelectArrow() {
     const className = 'input__select-arrow';
     const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
-    return (
-      <IconUsed
-        className={className}
-        stroke={this.context.styleManager.theme.palette.variant.primary}
-      />
-    );
+    return <IconUsed className={className} stroke={this.context.styleManager.theme.palette.variant.primary} />;
   }
 
   renderFakePlaceholder() {
@@ -81,10 +76,7 @@ class InputSelect extends InputDefault {
   renderInput() {
     const { id, placeholder, options, ...rest } = this.props;
     const classes = this.context.styleManager.render(styleSheet);
-    const className = classNames(
-      [classes['select-wrapper']],
-      'input__element-wrapper',
-    );
+    const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
     const title = this.getTitle();
 
     return (
@@ -99,9 +91,7 @@ class InputSelect extends InputDefault {
           placeholder=""
           value={this.state.value}
         >
-          {placeholder
-            ? <option value="" disabled>{placeholder}</option>
-            : null}
+          {placeholder ? <option value="" disabled>{placeholder}</option> : null}
           {options.map(renderOption)}
         </select>
         {this.state.value ? null : this.renderFakePlaceholder()}
@@ -117,11 +107,7 @@ InputSelect.propTypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       key: PropTypes.string,
-      value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.object,
-      ]).isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
     }),
   ),
 };

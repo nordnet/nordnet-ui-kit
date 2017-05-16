@@ -4,20 +4,7 @@ import classNames from 'classnames';
 import TbodyStyles from './tbody-styles';
 
 function Tbody(
-  {
-    className,
-    children,
-    style,
-    size,
-    colorAlternateRows,
-    maxHeight,
-    border,
-    borderTop,
-    borderRight,
-    borderBottom,
-    borderLeft,
-    ...rest
-  },
+  { className, children, style, size, colorAlternateRows, maxHeight, border, borderTop, borderRight, borderBottom, borderLeft, ...rest },
   { styleManager },
 ) {
   const classes = styleManager.render(TbodyStyles);

@@ -64,9 +64,7 @@ class Tr extends React.Component {
   setSticky() {
     const { top: trTop, height } = this.tr.getBoundingClientRect();
     const offset = this.props.stickyOffset;
-    const tableHeight = this.tr.closest('tbody')
-      ? this.tr.closest('tbody').offsetHeight
-      : this.tr.closest('table').offsetHeight;
+    const tableHeight = this.tr.closest('tbody') ? this.tr.closest('tbody').offsetHeight : this.tr.closest('table').offsetHeight;
     const fromBottom = this.getDistanceFromBottom() - offset - height;
     let top;
 
@@ -82,11 +80,7 @@ class Tr extends React.Component {
       this.tr.nextSibling.style.display = '';
     }
 
-    if (
-      fromBottom > 0 &&
-      top <= offset &&
-      top > (tableHeight - height - offset) * -1
-    ) {
+    if (fromBottom > 0 && top <= offset && top > (tableHeight - height - offset) * -1) {
       this.setState({
         sticky: true,
       });
@@ -122,15 +116,7 @@ class Tr extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      children,
-      size,
-      border,
-      variant,
-      stickyOffset,
-      ...rest
-    } = this.props;
+    const { className, children, size, border, variant, stickyOffset, ...rest } = this.props;
     const classes = this.context.styleManager.render(TrStyles);
     const { width, sticky } = this.state;
     const usedClassName = classNames(
@@ -151,12 +137,7 @@ class Tr extends React.Component {
     }
 
     return (
-      <tr
-        {...omit(rest, 'sticky')}
-        className={usedClassName}
-        style={stickyStyle}
-        ref={node => this.addRef(node, 'tr')}
-      >
+      <tr {...omit(rest, 'sticky')} className={usedClassName} style={stickyStyle} ref={node => this.addRef(node, 'tr')}>
         {children}
       </tr>
     );

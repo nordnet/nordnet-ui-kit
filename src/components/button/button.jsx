@@ -3,20 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import ButtonStyles from './button-styles';
 
-function Button(
-  {
-    variant,
-    block,
-    disabled,
-    className,
-    children,
-    modifier,
-    href,
-    size,
-    ...rest
-  },
-  { styleManager },
-) {
+function Button({ variant, block, disabled, className, children, modifier, href, size, ...rest }, { styleManager }) {
   const Element = href ? 'a' : 'button';
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
@@ -43,12 +30,7 @@ function Button(
   );
 
   return (
-    <Element
-      {...rest}
-      className={usedClassName}
-      disabled={disabled}
-      href={href}
-    >
+    <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
       {children}
     </Element>
   );

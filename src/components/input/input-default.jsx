@@ -26,13 +26,7 @@ function renderAddon(content, position) {
 
 function hasValue(value) {
   const type = typeof value;
-  return (
-    type === 'boolean' ||
-    type === 'number' ||
-    (value &&
-      (type === 'object' || type === 'string') &&
-      Object.keys(value).length)
-  );
+  return type === 'boolean' || type === 'number' || (value && (type === 'object' || type === 'string') && Object.keys(value).length);
 }
 
 class InputDefault extends React.PureComponent {
@@ -111,16 +105,7 @@ class InputDefault extends React.PureComponent {
 
     return (
       <input
-        {...omit(
-          this.props,
-          'valueFormatter',
-          'hasSuccess',
-          'hasWarning',
-          'hasError',
-          'helpText',
-          'leftAddon',
-          'rightAddon',
-        )}
+        {...omit(this.props, 'valueFormatter', 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon')}
         id={id}
         className={classes}
         type={type || this.props.type}
@@ -162,13 +147,7 @@ class InputDefault extends React.PureComponent {
   renderValidationIcon() {
     const { hasSuccess, hasWarning, hasError } = this.state;
 
-    return (
-      <ValidationIcon
-        hasSuccess={hasSuccess}
-        hasWarning={hasWarning}
-        hasError={hasError}
-      />
-    );
+    return <ValidationIcon hasSuccess={hasSuccess} hasWarning={hasWarning} hasError={hasError} />;
   }
 
   renderField(id) {
@@ -218,13 +197,7 @@ InputDefault.propTypes = {
   label: PropTypes.node,
   placeholder: PropTypes.string,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,

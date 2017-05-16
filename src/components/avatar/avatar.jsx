@@ -46,17 +46,7 @@ export const styleSheet = createStyleSheet('Avatar', theme => {
   return styles;
 });
 
-function Avatar(
-  {
-    children,
-    className: classNameProp,
-    style: styleProp,
-    size,
-    color,
-    ...rest
-  },
-  { styleManager },
-) {
+function Avatar({ children, className: classNameProp, style: styleProp, size, color, ...rest }, { styleManager }) {
   const classes = styleManager.render(styleSheet);
   const style = Object.assign(
     {},

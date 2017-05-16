@@ -35,10 +35,7 @@ export const styleSheet = createStyleSheet('Badge', theme => {
   };
 });
 
-function Badge(
-  { modifier, children, className: classNameProp, ...rest },
-  { styleManager },
-) {
+function Badge({ modifier, children, className: classNameProp, ...rest }, { styleManager }) {
   const classes = styleManager.render(styleSheet);
 
   const className = cn(

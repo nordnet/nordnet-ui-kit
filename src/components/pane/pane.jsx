@@ -29,13 +29,9 @@ class Pane extends React.PureComponent {
         {this.props.tabs.map((tab, index) => (
           <li
             key={`${kebabCase(tab.label)}_${index}`}
-            className={classNames(
-              this.classes.tab,
-              this.classes[this.props.size],
-              {
-                [this.classes.active]: this.state.activeTab === index,
-              },
-            )}
+            className={classNames(this.classes.tab, this.classes[this.props.size], {
+              [this.classes.active]: this.state.activeTab === index,
+            })}
             onClick={() => this.handleTabClick(index)}
           >
             {tab.label}

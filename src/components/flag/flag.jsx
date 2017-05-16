@@ -3,15 +3,7 @@ import React from 'react';
 import flags from './flags';
 import CurrencyFlag from './flags/currencies';
 
-function Flag({
-  className,
-  style,
-  countryCode,
-  secondaryCountryCode,
-  size,
-  round,
-  ...rest
-}) {
+function Flag({ className, style, countryCode, secondaryCountryCode, size, round, ...rest }) {
   const flagStyle = Object.assign(
     {
       display: 'inline-block',

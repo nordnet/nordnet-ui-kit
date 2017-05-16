@@ -24,18 +24,8 @@ export default function Questionmark({
           stroke={stroke}
           strokeWidth="1.71428571"
         />
-        <rect
-          fill={fill}
-          x="5.14285714"
-          y="8.57142857"
-          width="1.71428571"
-          height="1.71428571"
-        />
-        <path
-          d="M6,7.28571429 L6,7.71428571"
-          stroke={stroke}
-          strokeWidth="1.71428571"
-        />
+        <rect fill={fill} x="5.14285714" y="8.57142857" width="1.71428571" height="1.71428571" />
+        <path d="M6,7.28571429 L6,7.71428571" stroke={stroke} strokeWidth="1.71428571" />
       </g>
     </svg>
   );

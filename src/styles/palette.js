@@ -45,13 +45,7 @@ export const dark = {
 export const shades = { light, dark };
 
 export default function createPalette(
-  {
-    primary = variant.primary,
-    accent = variant.info,
-    error = variant.danger,
-    type = 'light',
-    name = 'nordnet',
-  } = {},
+  { primary = variant.primary, accent = variant.info, error = variant.danger, type = 'light', name = 'nordnet' } = {},
 ) {
   return {
     name,

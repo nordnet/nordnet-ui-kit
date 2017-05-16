@@ -45,25 +45,17 @@ export default class ThemeProvider extends Component {
   }
 
   componentWillMount() {
-    const { theme, styleManager } = ThemeProvider.createDefaultContext(
-      this.props,
-    );
+    const { theme, styleManager } = ThemeProvider.createDefaultContext(this.props);
     this.theme = theme;
     this.styleManager = styleManager;
   }
 
   componentWillUpdate(nextProps) {
     if (this.styleManager !== nextProps.styleManager) {
-      const { theme, styleManager } = ThemeProvider.createDefaultContext(
-        nextProps,
-      );
+      const { theme, styleManager } = ThemeProvider.createDefaultContext(nextProps);
       this.theme = theme;
       this.styleManager = styleManager;
-    } else if (
-      this.theme &&
-      nextProps.theme &&
-      nextProps.theme !== this.theme
-    ) {
+    } else if (this.theme && nextProps.theme && nextProps.theme !== this.theme) {
       this.theme = nextProps.theme;
       this.styleManager.updateTheme(this.theme);
     }

@@ -20,20 +20,12 @@ class Tooltip extends React.Component {
 
     this.checkPosition = {
       above: rect => rect.top > 0,
-      left: rect =>
-        rect.left > 0 &&
-        this.checkPosition.below(rect) &&
-        this.checkPosition.above(rect),
+      left: rect => rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect),
       right: rect =>
-        (window.innerWidth || document.documentElement.clientWidth) -
-          rect.right >
-          0 &&
+        (window.innerWidth || document.documentElement.clientWidth) - rect.right > 0 &&
         this.checkPosition.below(rect) &&
         this.checkPosition.above(rect),
-      below: rect =>
-        (window.innerHeight || document.documentElement.clientHeight) -
-          rect.bottom >
-        0,
+      below: rect => (window.innerHeight || document.documentElement.clientHeight) - rect.bottom > 0,
     };
 
     this.placement = props.placement;
@@ -46,10 +38,7 @@ class Tooltip extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return (
-      nextState.hover !== this.state.hover ||
-      nextState.toggled !== this.state.toggled
-    );
+    return nextState.hover !== this.state.hover || nextState.toggled !== this.state.toggled;
   }
 
   componentWillUnmount() {
@@ -84,11 +73,7 @@ class Tooltip extends React.Component {
   }
 
   handleClick({ target } = {}) {
-    if (
-      target &&
-      this.onOutsideElement &&
-      !this.onOutsideElement.contains(target)
-    ) {
+    if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
       this.handleClickOutside();
     }
   }
@@ -152,14 +137,7 @@ class Tooltip extends React.Component {
   }
 
   render() {
-    const {
-      children,
-      content,
-      className,
-      placement,
-      style,
-      tooltipStyle,
-    } = this.props;
+    const { children, content, className, placement, style, tooltipStyle } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = this.getPlacement(placement);
 
@@ -193,9 +171,7 @@ class Tooltip extends React.Component {
 }
 
 Tooltip.defaultProps = {
-  children: (
-    <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />
-  ),
+  children: <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
   placement: 'below',
 };
 

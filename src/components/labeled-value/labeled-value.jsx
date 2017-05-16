@@ -48,10 +48,7 @@ export const styleSheet = createStyleSheet('LabeledValue', theme => {
   };
 });
 
-export default function LabeledValue(
-  { label, children, id: idProp, className, size, ...rest },
-  { styleManager },
-) {
+export default function LabeledValue({ label, children, id: idProp, className, size, ...rest }, { styleManager }) {
   const id = idProp || `${kebabCase(label)}-label`;
 
   const classes = styleManager.render(styleSheet);

@@ -61,10 +61,7 @@ const borderPosition = (position, palette) => ({
 const borders = palette => {
   let combinedBorders = {};
   ['top', 'right', 'bottom', 'left'].forEach(position => {
-    combinedBorders = Object.assign(
-      combinedBorders,
-      borderPosition(position, palette),
-    );
+    combinedBorders = Object.assign(combinedBorders, borderPosition(position, palette));
   });
   return {
     '&.border': {
