@@ -4,6 +4,9 @@
   "description": "Nordnets React powered UI kit",
   "main": "dist",
   "scripts": {
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "commitmsg": "validate-commit-msg",
     "clean": "rimraf dist",
     "build": "run-s clean babel",
     "watch": "npm run babel -- --watch",
@@ -18,7 +21,11 @@
     "start": "styleguidist server --colors",
     "build:docs": "rimraf documentation/build && styleguidist build",
     "predocs-publish": "run-s build:docs",
-    "docs-publish": "gh-pages -d documentation/dist"
+    "docs-publish": "gh-pages -d documentation/dist",
+    "precoveralls": "run-s coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "files": [
     "dist",
@@ -30,6 +37,17 @@
     "ui",
     "kit"
   ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --single-quote --trailing-comma all --write",
+      "git add"
+    ]
+  },
   "nyc": {
     "extension": [
       ".js",
@@ -75,27 +93,36 @@
     "babel-preset-react": "^6.23.0",
     "babel-register": "^6.24.0",
     "chai": "^3.5.0",
+    "commitizen": "^2.9.6",
+    "coveralls": "^2.13.1",
     "cross-env": "^5.0.0",
+    "cz-conventional-changelog": "^2.0.0",
     "enzyme": "^2.8.2",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-prettier": "^2.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "gh-pages": "^0.12.0",
+    "husky": "^0.13.3",
     "in-publish": "^2.0.0",
     "istanbul-instrumenter-loader": "^2.0.0",
     "jsdom": "^9.11.0",
+    "lint-staged": "^3.4.1",
     "lodash.camelcase": "^4.3.0",
     "mocha": "^3.2.0",
     "mocha-webpack": "^0.7.0",
     "npm-run-all": "^4.0.2",
     "nyc": "^10.3.2",
+    "prettier": "^1.3.1",
     "react-docgen": "^2.13.0",
     "react-styleguidist": "^5.1.9",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
+    "semantic-release": "^6.3.6",
     "sinon": "^2.1.0",
+    "validate-commit-msg": "^2.12.1",
     "webpack": "2.2.1",
     "webpack-node-externals": "^1.5.4"
   }

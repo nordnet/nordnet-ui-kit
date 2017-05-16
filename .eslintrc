@@ -1,5 +1,9 @@
 {
-  "extends": ["airbnb"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2016,
@@ -20,7 +24,6 @@
   "rules": {
     "import/no-extraneous-dependencies": 0,
     "react/forbid-prop-types": [2, { "forbid": ["any", "array"] }],
-    "max-len": [2, 140],
     "react/require-default-props": 0
   }
 }
