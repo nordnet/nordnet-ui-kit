@@ -25,7 +25,7 @@
     "precoveralls": "run-s coverage",
     "coveralls": "coveralls < coverage/lcov.info",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check"
   },
   "files": [
     "dist",
