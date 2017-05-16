@@ -28,15 +28,16 @@ class InputSelect extends InputDefault {
   }
 
   renderFakePlaceholder() {
+    const placeholder = this.props.placeholder || this.props.label;
     return (
       <span className="input__placeholder">
-        { this.props.placeholder || this.props.label }
+        { placeholder }
       </span>
     );
   }
 
   renderValueLabel() {
-    const option = this.props.options.find(opt => `${opt.value}` === this.state.value);
+    const option = this.getSelectedOption();
     if (!option) {
       return null;
     }
@@ -46,6 +47,20 @@ class InputSelect extends InputDefault {
         { option.label }
       </span>
     );
+  }
+
+  getSelectedOption() {
+    return this.props.options.find(opt => `${opt.value}` === this.state.value);
+  }
+
+  getTitle() {
+    if (this.state.value) {
+      const option = this.getSelectedOption();
+      if (option && option.label) {
+        return option.label;
+      }
+    }
+    return this.props.placeholder || this.props.label;
   }
 
   showValue() {
@@ -64,9 +79,10 @@ class InputSelect extends InputDefault {
     const { id, placeholder, options, ...rest } = this.props;
     const classes = this.context.styleManager.render(styleSheet);
     const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
+    const title = this.getTitle();
 
     return (
-      <div className={className}>
+      <div className={className} title={title}>
         <select
           {...rest}
           id={id}
