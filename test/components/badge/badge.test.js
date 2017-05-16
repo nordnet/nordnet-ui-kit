@@ -41,8 +41,10 @@ describe('<Badge />', () => {
 
   it('should have 3 classes if a modifier and className is given', () => {
     wrapper = shallow(<Badge className="test" modifier="warning" />);
-    expect(wrapper.hasClass(classes.root)
-    && wrapper.hasClass(classes.warning)
-    && wrapper.hasClass('test')).to.equal(true);
+    expect(
+      wrapper.hasClass(classes.root) &&
+        wrapper.hasClass(classes.warning) &&
+        wrapper.hasClass('test'),
+    ).to.equal(true);
   });
 });

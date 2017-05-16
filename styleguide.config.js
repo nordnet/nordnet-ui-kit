@@ -31,15 +31,21 @@ module.exports = {
   },
   webpackConfig: {
     module: {
-      rules: [{
-        test: /.jsx?$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      }],
+      rules: [
+        {
+          test: /.jsx?$/,
+          use: 'babel-loader',
+          exclude: /node_modules/,
+        },
+      ],
     },
     resolve: {
       alias: {
-        'rsg-components/Wrapper': path.join(__dirname, 'documentation', 'wrapper.jsx'),
+        'rsg-components/Wrapper': path.join(
+          __dirname,
+          'documentation',
+          'wrapper.jsx',
+        ),
       },
     },
   },

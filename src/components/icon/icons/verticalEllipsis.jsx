@@ -10,9 +10,7 @@ export default function VerticalEllipsis({ style: styleProp, ...rest }) {
     ...Icon.defaultProps.style,
   };
 
-  return (
-    <Ellipsis style={style} {...rest} />
-  );
+  return <Ellipsis style={style} {...rest} />;
 }
 
 VerticalEllipsis.propTypes = {

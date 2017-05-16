@@ -19,11 +19,21 @@ class Tooltip extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
 
     this.checkPosition = {
-      above: rect => (rect.top > 0),
-      left: rect => (rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      right: rect => ((((window.innerWidth || document.documentElement.clientWidth) - rect.right) > 0) &&
-        this.checkPosition.below(rect) && this.checkPosition.above(rect)),
-      below: rect => (((window.innerHeight || document.documentElement.clientHeight) - rect.bottom) > 0),
+      above: rect => rect.top > 0,
+      left: rect =>
+        rect.left > 0 &&
+        this.checkPosition.below(rect) &&
+        this.checkPosition.above(rect),
+      right: rect =>
+        (window.innerWidth || document.documentElement.clientWidth) -
+          rect.right >
+          0 &&
+        this.checkPosition.below(rect) &&
+        this.checkPosition.above(rect),
+      below: rect =>
+        (window.innerHeight || document.documentElement.clientHeight) -
+          rect.bottom >
+        0,
     };
 
     this.placement = props.placement;
@@ -36,7 +46,10 @@ class Tooltip extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return (nextState.hover !== this.state.hover || nextState.toggled !== this.state.toggled);
+    return (
+      nextState.hover !== this.state.hover ||
+      nextState.toggled !== this.state.toggled
+    );
   }
 
   componentWillUnmount() {
@@ -71,7 +84,11 @@ class Tooltip extends React.Component {
   }
 
   handleClick({ target } = {}) {
-    if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
+    if (
+      target &&
+      this.onOutsideElement &&
+      !this.onOutsideElement.contains(target)
+    ) {
       this.handleClickOutside();
     }
   }
@@ -109,8 +126,8 @@ class Tooltip extends React.Component {
 
   renderPopup(content, placement, tooltipStyle) {
     const style = {
-      opacity: (this.state.hover || this.state.toggled) ? 1 : 0,
-      pointerEvents: (this.state.hover || this.state.toggled) ? 'all' : 'none',
+      opacity: this.state.hover || this.state.toggled ? 1 : 0,
+      pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
       ...tooltipStyle,
     };
 
@@ -123,17 +140,26 @@ class Tooltip extends React.Component {
       <div
         style={style}
         className={classnames(this.classes.popup, placement)}
-        ref={(popup) => { this.popup = popup; }}
+        ref={popup => {
+          this.popup = popup;
+        }}
       >
         <div className="content">
-          { content }
+          {content}
         </div>
       </div>
     );
   }
 
   render() {
-    const { children, content, className, placement, style, tooltipStyle } = this.props;
+    const {
+      children,
+      content,
+      className,
+      placement,
+      style,
+      tooltipStyle,
+    } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = this.getPlacement(placement);
 
@@ -144,26 +170,32 @@ class Tooltip extends React.Component {
     return (
       <div
         className={classnames(this.classes.tooltip, className)}
-        ref={(element) => { this.onOutsideElement = element; }}
+        ref={element => {
+          this.onOutsideElement = element;
+        }}
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
         style={style}
       >
         <div
-          ref={(container) => { this.container = container; }}
+          ref={container => {
+            this.container = container;
+          }}
           className={classnames(this.classes.container, this.placement)}
           onClick={this.toggleShow}
         >
-          { children }
+          {children}
         </div>
-        { this.renderPopup(content, this.placement, tooltipStyle) }
+        {this.renderPopup(content, this.placement, tooltipStyle)}
       </div>
     );
   }
 }
 
 Tooltip.defaultProps = {
-  children: <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
+  children: (
+    <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />
+  ),
   placement: 'below',
 };
 

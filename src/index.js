@@ -27,11 +27,7 @@ import Icon from './components/icon/icons';
 import { ThemeProvider, createTheme } from './styles';
 
 // Test utils
-import {
-  createMount,
-  createShallow,
-  createRenderToString,
-} from './test-utils';
+import { createMount, createShallow, createRenderToString } from './test-utils';
 
 const theme = createTheme();
 
@@ -59,12 +55,10 @@ export {
   Tooltip,
   Tr,
   Ul,
-
   // Theming
   ThemeProvider,
   createTheme,
   theme,
-
   // Test utils
   createMount,
   createShallow,

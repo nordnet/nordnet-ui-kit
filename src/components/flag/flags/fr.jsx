@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagFr({
-  ...rest
-}) {
+export default function FlagFr({ ...rest }) {
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <g fillRule="evenodd" strokeWidth="1pt">

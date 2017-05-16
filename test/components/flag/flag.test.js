@@ -20,7 +20,9 @@ describe('<Flag />', () => {
   });
 
   it('should be possible to show combined flag for currencies', () => {
-    const currencyElement = shallow(<Flag countryCode="us" secondaryCountryCode="se" />);
+    const currencyElement = shallow(
+      <Flag countryCode="us" secondaryCountryCode="se" />,
+    );
     expect(currencyElement.html()).to.not.equal(null);
   });
 });

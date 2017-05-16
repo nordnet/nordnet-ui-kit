@@ -7,7 +7,7 @@ function Ul({ children, style, className, ...rest }) {
   const classes = classNames('ul', className);
   return (
     <ul {...rest} className={classes} style={style}>
-      { children }
+      {children}
     </ul>
   );
 }

@@ -9,9 +9,19 @@ export default function NordnetLogo({
 }) {
   return (
     <svg {...rest}>
-      <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+      <g
+        id="Page-1"
+        stroke="none"
+        strokeWidth="1"
+        fill="none"
+        fillRule="evenodd"
+      >
         <g id="Artboard-1">
-          <g id="nordnet" transform="translate(77.000000, 5.000000)" fill={stroke}>
+          <g
+            id="nordnet"
+            transform="translate(77.000000, 5.000000)"
+            fill={stroke}
+          >
             <path
               d="M235.356492,37.9973333 C233.504982,39.3301052 231.666948,40.0060351 229.890667,40.0060351
               C227.247018,40.0060351 225.668351,38.2370526 225.668351,35.2734035 L225.668351,19.2032281

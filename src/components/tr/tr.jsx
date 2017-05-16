@@ -7,7 +7,8 @@ import omit from '../../utilities/omit';
 import TrStyles from './tr-styles';
 
 // Needs to be a class so that a ref can be assigned to it from Thead
-class Tr extends React.Component { // eslint-disable-line
+class Tr extends React.Component {
+  // eslint-disable-line
   constructor(props, context) {
     super(props, context);
 
@@ -54,14 +55,18 @@ class Tr extends React.Component { // eslint-disable-line
   }
 
   getDistanceFromBottom() {
-    if (!this.tr.closest('tbody')) return this.tr.closest('table').getBoundingClientRect().bottom;
+    if (!this.tr.closest('tbody')) {
+      return this.tr.closest('table').getBoundingClientRect().bottom;
+    }
     return this.tr.closest('tbody').getBoundingClientRect().bottom;
   }
 
   setSticky() {
     const { top: trTop, height } = this.tr.getBoundingClientRect();
     const offset = this.props.stickyOffset;
-    const tableHeight = this.tr.closest('tbody') ? this.tr.closest('tbody').offsetHeight : this.tr.closest('table').offsetHeight;
+    const tableHeight = this.tr.closest('tbody')
+      ? this.tr.closest('tbody').offsetHeight
+      : this.tr.closest('table').offsetHeight;
     const fromBottom = this.getDistanceFromBottom() - offset - height;
     let top;
 
@@ -77,7 +82,11 @@ class Tr extends React.Component { // eslint-disable-line
       this.tr.nextSibling.style.display = '';
     }
 
-    if (fromBottom > 0 && top <= offset && top > (tableHeight - height - offset) * -1) {
+    if (
+      fromBottom > 0 &&
+      top <= offset &&
+      top > (tableHeight - height - offset) * -1
+    ) {
       this.setState({
         sticky: true,
       });
@@ -113,11 +122,20 @@ class Tr extends React.Component { // eslint-disable-line
   }
 
   render() {
-    const { className, children, size, border, variant, stickyOffset, ...rest } = this.props;
+    const {
+      className,
+      children,
+      size,
+      border,
+      variant,
+      stickyOffset,
+      ...rest
+    } = this.props;
     const classes = this.context.styleManager.render(TrStyles);
     const { width, sticky } = this.state;
     const usedClassName = classNames(
-      classes.tr, size,
+      classes.tr,
+      size,
       {
         [variant]: variant,
         border,
@@ -134,12 +152,12 @@ class Tr extends React.Component { // eslint-disable-line
 
     return (
       <tr
-        {...(omit(rest, 'sticky'))}
+        {...omit(rest, 'sticky')}
         className={usedClassName}
         style={stickyStyle}
         ref={node => this.addRef(node, 'tr')}
       >
-        { children }
+        {children}
       </tr>
     );
   }

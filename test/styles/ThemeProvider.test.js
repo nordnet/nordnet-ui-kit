@@ -27,9 +27,9 @@ describe('ThemeProvider', () => {
 
     const badgeClasses = component.find('span').prop('className').split(' ');
     const styleSheets = styleManager.sheetsToString();
-    badgeClasses.map(className => (
-      expect(styleSheets.indexOf(className) > -1).to.equal(true)
-    ));
+    badgeClasses.map(className =>
+      expect(styleSheets.indexOf(className) > -1).to.equal(true),
+    );
   });
 
   describe('createDefaultContext', () => {
@@ -39,14 +39,26 @@ describe('ThemeProvider', () => {
 
       expect(theme.palette).to.deep.equal(expectedTheme.palette);
       expect(theme.typography).to.deep.equal(expectedTheme.typography);
-      expect(theme.mixins.basicBoxSizing).to.deep.equal(expectedTheme.mixins.basicBoxSizing);
-      expect(theme.mixins.media.toString()).to.deep.equal(expectedTheme.mixins.media.toString());
+      expect(theme.mixins.basicBoxSizing).to.deep.equal(
+        expectedTheme.mixins.basicBoxSizing,
+      );
+      expect(theme.mixins.media.toString()).to.deep.equal(
+        expectedTheme.mixins.media.toString(),
+      );
       expect(theme.breakpoints).to.deep.equal(expectedTheme.breakpoints);
 
-      expect(theme.transitions.easing).to.deep.equal(expectedTheme.transitions.easing);
-      expect(theme.transitions.duration).to.deep.equal(expectedTheme.transitions.duration);
-      expect(theme.transitions.create.toString()).to.equal(expectedTheme.transitions.create.toString());
-      expect(theme.transitions.getAutoHeightDuration.toString()).to.equal(expectedTheme.transitions.getAutoHeightDuration.toString());
+      expect(theme.transitions.easing).to.deep.equal(
+        expectedTheme.transitions.easing,
+      );
+      expect(theme.transitions.duration).to.deep.equal(
+        expectedTheme.transitions.duration,
+      );
+      expect(theme.transitions.create.toString()).to.equal(
+        expectedTheme.transitions.create.toString(),
+      );
+      expect(theme.transitions.getAutoHeightDuration.toString()).to.equal(
+        expectedTheme.transitions.getAutoHeightDuration.toString(),
+      );
     });
 
     it('should return a styleManager that exposes a render function', () => {

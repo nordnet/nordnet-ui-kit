@@ -6,15 +6,30 @@ function ValidationIcon(props, { styleManager }) {
   const iconClass = 'input__validation-icon';
 
   if (props.hasSuccess) {
-    return <Icon.Checkmark className={iconClass} stroke={styleManager.theme.palette.variant.success} />;
+    return (
+      <Icon.Checkmark
+        className={iconClass}
+        stroke={styleManager.theme.palette.variant.success}
+      />
+    );
   }
 
   if (props.hasWarning) {
-    return <Icon.ExclamationPoint className={iconClass} stroke={styleManager.theme.palette.variant.warning} />;
+    return (
+      <Icon.ExclamationPoint
+        className={iconClass}
+        stroke={styleManager.theme.palette.variant.warning}
+      />
+    );
   }
 
   if (props.hasError) {
-    return <Icon.ExclamationPoint className={iconClass} stroke={styleManager.theme.palette.variant.danger} />;
+    return (
+      <Icon.ExclamationPoint
+        className={iconClass}
+        stroke={styleManager.theme.palette.variant.danger}
+      />
+    );
   }
 
   return null;

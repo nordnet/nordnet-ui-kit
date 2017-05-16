@@ -13,7 +13,7 @@ describe('<Avatar />', () => {
   beforeEach(() => {
     wrapper = shallow(
       <Avatar>
-        { inputText }
+        {inputText}
       </Avatar>,
     );
   });

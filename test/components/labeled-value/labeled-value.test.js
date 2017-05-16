@@ -2,7 +2,9 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow as enzymeShallow } from 'enzyme';
 import { createShallow } from '../../../src/test-utils';
-import LabeledValue, { styleSheet } from '../../../src/components/labeled-value/labeled-value';
+import LabeledValue, {
+  styleSheet,
+} from '../../../src/components/labeled-value/labeled-value';
 
 describe('<LabeledValue />', () => {
   const shallow = createShallow(enzymeShallow);
@@ -11,7 +13,7 @@ describe('<LabeledValue />', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <LabeledValue className="testclass" label="label" >
+      <LabeledValue className="testclass" label="label">
         myvalue
       </LabeledValue>,
     );
@@ -30,11 +32,15 @@ describe('<LabeledValue />', () => {
   });
 
   it('should render input child as value', () => {
-    expect(wrapper.find(`span.${classes.value}`).childAt(0).text()).to.equal('myvalue');
+    expect(wrapper.find(`span.${classes.value}`).childAt(0).text()).to.equal(
+      'myvalue',
+    );
   });
 
   it('should render input label', () => {
-    expect(wrapper.find(`span.${classes.label}`).childAt(0).text()).to.equal('label');
+    expect(wrapper.find(`span.${classes.label}`).childAt(0).text()).to.equal(
+      'label',
+    );
   });
 
   it('should have value node with md as default size', () => {
@@ -42,7 +48,7 @@ describe('<LabeledValue />', () => {
     expect(valueNode.hasClass(classes['value-md'])).to.equal(true);
   });
 
-  ['xs', 'sm', 'md', 'lg'].forEach((size) => {
+  ['xs', 'sm', 'md', 'lg'].forEach(size => {
     it(`value should have class "value-${size}" if prop size is ${size}`, () => {
       wrapper.setProps({ size });
       const valueNode = wrapper.find(`span.${classes.value}`).first();

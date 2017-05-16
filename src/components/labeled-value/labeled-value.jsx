@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { kebabCase } from 'lodash';
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export const styleSheet = createStyleSheet('LabeledValue', (theme) => {
+export const styleSheet = createStyleSheet('LabeledValue', theme => {
   const { palette, typography, mixins } = theme;
   const modifiers = {
     xs: '12',
@@ -48,14 +48,10 @@ export const styleSheet = createStyleSheet('LabeledValue', (theme) => {
   };
 });
 
-export default function LabeledValue({
-  label,
-  children,
-  id: idProp,
-  className,
-  size,
-  ...rest
-}, { styleManager }) {
+export default function LabeledValue(
+  { label, children, id: idProp, className, size, ...rest },
+  { styleManager },
+) {
   const id = idProp || `${kebabCase(label)}-label`;
 
   const classes = styleManager.render(styleSheet);
@@ -66,8 +62,8 @@ export default function LabeledValue({
 
   return (
     <div {...rest} className={rootClasses}>
-      <span className={labelClasses} id={id}>{ label }</span>
-      <span className={valueClasses} aria-labelledby={id} >{ children }</span>
+      <span className={labelClasses} id={id}>{label}</span>
+      <span className={valueClasses} aria-labelledby={id}>{children}</span>
     </div>
   );
 }

@@ -38,18 +38,24 @@ describe('<Tooltip />', () => {
   });
 
   it('should have fixedWidth', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
+    wrapper = shallow(
+      <Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={123} />,
+    );
     expect(wrapper.find(`.${classes.popup}`).props().style.width).to.equal(123);
   });
 
   it('should set className to above', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'above'} />);
+    wrapper = shallow(
+      <Tooltip content="Lorem ipsum dolor sit amet." placement={'above'} />,
+    );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('above')).to.equal(true);
   });
 
   it('should set className to left', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'left'} />);
+    wrapper = shallow(
+      <Tooltip content="Lorem ipsum dolor sit amet." placement={'left'} />,
+    );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('left')).to.equal(true);
   });
@@ -68,7 +74,8 @@ describe('<Tooltip />', () => {
         <Tooltip content={'abc'}>
           <div id="child">child</div>
         </Tooltip>,
-        target);
+        target,
+      );
     });
 
     afterEach(() => {
@@ -76,7 +83,9 @@ describe('<Tooltip />', () => {
     });
 
     it('should subscribe to click event on mount', () => {
-      expect(addEventSpy.calledWith('click', component.instance().handleClick)).to.equal(true);
+      expect(
+        addEventSpy.calledWith('click', component.instance().handleClick),
+      ).to.equal(true);
     });
 
     it('should unsubscribe from click events on unmount', () => {

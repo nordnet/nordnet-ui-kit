@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 
-const styleSheet = createStyleSheet('HelpText', (theme) => {
+const styleSheet = createStyleSheet('HelpText', theme => {
   const { palette } = theme;
 
   return {
@@ -33,7 +33,7 @@ function HelpText(props, { styleManager }) {
   });
 
   if (props.children) {
-    return <span className={className}>{ props.children }</span>;
+    return <span className={className}>{props.children}</span>;
   }
 
   return null;

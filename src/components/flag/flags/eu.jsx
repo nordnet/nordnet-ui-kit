@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagEu({
-  ...rest
-}) {
+export default function FlagEu({ ...rest }) {
   return (
     <svg {...rest}>
       <defs>
@@ -24,12 +22,37 @@ export default function FlagEu({
         <use height="100%" width="100%" xlinkHref="#eu_d" y="6" />
         <g id="eu_e">
           <use height="100%" width="100%" xlinkHref="#eu_d" x="-6" />
-          <use height="100%" width="100%" xlinkHref="#eu_d" transform="rotate(-144 -2.344 -2.11)" />
-          <use height="100%" width="100%" xlinkHref="#eu_d" transform="rotate(144 -2.11 -2.344)" />
-          <use height="100%" width="100%" xlinkHref="#eu_d" transform="rotate(72 -4.663 -2.076)" />
-          <use height="100%" width="100%" xlinkHref="#eu_d" transform="rotate(72 -5.076 .534)" />
+          <use
+            height="100%"
+            width="100%"
+            xlinkHref="#eu_d"
+            transform="rotate(-144 -2.344 -2.11)"
+          />
+          <use
+            height="100%"
+            width="100%"
+            xlinkHref="#eu_d"
+            transform="rotate(144 -2.11 -2.344)"
+          />
+          <use
+            height="100%"
+            width="100%"
+            xlinkHref="#eu_d"
+            transform="rotate(72 -4.663 -2.076)"
+          />
+          <use
+            height="100%"
+            width="100%"
+            xlinkHref="#eu_d"
+            transform="rotate(72 -5.076 .534)"
+          />
         </g>
-        <use height="100%" width="100%" xlinkHref="#eu_e" transform="scale(-1 1)" />
+        <use
+          height="100%"
+          width="100%"
+          xlinkHref="#eu_e"
+          transform="scale(-1 1)"
+        />
       </g>
     </svg>
   );

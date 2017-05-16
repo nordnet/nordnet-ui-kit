@@ -5,7 +5,7 @@ const basicBoxSizing = {
 };
 
 export default function createMixins(breakpoints = {}) {
-  const media = (size) => {
+  const media = size => {
     const breakpoint = breakpoints[size];
 
     if (breakpoint) {

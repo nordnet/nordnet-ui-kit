@@ -3,27 +3,31 @@ import React from 'react';
 import classNames from 'classnames';
 import ThStyles from './th-styles';
 
-function Th({
-  className,
-  children,
-  style,
-  size,
-  width,
-  mono,
-  modifier,
-  highlight,
-  border,
-  borderTop,
-  borderRight,
-  borderBottom,
-  borderLeft,
-  align,
-  ellipsis,
-  ...rest
-}, { styleManager }) {
+function Th(
+  {
+    className,
+    children,
+    style,
+    size,
+    width,
+    mono,
+    modifier,
+    highlight,
+    border,
+    borderTop,
+    borderRight,
+    borderBottom,
+    borderLeft,
+    align,
+    ellipsis,
+    ...rest
+  },
+  { styleManager },
+) {
   const classes = styleManager.render(ThStyles);
   const usedClassName = classNames(
-    classes.th, size,
+    classes.th,
+    size,
     {
       [modifier]: modifier,
       [`highlight-${highlight}`]: highlight,
@@ -46,7 +50,9 @@ function Th({
     style,
   );
 
-  return <th {...rest} className={usedClassName} style={thStyle}>{ children }</th>;
+  return (
+    <th {...rest} className={usedClassName} style={thStyle}>{children}</th>
+  );
 }
 
 Th.defaultProps = {

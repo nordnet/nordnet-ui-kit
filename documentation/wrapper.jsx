@@ -5,7 +5,6 @@ import ThemeProvider from '../src/styles/ThemeProvider';
 import { createPalette } from '../src/styles/palette';
 import { createTheme } from '../src/styles/theme';
 
-
 export default function Wrapper({ children }) {
   const palette = createPalette({ type: 'light' });
   const theme = createTheme({ palette });

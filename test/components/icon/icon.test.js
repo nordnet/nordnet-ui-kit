@@ -33,7 +33,7 @@ describe('<Icon />', () => {
   });
 
   it('should have pointerEvents set to none', () => {
-    Object.keys(Icon).map((key) => {
+    Object.keys(Icon).map(key => {
       const Component = Icon[key];
       const element = shallow(<Component />);
       // If a test breaks, uncomment this to see which icon is broken:

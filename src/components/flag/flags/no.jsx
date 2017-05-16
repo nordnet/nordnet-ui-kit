@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagNo({
-  ...rest
-}) {
+export default function FlagNo({ ...rest }) {
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <path fill="#ef2b2d" d="M0 0h640v480H0z" />

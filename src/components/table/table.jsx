@@ -9,7 +9,7 @@ function Table({ className, children, size, ...rest }, { styleManager }) {
 
   return (
     <table {...rest} className={usedClassName}>
-      { children }
+      {children}
     </table>
   );
 }

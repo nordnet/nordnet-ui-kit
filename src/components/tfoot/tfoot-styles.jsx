@@ -1,7 +1,7 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 
-export default createStyleSheet('Tfoot', (theme) => {
+export default createStyleSheet('Tfoot', theme => {
   const { palette, mixins } = theme;
 
   return {

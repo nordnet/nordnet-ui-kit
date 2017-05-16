@@ -1,6 +1,6 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export default createStyleSheet('InputCheckboxRadio', (theme) => {
+export default createStyleSheet('InputCheckboxRadio', theme => {
   const { palette, transitions, mixins } = theme;
 
   const modifierFn = color => ({
@@ -58,8 +58,12 @@ export default createStyleSheet('InputCheckboxRadio', (theme) => {
         },
       },
 
-      '&.input-checkbox-radio--has-success': modifierFn(palette.variant.success),
-      '&.input-checkbox-radio--has-warning': modifierFn(palette.variant.warning),
+      '&.input-checkbox-radio--has-success': modifierFn(
+        palette.variant.success,
+      ),
+      '&.input-checkbox-radio--has-warning': modifierFn(
+        palette.variant.warning,
+      ),
       '&.input-checkbox-radio--has-error': modifierFn(palette.variant.danger),
 
       '& .input-checkbox-radio__label': {

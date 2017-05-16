@@ -3,19 +3,21 @@ import React from 'react';
 import classNames from 'classnames';
 import TheadStyles from './thead-styles';
 
-function Thead({
-  className,
-  children,
-  size,
-  variant,
-  ...rest
-}, { styleManager }) {
+function Thead(
+  { className, children, size, variant, ...rest },
+  { styleManager },
+) {
   const classes = styleManager.render(TheadStyles);
-  const usedClassName = classNames(classes.thead, size, (variant ? [variant] : []), className);
+  const usedClassName = classNames(
+    classes.thead,
+    size,
+    variant ? [variant] : [],
+    className,
+  );
 
   return (
     <thead {...rest} className={usedClassName}>
-      { children }
+      {children}
     </thead>
   );
 }

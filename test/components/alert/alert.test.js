@@ -22,7 +22,7 @@ describe('<Alert />', () => {
     expect(wrapper.hasClass(classes.alert)).to.equal(true);
   });
 
-  ['success', 'warning', 'danger'].forEach((modifier) => {
+  ['success', 'warning', 'danger'].forEach(modifier => {
     it(`should have class ${classes[modifier]} if modifier is set to ${modifier}`, () => {
       wrapper.setProps({ modifier });
       expect(wrapper.hasClass(`${classes[modifier]}`)).to.equal(true);
@@ -34,7 +34,9 @@ describe('<Alert />', () => {
   });
 
   it('should render the children if provided', () => {
-    expect(wrapper.find(`div.${classes.body}`).childAt(0).text()).to.equal('body');
+    expect(wrapper.find(`div.${classes.body}`).childAt(0).text()).to.equal(
+      'body',
+    );
   });
 
   it('should close if the dismiss button is clicked', () => {

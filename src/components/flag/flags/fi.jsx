@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagFi({
-  ...rest
-}) {
+export default function FlagFi({ ...rest }) {
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <path fill="#fff" d="M0 0h640v480H0z" />

@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagCa({
-  ...rest
-}) {
+export default function FlagCa({ ...rest }) {
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <g fillOpacity="1" transform="translate(74.118) scale(.9375)">

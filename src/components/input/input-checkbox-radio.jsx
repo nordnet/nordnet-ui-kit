@@ -57,9 +57,7 @@ class InputCheckboxRadio extends React.PureComponent {
       return null;
     }
 
-    return (
-      <HelpText {...props}>{ this.props.helpText }</HelpText>
-    );
+    return <HelpText {...props}>{this.props.helpText}</HelpText>;
   }
 
   renderFakeInput() {
@@ -77,7 +75,14 @@ class InputCheckboxRadio extends React.PureComponent {
     return (
       <div className="input-checkbox-radio__element">
         <input
-          {...omit(this.props, 'hasSuccess', 'hasError', 'isCheckbox', 'isRadio', 'helpText')}
+          {...omit(
+            this.props,
+            'hasSuccess',
+            'hasError',
+            'isCheckbox',
+            'isRadio',
+            'helpText',
+          )}
           type={this.props.type}
           checked={this.state.checked}
           disabled={this.state.disabled}
@@ -85,7 +90,7 @@ class InputCheckboxRadio extends React.PureComponent {
           onChange={this.onChange}
           aria-labelledby={`${kebabCase(this.props.label)}-label`}
         />
-        { this.renderFakeInput() }
+        {this.renderFakeInput()}
       </div>
     );
   }
@@ -94,27 +99,34 @@ class InputCheckboxRadio extends React.PureComponent {
     if (!this.props.label) return null;
 
     return (
-      <span id={`${kebabCase(this.props.label)}-label`} className="input-checkbox-radio__label">
-        { this.props.label }
+      <span
+        id={`${kebabCase(this.props.label)}-label`}
+        className="input-checkbox-radio__label"
+      >
+        {this.props.label}
       </span>
     );
   }
 
   render() {
     const classes = this.context.styleManager.render(styleSheet);
-    const className = classNames(classes['input-checkbox-radio'], {
-      'input-checkbox-radio--has-success': this.state.hasSuccess,
-      'input-checkbox-radio--has-error': this.state.hasError,
-      'input-checkbox-radio--is-disabled': this.state.disabled,
-    }, this.props.className);
+    const className = classNames(
+      classes['input-checkbox-radio'],
+      {
+        'input-checkbox-radio--has-success': this.state.hasSuccess,
+        'input-checkbox-radio--has-error': this.state.hasError,
+        'input-checkbox-radio--is-disabled': this.state.disabled,
+      },
+      this.props.className,
+    );
 
     return (
       <span>
         <label className={className}>
-          { this.renderInput() }
-          { this.renderLabel() }
+          {this.renderInput()}
+          {this.renderLabel()}
         </label>
-        { this.renderHelpText() }
+        {this.renderHelpText()}
       </span>
     );
   }

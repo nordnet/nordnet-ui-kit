@@ -3,36 +3,44 @@ import React from 'react';
 import classNames from 'classnames';
 import TbodyStyles from './tbody-styles';
 
-function Tbody({
-  className,
-  children,
-  style,
-  size,
-  colorAlternateRows,
-  maxHeight,
-  border,
-  borderTop,
-  borderRight,
-  borderBottom,
-  borderLeft,
-  ...rest
-}, { styleManager }) {
-  const classes = styleManager.render(TbodyStyles);
-  const usedClassName = classNames(classes.tbody, size, {
-    'alternate-rows': colorAlternateRows,
-    scroll: maxHeight,
+function Tbody(
+  {
+    className,
+    children,
+    style,
+    size,
+    colorAlternateRows,
+    maxHeight,
     border,
     borderTop,
     borderRight,
     borderBottom,
     borderLeft,
-  }, className);
+    ...rest
+  },
+  { styleManager },
+) {
+  const classes = styleManager.render(TbodyStyles);
+  const usedClassName = classNames(
+    classes.tbody,
+    size,
+    {
+      'alternate-rows': colorAlternateRows,
+      scroll: maxHeight,
+      border,
+      borderTop,
+      borderRight,
+      borderBottom,
+      borderLeft,
+    },
+    className,
+  );
 
   const tbodyStyle = Object.assign(maxHeight ? { maxHeight } : {}, style);
 
   return (
     <tbody {...rest} className={usedClassName} style={tbodyStyle}>
-      { children }
+      {children}
     </tbody>
   );
 }

@@ -29,7 +29,7 @@ function conicalGradient(size, limit, clipPathId) {
       />
     );
 
-    if (i > (limit / 2)) {
+    if (i > limit / 2) {
       gradientSectionsB.push(item);
     } else {
       gradientSectionsA.push(item);
@@ -39,10 +39,10 @@ function conicalGradient(size, limit, clipPathId) {
   return (
     <g className="spinner__gradient">
       <g>
-        { gradientSectionsA.map(section => section) }
+        {gradientSectionsA.map(section => section)}
       </g>
       <g clipPath={`url(#${clipPathId})`}>
-        { gradientSectionsB.map(section => section) }
+        {gradientSectionsB.map(section => section)}
       </g>
     </g>
   );
@@ -54,7 +54,10 @@ function renderCircleAsHtml(radius, color, maskId) {
   };
 }
 
-function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }, { styleManager }) {
+function Spinner(
+  { className, size, color, gradientStops, strokeWidth, style, ...rest },
+  { styleManager },
+) {
   const classes = styleManager.render(SpinnerStyles);
   const usedColor = color || styleManager.theme.palette.variant.primary;
   const stroke = strokeWidth || size / 8;
@@ -68,7 +71,11 @@ function Spinner({ className, size, color, gradientStops, strokeWidth, style, ..
   };
 
   return (
-    <div {...rest} className={classNames(classes.spinner, className)} style={wrapperStyle}>
+    <div
+      {...rest}
+      className={classNames(classes.spinner, className)}
+      style={wrapperStyle}
+    >
       <svg className={classes.element} viewBox={`0 0 ${size} ${size}`}>
         <defs>
           <clipPath id={clipPathId}>
@@ -76,12 +83,18 @@ function Spinner({ className, size, color, gradientStops, strokeWidth, style, ..
           </clipPath>
           <mask id={maskId} maskUnits="objectBoundingBox">
             <rect width={size} height={size} fill="#fff" />
-            { conicalGradient(size, gradientStops, clipPathId) }
+            {conicalGradient(size, gradientStops, clipPathId)}
             <circle cx={radius} cy={radius} r={radius - stroke} fill="#000" />
             <circle cx={radius} cy={stroke / 2} r={stroke / 2} fill="#fff" />
           </mask>
         </defs>
-        <g dangerouslySetInnerHTML={renderCircleAsHtml(radius, usedColor, maskId)} />
+        <g
+          dangerouslySetInnerHTML={renderCircleAsHtml(
+            radius,
+            usedColor,
+            maskId,
+          )}
+        />
       </svg>
     </div>
   );
