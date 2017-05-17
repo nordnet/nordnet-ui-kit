@@ -21,6 +21,10 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
         borderColor: colorDisabled,
         color: '#fff',
       },
+
+      '&:focus': {
+        boxShadow: `0 0 0 2px ${colorFocus}`,
+      },
     },
 
     secondary: {
@@ -36,6 +40,10 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
         color: colorDisabled,
         borderColor: colorDisabled,
       },
+
+      '&:focus': {
+        boxShadow: `0 0 0 2px ${colorFocus}`,
+      },
     },
 
     link: {
@@ -44,11 +52,14 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
       '&:hover': {
         color: colorFocus,
       },
+
+      '&:focus&::after': {
+        boxShadow: `0 4px 0 -2px ${colorFocus}`,
+      },
     },
   };
 
   return {
-    outlineColor: color,
     ...variantDict[variant],
   };
 };
@@ -73,8 +84,12 @@ export default createStyleSheet('Button', theme => {
         cursor: 'not-allowed',
       },
 
-      '&:hover': {
+      '&:hover:not(:disabled)': {
         cursor: 'pointer',
+      },
+
+      '&:focus': {
+        outline: 'none',
       },
     },
 
@@ -121,11 +136,10 @@ export default createStyleSheet('Button', theme => {
         background: palette.background.muted,
         border: `2px solid ${palette.background.muted}`,
         color: palette.text.muted,
+      },
 
-        '&:hover': {
-          background: palette.background.muted,
-          borderColor: palette.background.muted,
-        },
+      '&:focus': {
+        boxShadow: `0 0 0 2px ${focusColor(palette.background.secondary)}`,
       },
 
       '&.action': buttonModifierFn(
@@ -170,11 +184,10 @@ export default createStyleSheet('Button', theme => {
       '&:disabled': {
         border: `2px solid ${palette.background.muted}`,
         color: palette.background.muted,
+      },
 
-        '&:hover': {
-          color: palette.background.muted,
-          borderColor: palette.background.muted,
-        },
+      '&:focus': {
+        boxShadow: `0 0 0 2px ${c(palette.color.gray).darken(0.1).hex()}`,
       },
 
       '&.xs,&.sm': {
@@ -211,24 +224,41 @@ export default createStyleSheet('Button', theme => {
     },
 
     link: {
+      position: 'relative',
       background: 'none',
       paddingLeft: 0,
       paddingRight: 0,
-      color: palette.background.secondary,
+      borderRadius: 0,
+      color: palette.text.default,
       border: '2px solid transparent',
       fontWeight: 600,
       cursor: 'pointer',
 
+      '&::after': {
+        position: 'absolute',
+        content: '""',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        top: 0,
+        marginBottom: 3,
+        transition: transitions.create(),
+      },
+
+      '&:focus': {
+        boxShadow: 'none',
+
+        '&::after': {
+          boxShadow: `0 4px 0 -2px ${palette.background.secondary}`,
+        },
+      },
+
       '&:hover': {
-        color: c(palette.background.secondary).darken(0.2).hex(), // was $color-primary-dark
+        color: palette.color.grayDark, // was $color-primary-dark
       },
 
       '&:disabled': {
-        color: palette.background.muted,
-
-        '&:hover': {
-          color: palette.background.muted,
-        },
+        color: palette.color.gray,
       },
 
       '&.action': buttonModifierFn('link', palette.variant.primary, focusColor(palette.variant.primary)),

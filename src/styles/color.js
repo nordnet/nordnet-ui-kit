@@ -14,6 +14,7 @@ export default {
   blueDarker: '#2B417A', // Used together with dark in header gradient
   green: '#26A699', // Plus performance, success
   red: '#D54E16', // Minus performance, error
+  redLight: '#DA6E42', // Sell
 
   yellow: '#E5AA4C', // Notification Logo
   yellowLight: '#FFF1DD', // Notification
