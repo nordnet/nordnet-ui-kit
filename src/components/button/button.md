@@ -31,13 +31,46 @@ Secondary button:
     const style = {
       marginRight: 16,
     };
+    const groupstyle = {
+      marginTop: 16,
+    };
 
     <div>
-      <Button variant="secondary" style={ style }>Click Me</Button>
-      <Button variant="secondary" modifier="action" style={ style }>Click Me</Button>
-      <Button variant="secondary" modifier="danger" style={ style }>Click Me</Button>
-      <Button variant="secondary" modifier="warning" style={ style }>Click Me</Button>
-      <Button variant="secondary" modifier="success" style={ style }>Click Me</Button>
+      <div style={groupstyle}>
+        <div>size: xs</div>
+        <Button size="xs" variant="secondary" style={ style }>Click Me</Button>
+        <Button size="xs" variant="secondary" modifier="action" style={ style }>Click Me</Button>
+        <Button size="xs" variant="secondary" modifier="danger" style={ style }>Click Me</Button>
+        <Button size="xs" variant="secondary" modifier="warning" style={ style }>Click Me</Button>
+        <Button size="xs" variant="secondary" modifier="success" style={ style }>Click Me</Button>
+      </div>
+
+      <div style={groupstyle}>
+        <div>size: sm</div>
+        <Button size="sm" variant="secondary" style={ style }>Click Me</Button>
+        <Button size="sm" variant="secondary" modifier="action" style={ style }>Click Me</Button>
+        <Button size="sm" variant="secondary" modifier="danger" style={ style }>Click Me</Button>
+        <Button size="sm" variant="secondary" modifier="warning" style={ style }>Click Me</Button>
+        <Button size="sm" variant="secondary" modifier="success" style={ style }>Click Me</Button>
+      </div>
+
+      <div style={groupstyle}>
+        <div>size: md</div>
+        <Button size="md" variant="secondary" style={ style }>Click Me</Button>
+        <Button size="md" variant="secondary" modifier="action" style={ style }>Click Me</Button>
+        <Button size="md" variant="secondary" modifier="danger" style={ style }>Click Me</Button>
+        <Button size="md" variant="secondary" modifier="warning" style={ style }>Click Me</Button>
+        <Button size="md" variant="secondary" modifier="success" style={ style }>Click Me</Button>
+      </div>
+
+      <div style={groupstyle}>
+        <div>size: lg</div>
+        <Button size="lg" variant="secondary" style={ style }>Click Me</Button>
+        <Button size="lg" variant="secondary" modifier="action" style={ style }>Click Me</Button>
+        <Button size="lg" variant="secondary" modifier="danger" style={ style }>Click Me</Button>
+        <Button size="lg" variant="secondary" modifier="warning" style={ style }>Click Me</Button>
+        <Button size="lg" variant="secondary" modifier="success" style={ style }>Click Me</Button>
+      </div>
     </div>
 
 Secondary, disabled:
