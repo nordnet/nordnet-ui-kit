@@ -1,7 +1,20 @@
 # Changelog
 
+### 0.2.5 (2017-05-17)
+
+#### Bug Fixes
+
+* release flow ([d4338d06](https://github.com/nordnet/nordnet-ui-kit/commit/d4338d06), closes [#219](https://github.com/nordnet/nordnet-ui-kit/issues/219))
+* styling of select input. (#221) ([7f690f8d](https://github.com/nordnet/nordnet-ui-kit/commit/7f690f8d), closes [#219](https://github.com/nordnet/nordnet-ui-kit/issues/219))
+* remove broken file ([c320114a](https://github.com/nordnet/nordnet-ui-kit/commit/c320114a))
+* Set pointer-events to none on icons (#217)
+* change circle arrow (#218)
+* Remove default marginBottom (#216)
+* addonRight for small input fields (#215)
+* Add new modifier to proptypes (#214)
+
 ## 0.2.4
-**Accidental release - Use at your own risk**
+**⚠️ Accidental release - Use at your own risk ⚠️**
 
 ## 0.2.3
 * Input[type="select"]: Styling fixes 💄.
