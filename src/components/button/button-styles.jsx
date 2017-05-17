@@ -159,12 +159,12 @@ export default createStyleSheet('Button', theme => {
 
     secondary: {
       background: 'none',
-      color: palette.background.secondary,
-      border: `2px solid ${palette.background.secondary}`,
+      color: palette.color.grayDark,
+      border: `2px solid ${palette.color.gray}`,
 
       '&:hover': {
-        color: c(palette.background.secondary).darken(0.1).hex(),
-        borderColor: c(palette.background.secondary).darken(0.1).hex(),
+        color: c(palette.color.grayDark).darken(0.1).hex(),
+        borderColor: c(palette.color.gray).darken(0.1).hex(),
       },
 
       '&:disabled': {
@@ -175,6 +175,10 @@ export default createStyleSheet('Button', theme => {
           color: palette.background.muted,
           borderColor: palette.background.muted,
         },
+      },
+
+      '&.xs,&.sm': {
+        borderWidth: '1px',
       },
 
       '&.action': buttonModifierFn(

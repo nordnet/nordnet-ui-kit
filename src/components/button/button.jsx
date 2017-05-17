@@ -26,6 +26,7 @@ function Button({ variant, block, disabled, className, children, modifier, href,
       danger: isDanger,
     },
     classes[size],
+    size,
     className,
   );
 
