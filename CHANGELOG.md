@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.4
+**Accidental release - Use at your own risk**
+
 ## 0.2.3
 * Input[type="select"]: Styling fixes 💄.
 * Button: Default buttons are now gray, blue button is now `modifier="action"`.
