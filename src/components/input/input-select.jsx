@@ -13,7 +13,7 @@ function renderOption(option) {
 
   return (
     <option {...rest} key={key} value={value}>
-      { label }
+      {label}
     </option>
   );
 }
@@ -22,16 +22,14 @@ class InputSelect extends InputDefault {
   renderSelectArrow() {
     const className = 'input__select-arrow';
     const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
-    return (
-      <IconUsed className={className} stroke={this.context.styleManager.theme.palette.variant.primary} />
-    );
+    return <IconUsed className={className} stroke={this.context.styleManager.theme.palette.variant.primary} />;
   }
 
   renderFakePlaceholder() {
     const placeholder = this.props.placeholder || this.props.label;
     return (
       <span className="input__placeholder">
-        { placeholder }
+        {placeholder}
       </span>
     );
   }
@@ -44,7 +42,7 @@ class InputSelect extends InputDefault {
 
     return (
       <span className="input__value-label">
-        { option.label }
+        {option.label}
       </span>
     );
   }
@@ -93,34 +91,34 @@ class InputSelect extends InputDefault {
           placeholder=""
           value={this.state.value}
         >
-          { placeholder ? <option value="" disabled>{ placeholder }</option> : null }
-          { options.map(renderOption) }
+          {placeholder ? <option value="" disabled>{placeholder}</option> : null}
+          {options.map(renderOption)}
         </select>
-        { this.state.value ? null : this.renderFakePlaceholder() }
-        { this.showValue() ? this.renderValueLabel() : null }
-        { this.renderSelectArrow() }
+        {this.state.value ? null : this.renderFakePlaceholder()}
+        {this.showValue() ? this.renderValueLabel() : null}
+        {this.renderSelectArrow()}
       </div>
     );
   }
 }
 
 InputSelect.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    key: PropTypes.string,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]).isRequired,
-  })),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      key: PropTypes.string,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+    }),
+  ),
 };
 
 InputSelect.defaultProps = {
-  options: [{
-    label: '',
-    value: '',
-  }],
+  options: [
+    {
+      label: '',
+      value: '',
+    },
+  ],
 };
 
 export default InputSelect;

@@ -27,9 +27,7 @@ describe('ThemeProvider', () => {
 
     const badgeClasses = component.find('span').prop('className').split(' ');
     const styleSheets = styleManager.sheetsToString();
-    badgeClasses.map(className => (
-      expect(styleSheets.indexOf(className) > -1).to.equal(true)
-    ));
+    badgeClasses.map(className => expect(styleSheets.indexOf(className) > -1).to.equal(true));
   });
 
   describe('createDefaultContext', () => {

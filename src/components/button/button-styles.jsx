@@ -2,8 +2,8 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import c from 'color';
 
 // This function was created because 'focused' versions on colors were not found in the palette
-const focusColor = color => (c(color).darken(0.1).hex());
-const disableColor = color => (c(color).lighten(0.7).hex());
+const focusColor = color => c(color).darken(0.1).hex();
+const disableColor = color => c(color).lighten(0.7).hex();
 
 const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
   const variantDict = {
@@ -53,7 +53,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
   };
 };
 
-export default createStyleSheet('Button', (theme) => {
+export default createStyleSheet('Button', theme => {
   const { palette, transitions, typography, mixins } = theme;
 
   return {

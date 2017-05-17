@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagSe({
-  ...rest
-}) {
+export default function FlagSe({ ...rest }) {
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <g transform="translate(50.082) scale(.9375)">

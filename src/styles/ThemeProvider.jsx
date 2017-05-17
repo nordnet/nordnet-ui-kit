@@ -26,10 +26,12 @@ export default class ThemeProvider extends Component {
 
   static createDefaultContext(props = {}) {
     const theme = props.theme || createTheme();
-    const styleManager = props.styleManager || createStyleManager({
-      theme,
-      jss: createJss(jssPreset()),
-    });
+    const styleManager =
+      props.styleManager ||
+      createStyleManager({
+        theme,
+        jss: createJss(jssPreset()),
+      });
 
     return { theme, styleManager };
   }

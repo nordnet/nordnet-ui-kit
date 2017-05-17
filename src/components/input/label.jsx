@@ -6,7 +6,7 @@ function Label(props) {
 
   return (
     <label htmlFor={id} className="input__label">
-      { label }
+      {label}
     </label>
   );
 }

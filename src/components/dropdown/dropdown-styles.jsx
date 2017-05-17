@@ -1,6 +1,6 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export default createStyleSheet('Dropdown', (theme) => {
+export default createStyleSheet('Dropdown', theme => {
   const { palette, mixins } = theme;
 
   return {

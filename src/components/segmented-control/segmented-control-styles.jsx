@@ -1,6 +1,6 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export default createStyleSheet('SegmentedControl', (theme) => {
+export default createStyleSheet('SegmentedControl', theme => {
   const { palette, typography } = theme;
 
   return {

@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export const styleSheet = createStyleSheet('Badge', (theme) => {
+export const styleSheet = createStyleSheet('Badge', theme => {
   const { palette, typography, mixins } = theme;
 
   return {
@@ -35,23 +35,20 @@ export const styleSheet = createStyleSheet('Badge', (theme) => {
   };
 });
 
-function Badge({
-  modifier,
-  children,
-  className: classNameProp,
-  ...rest
-}, { styleManager }) {
+function Badge({ modifier, children, className: classNameProp, ...rest }, { styleManager }) {
   const classes = styleManager.render(styleSheet);
 
-  const className = cn([classes.root], {
-    [classes.success]: modifier === 'success',
-    [classes.warning]: modifier === 'warning',
-    [classes.danger]: modifier === 'danger',
-  }, classNameProp);
-
-  return (
-    <span {...rest} className={className}>{ children }</span>
+  const className = cn(
+    [classes.root],
+    {
+      [classes.success]: modifier === 'success',
+      [classes.warning]: modifier === 'warning',
+      [classes.danger]: modifier === 'danger',
+    },
+    classNameProp,
   );
+
+  return <span {...rest} className={className}>{children}</span>;
 }
 
 Badge.propTypes = {

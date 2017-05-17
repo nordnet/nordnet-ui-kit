@@ -7,7 +7,7 @@ function Tfoot(props, { styleManager }) {
   const { className, children, size, ...rest } = props;
   const classes = styleManager.render(TfootStyles);
   const usedClassName = classNames(classes.tfoot, size, className);
-  return <tfoot {...rest} className={usedClassName}>{ children }</tfoot>;
+  return <tfoot {...rest} className={usedClassName}>{children}</tfoot>;
 }
 
 Tfoot.defaultProps = {};

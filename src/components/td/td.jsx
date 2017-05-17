@@ -3,27 +3,31 @@ import React from 'react';
 import classNames from 'classnames';
 import TdStyles from './td-styles';
 
-function Td({
-  className,
-  children,
-  style,
-  size,
-  width,
-  mono,
-  modifier,
-  highlight,
-  border,
-  borderTop,
-  borderRight,
-  borderBottom,
-  borderLeft,
-  align,
-  ellipsis,
-  ...rest
-}, { styleManager }) {
+function Td(
+  {
+    className,
+    children,
+    style,
+    size,
+    width,
+    mono,
+    modifier,
+    highlight,
+    border,
+    borderTop,
+    borderRight,
+    borderBottom,
+    borderLeft,
+    align,
+    ellipsis,
+    ...rest
+  },
+  { styleManager },
+) {
   const classes = styleManager.render(TdStyles);
   const usedClassName = classNames(
-    classes.td, size,
+    classes.td,
+    size,
     {
       hasWidth: width,
       [modifier]: modifier,
@@ -40,13 +44,9 @@ function Td({
     className,
   );
 
-  const tdStyle = Object.assign(
-    {},
-    width && { width: `${width}${typeof width === 'number' ? '%' : ''}` },
-    style,
-  );
+  const tdStyle = Object.assign({}, width && { width: `${width}${typeof width === 'number' ? '%' : ''}` }, style);
 
-  return <td {...rest} className={usedClassName} style={tdStyle}>{ children }</td>;
+  return <td {...rest} className={usedClassName} style={tdStyle}>{children}</td>;
 }
 
 Td.defaultProps = {
@@ -82,6 +82,5 @@ Td.propTypes = {
 Td.contextTypes = {
   styleManager: PropTypes.object.isRequired,
 };
-
 
 export default Td;

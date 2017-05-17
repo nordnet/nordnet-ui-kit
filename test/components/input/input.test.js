@@ -15,25 +15,30 @@ describe('<Input />', () => {
   const classes = shallow.context.styleManager.render(InputDefaultStyles);
   const classesRadio = shallow.context.styleManager.render(InputCheckboxRadioStyles);
   let wrapper;
-  const inputTypes = [{
-    name: 'text',
-    elementName: '<InputDefault />',
-    value: InputDefault,
-  }, {
-    name: 'select',
-    elementName: '<InputSelect />',
-    value: InputSelect,
-  }, {
-    name: 'checkbox',
-    elementName: '<InputCheckboxRadio />',
-    value: InputCheckboxRadio,
-  }, {
-    name: 'radio',
-    elementName: '<InputCheckboxRadio />',
-    value: InputCheckboxRadio,
-  }];
+  const inputTypes = [
+    {
+      name: 'text',
+      elementName: '<InputDefault />',
+      value: InputDefault,
+    },
+    {
+      name: 'select',
+      elementName: '<InputSelect />',
+      value: InputSelect,
+    },
+    {
+      name: 'checkbox',
+      elementName: '<InputCheckboxRadio />',
+      value: InputCheckboxRadio,
+    },
+    {
+      name: 'radio',
+      elementName: '<InputCheckboxRadio />',
+      value: InputCheckboxRadio,
+    },
+  ];
 
-  inputTypes.forEach((type) => {
+  inputTypes.forEach(type => {
     describe(`with type=${type.name}`, () => {
       beforeEach(() => {
         wrapper = shallow(<Input type={type.name} label="label" value="value" placeholder="placeholder" />);
@@ -46,8 +51,7 @@ describe('<Input />', () => {
           expect(wrapper.shallow(opts).hasClass(classes.input)).to.equals(true);
         });
         it('should print the label if text is entered', () => {
-          expect(wrapper.shallow(opts).find('Label').shallow(opts).childAt(0)
-          .text()).to.equal('label');
+          expect(wrapper.shallow(opts).find('Label').shallow(opts).childAt(0).text()).to.equal('label');
         });
         it('should set the placeholder to the property placeholder', () => {
           if (type.value === InputSelect) {

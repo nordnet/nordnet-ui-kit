@@ -1,7 +1,7 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 
-export default createStyleSheet('Tbody', (theme) => {
+export default createStyleSheet('Tbody', theme => {
   const { palette, mixins } = theme;
   return {
     tbody: {

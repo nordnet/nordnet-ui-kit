@@ -13,10 +13,13 @@ class SegmentedControl extends React.PureComponent {
     } else if (this.props.type === 'checkbox') {
       // If multiple children
       if (this.props.children.reduce) {
-        this.state = this.props.children.reduce((previous, child) => ({
-          ...previous,
-          [child.props.value]: !!child.props.checked,
-        }), {});
+        this.state = this.props.children.reduce(
+          (previous, child) => ({
+            ...previous,
+            [child.props.value]: !!child.props.checked,
+          }),
+          {},
+        );
       } else {
         const childProps = this.props.children.props;
         this.state = {
@@ -35,15 +38,21 @@ class SegmentedControl extends React.PureComponent {
     // Multiple children
     if (this.props.children.reduce) {
       if (this.props.type === 'radio') {
-        return this.props.children.reduce((previous, child) => ({
-          ...previous,
-          [child.props.value]: this.state.selected === child.props.value,
-        }), {});
+        return this.props.children.reduce(
+          (previous, child) => ({
+            ...previous,
+            [child.props.value]: this.state.selected === child.props.value,
+          }),
+          {},
+        );
       } else if (this.props.type === 'checkbox') {
-        return this.props.children.reduce((previous, child) => ({
-          ...previous,
-          [child.props.value]: this.state[child.props.value],
-        }), {});
+        return this.props.children.reduce(
+          (previous, child) => ({
+            ...previous,
+            [child.props.value]: this.state[child.props.value],
+          }),
+          {},
+        );
       }
     } else {
       // Single child, only works with 'checkbox' behavior
@@ -70,13 +79,19 @@ class SegmentedControl extends React.PureComponent {
       }
     };
     if (this.props.type === 'radio') {
-      this.setState({
-        selected: index,
-      }, callOnChange);
+      this.setState(
+        {
+          selected: index,
+        },
+        callOnChange,
+      );
     } else if (this.props.type === 'checkbox') {
-      this.setState({
-        [index]: !this.state[index],
-      }, callOnChange);
+      this.setState(
+        {
+          [index]: !this.state[index],
+        },
+        callOnChange,
+      );
     }
   }
 
@@ -97,26 +112,28 @@ class SegmentedControl extends React.PureComponent {
       [this.classes.checkbox]: this.props.type === 'checkbox',
     });
     const inputId = `sc-${this.props.name}-${index}`;
-    return (<span className={usedClassName} key={`sc-${this.props.name}-${childValue}`}>
-      <input
-        type={this.props.type}
-        id={inputId}
-        name={`sc-${this.props.name}`}
-        value={childValue || index}
-        checked={selected}
-        onChange={this.handleChange}
-        onFocus={event => this.handleFocus(event, index)}
-        onBlur={event => this.handleFocus(event, index)}
-      />
-      <label htmlFor={inputId}>{ child }</label>
-    </span>);
+    return (
+      <span className={usedClassName} key={`sc-${this.props.name}-${childValue}`}>
+        <input
+          type={this.props.type}
+          id={inputId}
+          name={`sc-${this.props.name}`}
+          value={childValue || index}
+          checked={selected}
+          onChange={this.handleChange}
+          onFocus={event => this.handleFocus(event, index)}
+          onBlur={event => this.handleFocus(event, index)}
+        />
+        <label htmlFor={inputId}>{child}</label>
+      </span>
+    );
   }
 
   render() {
     // If we have an array of children, then we have the map function
     return (
       <span style={this.props.style} className={cn(this.classes.root, this.props.className)}>
-        { this.props.children.map ? this.props.children.map(this.renderChild) : this.renderChild(this.props.children) }
+        {this.props.children.map ? this.props.children.map(this.renderChild) : this.renderChild(this.props.children)}
       </span>
     );
   }

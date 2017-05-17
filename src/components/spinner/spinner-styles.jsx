@@ -3,7 +3,6 @@ import { createStyleSheet } from 'jss-theme-reactor';
 const identifier = `spinner-${Math.round(1000 * Math.random())}`;
 
 export default createStyleSheet('Spinner', theme => ({
-
   [`@keyframes ${identifier}`]: {
     from: {
       transform: 'rotate(0deg)',

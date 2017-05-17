@@ -30,12 +30,7 @@ class Alert extends React.PureComponent {
 
     return (
       <button className={this.classes.close} onClick={this.handleCloseClick}>
-        <IconClose
-          stroke={this.context.styleManager.theme.palette.text.default}
-          width={10}
-          height={10}
-          style={{ display: 'block' }}
-        />
+        <IconClose stroke={this.context.styleManager.theme.palette.text.default} width={10} height={10} style={{ display: 'block' }} />
       </button>
     );
   }
@@ -45,18 +40,22 @@ class Alert extends React.PureComponent {
       return null;
     }
 
-    const usedClassName = classNames(this.classes.alert, {
-      [`${this.classes[this.props.modifier]}`]: this.props.modifier,
-    }, this.props.className);
+    const usedClassName = classNames(
+      this.classes.alert,
+      {
+        [`${this.classes[this.props.modifier]}`]: this.props.modifier,
+      },
+      this.props.className,
+    );
     const headerClassName = classNames('header', {
       vertical: this.props.vertical,
     });
 
     return (
       <div className={usedClassName} style={this.props.style}>
-        {this.props.header ? <div className={headerClassName}>{ this.props.header }</div> : null}
-        <div className={this.classes.body}>{ this.props.children }</div>
-        { this.renderClose() }
+        {this.props.header ? <div className={headerClassName}>{this.props.header}</div> : null}
+        <div className={this.classes.body}>{this.props.children}</div>
+        {this.renderClose()}
       </div>
     );
   }

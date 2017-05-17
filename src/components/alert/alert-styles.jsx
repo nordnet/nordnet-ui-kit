@@ -1,6 +1,6 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export default createStyleSheet('Alert', (theme) => {
+export default createStyleSheet('Alert', theme => {
   const { palette, mixins } = theme;
 
   return {

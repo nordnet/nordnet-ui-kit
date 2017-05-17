@@ -2,7 +2,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 
 const zIndexTooltip = 2;
 
-export default createStyleSheet('Tooltip', (theme) => {
+export default createStyleSheet('Tooltip', theme => {
   const { palette, transitions, mixins, typography } = theme;
 
   return {

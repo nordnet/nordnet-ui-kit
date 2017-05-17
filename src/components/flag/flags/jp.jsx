@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagJp({
-  ...rest
-}) {
+export default function FlagJp({ ...rest }) {
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <defs>

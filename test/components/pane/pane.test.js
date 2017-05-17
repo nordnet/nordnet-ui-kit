@@ -17,16 +17,20 @@ describe('<Pane />', () => {
   });
 
   describe('When <Pane /> is correctly populated with default props', () => {
-    const tabs = [{
-      label: 'Tab 1',
-      body: <div>This is tab 1!</div>,
-    }, {
-      label: 'Tab 2',
-      body: <div>This is tab 2!</div>,
-    }, {
-      label: 'Tab 3',
-      body: <div>This is tab 3!</div>,
-    }];
+    const tabs = [
+      {
+        label: 'Tab 1',
+        body: <div>This is tab 1!</div>,
+      },
+      {
+        label: 'Tab 2',
+        body: <div>This is tab 2!</div>,
+      },
+      {
+        label: 'Tab 3',
+        body: <div>This is tab 3!</div>,
+      },
+    ];
 
     let wrapper;
     let renderedTabs;
@@ -62,10 +66,12 @@ describe('<Pane />', () => {
   });
 
   describe('When <Pane /> is correctly populated with another size', () => {
-    const tabs = [{
-      label: 'Tab 1',
-      body: <div>This is tab 1!</div>,
-    }];
+    const tabs = [
+      {
+        label: 'Tab 1',
+        body: <div>This is tab 1!</div>,
+      },
+    ];
     const wrapper = shallow(<Pane tabs={tabs} size="lg" />);
     it('should render <div> as container', () => {
       expect(wrapper.type()).to.equal('div');
@@ -76,8 +82,7 @@ describe('<Pane />', () => {
     });
 
     it('should have class lg', () => {
-      expect(wrapper.children().children().find('li').at(0)
-      .hasClass(classes.lg)).to.equal(true);
+      expect(wrapper.children().children().find('li').at(0).hasClass(classes.lg)).to.equal(true);
     });
   });
 });

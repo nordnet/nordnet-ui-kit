@@ -3,17 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import ButtonStyles from './button-styles';
 
-function Button({
-  variant,
-  block,
-  disabled,
-  className,
-  children,
-  modifier,
-  href,
-  size,
-  ...rest
-}, { styleManager }) {
+function Button({ variant, block, disabled, className, children, modifier, href, size, ...rest }, { styleManager }) {
   const Element = href ? 'a' : 'button';
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
@@ -23,20 +13,25 @@ function Button({
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
   const classes = styleManager.render(ButtonStyles);
-  const usedClassName = classNames(classes.button, {
-    [classes.block]: block,
-    [classes.primary]: isPrimary,
-    [classes.secondary]: isSecondary,
-    [classes.link]: isLink,
-    action: isAction,
-    success: isSuccess,
-    warning: isWarning,
-    danger: isDanger,
-  }, classes[size], className);
+  const usedClassName = classNames(
+    classes.button,
+    {
+      [classes.block]: block,
+      [classes.primary]: isPrimary,
+      [classes.secondary]: isSecondary,
+      [classes.link]: isLink,
+      action: isAction,
+      success: isSuccess,
+      warning: isWarning,
+      danger: isDanger,
+    },
+    classes[size],
+    className,
+  );
 
   return (
     <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
-      { children }
+      {children}
     </Element>
   );
 }
@@ -61,6 +56,5 @@ Button.propTypes = {
 Button.contextTypes = {
   styleManager: PropTypes.object.isRequired,
 };
-
 
 export default Button;

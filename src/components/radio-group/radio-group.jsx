@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-
 class RadioGroup extends React.Component {
   constructor(props) {
     super(props);
@@ -32,14 +31,17 @@ class RadioGroup extends React.Component {
 
     return (
       <div>
-        {
-          childArray.map(child =>
-            React.cloneElement(child, Object.assign(newProps, { checked: child.props.value === selectedValue })))
-        }
+        {childArray.map(child =>
+          React.cloneElement(
+            child,
+            Object.assign(newProps, {
+              checked: child.props.value === selectedValue,
+            }),
+          ),
+        )}
       </div>
     );
   }
-
 }
 
 RadioGroup.propTypes = {
@@ -51,6 +53,5 @@ RadioGroup.propTypes = {
   /** Elements of type `<Input type="checkbox" />` */
   children: PropTypes.node.isRequired,
 };
-
 
 export default RadioGroup;

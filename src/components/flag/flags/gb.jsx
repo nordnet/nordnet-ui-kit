@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagGb({
-  ...rest
-}) {
+export default function FlagGb({ ...rest }) {
   return (
     <svg aria-hidden="true" focusable="false" {...rest}>
       <defs>

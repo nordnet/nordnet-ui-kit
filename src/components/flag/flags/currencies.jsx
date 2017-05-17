@@ -2,32 +2,23 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import flags from './';
 
-export default function CombinedFlag({
-  style,
-  primaryCC,
-  secondaryCC,
-  size,
-  ...rest
-}) {
-  const usedStyle = Object.assign({}, {
-    fillRule: 'evenodd',
-    clipRule: 'evenodd',
-    strokeLinejoin: 'round',
-    strokeMiterlimit: 1.41421,
-  }, style);
+export default function CombinedFlag({ style, primaryCC, secondaryCC, size, ...rest }) {
+  const usedStyle = Object.assign(
+    {},
+    {
+      fillRule: 'evenodd',
+      clipRule: 'evenodd',
+      strokeLinejoin: 'round',
+      strokeMiterlimit: 1.41421,
+    },
+    style,
+  );
   const PrimaryFlag = flags[primaryCC];
   const SecondaryFlag = flags[secondaryCC];
   const primaryX = -24;
   const secondaryX = -primaryX;
   return (
-    <svg
-      width="100%"
-      height="100%"
-      style={usedStyle}
-      aria-hidden="true"
-      focusable="false"
-      {...rest}
-    >
+    <svg width="100%" height="100%" style={usedStyle} aria-hidden="true" focusable="false" {...rest}>
       <g id={`${primaryCC}/${secondaryCC}`}>
         <g id={`${secondaryCC}-container`}>
           <circle cx="116.094" cy="68.031" r="68.031" style={{ fill: '#f6f6f6' }} />

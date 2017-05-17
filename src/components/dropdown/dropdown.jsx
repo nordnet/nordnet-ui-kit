@@ -56,11 +56,11 @@ class Dropdown extends React.PureComponent {
 
     return (
       <ul className={this.classes.actions} style={style}>
-        { this.props.actions.map((action, index) => (
+        {this.props.actions.map((action, index) => (
           <li className={this.classes.action} key={`${index}-${kebabCase(action.label)}`} onClick={action.action}>
-            { action.label }
+            {action.label}
           </li>
-        )) }
+        ))}
       </ul>
     );
   }
@@ -72,10 +72,12 @@ class Dropdown extends React.PureComponent {
     return (
       <div
         className={className}
-        ref={(element) => { this.onOutsideElement = element; }}
+        ref={element => {
+          this.onOutsideElement = element;
+        }}
       >
         <button className={this.classes.toggle} onClick={this.handleToggleClick}>
-          { this.props.toggle }
+          {this.props.toggle}
           <IconUsed
             className={this.classes.toggleIcon}
             stroke={this.context.styleManager.theme.palette.text.secondary}
@@ -84,7 +86,7 @@ class Dropdown extends React.PureComponent {
             style={{ position: 'absolute', right: '8px', top: '12px' }}
           />
         </button>
-        { this.renderActions() }
+        {this.renderActions()}
       </div>
     );
   }
@@ -93,10 +95,12 @@ class Dropdown extends React.PureComponent {
 Dropdown.propTypes = {
   className: PropTypes.string,
   toggle: PropTypes.string,
-  actions: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.node,
-    action: PropTypes.func,
-  })),
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.node,
+      action: PropTypes.func,
+    }),
+  ),
   actionsOpen: PropTypes.bool,
 };
 

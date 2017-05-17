@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export const styleSheet = createStyleSheet('Avatar', (theme) => {
+export const styleSheet = createStyleSheet('Avatar', theme => {
   const { palette, typography, mixins } = theme;
 
   const styles = {
@@ -46,24 +46,21 @@ export const styleSheet = createStyleSheet('Avatar', (theme) => {
   return styles;
 });
 
-function Avatar({
-  children,
-  className: classNameProp,
-  style: styleProp,
-  size,
-  color,
-  ...rest
-}, { styleManager }) {
+function Avatar({ children, className: classNameProp, style: styleProp, size, color, ...rest }, { styleManager }) {
   const classes = styleManager.render(styleSheet);
-  const style = Object.assign({}, {
-    backgroundColor: color,
-  }, styleProp);
+  const style = Object.assign(
+    {},
+    {
+      backgroundColor: color,
+    },
+    styleProp,
+  );
 
   const className = cn(classes.root, [classes[`${size}`]], classNameProp);
 
   return (
     <div className={className} style={style} {...rest}>
-      { children }
+      {children}
     </div>
   );
 }

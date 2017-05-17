@@ -1,6 +1,6 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 
-export default createStyleSheet('InputCheckboxRadio', (theme) => {
+export default createStyleSheet('InputCheckboxRadio', theme => {
   const { palette, transitions, mixins } = theme;
 
   const modifierFn = color => ({

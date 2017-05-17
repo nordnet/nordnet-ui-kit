@@ -7,7 +7,8 @@ import omit from '../../utilities/omit';
 import TrStyles from './tr-styles';
 
 // Needs to be a class so that a ref can be assigned to it from Thead
-class Tr extends React.Component { // eslint-disable-line
+class Tr extends React.Component {
+  // eslint-disable-line
   constructor(props, context) {
     super(props, context);
 
@@ -54,7 +55,9 @@ class Tr extends React.Component { // eslint-disable-line
   }
 
   getDistanceFromBottom() {
-    if (!this.tr.closest('tbody')) return this.tr.closest('table').getBoundingClientRect().bottom;
+    if (!this.tr.closest('tbody')) {
+      return this.tr.closest('table').getBoundingClientRect().bottom;
+    }
     return this.tr.closest('tbody').getBoundingClientRect().bottom;
   }
 
@@ -117,7 +120,8 @@ class Tr extends React.Component { // eslint-disable-line
     const classes = this.context.styleManager.render(TrStyles);
     const { width, sticky } = this.state;
     const usedClassName = classNames(
-      classes.tr, size,
+      classes.tr,
+      size,
       {
         [variant]: variant,
         border,
@@ -133,13 +137,8 @@ class Tr extends React.Component { // eslint-disable-line
     }
 
     return (
-      <tr
-        {...(omit(rest, 'sticky'))}
-        className={usedClassName}
-        style={stickyStyle}
-        ref={node => this.addRef(node, 'tr')}
-      >
-        { children }
+      <tr {...omit(rest, 'sticky')} className={usedClassName} style={stickyStyle} ref={node => this.addRef(node, 'tr')}>
+        {children}
       </tr>
     );
   }

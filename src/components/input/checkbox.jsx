@@ -7,19 +7,20 @@ import color from '../../styles/color';
 function Checkbox(props) {
   const { checked, disabled } = props;
 
-  const classes = classNames('checkbox', {
-    'checkbox--is-checked': checked,
-    'checkbox--is-disabled': disabled,
-  }, props.className);
+  const classes = classNames(
+    'checkbox',
+    {
+      'checkbox--is-checked': checked,
+      'checkbox--is-disabled': disabled,
+    },
+    props.className,
+  );
 
-  const icon = (<Icon.Checkmark
-    stroke={color.white}
-    style={{ display: 'block' }}
-  />);
+  const icon = <Icon.Checkmark stroke={color.white} style={{ display: 'block' }} />;
 
   return (
     <span className={classes}>
-      { checked ? icon : null }
+      {checked ? icon : null}
     </span>
   );
 }

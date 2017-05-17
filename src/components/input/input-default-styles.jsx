@@ -1,7 +1,7 @@
 import { createStyleSheet } from 'jss-theme-reactor';
 import Color from 'color';
 
-export default createStyleSheet('InputDefault', (theme) => {
+export default createStyleSheet('InputDefault', theme => {
   const { palette, transitions, mixins, typography } = theme;
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
@@ -145,7 +145,7 @@ export default createStyleSheet('InputDefault', (theme) => {
         padding: 8,
         paddingTop: 10,
         transition: transitions.create(['border-color']),
-        marginBottom: (inputMarginBottom + bottomBorderSize) - borderSize,
+        marginBottom: inputMarginBottom + bottomBorderSize - borderSize,
       },
 
       '& .input__label': {
@@ -202,7 +202,6 @@ export default createStyleSheet('InputDefault', (theme) => {
           maxHeight: '100%',
         },
       },
-
     },
   };
 });

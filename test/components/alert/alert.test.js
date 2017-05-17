@@ -22,7 +22,7 @@ describe('<Alert />', () => {
     expect(wrapper.hasClass(classes.alert)).to.equal(true);
   });
 
-  ['success', 'warning', 'danger'].forEach((modifier) => {
+  ['success', 'warning', 'danger'].forEach(modifier => {
     it(`should have class ${classes[modifier]} if modifier is set to ${modifier}`, () => {
       wrapper.setProps({ modifier });
       expect(wrapper.hasClass(`${classes[modifier]}`)).to.equal(true);

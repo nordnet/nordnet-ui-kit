@@ -11,7 +11,7 @@ describe('<LabeledValue />', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <LabeledValue className="testclass" label="label" >
+      <LabeledValue className="testclass" label="label">
         myvalue
       </LabeledValue>,
     );
@@ -42,7 +42,7 @@ describe('<LabeledValue />', () => {
     expect(valueNode.hasClass(classes['value-md'])).to.equal(true);
   });
 
-  ['xs', 'sm', 'md', 'lg'].forEach((size) => {
+  ['xs', 'sm', 'md', 'lg'].forEach(size => {
     it(`value should have class "value-${size}" if prop size is ${size}`, () => {
       wrapper.setProps({ size });
       const valueNode = wrapper.find(`span.${classes.value}`).first();

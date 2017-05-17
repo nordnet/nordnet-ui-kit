@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function FlagEu({
-  ...rest
-}) {
+export default function FlagEu({ ...rest }) {
   return (
     <svg {...rest}>
       <defs>

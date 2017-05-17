@@ -3,21 +3,16 @@ import React from 'react';
 import flags from './flags';
 import CurrencyFlag from './flags/currencies';
 
-function Flag({
-  className,
-  style,
-  countryCode,
-  secondaryCountryCode,
-  size,
-  round,
-  ...rest
-}) {
-  const flagStyle = Object.assign({
-    display: 'inline-block',
-    width: size,
-    height: size * 0.75,
-    marginLeft: round ? -size * 0.125 : null,
-  }, style);
+function Flag({ className, style, countryCode, secondaryCountryCode, size, round, ...rest }) {
+  const flagStyle = Object.assign(
+    {
+      display: 'inline-block',
+      width: size,
+      height: size * 0.75,
+      marginLeft: round ? -size * 0.125 : null,
+    },
+    style,
+  );
 
   if (secondaryCountryCode) {
     return (
@@ -56,8 +51,32 @@ Flag.defaultProps = {
 };
 
 const countryCodes = [
-  'ca', 'de', 'fr', 'ru', 'gb', 'dk', 'fi', 'no', 'se', 'us', 'jp', 'cn', 'eu',
-  'CA', 'DE', 'FR', 'RU', 'GB', 'DK', 'FI', 'NO', 'SE', 'US', 'JP', 'CN', 'EU',
+  'ca',
+  'de',
+  'fr',
+  'ru',
+  'gb',
+  'dk',
+  'fi',
+  'no',
+  'se',
+  'us',
+  'jp',
+  'cn',
+  'eu',
+  'CA',
+  'DE',
+  'FR',
+  'RU',
+  'GB',
+  'DK',
+  'FI',
+  'NO',
+  'SE',
+  'US',
+  'JP',
+  'CN',
+  'EU',
 ];
 
 Flag.propTypes = {

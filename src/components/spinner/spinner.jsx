@@ -29,7 +29,7 @@ function conicalGradient(size, limit, clipPathId) {
       />
     );
 
-    if (i > (limit / 2)) {
+    if (i > limit / 2) {
       gradientSectionsB.push(item);
     } else {
       gradientSectionsA.push(item);
@@ -39,10 +39,10 @@ function conicalGradient(size, limit, clipPathId) {
   return (
     <g className="spinner__gradient">
       <g>
-        { gradientSectionsA.map(section => section) }
+        {gradientSectionsA.map(section => section)}
       </g>
       <g clipPath={`url(#${clipPathId})`}>
-        { gradientSectionsB.map(section => section) }
+        {gradientSectionsB.map(section => section)}
       </g>
     </g>
   );
@@ -76,7 +76,7 @@ function Spinner({ className, size, color, gradientStops, strokeWidth, style, ..
           </clipPath>
           <mask id={maskId} maskUnits="objectBoundingBox">
             <rect width={size} height={size} fill="#fff" />
-            { conicalGradient(size, gradientStops, clipPathId) }
+            {conicalGradient(size, gradientStops, clipPathId)}
             <circle cx={radius} cy={radius} r={radius - stroke} fill="#000" />
             <circle cx={radius} cy={stroke / 2} r={stroke / 2} fill="#fff" />
           </mask>

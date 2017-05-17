@@ -18,7 +18,9 @@ function renderAddon(content, position) {
   const classes = classNames('input__addon', `input__addon--${position}`);
 
   return (
-    <div className={classes}>{ typeof content === 'function' ? content() : content }</div>
+    <div className={classes}>
+      {typeof content === 'function' ? content() : content}
+    </div>
   );
 }
 
@@ -139,26 +141,22 @@ class InputDefault extends React.PureComponent {
       return null;
     }
 
-    return (
-      <HelpText {...modifiers}>{ this.props.helpText }</HelpText>
-    );
+    return <HelpText {...modifiers}>{this.props.helpText}</HelpText>;
   }
 
   renderValidationIcon() {
     const { hasSuccess, hasWarning, hasError } = this.state;
 
-    return (
-      <ValidationIcon hasSuccess={hasSuccess} hasWarning={hasWarning} hasError={hasError} />
-    );
+    return <ValidationIcon hasSuccess={hasSuccess} hasWarning={hasWarning} hasError={hasError} />;
   }
 
   renderField(id) {
     return (
       <div className="input__field">
-        { renderAddon(this.props.leftAddon, 'left') }
-        { this.renderInput(id) }
-        { this.renderLabel(id) }
-        { renderAddon(this.props.rightAddon, 'right') }
+        {renderAddon(this.props.leftAddon, 'left')}
+        {this.renderInput(id)}
+        {this.renderLabel(id)}
+        {renderAddon(this.props.rightAddon, 'right')}
       </div>
     );
   }
@@ -166,20 +164,25 @@ class InputDefault extends React.PureComponent {
   render() {
     const classes = this.context.styleManager.render(styleSheet);
     const id = this.props.id || kebabCase(this.props.label);
-    const className = classNames(['input', classes.input], {
-      'input--has-focus': this.state.hasFocus,
-      'input--has-value': this.state.hasValue,
-      'input--has-addon': this.state.hasAddon,
-      'input--has-success': this.state.hasSuccess,
-      'input--has-warning': this.state.hasWarning,
-      'input--has-error': this.state.hasError,
-      'input--is-disabled': this.props.disabled,
-    }, `input--${kebabCase(this.props.type)}`, this.props.className);
+    const className = classNames(
+      ['input', classes.input],
+      {
+        'input--has-focus': this.state.hasFocus,
+        'input--has-value': this.state.hasValue,
+        'input--has-addon': this.state.hasAddon,
+        'input--has-success': this.state.hasSuccess,
+        'input--has-warning': this.state.hasWarning,
+        'input--has-error': this.state.hasError,
+        'input--is-disabled': this.props.disabled,
+      },
+      `input--${kebabCase(this.props.type)}`,
+      this.props.className,
+    );
 
     return (
       <div className={className} style={this.props.style}>
-        { this.renderField(id) }
-        { this.renderHelpText() }
+        {this.renderField(id)}
+        {this.renderHelpText()}
       </div>
     );
   }
@@ -194,13 +197,7 @@ InputDefault.propTypes = {
   label: PropTypes.node,
   placeholder: PropTypes.string,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
@@ -221,6 +218,5 @@ InputDefault.defaultProps = {
 InputDefault.contextTypes = {
   styleManager: PropTypes.object.isRequired,
 };
-
 
 export default InputDefault;

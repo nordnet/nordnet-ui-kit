@@ -26,19 +26,17 @@ class Pane extends React.PureComponent {
   renderTabs() {
     return (
       <ul className={this.classes.tabs}>
-        { this.props.tabs.map((tab, index) => (
+        {this.props.tabs.map((tab, index) => (
           <li
             key={`${kebabCase(tab.label)}_${index}`}
-            className={classNames(
-              this.classes.tab,
-              this.classes[this.props.size],
-              { [this.classes.active]: this.state.activeTab === index },
-            )}
+            className={classNames(this.classes.tab, this.classes[this.props.size], {
+              [this.classes.active]: this.state.activeTab === index,
+            })}
             onClick={() => this.handleTabClick(index)}
           >
-            { tab.label }
+            {tab.label}
           </li>
-        )) }
+        ))}
       </ul>
     );
   }
@@ -47,11 +45,16 @@ class Pane extends React.PureComponent {
     if (this.props.tabs && this.props.tabs.length > 0) {
       return (
         <div>
-          { this.props.tabs.map((tab, index) => (
-            <div key={`${kebabCase(tab.label)}_body_${index}`} style={{ display: this.state.activeTab === index ? 'block' : 'none' }}>
-              { tab.body }
+          {this.props.tabs.map((tab, index) => (
+            <div
+              key={`${kebabCase(tab.label)}_body_${index}`}
+              style={{
+                display: this.state.activeTab === index ? 'block' : 'none',
+              }}
+            >
+              {tab.body}
             </div>
-          )) }
+          ))}
         </div>
       );
     }
@@ -63,8 +66,8 @@ class Pane extends React.PureComponent {
     if (this.props.tabs && this.props.tabs.length > 0) {
       return (
         <div className={className}>
-          { this.renderTabs() }
-          { this.renderBody() }
+          {this.renderTabs()}
+          {this.renderBody()}
         </div>
       );
     }
@@ -76,10 +79,12 @@ Pane.propTypes = {
   className: PropTypes.string,
   /** The number of the active tab. */
   activeTab: PropTypes.number,
-  tabs: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.node,
-    body: PropTypes.node,
-  })),
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.node,
+      body: PropTypes.node,
+    }),
+  ),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
 };
 

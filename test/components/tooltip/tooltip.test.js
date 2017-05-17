@@ -68,7 +68,8 @@ describe('<Tooltip />', () => {
         <Tooltip content={'abc'}>
           <div id="child">child</div>
         </Tooltip>,
-        target);
+        target,
+      );
     });
 
     afterEach(() => {

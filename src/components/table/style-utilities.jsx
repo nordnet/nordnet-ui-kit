@@ -50,7 +50,7 @@ const highlights = palette => ({
 });
 
 // Borders
-const capitalize = string => (string.charAt(0).toUpperCase() + string.slice(1));
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 const borderPosition = (position, palette) => ({
   [`&.border${capitalize(position)}`]: {
@@ -58,10 +58,9 @@ const borderPosition = (position, palette) => ({
   },
 });
 
-
-const borders = (palette) => {
+const borders = palette => {
   let combinedBorders = {};
-  ['top', 'right', 'bottom', 'left'].forEach((position) => {
+  ['top', 'right', 'bottom', 'left'].forEach(position => {
     combinedBorders = Object.assign(combinedBorders, borderPosition(position, palette));
   });
   return {
