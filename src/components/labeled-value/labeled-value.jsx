@@ -13,16 +13,29 @@ export const styleSheet = createStyleSheet('LabeledValue', theme => {
     lg: '32',
   };
 
+  const mobileModifiers = {
+    xs: '12',
+    sm: '14',
+    md: '16',
+    lg: '18',
+  };
+
   const valueSizes = Object.keys(modifiers).reduce((sizes, size) => {
     const fontSize = modifiers[size];
+    const mobileFontSize = mobileModifiers[size];
     const paddingTop = size !== 'lg' ? fontSize - 12 : fontSize - 26;
+    const mobilePaddingTop = size === 'xs' ? 0 : 2;
     const className = `value-${size}`;
 
     return {
       ...sizes,
       [className]: {
-        fontSize: `${fontSize}px`,
-        paddingTop: `${paddingTop}px`,
+        fontSize: `${mobileFontSize}px`,
+        paddingTop: `${mobilePaddingTop}px`,
+        [theme.mixins.media('md')]: {
+          fontSize: `${fontSize}px`,
+          paddingTop: `${paddingTop}px`,
+        },
       },
     };
   }, {});
