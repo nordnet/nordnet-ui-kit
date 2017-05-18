@@ -2,31 +2,33 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import NordnetLogo from './nordnetLogo';
 
-function Logo(props) {
-  return (
-    <NordnetLogo
-      className={props.className}
-      style={props.style}
-      height={props.width * 0.204}
-      width={props.width}
-      fill={props.iconColor}
-      stroke={props.textColor}
-    />
-  );
+function Logo({ onlyIcon, height, iconColor, textColor, ...rest }) {
+  const logoProps = {
+    height,
+    width: onlyIcon ? height : height * 4.89,
+    fill: iconColor,
+    stroke: textColor,
+    viewBox: onlyIcon ? '0 0 64 64' : undefined,
+    ...rest,
+  };
+
+  return <NordnetLogo {...logoProps} />;
 }
 
 Logo.defaultProps = {
   iconColor: '#00A9EC',
   textColor: '#222222',
-  width: 130,
+  onlyIcon: false,
+  height: 27,
 };
 
 Logo.propTypes = {
   className: PropTypes.string,
+  onlyIcon: PropTypes.bool,
   style: PropTypes.object,
   iconColor: PropTypes.string,
   textColor: PropTypes.string,
-  width: PropTypes.number,
+  height: PropTypes.number,
 };
 
 export default Logo;

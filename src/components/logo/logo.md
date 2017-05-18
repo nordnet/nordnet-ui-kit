@@ -2,6 +2,10 @@ Simple logo with default size.
 
     <Logo />
 
-Change size with the `width` prop.
+Change size with the `height` prop.
 
-    <Logo width={50} />
+    <Logo height={14} />
+
+Set `onlyIcon` prop to only show the icon.
+
+    <Logo onlyIcon />
