@@ -5,7 +5,7 @@ import c from 'color';
 const focusColor = color => c(color).darken(0.1).hex();
 const disableColor = color => c(color).lighten(0.7).hex();
 
-const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
+const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDisabled) => {
   const variantDict = {
     primary: {
       background: color,
@@ -19,7 +19,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
       '&:disabled': {
         background: colorDisabled,
         borderColor: colorDisabled,
-        color: '#fff',
+        color: textColorDisabled,
       },
 
       '&:focus': {
@@ -37,7 +37,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled) => {
       },
 
       '&:disabled': {
-        color: colorDisabled,
+        color: textColorDisabled,
         borderColor: colorDisabled,
       },
 
@@ -72,7 +72,7 @@ export default createStyleSheet('Button', theme => {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
       border: 0,
-      borderRadius: '16px',
+      borderRadius: 16,
       fontFamily: typography.primary.fontFamily,
       lineHeight: 1,
       transition: transitions.create(),
@@ -99,26 +99,26 @@ export default createStyleSheet('Button', theme => {
     },
 
     xs: {
-      fontSize: '12px',
-      borderRadius: '12px',
+      fontSize: 12,
+      borderRadius: 12,
       padding: '4px 10px',
     },
 
     sm: {
-      fontSize: '14px',
-      borderRadius: '16px',
+      fontSize: 14,
+      borderRadius: 16,
       padding: '7px 15px',
     },
 
     md: {
-      fontSize: '16px',
-      borderRadius: '20px',
+      fontSize: 16,
+      borderRadius: 20,
       padding: '10px 18px',
     },
 
     lg: {
-      fontSize: '18px',
-      borderRadius: '24px',
+      fontSize: 18,
+      borderRadius: 24,
       padding: '13px 24px',
     },
 
@@ -134,7 +134,7 @@ export default createStyleSheet('Button', theme => {
 
       '&:disabled': {
         background: palette.background.muted,
-        border: `2px solid ${palette.background.muted}`,
+        borderColor: palette.background.muted,
         color: palette.text.muted,
       },
 
@@ -147,12 +147,14 @@ export default createStyleSheet('Button', theme => {
         palette.variant.primary,
         focusColor(palette.variant.primary),
         disableColor(palette.variant.primary),
+        palette.shades.dark.text.default,
       ),
       '&.success': buttonModifierFn(
         'primary',
         palette.variant.success,
         focusColor(palette.variant.success),
         disableColor(palette.variant.success),
+        palette.shades.dark.text.default,
       ),
       '&.warning': {
         ...buttonModifierFn(
@@ -160,14 +162,16 @@ export default createStyleSheet('Button', theme => {
           palette.variant.warning,
           focusColor(palette.variant.warning),
           c(palette.variant.warning).lighten(0.3).hex(),
+          palette.text.default,
         ),
-        color: `${palette.text.default}!important`,
+        color: palette.text.default,
       },
       '&.danger': buttonModifierFn(
         'primary',
         palette.variant.danger,
         focusColor(palette.variant.danger),
         disableColor(palette.variant.danger),
+        palette.shades.dark.text.default,
       ),
     },
 
@@ -182,8 +186,8 @@ export default createStyleSheet('Button', theme => {
       },
 
       '&:disabled': {
-        border: `2px solid ${palette.background.muted}`,
-        color: palette.background.muted,
+        borderColor: palette.color.grayLighter,
+        color: palette.color.gray,
       },
 
       '&:focus': {
@@ -191,35 +195,38 @@ export default createStyleSheet('Button', theme => {
       },
 
       '&.xs,&.sm': {
-        borderWidth: '1px',
+        borderWidth: 1,
       },
 
       '&.action': buttonModifierFn(
         'secondary',
         palette.variant.primary,
         focusColor(palette.variant.primary),
-        disableColor(palette.variant.primary),
+        palette.color.grayLighter,
+        palette.color.gray,
       ),
       '&.success': buttonModifierFn(
         'secondary',
         palette.variant.success,
         focusColor(palette.variant.success),
-        disableColor(palette.variant.success),
+        palette.color.grayLighter,
+        palette.color.gray,
       ),
       '&.warning': {
         ...buttonModifierFn(
           'secondary',
           palette.variant.warning,
           focusColor(palette.variant.warning),
-          c(palette.variant.warning).lighten(0.3).hex(),
+          palette.color.grayLighter,
+          palette.color.gray,
         ),
-        color: `${palette.text.default}!important`,
       },
       '&.danger': buttonModifierFn(
         'secondary',
         palette.variant.danger,
         focusColor(palette.variant.danger),
-        disableColor(palette.variant.danger),
+        palette.color.grayLighter,
+        palette.color.gray,
       ),
     },
 
