@@ -35,10 +35,10 @@ ReactDOM.render(Root, document.getElementById('app'));
 ## [Changelog](https://github.com/nordnet/nordnet-ui-kit/blob/master/CHANGELOG.md)
 
 ## Developing
-Developing workflow can be found in the [contributing guidelines](Contributing.md).
+Developing workflow can be found in the [contributing guidelines](CONTRIBUTING.md).
 
 ## Contributing
-Everyone is welcome to contribute. Please take a moment to review the [contributing guidelines](Contributing.md).
+Everyone is welcome to contribute. Please take a moment to review the [contributing guidelines](CONTRIBUTING.md).
 
 ## License
 This open source project released by Nordnet is licensed under the MIT license.
