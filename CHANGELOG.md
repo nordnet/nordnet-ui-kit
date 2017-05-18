@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.0.0 (2017-05-18)
+
+#### Features
+
+* **Logo:** Add iconOnly prop to only get icon ([339e513e](https://github.com/nordnet/nordnet-ui-kit/commit/339e513e))
+
+#### Breaking Changes
+
+* Icon API changed: now takes `height` instead of `width`
+
+ ([339e513e](https://github.com/nordnet/nordnet-ui-kit/commit/339e513e))
+
+## 0.3.0 (2017-05-18)
+
+#### Features
+
+* **LabeledValue:** Add mobile behaviour ([04c80c2d](https://github.com/nordnet/nordnet-ui-kit/commit/04c80c2d))
+
+### 0.2.8 (2017-05-18)
+
+#### Bug Fixes
+
+* **Button:**
+  * Update disabled colors ([e40c58df](https://github.com/nordnet/nordnet-ui-kit/commit/e40c58df))
+  * Fix focus styling ([8110c690](https://github.com/nordnet/nordnet-ui-kit/commit/8110c690))
+
 ### 0.2.7 (2017-05-18)
 
 #### Bug Fixes
