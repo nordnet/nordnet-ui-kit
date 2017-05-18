@@ -14,13 +14,18 @@ describe('<Logo />', () => {
     expect(wrapper.find('NordnetLogo')).to.have.length(1);
   });
 
-  it('should have a default width', () => {
-    expect(wrapper.prop('width')).to.equal(130);
+  it('should have a default height', () => {
+    expect(wrapper.prop('height')).to.equal(27);
   });
 
-  it('should be possible to customize the width', () => {
-    const customWidth = 200;
-    const newElement = shallow(<Logo width={customWidth} />);
-    expect(newElement.prop('width')).to.equal(customWidth);
+  it('should be possible to customize the height', () => {
+    const customHeight = 200;
+    const newElement = shallow(<Logo height={customHeight} />);
+    expect(newElement.prop('height')).to.equal(customHeight);
+  });
+
+  it('should be possible to get just the icon and not the text', () => {
+    const newElement = shallow(<Logo onlyIcon />);
+    expect(newElement.prop('viewBox')).to.equal('0 0 64 64');
   });
 });
