@@ -40,7 +40,7 @@ export default function Balloon({
 }
 
 Balloon.propTypes = {
-  ...Icon.defaultProps,
+  style: PropTypes.object,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,

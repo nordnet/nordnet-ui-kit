@@ -29,7 +29,7 @@ export default function ArrowUpDown({
 }
 
 ArrowUpDown.propTypes = {
-  ...Icon.defaultProps,
+  style: PropTypes.object,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,
