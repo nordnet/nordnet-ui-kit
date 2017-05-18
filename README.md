@@ -35,16 +35,10 @@ ReactDOM.render(Root, document.getElementById('app'));
 ## [Changelog](https://github.com/nordnet/nordnet-ui-kit/blob/master/CHANGELOG.md)
 
 ## Developing
-```fish
-git clone git@github.com:nordnet/nordnet-ui-kit.git
-cd nordnet-ui-kit
-yarn install
-yarn start # This will start a local instance of the documentation
-```
+Developing workflow can be found in the [contributing guidelines](Contributing.md).
 
-* Components can be found under `src/components`
-* Examples of component usage (documentation) can be found in the same directory as the component, but with an `.md` extension instead
-* Theming code can be found in `src/styles` (color, palette, breakpoints, typography, etc.)
+## Contributing
+Everyone is welcome to contribute. Please take a moment to review the [contributing guidelines](Contributing.md).
 
 ## License
 This open source project released by Nordnet is licensed under the MIT license.
