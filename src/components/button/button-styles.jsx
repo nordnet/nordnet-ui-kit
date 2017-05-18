@@ -108,13 +108,13 @@ export default createStyleSheet('Button', theme => {
     },
 
     primary: {
-      background: palette.background.secondary,
-      border: `2px solid ${palette.background.secondary}`,
+      background: palette.color.gray,
+      border: `2px solid ${palette.color.gray}`,
       color: palette.shades.dark.text.default,
 
       '&:hover': {
-        background: focusColor(palette.background.secondary),
-        borderColor: focusColor(palette.background.secondary),
+        background: focusColor(palette.color.gray),
+        borderColor: focusColor(palette.color.gray),
       },
 
       '&:disabled': {
@@ -214,13 +214,13 @@ export default createStyleSheet('Button', theme => {
       background: 'none',
       paddingLeft: 0,
       paddingRight: 0,
-      color: palette.background.secondary,
+      color: palette.color.gray,
       border: '2px solid transparent',
       fontWeight: 600,
       cursor: 'pointer',
 
       '&:hover': {
-        color: c(palette.background.secondary).darken(0.2).hex(), // was $color-primary-dark
+        color: c(palette.color.gray).darken(0.2).hex(),
       },
 
       '&:disabled': {
