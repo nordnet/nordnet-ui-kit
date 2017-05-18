@@ -1,5 +1,12 @@
 # Changelog
 
+### 0.2.7 (2017-05-18)
+
+#### Bug Fixes
+
+* **Button:** Update secondary button (#223) ([2f410d8d](https://github.com/nordnet/nordnet-ui-kit/commit/2f410d8d))
+* **Icons:** Fix invalid propTypes declaration ([7b28c4bf](https://github.com/nordnet/nordnet-ui-kit/commit/7b28c4bf))
+
 ### 0.2.5 (2017-05-17)
 
 #### Bug Fixes
