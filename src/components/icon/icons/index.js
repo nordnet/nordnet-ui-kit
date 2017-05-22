@@ -21,6 +21,7 @@ import Edit from './edit';
 import Ellipsis from './ellipsis';
 import ExclamationPoint from './exclamationPoint';
 import Expand from './expand';
+import File from './file';
 import Film from './film';
 import Filter from './filter';
 import FloppyDisk from './floppyDisk';
@@ -77,6 +78,7 @@ const Icon = {
   Ellipsis,
   ExclamationPoint,
   Expand,
+  File,
   Film,
   Filter,
   FloppyDisk,
