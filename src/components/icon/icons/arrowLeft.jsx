@@ -41,9 +41,4 @@ ArrowLeft.propTypes = {
   ...Icon.propTypes,
 };
 
-ArrowLeft.defaultProps = {
-  ...Icon.defaultProps,
-  width: 16,
-  height: 16,
-  viewBox: '0 0 16 16',
-};
+ArrowLeft.defaultProps = Icon.defaultProps;
