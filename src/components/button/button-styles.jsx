@@ -80,6 +80,10 @@ export default createStyleSheet('Button', theme => {
       userSelect: 'none',
       textAlign: 'center',
 
+      '& > span': {
+        position: 'relative',
+      },
+
       '&:disabled': {
         cursor: 'not-allowed',
       },

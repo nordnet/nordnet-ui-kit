@@ -32,7 +32,9 @@ function Button({ variant, block, disabled, className, children, modifier, href,
 
   return (
     <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
-      {children}
+      <span>
+        {children}
+      </span>
     </Element>
   );
 }
