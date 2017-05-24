@@ -10,7 +10,7 @@ class Animate extends React.PureComponent {
     this.idNbr = Math.round(Math.random() * 1000);
     this.animationName = `${this.props.type}-animation-${this.idNbr}`;
     this.classes = this.context.styleManager.render(
-      createStyleSheet('Animate', theme => {
+      createStyleSheet(`Animate_${this.animationName}`, theme => {
         switch (this.props.type) {
           case 'height':
             return {
@@ -38,7 +38,7 @@ class Animate extends React.PureComponent {
         transitionLeaveTimeout={this.props.leaveTime}
       >
         {this.props.show
-          ? <div className={cn(this.classes.root, this.props.className)}>
+          ? <div className={cn('animate', this.classes.root, this.props.className)}>
               {this.props.children}
             </div>
           : null}
@@ -51,7 +51,7 @@ Animate.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   show: PropTypes.bool.isRequired,
-  type: PropTypes.oneOf('height').isRequired,
+  type: PropTypes.oneOf(['height']).isRequired,
   enterTime: PropTypes.number.isRequired,
   leaveTime: PropTypes.number.isRequired,
   estimatedHeight: PropTypes.number,
