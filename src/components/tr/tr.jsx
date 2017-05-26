@@ -33,6 +33,10 @@ class Tr extends React.Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.sticky !== nextState.sticky || this.state.width !== nextState.width || this.props.children !== nextProps.children;
+  }
+
   componentDidUpdate() {
     if (this.props.sticky) {
       this.setWidth(ReactDOM.findDOMNode(this.tr)); // eslint-disable-line react/no-find-dom-node
