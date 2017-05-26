@@ -16,6 +16,7 @@ export default createStyleSheet('Thead', theme => {
       letterSpacing: '1px',
       fontSize: '12px',
       ...styleUtils.sizes(),
+      width: '100%',
 
       '&.primary': {
         background: color.gray,

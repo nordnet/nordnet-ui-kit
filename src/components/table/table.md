@@ -14,7 +14,7 @@ Sticky header table:
 
     <Table>
       <Thead>
-        <Tr>
+        <Tr sticky>
           <Th width={"50px"}>&nbsp;</Th>
           <Th width={40}>Instrument</Th>
           <Th width="80px" align="center">Quantity</Th>
@@ -22,19 +22,19 @@ Sticky header table:
           <Th align="right">Performance 1D</Th>
         </Tr>
       </Thead>
-      <Tbody colorAlternateRows={true} borderBottom>
+      <Tbody colorAlternateRows={false} borderBottom>
         { data.map((instrument, index) => (
-          <Tr key={instrument[0]} border={index === 0 ? true : false} sticky={index === 0 ? true : false}>
+          <Tr key={instrument[0]}>
             <Td width={"50px"}>
               <span style={iconStyle}>{ instrument[0].substring(0, 3) }</span>
             </Td>
             <Td width={40}>
               { instrument[0] }
             </Td>
-            <Td mono borderLeft width="80px" align="center">
+            <Td mono width="80px" align="center">
               { Math.round(Math.random() * instrument[1], 10) }
             </Td>
-            <Td mono borderLeft borderRight highlight="warning">
+            <Td mono highlight="warning">
               { instrument[2] }
             </Td>
             <Td mono modifier={ instrument[3] > 0 ? 'success' : 'danger' } align="right">
