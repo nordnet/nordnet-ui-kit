@@ -16,9 +16,10 @@ export default createStyleSheet('Td', theme => {
       ...styleUtils.ellipsis(),
       fontFamily: typography.primary.fontFamily,
       fontWeight: 'inherit',
-      fontSize: '14px',
-      paddingTop: '20px',
-      paddingBottom: '20px',
+      fontSize: 14,
+      minWidth: 40,
+      paddingTop: 20,
+      paddingBottom: 20,
     },
   };
 });

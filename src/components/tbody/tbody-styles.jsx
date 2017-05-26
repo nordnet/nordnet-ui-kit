@@ -9,6 +9,13 @@ export default createStyleSheet('Tbody', theme => {
       display: 'block',
       ...styleUtils.sizes(),
       ...styleUtils.borders(palette),
+      width: '100%',
+      maxHeight: '70vh',
+      overflowY: 'auto',
+
+      [mixins.media('sm')]: {
+        maxHeight: '100%',
+      },
 
       '&.alternate-rows': {
         '& tr:nth-child(odd)': {
@@ -17,7 +24,6 @@ export default createStyleSheet('Tbody', theme => {
       },
 
       '&.scroll': {
-        width: '100%',
         overflowY: 'scroll',
       },
     },

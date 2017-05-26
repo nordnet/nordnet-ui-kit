@@ -5,14 +5,17 @@ export default createStyleSheet('Table', theme => {
   const { palette, mixins } = theme;
 
   return {
+    root: {
+      width: '100%',
+      overflow: 'auto',
+      position: 'relative',
+    },
     table: {
       ...mixins.basicBoxSizing,
       display: 'block',
-      width: '100%',
       textAlign: 'left',
       borderCollapse: 'collapse',
       fontWeight: 'normal',
-      position: 'relative',
       borderColor: palette.background.muted,
       ...styleUtils.sizes(),
     },

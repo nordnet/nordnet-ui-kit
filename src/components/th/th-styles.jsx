@@ -16,8 +16,8 @@ export default createStyleSheet('Th', theme => {
       ...styleUtils.ellipsis(),
       fontFamily: typography.primary.fontFamily,
       fontWeight: 500,
-      paddingBottom: '10px',
-      minWidth: '60px',
+      minWidth: 40,
+      paddingBottom: 10,
     },
   };
 });
