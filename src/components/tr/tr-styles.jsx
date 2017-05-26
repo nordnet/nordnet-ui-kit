@@ -26,12 +26,18 @@ export default createStyleSheet('Tr', theme => {
       },
 
       '&.clone': {
-        display: 'none',
+        opacity: 0,
       },
 
       '&.sticky': {
-        position: 'fixed',
+        position: 'absolute',
         background: palette.background.default,
+      },
+
+      [mixins.media('sm')]: {
+        '&.sticky': {
+          position: 'fixed',
+        },
 
         '& + .tr--clone': {
           display: 'flex',

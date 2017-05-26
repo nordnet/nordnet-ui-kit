@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { throttle, debounce } from 'lodash';
 import omit from '../../utilities/omit';
@@ -28,8 +27,8 @@ class Tr extends React.Component {
     if (this.props.sticky) {
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('resize', this.handleResize);
-      this.setWidth(ReactDOM.findDOMNode(this.tr)); // eslint-disable-line react/no-find-dom-node
       this.addClone();
+      this.setWidth(this.tr);
     }
   }
 
@@ -39,7 +38,7 @@ class Tr extends React.Component {
 
   componentDidUpdate() {
     if (this.props.sticky) {
-      this.setWidth(ReactDOM.findDOMNode(this.tr)); // eslint-disable-line react/no-find-dom-node
+      this.setWidth(this.tr);
     }
   }
 
@@ -66,23 +65,16 @@ class Tr extends React.Component {
   }
 
   setSticky() {
+    const supportsClosest = !!this.tr.closest;
+    if (!supportsClosest) {
+      return; // IE does not support Element.closest https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+    }
+
     const { top: trTop, height } = this.tr.getBoundingClientRect();
     const offset = this.props.stickyOffset;
     const tableHeight = this.tr.closest('tbody') ? this.tr.closest('tbody').offsetHeight : this.tr.closest('table').offsetHeight;
     const fromBottom = this.getDistanceFromBottom() - offset - height;
-    let top;
-
-    if (!this.state.sticky) {
-      top = trTop;
-    } else {
-      // To calculate getBoundingClientRect correct the nextSibling must be visible,
-      // but when it is a clone it is not because it gets 'display: none'
-      // from clone class. Temporarily setting 'display: block' fixes this.
-      // Since it is syncronous it should not cause any flickering.
-      this.tr.nextSibling.style.display = 'block';
-      top = this.tr.nextSibling.getBoundingClientRect().top;
-      this.tr.nextSibling.style.display = '';
-    }
+    const top = this.state.sticky ? this.tr.nextSibling.getBoundingClientRect().top : trTop;
 
     if (fromBottom > 0 && top <= offset && top > (tableHeight - height - offset) * -1) {
       this.setState({
@@ -96,12 +88,16 @@ class Tr extends React.Component {
   }
 
   handleScroll() {
-    this.setSticky(this.tr);
+    if (this.tr) {
+      this.setSticky(this.tr);
+    }
   }
 
   handleResize() {
-    this.setWidth(this.tr);
-    this.setSticky(this.tr);
+    if (this.tr) {
+      this.setWidth(this.tr);
+      this.setSticky(this.tr);
+    }
   }
 
   addRef(node, name) {
@@ -115,6 +111,7 @@ class Tr extends React.Component {
     const clone = this.tr.cloneNode(true);
     clone.classList.remove('sticky');
     clone.classList.add('clone');
+    clone.setAttribute('aria-hidden', true);
 
     this.tr.parentNode.insertBefore(clone, this.tr.nextSibling);
   }
@@ -136,8 +133,13 @@ class Tr extends React.Component {
     const stickyStyle = {};
 
     if (sticky && width && typeof stickyOffset !== 'undefined') {
-      stickyStyle.top = `${stickyOffset}px`;
-      stickyStyle.width = `${width}px`;
+      stickyStyle.top = stickyOffset;
+      stickyStyle.width = width;
+      if (this.tr && this.tr.nextSibling) {
+        this.tr.nextSibling.style.height = 'auto';
+      }
+    } else if (this.tr && this.tr.nextSibling) {
+      this.tr.nextSibling.style.height = 0;
     }
 
     return (
