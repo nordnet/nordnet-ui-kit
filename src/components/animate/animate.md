@@ -1,8 +1,10 @@
 This is how you should use the Animate component.
 
 ```html
-<Animate type="height" show={variableToDecideIfShown} enterTime={300} leaveTime={200}>
-  Something inside the box in Animate component.
+<Animate type="height" enterTime={300} leaveTime={200} estimatedHeight={200}>
+  { variableToDecideIfShown ? (
+    <div>Something inside the box in Animate component.</div>
+  ) : null }
 </Animate>
 ```
 
