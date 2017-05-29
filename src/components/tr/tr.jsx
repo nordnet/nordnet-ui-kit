@@ -117,7 +117,7 @@ class Tr extends React.Component {
   }
 
   render() {
-    const { className, children, size, border, variant, stickyOffset, ...rest } = this.props;
+    const { className, children, size, border, variant, stickyOffset, sticky: stickyProp, ...rest } = this.props;
     const classes = this.context.styleManager.render(TrStyles);
     const { width, sticky } = this.state;
     const usedClassName = classNames(
@@ -132,13 +132,13 @@ class Tr extends React.Component {
     );
     const stickyStyle = {};
 
-    if (sticky && width && typeof stickyOffset !== 'undefined') {
+    if (stickyProp && sticky && width && typeof stickyOffset !== 'undefined') {
       stickyStyle.top = stickyOffset;
       stickyStyle.width = width;
       if (this.tr && this.tr.nextSibling) {
         this.tr.nextSibling.style.height = 'auto';
       }
-    } else if (this.tr && this.tr.nextSibling) {
+    } else if (stickyProp && this.tr && this.tr.nextSibling) {
       this.tr.nextSibling.style.height = 0;
     }
 
