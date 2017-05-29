@@ -36,6 +36,11 @@ function Flag({ className, style, countryCode, secondaryCountryCode, size, round
   };
 
   const SvgFlag = flags[countryCode.toLowerCase()];
+  
+  if (!SvgFlag) {
+    return null;
+  }
+  
   const flag = <SvgFlag className="flag" style={flagStyle} {...rest} />;
 
   if (round) {
@@ -46,6 +51,7 @@ function Flag({ className, style, countryCode, secondaryCountryCode, size, round
 }
 
 Flag.defaultProps = {
+  countryCode: '',
   size: 32,
   round: false,
 };
