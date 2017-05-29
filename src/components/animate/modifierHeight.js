@@ -7,6 +7,8 @@ export default ({
   classPrefixSpace = false,
   transitionEnterTimeout = durations.faster,
   transitionLeaveTimeout = durations.fastest,
+  easingEnterFunction = easings.easeIn,
+  easingLeaveFunction = easings.easeOut,
 }) => ({
   overflow: 'hidden',
   maxHeight: 'auto',
@@ -17,14 +19,14 @@ export default ({
 
       [`&.${name}-enter-active`]: {
         maxHeight: estimatedHeight,
-        transitionTimingFunction: easings.easeIn,
+        transitionTimingFunction: easingEnterFunction,
         transitionProperty: 'max-height',
         transitionDuration: transitionEnterTimeout,
       },
     },
     '&-leave': {
       maxHeight: estimatedHeight,
-      transitionTimingFunction: easings.easeOut,
+      transitionTimingFunction: easingLeaveFunction,
       transitionProperty: 'max-height',
       transitionDuration: transitionLeaveTimeout,
 

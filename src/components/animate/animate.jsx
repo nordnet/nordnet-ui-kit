@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import modifierHeight from './modifierHeight';
+import easings from '../../styles/transitions/easings';
 
 class Animate extends React.PureComponent {
   constructor(props, context) {
@@ -22,6 +23,8 @@ class Animate extends React.PureComponent {
                   estimatedHeight: this.props.estimatedHeight,
                   transitionEnterTimeout: this.props.enterTime,
                   transitionLeaveTimeout: this.props.leaveTime,
+                  easingEnterFunction: this.props.easingEnterFunction,
+                  easingLeaveFunction: this.props.easingLeaveFunction,
                 }),
               },
             };
@@ -52,6 +55,8 @@ Animate.propTypes = {
   type: PropTypes.oneOf(['height']).isRequired,
   enterTime: PropTypes.number.isRequired,
   leaveTime: PropTypes.number.isRequired,
+  easingEnterFunction: PropTypes.string,
+  easingLeaveFunction: PropTypes.string,
   estimatedHeight: PropTypes.number,
 };
 
@@ -59,6 +64,8 @@ Animate.defaultProps = {
   type: 'height',
   enterTime: 200,
   leaveTime: 200,
+  easingEnterFunction: easings.easeIn,
+  easingLeaveFunction: easings.easeOut,
   estimatedHeight: 500,
 };
 
