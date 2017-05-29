@@ -1,5 +1,55 @@
 # Changelog
 
+### 1.3.2 (2017-05-29)
+
+#### Bug Fixes
+
+* **Tr:** Height change now only affects sticky rows ([e86e4f10](https://github.com/nordnet/nordnet-ui-kit/commit/e86e4f10))
+
+
+### 1.3.1 (2017-05-29)
+
+#### Bug Fixes
+
+* **Flag:** Check if flag exists before rendering ([96b77763](https://github.com/nordnet/nordnet-ui-kit/commit/96b77763))
+
+
+## 1.3.0 (2017-05-29)
+
+#### Features
+
+* **Animate:** Added new Animate component (#230) ([76eba45d](https://github.com/nordnet/nordnet-ui-kit/commit/76eba45d))
+
+
+## 1.2.0 (2017-05-26)
+
+#### Bug Fixes
+
+* **Tr:** Fix sticky row behaviour ([036953e4](https://github.com/nordnet/nordnet-ui-kit/commit/036953e4))
+
+#### Features
+
+* **Table:** Add responsive behaviour ([11f5f415](https://github.com/nordnet/nordnet-ui-kit/commit/11f5f415))
+
+
+### 1.1.1 (2017-05-23)
+
+#### Bug Fixes
+
+* **Button:** Remove button text animation in IE ([40246598](https://github.com/nordnet/nordnet-ui-kit/commit/40246598))
+
+
+## 1.1.0 (2017-05-23)
+
+#### Bug Fixes
+
+* **Icon.Questionmark:** Replace Questionmark icon ([e27937d9](https://github.com/nordnet/nordnet-ui-kit/commit/e27937d9))
+
+#### Features
+
+* **Icon:** Add new File icon ([1ff77096](https://github.com/nordnet/nordnet-ui-kit/commit/1ff77096))
+
+
 ## 1.0.0 (2017-05-18)
 
 #### Features
