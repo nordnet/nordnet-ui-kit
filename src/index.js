@@ -1,4 +1,5 @@
 import Alert from './components/alert/alert';
+import Animate from './components/animate/animate';
 import Avatar from './components/avatar';
 import Badge from './components/badge/badge';
 import Button from './components/button/button';
@@ -33,6 +34,7 @@ const theme = createTheme();
 
 export {
   Alert,
+  Animate,
   Avatar,
   Badge,
   Button,
