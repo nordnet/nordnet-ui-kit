@@ -16,6 +16,7 @@ class Animate extends React.PureComponent {
             return {
               root: {
                 ...theme.transitions.modifiers.height({
+                  classPrefixSpace: true,
                   name: this.animationName,
                   estimatedHeight: this.props.estimatedHeight,
                   transitionEnterTimeout: this.props.enterTime,
@@ -33,15 +34,12 @@ class Animate extends React.PureComponent {
   render() {
     return (
       <CSSTransitionGroup
+        className={cn(this.classes.root, this.props.className)}
         transitionName={this.animationName}
         transitionEnterTimeout={this.props.enterTime}
         transitionLeaveTimeout={this.props.leaveTime}
       >
-        {this.props.show
-          ? <div className={cn('animate', this.classes.root, this.props.className)}>
-              {this.props.children}
-            </div>
-          : null}
+        {this.props.children}
       </CSSTransitionGroup>
     );
   }
@@ -50,7 +48,6 @@ class Animate extends React.PureComponent {
 Animate.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  show: PropTypes.bool.isRequired,
   type: PropTypes.oneOf(['height']).isRequired,
   enterTime: PropTypes.number.isRequired,
   leaveTime: PropTypes.number.isRequired,
@@ -58,7 +55,6 @@ Animate.propTypes = {
 };
 
 Animate.defaultProps = {
-  show: false,
   type: 'height',
   enterTime: 200,
   leaveTime: 200,

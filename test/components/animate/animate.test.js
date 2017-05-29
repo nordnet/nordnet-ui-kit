@@ -13,7 +13,7 @@ describe('<Animate />', () => {
 
   beforeEach(() => {
     topWrapper = shallow(
-      <Animate show>
+      <Animate>
         {inputText}
       </Animate>,
     );
@@ -24,20 +24,19 @@ describe('<Animate />', () => {
     expect(topWrapper.type()).to.equal(CSSTransitionGroup);
   });
 
-  it('should default to hide the content', () => {
-    topWrapper = shallow(
+  it(`should render the text ${inputText}`, () => {
+    expect(wrapper.text()).to.equal(inputText);
+  });
+
+  it('should give a unique identifier to each Animate instance', () => {
+    const transitionName = topWrapper.prop('transitionName');
+    const otherWrapper = shallow(
       <Animate>
         {inputText}
       </Animate>,
     );
-    expect(topWrapper.find('.animate')).to.have.length(0);
-  });
 
-  it('should add the class "animate" to the content wrapper', () => {
-    expect(wrapper.hasClass('animate')).to.equal(true);
-  });
-
-  it(`should render the text ${inputText}`, () => {
-    expect(wrapper.text()).to.equal(inputText);
+    const otherTransitionName = otherWrapper.prop('transitionName');
+    expect(transitionName).to.not.equal(otherTransitionName);
   });
 });

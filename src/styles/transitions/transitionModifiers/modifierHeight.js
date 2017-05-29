@@ -19,14 +19,14 @@ export default ({
         maxHeight: estimatedHeight,
         transitionTimingFunction: easings.easeIn,
         transitionProperty: 'max-height',
-        transitionDuration: `${transitionEnterTimeout}ms`,
+        transitionDuration: transitionEnterTimeout,
       },
     },
     '&-leave': {
       maxHeight: estimatedHeight,
       transitionTimingFunction: easings.easeOut,
       transitionProperty: 'max-height',
-      transitionDuration: `${transitionLeaveTimeout}ms`,
+      transitionDuration: transitionLeaveTimeout,
 
       [`&.${name}-leave-active`]: {
         maxHeight: 0,
