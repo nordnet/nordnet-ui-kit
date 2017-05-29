@@ -3,12 +3,10 @@
 // https://material.io/guidelines/motion/duration-easing.html#duration-easing-common-durations
 import easingInternal from './easings';
 import durationInternal from './durations';
-import modifiers from './transitionModifiers';
 
 export default {
   easing: easingInternal,
   duration: durationInternal,
-  modifiers,
 
   create(props = ['all'], { easing = easingInternal.easeInOut, duration = durationInternal.standard, delay = 0 } = {}) {
     return props.map(prop => `${prop} ${duration}ms ${easing} ${delay}ms`).join(',');

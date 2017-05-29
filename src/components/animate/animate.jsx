@@ -3,6 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import modifierHeight from './modifierHeight';
 
 class Animate extends React.PureComponent {
   constructor(props, context) {
@@ -10,12 +11,12 @@ class Animate extends React.PureComponent {
     this.idNbr = Math.round(Math.random() * 1000);
     this.animationName = `${this.props.type}-animation-${this.idNbr}`;
     this.classes = this.context.styleManager.render(
-      createStyleSheet(`Animate_${this.animationName}`, theme => {
+      createStyleSheet(`Animate_${this.animationName}`, () => {
         switch (this.props.type) {
           case 'height':
             return {
               root: {
-                ...theme.transitions.modifiers.height({
+                ...modifierHeight({
                   classPrefixSpace: true,
                   name: this.animationName,
                   estimatedHeight: this.props.estimatedHeight,

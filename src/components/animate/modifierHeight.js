@@ -1,5 +1,5 @@
-import easings from '../easings';
-import durations from '../durations';
+import easings from '../../styles/transitions/easings';
+import durations from '../../styles/transitions/durations';
 
 export default ({
   name,
