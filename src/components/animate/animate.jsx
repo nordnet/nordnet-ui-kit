@@ -45,7 +45,7 @@ class Animate extends React.PureComponent {
         transitionEnterTimeout={this.props.enterTime}
         transitionLeaveTimeout={this.props.leaveTime}
       >
-        {this.props.children}
+        {this.props.children ? <div>{this.props.children}</div> : null}
       </CSSTransitionGroup>
     );
   }
@@ -54,6 +54,7 @@ class Animate extends React.PureComponent {
 Animate.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  /** This needs to be set in order for the component to render anything */
   animationName: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['height']).isRequired,
   enterTime: PropTypes.number.isRequired,
