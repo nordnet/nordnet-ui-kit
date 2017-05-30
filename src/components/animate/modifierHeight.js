@@ -11,7 +11,12 @@ export default ({
   easingLeaveFunction = easings.easeOut,
 }) => ({
   overflow: 'hidden',
-  maxHeight: 'none',
+  boxSizing: 'border-box',
+
+  '& > div': {
+    overflow: 'hidden',
+    boxSizing: 'border-box',
+  },
 
   [`&${classPrefixSpace ? ' ' : ''}.${name}`]: {
     '&-enter': {
