@@ -13,7 +13,7 @@ describe('<Animate />', () => {
 
   beforeEach(() => {
     topWrapper = shallow(
-      <Animate>
+      <Animate animationName="testAnimationName">
         {inputText}
       </Animate>,
     );
@@ -28,15 +28,8 @@ describe('<Animate />', () => {
     expect(wrapper.text()).to.equal(inputText);
   });
 
-  it('should give a unique identifier to each Animate instance', () => {
-    const transitionName = topWrapper.prop('transitionName');
-    const otherWrapper = shallow(
-      <Animate>
-        {inputText}
-      </Animate>,
-    );
-
-    const otherTransitionName = otherWrapper.prop('transitionName');
-    expect(transitionName).to.not.equal(otherTransitionName);
+  it('should require an animationName to render', () => {
+    const otherWrapper = shallow(<Animate>{inputText}</Animate>);
+    expect(otherWrapper.html()).to.equal(null);
   });
 });

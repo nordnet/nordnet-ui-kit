@@ -9,17 +9,15 @@ import easings from '../../styles/transitions/easings';
 class Animate extends React.PureComponent {
   constructor(props, context) {
     super(props, context);
-    this.idNbr = Math.round(Math.random() * 1000);
-    this.animationName = `${this.props.type}-animation-${this.idNbr}`;
     this.classes = this.context.styleManager.render(
-      createStyleSheet(`Animate_${this.animationName}`, () => {
+      createStyleSheet(`Animate-${props.animationName}`, () => {
         switch (this.props.type) {
           case 'height':
             return {
               root: {
                 ...modifierHeight({
                   classPrefixSpace: true,
-                  name: this.animationName,
+                  name: props.animationName,
                   estimatedHeight: this.props.estimatedHeight,
                   transitionEnterTimeout: this.props.enterTime,
                   transitionLeaveTimeout: this.props.leaveTime,
@@ -36,10 +34,14 @@ class Animate extends React.PureComponent {
   }
 
   render() {
+    if (!this.props.animationName) {
+      // Force users to set animationName to render anything
+      return null;
+    }
     return (
       <CSSTransitionGroup
         className={cn(this.classes.root, this.props.className)}
-        transitionName={this.animationName}
+        transitionName={this.props.animationName}
         transitionEnterTimeout={this.props.enterTime}
         transitionLeaveTimeout={this.props.leaveTime}
       >
@@ -52,6 +54,7 @@ class Animate extends React.PureComponent {
 Animate.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  animationName: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['height']).isRequired,
   enterTime: PropTypes.number.isRequired,
   leaveTime: PropTypes.number.isRequired,
