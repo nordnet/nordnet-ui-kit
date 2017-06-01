@@ -112,6 +112,7 @@ class Tr extends React.Component {
     clone.classList.remove('sticky');
     clone.classList.add('clone');
     clone.setAttribute('aria-hidden', true);
+    clone.style.pointerEvents = 'none';
 
     this.tr.parentNode.insertBefore(clone, this.tr.nextSibling);
   }
