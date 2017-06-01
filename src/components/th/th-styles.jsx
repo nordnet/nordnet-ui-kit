@@ -15,9 +15,15 @@ export default createStyleSheet('Th', theme => {
       ...styleUtils.align(),
       ...styleUtils.ellipsis(),
       fontFamily: typography.primary.fontFamily,
-      fontWeight: 500,
-      minWidth: 40,
-      paddingBottom: 10,
+      fontWeight: typography.fontWeightSemiBold,
+
+      minWidth: 20,
+      paddingBottom: 4,
+
+      [mixins.media('sm')]: {
+        minWidth: 40,
+        paddingBottom: 10,
+      },
     },
   };
 });

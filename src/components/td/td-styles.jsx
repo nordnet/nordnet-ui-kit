@@ -16,10 +16,18 @@ export default createStyleSheet('Td', theme => {
       ...styleUtils.ellipsis(),
       fontFamily: typography.primary.fontFamily,
       fontWeight: 'inherit',
-      fontSize: 14,
-      minWidth: 40,
-      paddingTop: 20,
-      paddingBottom: 20,
+
+      fontSize: 12,
+      minWidth: 20,
+      paddingTop: 8,
+      paddingBottom: 8,
+
+      [mixins.media('sm')]: {
+        fontSize: 14,
+        minWidth: 40,
+        paddingTop: 20,
+        paddingBottom: 20,
+      },
     },
   };
 });
