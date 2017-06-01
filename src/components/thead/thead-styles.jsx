@@ -12,11 +12,15 @@ export default createStyleSheet('Thead', theme => {
       fontWeight: 'bold',
       borderColor: color.gray,
       borderBottom: `2px solid ${palette.shades.dark.text.muted}`,
-      paddingBottom: '10px',
       letterSpacing: '1px',
-      fontSize: '12px',
       ...styleUtils.sizes(),
       width: '100%',
+      fontSize: 12,
+      paddingBottom: 4,
+
+      [mixins.media('sm')]: {
+        paddingBottom: 10,
+      },
 
       '&.primary': {
         background: color.gray,
