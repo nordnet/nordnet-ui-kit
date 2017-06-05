@@ -20,6 +20,7 @@ function Input(props) {
 Input.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
+  autoFocus: PropTypes.bool,
   /** Needs to be a valid input type */
   type: PropTypes.string,
   disabled: PropTypes.bool,
