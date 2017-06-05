@@ -13,11 +13,6 @@ export default ({
   overflow: 'hidden',
   boxSizing: 'border-box',
 
-  '& > div': {
-    overflow: 'hidden',
-    boxSizing: 'border-box',
-  },
-
   [`&${classPrefixSpace ? ' ' : ''}.${name}`]: {
     '&-enter': {
       maxHeight: 0,

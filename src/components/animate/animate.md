@@ -33,7 +33,7 @@ Below is an example of how it behaves when animating.
         return (
           <div>
             <button style={{marginBottom: 10}} onClick={this.toggleShow}>Toggle animation</button>
-            <Animate enterTime={300} leaveTime={200} estimatedHeight={210}>
+            <Animate animationName="markdownExampleAnimate" enterTime={300} leaveTime={200} estimatedHeight={210}>
               {this.state.show && this.state.toggleCount % 3 === 2 ? (
                 <div style={outerDivStyle}>
                   Even more content inside what will be animated.
