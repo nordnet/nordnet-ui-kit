@@ -34,7 +34,7 @@ export default createStyleSheet('Tr', theme => {
         background: palette.background.default,
       },
 
-      [mixins.media('sm')]: {
+      [mixins.media('md')]: {
         '&.sticky': {
           position: 'fixed',
         },

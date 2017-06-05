@@ -10,10 +10,15 @@ export default createStyleSheet('Tbody', theme => {
       ...styleUtils.sizes(),
       ...styleUtils.borders(palette),
       width: '100%',
+      overflow: 'auto',
       maxHeight: '70vh',
-      overflowY: 'auto',
 
-      [mixins.media('sm')]: {
+      '@supports (-webkit-overflow-scrolling: touch)': {
+        overflow: 'scroll',
+        '-webkit-overflow-scrolling': 'touch',
+      },
+
+      [mixins.media('md')]: {
         maxHeight: '100%',
       },
 
