@@ -18,7 +18,7 @@ export default createStyleSheet('Thead', theme => {
       fontSize: 12,
       paddingBottom: 4,
 
-      [mixins.media('sm')]: {
+      [mixins.media('md')]: {
         paddingBottom: 10,
       },
 

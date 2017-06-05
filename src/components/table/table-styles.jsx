@@ -9,6 +9,11 @@ export default createStyleSheet('Table', theme => {
       width: '100%',
       overflow: 'auto',
       position: 'relative',
+
+      '@supports (-webkit-overflow-scrolling: touch)': {
+        overflow: 'scroll',
+        '-webkit-overflow-scrolling': 'touch',
+      },
     },
     table: {
       ...mixins.basicBoxSizing,

@@ -20,7 +20,7 @@ export default createStyleSheet('Th', theme => {
       minWidth: 20,
       paddingBottom: 4,
 
-      [mixins.media('sm')]: {
+      [mixins.media('md')]: {
         minWidth: 40,
         paddingBottom: 10,
       },
