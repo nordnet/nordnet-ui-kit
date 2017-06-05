@@ -40,12 +40,13 @@ class Animate extends React.PureComponent {
     }
     return (
       <CSSTransitionGroup
+        component="div"
         className={cn(this.classes.root, this.props.className)}
         transitionName={this.props.animationName}
         transitionEnterTimeout={this.props.enterTime}
         transitionLeaveTimeout={this.props.leaveTime}
       >
-        {this.props.children ? <div>{this.props.children}</div> : null}
+        {this.props.children}
       </CSSTransitionGroup>
     );
   }
