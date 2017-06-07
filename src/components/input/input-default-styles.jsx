@@ -11,12 +11,13 @@ export default createStyleSheet('InputDefault', theme => {
   const bottomBorderSize = 3;
 
   const modifierFn = color => ({
+    marginBottom: inputMarginBottom,
+
     '& .input__label': {
       color,
     },
 
     '& .input__field': {
-      marginBottom: 0,
       borderBottom: `${bottomBorderSize}px solid ${color}`,
     },
 
@@ -27,7 +28,6 @@ export default createStyleSheet('InputDefault', theme => {
         },
 
         '&__field': {
-          marginBottom: 0,
           borderBottom: `${bottomBorderSize}px solid ${disabledColor(color)}`,
         },
       },
@@ -41,7 +41,6 @@ export default createStyleSheet('InputDefault', theme => {
       },
 
       '&__field': {
-        marginBottom: 0,
         borderColor: color,
         borderBottom: `${bottomBorderSize}px solid ${color}`,
       },
@@ -54,7 +53,7 @@ export default createStyleSheet('InputDefault', theme => {
       fontSize: 14,
       fontFamily: typography.primary.fontFamily,
       color: palette.text.default,
-      marginBottom: inputMarginBottom,
+      marginBottom: inputMarginBottom + bottomBorderSize - borderSize,
       position: 'relative',
 
       '&.input--has-success': modifierFn(palette.variant.success),
@@ -71,6 +70,7 @@ export default createStyleSheet('InputDefault', theme => {
       },
 
       '&.input--has-focus': {
+        marginBottom: inputMarginBottom,
         '& .input': {
           '&__label': {
             color: palette.action.active,
@@ -79,7 +79,6 @@ export default createStyleSheet('InputDefault', theme => {
           },
 
           '&__field': {
-            marginBottom: 0,
             borderColor: palette.action.active,
             borderBottom: `3px solid ${palette.action.active}`,
           },
@@ -145,7 +144,6 @@ export default createStyleSheet('InputDefault', theme => {
         padding: 8,
         paddingTop: 10,
         transition: transitions.create(['border-color']),
-        marginBottom: inputMarginBottom + bottomBorderSize - borderSize,
       },
 
       '& .input__label': {
