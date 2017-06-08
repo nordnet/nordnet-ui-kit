@@ -43,6 +43,19 @@ Sticky header table:
           </Tr>
         )) }
       </Tbody>
+      <Tfoot>
+        <Tr>
+        <Td width={"50px"}></Td>
+          <Td width={40}></Td>
+          <Td mono width="80px" align="center"></Td>
+          <Td mono highlight="warning">
+            Total price
+          </Td>
+          <Td mono align="right">
+            Total perf
+          </Td>
+        </Tr>
+      </Tfoot>
     </Table>
 
 Scrollable table:
