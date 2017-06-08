@@ -2,7 +2,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import styleUtils from './style-utilities';
 
 export default createStyleSheet('Table', theme => {
-  const { palette, mixins } = theme;
+  const { palette, mixins, typography } = theme;
 
   return {
     root: {
@@ -20,7 +20,8 @@ export default createStyleSheet('Table', theme => {
       display: 'block',
       textAlign: 'left',
       borderCollapse: 'collapse',
-      fontWeight: 'normal',
+      fontWeight: typography.fontWeightRegular,
+      fontFamily: typography.primary.fontFamily,
       borderColor: palette.background.muted,
       ...styleUtils.sizes(),
     },
