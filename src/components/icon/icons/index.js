@@ -36,8 +36,10 @@ import LightningBolt from './lightningBolt';
 import Lock from './lock';
 import Mail from './mail';
 import MailOpen from './mailOpen';
+import Market from './market';
 import News from './news';
 import OrderDepth from './orderDepth';
+import Portfolio from './portfolio';
 import Print from './print';
 import Profile from './profile';
 import Questionmark from './questionmark';
@@ -93,8 +95,10 @@ const Icon = {
   Lock,
   Mail,
   MailOpen,
+  Market,
   News,
   OrderDepth,
+  Portfolio,
   Print,
   Profile,
   Questionmark,
