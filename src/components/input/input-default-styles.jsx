@@ -70,7 +70,6 @@ export default createStyleSheet('InputDefault', theme => {
       },
 
       '&.input--has-focus': {
-        marginBottom: inputMarginBottom,
         '& .input': {
           '&__label': {
             color: palette.action.active,
