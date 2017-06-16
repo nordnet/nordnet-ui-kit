@@ -30,7 +30,7 @@ describe('<Alert />', () => {
   });
 
   it('should render the header if provided', () => {
-    expect(wrapper.find('div.header').childAt(0).text()).to.equal('header');
+    expect(wrapper.find(`div.${classes.header}`).childAt(0).text()).to.equal('header');
   });
 
   it('should render the children if provided', () => {
