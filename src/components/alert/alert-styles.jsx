@@ -14,7 +14,7 @@ export default createStyleSheet('Alert', theme => {
       marginBottom: '16px',
       color: palette.text.default,
 
-      '& .header': {
+      '& .alert-header': {
         display: 'inline-block',
         fontWeight: 'bold',
         padding: '4px',
@@ -49,7 +49,7 @@ export default createStyleSheet('Alert', theme => {
     success: {
       borderLeft: `2px solid ${palette.variant.success}`,
 
-      '& .header': {
+      '& .alert-header': {
         color: palette.variant.success,
       },
     },
@@ -57,7 +57,7 @@ export default createStyleSheet('Alert', theme => {
     warning: {
       borderLeft: `2px solid ${palette.variant.warning}`,
 
-      '& .header': {
+      '& .alert-header': {
         color: palette.variant.warning,
       },
     },
@@ -65,7 +65,7 @@ export default createStyleSheet('Alert', theme => {
     danger: {
       borderLeft: `2px solid ${palette.variant.danger}`,
 
-      '& .header': {
+      '& .alert-header': {
         color: palette.variant.danger,
       },
     },

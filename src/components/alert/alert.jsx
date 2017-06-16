@@ -47,7 +47,7 @@ class Alert extends React.PureComponent {
       },
       this.props.className,
     );
-    const headerClassName = classNames('header', {
+    const headerClassName = classNames('alert-header', {
       vertical: this.props.vertical,
     });
 
