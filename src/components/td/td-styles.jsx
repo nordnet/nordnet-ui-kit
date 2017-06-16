@@ -25,8 +25,8 @@ export default createStyleSheet('Td', theme => {
       [mixins.media('md')]: {
         fontSize: 14,
         minWidth: 40,
-        paddingTop: 20,
-        paddingBottom: 20,
+        paddingTop: 13,
+        paddingBottom: 13,
       },
     },
   };
