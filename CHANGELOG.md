@@ -1,5 +1,62 @@
 # Changelog
 
+*(NOTE: For fresh changelogs, please see the [releases page](https://github.com/nordnet/nordnet-ui-kit/releases))*
+
+### 1.4.4 (2017-06-16)
+
+#### Bug Fixes
+
+* **Alert:** Convert bare classes to jss (header, vertical). ([1315a74f](https://github.com/nordnet/nordnet-ui-kit/commit/1315a74f), closes [#245](https://github.com/nordnet/nordnet-ui-kit/issues/245))
+
+### 1.4.3 (2017-06-16)
+
+#### Bug Fixes
+
+* **Td:** Reduce table cell height ([5c1f7e3d](https://github.com/nordnet/nordnet-ui-kit/commit/5c1f7e3d))
+
+### 1.4.2 (2017-06-13)
+
+#### Bug Fixes
+
+* **Animate:** Use height as well as max-height when animating (#244) ([3140735e](https://github.com/nordnet/nordnet-ui-kit/commit/3140735e))
+
+### 1.4.1 (2017-06-09)
+
+#### Bug Fixes
+
+* **Table:** 💄 Adapt styling to new design ([38c3d7d0](https://github.com/nordnet/nordnet-ui-kit/commit/38c3d7d0))
+
+## 1.4.0 (2017-06-08)
+
+#### Features
+
+* **Icon:** update Profile icon and add new Market and Portfolio icons ([04b024c0](https://github.com/nordnet/nordnet-ui-kit/commit/04b024c0))
+
+### 1.3.6 (2017-06-08)
+
+#### Bug Fixes
+
+* **Input:** Fix styling when input has display inline-block ([dab34ea6](https://github.com/nordnet/nordnet-ui-kit/commit/dab34ea6))
+
+### 1.3.5 (2017-06-05)
+
+#### Bug Fixes
+
+* **Table:** 💄 Make horizontal scrolling work on iOS devices ([96af4082](https://github.com/nordnet/nordnet-ui-kit/commit/96af4082))
+
+### 1.3.4 (2017-06-01)
+
+#### Bug Fixes
+
+* **Table:** More compact tables on mobile ([befa6ca9](https://github.com/nordnet/nordnet-ui-kit/commit/befa6ca9))
+* **Tr:** Add pointer-events: none to the clone ([9d1006ed](https://github.com/nordnet/nordnet-ui-kit/commit/9d1006ed))
+
+### 1.3.3 (2017-05-31)
+
+#### Bug Fixes
+
+* **Animate:** Add extra div around the children in Animate ([88afb874](https://github.com/nordnet/nordnet-ui-kit/commit/88afb874))
+
 ### 1.3.2 (2017-05-29)
 
 #### Bug Fixes
