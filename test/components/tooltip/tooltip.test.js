@@ -37,6 +37,18 @@ describe('<Tooltip />', () => {
     expect(wrapper.state('toggled')).to.equal(true);
   });
 
+  it('should not display tooltip when clicked and sticky is false', () => {
+    wrapper.setProps({ sticky: false });
+    wrapper.find(`.${classes.container}`).simulate('click');
+    expect(wrapper.state('toggled')).to.equal(false);
+  });
+
+  it('should display tooltip when clicked and sticky is true', () => {
+    wrapper.setProps({ sticky: true });
+    wrapper.find(`.${classes.container}`).simulate('click');
+    expect(wrapper.state('toggled')).to.equal(true);
+  });
+
   it('should have fixedWidth', () => {
     wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
     expect(wrapper.find(`.${classes.popup}`).props().style.width).to.equal(123);

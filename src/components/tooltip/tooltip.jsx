@@ -87,6 +87,10 @@ class Tooltip extends React.Component {
   }
 
   toggleShow() {
+    if (!this.props.sticky) {
+      return;
+    }
+
     this.setState({
       toggled: !this.state.toggled,
       hover: false,
@@ -173,6 +177,7 @@ class Tooltip extends React.Component {
 Tooltip.defaultProps = {
   children: <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
   placement: 'below',
+  sticky: true,
 };
 
 Tooltip.propTypes = {
@@ -183,6 +188,8 @@ Tooltip.propTypes = {
   content: PropTypes.node,
   /** The container that, when clicked, will show the tooltip */
   children: PropTypes.node,
+  /** Tooltip should display when clicked */
+  sticky: PropTypes.bool,
   placement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
   fixedWidth: PropTypes.number,
 };
