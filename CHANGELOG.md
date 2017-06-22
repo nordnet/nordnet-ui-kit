@@ -2,6 +2,12 @@
 
 *(NOTE: For fresh changelogs, please see the [releases page](https://github.com/nordnet/nordnet-ui-kit/releases))*
 
+## 1.5.0 (2017-06-22)
+
+#### Features
+
+* **Tooltip:** Add option to show tooltip on click ([371190e5](https://github.com/nordnet/nordnet-ui-kit/commit/371190e5))
+
 ### 1.4.4 (2017-06-16)
 
 #### Bug Fixes
