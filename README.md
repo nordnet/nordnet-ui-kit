@@ -6,12 +6,14 @@
 [![Dependency Status][depstat-image]][depstat-url]
 
 ## Installation
+
 ```js
 npm install --save nordnet-ui-kit # or
 yarn add nordnet-ui-kit
 ```
 
 ## Usage
+
 ``` javascript
 import { ThemeProvider, Button } from 'nordnet-ui-kit';
 
@@ -35,12 +37,15 @@ ReactDOM.render(Root, document.getElementById('app'));
 ## [Changelog](https://github.com/nordnet/nordnet-ui-kit/blob/master/CHANGELOG.md)
 
 ## Developing
+
 Developing workflow can be found in the [contributing guidelines](CONTRIBUTING.md).
 
 ## Contributing
+
 Everyone is welcome to contribute. Please take a moment to review the [contributing guidelines](CONTRIBUTING.md).
 
 ## License
+
 This open source project released by Nordnet is licensed under the MIT license.
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
