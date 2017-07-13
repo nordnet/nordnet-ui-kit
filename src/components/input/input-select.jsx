@@ -6,6 +6,7 @@ import InputDefault from './input-default';
 import IconChevronUp from '../icon/icons/chevronUp';
 import IconChevronDown from '../icon/icons/chevronDown';
 import styleSheet from './input-select-styles';
+import omit from '../../utilities/omit';
 
 function renderOption(option) {
   const { label, value, key: keyOption, ...rest } = option;
@@ -74,7 +75,7 @@ class InputSelect extends InputDefault {
   }
 
   renderInput() {
-    const { id, placeholder, options, ...rest } = this.props;
+    const { id, placeholder, options, label, type, ...rest } = this.props;
     const classes = this.context.styleManager.render(styleSheet);
     const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
     const title = this.getTitle();
@@ -82,7 +83,7 @@ class InputSelect extends InputDefault {
     return (
       <div className={className} title={title}>
         <select
-          {...rest}
+          {...omit(rest, 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon')}
           id={id}
           className="input__element input__element--select"
           onFocus={this.onFocus}
@@ -90,6 +91,8 @@ class InputSelect extends InputDefault {
           onChange={this.onChange}
           placeholder=""
           value={this.state.value}
+          label={label}
+          type={type}
         >
           {placeholder ? <option value="" disabled>{placeholder}</option> : null}
           {options.map(renderOption)}
