@@ -97,13 +97,36 @@ Type: `select`
       label: 'Super mega very long option 3 - this is a test to show that the option is properly cut after a specific length and that the whole option text is shown in a title tag',
       value: 3,
     }];
-
-    <Input
-      label="Select input"
-      placeholder="Pick an option"
-      type="select"
-      options={ options }
-    />
+    <div>
+      <Input
+        label="Select input"
+        placeholder="Pick an option"
+        type="select"
+        options={ options }
+      />
+      <Input
+        label="Select input"
+        placeholder="Pick the right option"
+        type="select"
+        options={ options }
+        hasError
+      />
+      <Input
+        label="Select input"
+        placeholder="Pick the another option, maybe?"
+        type="select"
+        options={ options }
+        hasWarning
+        rightAddon={'USD'}
+      />
+      <Input
+        label="Select input"
+        placeholder="Pick whatever works"
+        type="select"
+        options={ options }
+        hasSuccess
+      />
+    </div>
 
 Type: `checkbox`
 
