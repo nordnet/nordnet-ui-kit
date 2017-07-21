@@ -14,7 +14,7 @@ Below is an example of how it behaves when animating.
     // component. This was needed to have a toggle button with state.
     const React = require('react');
     const PropTypes = require('prop-types');
-    const { createStyleSheet } = require('jss-theme-reactor');
+    const { createStyleSheet } = require('@iamstarkov/jss-theme-reactor');
 
     const divStyle = { height: 50, padding: 10 };
     const outerDivStyle = { backgroundColor: 'tomato', height: 100, padding: 10, color: 'white' };

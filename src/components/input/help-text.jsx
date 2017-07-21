@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { createStyleSheet } from 'jss-theme-reactor';
+import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 
 const styleSheet = createStyleSheet('HelpText', theme => {
   const { palette } = theme;

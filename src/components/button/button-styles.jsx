@@ -1,4 +1,4 @@
-import { createStyleSheet } from 'jss-theme-reactor';
+import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import c from 'color';
 
 // This function was created because 'focused' versions on colors were not found in the palette

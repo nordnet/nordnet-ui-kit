@@ -1,4 +1,4 @@
-import { createStyleSheet } from 'jss-theme-reactor';
+import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 

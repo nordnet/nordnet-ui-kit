@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import { createStyleSheet } from 'jss-theme-reactor';
+import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 
 export const styleSheet = createStyleSheet('Badge', theme => {
   const { palette, typography, mixins } = theme;
