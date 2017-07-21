@@ -1,4 +1,4 @@
-import { createStyleSheet } from 'jss-theme-reactor';
+import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 
 export default createStyleSheet('InputCheckboxRadio', theme => {
   const { palette, transitions, mixins } = theme;

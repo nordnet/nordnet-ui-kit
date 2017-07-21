@@ -71,11 +71,9 @@
   "homepage": "https://nordnet.github.io/nordnet-ui-kit",
   "license": "MIT",
   "dependencies": {
+    "@iamstarkov/jss-theme-reactor": "^0.12.1",
     "classnames": "^2.2.3",
     "color": "^1.0.3",
-    "jss": "^7.1.0",
-    "jss-preset-default": "^2.0.0",
-    "jss-theme-reactor": "^0.11.1",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",

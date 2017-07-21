@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@iamstarkov/jss-theme-reactor@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.npmjs.org/@iamstarkov/jss-theme-reactor/-/jss-theme-reactor-0.12.1.tgz#69c7c154e9b2589942945df6a2017583ad92aac5"
+  dependencies:
+    jss "^8.1.0"
+    jss-preset-default "^3.0.0"
+    jss-vendor-prefixer "^6.0.0"
+    murmurhash-js "^1.0.0"
+
 "@semantic-release/commit-analyzer@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@semantic-release/commit-analyzer/-/commit-analyzer-2.0.0.tgz#924d1e2c30167c6a472bed9f66ee8f8e077489b2"
@@ -3516,9 +3525,13 @@ is-hexadecimal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/is-hexadecimal/-/is-hexadecimal-1.0.0.tgz#5c459771d2af9a2e3952781fd54fcb1bcfe4113c"
 
-is-in-browser@1.0.2, is-in-browser@^1.0.2:
+is-in-browser@1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/is-in-browser/-/is-in-browser-1.0.2.tgz#f688bea8f1e5aadc3244ebc870d188cfb9b613cf"
+
+is-in-browser@^1.0.2:
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/is-in-browser/-/is-in-browser-1.1.3.tgz#56ff4db683a078c6082eb95dad7dc62e1d04f835"
 
 is-my-json-valid@^2.10.0, is-my-json-valid@^2.12.4:
   version "2.16.0"
@@ -3847,79 +3860,101 @@ jss-camel-case@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/jss-camel-case/-/jss-camel-case-4.0.0.tgz#39ef2a137aaa1e2f160ab826845305f8efabcfd5"
 
-jss-compose@^3.0.0, jss-compose@^3.0.1:
+jss-camel-case@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/jss-camel-case/-/jss-camel-case-5.0.0.tgz#886c1fe56a8a11577454d6a8b4133caa6c1f53a0"
+
+jss-compose@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/jss-compose/-/jss-compose-3.0.1.tgz#0ac07f20baf1d523c211016d383dab08dcfe4186"
   dependencies:
     warning "^3.0.0"
 
-jss-default-unit@^6.0.0, jss-default-unit@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.npmjs.org/jss-default-unit/-/jss-default-unit-6.1.1.tgz#a9a04887a3860d2a8ceb73ddfbc2ddcf808bacb2"
-
-jss-expand@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/jss-expand/-/jss-expand-3.0.1.tgz#90f1b30ad0ab700e666ea54f7186341c50d7feed"
-
-jss-extend@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/jss-extend/-/jss-extend-4.0.1.tgz#6b716a1b217ba32715dbcb69940ec67b35c415dc"
+jss-compose@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/jss-compose/-/jss-compose-4.0.0.tgz#f0109e8e8301a2678279301c24523dbc76115b9b"
   dependencies:
     warning "^3.0.0"
 
-jss-global@^1.0.0, jss-global@^1.0.1:
+jss-default-unit@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.npmjs.org/jss-default-unit/-/jss-default-unit-6.1.1.tgz#a9a04887a3860d2a8ceb73ddfbc2ddcf808bacb2"
+
+jss-default-unit@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/jss-default-unit/-/jss-default-unit-7.0.0.tgz#176c1db91da870e3ad16301f6f4b4cfc6fe1e90a"
+
+jss-expand@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/jss-expand/-/jss-expand-4.0.0.tgz#71ec15386d7839bb23892acf9dcaa40b7fe9c785"
+
+jss-extend@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/jss-extend/-/jss-extend-5.0.0.tgz#08a1d4015d05dfe011e3a281457d471226865387"
+  dependencies:
+    warning "^3.0.0"
+
+jss-global@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/jss-global/-/jss-global-1.0.1.tgz#36731778f6d8649110611f7c178dbcd60fd92b24"
+
+jss-global@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/jss-global/-/jss-global-2.0.0.tgz#a162f822f17e5d760151d908bdb41d7f2824c28f"
 
 jss-isolate@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/jss-isolate/-/jss-isolate-2.0.1.tgz#7ee5591e0dc5d358a2fbed25ccf0f2510413c896"
 
-jss-nested@^4.0.0, jss-nested@^4.0.1:
+jss-nested@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/jss-nested/-/jss-nested-4.0.1.tgz#f50cc206430c8a920ccd54e3b756f7fc72455130"
   dependencies:
     warning "^3.0.0"
 
-jss-preset-default@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/jss-preset-default/-/jss-preset-default-2.0.0.tgz#0368d99626b31067e8d04ab3c7cb17ba8354d422"
+jss-nested@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/jss-nested/-/jss-nested-5.0.0.tgz#c0752f31f2d465110d7de6ac83583dbed669faa0"
   dependencies:
-    jss-camel-case "^4.0.0"
-    jss-compose "^3.0.0"
-    jss-default-unit "^6.0.0"
-    jss-expand "^3.0.0"
-    jss-extend "^4.0.0"
-    jss-global "^1.0.0"
-    jss-nested "^4.0.0"
-    jss-props-sort "^4.0.0"
-    jss-vendor-prefixer "^5.0.0"
+    warning "^3.0.0"
 
-jss-props-sort@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/jss-props-sort/-/jss-props-sort-4.0.0.tgz#ef4239c6795ca304c18dce9e0395a1789ed9f78a"
-
-jss-theme-reactor@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.npmjs.org/jss-theme-reactor/-/jss-theme-reactor-0.11.1.tgz#48eb9465ec37ca3dfdc415a08f005d06363f2b31"
+jss-preset-default@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/jss-preset-default/-/jss-preset-default-3.0.0.tgz#e43ee1ac526f689baf2bfd28ae95a6fdc3a02663"
   dependencies:
-    jss "^7.0.3"
-    jss-preset-default "^2.0.0"
-    jss-vendor-prefixer "^5.1.0"
-    murmurhash-js "^1.0.0"
+    jss-camel-case "^5.0.0"
+    jss-compose "^4.0.0"
+    jss-default-unit "^7.0.0"
+    jss-expand "^4.0.0"
+    jss-extend "^5.0.0"
+    jss-global "^2.0.0"
+    jss-nested "^5.0.0"
+    jss-props-sort "^5.0.0"
+    jss-vendor-prefixer "^6.0.0"
 
-jss-vendor-prefixer@^5.0.0, jss-vendor-prefixer@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/jss-vendor-prefixer/-/jss-vendor-prefixer-5.1.0.tgz#59b73544de81e6b2efd71f6d3b744671826865a2"
+jss-props-sort@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/jss-props-sort/-/jss-props-sort-5.0.0.tgz#8839c88433f64e8c1dab1a7068796f19b84f9195"
+
+jss-vendor-prefixer@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npmjs.org/jss-vendor-prefixer/-/jss-vendor-prefixer-6.0.0.tgz#be58124f0cbed76e98cc8eb5219dbb260f057d0b"
   dependencies:
     css-vendor "^0.3.8"
 
-jss@^7.0.3, jss@^7.1.0:
+jss@^7.1.0:
   version "7.1.0"
   resolved "https://registry.npmjs.org/jss/-/jss-7.1.0.tgz#8528213f868f05d0ef41deaeb02269bb82780e4b"
   dependencies:
     is-in-browser "1.0.2"
     warning "3.0.0"
+
+jss@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.npmjs.org/jss/-/jss-8.1.0.tgz#b32f15efcce22446dfda4c2be09a04f38431da0a"
+  dependencies:
+    is-in-browser "^1.0.2"
+    warning "^3.0.0"
 
 jsx-ast-utils@^1.0.0, jsx-ast-utils@^1.3.4:
   version "1.4.0"

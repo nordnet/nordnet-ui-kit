@@ -1,4 +1,4 @@
-import { createStyleSheet } from 'jss-theme-reactor';
+import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 
 const identifier = `spinner-${Math.round(1000 * Math.random())}`;
 
