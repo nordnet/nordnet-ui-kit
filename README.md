@@ -32,6 +32,11 @@ ReactDOM.render(Root, document.getElementById('app'));
 
 *To see what is exported from nordnet-ui-kit, please see the documentation below or [index.js](https://github.com/nordnet/nordnet-ui-kit/blob/master/src/index.js)*
 
+## Compatibility
+
+* `v1.5.1` and lower depends on `jss-theme-reactor` and `jss@7`
+* `v1.6.0+` depends on `@iamstarkov/jss-theme-reactor` and `jss@8`, so please update your components to use `@iamstarkov/jss-theme-reactor` instead of `jss-theme-reactor`
+
 ## Documentation for the latest release is available [here](https://nordnet.github.io/nordnet-ui-kit).
 
 ## [Changelog](https://github.com/nordnet/nordnet-ui-kit/blob/master/CHANGELOG.md)
