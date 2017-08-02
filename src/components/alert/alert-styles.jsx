@@ -1,6 +1,4 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
-
-export default createStyleSheet('Alert', theme => {
+export default theme => {
   const { palette, mixins } = theme;
 
   return {
@@ -73,4 +71,4 @@ export default createStyleSheet('Alert', theme => {
       },
     },
   };
-});
+};

@@ -1,7 +1,6 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import Color from 'color';
 
-export default createStyleSheet('InputDefault', theme => {
+export default theme => {
   const { palette, transitions, mixins, typography } = theme;
 
   const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
@@ -202,4 +201,4 @@ export default createStyleSheet('InputDefault', theme => {
       },
     },
   };
-});
+};

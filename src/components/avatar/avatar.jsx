@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 
-export const styleSheet = createStyleSheet('Avatar', theme => {
+export const styles = theme => {
   const { palette, typography, mixins } = theme;
 
-  const styles = {
+  return {
     root: {
       ...mixins.basicBoxSizing,
       display: 'flex',
@@ -42,12 +42,19 @@ export const styleSheet = createStyleSheet('Avatar', theme => {
       width: 56,
     },
   };
+};
 
-  return styles;
-});
-
-function Avatar({ children, className: classNameProp, style: styleProp, size, color, ...rest }, { styleManager }) {
-  const classes = styleManager.render(styleSheet);
+function Avatar({
+  classes,
+  children,
+  className: classNameProp,
+  style: styleProp,
+  size,
+  color,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const style = Object.assign(
     {},
     {
@@ -66,6 +73,8 @@ function Avatar({ children, className: classNameProp, style: styleProp, size, co
 }
 
 Avatar.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   style: PropTypes.object,
   children: PropTypes.node,
@@ -77,8 +86,4 @@ Avatar.defaultProps = {
   size: 'sm',
 };
 
-Avatar.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Avatar;
+export default injectSheet(styles)(Avatar);

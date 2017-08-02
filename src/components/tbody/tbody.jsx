@@ -1,13 +1,26 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import TbodyStyles from './tbody-styles';
+import styles from './tbody-styles';
 
-function Tbody(
-  { className, children, style, size, colorAlternateRows, maxHeight, border, borderTop, borderRight, borderBottom, borderLeft, ...rest },
-  { styleManager },
-) {
-  const classes = styleManager.render(TbodyStyles);
+function Tbody({
+  classes,
+  className,
+  children,
+  style,
+  size,
+  colorAlternateRows,
+  maxHeight,
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const usedClassName = classNames(
     classes.tbody,
     size,
@@ -42,6 +55,8 @@ Tbody.defaultProps = {
 };
 
 Tbody.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
   style: PropTypes.object,
@@ -56,8 +71,5 @@ Tbody.propTypes = {
   borderLeft: PropTypes.bool,
 };
 
-Tbody.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
 
-export default Tbody;
+export default injectSheet(styles)(Tbody);

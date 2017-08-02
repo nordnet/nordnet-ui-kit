@@ -1,30 +1,30 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import ThStyles from './th-styles';
+import styles from './th-styles';
 
-function Th(
-  {
-    className,
-    children,
-    style,
-    size,
-    width,
-    mono,
-    modifier,
-    highlight,
-    border,
-    borderTop,
-    borderRight,
-    borderBottom,
-    borderLeft,
-    align,
-    ellipsis,
-    ...rest
-  },
-  { styleManager },
-) {
-  const classes = styleManager.render(ThStyles);
+function Th({
+  classes,
+  className,
+  children,
+  style,
+  size,
+  width,
+  mono,
+  modifier,
+  highlight,
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  align,
+  ellipsis,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const usedClassName = classNames(
     classes.th,
     size,
@@ -60,6 +60,8 @@ Th.defaultProps = {
 };
 
 Th.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
   style: PropTypes.object,
@@ -79,8 +81,4 @@ Th.propTypes = {
   ellipsis: PropTypes.bool,
 };
 
-Th.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Th;
+export default injectSheet(styles)(Th);

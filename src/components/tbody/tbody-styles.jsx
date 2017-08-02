@@ -1,7 +1,6 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 
-export default createStyleSheet('Tbody', theme => {
+export default theme => {
   const { palette, mixins } = theme;
   return {
     tbody: {
@@ -33,4 +32,4 @@ export default createStyleSheet('Tbody', theme => {
       },
     },
   };
-});
+};

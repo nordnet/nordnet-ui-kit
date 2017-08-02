@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import ValidationIcon from './validation-icon';
 import Label from './label';
-import styleSheet from './input-default-styles';
+import styles from './input-default-styles';
 import HelpText from './help-text';
 import omit from '../../utilities/omit';
 
@@ -105,7 +106,7 @@ class InputDefault extends React.PureComponent {
 
     return (
       <input
-        {...omit(this.props, 'valueFormatter', 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon')}
+        {...omit(this.props, 'valueFormatter', 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon', 'options', 'classes', 'sheet', 'theme')}
         id={id}
         className={classes}
         type={type || this.props.type}
@@ -162,7 +163,7 @@ class InputDefault extends React.PureComponent {
   }
 
   render() {
-    const classes = this.context.styleManager.render(styleSheet);
+    const { classes } = this.props;
     const id = this.props.id || kebabCase(this.props.label);
     const className = classNames(
       ['input', classes.input],
@@ -189,6 +190,8 @@ class InputDefault extends React.PureComponent {
 }
 
 InputDefault.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   style: PropTypes.object,
   /** Needs to be a valid input type */
@@ -215,8 +218,4 @@ InputDefault.defaultProps = {
   type: 'text',
 };
 
-InputDefault.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default InputDefault;
+export default injectSheet(styles)(InputDefault);

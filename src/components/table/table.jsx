@@ -1,10 +1,20 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import TableStyles from './table-styles';
+import styles from './table-styles';
 
-function Table({ className, children, size, minWidth, style, ...rest }, { styleManager }) {
-  const classes = styleManager.render(TableStyles);
+function Table({
+  classes,
+  className,
+  children,
+  size,
+  minWidth,
+  style,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const usedClassName = classNames(classes.table, size, className);
   const tableStyle = Object.assign({}, { minWidth }, style);
 
@@ -18,6 +28,8 @@ function Table({ className, children, size, minWidth, style, ...rest }, { styleM
 }
 
 Table.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
@@ -29,8 +41,4 @@ Table.defaultProps = {
   minWidth: 700,
 };
 
-Table.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Table;
+export default injectSheet(styles)(Table);

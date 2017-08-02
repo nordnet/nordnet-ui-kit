@@ -1,7 +1,6 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 
-export default createStyleSheet('Th', theme => {
+export default theme => {
   const { palette, typography, mixins } = theme;
 
   return {
@@ -26,4 +25,4 @@ export default createStyleSheet('Th', theme => {
       },
     },
   };
-});
+};

@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
-/* eslint jsx-a11y/no-static-element-interactions: 0 */
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+/* eslint jsx-a11y/no-static-element-interactions: 0 */
 import classnames from 'classnames';
 import Questionmark from '../icon/icons/questionmark';
-import TooltipStyles from './tooltip-styles';
+import styles from './tooltip-styles';
 
 class Tooltip extends React.Component {
   constructor(props, context) {
@@ -29,7 +30,7 @@ class Tooltip extends React.Component {
     };
 
     this.placement = props.placement;
-    this.classes = this.context.styleManager.render(TooltipStyles);
+    this.classes = this.props.classes;
     this.renderPopup = this.renderPopup.bind(this);
   }
 
@@ -181,6 +182,8 @@ Tooltip.defaultProps = {
 };
 
 Tooltip.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   style: PropTypes.object,
   tooltipStyle: PropTypes.object,
@@ -194,8 +197,4 @@ Tooltip.propTypes = {
   fixedWidth: PropTypes.number,
 };
 
-Tooltip.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Tooltip;
+export default injectSheet(styles)(Tooltip);

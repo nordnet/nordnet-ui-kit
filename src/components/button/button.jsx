@@ -1,9 +1,23 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import ButtonStyles from './button-styles';
+import styles from './button-styles'
 
-function Button({ variant, block, disabled, className, children, modifier, href, size, ...rest }, { styleManager }) {
+function Button({
+  classes,
+  variant,
+  block,
+  disabled,
+  className,
+  children,
+  modifier,
+  href,
+  size,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const Element = href ? 'a' : 'button';
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
@@ -12,7 +26,6 @@ function Button({ variant, block, disabled, className, children, modifier, href,
   const isSuccess = modifier === 'success';
   const isWarning = modifier === 'warning';
   const isDanger = modifier === 'danger';
-  const classes = styleManager.render(ButtonStyles);
   const usedClassName = classNames(
     classes.button,
     {
@@ -45,6 +58,8 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
   /** Block level button that spans the full width of its parent */
@@ -56,8 +71,4 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 };
 
-Button.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Button;
+export default injectSheet(styles)(Button);

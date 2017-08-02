@@ -1,9 +1,12 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
+import defaultStylesFn from './input-default-styles';
 
-export default createStyleSheet('InputSelect', theme => {
+export default theme => {
   const { palette, transitions, mixins } = theme;
-
+  const defaultStyles = defaultStylesFn(theme);
   return {
+    'input': {
+      extend: defaultStyles.input,
+    },
     'select-wrapper': {
       ...mixins.basicBoxSizing,
       position: 'relative',
@@ -69,4 +72,4 @@ export default createStyleSheet('InputSelect', theme => {
       },
     },
   };
-});
+};
