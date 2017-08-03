@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import styles from './animate-styles';
 import easings from '../../styles/transitions/easings';
 import durations from '../../styles/transitions/durations';
@@ -21,28 +21,31 @@ function Animate({
   estimatedHeight,
 }) {
   return (
-    <CSSTransitionGroup
-      component="div"
+    <CSSTransition
       className={cn(classes[type], className)}
-      transitionName={classes[type]}
-      transitionEnterTimeout={enterTime}
-      transitionLeaveTimeout={leaveTime}
+      classNames={{
+        enter: classes[`${type}Enter`],
+        enterActive: classes[`${type}EnterActive`],
+        exit: classes[`${type}Exit`],
+        exitActive: classes[`${type}ExitActive`],
+      }}
+      timeout={{ enter: enterTime, exit: leaveTime }}
     >
       {children}
-    </CSSTransitionGroup>
+    </CSSTransition>
   );
 }
 
 Animate.propTypes = {
   /** @ignore */
   classes: PropTypes.object.isRequired,
-  children: PropTypes.node,
+  children: PropTypes.any,
   className: PropTypes.string,
   type: PropTypes.oneOf(['height']).isRequired,
   enterTime: PropTypes.number.isRequired,
   leaveTime: PropTypes.number.isRequired,
-  transitionEnterTimeout: PropTypes.string,
-  transitionLeaveTimeout: PropTypes.string,
+  transitionEnterTimeout: PropTypes.number,
+  transitionLeaveTimeout: PropTypes.number,
   easingEnterFunction: PropTypes.string,
   easingLeaveFunction: PropTypes.string,
   estimatedHeight: PropTypes.number,

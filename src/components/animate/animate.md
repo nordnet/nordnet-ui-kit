@@ -31,31 +31,9 @@ Below is an example of how it behaves when animating.
           <div>
             <button style={{marginBottom: 10}} onClick={this.toggleShow}>Toggle animation</button>
             <Animate enterTime={300} leaveTime={200} estimatedHeight={210}>
-              {this.state.show && this.state.toggleCount % 3 === 2 ? (
-                <div style={outerDivStyle}>
-                  Even more content inside what will be animated.
-                </div>
-              ) : null}
-              {this.state.show ? (
-                <div style={box}>
-                  <div style={divStyle}>
-                    Something inside the box in Animate component.
-                  </div>
-                  <div style={divStyle}>
-                    Some more content inside what will be animated.
-                  </div>
-                  {this.state.toggleCount % 3 === 1 ? (
-                    <div style={divStyle}>
-                      Even more content inside what will be animated.
-                    </div>
-                  ) : null}
-                </div>
-                ) : null }
-                {this.state.show && this.state.toggleCount % 3 === 0 ? (
-                  <div style={outerDivStyle}>
-                    Even more content inside what will be animated.
-                  </div>
-                ) : null}
+              <div style={outerDivStyle}>
+                Even more content inside what will be animated.
+              </div>
             </Animate>
             <div>Some content after the animated stuff.</div>
           </div>
