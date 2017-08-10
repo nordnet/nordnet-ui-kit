@@ -5,16 +5,23 @@ import cn from 'classnames';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from './animate-styles';
 import easings from '../../styles/transitions/easings';
-import durations from '../../styles/transitions/durations';
+// import durations from '../../styles/transitions/durations';
 
 const items = (children, classNames, timeout) =>
-  children.map((child, i) => (
-    <CSSTransition key={i} classNames={classNames} timeout={timeout}>
+  children.map(child => (
+    <CSSTransition key={child.id} classNames={classNames} timeout={timeout}>
       {child}
     </CSSTransition>
   ));
 
-function Animate({ classes, className, children, type, enterTime, exitTime, easingEnterFunction, easingExitFunction, estimatedHeight }) {
+function Animate({
+  classes,
+  className,
+  children,
+  type,
+  enterTime,
+  exitTime /* easingEnterFunction, easingExitFunction, estimatedHeight */,
+}) {
   const classNames = {
     enter: classes[`${type}Enter`],
     enterActive: classes[`${type}EnterActive`],

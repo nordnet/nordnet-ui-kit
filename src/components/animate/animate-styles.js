@@ -1,4 +1,4 @@
-const prop = prop => x => x[prop];
+// const prop = prop => x => x[prop];
 
 const initialHeight = {
   height: 0,
