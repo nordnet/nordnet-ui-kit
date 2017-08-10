@@ -1,7 +1,5 @@
 # Nordnet UI Kit
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/nordnet/nordnet-ui-kit.svg)](https://greenkeeper.io/)
-
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
