@@ -1,5 +1,5 @@
 import React from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { TransitionGroup } from 'react-transition-group';
 import { expect } from 'chai';
 import { shallow as enzymeShallow } from 'enzyme';
 import { createShallow } from '../../../src/test-utils';
@@ -20,8 +20,8 @@ describe('<Animate />', () => {
     wrapper = topWrapper.childAt(0);
   });
 
-  it('should render a CSSTransitionGroup', () => {
-    expect(topWrapper.type()).to.equal(CSSTransitionGroup);
+  it('should render a TransitionGroup', () => {
+    expect(topWrapper.type()).to.equal(TransitionGroup);
   });
 
   it(`should render the text ${inputText}`, () => {
