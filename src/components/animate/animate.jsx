@@ -2,37 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import CSSTransition from 'react-transition-group/CSSTransition';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from './animate-styles';
 import easings from '../../styles/transitions/easings';
 import durations from '../../styles/transitions/durations';
 
-function Animate({
-  classes,
-  className,
-  children,
-  type,
-  enterTime,
-  leaveTime,
-  transitionEnterTimeout,
-  transitionLeaveTimeout,
-  easingEnterFunction,
-  easingLeaveFunction,
-  estimatedHeight,
-}) {
-  return (
-    <CSSTransition
-      className={cn(classes[type], className)}
-      classNames={{
-        enter: classes[`${type}Enter`],
-        enterActive: classes[`${type}EnterActive`],
-        exit: classes[`${type}Exit`],
-        exitActive: classes[`${type}ExitActive`],
-      }}
-      timeout={{ enter: enterTime, exit: leaveTime }}
-    >
-      {children}
+const items = (children, classNames, timeout) =>
+  children.map((child, i) => (
+    <CSSTransition key={i} classNames={classNames} timeout={timeout}>
+      {child}
     </CSSTransition>
+  ));
+
+function Animate({ classes, className, children, type, enterTime, exitTime, easingEnterFunction, easingExitFunction, estimatedHeight }) {
+  const classNames = {
+    enter: classes[`${type}Enter`],
+    enterActive: classes[`${type}EnterActive`],
+    exit: classes[`${type}Exit`],
+    exitActive: classes[`${type}ExitActive`],
+  };
+  const timeout = { enter: enterTime, exit: exitTime };
+
+  return (
+    <TransitionGroup className={cn(classes[type], className)}>
+      {items(React.Children.toArray(children), classNames, timeout)}
+    </TransitionGroup>
   );
 }
 
@@ -43,22 +37,18 @@ Animate.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf(['height']).isRequired,
   enterTime: PropTypes.number.isRequired,
-  leaveTime: PropTypes.number.isRequired,
-  transitionEnterTimeout: PropTypes.number,
-  transitionLeaveTimeout: PropTypes.number,
+  exitTime: PropTypes.number.isRequired,
   easingEnterFunction: PropTypes.string,
-  easingLeaveFunction: PropTypes.string,
+  easingExitFunction: PropTypes.string,
   estimatedHeight: PropTypes.number,
 };
 
 Animate.defaultProps = {
   type: 'height',
   enterTime: 200,
-  leaveTime: 200,
-  transitionEnterTimeout: durations.shorter,
-  transitionLeaveTimeout: durations.shortest,
+  exitTime: 200,
   easingEnterFunction: easings.easeIn,
-  easingLeaveFunction: easings.easeOut,
+  easingExitFunction: easings.easeOut,
   estimatedHeight: 500,
 };
 

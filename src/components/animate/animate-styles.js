@@ -22,7 +22,7 @@ export default {
     // transitionDuration: props => props.transitionEnterTimeout,
     transitionDuration: 200,
   },
-  heightLeave: {
+  heightExit: {
     // height: props => props.estimatedHeight,
     height: 210,
     // maxHeight: props => props.estimatedHeight,
@@ -33,5 +33,5 @@ export default {
     // transitionDuration: props => props.transitionLeaveTimeout,
     transitionDuration: 150,
   },
-  heightLeaveActive: initialHeight,
+  heightExitActive: initialHeight,
 };
