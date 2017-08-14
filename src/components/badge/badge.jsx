@@ -65,4 +65,5 @@ Badge.propTypes = {
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
 };
 
+export { Badge as Component };
 export default injectSheet(styles)(Badge);

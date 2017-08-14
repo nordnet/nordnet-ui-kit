@@ -1,17 +1,16 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../../src/test-utils';
-import Td from '../../../../src/components/td';
-import TdStyles from '../../../../src/components/td/td-styles';
+import { shallow } from 'enzyme';
+import { mockClasses } from '../../../../src/test-utils';
+import { theme } from '../../../../src/';
+import { Component as Td, styles } from '../../../../src/components/td/td';
 
 describe('<Td />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(TdStyles);
+  const classes = mockClasses(styles(theme));
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Td />);
+    wrapper = shallow(<Td classes={classes} />);
   });
 
   it('should render a <td />', () => {
@@ -27,7 +26,7 @@ describe('<Td />', () => {
   });
 
   it('should not render a component with td--ellipsis, when ellipsis have false input', () => {
-    wrapper = shallow(<Td ellipsis={false} />);
+    wrapper = shallow(<Td classes={classes} ellipsis={false} />);
     expect(wrapper.find('.ellipsis')).to.have.length(0);
   });
 });

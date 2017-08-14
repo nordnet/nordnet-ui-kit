@@ -81,4 +81,5 @@ Th.propTypes = {
   ellipsis: PropTypes.bool,
 };
 
+export { Th as Component, styles };
 export default injectSheet(styles)(Th);

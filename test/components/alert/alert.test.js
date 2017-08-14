@@ -1,49 +1,63 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../src/test-utils';
-import Alert from '../../../src/components/alert';
-import AlertStyles from '../../../src/components/alert/alert-styles';
+import { shallow } from 'enzyme';
+import { Component as Alert, styles } from '../../../src/components/alert/alert';
+import { mockClasses } from '../../../src/test-utils';
+import { theme } from '../../../src';
+
+const classes = mockClasses(styles(theme));
+
+const defaultProps = { classes, theme };
 
 describe('<Alert />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(AlertStyles);
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(<Alert header="header">body</Alert>);
-  });
-
   it('should render <div> as container', () => {
-    expect(wrapper.type()).to.equal('div');
+    const wrapper = shallow(<Alert header="header" {...defaultProps}>body</Alert>);
+    const actual = wrapper.type();
+    const expected = 'div';
+    expect(actual).to.equal(expected);
   });
 
   it('should have class alert', () => {
-    expect(wrapper.hasClass(classes.alert)).to.equal(true);
+    const wrapper = shallow(<Alert header="header" {...defaultProps}>body</Alert>);
+    const actual = wrapper.hasClass(classes.alert);
+    expect(actual).to.equal(true);
   });
 
   ['success', 'warning', 'danger'].forEach(modifier => {
     it(`should have class ${classes[modifier]} if modifier is set to ${modifier}`, () => {
+      const wrapper = shallow(<Alert header="header" {...defaultProps}>body</Alert>);
       wrapper.setProps({ modifier });
-      expect(wrapper.hasClass(`${classes[modifier]}`)).to.equal(true);
+      const actual = wrapper.hasClass(`${classes[modifier]}`);
+      expect(actual).to.equal(true);
     });
   });
 
   it('should render the header if provided', () => {
-    expect(wrapper.find(`div.${classes.header}`).childAt(0).text()).to.equal('header');
+    const wrapper = shallow(<Alert header="header" {...defaultProps}>body</Alert>);
+    const actual = wrapper.find(`div.${classes.header}`).childAt(0).text();
+    const expected = 'header';
+    expect(actual).to.equal(expected);
   });
 
   it('should render the children if provided', () => {
-    expect(wrapper.find(`div.${classes.body}`).childAt(0).text()).to.equal('body');
+    const wrapper = shallow(<Alert header="header" {...defaultProps}>body</Alert>);
+    const actual = wrapper.find(`div.${classes.body}`).childAt(0).text();
+    const expected = 'body';
+    expect(actual).to.equal(expected);
   });
 
   it('should close if the dismiss button is clicked', () => {
+    const wrapper = shallow(<Alert header="header" {...defaultProps}>body</Alert>);
     wrapper.find(`button.${classes.close}`).simulate('click');
-    expect(wrapper.html()).to.equal(null);
+    const actual = wrapper.html();
+    const expected = null;
+    expect(actual).to.equal(expected);
   });
 
   it('should not render the dismiss button if dismissable is set to false', () => {
+    const wrapper = shallow(<Alert header="header" {...defaultProps}>body</Alert>);
     wrapper.setProps({ dismissable: false });
-    expect(wrapper.find(`button.${classes.close}`)).to.have.length(0);
+    const actual = wrapper.find(`button.${classes.close}`).exists();
+    expect(actual).to.equal(false);
   });
 });

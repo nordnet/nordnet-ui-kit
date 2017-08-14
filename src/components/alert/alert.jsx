@@ -85,4 +85,5 @@ Alert.defaultProps = {
   dismissed: false,
 };
 
+export { Alert as Component, styles };
 export default injectSheet(styles)(Alert);

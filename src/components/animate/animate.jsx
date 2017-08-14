@@ -11,7 +11,7 @@ const initialHeight = {
   maxHeight: () => 0,
 };
 
-export const styles = {
+const styles = {
   height: {
     boxSizing: 'border-box',
     transitionProperty: 'max-height, height',
@@ -86,4 +86,5 @@ Animate.defaultProps = {
   estimatedHeight: 500,
 };
 
+export { Animate as Component, styles };
 export default injectSheet(styles)(Animate);

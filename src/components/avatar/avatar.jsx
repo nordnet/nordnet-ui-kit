@@ -86,4 +86,5 @@ Avatar.defaultProps = {
   size: 'sm',
 };
 
+export { Avatar as Component };
 export default injectSheet(styles)(Avatar);

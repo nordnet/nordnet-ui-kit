@@ -1,17 +1,16 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../../src/test-utils';
-import Th from '../../../../src/components/th';
-import ThStyles from '../../../../src/components/th/th-styles';
+import { shallow } from 'enzyme';
+import { mockClasses } from '../../../../src/test-utils';
+import { theme } from '../../../../src/';
+import { Component as Th, styles } from '../../../../src/components/th/th';
 
 describe('<Th />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(ThStyles);
+  const classes = mockClasses(styles(theme));
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Th />);
+    wrapper = shallow(<Th classes={classes} />);
   });
 
   it('should render a <th />', () => {
@@ -27,7 +26,7 @@ describe('<Th />', () => {
   });
 
   it('should not render a component with th--ellipsis, when ellipsis have false input', () => {
-    wrapper = shallow(<Th ellipsis={false} />);
+    wrapper = shallow(<Th classes={classes} ellipsis={false} />);
     expect(wrapper.find('.ellipsis')).to.have.length(0);
   });
 });

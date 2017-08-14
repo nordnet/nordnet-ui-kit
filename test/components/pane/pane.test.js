@@ -1,16 +1,15 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../src/test-utils';
-import Pane from '../../../src/components/pane/pane';
-import PaneStyles from '../../../src/components/pane/pane-styles';
+import { shallow } from 'enzyme';
+import { mockClasses } from '../../../src/test-utils';
+import { theme } from '../../../src/';
+import { Component as Pane, styles } from '../../../src/components/pane/pane';
 
 describe('<Pane />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(PaneStyles);
+  const classes = mockClasses(styles(theme));
 
   describe('When <Pane /> don´t have any tabs', () => {
-    const wrapper = shallow(<Pane />);
+    const wrapper = shallow(<Pane classes={classes} />);
     it('should render null', () => {
       expect(wrapper.type()).to.equal(null);
     });
@@ -36,7 +35,7 @@ describe('<Pane />', () => {
     let renderedTabs;
 
     beforeEach(() => {
-      wrapper = shallow(<Pane tabs={tabs} />);
+      wrapper = shallow(<Pane classes={classes} tabs={tabs} />);
       renderedTabs = wrapper.children().children().find('li');
     });
 
@@ -72,7 +71,7 @@ describe('<Pane />', () => {
         body: <div>This is tab 1!</div>,
       },
     ];
-    const wrapper = shallow(<Pane tabs={tabs} size="lg" />);
+    const wrapper = shallow(<Pane classes={classes} tabs={tabs} size="lg" />);
     it('should render <div> as container', () => {
       expect(wrapper.type()).to.equal('div');
     });

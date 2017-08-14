@@ -1,19 +1,17 @@
 import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { shallow as enzymeShallow, mount as enzymeMount } from 'enzyme';
-import { createShallow, createMount } from '../../../src/test-utils';
-import Tooltip from '../../../src/components/tooltip/tooltip';
-import TooltipStyles from '../../../src/components/tooltip/tooltip-styles';
+import { shallow, mount } from 'enzyme';
+import { mockClasses } from '../../../src/test-utils';
+import { theme } from '../../../src/';
+import { Component as Tooltip, styles } from '../../../src/components/tooltip/tooltip';
 
 describe('<Tooltip />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const mount = createMount(enzymeMount);
-  const classes = shallow.context.styleManager.render(TooltipStyles);
+  const classes = mockClasses(styles(theme));
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." />);
+    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." />);
   });
 
   it('should render <div> as container', () => {
@@ -50,18 +48,18 @@ describe('<Tooltip />', () => {
   });
 
   it('should have fixedWidth', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
+    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
     expect(wrapper.find(`.${classes.popup}`).props().style.width).to.equal(123);
   });
 
   it('should set className to above', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'above'} />);
+    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'above'} />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('above')).to.equal(true);
   });
 
   it('should set className to left', () => {
-    wrapper = shallow(<Tooltip content="Lorem ipsum dolor sit amet." placement={'left'} />);
+    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'left'} />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('left')).to.equal(true);
   });
@@ -77,7 +75,7 @@ describe('<Tooltip />', () => {
       addEventSpy = sandbox.spy(document, 'addEventListener');
       removeEventSpy = sandbox.spy(document, 'removeEventListener');
       component = mount(
-        <Tooltip content={'abc'}>
+        <Tooltip classes={classes} content={'abc'}>
           <div id="child">child</div>
         </Tooltip>,
         target,

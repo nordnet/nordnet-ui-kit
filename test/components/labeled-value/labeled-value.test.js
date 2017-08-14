@@ -1,17 +1,17 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../src/test-utils';
-import LabeledValue, { styleSheet } from '../../../src/components/labeled-value/labeled-value';
+import { shallow } from 'enzyme';
+import { mockClasses } from '../../../src/test-utils';
+import { theme } from '../../../src/';
+import { Component as LabeledValue, styles } from '../../../src/components/labeled-value/labeled-value';
 
 describe('<LabeledValue />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(styleSheet);
+  const classes = mockClasses(styles(theme));
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(
-      <LabeledValue className="testclass" label="label">
+      <LabeledValue classes={classes} className="testclass" label="label">
         myvalue
       </LabeledValue>,
     );

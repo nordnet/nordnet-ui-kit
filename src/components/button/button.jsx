@@ -71,4 +71,5 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 };
 
+export { Button as Component, styles };
 export default injectSheet(styles)(Button);
