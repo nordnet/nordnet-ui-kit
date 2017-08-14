@@ -95,4 +95,5 @@ Pane.defaultProps = {
   size: 'md',
 };
 
+export { Pane as Component, styles };
 export default injectSheet(styles)(Pane);

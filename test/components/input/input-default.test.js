@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { assert } from 'chai';
 import { shallow as enzymeShallow } from 'enzyme';
@@ -34,3 +35,4 @@ describe('<InputDefault />', () => {
     });
   });
 });
+*/

@@ -114,4 +114,5 @@ Dropdown.defaultProps = {
   actionsOpen: false,
 };
 
+export { Dropdown as Component, styles };
 export default injectSheet(styles)(Dropdown);

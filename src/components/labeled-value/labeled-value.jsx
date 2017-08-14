@@ -102,4 +102,5 @@ LabeledValue.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
 };
 
+export { LabeledValue as Component };
 export default injectSheet(styles)(LabeledValue);

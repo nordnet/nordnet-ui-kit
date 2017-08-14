@@ -1,17 +1,16 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../src/test-utils';
-import Spinner from '../../../src/components/spinner';
-import SpinnerStyles from '../../../src/components/spinner/spinner-styles';
+import { shallow } from 'enzyme';
+import { mockClasses } from '../../../src/test-utils';
+import { theme } from '../../../src/';
+import { Component as Spinner, styles } from '../../../src/components/spinner/spinner';
 
 describe('<Spinner />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(SpinnerStyles);
+  const classes = mockClasses(styles(theme));
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Spinner />);
+    wrapper = shallow(<Spinner classes={classes} theme={theme} />);
   });
 
   it('should render <div> as container', () => {
@@ -32,7 +31,7 @@ describe('<Spinner />', () => {
 
   describe('<Spinner size={ 100 } />', () => {
     beforeEach(() => {
-      wrapper = shallow(<Spinner size={100} />);
+      wrapper = shallow(<Spinner classes={classes} theme={theme} size={100} />);
     });
 
     it('should have a height of 100', () => {
@@ -46,7 +45,7 @@ describe('<Spinner />', () => {
 
   describe('<Spinner gradientStops={ 90 } />', () => {
     beforeEach(() => {
-      wrapper = shallow(<Spinner gradientStops={90} />);
+      wrapper = shallow(<Spinner classes={classes} theme={theme} gradientStops={90} />);
     });
 
     it('should have 90 gradient stops in total', () => {

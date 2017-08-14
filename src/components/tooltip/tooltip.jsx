@@ -197,4 +197,5 @@ Tooltip.propTypes = {
   fixedWidth: PropTypes.number,
 };
 
+export { Tooltip as Component, styles };
 export default injectSheet(styles)(Tooltip);

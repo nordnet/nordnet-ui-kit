@@ -118,4 +118,5 @@ Spinner.propTypes = {
   style: PropTypes.object,
 };
 
+export { Spinner as Component, styles };
 export default injectSheet(styles)(Spinner);

@@ -1,17 +1,16 @@
 import React from 'react';
 import { expect, assert } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../src/test-utils';
-import Dropdown from '../../../src/components/dropdown/dropdown';
-import DropdownStyles from '../../../src/components/dropdown/dropdown-styles';
+import { shallow } from 'enzyme';
+import { mockClasses } from '../../../src/test-utils';
+import { Component as Dropdown, styles } from '../../../src/components/dropdown/dropdown';
+import { theme } from '../../../src/';
 
 describe('<Dropdown />', () => {
-  const shallow = createShallow(enzymeShallow);
-  const classes = shallow.context.styleManager.render(DropdownStyles);
+  const classes = mockClasses(styles(theme));
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Dropdown toggle="Dropdown" actions={[{ label: 'log', function() {} }]} />);
+    wrapper = shallow(<Dropdown classes={classes} theme={theme} toggle="Dropdown" actions={[{ label: 'log', function() {} }]} />);
   });
 
   it('should render <div> as container', () => expect(wrapper.type()).to.equal('div'));

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 
-const styles = theme => ({
+export const styles = theme => ({
   li: {
     ...theme.mixins.basicBoxSizing,
     listStyle: 'none',
@@ -39,4 +39,5 @@ Li.propTypes = {
   className: PropTypes.string,
 };
 
+export { Li as Component };
 export default injectSheet(styles)(Li);
