@@ -34,7 +34,7 @@ const styles = {
 
 const items = (children, classNameProp, classNames, timeout) =>
   children.map(child => (
-    <CSSTransition key={child.id} className={classNameProp} classNames={classNames} timeout={timeout}>
+    <CSSTransition key={child.key} className={classNameProp} classNames={classNames} timeout={timeout}>
       {child}
     </CSSTransition>
   ));
