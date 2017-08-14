@@ -28,10 +28,14 @@ import Icon from './components/icon/icons';
 import { ThemeProvider, createTheme } from './styles';
 
 // Test utils
-import { mockClasses, createMount, createShallow, createRenderToString } from './test-utils';
+import { createMount, createShallow, createRenderToString } from './test-utils';
+import mockClasses from './utilities/mock-classes';
 
 const theme = createTheme();
 
+// deprecated
+// deprecated
+// deprecated
 export {
   Alert,
   Animate,
