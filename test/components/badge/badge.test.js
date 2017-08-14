@@ -2,11 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Badge, styles } from '../../../src/components/badge/badge';
-import { mockClasses } from '../../../src/test-utils';
-import { theme } from '../../../src/';
+import { mockClasses } from '../../../src';
 
 describe('<Badge />', () => {
-  const classes = mockClasses(styles(theme));
+  const classes = mockClasses(styles);
   let wrapper;
 
   it('should render <span> as container', () => {

@@ -1,12 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../../src/test-utils';
-import { theme } from '../../../src/';
+import { mockClasses } from '../../../src';
 import { Component as Pane, styles } from '../../../src/components/pane/pane';
 
 describe('<Pane />', () => {
-  const classes = mockClasses(styles(theme));
+  const classes = mockClasses(styles);
 
   describe('When <Pane /> don´t have any tabs', () => {
     const wrapper = shallow(<Pane classes={classes} />);

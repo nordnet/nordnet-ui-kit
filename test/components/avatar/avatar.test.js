@@ -2,10 +2,9 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Avatar, styles } from '../../../src/components/avatar/avatar';
-import { mockClasses } from '../../../src/test-utils';
-import { theme } from '../../../src/';
+import { mockClasses } from '../../../src/';
 
-const classes = mockClasses(styles(theme));
+const classes = mockClasses(styles);
 
 describe('<Avatar />', () => {
   const defaultProps = {
