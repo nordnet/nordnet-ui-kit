@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { throttle, debounce } from 'lodash';
 import omit from '../../utilities/omit';
-import TrStyles from './tr-styles';
+import styles from './tr-styles';
 
 // Needs to be a class so that a ref can be assigned to it from Thead
 class Tr extends React.Component {
@@ -118,8 +119,7 @@ class Tr extends React.Component {
   }
 
   render() {
-    const { className, children, size, border, variant, stickyOffset, sticky: stickyProp, ...rest } = this.props;
-    const classes = this.context.styleManager.render(TrStyles);
+    const { classes, className, children, size, border, variant, stickyOffset, sticky: stickyProp, ...rest } = this.props;
     const { width, sticky } = this.state;
     const usedClassName = classNames(
       classes.tr,
@@ -144,7 +144,7 @@ class Tr extends React.Component {
     }
 
     return (
-      <tr {...omit(rest, 'sticky')} className={usedClassName} style={stickyStyle} ref={node => this.addRef(node, 'tr')}>
+      <tr {...omit(rest, 'sticky', 'theme', 'sheet')} className={usedClassName} style={stickyStyle} ref={node => this.addRef(node, 'tr')}>
         {children}
       </tr>
     );
@@ -158,6 +158,8 @@ Tr.defaultProps = {
 };
 
 Tr.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
@@ -168,8 +170,4 @@ Tr.propTypes = {
   stickyOffset: PropTypes.number,
 };
 
-Tr.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Tr;
+export default injectSheet(styles)(Tr);

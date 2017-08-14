@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import cn from 'classnames';
 import { kebabCase } from 'lodash';
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 
-export const styleSheet = createStyleSheet('LabeledValue', theme => {
+export const styles = theme => {
   const { palette, typography, mixins } = theme;
   const modifiers = {
     xs: '12',
@@ -59,12 +59,20 @@ export const styleSheet = createStyleSheet('LabeledValue', theme => {
     },
     ...valueSizes,
   };
-});
+};
 
-export default function LabeledValue({ label, children, id: idProp, className, size, ...rest }, { styleManager }) {
+function LabeledValue({
+  classes,
+  label,
+  children,
+  id: idProp,
+  className,
+  size,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const id = idProp || `${kebabCase(label)}-label`;
-
-  const classes = styleManager.render(styleSheet);
 
   const rootClasses = cn(classes.root, className);
   const labelClasses = cn(classes.label);
@@ -85,6 +93,8 @@ LabeledValue.defaultProps = {
 };
 
 LabeledValue.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   label: PropTypes.node,
   children: PropTypes.node,
   id: PropTypes.string,
@@ -92,6 +102,4 @@ LabeledValue.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
 };
 
-LabeledValue.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
+export default injectSheet(styles)(LabeledValue);

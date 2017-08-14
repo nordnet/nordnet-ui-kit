@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import cn from 'classnames';
-import SegmentedControlStyles from './segmented-control-styles';
+import styles from './segmented-control-styles';
 
 class SegmentedControl extends React.PureComponent {
   constructor(props, context) {
@@ -31,7 +32,7 @@ class SegmentedControl extends React.PureComponent {
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.childSelectedState = this.childSelectedState.bind(this);
-    this.classes = this.context.styleManager.render(SegmentedControlStyles);
+    this.classes = this.props.classes;
   }
 
   childSelectedState() {
@@ -140,6 +141,8 @@ class SegmentedControl extends React.PureComponent {
 }
 
 SegmentedControl.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   children: PropTypes.node,
   onChange: PropTypes.func,
   className: PropTypes.string,
@@ -149,8 +152,4 @@ SegmentedControl.propTypes = {
   value: PropTypes.string,
 };
 
-SegmentedControl.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default SegmentedControl;
+export default injectSheet(styles)(SegmentedControl);

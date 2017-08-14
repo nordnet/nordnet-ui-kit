@@ -78,8 +78,9 @@
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-jss": "^7.0.2",
     "react-prop-types": "^0.4.0",
-    "react-transition-group": "^1.1.3"
+    "react-transition-group": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",

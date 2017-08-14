@@ -1,14 +1,9 @@
 Basic usage:
-```js
-import { Icon } from 'nordnet-ui-kit';
 
-render() {
-  // ...
-  return (
-    <Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />
-  )
-}
+```html
+<Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />
 ```
+---
 
     const { Icon } = require('../../'); // nordnet-ui-kit
 

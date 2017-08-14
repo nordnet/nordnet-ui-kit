@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 
-const styleSheet = createStyleSheet('HelpText', theme => {
+const styles = theme => {
   const { palette } = theme;
 
   return {
@@ -20,26 +20,26 @@ const styleSheet = createStyleSheet('HelpText', theme => {
     warning: { color: palette.variant.warning },
     error: { color: palette.variant.danger },
   };
-});
+};
 
-function HelpText(props, { styleManager }) {
-  const { hasSuccess, hasWarning, hasError } = props;
-  const classes = styleManager.render(styleSheet);
+function HelpText({ classes, children, hasSuccess, hasWarning, hasError, isCheckbox, isRadio }) {
   const className = classNames(['help-text', classes['help-text']], {
     [classes.success]: hasSuccess,
     [classes.warning]: hasWarning,
     [classes.error]: hasError,
-    'help-text--checkbox-radio': props.isCheckbox || props.isRadio,
+    'help-text--checkbox-radio': isCheckbox || isRadio,
   });
 
-  if (props.children) {
-    return <span className={className}>{props.children}</span>;
+  if (children) {
+    return <span className={className}>{children}</span>;
   }
 
   return null;
 }
 
 HelpText.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   children: PropTypes.node,
   hasSuccess: PropTypes.bool,
   hasWarning: PropTypes.bool,
@@ -48,8 +48,4 @@ HelpText.propTypes = {
   isRadio: PropTypes.bool,
 };
 
-HelpText.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default HelpText;
+export default injectSheet(styles)(HelpText);

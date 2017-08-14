@@ -1,6 +1,4 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
-
-export default createStyleSheet('Dropdown', theme => {
+export default theme => {
   const { palette, mixins } = theme;
 
   return {
@@ -70,4 +68,4 @@ export default createStyleSheet('Dropdown', theme => {
       },
     },
   };
-});
+};

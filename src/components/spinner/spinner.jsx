@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import SpinnerStyles from './spinner-styles';
+import styles from './spinner-styles';
 
 function generateRgb(degree, limit) {
   const multiplier = 255 / limit;
@@ -54,9 +55,19 @@ function renderCircleAsHtml(radius, color, maskId) {
   };
 }
 
-function Spinner({ className, size, color, gradientStops, strokeWidth, style, ...rest }, { styleManager }) {
-  const classes = styleManager.render(SpinnerStyles);
-  const usedColor = color || styleManager.theme.palette.variant.primary;
+function Spinner({
+  classes,
+  className,
+  size,
+  color,
+  gradientStops,
+  strokeWidth,
+  style,
+  theme,
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
+  const usedColor = color || theme.palette.variant.primary;
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
   const maskId = `spinner__mask--${size}-${stroke}-${gradientStops}`;
@@ -93,6 +104,10 @@ Spinner.defaultProps = {
 };
 
 Spinner.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
+  /** @ignore */
+  theme: PropTypes.object.isRequired,
   className: PropTypes.string,
   /** Unitless pixel value */
   size: PropTypes.number,
@@ -103,8 +118,4 @@ Spinner.propTypes = {
   style: PropTypes.object,
 };
 
-Spinner.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Spinner;
+export default injectSheet(styles)(Spinner);

@@ -1,11 +1,12 @@
 /* eslint jsx-a11y/no-static-element-interactions: 0, react/no-array-index-key: 0 */
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import IconChevronUp from '../icon/icons/chevronUp';
 import IconChevronDown from '../icon/icons/chevronDown';
-import styleSheet from './dropdown-styles';
+import styles from './dropdown-styles';
 
 class Dropdown extends React.PureComponent {
   constructor(props, context) {
@@ -18,7 +19,8 @@ class Dropdown extends React.PureComponent {
     this.handleClick = this.handleClick.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleToggleClick = this.handleToggleClick.bind(this);
-    this.classes = this.context.styleManager.render(styleSheet);
+    this.classes = this.props.classes;
+    this.theme = this.props.theme;
   }
 
   componentDidMount() {
@@ -80,7 +82,7 @@ class Dropdown extends React.PureComponent {
           {this.props.toggle}
           <IconUsed
             className={this.classes.toggleIcon}
-            stroke={this.context.styleManager.theme.palette.text.secondary}
+            stroke={this.theme.palette.text.secondary}
             width={8}
             height={8}
             style={{ position: 'absolute', right: '8px', top: '12px' }}
@@ -93,6 +95,10 @@ class Dropdown extends React.PureComponent {
 }
 
 Dropdown.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
+  /** @ignore */
+  theme: PropTypes.object.isRequired,
   className: PropTypes.string,
   toggle: PropTypes.string,
   actions: PropTypes.arrayOf(
@@ -108,8 +114,4 @@ Dropdown.defaultProps = {
   actionsOpen: false,
 };
 
-Dropdown.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Dropdown;
+export default injectSheet(styles)(Dropdown);

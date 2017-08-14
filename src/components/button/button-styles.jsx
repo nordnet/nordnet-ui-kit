@@ -1,4 +1,3 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import c from 'color';
 
 // This function was created because 'focused' versions on colors were not found in the palette
@@ -64,7 +63,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
   };
 };
 
-export default createStyleSheet('Button', theme => {
+export default theme => {
   const { palette, transitions, typography, mixins } = theme;
 
   return {
@@ -278,4 +277,4 @@ export default createStyleSheet('Button', theme => {
       '&.danger': buttonModifierFn('link', palette.variant.danger, focusColor(palette.variant.danger)),
     },
   };
-});
+};

@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+/* eslint-disable jsx-a11y/label-has-for */
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import Checkbox from './checkbox';
 import Radio from './radio';
-import styleSheet from './input-checkbox-radio-styles';
+import styles from './input-checkbox-radio-styles';
 import HelpText from './help-text';
 import omit from '../../utilities/omit';
 
@@ -99,7 +100,7 @@ class InputCheckboxRadio extends React.PureComponent {
   }
 
   render() {
-    const classes = this.context.styleManager.render(styleSheet);
+    const { classes } = this.props;
     const className = classNames(
       classes['input-checkbox-radio'],
       {
@@ -123,6 +124,8 @@ class InputCheckboxRadio extends React.PureComponent {
 }
 
 InputCheckboxRadio.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   type: PropTypes.string,
   checked: PropTypes.bool,
@@ -141,8 +144,4 @@ InputCheckboxRadio.defaultProps = {
   disabled: false,
 };
 
-InputCheckboxRadio.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default InputCheckboxRadio;
+export default injectSheet(styles)(InputCheckboxRadio);

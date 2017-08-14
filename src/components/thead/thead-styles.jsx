@@ -1,8 +1,7 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
-export default createStyleSheet('Thead', theme => {
+export default theme => {
   const { palette, mixins, typography } = theme;
 
   return {
@@ -28,4 +27,4 @@ export default createStyleSheet('Thead', theme => {
       },
     },
   };
-});
+};

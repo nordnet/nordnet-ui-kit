@@ -1,7 +1,6 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import styleUtils from '../table/style-utilities';
 
-export default createStyleSheet('Tfoot', theme => {
+export default theme => {
   const { palette, mixins, typography } = theme;
 
   return {
@@ -13,4 +12,4 @@ export default createStyleSheet('Tfoot', theme => {
       borderTop: `2px solid ${palette.shades.dark.text.muted}`,
     },
   };
-});
+};
