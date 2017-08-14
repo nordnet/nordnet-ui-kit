@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { stripIndent } from 'common-tags';
 import { ThemeProvider } from '../styles';
 
 function cleanStyles() {
@@ -43,6 +44,12 @@ export default function createMount(mount) {
   mountWithContext.attachTo = attachTo;
 
   mountWithContext.cleanUp = () => {
+    // eslint-disable-next-line
+    console.warn(stripIndent`
+      nordnet-ui-kit's \`createMount\` is deprecated and will be removed in major release.
+      Please use react-jss, default enzyme's mount and mockClasses utility.
+      See more https://github.com/nordnet/nordnet-ui-kit/releases/tag/v1.7.0
+    `);
     styleManager.reset();
     cleanStyles();
     attachTo.parentNode.removeChild(attachTo);
