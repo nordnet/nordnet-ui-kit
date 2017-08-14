@@ -15,7 +15,8 @@ yarn add nordnet-ui-kit
 ## Usage
 
 ``` javascript
-import { ThemeProvider, Button } from 'nordnet-ui-kit';
+import { ThemeProvider } from 'react-jss';
+import { Button } from 'nordnet-ui-kit';
 
 const Root = (
   <ThemeProvider>
@@ -36,6 +37,9 @@ ReactDOM.render(Root, document.getElementById('app'));
 
 * `v1.5.1` and lower depends on `jss-theme-reactor` and `jss@7`
 * `v1.6.0+` depends on `@iamstarkov/jss-theme-reactor` and `jss@8`, so please update your components to use `@iamstarkov/jss-theme-reactor` instead of `jss-theme-reactor`
+* `v1.7.0+` depends on `react-jss` and `jss@8`, so please update your components to use `react-jss` instead of `@iamstarkov/jss-theme-reactor`.
+  Also, `v1.7.0` deprecates exported `ThemeProvider`, `createShallow` and `createMount`.
+  It will be removed in next major release.
 
 ## Documentation for the latest release is available [here](https://nordnet.github.io/nordnet-ui-kit).
 
