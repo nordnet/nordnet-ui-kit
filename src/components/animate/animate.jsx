@@ -1,81 +1,89 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import modifierHeight from './modifierHeight';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import easings from '../../styles/transitions/easings';
+import durations from '../../styles/transitions/durations';
 
-class Animate extends React.PureComponent {
-  constructor(props, context) {
-    super(props, context);
-    this.classes = this.context.styleManager.render(
-      createStyleSheet(`Animate-${props.animationName}`, () => {
-        switch (this.props.type) {
-          case 'height':
-            return {
-              root: {
-                ...modifierHeight({
-                  classPrefixSpace: true,
-                  name: props.animationName,
-                  estimatedHeight: this.props.estimatedHeight,
-                  transitionEnterTimeout: this.props.enterTime,
-                  transitionLeaveTimeout: this.props.leaveTime,
-                  easingEnterFunction: this.props.easingEnterFunction,
-                  easingLeaveFunction: this.props.easingLeaveFunction,
-                }),
-              },
-            };
-          default:
-            return { root: {} };
-        }
-      }),
-    );
-  }
+const initialHeight = {
+  height: () => 0,
+  maxHeight: () => 0,
+};
 
-  render() {
-    if (!this.props.animationName) {
-      // Force users to set animationName to render anything
-      return null;
-    }
-    return (
-      <CSSTransitionGroup
-        component="div"
-        className={cn(this.classes.root, this.props.className)}
-        transitionName={this.props.animationName}
-        transitionEnterTimeout={this.props.enterTime}
-        transitionLeaveTimeout={this.props.leaveTime}
-      >
-        {this.props.children}
-      </CSSTransitionGroup>
-    );
-  }
+export const styles = {
+  height: {
+    boxSizing: 'border-box',
+    transitionProperty: 'max-height, height',
+  },
+  heightEnter: initialHeight,
+  heightEnterActive: {
+    height: props => props.estimatedHeight,
+    maxHeight: props => props.estimatedHeight,
+    transitionTimingFunction: props => props.easingEnterFunction,
+    transitionDuration: props => props.enterTime,
+  },
+  heightExit: {
+    height: props => props.estimatedHeight,
+    maxHeight: props => props.estimatedHeight,
+    transitionTimingFunction: props => props.easingLeaveFunction,
+    transitionDuration: props => props.leaveTime,
+  },
+  heightExitActive: initialHeight,
+};
+
+const items = (children, classNameProp, classNames, timeout) =>
+  children.map(child => (
+    <CSSTransition key={child.id} className={classNameProp} classNames={classNames} timeout={timeout}>
+      {child}
+    </CSSTransition>
+  ));
+
+function Animate({
+  classes,
+  className,
+  children,
+  type,
+  enterTime,
+  leaveTime /* easingEnterFunction, easingLeaveFunction, estimatedHeight */,
+}) {
+  const classNameProp = cn(classes[type], className);
+  const classNames = {
+    enter: classes[`${type}Enter`],
+    enterActive: classes[`${type}EnterActive`],
+    exit: classes[`${type}Exit`],
+    exitActive: classes[`${type}ExitActive`],
+  };
+  const timeout = { enter: enterTime, exit: leaveTime };
+
+  return (
+    <TransitionGroup>
+      {items(React.Children.toArray(children), classNameProp, classNames, timeout)}
+    </TransitionGroup>
+  );
 }
 
 Animate.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
   /** This needs to be set in order for the component to render anything */
-  animationName: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['height']).isRequired,
-  enterTime: PropTypes.number.isRequired,
-  leaveTime: PropTypes.number.isRequired,
-  easingEnterFunction: PropTypes.string,
-  easingLeaveFunction: PropTypes.string,
-  estimatedHeight: PropTypes.number,
+  enterTime: PropTypes.number,
+  leaveTime: PropTypes.number,
+  easingEnterFunction: PropTypes.string, // eslint-disable-line
+  easingLeaveFunction: PropTypes.string, // eslint-disable-line
+  estimatedHeight: PropTypes.number, // eslint-disable-line
 };
 
 Animate.defaultProps = {
   type: 'height',
-  enterTime: 200,
-  leaveTime: 200,
+  enterTime: durations.shorter,
+  leaveTime: durations.shorter,
   easingEnterFunction: easings.easeIn,
   easingLeaveFunction: easings.easeOut,
   estimatedHeight: 500,
 };
 
-Animate.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Animate;
+export default injectSheet(styles)(Animate);

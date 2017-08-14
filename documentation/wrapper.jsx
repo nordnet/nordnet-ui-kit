@@ -1,16 +1,12 @@
 import 'babel-polyfill';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ThemeProvider from '../src/styles/ThemeProvider';
-import { createPalette } from '../src/styles/palette';
-import { createTheme } from '../src/styles/theme';
+import { ThemeProvider } from 'react-jss';
+import { theme } from '../src';
 
 export default function Wrapper({ children }) {
-  const palette = createPalette({ type: 'light' });
-  const theme = createTheme({ palette });
-
   return (
-    <ThemeProvider style={{ padding: 10 }} theme={theme}>
+    <ThemeProvider theme={theme}>
       {children}
     </ThemeProvider>
   );

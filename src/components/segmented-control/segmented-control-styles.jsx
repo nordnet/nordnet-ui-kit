@@ -1,6 +1,4 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
-
-export default createStyleSheet('SegmentedControl', theme => {
+export default theme => {
   const { palette, typography } = theme;
 
   return {
@@ -68,4 +66,4 @@ export default createStyleSheet('SegmentedControl', theme => {
       borderRight: `2px solid ${palette.color.grayLight}`,
     },
   };
-});
+};

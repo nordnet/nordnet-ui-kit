@@ -1,30 +1,30 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import TdStyles from './td-styles';
+import styles from './td-styles';
 
-function Td(
-  {
-    className,
-    children,
-    style,
-    size,
-    width,
-    mono,
-    modifier,
-    highlight,
-    border,
-    borderTop,
-    borderRight,
-    borderBottom,
-    borderLeft,
-    align,
-    ellipsis,
-    ...rest
-  },
-  { styleManager },
-) {
-  const classes = styleManager.render(TdStyles);
+function Td({
+  classes,
+  className,
+  children,
+  style,
+  size,
+  width,
+  mono,
+  modifier,
+  highlight,
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  align,
+  ellipsis,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const usedClassName = classNames(
     classes.td,
     size,
@@ -60,6 +60,8 @@ Td.defaultProps = {
 };
 
 Td.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
   style: PropTypes.object,
@@ -79,8 +81,4 @@ Td.propTypes = {
   ellipsis: PropTypes.bool,
 };
 
-Td.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Td;
+export default injectSheet(styles)(Td);

@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
 
-const styleSheet = createStyleSheet('Li', theme => ({
+const styles = theme => ({
   li: {
     ...theme.mixins.basicBoxSizing,
     listStyle: 'none',
@@ -13,26 +13,30 @@ const styleSheet = createStyleSheet('Li', theme => ({
       borderBottom: 0,
     },
   },
-}));
+});
 
-function Li({ children, style, className, ...rest }, { styleManager }) {
-  const styles = styleManager.render(styleSheet);
-  const classes = classNames('ul', className, styles.li);
+function Li({
+  classes,
+  children,
+  style,
+  className,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   return (
-    <li {...rest} className={classes} style={style}>
+    <li {...rest} className={classNames('ul', className, classes.li)} style={style}>
       {children}
     </li>
   );
 }
 
 Li.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   children: PropTypes.node,
   style: PropTypes.object,
   className: PropTypes.string,
 };
 
-Li.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Li;
+export default injectSheet(styles)(Li);

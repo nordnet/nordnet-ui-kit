@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
-/* eslint jsx-a11y/no-static-element-interactions: 0, react/no-array-index-key: 0 */
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+/* eslint jsx-a11y/no-static-element-interactions: 0, react/no-array-index-key: 0 */
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import PaneStyles from './pane-styles';
+import styles from './pane-styles';
 
 class Pane extends React.PureComponent {
   constructor(props, context) {
@@ -14,7 +15,7 @@ class Pane extends React.PureComponent {
 
     this.handleTabClick = this.handleTabClick.bind(this);
 
-    this.classes = this.context.styleManager.render(PaneStyles);
+    this.classes = this.props.classes;
   }
 
   handleTabClick(index) {
@@ -76,6 +77,8 @@ class Pane extends React.PureComponent {
 }
 
 Pane.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   /** The number of the active tab. */
   activeTab: PropTypes.number,
@@ -92,8 +95,4 @@ Pane.defaultProps = {
   size: 'md',
 };
 
-Pane.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Pane;
+export default injectSheet(styles)(Pane);

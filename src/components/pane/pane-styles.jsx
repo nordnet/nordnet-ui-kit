@@ -1,6 +1,4 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
-
-export default createStyleSheet('Pane', theme => {
+export default theme => {
   const { palette, mixins, typography } = theme;
 
   return {
@@ -60,4 +58,4 @@ export default createStyleSheet('Pane', theme => {
       borderColor: palette.background.secondary,
     },
   };
-});
+};

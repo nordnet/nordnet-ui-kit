@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
+import injectSheet from 'react-jss';
 
-export const styleSheet = createStyleSheet('Badge', theme => {
+export const styles = theme => {
   const { palette, typography, mixins } = theme;
 
   return {
@@ -33,11 +33,17 @@ export const styleSheet = createStyleSheet('Badge', theme => {
       backgroundColor: palette.variant.danger,
     },
   };
-});
+};
 
-function Badge({ modifier, children, className: classNameProp, ...rest }, { styleManager }) {
-  const classes = styleManager.render(styleSheet);
-
+function Badge({
+  classes,
+  modifier,
+  children,
+  className: classNameProp,
+  theme, // eslint-disable-line react/prop-types
+  sheet, // eslint-disable-line react/prop-types
+  ...rest
+}) {
   const className = cn(
     [classes.root],
     {
@@ -52,13 +58,11 @@ function Badge({ modifier, children, className: classNameProp, ...rest }, { styl
 }
 
 Badge.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
 };
 
-Badge.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Badge;
+export default injectSheet(styles)(Badge);

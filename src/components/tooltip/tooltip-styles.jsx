@@ -1,8 +1,6 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
-
 const zIndexTooltip = 2;
 
-export default createStyleSheet('Tooltip', theme => {
+export default theme => {
   const { palette, transitions, mixins, typography } = theme;
 
   return {
@@ -138,4 +136,4 @@ export default createStyleSheet('Tooltip', theme => {
       },
     },
   };
-});
+};

@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import IconClose from '../icon/icons/close';
-import AlertStyles from './alert-styles';
+import styles from './alert-styles';
 
 class Alert extends React.PureComponent {
   constructor(props, context) {
@@ -13,8 +14,9 @@ class Alert extends React.PureComponent {
       dismissed: props.dismissed,
     };
 
+    this.classes = this.props.classes;
+    this.theme = this.props.theme;
     this.handleCloseClick = this.handleCloseClick.bind(this);
-    this.classes = context.styleManager.render(AlertStyles);
   }
 
   handleCloseClick() {
@@ -30,7 +32,7 @@ class Alert extends React.PureComponent {
 
     return (
       <button className={this.classes.close} onClick={this.handleCloseClick}>
-        <IconClose stroke={this.context.styleManager.theme.palette.text.default} width={10} height={10} style={{ display: 'block' }} />
+        <IconClose stroke={this.theme.palette.text.default} width={10} height={10} style={{ display: 'block' }} />
       </button>
     );
   }
@@ -62,6 +64,10 @@ class Alert extends React.PureComponent {
 }
 
 Alert.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
+  /** @ignore */
+  theme: PropTypes.object.isRequired,
   className: PropTypes.string,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
   style: PropTypes.object,
@@ -79,8 +85,4 @@ Alert.defaultProps = {
   dismissed: false,
 };
 
-Alert.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
-};
-
-export default Alert;
+export default injectSheet(styles)(Alert);

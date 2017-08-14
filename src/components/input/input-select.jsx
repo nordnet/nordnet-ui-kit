@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import InputDefault from './input-default';
 import IconChevronUp from '../icon/icons/chevronUp';
 import IconChevronDown from '../icon/icons/chevronDown';
-import styleSheet from './input-select-styles';
+import styles from './input-select-styles';
 import omit from '../../utilities/omit';
 
 function renderOption(option) {
@@ -19,11 +20,11 @@ function renderOption(option) {
   );
 }
 
-class InputSelect extends InputDefault {
+class InputSelect extends InputDefault.InnerComponent {
   renderSelectArrow() {
     const className = 'input__select-arrow';
     const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
-    return <IconUsed className={className} stroke={this.context.styleManager.theme.palette.variant.primary} />;
+    return <IconUsed className={className} stroke={this.props.theme.palette.variant.primary} />;
   }
 
   renderFakePlaceholder() {
@@ -75,15 +76,14 @@ class InputSelect extends InputDefault {
   }
 
   renderInput() {
-    const { id, placeholder, options, label, type, ...rest } = this.props;
-    const classes = this.context.styleManager.render(styleSheet);
+    const { classes, id, placeholder, options, label, type, ...rest } = this.props;
     const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
     const title = this.getTitle();
 
     return (
       <div className={className} title={title}>
         <select
-          {...omit(rest, 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon')}
+          {...omit(rest, 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon', 'theme', 'sheet')}
           id={id}
           className="input__element input__element--select"
           onFocus={this.onFocus}
@@ -106,6 +106,10 @@ class InputSelect extends InputDefault {
 }
 
 InputSelect.propTypes = {
+  /** @ignore */
+  classes: PropTypes.object.isRequired,
+  /** @ignore */
+  theme: PropTypes.object.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -124,4 +128,4 @@ InputSelect.defaultProps = {
   ],
 };
 
-export default InputSelect;
+export default injectSheet(styles)(InputSelect);

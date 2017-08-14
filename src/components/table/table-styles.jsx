@@ -1,7 +1,6 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
 import styleUtils from './style-utilities';
 
-export default createStyleSheet('Table', theme => {
+export default theme => {
   const { palette, mixins, typography } = theme;
 
   return {
@@ -26,4 +25,4 @@ export default createStyleSheet('Table', theme => {
       ...styleUtils.sizes(),
     },
   };
-});
+};

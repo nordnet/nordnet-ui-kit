@@ -1,8 +1,6 @@
-import { createStyleSheet } from '@iamstarkov/jss-theme-reactor';
-
 const identifier = `spinner-${Math.round(1000 * Math.random())}`;
 
-export default createStyleSheet('Spinner', theme => ({
+export default theme => ({
   [`@keyframes ${identifier}`]: {
     from: {
       transform: 'rotate(0deg)',
@@ -23,4 +21,4 @@ export default createStyleSheet('Spinner', theme => ({
     width: '100%',
     height: '100%',
   },
-}));
+});
