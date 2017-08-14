@@ -2,12 +2,11 @@ import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
-import { mockClasses } from '../../../src/test-utils';
-import { theme } from '../../../src/';
+import { mockClasses } from '../../../src';
 import { Component as Tooltip, styles } from '../../../src/components/tooltip/tooltip';
 
 describe('<Tooltip />', () => {
-  const classes = mockClasses(styles(theme));
+  const classes = mockClasses(styles);
   let wrapper;
 
   beforeEach(() => {

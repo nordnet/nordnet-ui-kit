@@ -3,7 +3,7 @@ import { TransitionGroup } from 'react-transition-group';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Animate, styles } from '../../../src/components/animate/animate';
-import { mockClasses } from '../../../src/test-utils';
+import { mockClasses } from '../../../src';
 
 describe('<Animate />', () => {
   const defaultProps = {

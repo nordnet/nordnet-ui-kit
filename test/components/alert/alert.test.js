@@ -2,10 +2,9 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Alert, styles } from '../../../src/components/alert/alert';
-import { mockClasses } from '../../../src/test-utils';
-import { theme } from '../../../src';
+import { mockClasses, theme } from '../../../src';
 
-const classes = mockClasses(styles(theme));
+const classes = mockClasses(styles);
 
 const defaultProps = { classes, theme };
 

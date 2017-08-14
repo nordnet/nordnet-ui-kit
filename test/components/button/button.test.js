@@ -1,12 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../../src/test-utils';
+import { mockClasses } from '../../../src';
 import { Component as Button, styles } from '../../../src/components/button/button';
-import { theme } from '../../../src/';
 
 describe('<Button />', () => {
-  const classes = mockClasses(styles(theme));
+  const classes = mockClasses(styles);
   let wrapper;
 
   it('should render <button> by default', () => {

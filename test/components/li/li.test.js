@@ -1,12 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../../src/test-utils';
-import { theme } from '../../../src';
+import { mockClasses } from '../../../src';
 import { Component as Li, styles } from '../../../src/components/li/li';
 
 describe('<Li />', () => {
-  const classes = mockClasses(styles(theme));
+  const classes = mockClasses(styles);
   let wrapper;
 
   it('should render 2 <Li />', () => {

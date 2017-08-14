@@ -1,12 +1,11 @@
 import React from 'react';
 import { expect, assert } from 'chai';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../../src/test-utils';
+import { mockClasses, theme } from '../../../src';
 import { Component as Dropdown, styles } from '../../../src/components/dropdown/dropdown';
-import { theme } from '../../../src/';
 
 describe('<Dropdown />', () => {
-  const classes = mockClasses(styles(theme));
+  const classes = mockClasses(styles);
   let wrapper;
 
   beforeEach(() => {
