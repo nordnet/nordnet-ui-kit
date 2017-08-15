@@ -5,6 +5,8 @@
 * [Introduction](#introduction)
 * [Ava](#ava)
 * [Shallow](#shallow)
+* [Mount](#mount)
+* [styles](#styles)
 
 ## Introduction
 
@@ -56,7 +58,7 @@ By default ava is spawning separate process for each test file to run tests conc
 
 ## Shallow
 
-Shallow tests don't require any preparation or particular configured environment.
+Shallow tests don't require any preparation or certainly configured environment.
 
 ```js
 import React from 'react';
@@ -130,7 +132,7 @@ test('Disabled', t => {
 
 ## Mount
 
-If you know, that shallow rendering is not enough, brace yourself—tests will become more fragile and slow. It is because mount needs browser environment, which can be polluted with side effects. Nevertheless, you need to tune ava config to create browser environment.
+If you know, that shallow rendering is not enough, embrace yourself—tests will become more fragile and slow. It is because mount needs browser environment, which can be polluted with side effects. Nevertheless, you also need to tune ava config to create browser environment.
 
 For that you would need [browser-env](https://github.com/lukechilds/browser-env) package.
 
@@ -152,3 +154,65 @@ Add it to your ava config's require section after `babel-register`.
 ```
 
 After finishing this instruction you can write mount tests the same way as shallow.
+
+
+## styles
+
+As far as your styles are quite simple entity `object` or function from theme (returning `object`), you can easily write tests for that as well.
+
+
+### Unthemed
+
+```js
+// button-styles.test.js
+import test from 'ava';
+
+import styles from './styles';
+/*
+export default {
+  button: {
+    borderRadius: props => props.radius,
+  },
+  // …
+};
+*/
+
+test('render button.borderRadius with props.radius', t => {
+  const props = {
+    radius: 10,
+  }
+  const actual = styles.button.borderRadius(props);
+  const expected = props.radius;
+
+  t.is(actual, expected)
+});
+```
+
+### Themed
+
+Don't forget to import theme and invoke your styles with it if your styles are themed.
+
+```js
+// button-styles.test.js
+import test from 'ava';
+import { theme } from 'nordnet-ui-kit';
+import styles from './styles';
+/*
+export default theme => ({
+  button: {
+    borderRadius: props => props.radius,
+  },
+  // …
+});
+*/
+
+test('render button.borderRadius with props.radius', t => {
+  const props = {
+    radius: 10,
+  }
+  const actual = styles(theme).button.borderRadius(props);
+  const expected = props.radius;
+
+  t.is(actual, expected)
+});
+```
