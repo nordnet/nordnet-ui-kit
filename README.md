@@ -43,6 +43,8 @@ ReactDOM.render(Root, document.getElementById('app'));
 
 ## Documentation for the latest release is available [here](https://nordnet.github.io/nordnet-ui-kit).
 
+## Documentation about how to write, style and test components is availible in the [docs](./docs) folder
+
 ## [Changelog](https://github.com/nordnet/nordnet-ui-kit/blob/master/CHANGELOG.md)
 
 ## Developing
