@@ -31,7 +31,7 @@ Worth to mention, `injectSheet` will inject:
 // src/components/button-styles.js
 export default {
   button: {
-    color: theme.palette .text.default,
+    color: theme.palette.text.default,
     borderRadius: props => props.radius,
   },
   block: { /* */ },
@@ -46,7 +46,7 @@ export default {
 // src/components/button-styles.js
 export default theme => ({
   button: {
-    color: theme.palette .text.default,
+    color: theme.palette.text.default,
     borderRadius: props => props.radius,
   },
   block: { /* */ },
@@ -57,10 +57,7 @@ export default theme => ({
 
 ## Access to Component's props in styles
 
-Yes, you can access Component's props in your css. In this case classes are separated into two styleSheet under the hood, one is static and another one for dynamic classes based on props.
-
-Dynamic styleSheet is attached to the DOM once into and compiled to classes once as well.
-But if Component got new props, then dynamic styleSheet is being updated, although it keeps classes the same. Thus it allows you to style component without extra re-renders.
+Yes, you can access Component's props in your css. In this case JSS will create two stylesheets: static stylesheet for ordinary styles and dynamic sheet for props based styles. Your component will get static (compiled once) classes object. Once your component received new props, jss will update values but will keep classnames intact. Thus it allows you to style component without extra re-renders, because styling changes will happen in the `style` tag in the `head` of the page.
 
 ```js
 import React from 'react';
