@@ -56,7 +56,7 @@ By default ava is spawning separate process for each test file to run tests conc
 
 ## Shallow
 
-Shallow tests don't require any preparation or certainly configured environment.
+Shallow tests don't require any preparation or particular configured environment.
 
 ```js
 import React from 'react';
@@ -130,7 +130,7 @@ test('Disabled', t => {
 
 ## Mount
 
-If you know, that shallow rendering is not enough, embrace yourself—tests will become more fragile and slow. It is because mount needs browser environment, which can be polluted with side effects. Nevertheless, you also need to tune ava config to create browser environment.
+If you know, that shallow rendering is not enough, brace yourself—tests will become more fragile and slow. It is because mount needs browser environment, which can be polluted with side effects. Nevertheless, you need to tune ava config to create browser environment.
 
 For that you would need [browser-env](https://github.com/lukechilds/browser-env) package.
 
