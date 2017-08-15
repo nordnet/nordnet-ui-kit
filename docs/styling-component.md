@@ -31,7 +31,6 @@ Worth to mention, `injectSheet` will inject:
 // src/components/button-styles.js
 export default {
   button: {
-    color: theme.palette.text.default,
     borderRadius: props => props.radius,
   },
   block: { /* */ },
