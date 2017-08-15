@@ -97,7 +97,6 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
 import { injectIntl } from 'react-intl';
 import injectSheet from 'react-jss';
 
