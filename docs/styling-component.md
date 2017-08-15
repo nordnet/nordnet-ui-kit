@@ -21,7 +21,7 @@ Resulting object will be consumed by `react-jss`'s `injectSheet`.
 Worth to mention, `injectSheet` will inject:
 * `classes`—Object of styles compiled to classes.
 * `theme`—will be injected only if your styles is a function from `theme`
-* `sheet`—`[CSSOM][]`'s styleSheet instance, you wont need it 99% of the time, but be aware.
+* `sheet`—[CSSOM][]'s styleSheet instance, you wont need it 99% of the time, but be aware.
 
 [CSSOM]: https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
 
@@ -97,4 +97,4 @@ export default enhance(Instrument);
 
 ## Next: Testing a component
 
-[Continue to read about testing][./testing-component.md].
+[Continue to read about testing](./testing-component.md).
