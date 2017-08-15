@@ -124,4 +124,4 @@ export default enhance(Button);
 
 ## Next: Styling a component
 
-[Continue to read about styling][./styling-component.md].
+[Continue to read about styling](./styling-component.md).
