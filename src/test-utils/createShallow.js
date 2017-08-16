@@ -5,7 +5,7 @@ export default function createShallow(shallow, otherContext = {}) {
   const { theme, styleManager } = ThemeProvider.createDefaultContext();
   const context = { theme, styleManager, ...otherContext };
   const shallowWithContext = function shallowWithContext(node, options = {}) {
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-console
     console.warn(stripIndent`
       nordnet-ui-kit's \`createShallow\` is deprecated and will be removed in major release.
       Please use react-jss, default enzyme's shallow and mockClasses utility.
