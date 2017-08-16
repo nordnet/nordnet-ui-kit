@@ -8,7 +8,6 @@ import styles from './tr-styles';
 
 // Needs to be a class so that a ref can be assigned to it from Thead
 class Tr extends React.Component {
-  // eslint-disable-line
   constructor(props, context) {
     super(props, context);
 
