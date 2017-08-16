@@ -3,7 +3,7 @@ import { stripIndent } from 'common-tags';
 import { createTheme } from './theme';
 
 // https://github.com/RikardGehlin/jss-theme-reactor/blob/master/src/ThemeProvider.js
-export default (...args) => {
+export default (function() {
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
     console.warn(stripIndent`
@@ -12,5 +12,5 @@ export default (...args) => {
       See more https://github.com/nordnet/nordnet-ui-kit/releases/tag/v1.7.0
     `);
   }
-  return createThemeProvider(createTheme)(...args);
-};
+  return createThemeProvider(createTheme);
+})()
