@@ -1,3 +1,7 @@
+describe.skip('<InputDefault />', () => {
+  it.skip('should have tests', () => {});
+});
+
 /*
 import React from 'react';
 import { assert } from 'chai';
