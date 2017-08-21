@@ -15,6 +15,7 @@ const styles = {
   height: {
     boxSizing: 'border-box',
     transitionProperty: 'max-height, height',
+    overflow: 'hidden',
   },
   heightEnter: initialHeight,
   heightEnterActive: {
