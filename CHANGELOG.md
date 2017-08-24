@@ -2,6 +2,12 @@
 
 *(NOTE: For fresh changelogs, please see the [releases page](https://github.com/nordnet/nordnet-ui-kit/releases))*
 
+### 1.5.1 (2017-08-24)
+
+#### Features
+
+* **Alert** Changed the thickness from 2px to 4px on all modifier borders
+
 ## 1.5.0 (2017-06-22)
 
 #### Features

@@ -48,7 +48,7 @@ export default theme => {
     },
 
     success: {
-      borderLeft: `2px solid ${palette.variant.success}`,
+      borderLeft: `4px solid ${palette.variant.success}`,
 
       '& $header:not($vertical)': {
         color: palette.variant.success,
@@ -56,7 +56,7 @@ export default theme => {
     },
 
     warning: {
-      borderLeft: `2px solid ${palette.variant.warning}`,
+      borderLeft: `4px solid ${palette.variant.warning}`,
 
       '& $header:not($vertical)': {
         color: palette.variant.warning,
@@ -64,7 +64,7 @@ export default theme => {
     },
 
     danger: {
-      borderLeft: `2px solid ${palette.variant.danger}`,
+      borderLeft: `4px solid ${palette.variant.danger}`,
 
       '& $header:not($vertical)': {
         color: palette.variant.danger,
