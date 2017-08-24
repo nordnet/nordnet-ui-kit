@@ -82,5 +82,6 @@ MIT (http://www.opensource.org/licenses/mit-license.php)
 [coveralls-url]: https://coveralls.io/r/nordnet/nordnet-ui-kit
 [coveralls-image]: https://img.shields.io/coveralls/nordnet/nordnet-ui-kit.svg?style=flat-square
 
+
 [depstat-url]: https://david-dm.org/nordnet/nordnet-ui-kit
 [depstat-image]: https://david-dm.org/nordnet/nordnet-ui-kit.svg?style=flat-square
