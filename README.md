@@ -49,9 +49,9 @@ export default App;
 * `v1.6.0+` depends on `@iamstarkov/jss-theme-reactor` and `jss@8`, so please update your components to use `@iamstarkov/jss-theme-reactor` instead of `jss-theme-reactor`
 * `v1.7.0+` depends on `react-jss` and `jss@8`, so please update your components to use `react-jss` instead of `@iamstarkov/jss-theme-reactor`.
   Also, `v1.7.0` deprecates exported `ThemeProvider`, `createShallow` and `createMount`.
-  It will be removed in next major release. Read more in [v1.7.0 migration docs][./docs/migrations/v1.7.0.md]
+  It will be removed in next major release. Read more in [v1.7.0 migration docs](./docs/migrations/v1.7.0.md)
 * `v1.7.0` also features `react-jss` over `jss-theme-reactor`, please read how to migrate your components.
-* We can't expect all components to be rewritten to react-jss instantly, so you will need to use both jss-theme-reactor based component  and react-jss components at the same time, read in the [jss-theme-reactor migration docs][./docs/migrations/jss-theme-reactor.md] how to do it.
+* We can't expect all components to be rewritten to react-jss instantly, so you will need to use both jss-theme-reactor based component  and react-jss components at the same time, read in the [jss-theme-reactor migration docs](./docs/migrations/jss-theme-reactor.md) how to do it.
 
 ## Documentation for the latest release is available [here](https://nordnet.github.io/nordnet-ui-kit).
 
