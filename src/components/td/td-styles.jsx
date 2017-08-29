@@ -24,8 +24,8 @@ export default theme => {
       [mixins.media('md')]: {
         fontSize: 14,
         minWidth: 40,
-        paddingTop: 13,
-        paddingBottom: 13,
+        paddingTop: 10,
+        paddingBottom: 10,
       },
     },
   };
