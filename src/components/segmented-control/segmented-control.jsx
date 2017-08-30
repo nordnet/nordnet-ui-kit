@@ -104,7 +104,7 @@ class SegmentedControl extends React.PureComponent {
     } else if (this.props.type === 'checkbox') {
       selected = this.state[childValue];
     }
-    const usedClassName = cn(this.classes.label, {
+    const usedClassName = cn(this.classes.label, this.props.variant, {
       [this.classes.selected]: selected,
       [this.classes.buttonLeft]: index === 0,
       [this.classes.buttonRight]: this.props.children.map ? index === this.props.children.length - 1 : true,
@@ -112,6 +112,7 @@ class SegmentedControl extends React.PureComponent {
       [this.classes.radio]: this.props.type === 'radio',
       [this.classes.checkbox]: this.props.type === 'checkbox',
     });
+
     const inputId = `sc-${this.props.name}-${index}`;
     return (
       <span className={usedClassName} key={`sc-${this.props.name}-${childValue}`}>
@@ -125,7 +126,9 @@ class SegmentedControl extends React.PureComponent {
           onFocus={event => this.handleFocus(event, index)}
           onBlur={event => this.handleFocus(event, index)}
         />
-        <label htmlFor={inputId}>{child}</label>
+        <label htmlFor={inputId}>
+          {child}
+        </label>
       </span>
     );
   }
@@ -139,6 +142,9 @@ class SegmentedControl extends React.PureComponent {
     );
   }
 }
+SegmentedControl.defaultProps = {
+  variant: 'primary',
+};
 
 SegmentedControl.propTypes = {
   /** @ignore */
@@ -150,6 +156,7 @@ SegmentedControl.propTypes = {
   name: PropTypes.string,
   type: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
   value: PropTypes.string,
+  variant: PropTypes.oneOf(['primary', 'secondary']),
 };
 
 export default injectSheet(styles)(SegmentedControl);
