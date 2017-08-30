@@ -102,27 +102,31 @@ export default theme => {
     },
 
     xs: {
-      fontSize: 12,
+      fontSize: 10,
+      fontWeight: theme.typography.fontWeightLight,
       borderRadius: 12,
-      padding: '4px 10px',
+      padding: '5px 12px',
     },
 
     sm: {
-      fontSize: 14,
+      fontSize: 11,
+      fontWeight: theme.typography.fontWeightLight,
       borderRadius: 16,
-      padding: '7px 15px',
+      padding: '8px 20px',
     },
 
     md: {
-      fontSize: 16,
+      fontSize: 14,
+      fontWeight: theme.typography.fontWeightRegular,
       borderRadius: 20,
-      padding: '10px 18px',
+      padding: '11px 38px',
     },
 
     lg: {
-      fontSize: 18,
+      fontSize: 16,
+      fontWeight: theme.typography.fontWeightRegular,
       borderRadius: 24,
-      padding: '13px 24px',
+      padding: '14px 40px',
     },
 
     primary: {
