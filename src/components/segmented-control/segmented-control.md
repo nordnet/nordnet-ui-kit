@@ -1,4 +1,4 @@
-Radio type (using icons):
+Radio type, Primary (using icons):
 
     const { Icon } = require('../../');
     const color = require('../../styles/color').default;
@@ -18,6 +18,47 @@ Radio type (using icons):
         <Icon.Trash  width={18} height={18} fill={color.blue} />
       </span>
     </SegmentedControl>
+
+
+  Radio type, Primary (using text):
+
+      const { Icon } = require('../../');
+      const color = require('../../styles/color').default;
+
+      <SegmentedControl
+        value="left"
+        name="colorRadio"
+        type="radio"
+      >
+        <span value="left">
+          Left
+        </span>
+        <span value="right">
+          Right
+        </span>
+      </SegmentedControl>
+
+
+
+  Radio type, Secondary (using text):
+
+      const { Icon } = require('../../');
+      const color = require('../../styles/color').default;
+
+      <SegmentedControl
+        variant="secondary"
+        value="ALL_NEWS"
+        name="colorRadio"
+        type="radio"
+      >
+        <span value="ALL_NEWS">
+          ALL NEWS
+        </span>
+        <span value="MY_NEWS">
+          MY NEWS
+        </span>
+      </SegmentedControl>
+
 
 Checkbox type:
 
