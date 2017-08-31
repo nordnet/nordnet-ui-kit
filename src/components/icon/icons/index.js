@@ -1,3 +1,4 @@
+import AddMoney from './addMoney';
 import Apartment from './apartment';
 import ArrowDown from './arrowDown';
 import ArrowLeft from './arrowLeft';
@@ -57,6 +58,7 @@ import Trash from './trash';
 import VerticalEllipsis from './verticalEllipsis';
 
 const Icon = {
+  AddMoney,
   Apartment,
   ArrowDown,
   ArrowLeft,
