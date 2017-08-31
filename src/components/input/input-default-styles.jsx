@@ -135,16 +135,6 @@ export default theme => {
         },
       },
 
-      '& .input__field': {
-        position: 'relative',
-        width: '100%',
-        border: `${borderSize}px solid ${palette.action.disabled}`,
-        borderRadius: 4,
-        padding: 8,
-        paddingTop: 10,
-        transition: transitions.create(['border-color']),
-      },
-
       '& .input__label': {
         position: 'absolute',
         bottom: '-4px',
@@ -198,6 +188,30 @@ export default theme => {
           display: 'block',
           maxHeight: '100%',
         },
+      },
+    },
+
+    primary: {
+      '& .input__field': {
+        position: 'relative',
+        width: '100%',
+        border: `${borderSize}px solid ${palette.action.disabled}`,
+        borderRadius: 4,
+        padding: 8,
+        paddingTop: 10,
+        transition: transitions.create(['border-color']),
+      },
+    },
+
+    secondary: {
+      '& .input__field': {
+        position: 'relative',
+        width: '100%',
+        padding: [8, 0],
+        border: 'none',
+        borderBottom: `${borderSize}px solid ${palette.action.disabled}`,
+        paddingTop: 10,
+        transition: transitions.create(['border-color']),
       },
     },
   };
