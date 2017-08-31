@@ -22,6 +22,7 @@ Input.propTypes = {
   style: PropTypes.object,
   /** Needs to be a valid input type */
   type: PropTypes.string,
+  variant: PropTypes.oneOf(['primary', 'secondary']),
   disabled: PropTypes.bool,
   label: PropTypes.node,
   placeholder: PropTypes.string,
@@ -43,6 +44,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: 'text',
+  variant: 'primary',
 };
 
 export default Input;
