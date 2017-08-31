@@ -49,6 +49,14 @@ Type: `text`
         value="text"
         hasSuccess
       />
+
+      <Input
+        label="Text input with success"
+        placeholder="Enter text"
+        value="text"
+        hasSuccess
+        variant="secondary"
+      />
     </div>
 
 Type: `password`
@@ -82,6 +90,15 @@ Type: `password`
         type="password"
         value="Passw0rd!"
         hasSuccess
+      />
+
+      <Input
+        label="Password input with success"
+        placeholder="Enter password"
+        type="password"
+        value="Passw0rd!"
+        hasSuccess
+        variant="secondary"
       />
     </div>
 
@@ -125,6 +142,14 @@ Type: `select`
         type="select"
         options={ options }
         hasSuccess
+      />
+      <Input
+        label="Select input"
+        placeholder="Pick whatever works"
+        type="select"
+        options={ options }
+        hasSuccess
+        variant="secondary"
       />
     </div>
 
