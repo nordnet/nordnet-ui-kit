@@ -3,6 +3,9 @@ import defaultStylesFn from './input-default-styles';
 export default theme => {
   const { palette, transitions, mixins } = theme;
   const defaultStyles = defaultStylesFn(theme);
+
+  const borderSize = 1;
+
   return {
     input: {
       extend: defaultStyles.input,
@@ -69,6 +72,30 @@ export default theme => {
         '& .input__element, & .input__placeholder': {
           cursor: 'not-allowed',
         },
+      },
+    },
+
+    primary: {
+      '& .input__field': {
+        position: 'relative',
+        width: '100%',
+        border: `${borderSize}px solid ${palette.action.disabled}`,
+        borderRadius: 4,
+        padding: 8,
+        paddingTop: 10,
+        transition: transitions.create(['border-color']),
+      },
+    },
+
+    secondary: {
+      '& .input__field': {
+        position: 'relative',
+        width: '100%',
+        padding: [8, 0],
+        border: 'none',
+        borderBottom: `${borderSize}px solid ${palette.action.disabled}`,
+        paddingTop: 10,
+        transition: transitions.create(['border-color']),
       },
     },
   };

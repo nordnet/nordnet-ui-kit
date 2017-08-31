@@ -83,7 +83,7 @@ class InputSelect extends InputDefault.InnerComponent {
     return (
       <div className={className} title={title}>
         <select
-          {...omit(rest, 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon', 'theme', 'sheet')}
+          {...omit(rest, 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon', 'theme', 'sheet', 'variant')}
           id={id}
           className="input__element input__element--select"
           onFocus={this.onFocus}
@@ -117,6 +117,7 @@ InputSelect.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
     }),
   ),
+  variant: PropTypes.oneOf(['primary', 'secondary']),
 };
 
 InputSelect.defaultProps = {
@@ -126,6 +127,7 @@ InputSelect.defaultProps = {
       value: '',
     },
   ],
+  variant: 'primary',
 };
 
 export default injectSheet(styles)(InputSelect);

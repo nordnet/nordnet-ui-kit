@@ -119,6 +119,7 @@ class InputDefault extends React.PureComponent {
           'classes',
           'sheet',
           'theme',
+          'variant',
         )}
         id={id}
         className={classes}
@@ -190,6 +191,7 @@ class InputDefault extends React.PureComponent {
         'input--is-disabled': this.props.disabled,
       },
       `input--${kebabCase(this.props.type)}`,
+      classes[this.props.variant],
       this.props.className,
     );
 
@@ -217,6 +219,7 @@ InputDefault.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  variant: PropTypes.oneOf(['primary', 'secondary']),
   /** Manipulates the value of the input, eg. removing unsupported characters from number inputs */
   valueFormatter: PropTypes.func,
   hasSuccess: PropTypes.bool,
@@ -229,6 +232,7 @@ InputDefault.propTypes = {
 
 InputDefault.defaultProps = {
   type: 'text',
+  variant: 'primary',
 };
 
 export default injectSheet(styles)(InputDefault);
