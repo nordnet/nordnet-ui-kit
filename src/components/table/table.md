@@ -1,5 +1,6 @@
 Sticky header table:
 
+    const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
     const data = require('./data.js');
     const iconStyle = {
       backgroundColor: '#454545',
@@ -60,6 +61,7 @@ Sticky header table:
 
 Scrollable table:
 
+    const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
     const data = require('./data.js');
 
     <Table>
