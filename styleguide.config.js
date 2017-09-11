@@ -11,6 +11,7 @@ function capitalize(string) {
 module.exports = {
   title: 'Nordnet UI Kit',
   styleguideDir: path.join(__dirname, 'documentation/dist'),
+  skipComponentsWithoutExample: true,
   // components: 'src/components/**/*.jsx',
   template: path.resolve(__dirname, './documentation/template.html'),
   components() {
@@ -29,6 +30,9 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.md');
   },
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'documentation', 'wrapper.jsx'),
+  },
   webpackConfig: {
     module: {
       rules: [
@@ -38,11 +42,6 @@ module.exports = {
           exclude: /node_modules/,
         },
       ],
-    },
-    resolve: {
-      alias: {
-        'rsg-components/Wrapper': path.join(__dirname, 'documentation', 'wrapper.jsx'),
-      },
     },
   },
 };
