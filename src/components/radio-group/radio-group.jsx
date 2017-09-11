@@ -10,6 +10,14 @@ class RadioGroup extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedValue && nextProps.selectedValue !== this.state.selectedValue) {
+      this.setState({
+        selectedValue: nextProps.selectedValue,
+      });
+    }
+  }
+
   onChange(event) {
     const selectedValue = event.target.value;
     this.setState({
