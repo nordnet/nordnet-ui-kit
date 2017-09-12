@@ -18,14 +18,19 @@ class RadioGroup extends React.Component {
     }
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.selectedValue !== nextState.selectedValue) {
+      if (this.props.onChange) {
+        this.props.onChange({ target: { value: nextState.selectedValue } });
+      }
+    }
+  }
+
   onChange(event) {
     const selectedValue = event.target.value;
     this.setState({
       selectedValue,
     });
-    if (this.props.onChange) {
-      this.props.onChange(event);
-    }
   }
 
   render() {
