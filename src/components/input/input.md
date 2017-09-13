@@ -10,6 +10,15 @@ Type: `text`
         placeholder="Enter text"
       />
 
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ width: '48%' }}>
+          <Input placeholder="Enter text with no label" />
+        </div>
+        <div style={{ width: '48%' }}>
+          <Input placeholder="Enter success text with no label" hasSuccess />
+        </div>
+      </div>
+
       <Input
         label="Text input with left addon"
         leftAddon="$"
@@ -68,6 +77,15 @@ Type: `password`
         type="password"
       />
 
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ width: '48%' }}>
+          <Input type="password" placeholder="Enter password with no label" />
+        </div>
+        <div style={{ width: '48%' }}>
+          <Input type="password" placeholder="Enter success password with no label" hasSuccess />
+        </div>
+      </div>
+
       <Input
         label="Password input with error"
         placeholder="Enter password"
@@ -121,6 +139,16 @@ Type: `select`
         type="select"
         options={ options }
       />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ width: '48%' }}>
+          <Input type="select" placeholder="Pick option with no label" options={options} />
+        </div>
+        <div style={{ width: '48%' }}>
+          <Input type="select" placeholder="Pick success option with no label" hasSuccess options={options} />
+        </div>
+      </div>
+
       <Input
         label="Select input"
         placeholder="Pick the right option"
@@ -128,6 +156,7 @@ Type: `select`
         options={ options }
         hasError
       />
+
       <Input
         label="Select input"
         placeholder="Pick the another option, maybe?"
@@ -136,6 +165,7 @@ Type: `select`
         hasWarning
         rightAddon={'USD'}
       />
+
       <Input
         label="Select input"
         placeholder="Pick whatever works"
@@ -143,8 +173,9 @@ Type: `select`
         options={ options }
         hasSuccess
       />
+
       <Input
-        label="Select input"
+        label="Secondary select input"
         placeholder="Pick whatever works"
         type="select"
         options={ options }

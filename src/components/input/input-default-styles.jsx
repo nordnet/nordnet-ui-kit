@@ -10,7 +10,7 @@ export default theme => {
   const bottomBorderSize = 3;
 
   const modifierFn = color => ({
-    marginBottom: inputMarginBottom,
+    marginBottom: ({ label }) => (label ? inputMarginBottom : 0),
 
     '& .input__label': {
       color,
@@ -52,7 +52,7 @@ export default theme => {
       fontSize: 14,
       fontFamily: typography.primary.fontFamily,
       color: palette.text.default,
-      marginBottom: inputMarginBottom + bottomBorderSize - borderSize,
+      marginBottom: ({ label }) => bottomBorderSize - borderSize + (label ? inputMarginBottom : 0),
       position: 'relative',
 
       '&.input--has-success': modifierFn(palette.variant.success),
@@ -69,7 +69,7 @@ export default theme => {
       },
 
       '&.input--has-focus': {
-        marginBottom: inputMarginBottom,
+        marginBottom: ({ label }) => (label ? inputMarginBottom : 0),
         '& .input': {
           '&__label': {
             color: palette.action.active,
