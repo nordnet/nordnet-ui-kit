@@ -14,48 +14,37 @@ export default theme => {
       ...mixins.basicBoxSizing,
       position: 'relative',
 
-      '& .input': {
-        '&__element': {
-          appearance: 'none',
-          opacity: 0,
-          paddingRight: 24,
-        },
+      '& .input__element': {
+        appearance: 'none',
+        opacity: 0,
+        paddingRight: 24,
+      },
 
-        '&__placeholder, &__value-label': {
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          width: '100%',
-          overflow: 'hidden',
-          paddingRight: 24,
-          pointerEvents: 'none',
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
-        },
+      '& .input__placeholder, & .input__value-label': {
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100%',
+        overflow: 'hidden',
+        paddingRight: 24,
+        pointerEvents: 'none',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+      },
 
-        '&__placeholder': {
-          color: palette.text.muted,
-        },
+      '& .input__placeholder': {
+        color: palette.text.muted,
+      },
 
-        '&__select-arrow': {
-          position: 'absolute',
-          display: 'block',
-          right: '4px',
-          top: '6px',
-          height: '8px',
-          transition: transitions.create(['transform']),
-          transform: 'translateY(-4px)',
-          pointerEvents: 'none',
-
-          '> img': {
-            display: 'block',
-            maxHeight: '100%',
-          },
-
-          '& svg': {
-            display: 'block',
-          },
-        },
+      '& .input__select-arrow': {
+        position: 'absolute',
+        display: 'block',
+        right: '4px',
+        top: '6px',
+        height: '8px',
+        transition: transitions.create(['transform']),
+        transform: 'translateY(-4px)',
+        pointerEvents: 'none',
       },
 
       '&.input--has-focus, &.input--has-value': {
