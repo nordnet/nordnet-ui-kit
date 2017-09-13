@@ -21,6 +21,14 @@ function renderOption(option) {
 }
 
 class InputSelect extends InputDefault.InnerComponent {
+  constructor(props) {
+    super(props);
+
+    if (props.value && this.showValue(props.value)) {
+      this.state.value = props.value;
+    }
+  }
+
   renderSelectArrow() {
     const className = 'input__select-arrow';
     const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
