@@ -170,12 +170,6 @@ export default theme => {
         },
       },
 
-      '&.input--has-focus, &.input--has-value': {
-        '& .input__element': {
-          transform: 'translateY(0)',
-        },
-      },
-
       '& .input__validation-icon': {
         position: 'absolute',
         display: 'block',
