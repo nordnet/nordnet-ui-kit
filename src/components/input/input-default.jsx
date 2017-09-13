@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import ValidationIcon from './validation-icon';
 import Label from './label';
 import styles from './input-default-styles';
 import HelpText from './help-text';
@@ -157,12 +156,6 @@ class InputDefault extends React.PureComponent {
     }
 
     return <HelpText {...modifiers}>{this.props.helpText}</HelpText>;
-  }
-
-  renderValidationIcon() {
-    const { hasSuccess, hasWarning, hasError } = this.state;
-
-    return <ValidationIcon hasSuccess={hasSuccess} hasWarning={hasWarning} hasError={hasError} />;
   }
 
   renderField(id) {
