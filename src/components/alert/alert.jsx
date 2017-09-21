@@ -23,6 +23,7 @@ class Alert extends React.PureComponent {
     this.setState({
       dismissed: true,
     });
+    this.props.dismissedCallback();
   }
 
   renderClose() {
@@ -76,6 +77,7 @@ Alert.propTypes = {
   vertical: PropTypes.bool,
   dismissable: PropTypes.bool,
   dismissed: PropTypes.bool,
+  dismissedCallback: PropTypes.func,
 };
 
 Alert.defaultProps = {
@@ -83,6 +85,7 @@ Alert.defaultProps = {
   vertical: false,
   dismissable: true,
   dismissed: false,
+  dismissedCallback: () => {},
 };
 
 export { Alert as Component, styles };

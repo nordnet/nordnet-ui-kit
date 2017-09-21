@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import sinon from 'sinon';
 import { Component as Alert, styles } from '../../../src/components/alert/alert';
 import { mockClasses, theme } from '../../../src';
 
@@ -58,5 +59,18 @@ describe('<Alert />', () => {
     wrapper.setProps({ dismissable: false });
     const actual = wrapper.find(`button.${classes.close}`).exists();
     expect(actual).to.equal(false);
+  });
+
+  it('should call dismissedCallback when dismissed', () => {
+    const spy = sinon.spy();
+    const wrapper = shallow(<Alert {...defaultProps} dismissedCallback={spy}>body</Alert>);
+    wrapper.find(`button.${classes.close}`).simulate('click');
+    expect(spy.calledOnce).to.equal(true);
+  });
+
+  it('should not call dismissedCallback when not dismissed', () => {
+    const spy = sinon.spy();
+    shallow(<Alert {...defaultProps} dismissedCallback={spy}>body</Alert>);
+    expect(spy.called).to.equal(false);
   });
 });
