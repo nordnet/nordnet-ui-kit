@@ -52,12 +52,13 @@ export default theme => {
       },
 
       '&.secondary': {
+        letterSpacing: 0.2,
         textAlign: 'center',
         outline: 'none',
         fontSize: '12px',
         fontFamily: typography.primary.fontFamily,
         fontWeight: typography.fontWeightSemiBold,
-        color: palette.color.gray,
+        color: palette.color.grayDark,
         backgroundColor: 'inherit',
         position: 'relative',
 
