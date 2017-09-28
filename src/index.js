@@ -6,6 +6,7 @@ import Button from './components/button/button';
 import Dropdown from './components/dropdown/dropdown';
 import Flag from './components/flag/flag';
 import Input from './components/input/input';
+import InstrumentBadge from './components/instrument-badge/instrument-badge';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
@@ -47,6 +48,7 @@ export {
   Flag,
   Icon,
   Input,
+  InstrumentBadge,
   LabeledValue,
   Li,
   Logo,
