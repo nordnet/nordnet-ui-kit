@@ -17,4 +17,13 @@ describe('<InstrumentBadge />', () => {
     wrapper = shallow(<InstrumentBadge instrumentLvl={2} subText={'Qualified!'} classes={classes} />);
     expect(wrapper.text()).to.equal('2Qualified!');
   });
+  it('should render qualified when marked as qualified', () => {
+    wrapper = shallow(<InstrumentBadge qualified classes={classes} />);
+    expect(wrapper.find(`.${classes.badgeSuccess}`).length).to.equal(1);
+  });
+
+  it('should NOT render qualified when NOT marked as qualified', () => {
+    wrapper = shallow(<InstrumentBadge classes={classes} />);
+    expect(wrapper.find(`.${classes.badgeSuccess}`).length).to.equal(0);
+  });
 });
