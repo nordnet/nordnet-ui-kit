@@ -11,7 +11,7 @@ export const styles = theme => {
     `${size === 'sm' ? 7 : 12}px solid ${qualified ? palette.color.blueDark : palette.color.gray}`;
 
   return {
-    badgeCircle: {
+    backgroundCircle: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -20,13 +20,13 @@ export const styles = theme => {
       borderRadius: 35,
       backgroundColor: palette.color.grayLighter,
     },
-    badgeWrapper: {
+    wrapper: {
       ...typography.primary,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
     },
-    badgeSuccess: {
+    success: {
       backgroundColor: '#3DB717',
       color: palette.color.white,
       position: 'absolute',
@@ -72,9 +72,9 @@ export const styles = theme => {
 
 function InstrumentBadge({ qualified, instrumentLvl, subText, backgroundCircle, size, classes, ...rest }) {
   return (
-    <div className={backgroundCircle ? classes.badgeCircle : null} {...rest}>
-      <div className={classes.badgeWrapper} classNameProp>
-        {qualified ? <div className={classes.badgeSuccess}><Icon.Checkmark fill="white" stroke="white" /></div> : null}
+    <div className={backgroundCircle ? classes.backgroundCircle : null} {...rest}>
+      <div className={classes.wrapper} classNameProp>
+        {qualified ? <div className={classes.success}><Icon.Checkmark fill="white" stroke="white" /></div> : null}
         <div className={classes.badge}>
           <div className={classes.hexTop} />
           <div className={classes.hex}>
