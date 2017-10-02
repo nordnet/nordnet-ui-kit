@@ -45,6 +45,7 @@ import Print from './print';
 import Profile from './profile';
 import Questionmark from './questionmark';
 import SearchIcon from './search';
+import SendMessage from './sendMessage';
 import Share from './share';
 import SignOut from './signOut';
 import SocialFacebook from './socialFacebook';
@@ -105,6 +106,7 @@ const Icon = {
   Profile,
   Questionmark,
   Search: SearchIcon,
+  SendMessage,
   Share,
   SignOut,
   SocialFacebook,
