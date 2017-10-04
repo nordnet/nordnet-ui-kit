@@ -6,10 +6,6 @@ import { Icon } from '../../';
 export const styles = theme => {
   const { palette, typography } = theme;
 
-  const getHexBorderLeftRight = ({ size }) => `${size === 'sm' ? 13 : 21}px solid transparent`;
-  const getHexBorderTopBottom = ({ size, qualified }) =>
-    `${size === 'sm' ? 7 : 12}px solid ${qualified ? palette.color.blueDark : palette.color.gray}`;
-
   return {
     backgroundCircle: {
       display: 'flex',
@@ -20,14 +16,32 @@ export const styles = theme => {
       borderRadius: 35,
       backgroundColor: palette.color.grayLighter,
     },
+    badge: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '100%',
+    },
+    instrumentLvl: {
+      ...typography.secondary,
+      fontSize: ({ size }) => (size === 'sm' ? 12 : 24),
+      width: ({ size }) => (size === 'sm' ? 26 : 43),
+      height: ({ size }) => (size === 'sm' ? 15 : 25),
+      color: palette.color.white,
+      display: 'flex',
+      position: 'absolute',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     wrapper: {
       ...typography.primary,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
     },
-    success: {
-      backgroundColor: '#3DB717',
+    successFail: {
+      backgroundColor: ({ qualified }) => (qualified ? palette.color.green : palette.color.red),
       color: palette.color.white,
       position: 'absolute',
       display: 'flex',
@@ -36,51 +50,45 @@ export const styles = theme => {
       height: ({ size }) => (size === 'sm' ? 13 : 21),
       width: ({ size }) => (size === 'sm' ? 13 : 21),
       borderRadius: ({ size }) => (size === 'sm' ? 7 : 12),
-      marginLeft: props => (props.size === 'sm' ? 11 : 17),
+      marginLeft: props => (props.size === 'sm' ? 10 : 16),
       marginTop: props => (props.size === 'sm' ? 16 : 26),
-    },
-    hex: {
-      ...typography.secondary,
-      fontSize: ({ size }) => (size === 'sm' ? 12 : 24),
-      backgroundColor: ({ qualified }) => (qualified ? palette.color.blueDark : palette.color.gray),
-      width: ({ size }) => (size === 'sm' ? 26 : 43),
-      height: ({ size }) => (size === 'sm' ? 15 : 25),
-      color: palette.color.white,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    hexTop: {
-      width: 0,
-      borderBottom: getHexBorderTopBottom,
-      borderLeft: getHexBorderLeftRight,
-      borderRight: getHexBorderLeftRight,
-    },
-    hexBottom: {
-      width: 0,
-      borderTop: getHexBorderTopBottom,
-      borderLeft: getHexBorderLeftRight,
-      borderRight: getHexBorderLeftRight,
     },
     subText: {
       color: palette.color.grayDarker,
       fontSize: ({ size }) => (size === 'sm' ? 10 : 16),
       textAlign: 'center',
+      paddingTop: 2,
     },
   };
 };
 
-function InstrumentBadge({ qualified, instrumentLvl, subText, backgroundCircle, size, classes, ...rest }) {
+const iconProps = (size, strokeWidth, padding) => ({
+  strokeWidth,
+  fill: 'white',
+  stroke: 'white',
+  style: {
+    padding: size === 'sm' ? padding.sm : padding.md,
+  },
+});
+
+function InstrumentBadge({ qualified, instrumentLvl, subText, backgroundCircle, size, classes, theme, ...rest }) {
   return (
     <div className={backgroundCircle ? classes.backgroundCircle : null} {...rest}>
-      <div className={classes.wrapper} classNameProp>
-        {qualified ? <div className={classes.success}><Icon.Checkmark fill="white" stroke="white" /></div> : null}
+      <div className={classes.wrapper}>
         <div className={classes.badge}>
-          <div className={classes.hexTop} />
-          <div className={classes.hex}>
-            {instrumentLvl}
-          </div>
-          <div className={classes.hexBottom} />
+          <Icon.Hexagon
+            text={instrumentLvl}
+            fontFamily={theme.typography.primary.fontFamily}
+            fontFill={theme.palette.color.white}
+            width={size === 'sm' ? 27 : 45}
+            height={size === 'sm' ? 27 : 45}
+            fill={qualified ? theme.palette.color.blueDark : theme.palette.color.gray}
+          />
+        </div>
+        <div className={classes.successFail}>
+          {qualified
+            ? <Icon.Checkmark {...iconProps(size, 2, { sm: 2, md: 4 })} />
+            : <Icon.Close {...iconProps(size, 3, { sm: 3, md: 6 })} />}
         </div>
         <span className={classes.subText}>
           {subText}
@@ -97,6 +105,7 @@ InstrumentBadge.propTypes = {
   backgroundCircle: PropTypes.bool,
   size: PropTypes.string,
   classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
   className: PropTypes.string,
 };
 
