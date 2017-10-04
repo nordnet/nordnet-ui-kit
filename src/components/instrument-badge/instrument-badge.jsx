@@ -71,7 +71,18 @@ const iconProps = (size, strokeWidth, padding) => ({
   },
 });
 
-function InstrumentBadge({ qualified, instrumentLvl, subText, backgroundCircle, size, classes, theme, ...rest }) {
+const renderQualifyBadge = (qualified, qualifyBadgeDisabled, size, className) => {
+  if (qualifyBadgeDisabled) {
+    return null;
+  }
+  return (
+    <div className={className}>
+      {qualified ? <Icon.Checkmark {...iconProps(size, 2, { sm: 2, md: 4 })} /> : <Icon.Close {...iconProps(size, 3, { sm: 3, md: 6 })} />}
+    </div>
+  );
+};
+
+function InstrumentBadge({ qualified, qualifyBadgeDisabled, instrumentLvl, subText, backgroundCircle, size, classes, theme, ...rest }) {
   return (
     <div className={backgroundCircle ? classes.backgroundCircle : null} {...rest}>
       <div className={classes.wrapper}>
@@ -85,11 +96,7 @@ function InstrumentBadge({ qualified, instrumentLvl, subText, backgroundCircle, 
             fill={qualified ? theme.palette.color.blueDark : theme.palette.color.gray}
           />
         </div>
-        <div className={classes.successFail}>
-          {qualified
-            ? <Icon.Checkmark {...iconProps(size, 2, { sm: 2, md: 4 })} />
-            : <Icon.Close {...iconProps(size, 3, { sm: 3, md: 6 })} />}
-        </div>
+        {renderQualifyBadge(qualified, qualifyBadgeDisabled, size, classes.successFail)}
         <span className={classes.subText}>
           {subText}
         </span>
@@ -100,6 +107,7 @@ function InstrumentBadge({ qualified, instrumentLvl, subText, backgroundCircle, 
 
 InstrumentBadge.propTypes = {
   qualified: PropTypes.bool,
+  qualifyBadgeDisabled: PropTypes.bool,
   instrumentLvl: PropTypes.number,
   subText: PropTypes.string,
   backgroundCircle: PropTypes.bool,
@@ -111,6 +119,7 @@ InstrumentBadge.propTypes = {
 
 InstrumentBadge.defaultProps = {
   qualified: false,
+  qualifyBadgeDisabled: false,
   instrumentLvl: 0,
   subText: '',
   backgroundCircle: false,

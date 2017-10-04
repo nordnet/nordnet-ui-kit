@@ -29,4 +29,11 @@
           size="md"
         />
       </div>
+      <div style={{width: divSize}}>
+        <InstrumentBadge
+          qualifyBadgeDisabled
+          instrumentLvl={7}
+          size="md"
+        />
+      </div>
     </div>
