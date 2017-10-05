@@ -21,8 +21,11 @@ export const styles = theme => {
       ...typography.primary,
       ...mixins.basicBoxSizing,
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'column' : 'row'),
       alignItems: 'center',
+    },
+    badgeWrapper: {
+      display: 'flex',
     },
     badge: {
       display: 'flex',
@@ -52,8 +55,8 @@ export const styles = theme => {
       height: ({ size }) => (size === 'sm' ? 13 : 21),
       width: ({ size }) => (size === 'sm' ? 13 : 21),
       borderRadius: ({ size }) => (size === 'sm' ? 7 : 12),
-      marginLeft: props => (props.size === 'sm' ? 10 : 16),
-      marginTop: props => (props.size === 'sm' ? 20 : 30),
+      marginLeft: props => (props.size === 'sm' ? 21 : 33),
+      marginTop: props => (props.size === 'sm' ? 19 : 29),
     },
     subText: {
       color: ({ qualified }) => (qualified ? palette.color.blueDark : palette.color.gray),
@@ -93,15 +96,17 @@ class InstrumentBadge extends React.Component {
 
     return (
       <div className={classes.wrapper}>
-        <div className={classes.badge}>
-          <Icon.Hexagon
-            width={size === 'sm' ? 35 : 55}
-            height={size === 'sm' ? 35 : 55}
-            fill={qualified ? theme.palette.color.blueDark : theme.palette.color.gray}
-          />
-          <span className={classes.instrumentLvl}>{instrumentLvl}</span>
+        <div className={classes.badgeWrapper}>
+          <div className={classes.badge}>
+            <Icon.Hexagon
+              width={size === 'sm' ? 35 : 55}
+              height={size === 'sm' ? 35 : 55}
+              fill={qualified ? theme.palette.color.blueDark : theme.palette.color.gray}
+            />
+            <span className={classes.instrumentLvl}>{instrumentLvl}</span>
+          </div>
+          {this.renderQualifyBadge()}
         </div>
-        {this.renderQualifyBadge()}
         <span className={classes.subText}>
           {subText}
         </span>
@@ -142,6 +147,7 @@ InstrumentBadge.propTypes = {
   qualifyBadgeDisabled: PropTypes.bool,
   instrumentLvl: PropTypes.number,
   subText: PropTypes.string,
+  subTextPlacement: PropTypes.oneOf(['below', 'right']),
   showBackgroundCircle: PropTypes.bool,
   size: PropTypes.string,
   classes: PropTypes.object.isRequired,
@@ -156,6 +162,7 @@ InstrumentBadge.defaultProps = {
   qualifyBadgeDisabled: false,
   instrumentLvl: 0,
   subText: '',
+  subTextPlacement: 'below',
   showBackgroundCircle: false,
   size: 'sm',
 };

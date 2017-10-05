@@ -1,4 +1,4 @@
-    const divSize = 100;
+    const divSize = 150;
     <div style={{display: 'flex'}}>
       <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
@@ -35,6 +35,7 @@
           qualifyBadgeDisabled
           instrumentLvl={7}
           subText={'Unqualified'}
+          subTextPlacement={'right'}
           size="md"
         />
       </div>
