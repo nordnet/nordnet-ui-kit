@@ -3,11 +3,8 @@ import React from 'react';
 import Icon from '../icon';
 
 export default function Hexagon({
-  text,
-  fontFamily,
   stroke,
   fill,
-  fontFill,
   strokeWidth,
   height,
   width,
@@ -21,8 +18,13 @@ export default function Hexagon({
   };
   return (
     <svg width={width} height={height} viewBox={viewBox} style={style} {...rest}>
-      <path d="M 55,0 L 105,30 L 105,85 L 55,110 L 5,85 L 5,30 z" fill={fill} strokeWidth="0" />
-      <text x="55" y="77" textAnchor="middle" fill={fontFill} fontFamily={fontFamily} fontSize="55">{text}</text>
+      <path
+        d="M 65,10 L 115,40 L 115,95 L 65,120 L 15,95 L 15,40 z"
+        fill={fill}
+        strokeWidth={strokeWidth}
+        stroke={stroke}
+        strokeLinejoin="miter"
+      />
     </svg>
   );
 }
@@ -32,15 +34,15 @@ Hexagon.propTypes = {
   text: PropTypes.string,
   fontFamily: PropTypes.string,
   stroke: PropTypes.string,
+  strokeWidth: PropTypes.number,
   fill: PropTypes.string,
   fontFill: PropTypes.string,
-  strokeWidth: PropTypes.number,
 };
 
 Hexagon.defaultProps = {
   ...Icon.defaultProps,
-  fontFamily: 'Verdana',
+  stroke: '',
+  strokeWidth: 0,
   text: '',
-  fontFill: 'white',
-  viewBox: '0 0 110 110',
+  viewBox: '0 0 130 130',
 };
