@@ -32,6 +32,7 @@ import GraphCandlestick from './graphCandlestick';
 import GraphLine from './graphLine';
 import GraphVolume from './graphVolume';
 import Heart from './heart';
+import Hexagon from './hexagon';
 import Key from './key';
 import LightningBolt from './lightningBolt';
 import Lock from './lock';
@@ -92,6 +93,7 @@ const Icon = {
   GraphLine,
   GraphVolume,
   Heart,
+  Hexagon,
   Key,
   LightningBolt,
   Lock,

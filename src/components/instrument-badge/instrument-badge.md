@@ -1,31 +1,41 @@
-    const divSize = 100;
+    const divSize = 150;
     <div style={{display: 'flex'}}>
-      <div style={{width: divSize}}>
+      <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
           qualified
           instrumentLvl={2}
-          subText={'Qualified'}
+          subText="Qualified"
           size="sm"
         />
       </div>
-      <div style={{width: divSize}}>
+      <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
+          showBackgroundCircle
           instrumentLvl={9}
-          subText={'Unqualified'}
         />
       </div>
-      <div style={{width: divSize}}>
+      <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
+          tooltipContent={<span>tjena</span>}
           qualified
-          backgroundCircle
+          showBackgroundCircle
           instrumentLvl={3}
           size="md"
         />
       </div>
-      <div style={{width: divSize}}>
+      <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
           instrumentLvl={7}
-          subText={'Any text will do here'}
+          subText="Any text ok"
+          size="md"
+        />
+      </div>
+      <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <InstrumentBadge
+          qualifyBadgeDisabled
+          instrumentLvl={7}
+          subText="Unqualified"
+          subTextPlacement="right"
           size="md"
         />
       </div>
