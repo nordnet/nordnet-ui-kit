@@ -13,9 +13,9 @@ Icon.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   /** Unitless pixel value */
-  width: PropTypes.number,
+  width: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Unitless pixel value */
-  height: PropTypes.number,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   viewBox: PropTypes.string,
   fill: PropTypes.string,
   stroke: PropTypes.string,
