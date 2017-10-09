@@ -8,6 +8,7 @@
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
     "clean": "rimraf dist",
+    "dev": "run-s start",
     "build": "run-s clean babel",
     "watch": "npm run babel -- --watch",
     "babel": "babel src -d dist --copy-files --ignore .md",
