@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '../icon';
 
-export default function SocialYoutube({
+export default function SocialYouTube({
   stroke,
   fill,
   strokeWidth,
@@ -25,14 +25,14 @@ export default function SocialYoutube({
   );
 }
 
-SocialYoutube.propTypes = {
+SocialYouTube.propTypes = {
   ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
-SocialYoutube.defaultProps = {
+SocialYouTube.defaultProps = {
   ...Icon.defaultProps,
   width: 16,
   height: 13,

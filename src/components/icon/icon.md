@@ -14,6 +14,7 @@ All available icons:
     const { Icon } = require('../../'); // nordnet-ui-kit
 
     const containerStyle = {
+      paddingTop: 20,
       columns: 'auto 200px',
     };
 
@@ -32,21 +33,72 @@ All available icons:
 
     const icons = Object.keys(Icon);
 
-    <div style={containerStyle}>
-      {icons
-        .map(iconName => {
-          const IconComponent = Icon[iconName];
+    const options = [{
+      label: 'Nordnet blue',
+      value: '#00A9EC',
+    }, {
+      label: 'Black',
+      value: '#222',
+    }, {
+      label: 'Nordnet blue dark',
+      value: '#365299',
+    }];
 
-          return (
-            <div key={iconName} style={{display: 'inline-block', width: '100%', padding: 4, height: 20,}}>
-              <div key={ iconName } style={ style }>
-                <div style={iconStyle}>
-                  <IconComponent stroke="#00A9EC" fill="#00A9EC" />
+    initialState = { icons, value: '', color: '' };
+
+    const iconFilter = (
+      <div>
+        <label for="filter">Filter: </label>
+        <Input
+          id="filter"
+          type="text"
+          value={state.value}
+          onChange={
+            ({ target: { value }}) => {
+              setState({
+                icons: icons.filter(name => name.toLowerCase().indexOf(value) > -1),
+                value,
+              });
+            }}
+          placeholder="Filter icons: "
+        />
+      </div>
+    );
+
+    const colorPicker = (
+      <div>
+        <label for="color">Icon color: </label>
+        <Input
+          id="color"
+          type="text"
+          value={state.color}
+          placeholder="Choose a color wisely, try cornflowerblue or #234567?"
+          onChange={({ target: { value }}) => {
+            setState({ color: value });
+          }}
+        />
+      </div>
+    );
+
+    <div>
+      {iconFilter}
+      {colorPicker}
+      <div style={containerStyle}>
+        {state.icons
+          .map(iconName => {
+            const IconComponent = Icon[iconName];
+
+            return (
+              <div key={iconName} style={{display: 'inline-block', width: '100%', padding: 4, height: 20,}}>
+                <div key={ iconName } style={ style }>
+                  <div style={iconStyle}>
+                    <IconComponent stroke={state.color || '#00A9EC'} fill={state.color || '#00A9EC'} />
+                  </div>
+                  <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ iconName }</div>
                 </div>
-                <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ iconName }</div>
               </div>
-            </div>
-          );
-        }
-      )}
+            );
+          }
+        )}
+      </div>
     </div>

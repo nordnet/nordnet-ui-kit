@@ -53,6 +53,7 @@ import SocialFacebook from './socialFacebook';
 import SocialGplus from './socialGplus';
 import SocialInstagram from './socialInstagram';
 import SocialTwitter from './socialTwitter';
+import SocialYouTube from './socialYouTube';
 import Star from './star';
 import Tag from './tag';
 import TickingClock from './tickingClock';
@@ -115,6 +116,7 @@ const Icon = {
   SocialGplus,
   SocialInstagram,
   SocialTwitter,
+  SocialYouTube,
   Star,
   Tag,
   TickingClock,
