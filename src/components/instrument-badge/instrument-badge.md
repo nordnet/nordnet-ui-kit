@@ -11,8 +11,10 @@
       </div>
       <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
-          showBackgroundCircle
           instrumentLvl={9}
+          subText="No chance lance"
+          subTextPlacement="right"
+          subTextFontSize={12}
         />
       </div>
       <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>

@@ -37,6 +37,7 @@ export const styles = theme => {
     },
     badgeWrapper: {
       display: 'flex',
+      position: 'relative',
     },
     badge: {
       display: 'flex',
@@ -61,7 +62,14 @@ export const styles = theme => {
     instrumentLvl: {
       ...typography.secondary,
       color: palette.color.white,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
 
       '$sm &': {
         fontSize: 12,
@@ -97,14 +105,15 @@ export const styles = theme => {
     },
     subText: {
       color: ({ qualified }) => (qualified ? palette.color.blueDark : palette.color.gray),
-      textAlign: 'center',
+      textAlign: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'center' : 'left'),
+      marginLeft: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 0 : 4),
 
       '$sm &': {
-        fontSize: 10,
+        fontSize: ({ subTextFontSize }) => subTextFontSize || 10,
       },
 
       '$md &': {
-        fontSize: 16,
+        fontSize: ({ subTextFontSize }) => subTextFontSize || 16,
       },
     },
   };
@@ -141,11 +150,11 @@ class InstrumentBadge extends React.Component {
     return (
       <div className={classes.wrapper}>
         <div className={classes.badgeWrapper}>
+          {this.renderQualifyBadge()}
           <div className={classes.badge}>
             <Icon.Hexagon className={classes.icon} stroke="currentColor" fill="currentColor" width="100%" height="100%" strokeWidth={5} />
             <span className={classes.instrumentLvl}>{instrumentLvl}</span>
           </div>
-          {this.renderQualifyBadge()}
         </div>
         <span className={classes.subText}>
           {subText}
@@ -189,15 +198,17 @@ InstrumentBadge.propTypes = {
   tooltipPlacement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
   qualified: PropTypes.bool,
   qualifyBadgeDisabled: PropTypes.bool,
-  instrumentLvl: PropTypes.number,
+  instrumentLvl: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   subText: PropTypes.string,
   showBackgroundCircle: PropTypes.bool,
   size: PropTypes.string,
   classes: PropTypes.object.isRequired,
-  className: PropTypes.string, // props used in dynamic stylesheets
+  className: PropTypes.string,
+  // Props below used in dynamic stylesheets
   /* eslint-disable */
   theme: PropTypes.object.isRequired,
   subTextPlacement: PropTypes.oneOf(['below', 'right']),
+  subTextFontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /* eslint-enable */
 };
 
