@@ -69,6 +69,7 @@ export const styles = theme => {
 
       '$md &': {
         fontSize: 26,
+        marginTop: 2,
       },
     },
     successFail: {
