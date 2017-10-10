@@ -11,7 +11,7 @@
       </div>
       <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
-          instrumentLvl={9}
+          instrumentLvl="9"
           subText="No chance lance"
           subTextPlacement="right"
           subTextFontSize={12}
@@ -19,7 +19,7 @@
       </div>
       <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
-          tooltipContent={<span>tjena</span>}
+          tooltipContent={<span>Tjena</span>}
           qualified
           showBackgroundCircle
           instrumentLvl={3}
@@ -29,7 +29,7 @@
       <div style={{width: divSize, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <InstrumentBadge
           instrumentLvl={7}
-          subText="Any text ok"
+          subText="Any text OK"
           subTextFontSize={12}
           size="md"
         />
