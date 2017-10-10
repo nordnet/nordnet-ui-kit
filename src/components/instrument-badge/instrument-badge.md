@@ -30,6 +30,7 @@
         <InstrumentBadge
           instrumentLvl={7}
           subText="Any text ok"
+          subTextFontSize={12}
           size="md"
         />
       </div>

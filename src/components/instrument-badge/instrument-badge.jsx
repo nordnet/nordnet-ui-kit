@@ -180,6 +180,7 @@ class InstrumentBadge extends React.Component {
           'tooltipPlacement',
           'qualifyBadgeDisabled',
           'subTextPlacement',
+          'subTextFontSize',
           'showBackgroundCircle',
         )}
       >
