@@ -10,6 +10,7 @@ import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
 import Pane from './components/pane/pane';
+import ProgressBar from './components/progress-bar/progress-bar';
 import RadioGroup from './components/radio-group';
 import SegmentedControl from './components/segmented-control';
 import Spinner from './components/spinner';
@@ -51,6 +52,7 @@ export {
   Li,
   Logo,
   Pane,
+  ProgressBar,
   RadioGroup,
   SegmentedControl,
   Spinner,
