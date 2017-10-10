@@ -3,7 +3,6 @@ export default theme => {
 
   return {
     root: {
-      marginRight: '6px',
       borderRadius: '8px',
       display: 'inline-flex',
 
