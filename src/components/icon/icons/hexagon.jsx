@@ -19,7 +19,7 @@ export default function Hexagon({
   return (
     <svg width={width} height={height} viewBox={viewBox} style={style} {...rest}>
       <path
-        d="M 65,10 L 115,40 L 115,95 L 65,120 L 15,95 L 15,40 z"
+        d="M 65,10 L 115,35 L 115,95 L 65,120 L 15,95 L 15,35 z"
         fill={fill}
         strokeWidth={strokeWidth}
         stroke={stroke}
