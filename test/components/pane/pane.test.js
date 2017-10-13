@@ -61,6 +61,17 @@ describe('<Pane />', () => {
     it('default size should be md', () => {
       expect(renderedTabs.at(0).hasClass(classes.md)).to.equal(true);
     });
+
+    it('should change active tab on activeTab prop change', () => {
+      wrapper.setProps({ activeTab: 1 });
+      expect(renderedTabs.at(1).hasClass(classes.active));
+    });
+
+    it('should not change active tab if component gets props unrelated to active tab', () => {
+      wrapper.setState({ activeTab: 2 });
+      wrapper.setProps({ size: 'lg' });
+      expect(renderedTabs.at(2).hasClass(classes.active));
+    });
   });
 
   describe('When <Pane /> is correctly populated with another size', () => {

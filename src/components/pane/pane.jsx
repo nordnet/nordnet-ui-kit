@@ -10,12 +10,20 @@ class Pane extends React.PureComponent {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      activeTab: props.activeTab || 0,
+      activeTab: props.activeTab,
     };
 
     this.handleTabClick = this.handleTabClick.bind(this);
 
     this.classes = this.props.classes;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.activeTab !== nextProps.activeTab && nextProps.activeTab !== this.state.activeTab) {
+      this.setState({
+        activeTab: nextProps.activeTab,
+      });
+    }
   }
 
   handleTabClick(index) {
@@ -93,6 +101,7 @@ Pane.propTypes = {
 
 Pane.defaultProps = {
   size: 'md',
+  activeTab: 0,
 };
 
 export { Pane as Component, styles };
