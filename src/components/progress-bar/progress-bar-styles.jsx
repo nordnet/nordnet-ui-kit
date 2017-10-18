@@ -57,18 +57,12 @@ const variantModifierFn = (variant, colors) => {
   };
 };
 
-const sizeModifierFn = ({ typography }, { fontSize, radius }) => ({
-  borderRadius: '50%',
-  borderWidth: fontSize < 12 ? 1 : 2,
-  fontSize,
-  fontWeight: fontSize < 12 ? typography.fontWeightLight : typography.fontWeightRegular,
-  height: 2 * radius,
-  width: 2 * radius,
-
-  '& + &': {
-    marginLeft: radius,
-  },
-});
+const sizeDict = {
+  xs: { fontSize: 10, radius: 8 },
+  sm: { fontSize: 11, radius: 16 },
+  md: { fontSize: 14, radius: 20 },
+  lg: { fontSize: 16, radius: 24 },
+};
 
 export default theme => {
   const { palette, transitions, typography, mixins } = theme;
@@ -84,21 +78,30 @@ export default theme => {
 
     progressBar: {
       display: 'flex',
+      flexWrap: 'wrap',
+      margin: ({ size }) => -sizeDict[size].radius / 2,
     },
 
     progressStep: {
       ...mixins.basicBoxSizing,
       alignItems: 'center',
       border: 0,
+      borderRadius: '50%',
+      borderWidth: ({ size }) => (sizeDict[size].fontSize < 12 ? 1 : 2),
       cursor: 'default',
       display: 'flex',
       fontFamily: typography.primary.fontFamily,
+      fontSize: ({ size }) => sizeDict[size].fontSize,
+      fontWeight: ({ size }) => (sizeDict[size].fontSize < 12 ? typography.fontWeightLight : typography.fontWeightRegular),
+      height: ({ size }) => 2 * sizeDict[size].radius,
       lineHeight: 1,
+      margin: ({ size }) => sizeDict[size].radius / 2,
       padding: 0,
       textAlign: 'center',
       textDecoration: 'none',
       transition: transitions.create(),
       userSelect: 'none',
+      width: ({ size }) => 2 * sizeDict[size].radius,
 
       '& > span': {
         margin: 'auto',
@@ -118,11 +121,6 @@ export default theme => {
         outline: 'none',
       },
     },
-
-    xs: sizeModifierFn(theme, { fontSize: 10, radius: 8 }),
-    sm: sizeModifierFn(theme, { fontSize: 11, radius: 16 }),
-    md: sizeModifierFn(theme, { fontSize: 14, radius: 20 }),
-    lg: sizeModifierFn(theme, { fontSize: 16, radius: 24 }),
 
     reached: {},
 

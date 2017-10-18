@@ -38,7 +38,7 @@ function ProgressBar({
         {_times(max, i => {
           const Element = getElementType(clickables[i]);
           const { label, reached, ...clickablesRest } = clickables[i] || {};
-          const elementClassNames = classNames(classes.progressStep, classes[size], {
+          const elementClassNames = classNames(classes.progressStep, {
             [classes.clickable]: Element !== 'span',
             [classes.primary]: isPrimary,
             [classes.secondary]: isSecondary,
