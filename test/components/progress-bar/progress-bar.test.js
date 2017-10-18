@@ -17,7 +17,7 @@ describe('<ProgressBar />', () => {
 
   it('should render as xs by default', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
-    expect(wrapper.find('.progressBar').childAt(0).hasClass(classes.xs)).to.equal(true);
+    expect(wrapper.instance().props.size).to.equal('xs');
   });
 
   it('should render steps as spans by default', () => {
@@ -58,13 +58,6 @@ describe('<ProgressBar />', () => {
     it(`should have class ${classes[variant]} if variant is set to ${variant}`, () => {
       wrapper = shallow(<ProgressBar classes={classes} variant={variant} value={value} max={max} />);
       expect(wrapper.find('.progressBar').childAt(0).hasClass(classes[variant])).to.equal(true);
-    });
-  });
-
-  ['xs', 'sm', 'md', 'lg'].forEach(size => {
-    it(`should have class ${classes[size]} if size is set to ${size}`, () => {
-      wrapper = shallow(<ProgressBar classes={classes} size={size} value={value} max={max} />);
-      expect(wrapper.find('.progressBar').childAt(0).hasClass(classes[size])).to.equal(true);
     });
   });
 
