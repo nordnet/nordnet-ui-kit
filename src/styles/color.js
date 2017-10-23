@@ -12,6 +12,7 @@ export default {
   blue: '#00A9EC', // Logo, links, cta
   blueDark: '#365299', // Info color
   blueDarker: '#2B417A', // Used together with dark in header gradient
+  blueLight: '#E3F2FC', // Background color in alerts
   green: '#26A699', // Plus performance, success
   red: '#D54E16', // Minus performance, error
   redLight: '#DA6E42', // Sell
