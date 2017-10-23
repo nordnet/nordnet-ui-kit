@@ -70,7 +70,7 @@ Alert.propTypes = {
   /** @ignore */
   theme: PropTypes.object.isRequired,
   className: PropTypes.string,
-  modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
+  modifier: PropTypes.oneOf(['info', 'success', 'warning', 'danger']),
   style: PropTypes.object,
   header: PropTypes.node,
   children: PropTypes.node,
