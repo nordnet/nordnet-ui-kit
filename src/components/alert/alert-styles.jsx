@@ -47,6 +47,14 @@ export default theme => {
       cursor: 'pointer',
     },
 
+    info: {
+      borderLeft: `4px solid ${palette.variant.info}`,
+
+      '& $header:not($vertical)': {
+        color: palette.variant.info,
+      },
+    },
+
     success: {
       borderLeft: `4px solid ${palette.variant.success}`,
 
