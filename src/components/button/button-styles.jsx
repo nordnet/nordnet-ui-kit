@@ -21,7 +21,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
         color: textColorDisabled,
       },
 
-      '&:focus': {
+      '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${colorFocus}`,
       },
     },
@@ -40,7 +40,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
         borderColor: colorDisabled,
       },
 
-      '&:focus': {
+      '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${colorFocus}`,
       },
     },
@@ -52,7 +52,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
         color: colorFocus,
       },
 
-      '&:focus&::after': {
+      '&:focus&::after, &:active&::after': {
         boxShadow: `0 4px 0 -2px ${colorFocus}`,
       },
     },
@@ -145,7 +145,7 @@ export default theme => {
         color: palette.text.muted,
       },
 
-      '&:focus': {
+      '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${focusColor(palette.background.secondary)}`,
       },
 
@@ -197,7 +197,7 @@ export default theme => {
         color: palette.color.gray,
       },
 
-      '&:focus': {
+      '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${c(palette.color.gray).darken(0.1).hex()}`,
       },
 
@@ -259,7 +259,7 @@ export default theme => {
         transition: transitions.create(),
       },
 
-      '&:focus': {
+      '&:focus, &:active': {
         boxShadow: 'none',
 
         '&::after': {
