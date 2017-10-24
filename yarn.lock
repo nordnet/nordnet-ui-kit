@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@iamstarkov/jss-theme-reactor@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.npmjs.org/@iamstarkov/jss-theme-reactor/-/jss-theme-reactor-0.12.1.tgz#69c7c154e9b2589942945df6a2017583ad92aac5"
+"@iamstarkov/jss-theme-reactor@^0.12.5":
+  version "0.12.5"
+  resolved "https://registry.npmjs.org/@iamstarkov/jss-theme-reactor/-/jss-theme-reactor-0.12.5.tgz#bb58cbee4bcb66cb157e86ba624f0f74dd7c739b"
   dependencies:
     jss "^8.1.0"
     jss-preset-default "^3.0.0"
