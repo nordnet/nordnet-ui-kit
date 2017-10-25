@@ -39,7 +39,7 @@ class Tooltip extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextState.hover !== this.state.hover || nextState.toggled !== this.state.toggled;
+    return nextState.hover !== this.state.hover || nextState.toggled !== this.state.toggled || nextProps.children !== this.props.children;
   }
 
   componentWillUnmount() {
