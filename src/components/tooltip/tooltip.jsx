@@ -36,6 +36,7 @@ class Tooltip extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.handleClick);
+    document.addEventListener('touchstart', this.handleClick);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -44,6 +45,7 @@ class Tooltip extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick);
+    document.removeEventListener('touchstart', this.handleClick);
   }
 
   getPlacement(placement = 'below') {
