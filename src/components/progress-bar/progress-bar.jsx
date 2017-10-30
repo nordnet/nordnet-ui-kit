@@ -13,6 +13,7 @@ function ProgressBar({
   value,
   max,
   printNumbers,
+  highlightActive,
   clickables,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
@@ -37,12 +38,13 @@ function ProgressBar({
       <div aria-hidden={clickables.length === 0 ? 'true' : 'false'} className={classNames(classes.progressBar)}>
         {_times(max, i => {
           const Element = getElementType(clickables[i]);
-          const { label, reached, ...clickablesRest } = clickables[i] || {};
+          const { label, reached, active, ...clickablesRest } = clickables[i] || {};
           const elementClassNames = classNames(classes.progressStep, {
             [classes.clickable]: Element !== 'span',
             [classes.primary]: isPrimary,
             [classes.secondary]: isSecondary,
             [classes.reached]: typeof reached !== 'undefined' ? reached : i < value,
+            [classes.active]: typeof active !== 'undefined' ? active : highlightActive && i === value - 1,
           });
 
           return (
@@ -63,6 +65,7 @@ ProgressBar.defaultProps = {
   size: 'xs',
   value: 0,
   printNumbers: false,
+  highlightActive: false,
   clickables: [],
 };
 
@@ -78,6 +81,8 @@ ProgressBar.propTypes = {
   max: PropTypes.number.isRequired,
   /** Print a number for each step */
   printNumbers: PropTypes.bool,
+  /** Highlight the active (current) value */
+  highlightActive: PropTypes.bool,
   /** Experimental: For each step you can override the label and status, and make it clickable. See advanced examples for inspiration. */
   clickables: PropTypes.arrayOf(PropTypes.object),
 };
