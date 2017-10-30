@@ -54,6 +54,18 @@ describe('<ProgressBar />', () => {
     });
   });
 
+  it('should not highlight the active step by default', () => {
+    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
+    expect(wrapper.find('.progressBar .active').length).to.equal(0);
+    expect(wrapper.find('.progressBar').childAt(value - 1).hasClass('active')).to.equal(false);
+  });
+
+  it('should be possible to highlight the active step', () => {
+    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} highlightActive />);
+    expect(wrapper.find('.progressBar .active').length).to.equal(1);
+    expect(wrapper.find('.progressBar').childAt(value - 1).hasClass('active')).to.equal(true);
+  });
+
   ['primary', 'secondary'].forEach(variant => {
     it(`should have class ${classes[variant]} if variant is set to ${variant}`, () => {
       wrapper = shallow(<ProgressBar classes={classes} variant={variant} value={value} max={max} />);
@@ -81,6 +93,11 @@ describe('<ProgressBar />', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} clickables={[{ reached: false }]} />);
     expect(wrapper.find('.progressBar').childAt(0).hasClass('reached')).to.equal(false);
     expect(wrapper.find('.progressBar').childAt(1).hasClass('reached')).to.equal(true);
+  });
+
+  it('should be possible to override the active class for a specific step', () => {
+    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} clickables={[{ active: true }]} />);
+    expect(wrapper.find('.progressBar').childAt(0).hasClass('reached')).to.equal(true);
   });
 
   it('should be possible to override the label class for a specific step', () => {

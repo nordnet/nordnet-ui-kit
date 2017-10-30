@@ -123,6 +123,7 @@ export default theme => {
     },
 
     reached: {},
+    active: {},
 
     primary: {
       ...variantModifierFn('primary', {
@@ -138,6 +139,11 @@ export default theme => {
         borderColor: palette.shades.dark.background.default,
         color: palette.shades.dark.text.default,
         colorDisabled: palette.shades.dark.text.muted,
+      }),
+
+      '&$active': variantModifierFn('primary', {
+        background: palette.action.active,
+        borderColor: palette.action.active,
       }),
     },
 
@@ -155,6 +161,11 @@ export default theme => {
         borderColor: palette.shades.dark.background.default,
         color: palette.shades.dark.text.default,
         colorDisabled: palette.shades.dark.text.muted,
+      }),
+
+      '&$active': variantModifierFn('secondary', {
+        background: palette.action.active,
+        borderColor: palette.action.active,
       }),
     },
   };
