@@ -27,6 +27,7 @@ import Film from './film';
 import Filter from './filter';
 import FloppyDisk from './floppyDisk';
 import Folder from './folder';
+import Globe from './globe';
 import GraphArea from './graphArea';
 import GraphCandlestick from './graphCandlestick';
 import GraphLine from './graphLine';
@@ -90,6 +91,7 @@ const Icon = {
   Filter,
   FloppyDisk,
   Folder,
+  Globe,
   GraphArea,
   GraphCandlestick,
   GraphLine,
