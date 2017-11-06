@@ -146,7 +146,7 @@ class Tooltip extends React.Component {
   render() {
     const { children, content, className, placement, style, tooltipStyle } = this.props;
     if (this.container && this.popup && this.state.hover) {
-      this.placement = this.getPlacement(placement);
+      this.placement = placement || this.getPlacement(placement);
 
       const rect = this.container.getBoundingClientRect();
       this.contentHeight = (rect.height || 0) - 3;

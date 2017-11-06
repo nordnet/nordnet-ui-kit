@@ -63,6 +63,12 @@ describe('<Tooltip />', () => {
     expect(wrapper.find(`.${classes.popup}`).hasClass('left')).to.equal(true);
   });
 
+  it('should set placement to below if none is given', () => {
+    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." />);
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    expect(wrapper.find(`.${classes.popup}`).hasClass('below')).to.equal(true);
+  });
+
   describe('click outside functionality', () => {
     const target = { attachTo: document.getElementById('app') };
     let component;
