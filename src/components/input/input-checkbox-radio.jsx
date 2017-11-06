@@ -131,7 +131,7 @@ InputCheckboxRadio.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   value: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.node,
   onChange: PropTypes.func,
   hasSuccess: PropTypes.bool,
   hasError: PropTypes.bool,
