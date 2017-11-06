@@ -45,6 +45,15 @@
       </li>
 
       <li style={{marginBottom: '11px'}}>
+        <span>No placement given:</span>
+        <Tooltip content="The component found out the best placement for me!"><span style={{fontSize: '30px'}}>Hello world!</span></Tooltip>
+        <span> ••• </span>
+        <Tooltip content="The component found out the best placement for me!"><span>Hello world!</span></Tooltip>
+        <span> ••• </span>
+        <Tooltip content={ <span>The component found out the best placement for me!</span> } />
+      </li>
+
+      <li style={{marginBottom: '11px'}}>
         <span>This Tooltip contains some HTML:</span>
         <Tooltip content={ <span>This is a <u>span</u>!</span> } />
       </li>
