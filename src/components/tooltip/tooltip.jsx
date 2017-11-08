@@ -178,7 +178,7 @@ class Tooltip extends React.Component {
 }
 
 Tooltip.defaultProps = {
-  children: <Questionmark fill="#00A9EC" stroke="#00A9EC" width={16} height={16} />,
+  children: <Questionmark fill="#6A6775" stroke="#6A6775" width={16} height={16} />,
   placement: 'below',
   sticky: true,
 };
