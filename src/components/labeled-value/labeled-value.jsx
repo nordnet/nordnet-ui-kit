@@ -11,6 +11,7 @@ export const styles = theme => {
     sm: '14',
     md: '20',
     lg: '32',
+    xlg: '48',
   };
 
   const mobileModifiers = {
@@ -18,12 +19,23 @@ export const styles = theme => {
     sm: '14',
     md: '16',
     lg: '18',
+    xlg: '20',
   };
 
   const valueSizes = Object.keys(modifiers).reduce((sizes, size) => {
+    const getTopPadding = fontSize => {
+      switch (size) {
+        case 'xlg':
+          return 2;
+        case 'lg':
+          return fontSize - 26;
+        default:
+          return fontSize - 12;
+      }
+    };
     const fontSize = modifiers[size];
     const mobileFontSize = mobileModifiers[size];
-    const paddingTop = size !== 'lg' ? fontSize - 12 : fontSize - 26;
+    const paddingTop = getTopPadding(size, fontSize);
     const mobilePaddingTop = size === 'xs' ? 0 : 2;
     const className = `value-${size}`;
 
@@ -99,7 +111,7 @@ LabeledValue.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   className: PropTypes.string,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xlg']),
 };
 
 export { LabeledValue as Component };
