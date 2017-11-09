@@ -14,6 +14,7 @@ import Pane from './components/pane/pane';
 import ProgressBar from './components/progress-bar/progress-bar';
 import RadioGroup from './components/radio-group';
 import SegmentedControl from './components/segmented-control';
+import SharevilleLogo from './components/shareville-logo';
 import Spinner from './components/spinner';
 import Table from './components/table';
 import Tbody from './components/tbody';
@@ -57,6 +58,7 @@ export {
   ProgressBar,
   RadioGroup,
   SegmentedControl,
+  SharevilleLogo,
   Spinner,
   Table,
   Tbody,
