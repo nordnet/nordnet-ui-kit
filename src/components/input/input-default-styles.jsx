@@ -160,10 +160,11 @@ export default theme => {
         width: '100%',
         transition: transitions.create(['border-color', 'transform']),
         fontSize: 14,
-        maxHeight: 27,
+        height: '1.5em',
         fontFamily: 'inherit',
         fontWeight: 'inherit',
         minWidth: 0,
+        padding: 0,
 
         '&:focus': {
           outline: 'none',
