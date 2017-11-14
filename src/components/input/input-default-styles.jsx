@@ -164,6 +164,7 @@ export default theme => {
         fontFamily: 'inherit',
         fontWeight: 'inherit',
         minWidth: 0,
+        padding: 0,
 
         '&:focus': {
           outline: 'none',
