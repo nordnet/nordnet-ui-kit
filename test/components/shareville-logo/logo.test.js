@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import SharevilleLogo from '../../../src/components/shareville-logo';
+import SharevilleLogo from '../../../src/components/shareville-logo/shareville-logo';
 
 describe('<SharevilleLogo />', () => {
   let wrapper;
@@ -11,7 +11,7 @@ describe('<SharevilleLogo />', () => {
   });
 
   it('should render a SharevilleLogo', () => {
-    expect(wrapper.find('.sharevilleLogoWTClass-1')).to.have.length(1);
+    expect(wrapper.find('.svLogoGradientWtClass-1')).to.have.length(1);
   });
 
   it('should have a default height', () => {
