@@ -99,37 +99,41 @@ class InputDefault extends React.PureComponent {
     }
   }
 
-  renderInput(id, type) {
+  renderInput(id) {
     const classes = `input__element input__element--${this.props.type}`;
     const placeholder = this.props.placeholder || this.props.label;
 
-    return (
-      <input
-        {...omit(
-          this.props,
-          'valueFormatter',
-          'hasSuccess',
-          'hasWarning',
-          'hasError',
-          'helpText',
-          'leftAddon',
-          'rightAddon',
-          'options',
-          'classes',
-          'sheet',
-          'theme',
-          'variant',
-        )}
-        id={id}
-        className={classes}
-        type={type || this.props.type}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        onChange={this.onChange}
-        placeholder={placeholder}
-        value={this.state.value}
-      />
-    );
+    const props = {
+      ...omit(
+        this.props,
+        'valueFormatter',
+        'hasSuccess',
+        'hasWarning',
+        'hasError',
+        'helpText',
+        'leftAddon',
+        'rightAddon',
+        'options',
+        'classes',
+        'sheet',
+        'theme',
+        'variant',
+        'lineCount',
+      ),
+      id,
+      placeholder,
+      className: classes,
+      onFocus: this.onFocus,
+      onBlur: this.onBlur,
+      onChange: this.onChange,
+      value: this.state.value,
+    };
+
+    if (this.props.type === 'textarea') {
+      return <textarea {...props} style={{ height: this.props.lineCount * 21 }} />;
+    }
+
+    return <input {...props} />;
   }
 
   renderLabel(id) {
@@ -221,11 +225,14 @@ InputDefault.propTypes = {
   helpText: PropTypes.node,
   leftAddon: PropTypes.node,
   rightAddon: PropTypes.node,
+  /** Only used when type === textarea */
+  lineCount: PropTypes.number,
 };
 
 InputDefault.defaultProps = {
   type: 'text',
   variant: 'primary',
+  lineCount: 3,
 };
 
 export default injectSheet(styles)(InputDefault);

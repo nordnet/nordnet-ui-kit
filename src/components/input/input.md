@@ -235,3 +235,14 @@ Type: `radio`
         hasError
       />
     </div>
+
+Type: `textarea`
+
+    <div>
+      <Input
+        label="textarea input"
+        type="textarea"
+        name="textarea-input"
+        placeholder="write a story..."
+      />
+    </div>
