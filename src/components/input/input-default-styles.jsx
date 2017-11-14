@@ -168,6 +168,10 @@ export default theme => {
         '&:focus': {
           outline: 'none',
         },
+        '&--textarea': {
+          maxHeight: 'none',
+          resize: 'vertical',
+        },
       },
 
       '& .input__validation-icon': {
