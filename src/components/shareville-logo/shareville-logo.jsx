@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SharevilleLogo({ onlyIcon, height }) {
+function SharevilleLogo({ onlyIcon, height, ...rest }) {
   const width = onlyIcon ? height * 0.85 : height * 0.9;
 
   if (onlyIcon) {
     return (
-      <svg viewBox="0 0 166.54 203.5" width={width} height={height}>
+      <svg viewBox="0 0 166.54 203.5" width={width} height={height} {...rest}>
         <defs>
           <style
             dangerouslySetInnerHTML={{
@@ -80,7 +80,7 @@ function SharevilleLogo({ onlyIcon, height }) {
     );
   }
   return (
-    <svg viewBox="0 0 232.01 257.26" width={width} height={height}>
+    <svg viewBox="0 0 232.01 257.26" width={width} height={height} {...rest}>
       <defs>
         <style
           dangerouslySetInnerHTML={{
