@@ -171,6 +171,7 @@ export default theme => {
         '&--textarea': {
           maxHeight: 'none',
           resize: 'vertical',
+          height: ({ lineCount }) => `${lineCount * 1.5}em`,
         },
       },
 

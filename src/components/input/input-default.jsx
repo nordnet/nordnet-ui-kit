@@ -102,6 +102,7 @@ class InputDefault extends React.PureComponent {
   renderInput(id) {
     const classes = `input__element input__element--${this.props.type}`;
     const placeholder = this.props.placeholder || this.props.label;
+    const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
 
     const props = {
       ...omit(
@@ -129,11 +130,7 @@ class InputDefault extends React.PureComponent {
       value: this.state.value,
     };
 
-    if (this.props.type === 'textarea') {
-      return <textarea {...props} style={{ height: this.props.lineCount * 21 }} />;
-    }
-
-    return <input {...props} />;
+    return <Tag {...props} />;
   }
 
   renderLabel(id) {
@@ -226,7 +223,7 @@ InputDefault.propTypes = {
   leftAddon: PropTypes.node,
   rightAddon: PropTypes.node,
   /** Only used when type === textarea */
-  lineCount: PropTypes.number,
+  lineCount: PropTypes.number, // eslint-disable-line
 };
 
 InputDefault.defaultProps = {
