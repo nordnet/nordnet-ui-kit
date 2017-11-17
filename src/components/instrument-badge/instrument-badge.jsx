@@ -38,6 +38,8 @@ export const styles = theme => {
     badgeWrapper: {
       display: 'flex',
       position: 'relative',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     badge: {
       display: 'flex',
@@ -46,8 +48,8 @@ export const styles = theme => {
       width: '100%',
       height: '100%',
     },
-    icon: {
-      color: ({ qualified }) => (qualified ? theme.palette.color.blueDark : theme.palette.color.gray),
+    hexagon: {
+      color: ({ qualified }) => (qualified ? theme.palette.color.green : theme.palette.color.red),
 
       '$sm &': {
         width: 35,
@@ -59,48 +61,23 @@ export const styles = theme => {
         height: 55,
       },
     },
-    instrumentLvl: {
-      ...typography.secondary,
-      color: palette.color.white,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+    icon: {
       position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
+      left: '50%',
+      top: '50%',
+      transform: 'translate(-50%,-50%)',
+      color: palette.color.white,
 
       '$sm &': {
-        fontSize: 12,
+        '& > svg': {
+          // Need to work out a way to control height and width for both
+        },
       },
 
       '$md &': {
-        marginTop: 2,
-        fontSize: 26,
-      },
-    },
-    successFail: {
-      backgroundColor: ({ qualified }) => (qualified ? palette.color.green : palette.color.red),
-      color: palette.color.white,
-      position: 'absolute',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '50%',
-
-      '$sm &': {
-        height: 13,
-        width: 13,
-        marginLeft: 21,
-        marginTop: 19,
-      },
-
-      '$md &': {
-        height: 21,
-        width: 21,
-        marginLeft: 33,
-        marginTop: 29,
+        '& > svg': {
+          // Need to work out a way to control height and width for both
+        },
       },
     },
     subText: {
@@ -119,13 +96,10 @@ export const styles = theme => {
   };
 };
 
-const getIconProps = ({ size, strokeWidth, padding }) => ({
+const getIconProps = ({ strokeWidth }) => ({
   strokeWidth,
   fill: 'currentColor',
   stroke: 'currentColor',
-  style: {
-    padding: size === 'sm' ? padding.sm : padding.md,
-  },
 });
 
 class InstrumentBadge extends React.Component {
@@ -133,27 +107,29 @@ class InstrumentBadge extends React.Component {
     const { qualified, qualifyBadgeDisabled, size, classes } = this.props;
 
     if (qualifyBadgeDisabled) {
-      return null;
+      return <Icon.ExclamationPoint {...getIconProps({ size, strokeWidth: 2 })} />;
     }
-    return (
-      <div className={classes.successFail}>
-        {qualified
-          ? <Icon.Checkmark {...getIconProps({ size, strokeWidth: 2, padding: { sm: 1, md: 0 } })} />
-          : <Icon.Close {...getIconProps({ size, strokeWidth: 3, padding: { sm: 3, md: 3 } })} />}
-      </div>
-    );
+    return qualified
+      ? <Icon.Checkmark {...getIconProps({ size, strokeWidth: 2 })} />
+      : <Icon.ExclamationPoint className={classes.exclamationPoint} {...getIconProps({ size, strokeWidth: 2 })} />;
   };
 
   renderInstrumentBadge = () => {
-    const { instrumentLvl, subText, classes } = this.props;
+    const { subText, classes } = this.props;
 
     return (
       <div className={classes.wrapper}>
         <div className={classes.badgeWrapper}>
-          {this.renderQualifyBadge()}
+          <div className={classes.icon}>{this.renderQualifyBadge()}</div>
           <div className={classes.badge}>
-            <Icon.Hexagon className={classes.icon} stroke="currentColor" fill="currentColor" width="100%" height="100%" strokeWidth={5} />
-            <span className={classes.instrumentLvl}>{instrumentLvl}</span>
+            <Icon.Hexagon
+              className={classes.hexagon}
+              stroke="currentColor"
+              fill="currentColor"
+              width="100%"
+              height="100%"
+              strokeWidth={5}
+            />
           </div>
         </div>
         <span className={classes.subText}>
@@ -174,7 +150,6 @@ class InstrumentBadge extends React.Component {
           'classes',
           'theme',
           'qualified',
-          'instrumentLvl',
           'subText',
           'tooltipContent',
           'tooltipPlacement',
@@ -199,7 +174,6 @@ InstrumentBadge.propTypes = {
   tooltipPlacement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
   qualified: PropTypes.bool,
   qualifyBadgeDisabled: PropTypes.bool,
-  instrumentLvl: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   subText: PropTypes.string,
   showBackgroundCircle: PropTypes.bool,
   size: PropTypes.string,
