@@ -18,6 +18,14 @@ export const styles = theme => {
       borderRadius: '50%',
       backgroundColor: palette.color.grayLighter,
 
+      height: 45,
+      width: 45,
+
+      [mixins.media('md')]: {
+        height: 70,
+        width: 70,
+      },
+
       '&$sm': {
         height: 45,
         width: 45,
@@ -38,16 +46,20 @@ export const styles = theme => {
     badgeWrapper: {
       display: 'flex',
       position: 'relative',
+      alignSelf: 'center',
+      justifyContent: 'center',
     },
     badge: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      width: '100%',
-      height: '100%',
-    },
-    icon: {
-      color: ({ qualified }) => (qualified ? theme.palette.color.blueDark : theme.palette.color.gray),
+      width: 39,
+      height: 39,
+
+      [mixins.media('md')]: {
+        width: 55,
+        height: 55,
+      },
 
       '$sm &': {
         width: 35,
@@ -59,101 +71,134 @@ export const styles = theme => {
         height: 55,
       },
     },
-    instrumentLvl: {
-      ...typography.secondary,
-      color: palette.color.white,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+    hexagon: {
+      color: ({ qualified, qualifiedColor = theme.palette.color.green, unqualifiedColor = theme.palette.color.red }) =>
+        qualified ? qualifiedColor : unqualifiedColor,
+    },
+    iconWrapper: {
       position: 'absolute',
+      width: '100%',
+      height: '100%',
       top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
+    },
+    icon: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100%',
+      color: palette.color.white,
+
+      '& > svg': {
+        width: 15,
+        height: 18,
+      },
+
+      [mixins.media('md')]: {
+        '& > svg': {
+          width: 24,
+          height: 18,
+        },
+      },
 
       '$sm &': {
-        fontSize: 12,
+        '& > svg': {
+          width: 15,
+          height: 18,
+        },
       },
 
       '$md &': {
-        marginTop: 2,
-        fontSize: 26,
+        '& > svg': {
+          width: 24,
+          height: 18,
+        },
       },
     },
-    successFail: {
-      backgroundColor: ({ qualified }) => (qualified ? palette.color.green : palette.color.red),
-      color: palette.color.white,
-      position: 'absolute',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '50%',
+    exclamationPoint: {
+      width: 22,
+      height: 22,
+      '& > svg': {
+        width: 22,
+        height: 22,
+      },
+      [mixins.media('md')]: {
+        width: 28,
+        height: 34,
+        '& > svg': {
+          width: 28,
+          height: 34,
+        },
+      },
 
       '$sm &': {
-        height: 13,
-        width: 13,
-        marginLeft: 21,
-        marginTop: 19,
+        width: 22,
+        height: 22,
+        '& > svg': {
+          width: 22,
+          height: 22,
+        },
       },
 
       '$md &': {
-        height: 21,
-        width: 21,
-        marginLeft: 33,
-        marginTop: 29,
+        width: 28,
+        height: 34,
+        '& > svg': {
+          width: 28,
+          height: 34,
+        },
       },
     },
     subText: {
-      color: ({ qualified }) => (qualified ? palette.color.blueDark : palette.color.gray),
+      color: ({ qualified, qualifiedColor = palette.color.green, unqualifiedColor = palette.color.red }) =>
+        qualified ? qualifiedColor : unqualifiedColor,
       textAlign: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'center' : 'left'),
       marginLeft: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 0 : 4),
-
+      fontSize: ({ subTextFontSize = 10 }) => subTextFontSize,
+      [mixins.media('md')]: {
+        fontSize: ({ subTextFontSize = 16 }) => subTextFontSize,
+      },
       '$sm &': {
-        fontSize: ({ subTextFontSize }) => subTextFontSize || 10,
+        fontSize: ({ subTextFontSize = 10 }) => subTextFontSize,
       },
 
       '$md &': {
-        fontSize: ({ subTextFontSize }) => subTextFontSize || 16,
+        fontSize: ({ subTextFontSize = 16 }) => subTextFontSize,
       },
     },
   };
 };
 
-const getIconProps = ({ size, strokeWidth, padding }) => ({
+const getIconProps = ({ strokeWidth }) => ({
   strokeWidth,
   fill: 'currentColor',
   stroke: 'currentColor',
-  style: {
-    padding: size === 'sm' ? padding.sm : padding.md,
-  },
 });
 
 class InstrumentBadge extends React.Component {
   renderQualifyBadge = () => {
-    const { qualified, qualifyBadgeDisabled, size, classes } = this.props;
+    const { qualified, size, classes } = this.props;
 
-    if (qualifyBadgeDisabled) {
-      return null;
-    }
-    return (
-      <div className={classes.successFail}>
-        {qualified
-          ? <Icon.Checkmark {...getIconProps({ size, strokeWidth: 2, padding: { sm: 1, md: 0 } })} />
-          : <Icon.Close {...getIconProps({ size, strokeWidth: 3, padding: { sm: 3, md: 3 } })} />}
-      </div>
-    );
+    return qualified
+      ? <Icon.Checkmark {...getIconProps({ size, strokeWidth: 1 })} />
+      : <div className={classes.exclamationPoint}><Icon.ExclamationPoint {...getIconProps({ size, strokeWidth: 2 })} /></div>;
   };
 
   renderInstrumentBadge = () => {
-    const { instrumentLvl, subText, classes } = this.props;
+    const { subText, classes } = this.props;
 
     return (
       <div className={classes.wrapper}>
         <div className={classes.badgeWrapper}>
-          {this.renderQualifyBadge()}
+          <div className={classes.iconWrapper}><div className={classes.icon}>{this.renderQualifyBadge()}</div></div>
           <div className={classes.badge}>
-            <Icon.Hexagon className={classes.icon} stroke="currentColor" fill="currentColor" width="100%" height="100%" strokeWidth={5} />
-            <span className={classes.instrumentLvl}>{instrumentLvl}</span>
+            <Icon.Hexagon
+              className={classes.hexagon}
+              stroke="currentColor"
+              fill="currentColor"
+              width="100%"
+              height="100%"
+              strokeWidth={5}
+            />
           </div>
         </div>
         <span className={classes.subText}>
@@ -174,14 +219,14 @@ class InstrumentBadge extends React.Component {
           'classes',
           'theme',
           'qualified',
-          'instrumentLvl',
           'subText',
           'tooltipContent',
           'tooltipPlacement',
-          'qualifyBadgeDisabled',
           'subTextPlacement',
           'subTextFontSize',
           'showBackgroundCircle',
+          'qualifiedColor',
+          'unqualifiedColor',
         )}
       >
         {tooltipContent
@@ -198,8 +243,6 @@ InstrumentBadge.propTypes = {
   tooltipContent: PropTypes.node,
   tooltipPlacement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
   qualified: PropTypes.bool,
-  qualifyBadgeDisabled: PropTypes.bool,
-  instrumentLvl: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   subText: PropTypes.string,
   showBackgroundCircle: PropTypes.bool,
   size: PropTypes.string,
@@ -210,17 +253,17 @@ InstrumentBadge.propTypes = {
   theme: PropTypes.object.isRequired,
   subTextPlacement: PropTypes.oneOf(['below', 'right']),
   subTextFontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  qualifiedColor: PropTypes.string,
+  unqualifiedColor: PropTypes.string,
   /* eslint-enable */
 };
 
 InstrumentBadge.defaultProps = {
   tooltipPlacement: 'above',
   qualified: false,
-  qualifyBadgeDisabled: false,
-  instrumentLvl: 0,
   subTextPlacement: 'below',
   showBackgroundCircle: false,
-  size: 'sm',
+  size: '',
 };
 
 export { InstrumentBadge as Component };
