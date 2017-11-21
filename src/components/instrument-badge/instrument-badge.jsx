@@ -72,8 +72,8 @@ export const styles = theme => {
       },
     },
     hexagon: {
-      color: ({ qualified, qualifiedColor, unqualifiedColor }) =>
-        qualified ? qualifiedColor || theme.palette.color.green : unqualifiedColor || theme.palette.color.red,
+      color: ({ qualified, qualifiedColor = theme.palette.color.green, unqualifiedColor = theme.palette.color.red }) =>
+        qualified ? qualifiedColor : unqualifiedColor,
     },
     iconWrapper: {
       position: 'absolute',
@@ -149,20 +149,20 @@ export const styles = theme => {
       },
     },
     subText: {
-      color: ({ qualified, qualifiedColor, unqualifiedColor }) =>
-        qualified ? qualifiedColor || palette.color.green : unqualifiedColor || palette.color.red,
+      color: ({ qualified, qualifiedColor = palette.color.green, unqualifiedColor = palette.color.red }) =>
+        qualified ? qualifiedColor : unqualifiedColor,
       textAlign: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'center' : 'left'),
       marginLeft: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 0 : 4),
-      fontSize: ({ subTextFontSize }) => subTextFontSize || 10,
+      fontSize: ({ subTextFontSize = 10 }) => subTextFontSize,
       [mixins.media('md')]: {
-        fontSize: ({ subTextFontSize }) => subTextFontSize || 16,
+        fontSize: ({ subTextFontSize = 16 }) => subTextFontSize,
       },
       '$sm &': {
-        fontSize: ({ subTextFontSize }) => subTextFontSize || 10,
+        fontSize: ({ subTextFontSize = 10 }) => subTextFontSize,
       },
 
       '$md &': {
-        fontSize: ({ subTextFontSize }) => subTextFontSize || 16,
+        fontSize: ({ subTextFontSize = 16 }) => subTextFontSize,
       },
     },
   };
@@ -176,11 +176,8 @@ const getIconProps = ({ strokeWidth }) => ({
 
 class InstrumentBadge extends React.Component {
   renderQualifyBadge = () => {
-    const { qualified, qualifyBadgeDisabled, size, classes } = this.props;
+    const { qualified, size, classes } = this.props;
 
-    if (qualifyBadgeDisabled) {
-      return <div className={classes.exclamationPoint}><Icon.ExclamationPoint {...getIconProps({ size, strokeWidth: 2 })} /></div>;
-    }
     return qualified
       ? <Icon.Checkmark {...getIconProps({ size, strokeWidth: 1 })} />
       : <div className={classes.exclamationPoint}><Icon.ExclamationPoint {...getIconProps({ size, strokeWidth: 2 })} /></div>;
@@ -225,7 +222,6 @@ class InstrumentBadge extends React.Component {
           'subText',
           'tooltipContent',
           'tooltipPlacement',
-          'qualifyBadgeDisabled',
           'subTextPlacement',
           'subTextFontSize',
           'showBackgroundCircle',
@@ -247,7 +243,6 @@ InstrumentBadge.propTypes = {
   tooltipContent: PropTypes.node,
   tooltipPlacement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
   qualified: PropTypes.bool,
-  qualifyBadgeDisabled: PropTypes.bool,
   subText: PropTypes.string,
   showBackgroundCircle: PropTypes.bool,
   size: PropTypes.string,
@@ -266,7 +261,6 @@ InstrumentBadge.propTypes = {
 InstrumentBadge.defaultProps = {
   tooltipPlacement: 'above',
   qualified: false,
-  qualifyBadgeDisabled: false,
   subTextPlacement: 'below',
   showBackgroundCircle: false,
   size: '',
