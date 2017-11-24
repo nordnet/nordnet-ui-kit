@@ -49,7 +49,93 @@ export default theme => {
     },
 
     popup: {
+      transition: transitions.create(['opacity']),
       position: 'absolute',
+      zIndex: zIndexTooltip,
+
+      '&.above': {
+        left: '50%',
+        bottom: '100%',
+        marginBottom: 8,
+        transform: 'translateX(-50%)',
+      },
+
+      '&.below': {
+        left: '50%',
+        marginTop: 4,
+        transform: 'translateX(-50%)',
+      },
+
+      '&.left': {
+        right: 8,
+        top: '50%',
+        marginRight: '100%',
+        transform: 'translate(0, -50%)',
+      },
+
+      '&.right': {
+        left: 8,
+        top: '50%',
+        marginLeft: '100%',
+        transform: 'translate(0, -50%)',
+      },
+    },
+
+    aboveArrow: {
+      clear: 'both',
+      top: 0,
+      position: 'relative',
+      float: 'left',
+      width: 0,
+      borderTop: `8px solid ${palette.text.default}`,
+      borderRight: '8px solid transparent',
+      borderLeft: '8px solid transparent',
+      left: '50%',
+      bottom: '100%',
+      transform: 'translateX(-50%)',
+    },
+
+    belowArrow: {
+      clear: 'both',
+      position: 'relative',
+      float: 'left',
+      width: 0,
+      left: '50%',
+      bottom: '100%',
+      transform: 'translateX(-50%)',
+      borderLeft: '8px solid transparent',
+      borderRight: '8px solid transparent',
+      borderBottom: `8px solid ${palette.text.default}`,
+    },
+
+    leftArrow: {
+      left: 'inherit',
+      position: 'absolute',
+      right: -6,
+      marginTop: -6,
+      top: '50%',
+      content: '""',
+      borderTop: '6px solid transparent',
+      borderBottom: '6px solid transparent',
+      borderLeft: `6px solid ${palette.text.default}`,
+    },
+
+    rightArrow: {
+      right: 'inherit',
+      left: -6,
+      position: 'absolute',
+      marginTop: -6,
+      top: '50%',
+      content: '""',
+      borderTop: '6px solid transparent',
+      borderBottom: '6px solid transparent',
+      borderRight: `6px solid ${palette.text.default}`,
+    },
+
+    popupContent: {
+      position: 'relative',
+      float: 'left',
+      clear: 'both',
       textAlign: 'left',
       fontSize: 12,
       padding: '4px 16px',
@@ -57,10 +143,6 @@ export default theme => {
       background: palette.text.default,
       fontFamily: typography.primary.default,
       borderRadius: 4,
-      whiteSpace: 'nowrap',
-      zIndex: zIndexTooltip,
-      transition: transitions.create(['opacity']),
-
       '&:before': {
         position: 'absolute',
         left: '50%',
@@ -70,69 +152,6 @@ export default theme => {
         width: 0,
         height: 0,
         zIndex: zIndexTooltip,
-      },
-
-      '&.below': {
-        left: '50%',
-        marginTop: 4,
-        transform: 'translateX(-50%)',
-
-        '&:before': {
-          top: -8,
-          borderLeft: '8px solid transparent',
-          borderRight: '8px solid transparent',
-          borderBottom: `8px solid ${palette.text.default}`,
-        },
-      },
-
-      '&.left': {
-        right: 8,
-        top: '50%',
-        marginRight: '100%',
-        transform: 'translate(0, -50%)',
-
-        '&:before': {
-          left: 'inherit',
-          right: -8,
-          marginTop: -6,
-          top: '50%',
-          content: '""',
-          borderTop: '6px solid transparent',
-          borderBottom: '6px solid transparent',
-          borderLeft: `6px solid ${palette.text.default}`,
-        },
-      },
-
-      '&.right': {
-        left: 8,
-        top: '50%',
-        marginLeft: '100%',
-        transform: 'translate(0, -50%)',
-
-        '&:before': {
-          right: 'inherit',
-          left: -2,
-          marginTop: -6,
-          top: '50%',
-          content: '""',
-          borderTop: '6px solid transparent',
-          borderBottom: '6px solid transparent',
-          borderRight: `6px solid ${palette.text.default}`,
-        },
-      },
-
-      '&.above': {
-        left: '50%',
-        bottom: '100%',
-        marginBottom: 8,
-        transform: 'translateX(-50%)',
-
-        '&:before': {
-          bottom: -8,
-          borderTop: `8px solid ${palette.text.default}`,
-          borderRight: '8px solid transparent',
-          borderLeft: '8px solid transparent',
-        },
       },
     },
   };

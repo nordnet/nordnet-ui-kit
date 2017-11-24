@@ -31,6 +31,8 @@ class Tooltip extends React.Component {
 
     this.placement = props.placement;
     this.classes = this.props.classes;
+    this.left = null;
+    this.arrowLeft = null;
     this.renderPopup = this.renderPopup.bind(this);
   }
 
@@ -117,28 +119,57 @@ class Tooltip extends React.Component {
   }
 
   renderPopup(content, placement, tooltipStyle) {
-    const style = {
+    if (this.container && this.left === null) {
+      const popupRect = this.popup.getBoundingClientRect();
+      if (popupRect.left < 0) {
+        this.left = 10 - popupRect.left;
+      } else if (popupRect.right > window.innerWidth) {
+        this.left = -(popupRect.right - window.innerWidth + 10);
+      }
+    }
+
+    let arrowAfter;
+    let arrowBefore;
+    if (placement === 'below') {
+      arrowBefore = <div className={this.classes.belowArrow} />;
+    } else if (placement === 'above') {
+      arrowAfter = <div className={this.classes.aboveArrow} />;
+    } else if (placement === 'left') {
+      arrowAfter = <div className={this.classes.leftArrow} />;
+    } else if (placement === 'right') {
+      arrowAfter = <div className={this.classes.rightArrow} />;
+    }
+
+    const wrapperStyle = {
       opacity: this.state.hover || this.state.toggled ? 1 : 0,
       pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
       ...tooltipStyle,
     };
 
     if (this.props.fixedWidth) {
-      style.width = this.props.fixedWidth;
-      style.whiteSpace = 'inherit';
+      wrapperStyle.width = this.props.fixedWidth;
+      wrapperStyle.whiteSpace = 'inherit';
     }
 
+    const contentStyle = {
+      left: this.left,
+    };
+
     return (
-      <div
-        style={style}
-        className={classnames(this.classes.popup, placement)}
-        ref={popup => {
-          this.popup = popup;
-        }}
-      >
-        <div className="content">
-          {content}
+      <div className={classnames(this.classes.popup, placement)} style={wrapperStyle}>
+        {arrowBefore}
+        <div
+          style={contentStyle}
+          className={classnames(this.classes.popupContent, placement)}
+          ref={popup => {
+            this.popup = popup;
+          }}
+        >
+          <div className="content">
+            {content}
+          </div>
         </div>
+        {arrowAfter}
       </div>
     );
   }
@@ -147,9 +178,6 @@ class Tooltip extends React.Component {
     const { children, content, className, placement, style, tooltipStyle } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = placement || this.getPlacement(placement);
-
-      const rect = this.container.getBoundingClientRect();
-      this.contentHeight = (rect.height || 0) - 3;
     }
 
     return (
