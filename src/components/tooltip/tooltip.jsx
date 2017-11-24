@@ -32,7 +32,6 @@ class Tooltip extends React.Component {
     this.placement = props.placement;
     this.classes = this.props.classes;
     this.left = null;
-    this.arrowLeft = null;
     this.renderPopup = this.renderPopup.bind(this);
   }
 
