@@ -40,7 +40,7 @@ describe('<InstrumentBadge />', () => {
   });
 
   it('should render instrument level and subtext', () => {
-    wrapper = shallow(<InstrumentBadge instrumentLvl={2} subText={'Qualified!'} classes={classes} theme={theme} />);
+    wrapper = shallow(<InstrumentBadge subText={'Qualified!'} classes={classes} theme={theme} />);
     expect(wrapper.find(`.${classes.subText}`).text()).to.equal('Qualified!');
   });
 });
