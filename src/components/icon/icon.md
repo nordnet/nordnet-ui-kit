@@ -48,7 +48,7 @@ All available icons:
 
     const iconFilter = (
       <div>
-        <label for="filter">Filter: </label>
+        <label htmlFor="filter">Filter: </label>
         <Input
           id="filter"
           type="text"
@@ -56,7 +56,7 @@ All available icons:
           onChange={
             ({ target: { value }}) => {
               setState({
-                icons: icons.filter(name => name.toLowerCase().indexOf(value) > -1),
+                icons: icons.filter(name => name.toLowerCase().indexOf(value.toLowerCase()) > -1),
                 value,
               });
             }}
@@ -67,7 +67,7 @@ All available icons:
 
     const colorPicker = (
       <div>
-        <label for="color">Icon color: </label>
+        <label htmlFor="color">Icon color: </label>
         <Input
           id="color"
           type="text"
