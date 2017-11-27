@@ -52,17 +52,16 @@ export default theme => {
       transition: transitions.create(['opacity']),
       position: 'absolute',
       zIndex: zIndexTooltip,
+      whiteSpace: 'nowrap',
 
       '&.above': {
         left: '50%',
         bottom: '100%',
-        marginBottom: 8,
         transform: 'translateX(-50%)',
       },
 
       '&.below': {
         left: '50%',
-        marginTop: 4,
         transform: 'translateX(-50%)',
       },
 

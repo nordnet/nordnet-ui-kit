@@ -118,7 +118,7 @@ class Tooltip extends React.Component {
   }
 
   renderPopup(content, placement, tooltipStyle) {
-    if (this.container && this.left === null) {
+    if (this.container && this.left === null && (placement === 'below' || placement === 'above')) {
       const popupRect = this.popup.getBoundingClientRect();
       if (popupRect.left < 0) {
         this.left = 10 - popupRect.left;
@@ -152,6 +152,7 @@ class Tooltip extends React.Component {
 
     const contentStyle = {
       left: this.left,
+      width: '100%',
     };
 
     return (
