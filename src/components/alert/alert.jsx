@@ -19,6 +19,14 @@ class Alert extends React.PureComponent {
     this.handleCloseClick = this.handleCloseClick.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.dismissed !== this.state.dismissed) {
+      this.setState({
+        dismissed: nextProps.dismissed,
+      });
+    }
+  }
+
   handleCloseClick() {
     this.setState({
       dismissed: true,
