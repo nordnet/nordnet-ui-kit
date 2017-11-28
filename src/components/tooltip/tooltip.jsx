@@ -31,6 +31,7 @@ class Tooltip extends React.Component {
 
     this.placement = props.placement;
     this.classes = this.props.classes;
+    this.left = null;
     this.renderPopup = this.renderPopup.bind(this);
   }
 
@@ -117,27 +118,37 @@ class Tooltip extends React.Component {
   }
 
   renderPopup(content, placement, tooltipStyle) {
-    const style = {
+    if (this.container && this.left === null && (placement === 'below' || placement === 'above')) {
+      const popupRect = this.popup.getBoundingClientRect();
+      if (popupRect.left < 0) {
+        this.left = 10 - popupRect.left;
+      } else if (popupRect.right > window.innerWidth) {
+        this.left = -(popupRect.right - window.innerWidth + 10);
+      }
+    }
+
+    const wrapperStyle = {
       opacity: this.state.hover || this.state.toggled ? 1 : 0,
       pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
       ...tooltipStyle,
     };
 
-    if (this.props.fixedWidth) {
-      style.width = this.props.fixedWidth;
-      style.whiteSpace = 'inherit';
-    }
+    const contentStyle = {
+      left: this.left,
+    };
 
     return (
-      <div
-        style={style}
-        className={classnames(this.classes.popup, placement)}
-        ref={popup => {
-          this.popup = popup;
-        }}
-      >
-        <div className="content">
-          {content}
+      <div className={classnames(this.classes.popup, this.classes[placement])} style={wrapperStyle}>
+        <div
+          style={contentStyle}
+          className={classnames(this.classes.popupContent, this.classes[placement])}
+          ref={popup => {
+            this.popup = popup;
+          }}
+        >
+          <div>
+            {content}
+          </div>
         </div>
       </div>
     );
@@ -147,9 +158,6 @@ class Tooltip extends React.Component {
     const { children, content, className, placement, style, tooltipStyle } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = placement || this.getPlacement(placement);
-
-      const rect = this.container.getBoundingClientRect();
-      this.contentHeight = (rect.height || 0) - 3;
     }
 
     return (
@@ -166,7 +174,7 @@ class Tooltip extends React.Component {
           ref={container => {
             this.container = container;
           }}
-          className={classnames(this.classes.container, this.placement)}
+          className={classnames(this.classes.container, this.classes[this.placement])}
           onClick={this.toggleShow}
         >
           {children}
@@ -196,7 +204,7 @@ Tooltip.propTypes = {
   /** Tooltip should display when clicked */
   sticky: PropTypes.bool,
   placement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
-  fixedWidth: PropTypes.number,
+  fixedWidth: PropTypes.number, //  eslint-disable-line
 };
 
 export { Tooltip as Component, styles };

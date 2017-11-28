@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
-import { mockClasses } from '../../../src';
+import { mockClasses, theme } from '../../../src';
 import { Component as Tooltip, styles } from '../../../src/components/tooltip/tooltip';
 
 describe('<Tooltip />', () => {
@@ -47,8 +47,11 @@ describe('<Tooltip />', () => {
   });
 
   it('should have fixedWidth', () => {
-    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." fixedWidth={123} />);
-    expect(wrapper.find(`.${classes.popup}`).props().style.width).to.equal(123);
+    const props = {
+      fixedWidth: 123,
+    };
+    const actual = styles(theme).popup.width(props);
+    expect(actual).to.equal(props.fixedWidth);
   });
 
   it('should set className to above', () => {
@@ -109,7 +112,7 @@ describe('<Tooltip />', () => {
 
     it('should not untoggle tooltip when clicked inside', () => {
       component.find(`.${classes.container}`).simulate('click');
-      component.find('.content').simulate('click');
+      component.find(`.${classes.popupContent}`).simulate('click');
       expect(component.state('toggled')).to.equal(true);
     });
   });
