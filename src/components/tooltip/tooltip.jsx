@@ -127,49 +127,29 @@ class Tooltip extends React.Component {
       }
     }
 
-    let arrowAfter;
-    let arrowBefore;
-    if (placement === 'below') {
-      arrowBefore = <div className={this.classes.belowArrow} />;
-    } else if (placement === 'above') {
-      arrowAfter = <div className={this.classes.aboveArrow} />;
-    } else if (placement === 'left') {
-      arrowAfter = <div className={this.classes.leftArrow} />;
-    } else if (placement === 'right') {
-      arrowAfter = <div className={this.classes.rightArrow} />;
-    }
-
     const wrapperStyle = {
       opacity: this.state.hover || this.state.toggled ? 1 : 0,
       pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
       ...tooltipStyle,
     };
 
-    if (this.props.fixedWidth) {
-      wrapperStyle.width = this.props.fixedWidth;
-      wrapperStyle.whiteSpace = 'inherit';
-    }
-
     const contentStyle = {
       left: this.left,
-      width: '100%',
     };
 
     return (
-      <div className={classnames(this.classes.popup, placement)} style={wrapperStyle}>
-        {arrowBefore}
+      <div className={classnames(this.classes.popup, this.classes[placement])} style={wrapperStyle}>
         <div
           style={contentStyle}
-          className={classnames(this.classes.popupContent, placement)}
+          className={classnames(this.classes.popupContent, this.classes[placement])}
           ref={popup => {
             this.popup = popup;
           }}
         >
-          <div className="content">
+          <div>
             {content}
           </div>
         </div>
-        {arrowAfter}
       </div>
     );
   }
@@ -194,7 +174,7 @@ class Tooltip extends React.Component {
           ref={container => {
             this.container = container;
           }}
-          className={classnames(this.classes.container, this.placement)}
+          className={classnames(this.classes.container, this.classes[this.placement])}
           onClick={this.toggleShow}
         >
           {children}
@@ -224,7 +204,7 @@ Tooltip.propTypes = {
   /** Tooltip should display when clicked */
   sticky: PropTypes.bool,
   placement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
-  fixedWidth: PropTypes.number,
+  fixedWidth: PropTypes.number, //  eslint-disable-line
 };
 
 export { Tooltip as Component, styles };
