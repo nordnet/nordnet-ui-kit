@@ -141,7 +141,9 @@ export default theme => {
       background: palette.text.default,
       fontFamily: typography.primary.default,
       borderRadius: 4,
-      wordBreak: ({ fixedWidth }) => (fixedWidth ? 'break-all' : 'normal'),
+      wordBreak: ({ fixedWidth }) => (fixedWidth ? 'break-word' : 'normal'),
+      overflowWrap: ({ fixedWidth }) => (fixedWidth ? 'break-word' : 'normal'),
+      wordWrap: ({ fixedWidth }) => (fixedWidth ? 'break-word' : 'normal'),
     },
   };
 };
