@@ -29,9 +29,9 @@ class Tooltip extends React.Component {
       below: rect => (window.innerHeight || document.documentElement.clientHeight) - rect.bottom > 0,
     };
 
+    this.left = 0;
     this.placement = props.placement;
     this.classes = this.props.classes;
-    this.left = null;
     this.renderPopup = this.renderPopup.bind(this);
   }
 
@@ -118,12 +118,18 @@ class Tooltip extends React.Component {
   }
 
   renderPopup(content, placement, tooltipStyle) {
-    if (this.container && this.left === null && (placement === 'below' || placement === 'above')) {
-      const popupRect = this.popup.getBoundingClientRect();
-      if (popupRect.left < 0) {
-        this.left = 10 - popupRect.left;
-      } else if (popupRect.right > window.innerWidth) {
-        this.left = -(popupRect.right - window.innerWidth + 10);
+    if (this.container && (placement === 'below' || placement === 'above')) {
+      if (this.state.hover) {
+        const popupRect = this.popup.getBoundingClientRect();
+        const adjustedLeft = popupRect.left - this.left;
+        const adjustedRight = popupRect.right - this.left;
+        if (adjustedLeft < 0) {
+          this.left = 10 - adjustedLeft;
+        } else if (adjustedRight > window.innerWidth) {
+          this.left = -(adjustedRight - window.innerWidth + 10);
+        } else {
+          this.left = 0;
+        }
       }
     }
 
@@ -135,6 +141,8 @@ class Tooltip extends React.Component {
 
     const contentStyle = {
       left: this.left,
+      position: (placement === 'above' || placement === 'below') && this.props.fixedWidth ? 'absolute' : 'static',
+      bottom: placement === 'above' ? 0 : 'auto',
     };
 
     return (
