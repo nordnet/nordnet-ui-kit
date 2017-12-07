@@ -21,6 +21,7 @@ import Cloud from './cloud';
 import Edit from './edit';
 import Ellipsis from './ellipsis';
 import ExclamationPoint from './exclamationPoint';
+import ExclamationPointCircle from './exclamationPointCircle';
 import Expand from './expand';
 import File from './file';
 import Film from './film';
@@ -85,6 +86,7 @@ const Icon = {
   Edit,
   Ellipsis,
   ExclamationPoint,
+  ExclamationPointCircle,
   Expand,
   File,
   Film,
