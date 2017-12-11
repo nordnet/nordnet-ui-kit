@@ -15,7 +15,6 @@ const styles = {
   height: {
     boxSizing: 'border-box',
     transitionProperty: 'max-height, height',
-    overflow: 'hidden',
   },
   heightEnter: initialHeight,
   heightEnterActive: {
@@ -23,12 +22,14 @@ const styles = {
     maxHeight: props => props.estimatedHeight,
     transitionTimingFunction: props => props.easingEnterFunction,
     transitionDuration: props => props.enterTime,
+    overflow: 'hidden',
   },
   heightExit: {
     height: props => props.estimatedHeight,
     maxHeight: props => props.estimatedHeight,
     transitionTimingFunction: props => props.easingLeaveFunction,
     transitionDuration: props => props.leaveTime,
+    overflow: 'hidden',
   },
   heightExitActive: initialHeight,
 };
