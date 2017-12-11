@@ -14,8 +14,8 @@ export default {
   blueDarker: '#2B417A', // Used together with dark in header gradient
   blueLight: '#E3F2FC', // Background color in alerts
   green: '#26A699', // Plus performance, success
-  red: '#D54E16', // Minus performance, error
-  redLight: '#DA6E42', // Sell
+  red: '#FE6F67', // Minus performance, error
+  redLight: '#FE6F67', // Sell
 
   yellow: '#E5AA4C', // Notification Logo
   yellowLight: '#FFF1DD', // Notification
