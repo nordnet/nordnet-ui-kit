@@ -16,6 +16,7 @@ export default theme => {
       borderBottom: `1px solid ${palette.background.secondary}`,
       padding: '6px 0',
       zIndex: 4,
+      borderRadius: 0,
       fontSize: '14px',
       textAlign: 'left',
       color: palette.text.secondary,
