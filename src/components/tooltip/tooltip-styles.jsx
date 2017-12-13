@@ -18,7 +18,7 @@ export default theme => {
 
     container: {
       cursor: 'pointer',
-      display: 'inline-block',
+      display: 'flex',
 
       ' .icon': {
         verticalAlign: 'text-bottom',
