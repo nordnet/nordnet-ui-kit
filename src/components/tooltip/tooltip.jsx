@@ -163,7 +163,7 @@ class Tooltip extends React.Component {
   }
 
   render() {
-    const { children, content, className, placement, style, tooltipStyle } = this.props;
+    const { children, content, className, placement, style, tooltipStyle, containerStyle } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = placement || this.getPlacement(placement);
     }
@@ -183,6 +183,7 @@ class Tooltip extends React.Component {
             this.container = container;
           }}
           className={classnames(this.classes.container, this.classes[this.placement])}
+          style={containerStyle}
           onClick={this.toggleShow}
         >
           {children}
@@ -205,6 +206,7 @@ Tooltip.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   tooltipStyle: PropTypes.object,
+  containerStyle: PropTypes.object,
   /** The content found in the tooltip */
   content: PropTypes.node,
   /** The container that, when clicked, will show the tooltip */
