@@ -14,7 +14,7 @@
         <span> ••• </span>
         <Tooltip content="Above" placement={'above'}><span>Hello world!</span></Tooltip>
         <span> ••• </span>
-        <Tooltip content={ <span>Above</span> } placement={'above'} />
+        <Tooltip content={ <span>Above</span> } placement={'above'}  containerStyle={{ display: 'flex', alignItems: 'center', backgroundColor: 'red' }}/>
       </li>
 
       <li style={{marginBottom: '11px'}}>
