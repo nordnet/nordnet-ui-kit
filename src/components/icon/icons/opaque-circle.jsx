@@ -18,10 +18,8 @@ export default function OpaqueCircle({
 
   return (
     <svg width={width} height={height} style={style} {...rest}>
-      <g stroke="none" strokeWidth={strokeWidth} fillRule="evenodd">
-        <g fillRule="nonzero">
-          <path d="M0,8a8,8 0 1,0 16,0a8,8 0 1,0 -16,0" fill={fill} />
-        </g>
+      <g stroke="none" strokeWidth={strokeWidth} fillRule="nonzero">
+        <path d="M0,8a8,8 0 1,0 16,0a8,8 0 1,0 -16,0" fill={fill} />
       </g>
     </svg>
   );
