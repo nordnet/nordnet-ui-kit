@@ -18,9 +18,9 @@ export default function Calculator({
   return (
     <svg width={width} height={width} style={style} {...rest} viewBox={`0 0 36 36`}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <g transform="translate(-107.000000, -78.000000)">
-          <g transform="translate(74.000000, 45.000000)">
-            <g transform="translate(33.000000, 33.000000)" fillRule="nonzero">
+        <g>
+          <g>
+            <g fillRule="nonzero">
               <path d="M17.1,14.9c0,1.1-0.9,2-2,2H2c-1.1,0-2-0.9-2-2V2c0-1.1,0.9-2,2-2h13.1c1.1,0,2,0.9,2,2V14.9z" fill="#FFFFFF" />
               <path
                 d="M36,14.9c0,1.1-0.9,2-2,2H20.9c-1.1,0-2-0.9-2-2V2c0-1.1,0.9-2,2-2H34c1.1,0,2,0.9,2,2 L36,14.9L36,14.9z"
