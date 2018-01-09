@@ -39,6 +39,8 @@ function CostInfoLogo({ width, className, classes }) {
       <Icon.Calculator
         width={parseInt(width * 0.36, 10)}
         className={classes.calculatorWrapper}
+        fill={theme.palette.color.white}
+        operatorFill={theme.palette.color.grayDarkest}
         style={{
           top: parseInt(width * 0.32, 10),
           left: parseInt(width * 0.32, 10),

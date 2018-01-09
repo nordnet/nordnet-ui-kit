@@ -18,11 +18,12 @@ export default function Ellipse({
   return (
     <svg width={width} height={height} style={style} {...rest} viewBox={`0 0 ${width} ${height}`}>
       <ellipse
+        fill={fill}
         cx={parseInt(width / 2, 10)}
         cy={parseInt(height / 2, 10)}
         rx={parseInt(width / 2, 10)}
         ry={parseInt(height / 2, 10)}
-        style={{ ...style, fill }}
+        style={{ ...style }}
       />
     </svg>
   );
