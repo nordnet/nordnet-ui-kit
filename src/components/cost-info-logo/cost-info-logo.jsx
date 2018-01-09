@@ -3,6 +3,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
 import { Icon, theme } from '../../';
+import Calculator from './calculator';
 
 export const styles = () => ({
   wrapper: {
@@ -36,7 +37,7 @@ function CostInfoLogo({ width, className, classes }) {
 
   return (
     <div className={cn(classes.wrapper, className)} style={{ width, height: parseInt(width * 1.1, 10) }}>
-      <Icon.Calculator
+      <Calculator
         width={parseInt(width * 0.36, 10)}
         className={classes.calculatorWrapper}
         fill={theme.palette.color.white}
@@ -46,7 +47,7 @@ function CostInfoLogo({ width, className, classes }) {
           left: parseInt(width * 0.32, 10),
         }}
       />
-      <Icon.OpaqueCircle
+      <Icon.Ellipse
         className={classes.innerCircleWrapper}
         style={{
           width: parseInt(width * 0.68, 10),
@@ -56,7 +57,7 @@ function CostInfoLogo({ width, className, classes }) {
         }}
         fill={theme.palette.color.blueDark}
       />
-      <Icon.OpaqueCircle
+      <Icon.Ellipse
         className={classes.outerCircleWrapper}
         style={{ width: parseInt(width, 10), height: parseInt(width, 10) }}
         fill={theme.palette.color.grayLighter}

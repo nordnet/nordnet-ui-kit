@@ -7,7 +7,6 @@ import ArrowUp from './arrowUp';
 import ArrowUpDown from './arrowUpDown';
 import Balloon from './balloon';
 import Bell from './bell';
-import Calculator from './calculator';
 import Calendar from './calendar';
 import Cart from './cart';
 import Checkmark from './checkmark';
@@ -44,7 +43,6 @@ import Mail from './mail';
 import MailOpen from './mailOpen';
 import Market from './market';
 import News from './news';
-import OpaqueCircle from './opaque-circle';
 import OrderDepth from './orderDepth';
 import Portfolio from './portfolio';
 import Print from './print';
@@ -75,7 +73,6 @@ const Icon = {
   ArrowUpDown,
   Balloon,
   Bell,
-  Calculator,
   Calendar,
   Cart,
   Checkmark,
@@ -112,7 +109,6 @@ const Icon = {
   MailOpen,
   Market,
   News,
-  OpaqueCircle,
   OrderDepth,
   Portfolio,
   Print,
