@@ -19,6 +19,7 @@ import Clock from './clock';
 import Close from './close';
 import Cloud from './cloud';
 import Edit from './edit';
+import Ellipse from './ellipse';
 import Ellipsis from './ellipsis';
 import ExclamationPoint from './exclamationPoint';
 import ExclamationPointCircle from './exclamationPointCircle';
@@ -84,6 +85,7 @@ const Icon = {
   Close,
   Cloud,
   Edit,
+  Ellipse,
   Ellipsis,
   ExclamationPoint,
   ExclamationPointCircle,
