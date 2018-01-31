@@ -6,8 +6,10 @@ import ArrowRight from './arrowRight';
 import ArrowUp from './arrowUp';
 import ArrowUpDown from './arrowUpDown';
 import Balloon from './balloon';
+import Bank from './bank';
 import Bell from './bell';
 import Calendar from './calendar';
+import Car from './car';
 import Cart from './cart';
 import Checkmark from './checkmark';
 import CheckmarkLarge from './checkmarkLarge';
@@ -18,6 +20,7 @@ import CircleSlash from './circleSlash';
 import Clock from './clock';
 import Close from './close';
 import Cloud from './cloud';
+import Drop from './drop';
 import Edit from './edit';
 import Ellipse from './ellipse';
 import Ellipsis from './ellipsis';
@@ -29,6 +32,7 @@ import Film from './film';
 import Filter from './filter';
 import FloppyDisk from './floppyDisk';
 import Folder from './folder';
+import Gear from './gear';
 import Globe from './globe';
 import GraphArea from './graphArea';
 import GraphCandlestick from './graphCandlestick';
@@ -36,12 +40,17 @@ import GraphLine from './graphLine';
 import GraphVolume from './graphVolume';
 import Heart from './heart';
 import Hexagon from './hexagon';
+import House from './house';
+import Industry from './industry';
 import Key from './key';
+import LightBulb from './lightBulb';
 import LightningBolt from './lightningBolt';
 import Lock from './lock';
 import Mail from './mail';
 import MailOpen from './mailOpen';
 import Market from './market';
+import MedKit from './medKit';
+import Mobile from './mobile';
 import News from './news';
 import OrderDepth from './orderDepth';
 import Portfolio from './portfolio';
@@ -72,8 +81,10 @@ const Icon = {
   ArrowUp,
   ArrowUpDown,
   Balloon,
+  Bank,
   Bell,
   Calendar,
+  Car,
   Cart,
   Checkmark,
   CheckmarkLarge,
@@ -84,6 +95,7 @@ const Icon = {
   Clock,
   Close,
   Cloud,
+  Drop,
   Edit,
   Ellipse,
   Ellipsis,
@@ -95,6 +107,7 @@ const Icon = {
   Filter,
   FloppyDisk,
   Folder,
+  Gear,
   Globe,
   GraphArea,
   GraphCandlestick,
@@ -102,12 +115,17 @@ const Icon = {
   GraphVolume,
   Heart,
   Hexagon,
+  House,
+  Industry,
   Key,
+  LightBulb,
   LightningBolt,
   Lock,
   Mail,
   MailOpen,
   Market,
+  MedKit,
+  Mobile,
   News,
   OrderDepth,
   Portfolio,

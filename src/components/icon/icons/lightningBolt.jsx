@@ -3,9 +3,7 @@ import React from 'react';
 import Icon from '../icon';
 
 export default function LightningBolt({
-  stroke,
   fill,
-  strokeWidth,
   style: styleProp,
   ...rest // eslint-disable-line comma-dangle
 }) {
@@ -15,10 +13,8 @@ export default function LightningBolt({
   };
   return (
     <svg style={style} {...rest}>
-      <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
-        <polygon fill={fill} points="9 2 4.5 9.5 7 9.5 7 14 11.5 6.5 9 6.5" />
-        <path d="M7.4,1 C3.8,1.3 1,4.3 1,8 C1,10.8 2.6,13.2 5,14.3" stroke={stroke} strokeWidth={strokeWidth} />
-        <path d="M11,1.7 C13.3,2.8 15,5.2 15,8 C15,11.7 12.2,14.7 8.6,15" stroke={stroke} strokeWidth={strokeWidth} />
+      <g stroke="none" fillRule="nonzero" fill={fill}>
+        <path d="M1.7070053,10.000193 L6.055017,10.000193 C6.2250175,10.000193 6.3820179,10.086191 6.4750182,10.229188 C6.5660184,10.370185 6.5800184,10.549181 6.5120183,10.704178 L4.0500116,16.243059 L11.2920311,9.001214 L6.9430194,9.001214 C6.775019,9.001214 6.6170185,8.915216 6.5250183,8.773219 C6.4340181,8.631222 6.419018,8.452226 6.4860182,8.297229 L8.9490248,2.758348 L1.7070053,10.000193 Z M2.5000075,19.0000001 C2.4020072,19.0000001 2.3030069,18.9710011 2.2170067,18.9120021 C2.0180062,18.7760051 1.945006,18.5170101 2.0430062,18.2970151 L5.286015,11.0001711 L0.5000021,11.0001711 C0.2980015,11.0001711 0.115001,10.8781741 0.0380008,10.6911781 C-0.03899937,10.5041821 0.0030007,10.2891861 0.1460011,10.1461891 L10.146028,0.146403001 C10.3160285,-0.0235930001 10.5840292,-0.0485920003 10.7830298,0.0874050005 C10.9820303,0.223402001 11.0550305,0.482396003 10.9570302,0.702392004 L7.7140215,7.99923505 L12.5000344,7.99923505 C12.7020349,7.99923505 12.8850354,8.12123305 12.9620356,8.30822905 C13.0390358,8.49522505 12.9970357,8.71022005 12.8530353,8.85421705 L2.8530084,18.8540031 C2.7570082,18.9500011 2.6290078,18.9990001 2.5000075,18.9990001 L2.5000075,19.0000001 Z" />
       </g>
     </svg>
   );
@@ -26,9 +22,10 @@ export default function LightningBolt({
 
 LightningBolt.propTypes = {
   ...Icon.propTypes,
-  stroke: PropTypes.string,
   fill: PropTypes.string,
-  strokeWidth: PropTypes.number,
 };
 
-LightningBolt.defaultProps = Icon.defaultProps;
+LightningBolt.defaultProps = {
+  ...Icon.defaultProps,
+  viewBox: '0 0 13 19',
+};
