@@ -21,6 +21,7 @@ function Th({
   borderLeft,
   align,
   ellipsis,
+  flexBasisDesktop,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -29,9 +30,11 @@ function Th({
     classes.th,
     size,
     {
+      [classes.flexBasis]: flexBasisDesktop,
+      [classes.align]: align,
+      width,
       [modifier]: modifier,
       [`highlight-${highlight}`]: highlight,
-      [`align-${align}`]: align,
       mono,
       hasWidth: width,
       border,
@@ -44,12 +47,15 @@ function Th({
     className,
   );
 
-  const thStyle = Object.assign({}, width && { width: `${width}${typeof width === 'number' ? '%' : ''}` }, style);
-
-  return <th {...rest} className={usedClassName} style={thStyle}>{children}</th>;
+  return (
+    <th {...rest} className={usedClassName} style={style}>
+      {children}
+    </th>
+  );
 }
 
 Th.defaultProps = {
+  align: 'left',
   mono: false,
   border: false,
   borderTop: false,
@@ -79,6 +85,7 @@ Th.propTypes = {
   align: PropTypes.oneOf(['left', 'right', 'center']),
   /** By default a header column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
   ellipsis: PropTypes.bool,
+  flexBasisDesktop: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export { Th as Component, styles };
