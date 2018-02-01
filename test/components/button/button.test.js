@@ -36,4 +36,9 @@ describe('<Button />', () => {
     wrapper = shallow(<Button classes={classes} disabled>Button</Button>);
     expect(wrapper.props().disabled).to.equal(true);
   });
+
+  it(`should have class iconButton if it is set`, () => {
+    wrapper = shallow(<Button classes={classes} iconButton>Button</Button>);
+    expect(wrapper.hasClass(classes.iconButton)).to.equal(true);
+  });
 });
