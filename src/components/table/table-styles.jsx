@@ -8,6 +8,7 @@ export default theme => {
       width: '100%',
       overflow: 'auto',
       position: 'relative',
+      display: 'block',
 
       '@supports (-webkit-overflow-scrolling: touch)': {
         overflow: 'scroll',
@@ -23,6 +24,8 @@ export default theme => {
       fontFamily: typography.primary.fontFamily,
       borderColor: palette.background.muted,
       ...styleUtils.sizes(),
+
+      minWidth: props => props.minWidth,
     },
   };
 };

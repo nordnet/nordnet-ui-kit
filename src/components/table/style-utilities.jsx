@@ -54,7 +54,7 @@ const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 const borderPosition = (position, palette) => ({
   [`&.border${capitalize(position)}`]: {
-    [`border${capitalize(position)}`]: `1px solid ${palette.background.muted}`,
+    [`border${capitalize(position)}`]: `1px solid ${palette.color.grayLighter}`,
   },
 });
 
@@ -71,20 +71,6 @@ const borders = palette => {
     ...combinedBorders,
   };
 };
-
-const align = () => ({
-  '&.align-left': {
-    textAlign: 'left',
-  },
-
-  '&.align-right': {
-    textAlign: 'right',
-  },
-
-  '&.align-center': {
-    textAlign: 'center',
-  },
-});
 
 const flexRow = () => ({
   display: 'flex',
@@ -117,7 +103,6 @@ export default {
   modifiers,
   highlights,
   borders,
-  align,
   flexRow,
   flexItem,
   ellipsis,

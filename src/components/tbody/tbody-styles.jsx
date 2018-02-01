@@ -10,15 +10,10 @@ export default theme => {
       ...styleUtils.borders(palette),
       width: '100%',
       overflow: 'auto',
-      maxHeight: '70vh',
 
       '@supports (-webkit-overflow-scrolling: touch)': {
         overflow: 'scroll',
         '-webkit-overflow-scrolling': 'touch',
-      },
-
-      [mixins.media('md')]: {
-        maxHeight: '100%',
       },
 
       '&.alternate-rows': {

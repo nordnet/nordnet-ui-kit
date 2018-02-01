@@ -12,6 +12,7 @@ function Td({
   size,
   width,
   mono,
+  collapsed,
   modifier,
   highlight,
   border,
@@ -19,8 +20,15 @@ function Td({
   borderRight,
   borderBottom,
   borderLeft,
+  alignMobile,
   align,
   ellipsis,
+  title,
+  flexOrder,
+  flexBasisMobile,
+  flexBasisDesktop,
+  hiddenOnDesktop,
+  hiddenOnMobile,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -29,24 +37,32 @@ function Td({
     classes.td,
     size,
     {
+      [classes.flexBasis]: flexBasisMobile || flexBasisDesktop,
+      [classes.hidden]: hiddenOnMobile || hiddenOnDesktop,
+      [classes.align]: alignMobile || align,
+      [classes.flexOrder]: flexOrder,
+      [classes.collapsed]: collapsed,
       hasWidth: width,
+      width,
       [modifier]: modifier,
       [`highlight-${highlight}`]: highlight,
-      [`align-${align}`]: align,
       mono,
       border,
       borderTop,
       borderRight,
       borderBottom,
       borderLeft,
-      ellipsis,
     },
     className,
   );
 
-  const tdStyle = Object.assign({}, width && { width: `${width}${typeof width === 'number' ? '%' : ''}` }, style);
-
-  return <td {...rest} className={usedClassName} style={tdStyle}>{children}</td>;
+  return (
+    <td {...rest} className={usedClassName} style={style}>
+      <div className={classNames(classes.child, { [classes.ellipsis]: ellipsis })} data-title={title}>
+        {children}
+      </div>
+    </td>
+  );
 }
 
 Td.defaultProps = {
@@ -57,6 +73,10 @@ Td.defaultProps = {
   borderBottom: false,
   borderLeft: false,
   ellipsis: true,
+  flexBasisDesktop: 0,
+  hiddenOnDesktop: false,
+  hiddenOnMobile: false,
+  collapsed: false,
 };
 
 Td.propTypes = {
@@ -69,6 +89,7 @@ Td.propTypes = {
   /** Number is assumed to be a percentage which helps with responsiveness: */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   mono: PropTypes.bool,
+  collapsed: PropTypes.bool,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
   highlight: PropTypes.oneOf(['success', 'warning', 'danger']),
   border: PropTypes.bool,
@@ -77,8 +98,15 @@ Td.propTypes = {
   borderBottom: PropTypes.bool,
   borderLeft: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center']),
+  alignMobile: PropTypes.oneOf(['left', 'right', 'center']),
   /** By default a column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
   ellipsis: PropTypes.bool,
+  title: PropTypes.string,
+  flexOrder: PropTypes.number,
+  flexBasisMobile: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  flexBasisDesktop: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  hiddenOnDesktop: PropTypes.bool,
+  hiddenOnMobile: PropTypes.bool,
 };
 
 export { Td as Component, styles };

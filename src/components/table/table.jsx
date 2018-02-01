@@ -16,11 +16,10 @@ function Table({
   ...rest
 }) {
   const usedClassName = classNames(classes.table, size, className);
-  const tableStyle = Object.assign({}, { minWidth }, style);
 
   return (
     <div className={classes.root}>
-      <table {...rest} style={tableStyle} className={usedClassName}>
+      <table {...rest} style={style} className={usedClassName}>
         {children}
       </table>
     </div>
@@ -33,7 +32,8 @@ Table.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
-  minWidth: PropTypes.number,
+  /** Use `'auto'` for mobile list mode */
+  minWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   style: PropTypes.object,
 };
 

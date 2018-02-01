@@ -21,11 +21,11 @@ describe('<Td />', () => {
   });
 
   it('should render a component with ellipsis class by default', () => {
-    expect(wrapper.find('.ellipsis')).to.have.length(1);
+    expect(wrapper.find('div.ellipsis')).to.have.length(1);
   });
 
   it('should not render a component with td--ellipsis, when ellipsis have false input', () => {
     wrapper = shallow(<Td classes={classes} ellipsis={false} />);
-    expect(wrapper.find('.ellipsis')).to.have.length(0);
+    expect(wrapper.find('div.ellipsis')).to.have.length(0);
   });
 });

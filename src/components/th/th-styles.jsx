@@ -11,18 +11,25 @@ export default theme => {
       ...styleUtils.modifiers(palette),
       ...styleUtils.highlights(palette),
       ...styleUtils.borders(palette),
-      ...styleUtils.align(),
       ...styleUtils.ellipsis(),
       fontFamily: typography.primary.fontFamily,
       fontWeight: typography.fontWeightSemiBold,
-
-      minWidth: 20,
-      paddingBottom: 4,
+      padding: [0, 6, 10, 6],
+      margin: 0,
 
       [mixins.media('md')]: {
         minWidth: 40,
-        paddingBottom: 10,
       },
+
+      '&.width': {
+        width: props => `${props.width}${typeof props.width === 'number' ? '%' : ''}`,
+      },
+    },
+    flexBasis: {
+      flexBasis: props => `${props.flexBasisDesktop}${typeof props.flexBasisDesktop === 'number' ? '%' : ''}`,
+    },
+    align: {
+      textAlign: props => props.align,
     },
   };
 };

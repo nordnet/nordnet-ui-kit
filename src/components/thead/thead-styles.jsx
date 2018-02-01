@@ -15,6 +15,20 @@ export default theme => {
       width: '100%',
       fontSize: 12,
 
+      '&$hiddenOnMobile': {
+        display: 'none',
+
+        [mixins.media('md')]: {
+          display: 'block',
+        },
+      },
+
+      '&$addMargin th': {
+        margin: [0, 6],
+        paddingRight: 0,
+        paddingLeft: 0,
+      },
+
       '&.primary': {
         background: color.gray,
         borderColor: color.grayDark,
@@ -26,5 +40,7 @@ export default theme => {
         color: color.white,
       },
     },
+    addMargin: {},
+    hiddenOnMobile: {},
   };
 };

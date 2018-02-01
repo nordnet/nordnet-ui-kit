@@ -9,17 +9,18 @@ export default theme => {
       ...mixins.basicBoxSizing,
       ...styleUtils.flexRow(),
       ...styleUtils.sizes(),
-      alignItems: 'center',
       borderLeft: '1px solid transparent',
       borderRight: '1px solid transparent',
+      flexWrap: 'wrap',
+      overflow: 'hidden',
 
       '&.primary': {
-        background: `${color.grayLight} !important`,
+        background: color.grayLight,
         borderColor: color.gray,
       },
 
       '&.secondary': {
-        background: `${color.grayDark} !important`,
+        background: color.grayDark,
         borderColor: color.grayDarker,
         color: color.white,
       },
@@ -31,21 +32,21 @@ export default theme => {
       '&.sticky': {
         position: 'absolute',
         background: palette.background.default,
-      },
-
-      [mixins.media('md')]: {
-        '&.sticky': {
-          position: 'fixed',
-        },
-
-        '& + .tr--clone': {
-          display: 'flex',
+        [mixins.media('md')]: {
+          '&.sticky': {
+            position: () => 'fixed',
+          },
         },
       },
 
       '&.border': {
         border: '1px solid',
         borderColor: color.grayLight,
+      },
+
+      [mixins.media('md')]: {
+        flexWrap: 'nowrap',
+        borderCollapse: 'collapse',
       },
     },
   };
