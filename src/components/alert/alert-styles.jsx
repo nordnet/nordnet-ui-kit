@@ -67,7 +67,7 @@ export default theme => {
       borderLeft: `4px solid ${palette.variant.warning}`,
 
       '& $header:not($vertical)': {
-        color: palette.variant.warning,
+        color: palette.text.default,
       },
     },
 

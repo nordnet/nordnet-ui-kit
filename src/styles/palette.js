@@ -4,7 +4,7 @@ const variant = {
   primary: color.blue,
   info: color.blueDark,
   success: color.green,
-  warning: color.black,
+  warning: color.yellow,
   danger: color.red,
 };
 
