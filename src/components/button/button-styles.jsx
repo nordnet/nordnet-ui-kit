@@ -23,9 +23,6 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
 
       '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${colorFocus}`,
-        '& svg': {
-          transform: 'scale(1.2, 1.2)',
-        },
       },
     },
 
@@ -45,9 +42,6 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
 
       '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${colorFocus}`,
-        '& svg': {
-          transform: 'scale(1.2, 1.2)',
-        },
       },
     },
 
@@ -60,9 +54,6 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
 
       '&:focus&::after, &:active&::after': {
         boxShadow: `0 4px 0 -2px ${colorFocus}`,
-        '& svg': {
-          transform: 'scale(1.2, 1.2)',
-        },
       },
     },
   };
@@ -161,9 +152,6 @@ export default theme => {
 
       '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${focusColor(palette.background.secondary)}`,
-        '& svg': {
-          transform: 'scale(1.2, 1.2)',
-        },
       },
 
       '&.action': buttonModifierFn(
@@ -216,9 +204,6 @@ export default theme => {
 
       '&:focus, &:active': {
         boxShadow: `0 0 0 2px ${c(palette.color.gray).darken(0.1).hex()}`,
-        '& svg': {
-          transform: 'scale(1.2, 1.2)',
-        },
       },
 
       '&.xs,&.sm': {
@@ -281,9 +266,6 @@ export default theme => {
 
       '&:focus, &:active': {
         boxShadow: 'none',
-        '& svg': {
-          transform: 'scale(1.2, 1.2)',
-        },
 
         '&::after': {
           boxShadow: `0 4px 0 -2px ${palette.background.secondary}`,
