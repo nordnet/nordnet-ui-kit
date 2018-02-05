@@ -106,6 +106,18 @@ export default theme => {
       fontWeight: theme.typography.fontWeightLight,
       borderRadius: 12,
       padding: '5px 12px',
+
+      '&.iconText': {
+        paddingBottom: 5,
+        paddingTop: 4,
+      },
+      '&.icon': {
+        padding: 4,
+      },
+      '& svg': {
+        height: 11,
+        width: 11,
+      },
     },
 
     sm: {
@@ -113,6 +125,18 @@ export default theme => {
       fontWeight: theme.typography.fontWeightLight,
       borderRadius: 16,
       padding: '8px 20px',
+
+      '&.iconText': {
+        paddingBottom: 7,
+        paddingTop: 7,
+      },
+      '&.icon': {
+        padding: 6,
+      },
+      '& svg': {
+        height: 13,
+        width: 13,
+      },
     },
 
     md: {
@@ -120,6 +144,18 @@ export default theme => {
       fontWeight: theme.typography.fontWeightRegular,
       borderRadius: 20,
       padding: '11px 38px',
+
+      '&.iconText': {
+        paddingBottom: 10,
+        paddingTop: 10,
+      },
+      '&.icon': {
+        padding: 8,
+      },
+      '& svg': {
+        height: 16,
+        width: 16,
+      },
     },
 
     lg: {
@@ -127,11 +163,31 @@ export default theme => {
       fontWeight: theme.typography.fontWeightRegular,
       borderRadius: 24,
       padding: '14px 40px',
+
+      '&.iconText': {
+        paddingBottom: 13,
+        paddingTop: 13,
+      },
+      '&.icon': {
+        padding: 10,
+      },
+      '& svg': {
+        height: 18,
+        width: 18,
+      },
     },
 
-    iconButton: {
+    '.icon': {
       borderRadius: '50%',
-      padding: '8px',
+    },
+
+    innerWrapper: {
+      alignItems: 'center',
+      display: 'flex',
+    },
+
+    spaceForIcon: {
+      marginLeft: '0.5em',
     },
 
     primary: {
