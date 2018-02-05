@@ -35,4 +35,8 @@ Ellipse.propTypes = {
   fill: PropTypes.string,
 };
 
-Ellipse.defaultProps = Icon.defaultProps;
+Ellipse.defaultProps = {
+  ...Icon.defaultProps,
+  height: 16,
+  width: 16,
+};
