@@ -107,11 +107,11 @@ export default theme => {
       borderRadius: 12,
       padding: '5px 12px',
 
-      '&.iconText': {
+      '&$iconText': {
         paddingBottom: 5,
         paddingTop: 4,
       },
-      '&.icon': {
+      '&$icon': {
         padding: 4,
       },
       '& svg': {
@@ -126,11 +126,11 @@ export default theme => {
       borderRadius: 16,
       padding: '8px 20px',
 
-      '&.iconText': {
+      '&$iconText': {
         paddingBottom: 7,
         paddingTop: 7,
       },
-      '&.icon': {
+      '&$icon': {
         padding: 6,
       },
       '& svg': {
@@ -145,11 +145,11 @@ export default theme => {
       borderRadius: 20,
       padding: '11px 38px',
 
-      '&.iconText': {
+      '&$iconText': {
         paddingBottom: 10,
         paddingTop: 10,
       },
-      '&.icon': {
+      '&$icon': {
         padding: 8,
       },
       '& svg': {
@@ -164,11 +164,11 @@ export default theme => {
       borderRadius: 24,
       padding: '14px 40px',
 
-      '&.iconText': {
+      '&$iconText': {
         paddingBottom: 13,
         paddingTop: 13,
       },
-      '&.icon': {
+      '&$icon': {
         padding: 10,
       },
       '& svg': {
@@ -177,9 +177,11 @@ export default theme => {
       },
     },
 
-    '.icon': {
+    icon: {
       borderRadius: '50%',
     },
+
+    iconText: {},
 
     innerWrapper: {
       alignItems: 'center',
