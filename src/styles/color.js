@@ -17,7 +17,7 @@ export default {
   red: '#FE6F67', // Minus performance, error
   redLight: '#FE6F67', // Sell
 
-  yellow: '#E5AA4C', // Notification Logo
+  yellow: '#FFD75A', // Notification Logo
   yellowLight: '#FFF1DD', // Notification
   white: '#FFF', // Background
 };
