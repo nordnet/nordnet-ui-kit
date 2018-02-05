@@ -15,8 +15,8 @@ describe('<Icon />', () => {
   });
 
   it('should set default proportions', () => {
-    expect(wrapper.prop('width')).to.equal(16);
-    expect(wrapper.prop('height')).to.equal(16);
+    expect(wrapper.prop('width')).to.equal('1em');
+    expect(wrapper.prop('height')).to.equal('1em');
     expect(wrapper.prop('viewBox')).to.equal('0 0 16 16');
   });
 
