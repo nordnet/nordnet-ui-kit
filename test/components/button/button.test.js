@@ -36,4 +36,16 @@ describe('<Button />', () => {
     wrapper = shallow(<Button classes={classes} disabled>Button</Button>);
     expect(wrapper.props().disabled).to.equal(true);
   });
+
+  it(`should have class icon for an icon button`, () => {
+    const icon = <svg />;
+    wrapper = shallow(<Button classes={classes} icon={icon} />);
+    expect(wrapper.hasClass(classes.icon)).to.equal(true);
+  });
+
+  it(`should have class iconText for a button with an icon`, () => {
+    const icon = <svg />;
+    wrapper = shallow(<Button classes={classes} icon={icon}>Button</Button>);
+    expect(wrapper.hasClass(classes.iconText)).to.equal(true);
+  });
 });

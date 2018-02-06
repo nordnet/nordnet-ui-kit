@@ -13,6 +13,7 @@ function Button({
   children,
   modifier,
   href,
+  icon,
   size,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
@@ -33,6 +34,8 @@ function Button({
       [classes.primary]: isPrimary,
       [classes.secondary]: isSecondary,
       [classes.link]: isLink,
+      [classes.icon]: icon && !children,
+      [classes.iconText]: icon && children,
       action: isAction,
       success: isSuccess,
       warning: isWarning,
@@ -45,9 +48,12 @@ function Button({
 
   return (
     <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
-      <span>
-        {children}
-      </span>
+      <div className={classes.innerWrapper}>
+        {icon}
+        <span className={classNames({ [classes.spaceForIcon]: icon && children })}>
+          {children}
+        </span>
+      </div>
     </Element>
   );
 }
@@ -68,6 +74,7 @@ Button.propTypes = {
   modifier: PropTypes.oneOf(['action', 'success', 'warning', 'danger']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
+  icon: PropTypes.node,
   disabled: PropTypes.bool,
 };
 

@@ -23,13 +23,13 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  fill: '#222',
-  stroke: '#222',
+  fill: 'currentColor',
+  stroke: 'currentColor',
   'aria-hidden': 'true',
   focusable: 'false',
   strokeWidth: 1,
-  height: 16,
-  width: 16,
+  height: '1em',
+  width: '1em',
   viewBox: '0 0 16 16',
   style: { pointerEvents: 'none' },
 };
