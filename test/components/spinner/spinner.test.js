@@ -12,8 +12,8 @@ describe('<Spinner />', () => {
     wrapper = shallow(<Spinner classes={classes} theme={theme} />);
   });
 
-  it('should render <div> as container', () => {
-    expect(wrapper.type()).to.equal('div');
+  it('should render <span> as container', () => {
+    expect(wrapper.type()).to.equal('span');
   });
 
   it(`should have the class ${classes.spinner}`, () => {
