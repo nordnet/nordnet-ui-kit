@@ -240,7 +240,7 @@ export default theme => {
         'primary',
         palette.variant.danger,
         focusColor(palette.variant.danger),
-        disableColor(palette.variant.danger),
+        c(palette.variant.danger).lighten(0.3).hex(),
         palette.shades.dark.text.default,
       ),
     },
