@@ -79,7 +79,7 @@ function Spinner({
   };
 
   return (
-    <div {...rest} className={classNames(classes.spinner, className)} style={wrapperStyle}>
+    <span {...rest} className={classNames(classes.spinner, className)} style={wrapperStyle}>
       <svg className={classes.element} viewBox={`0 0 ${size} ${size}`}>
         <defs>
           <clipPath id={clipPathId}>
@@ -94,7 +94,7 @@ function Spinner({
         </defs>
         <g dangerouslySetInnerHTML={renderCircleAsHtml(radius, usedColor, maskId)} />
       </svg>
-    </div>
+    </span>
   );
 }
 
