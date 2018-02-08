@@ -2,11 +2,17 @@ language: node_js
 node_js:
   - 8
   - 6
-  - 4
+
+install: yarn install --ignore-engines
 
 branches:
   only:
     - "master"
+
+cache:
+  yarn: true
+  directories:
+  - node_modules
 
 after_script:
   - npm run coveralls
@@ -14,10 +20,15 @@ after_script:
 jobs:
   include:
     - stage: release
-      install: echo "hello"
-      script: echo "nothing to see here, move along"
+      node_js: 8
+      script:
+        - git config user.email "nordnet-release@localhost"
+        - git config user.name "nordnet-release"
+        - TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run semantic-release
       after_script:
-        - git config --global user.email "nordnet-release@localhost"
-        - git config --global user.name "nordnet-release"
-        - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm install; fi
-        - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run semantic-release; fi
+        - npm run docs-publish
+      if: (NOT type IN (pull_request)) AND (branch = master)
+
+stages:
+  - test
+  - name: release
