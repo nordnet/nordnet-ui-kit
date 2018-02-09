@@ -113,10 +113,10 @@ export default theme => {
       },
       '&$icon': {
         padding: 4,
-      },
-      '& svg': {
-        height: 11,
-        width: 11,
+        '& svg': {
+          height: 11,
+          width: 11,
+        },
       },
     },
 
@@ -132,10 +132,10 @@ export default theme => {
       },
       '&$icon': {
         padding: 6,
-      },
-      '& svg': {
-        height: 13,
-        width: 13,
+        '& svg': {
+          height: 13,
+          width: 13,
+        },
       },
     },
 
@@ -151,10 +151,10 @@ export default theme => {
       },
       '&$icon': {
         padding: 8,
-      },
-      '& svg': {
-        height: 16,
-        width: 16,
+        '& svg': {
+          height: 16,
+          width: 16,
+        },
       },
     },
 
@@ -170,10 +170,10 @@ export default theme => {
       },
       '&$icon': {
         padding: 10,
-      },
-      '& svg': {
-        height: 18,
-        width: 18,
+        '& svg': {
+          height: 18,
+          width: 18,
+        },
       },
     },
 
