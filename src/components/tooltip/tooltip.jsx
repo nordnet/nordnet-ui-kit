@@ -123,10 +123,14 @@ class Tooltip extends React.Component {
         const popupRect = this.popup.getBoundingClientRect();
         const adjustedLeft = popupRect.left - this.left;
         const adjustedRight = popupRect.right - this.left;
+
+        const pxDiff = Math.min(window.innerWidth - popupRect.width, 20);
+        const gutter = pxDiff > 0 ? pxDiff / 2 : 0;
+
         if (adjustedLeft < 0) {
-          this.left = 10 - adjustedLeft;
+          this.left = gutter - adjustedLeft;
         } else if (adjustedRight > window.innerWidth) {
-          this.left = -(adjustedRight - window.innerWidth + 10);
+          this.left = window.innerWidth - adjustedRight - gutter;
         } else {
           this.left = 0;
         }
