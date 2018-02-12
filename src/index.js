@@ -6,6 +6,7 @@ import Button from './components/button/button';
 import CostInfoLogo from './components/cost-info-logo';
 import Dropdown from './components/dropdown/dropdown';
 import Flag from './components/flag/flag';
+import FundExplanation from './components/fund-explanation';
 import Input from './components/input/input';
 import InstrumentBadge from './components/instrument-badge/instrument-badge';
 import LabeledValue from './components/labeled-value/labeled-value';
@@ -50,6 +51,7 @@ export {
   CostInfoLogo,
   Dropdown,
   Flag,
+  FundExplanation,
   Icon,
   Input,
   InstrumentBadge,
