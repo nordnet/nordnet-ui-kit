@@ -71,6 +71,7 @@ export default theme => {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
       border: 0,
+      margin: 2,
       borderRadius: 16,
       fontFamily: typography.primary.fontFamily,
       lineHeight: 1,
@@ -186,6 +187,7 @@ export default theme => {
     innerWrapper: {
       alignItems: 'center',
       display: 'flex',
+      justifyContent: 'center',
     },
 
     spaceForIcon: {
