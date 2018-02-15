@@ -186,6 +186,7 @@ export default theme => {
     innerWrapper: {
       alignItems: 'center',
       display: 'flex',
+      justifyContent: 'center',
     },
 
     spaceForIcon: {

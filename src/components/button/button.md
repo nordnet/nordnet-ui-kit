@@ -4,12 +4,15 @@ Primary button:
       marginRight: 16,
     };
 
-    <div>
+    <div style={{display: 'flex'}}>
       <Button variant="primary" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="action" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="danger" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="warning" style= { style }>Click Me</Button>
       <Button variant="primary" modifier="success" style= { style }>Click Me</Button>
+      <div style={{width: 300}}>
+        <Button block variant="primary" modifier="action" style= { style }>Click Me</Button>
+      </div>
     </div>
 
 Primary, disabled:
@@ -32,12 +35,15 @@ Secondary button:
       marginRight: 16,
     };
 
-    <div>
+    <div style={{display: 'flex'}}>
       <Button variant="secondary" style={ style }>Click Me</Button>
       <Button variant="secondary" modifier="action" style={ style }>Click Me</Button>
       <Button variant="secondary" modifier="danger" style={ style }>Click Me</Button>
       <Button variant="secondary" modifier="warning" style={ style }>Click Me</Button>
       <Button variant="secondary" modifier="success" style={ style }>Click Me</Button>
+      <div style={{width: 300}}>
+        <Button block variant="secondary" modifier="action" style= { style }>Click Me</Button>
+      </div>
     </div>
 
 Secondary, disabled:
