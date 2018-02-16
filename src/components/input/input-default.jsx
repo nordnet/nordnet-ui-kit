@@ -107,6 +107,7 @@ class InputDefault extends React.PureComponent {
     const props = {
       ...omit(
         this.props,
+        'defaultValue',
         'valueFormatter',
         'hasSuccess',
         'hasWarning',
@@ -210,6 +211,7 @@ InputDefault.propTypes = {
   placeholder: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
