@@ -11,7 +11,7 @@ function Thead({
   size,
   variant,
   hiddenOnMobile,
-  addMargin,
+  borderBottom,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -20,7 +20,10 @@ function Thead({
     classes.thead,
     size,
     variant ? [variant] : [],
-    { [classes.hiddenOnMobile]: hiddenOnMobile, [classes.addMargin]: addMargin },
+    {
+      [classes.hiddenOnMobile]: hiddenOnMobile,
+      [classes.borderBottom]: borderBottom,
+    },
     className,
   );
 
@@ -32,8 +35,8 @@ function Thead({
 }
 
 Thead.defaultProps = {
-  addMargin: false,
   hiddenOnMobile: false,
+  borderBottom: false,
 };
 
 Thead.propTypes = {
@@ -44,7 +47,7 @@ Thead.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
   hiddenOnMobile: PropTypes.bool,
-  addMargin: PropTypes.bool,
+  borderBottom: PropTypes.bool,
 };
 
 export default injectSheet(styles)(Thead);

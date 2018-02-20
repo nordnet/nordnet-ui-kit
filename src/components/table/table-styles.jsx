@@ -6,9 +6,6 @@ export default theme => {
   return {
     root: {
       width: '100%',
-      overflow: 'auto',
-      position: 'relative',
-      display: 'block',
 
       '@supports (-webkit-overflow-scrolling: touch)': {
         overflow: 'scroll',
@@ -16,16 +13,23 @@ export default theme => {
       },
     },
     table: {
+      width: '100%',
       ...mixins.basicBoxSizing,
-      display: 'block',
+      ...styleUtils.sizes(),
       textAlign: 'left',
       borderCollapse: 'collapse',
       fontWeight: typography.fontWeightRegular,
       fontFamily: typography.primary.fontFamily,
       borderColor: palette.background.muted,
-      ...styleUtils.sizes(),
+      tableLayout: 'fixed',
 
-      minWidth: props => props.minWidth,
+      minWidth: 'auto',
+      [mixins.media('md')]: {
+        minWidth: props => props.minWidth,
+      },
+    },
+    tableLayoutAuto: {
+      tableLayout: 'auto',
     },
   };
 };

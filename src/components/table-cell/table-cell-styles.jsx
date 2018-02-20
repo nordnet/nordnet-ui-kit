@@ -6,7 +6,6 @@ export default theme => {
   return {
     td: {
       ...mixins.basicBoxSizing,
-      ...styleUtils.flexItem(),
       ...styleUtils.sizes(),
       ...styleUtils.modifiers(palette),
       ...styleUtils.highlights(palette),
@@ -19,30 +18,31 @@ export default theme => {
       fontSize: 14,
       minWidth: 20,
       maxHeight: 50,
-      display: 'block',
+      borderWidth: 1,
+
       transition: transitions.create(['max-height', 'border-width']),
 
-      [mixins.media('md')]: {
+      [mixins.maxMedia('md')]: {
         display: 'inline-block',
-        minWidth: 40,
-        border: 0,
-        '&::before': {
-          content: 'none',
-        },
-      },
+        flexGrow: 1,
+        flexBasis: 0,
+        maxWidth: '100%',
 
-      '&.width': {
-        width: props => `${props.width}${typeof props.width === 'number' ? '%' : ''}`,
+        '&.hasWidth': {
+          flexBasis: 'auto',
+          flexGrow: 0,
+        },
       },
 
       '&$collapsed': {
-        maxHeight: 0,
-        borderWidth: 0,
-
-        [mixins.media('md')]: {
-          maxHeight: 50,
-          borderWidth: 1,
+        [mixins.maxMedia('md')]: {
+          maxHeight: 0,
+          borderWidth: 0,
         },
+      },
+
+      [mixins.media('md')]: {
+        borderWidth: 0,
       },
     },
     collapsed: {},
@@ -51,22 +51,19 @@ export default theme => {
       overflow: 'hidden',
       textOverflow: 'ellipsis',
     },
-    hidden: {
-      display: props => (props.hiddenOnMobile ? 'none' : 'block'),
-      [mixins.media('md')]: {
-        display: props => (props.hiddenOnDesktop ? 'none' : 'inline-block'),
+    hiddenOnMobile: {
+      [mixins.maxMedia('md')]: {
+        display: 'none',
       },
     },
-    flexBasis: {
-      flexBasis: props => `${props.flexBasisMobile}${typeof props.flexBasisMobile === 'number' ? '%' : ''}`,
-
+    hiddenOnDesktop: {
       [mixins.media('md')]: {
-        flexBasis: props => `${props.flexBasisDesktop}${typeof props.flexBasisDesktop === 'number' ? '%' : ''}`,
+        display: 'none',
       },
     },
     child: {
       display: 'block',
-      margin: [8, 6],
+      margin: [8, 0],
       height: 'calc(100% - 16px)',
 
       '&::before': {
@@ -76,26 +73,34 @@ export default theme => {
       },
 
       [mixins.media('md')]: {
-        padding: [8, 6],
-        margin: 0,
         height: '100%',
         '&::before': {
           content: 'none',
         },
       },
     },
-    align: {
-      textAlign: props => (props.alignMobile ? props.alignMobile : props.align),
-
-      [mixins.media('md')]: {
-        textAlign: props => props.align,
+    'align-left': {
+      textAlign: 'left',
+    },
+    'align-right': {
+      textAlign: 'right',
+    },
+    'align-center': {
+      textAlign: 'center',
+    },
+    'align-left--mobile': {
+      [mixins.maxMedia('md')]: {
+        textAlign: 'left',
       },
     },
-    flexOrder: {
-      order: props => props.flexOrder,
-
-      [mixins.media('md')]: {
-        order: () => 1,
+    'align-right--mobile': {
+      [mixins.maxMedia('md')]: {
+        textAlign: 'right',
+      },
+    },
+    'align-center--mobile': {
+      [mixins.maxMedia('md')]: {
+        textAlign: 'center',
       },
     },
   };

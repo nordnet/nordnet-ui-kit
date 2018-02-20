@@ -21,10 +21,6 @@ const sizes = () => ({
 // Modifiers
 const modifierItem = color => ({
   color,
-
-  '.tr.secondary &': {
-    background: `rgba(${c(color).lighten(0.1).hex()}, 0.9)`,
-  },
 });
 
 const modifiers = palette => ({
@@ -34,13 +30,8 @@ const modifiers = palette => ({
 });
 
 // Highlights
-const highlightItem = (color, theadColor = undefined) => ({
-  background: `rgba(${color}, .2)`,
-
-  '.thead &': {
-    background: c(color).lighten(0.1).hex(),
-    color: theadColor || color,
-  },
+const highlightItem = color => ({
+  background: c(color).alpha(0.2).rgb().string(),
 });
 
 const highlights = palette => ({
@@ -72,38 +63,9 @@ const borders = palette => {
   };
 };
 
-const flexRow = () => ({
-  display: 'flex',
-  flexFlow: 'row nowrap',
-});
-
-const flexItem = () => ({
-  display: 'inline-block',
-  padding: '3px 6px',
-  flexGrow: 1,
-  flexBasis: 0,
-  maxWidth: '100%',
-
-  '&.hasWidth': {
-    flexBasis: 'auto',
-    flexGrow: 0,
-  },
-});
-
-const ellipsis = () => ({
-  '&.ellipsis': {
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-  },
-});
-
 export default {
   sizes,
   modifiers,
   highlights,
   borders,
-  flexRow,
-  flexItem,
-  ellipsis,
 };

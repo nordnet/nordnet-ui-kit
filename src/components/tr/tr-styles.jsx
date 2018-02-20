@@ -2,51 +2,39 @@ import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
 export default theme => {
-  const { palette, mixins } = theme;
+  const { mixins, palette } = theme;
 
   return {
     tr: {
       ...mixins.basicBoxSizing,
-      ...styleUtils.flexRow(),
       ...styleUtils.sizes(),
       borderLeft: '1px solid transparent',
       borderRight: '1px solid transparent',
+      borderCollapse: 'collapse',
       flexWrap: 'wrap',
       overflow: 'hidden',
 
-      '&.primary': {
-        background: color.grayLight,
-        borderColor: color.gray,
+      [mixins.maxMedia('md')]: {
+        display: 'flex',
+        flexFlow: 'row wrap',
       },
-
-      '&.secondary': {
-        background: color.grayDark,
-        borderColor: color.grayDarker,
-        color: color.white,
+    },
+    border: {
+      borderStyle: 'solid',
+      borderWidth: '0 1px 1px 1px',
+      borderColor: color.grayLight,
+    },
+    borderBottom: {
+      '& th, td': {
+        border: 0,
+        background: `linear-gradient(to top, ${palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
       },
-
-      '&.clone': {
-        opacity: 0,
-      },
-
-      '&.sticky': {
-        position: 'absolute',
-        background: palette.background.default,
-        [mixins.media('md')]: {
-          '&.sticky': {
-            position: () => 'fixed',
-          },
-        },
-      },
-
-      '&.border': {
-        border: '1px solid',
-        borderColor: color.grayLight,
-      },
-
-      [mixins.media('md')]: {
-        flexWrap: 'nowrap',
-        borderCollapse: 'collapse',
+    },
+    sticky: {
+      '& th, td': {
+        position: 'sticky',
+        top: props => props.stickyOffset || 0,
+        backgroundColor: color.white,
       },
     },
   };
