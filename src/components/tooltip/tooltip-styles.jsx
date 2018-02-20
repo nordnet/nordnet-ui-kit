@@ -6,7 +6,7 @@ export default theme => {
   return {
     tooltip: {
       ...mixins.basicBoxSizing,
-      color: palette.variant.primary,
+      color: palette.color.grayDarker,
       position: 'relative',
       display: 'inline-block',
     },
