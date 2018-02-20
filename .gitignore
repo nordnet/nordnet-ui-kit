@@ -6,3 +6,4 @@ tmp
 .tmp
 coverage
 .nyc_output
+.idea
