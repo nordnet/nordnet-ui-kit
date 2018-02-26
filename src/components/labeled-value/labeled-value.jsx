@@ -35,7 +35,7 @@ export const styles = theme => {
     };
     const fontSize = modifiers[size];
     const mobileFontSize = mobileModifiers[size];
-    const paddingTop = getTopPadding(size, fontSize);
+    const paddingTop = getTopPadding(fontSize);
     const mobilePaddingTop = size === 'xs' ? 0 : 2;
     const className = `value-${size}`;
 
