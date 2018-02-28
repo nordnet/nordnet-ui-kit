@@ -7,7 +7,6 @@ class RadioGroup extends React.Component {
     this.state = {
       selectedValue: this.props.selectedValue,
     };
-    this.onChange = this.onChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,19 +25,19 @@ class RadioGroup extends React.Component {
     }
   }
 
-  onChange(event) {
+  handleOnChange = event => {
     const selectedValue = event.target.value;
     this.setState({
       selectedValue,
     });
-  }
+  };
 
   render() {
     const { children, name } = this.props;
     const { selectedValue } = this.state;
     const childArray = Array.isArray(children) ? children : [children];
     const newProps = {
-      onChange: this.onChange,
+      onChange: this.handleOnChange,
       name: name && name.length ? name : '',
     };
 
@@ -67,4 +66,5 @@ RadioGroup.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+export { RadioGroup as Component };
 export default RadioGroup;
