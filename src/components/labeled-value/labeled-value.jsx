@@ -4,49 +4,38 @@ import injectSheet from 'react-jss';
 import cn from 'classnames';
 import { kebabCase } from 'lodash';
 
+const modifiers = {
+  xs: 12,
+  sm: 14,
+  md: 20,
+  lg: 32,
+  xlg: 48,
+};
+
+const mobileModifiers = {
+  xs: 12,
+  sm: 14,
+  md: 16,
+  lg: 18,
+  xlg: 20,
+};
+
 export const styles = theme => {
   const { palette, typography, mixins } = theme;
-  const modifiers = {
-    xs: '12',
-    sm: '14',
-    md: '20',
-    lg: '32',
-    xlg: '48',
-  };
-
-  const mobileModifiers = {
-    xs: '12',
-    sm: '14',
-    md: '16',
-    lg: '18',
-    xlg: '20',
-  };
 
   const valueSizes = Object.keys(modifiers).reduce((sizes, size) => {
-    const getTopPadding = fontSize => {
-      switch (size) {
-        case 'xlg':
-          return 2;
-        case 'lg':
-          return fontSize - 26;
-        default:
-          return fontSize - 12;
-      }
-    };
     const fontSize = modifiers[size];
     const mobileFontSize = mobileModifiers[size];
-    const paddingTop = getTopPadding(size, fontSize);
-    const mobilePaddingTop = size === 'xs' ? 0 : 2;
+    const paddingTop = size === 'xs' ? 0 : 2;
     const className = `value-${size}`;
 
     return {
       ...sizes,
       [className]: {
-        fontSize: `${mobileFontSize}px`,
-        paddingTop: `${mobilePaddingTop}px`,
+        fontSize: mobileFontSize,
+        paddingTop,
         [theme.mixins.media('md')]: {
-          fontSize: `${fontSize}px`,
-          paddingTop: `${paddingTop}px`,
+          fontSize,
         },
       },
     };
