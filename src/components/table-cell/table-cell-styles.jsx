@@ -14,8 +14,7 @@ export default theme => {
       fontFamily: typography.primary.fontFamily,
       fontWeight: 'inherit',
 
-      padding: 8,
-      fontSize: 14,
+      padding: 0,
       minWidth: 20,
       maxHeight: 50,
       borderWidth: 1,
@@ -63,6 +62,7 @@ export default theme => {
     },
     child: {
       display: 'block',
+      margin: 8,
       height: 'calc(100% - 16px)',
 
       '&::before': {
