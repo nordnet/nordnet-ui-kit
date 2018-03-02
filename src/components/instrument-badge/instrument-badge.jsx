@@ -139,7 +139,7 @@ class InstrumentBadge extends React.Component {
       <div className={classes.successFail}>
         {qualified
           ? <Icon.Checkmark {...getIconProps({ size, strokeWidth: 2, padding: { sm: 1, md: 0 } })} />
-          : <Icon.Close {...getIconProps({ size, strokeWidth: 3, padding: { sm: 3, md: 3 } })} />}
+          : <Icon.ExclamationPoint {...getIconProps({ size, strokeWidth: 3, padding: { sm: 3, md: 3 } })} />}
       </div>
     );
   };
