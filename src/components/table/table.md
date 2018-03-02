@@ -6,7 +6,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
     // component. This was needed to have a toggle button with state.
     const React = require('react');
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td, Icon } = require('../../'); // nordnet-ui-kit
-    const data = require('./data.js');
+    const { data } = require('./data.js');
     const center = {justifyContent: 'center'};
 
     let tableData = [];
@@ -115,7 +115,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
 Table with two sticky (one with stickyOffset).
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const data = require('./data.js');
+    const { data } = require('./data.js');
 
     <Table minWidth={700} size="md">
       <Thead borderBottom>
@@ -148,7 +148,7 @@ Table with two sticky (one with stickyOffset).
 Table with size md and sticky header in primary colors and borders:
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const data = require('./data.js');
+    const { data } = require('./data.js');
 
     <Table minWidth={700} size="md">
       <Thead variant="primary">
@@ -176,7 +176,7 @@ Table with size md and sticky header in primary colors and borders:
 Table with size xs and header in secondary colors and no borders:
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const data = require('./data.js');
+    const { data } = require('./data.js');
 
     <Table minWidth={700} size="xs">
       <Thead variant="secondary">
@@ -203,7 +203,7 @@ Table with size xs and header in secondary colors and no borders:
 Table with different sizes on Tbody, Thead and TFoot
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const data = require('./data.js');
+    const { data } = require('./data.js');
 
     <Table minWidth={700} size="sm">
       <Thead size="md">
@@ -238,7 +238,7 @@ Table with different sizes on Tbody, Thead and TFoot
 Table with size on Table level
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const data = require('./data.js');
+    const { data } = require('./data.js');
 
     <Table minWidth={700} size="xs">
       <Thead>
@@ -273,7 +273,7 @@ Table with size on Table level
 Table with max-height (scrollable)
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const data = require('./data.js');
+    const { data } = require('./data.js');
 
     <Table minWidth={700} maxHeight={250}>
       <Thead>
@@ -303,3 +303,45 @@ Table with max-height (scrollable)
         </Tr>
       </Tfoot>
     </Table>
+
+
+Table with equal width columns and no ellipsis bound by a limited width parent
+
+    const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
+    const { quarterlyData } = require('./data.js');
+
+    const tableWrapperStyle = {
+      overflow: 'hidden',
+      width: 742,
+    };
+    
+    <div style={tableWrapperStyle}>
+      <Table tableLayoutAuto={true}>
+        <Thead>
+          <Tr sticky>
+            <Th ellipsis={false}>Tid</Th>
+            <Th ellipsis={false}>Namn</Th>
+            <Th ellipsis={false}>Ordertyp</Th>
+            <Th ellipsis={false}>Antal</Th>
+            <Th ellipsis={false} align="right">Kurs</Th>
+            <Th ellipsis={false} align="right">Belopp</Th>
+            <Th ellipsis={false}>Symbol</Th>
+            <Th ellipsis={false}>Marknadsplats</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          { quarterlyData.map(instrument => (
+            <Tr key={`${instrument[0]}${instrument[1]}`}>
+              <Td ellipsis={false}>{ instrument[0] }</Td>
+              <Td ellipsis={false}>{ instrument[1] }</Td>
+              <Td ellipsis={false}>{ instrument[2] }</Td>
+              <Td ellipsis={false}>{ instrument[3] }</Td>
+              <Td ellipsis={false} align="right">{ instrument[4] }</Td>
+              <Td ellipsis={false} align="right">{ instrument[5] }</Td>
+              <Td ellipsis={false}>{ instrument[6] }</Td>
+              <Td ellipsis={false}>{ instrument[7] }</Td>
+            </Tr>
+          )) }
+        </Tbody>
+      </Table>
+    </div>
