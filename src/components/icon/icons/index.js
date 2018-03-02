@@ -66,6 +66,8 @@ import SocialGplus from './socialGplus';
 import SocialInstagram from './socialInstagram';
 import SocialTwitter from './socialTwitter';
 import SocialYouTube from './socialYouTube';
+import SolidArrowDown from './solidArrowDown';
+import SolidArrowUp from './solidArrowUp';
 import Star from './star';
 import Tag from './tag';
 import TickingClock from './tickingClock';
@@ -141,6 +143,8 @@ const Icon = {
   SocialInstagram,
   SocialTwitter,
   SocialYouTube,
+  SolidArrowDown,
+  SolidArrowUp,
   Star,
   Tag,
   TickingClock,
