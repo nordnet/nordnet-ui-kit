@@ -21,7 +21,10 @@ function Th({
   borderLeft,
   align,
   ellipsis,
+  flexBasisMobile,
   flexBasisDesktop,
+  hiddenOnDesktop,
+  hiddenOnMobile,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -30,7 +33,8 @@ function Th({
     classes.th,
     size,
     {
-      [classes.flexBasis]: flexBasisDesktop,
+      [classes.flexBasis]: flexBasisMobile || flexBasisDesktop,
+      [classes.hidden]: hiddenOnMobile || hiddenOnDesktop,
       [classes.align]: align,
       width,
       [modifier]: modifier,
@@ -85,7 +89,10 @@ Th.propTypes = {
   align: PropTypes.oneOf(['left', 'right', 'center']),
   /** By default a header column will add ellipsis if the width is overflown. **Note:** this will only work if the child is a String. */
   ellipsis: PropTypes.bool,
+  flexBasisMobile: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   flexBasisDesktop: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  hiddenOnDesktop: PropTypes.bool,
+  hiddenOnMobile: PropTypes.bool,
 };
 
 export { Th as Component, styles };
