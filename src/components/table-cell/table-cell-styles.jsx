@@ -8,7 +8,6 @@ export default theme => {
       ...mixins.basicBoxSizing,
       ...styleUtils.sizes(),
       ...styleUtils.modifiers(palette),
-      ...styleUtils.highlights(palette),
       ...styleUtils.borders(palette),
 
       fontFamily: typography.primary.fontFamily,
@@ -43,6 +42,9 @@ export default theme => {
       [mixins.media('md')]: {
         borderWidth: 0,
       },
+    },
+    mono: {
+      fontFamily: 'monospace',
     },
     collapsed: {},
     ellipsis: {

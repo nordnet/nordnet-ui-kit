@@ -6,7 +6,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
     // component. This was needed to have a toggle button with state.
     const React = require('react');
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td, Icon } = require('../../'); // nordnet-ui-kit
-    const { data } = require('./data.js');
+    const {data} = require('./data.js');
     const center = {justifyContent: 'center'};
 
     let tableData = [];
@@ -25,9 +25,9 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
 
       render() {
         return (
-          <Table minWidth={700}>
-            <Thead hiddenOnMobile size="sm">
-              <Tr sticky>
+          <Table minWidth={700} tableLayoutFixed>
+            <Thead hiddenOnMobile size="sm" sticky stickyBorder>
+              <Tr>
                 <Th width={30}>Instrument</Th>
                 <Th>Today</Th>
                 <Th>Latest</Th>
@@ -40,21 +40,21 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
             </Thead>
             <Tbody colorAlternateRows={false} size="sm">
               <Tr>
-                <Td mono hiddenOnDesktop flexBasisMobile={100} alignMobile="center" style={{fontWeight: 600, backgroundColor: '#F6F6F6' }}>
+                <Td hiddenOnDesktop flexBasisMobile={100} alignMobile="center" style={{fontWeight: 600, backgroundColor: '#F6F6F6' }}>
                   <span>Stocks</span>
                 </Td>
               </Tr>
               { tableData.map((instrument, index) => (
                 <Tr key={`${instrument[0]}_${index}`}>
-                  <Td mono borderBottom flexOrder={-2} flexBasisMobile={50} width={30} style={{fontWeight: 600}}>
+                  <Td borderBottom flexOrder={-2} flexBasisMobile={50} width={30} style={{fontWeight: 600}}>
                     { instrument[0] }
                   </Td>
 
-                  <Td mono borderBottom title="Today" flexBasisMobile={20} alignMobile="right" align="left" onClick={this.toggleCollapsed(`${instrument[0]}_${index}`)} style={{cursor: 'pointer'}}>
+                  <Td borderBottom title="Today" flexBasisMobile={20} alignMobile="right" align="left" onClick={this.toggleCollapsed(`${instrument[0]}_${index}`)} style={{cursor: 'pointer'}}>
                     { instrument[4] }%
                   </Td>
 
-                  <Td mono borderBottom title="Latest" flexOrder={-1} flexBasisMobile={20} alignMobile="left" onClick={this.toggleCollapsed(`${instrument[0]}_${index}`)} style={{cursor: 'pointer'}}>
+                  <Td borderBottom title="Latest" flexOrder={-1} flexBasisMobile={20} alignMobile="left" onClick={this.toggleCollapsed(`${instrument[0]}_${index}`)} style={{cursor: 'pointer'}}>
                   { instrument[3] }
                   </Td>
 
@@ -67,24 +67,24 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
                   <Td hiddenOnDesktop borderBottom flexBasisMobile={40} alignMobile="left" align="left" collapsed={!this.state[`${instrument[0]}_${index}`]}>
                   </Td>
 
-                  <Td mono borderBottom title="GAV" flexBasisMobile={25} alignMobile="left" align="left" collapsed={!this.state[`${instrument[0]}_${index}`]}>
+                  <Td borderBottom title="GAV" flexBasisMobile={25} alignMobile="left" align="left" collapsed={!this.state[`${instrument[0]}_${index}`]}>
                     { instrument[3] }
                   </Td>
 
-                  <Td mono borderBottom title="Shares" flexBasisMobile={25} alignMobile="right" align="left" collapsed={!this.state[`${instrument[0]}_${index}`]}>
+                  <Td borderBottom title="Shares" flexBasisMobile={25} alignMobile="right" align="left" collapsed={!this.state[`${instrument[0]}_${index}`]}>
                     { instrument[2] }
                   </Td>
 
                   <Td hiddenOnDesktop flexBasisMobile={10} collapsed={!this.state[`${instrument[0]}_${index}`]}>
                   </Td>
 
-                  <Td mono borderBottom title="Value SEK" flexBasisMobile={40} alignMobile="left" align="left" collapsed={!this.state[`${instrument[0]}_${index}`]}>
+                  <Td borderBottom title="Value SEK" flexBasisMobile={40} alignMobile="left" align="left" collapsed={!this.state[`${instrument[0]}_${index}`]}>
                     { instrument[2] }
                   </Td>
 
-                  <Td mono borderBottom title="Performance" width={10} flexBasisMobile={25} align="left" style={center} collapsed={!this.state[`${instrument[0]}_${index}`]}>{ instrument[3] }%</Td>
+                  <Td borderBottom title="Performance" width={10} flexBasisMobile={25} align="left" style={center} collapsed={!this.state[`${instrument[0]}_${index}`]}>{ instrument[3] }%</Td>
 
-                  <Td mono borderBottom title="Return" flexBasisMobile={25} alignMobile="right" align="right" collapsed={!this.state[`${instrument[0]}_${index}`]}>
+                  <Td borderBottom title="Return" flexBasisMobile={25} alignMobile="right" align="right" collapsed={!this.state[`${instrument[0]}_${index}`]}>
                     { instrument[2] * instrument[3] }
                   </Td>
 
@@ -115,11 +115,11 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
 Table with two sticky (one with stickyOffset).
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const { data } = require('./data.js');
+    const {data} = require('./data.js');
 
     <Table minWidth={700} size="md">
-      <Thead borderBottom>
-        <Tr sticky>
+      <Thead sticky stickyBorder>
+        <Tr>
           <Th width={60}>Instrument</Th>
           <Th>Quantity</Th>
           <Th>Price</Th>
@@ -127,7 +127,7 @@ Table with two sticky (one with stickyOffset).
         </Tr>
       </Thead>
       <Tbody colorAlternateRows={false}>
-        <Tr sticky stickyOffset={35} style={{fontStyle: 'italic'}} borderBottom>
+        <Tr sticky stickyOffset={38} style={{fontStyle: 'italic'}} stickyBorder>
           <Td width={60}>Name</Td>
           <Td></Td>
           <Td>SEK</Td>
@@ -137,7 +137,7 @@ Table with two sticky (one with stickyOffset).
           <Tr key={instrument[0]}>
             <Td width={60} ellipsis>{ instrument[1] }</Td>
             <Td mono>{ Math.floor(Math.random() * instrument[2]) }</Td>
-            <Td mono highlight="danger">{ instrument[3] }</Td>
+            <Td mono>{ instrument[3] }</Td>
             <Td mono modifier={ instrument[4] > 0 ? 'success' : 'danger' } align="right">{ instrument[4] }%</Td>
           </Tr>
         )) }
@@ -145,14 +145,14 @@ Table with two sticky (one with stickyOffset).
     </Table>
 
 
-Table with size md and sticky header in primary colors and borders:
+Table with size md and sticky header and borders:
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const { data } = require('./data.js');
+    const {data} = require('./data.js');
 
     <Table minWidth={700} size="md">
-      <Thead variant="primary">
-        <Tr sticky border>
+      <Thead sticky stickyBorder>
+        <Tr border>
           <Th width={60}>Instrument</Th>
           <Th>Quantity</Th>
           <Th>Price</Th>
@@ -164,46 +164,18 @@ Table with size md and sticky header in primary colors and borders:
           <Tr key={instrument[0]} border>
             <Td width={60} ellipsis>{ instrument[1] }</Td>
             <Td mono>{ Math.floor(Math.random() * instrument[2]) }</Td>
-            <Td mono highlight="danger">{ instrument[3] }</Td>
+            <Td mono>{ instrument[3] }</Td>
             <Td mono modifier={ instrument[4] > 0 ? 'success' : 'danger' } align="right">{ instrument[4] }%</Td>
           </Tr>
         )) }
       </Tbody>
-    </Table>
-
-
-
-Table with size xs and header in secondary colors and no borders:
-
-    const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const { data } = require('./data.js');
-
-    <Table minWidth={700} size="xs">
-      <Thead variant="secondary">
-        <Tr sticky>
-          <Th width={40} flexBasisMobile={40}>Instrument</Th>
-          <Th>Quantity</Th>
-          <Th>Price</Th>
-          <Th align="right">Performance 1D</Th>
-        </Tr>
-      </Thead>
-      <Tbody colorAlternateRows={false}>
-        { data.slice(0,3).map(instrument => (
-          <Tr key={instrument[0]}>
-            <Td width={40} flexBasisMobile={40} ellipsis>{ instrument[1] }</Td>
-            <Td mono>{ Math.floor(Math.random() * instrument[2]) }</Td>
-            <Td mono highlight="warning">{ instrument[3] }</Td>
-            <Td mono modifier={ instrument[4] > 0 ? 'success' : 'danger' } align="right">{ instrument[4] }%</Td>
-          </Tr>
-        )) }
-      </Tbody>
-    </Table>    
+    </Table>   
 
 
 Table with different sizes on Tbody, Thead and TFoot
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const { data } = require('./data.js');
+    const {data} = require('./data.js');
 
     <Table minWidth={700} size="sm">
       <Thead size="md">
@@ -219,7 +191,7 @@ Table with different sizes on Tbody, Thead and TFoot
           <Tr key={instrument[0]}>
             <Td width={30} ellipsis>{ instrument[1] }</Td>
             <Td mono>{ Math.floor(Math.random() * instrument[2]) }</Td>
-            <Td mono highlight="warning">{ instrument[3] }</Td>
+            <Td mono>{ instrument[3] }</Td>
             <Td mono modifier={ instrument[4] > 0 ? 'success' : 'danger' } align="right">{ instrument[4] }%</Td>
           </Tr>
         )) }
@@ -238,7 +210,7 @@ Table with different sizes on Tbody, Thead and TFoot
 Table with size on Table level
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const { data } = require('./data.js');
+    const {data} = require('./data.js');
 
     <Table minWidth={700} size="xs">
       <Thead>
@@ -254,7 +226,7 @@ Table with size on Table level
           <Tr key={instrument[0]}>
             <Td width={30} ellipsis>{ instrument[1] }</Td>
             <Td mono>{ Math.floor(Math.random() * instrument[2]) }</Td>
-            <Td mono highlight="warning">{ instrument[3] }</Td>
+            <Td mono>{ instrument[3] }</Td>
             <Td mono modifier={ instrument[4] > 0 ? 'success' : 'danger' } align="right">{ instrument[4] }%</Td>
           </Tr>
         )) }
@@ -270,12 +242,12 @@ Table with size on Table level
     </Table>
 
 
-Table with max-height (scrollable)
+Table with min-width and max-height (scrollable)
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-    const { data } = require('./data.js');
+    const {data} = require('./data.js');
 
-    <Table minWidth={700} maxHeight={250}>
+    <Table minWidth={1700} maxHeight={250}>
       <Thead>
         <Tr sticky>
           <Th width={30}>Instrument</Th>
@@ -314,9 +286,9 @@ Table with equal width columns and no ellipsis bound by a limited width parent
       overflow: 'hidden',
       width: 742,
     };
-    
+
     <div style={tableWrapperStyle}>
-      <Table tableLayoutAuto={true}>
+      <Table>
         <Thead>
           <Tr sticky>
             <Th ellipsis={false}>Tid</Th>

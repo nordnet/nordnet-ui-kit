@@ -21,20 +21,20 @@ export default theme => {
     },
     border: {
       borderStyle: 'solid',
-      borderWidth: '0 1px 1px 1px',
+      borderWidth: 1,
       borderColor: color.grayLight,
     },
-    borderBottom: {
-      '& th, td': {
-        border: 0,
-        background: `linear-gradient(to top, ${palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
-      },
-    },
     sticky: {
-      '& th, td': {
+      '& td': {
         position: 'sticky',
         top: props => props.stickyOffset || 0,
         backgroundColor: color.white,
+      },
+    },
+    stickyBorder: {
+      '& td': {
+        border: 0,
+        background: `linear-gradient(to top, ${palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
       },
     },
   };

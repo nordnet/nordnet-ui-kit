@@ -9,9 +9,9 @@ function Thead({
   className,
   children,
   size,
-  variant,
   hiddenOnMobile,
-  borderBottom,
+  sticky,
+  stickyBorder,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -19,10 +19,10 @@ function Thead({
   const usedClassName = classNames(
     classes.thead,
     size,
-    variant ? [variant] : [],
     {
       [classes.hiddenOnMobile]: hiddenOnMobile,
-      [classes.borderBottom]: borderBottom,
+      [classes.sticky]: sticky,
+      [classes.stickyBorder]: stickyBorder,
     },
     className,
   );
@@ -36,7 +36,8 @@ function Thead({
 
 Thead.defaultProps = {
   hiddenOnMobile: false,
-  borderBottom: false,
+  sticky: false,
+  stickyBorder: false,
 };
 
 Thead.propTypes = {
@@ -45,9 +46,9 @@ Thead.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
-  variant: PropTypes.oneOf(['primary', 'secondary']),
   hiddenOnMobile: PropTypes.bool,
-  borderBottom: PropTypes.bool,
+  sticky: PropTypes.bool,
+  stickyBorder: PropTypes.bool,
 };
 
 export default injectSheet(styles)(Thead);

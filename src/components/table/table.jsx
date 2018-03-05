@@ -11,13 +11,13 @@ function Table({
   size,
   minWidth,
   style,
-  tableLayoutAuto,
+  tableLayoutFixed,
   maxHeight,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const usedClassName = classNames(classes.table, size, { [classes.tableLayoutAuto]: tableLayoutAuto }, className);
+  const usedClassName = classNames(classes.table, size, { [classes.tableLayoutFixed]: tableLayoutFixed }, className);
 
   const rootStyle = Object.assign(maxHeight ? { maxHeight, overflowY: 'scroll' } : {});
 
@@ -38,14 +38,14 @@ Table.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   minWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   style: PropTypes.object,
-  tableLayoutAuto: PropTypes.bool,
+  tableLayoutFixed: PropTypes.bool,
   maxHeight: PropTypes.number,
 };
 
 Table.defaultProps = {
   size: 'sm',
   minWidth: 700,
-  tableLayoutAuto: false,
+  tableLayoutFixed: false,
   maxHeight: null,
 };
 

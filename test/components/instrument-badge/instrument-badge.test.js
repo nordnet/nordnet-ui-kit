@@ -33,7 +33,7 @@ describe('<InstrumentBadge />', () => {
     expect(wrapper.find(ExclamationPoint).length).to.equal(0);
   });
 
-  it('should render close icon when NOT marked as qualified', () => {
+  it('should render ExclamationPoint icon when NOT marked as qualified', () => {
     wrapper = shallow(<InstrumentBadge classes={classes} theme={theme} />);
     expect(wrapper.find(Checkmark).length).to.equal(0);
     expect(wrapper.find(ExclamationPoint).length).to.equal(1);

@@ -21,15 +21,14 @@ export default theme => {
       fontWeight: typography.fontWeightRegular,
       fontFamily: typography.primary.fontFamily,
       borderColor: palette.background.muted,
-      tableLayout: 'fixed',
 
       minWidth: 'auto',
       [mixins.media('md')]: {
         minWidth: props => props.minWidth,
       },
     },
-    tableLayoutAuto: {
-      tableLayout: 'auto',
+    tableLayoutFixed: {
+      tableLayout: 'fixed',
     },
   };
 };

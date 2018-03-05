@@ -73,7 +73,7 @@
   "dependencies": {
     "@iamstarkov/jss-theme-reactor": "^0.12.5",
     "classnames": "^2.2.3",
-    "color": "^3.0.0",
+    "color": "^1.0.3",
     "common-tags": "^1.4.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.8",

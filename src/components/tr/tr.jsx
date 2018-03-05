@@ -5,11 +5,15 @@ import classNames from 'classnames';
 import omit from '../../utilities/omit';
 import styles from './tr-styles';
 
-function Tr({ classes, className, children, size, border, borderBottom, sticky, stickyOffset, ...rest }) {
+function Tr({ classes, className, children, size, border, sticky, stickyBorder, stickyOffset, ...rest }) {
   const usedClassName = classNames(
     classes.tr,
     size,
-    { [classes.border]: border, [classes.borderBottom]: borderBottom, [classes.sticky]: sticky },
+    {
+      [classes.border]: border,
+      [classes.sticky]: sticky,
+      [classes.stickyBorder]: stickyBorder,
+    },
     className,
   );
   return (
@@ -21,8 +25,8 @@ function Tr({ classes, className, children, size, border, borderBottom, sticky, 
 
 Tr.defaultProps = {
   border: false,
-  borderBottom: false,
   sticky: false,
+  stickyBorder: false,
   stickyOffset: 0,
 };
 
@@ -33,8 +37,8 @@ Tr.propTypes = {
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   border: PropTypes.bool,
-  borderBottom: PropTypes.bool,
   sticky: PropTypes.bool,
+  stickyBorder: PropTypes.bool,
   stickyOffset: PropTypes.number,
 };
 

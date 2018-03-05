@@ -1,5 +1,3 @@
-import c from 'color';
-
 const sizes = () => ({
   '&.xs': {
     fontSize: '12px',
@@ -29,17 +27,6 @@ const modifiers = palette => ({
   '&.danger': modifierItem(palette.variant.danger),
 });
 
-// Highlights
-const highlightItem = color => ({
-  background: c(color).alpha(0.2).rgb().string(),
-});
-
-const highlights = palette => ({
-  '&.highlight-success': highlightItem(palette.variant.success),
-  '&.highlight-warning': highlightItem(palette.variant.warning, 'inherit'),
-  '&.highlight-danger': highlightItem(palette.variant.danger),
-});
-
 // Borders
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -66,6 +53,5 @@ const borders = palette => {
 export default {
   sizes,
   modifiers,
-  highlights,
   borders,
 };
