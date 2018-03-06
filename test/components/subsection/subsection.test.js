@@ -42,4 +42,11 @@ describe('<Subsection />', () => {
 
     expect(chevron.length).to.equal(0);
   });
+
+  it('has instance property onDesktop set to true when matchMedia returns true', () => {
+    const matchMedia = () => ({ matches: true });
+    const wrapper = shallow(<Subsection {...defaultProps} matchMedia={matchMedia} />);
+
+    expect(wrapper.instance().onDesktop).to.equal(true);
+  });
 });

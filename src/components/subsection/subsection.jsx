@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { createTheme } from '../../styles';
+import createBreakpoints from '../../styles/breakpoints';
 import Animate from '../animate';
 import Icon from '../icon/icons';
 import Spinner from '../spinner';
@@ -11,11 +11,14 @@ import styles from './subsection-styles';
 class Subsection extends React.Component {
   constructor(props) {
     super(props);
-    this.theme = createTheme();
 
     this.state = {
       toggled: this.props.toggled,
     };
+
+    const matchMedia = props.matchMedia;
+    const breakpoints = createBreakpoints();
+    this.onDesktop = matchMedia(`(min-width: ${breakpoints.md}px)`).matches;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,13 +36,13 @@ class Subsection extends React.Component {
     const { toggled } = this.state;
     const Title = title;
     const CustomIcon = icon;
-    const onDesktop =
-      typeof window !== 'undefined' && window.matchMedia && window.matchMedia(`(min-width: ${this.theme.breakpoints.md}px)`).matches;
+    const ChildrenTag = this.onDesktop ? 'div' : Animate;
+    const childrenProps = this.onDesktop ? {} : { type: 'height', estimatedHeight };
 
     return (
       <div className={cn(classes.root, { [classes.noSeparator]: noSeparator })}>
         <div className={classes.wrapper}>
-          {onDesktop &&
+          {this.onDesktop &&
             CustomIcon && (
               <div className={cn(classes.icon)}>
                 <CustomIcon />
@@ -48,7 +51,7 @@ class Subsection extends React.Component {
           <div className={classes.mainSection}>
             <button className={cn(classes.title)} onClick={this.toggle}>
               <div className={classes.titleLeft}>
-                {!onDesktop &&
+                {!this.onDesktop &&
                   CustomIcon && (
                     <div className={cn(classes.icon)}>
                       <CustomIcon />
@@ -58,16 +61,11 @@ class Subsection extends React.Component {
               </div>
               <div className={classes.titleRight}>
                 {loading && <Spinner />}
-                {!loading && !onDesktop && <div className={cn(classes.chevron)}>{toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}</div>}
+                {!loading &&
+                  !this.onDesktop && <div className={cn(classes.chevron)}>{toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}</div>}
               </div>
             </button>
-            {onDesktop ? (
-              <div>{children}</div>
-            ) : (
-              <Animate type="height" estimatedHeight={estimatedHeight}>
-                {toggled && children}
-              </Animate>
-            )}
+            <ChildrenTag {...childrenProps}>{(this.onDesktop || toggled) && children}</ChildrenTag>
           </div>
         </div>
       </div>
@@ -88,6 +86,7 @@ Subsection.propTypes = {
   noSeparator: PropTypes.bool,
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
+  matchMedia: PropTypes.func,
 };
 
 Subsection.defaultProps = {
@@ -97,6 +96,7 @@ Subsection.defaultProps = {
   estimatedHeight: 100,
   noSeparator: false,
   children: null,
+  matchMedia: typeof window !== 'undefined' && window.matchMedia ? window.matchMedia : () => ({}),
 };
 
 const enhance = injectSheet(styles);
