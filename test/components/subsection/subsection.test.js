@@ -6,7 +6,7 @@ import { mockClasses } from '../../../src';
 
 describe('<Subsection />', () => {
   const classes = mockClasses(styles);
-  const defaultProps = { classes, title: () => <span>Title</span> };
+  const defaultProps = { classes, title: () => <span>Title</span>, theme: { breakpoints: { md: 100 } } };
 
   it('should have the class root', () => {
     const wrapper = shallow(<Subsection {...defaultProps} />);

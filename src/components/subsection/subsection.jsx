@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import createBreakpoints from '../../styles/breakpoints';
 import Animate from '../animate';
 import Icon from '../icon/icons';
 import Spinner from '../spinner';
@@ -16,8 +15,8 @@ class Subsection extends React.Component {
       toggled: this.props.toggled,
     };
 
-    const matchMedia = props.matchMedia;
-    const breakpoints = createBreakpoints();
+    const { matchMedia, theme } = props;
+    const { breakpoints } = theme;
     this.onDesktop = matchMedia(`(min-width: ${breakpoints.md}px)`).matches;
   }
 
@@ -87,6 +86,7 @@ Subsection.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
   matchMedia: PropTypes.func,
+  theme: PropTypes.shape().isRequired,
 };
 
 Subsection.defaultProps = {
