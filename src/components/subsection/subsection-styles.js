@@ -50,15 +50,4 @@ export default ({ palette, typography, mixins }) => ({
   icon: {
     marginRight: 10,
   },
-  desktop: {
-    display: 'none',
-    [mixins.media('md')]: {
-      display: 'block',
-    },
-  },
-  mobile: {
-    [mixins.media('md')]: {
-      display: 'none',
-    },
-  },
 });

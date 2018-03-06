@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
+import { createTheme } from '../../styles';
 import Animate from '../animate';
 import Icon from '../icon/icons';
 import Spinner from '../spinner';
@@ -10,6 +11,7 @@ import styles from './subsection-styles';
 class Subsection extends React.Component {
   constructor(props) {
     super(props);
+    this.theme = createTheme();
 
     this.state = {
       toggled: this.props.toggled,
@@ -31,37 +33,41 @@ class Subsection extends React.Component {
     const { toggled } = this.state;
     const Title = title;
     const CustomIcon = icon;
+    const onDesktop =
+      typeof window !== 'undefined' && window.matchMedia && window.matchMedia(`(min-width: ${this.theme.breakpoints.md}px)`).matches;
 
     return (
       <div className={cn(classes.root, { [classes.noSeparator]: noSeparator })}>
         <div className={classes.wrapper}>
-          {CustomIcon && (
-            <div className={cn(classes.icon, classes.desktop)}>
-              <CustomIcon />
-            </div>
-          )}
+          {onDesktop &&
+            CustomIcon && (
+              <div className={cn(classes.icon)}>
+                <CustomIcon />
+              </div>
+            )}
           <div className={classes.mainSection}>
             <button className={cn(classes.title)} onClick={this.toggle}>
               <div className={classes.titleLeft}>
-                {CustomIcon && (
-                  <div className={cn(classes.icon, classes.mobile)}>
-                    <CustomIcon />
-                  </div>
-                )}
+                {!onDesktop &&
+                  CustomIcon && (
+                    <div className={cn(classes.icon)}>
+                      <CustomIcon />
+                    </div>
+                  )}
                 <Title />
               </div>
               <div className={classes.titleRight}>
-                {loading ? (
-                  <Spinner />
-                ) : (
-                  <div className={cn(classes.mobile, classes.chevron)}>{toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}</div>
-                )}
+                {loading && <Spinner />}
+                {!loading && !onDesktop && <div className={cn(classes.chevron)}>{toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}</div>}
               </div>
             </button>
-            <Animate className={cn(classes.mobile)} type="height" estimatedHeight={estimatedHeight}>
-              {toggled && children}
-            </Animate>
-            <div className={cn(classes.desktop)}>{children}</div>
+            {onDesktop ? (
+              <div>{children}</div>
+            ) : (
+              <Animate type="height" estimatedHeight={estimatedHeight}>
+                {toggled && children}
+              </Animate>
+            )}
           </div>
         </div>
       </div>
