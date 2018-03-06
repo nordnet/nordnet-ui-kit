@@ -17,6 +17,7 @@ import RadioGroup from './components/radio-group';
 import SegmentedControl from './components/segmented-control';
 import SharevilleLogo from './components/shareville-logo';
 import Spinner from './components/spinner';
+import Subsection from './components/subsection/subsection';
 import Table from './components/table';
 import Tbody from './components/tbody';
 import Td from './components/td';
@@ -62,6 +63,7 @@ export {
   SegmentedControl,
   SharevilleLogo,
   Spinner,
+  Subsection,
   Table,
   Tbody,
   Td,
