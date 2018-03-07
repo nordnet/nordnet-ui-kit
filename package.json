@@ -75,12 +75,13 @@
     "classnames": "^2.2.3",
     "color": "^1.0.3",
     "lodash": "^4.17.4",
-    "prop-types": "^15.5.8",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-jss": "^7.0.2",
-    "react-prop-types": "^0.4.0",
     "react-transition-group": "^2.2.0"
+  },
+  "peerDependencies": {
+    "prop-types": ">=15",
+    "react": ">=15",
+    "react-dom": ">=15",
+    "react-jss": "^7.0.2"
   },
   "devDependencies": {
     "@nordnet/prettier-config": "^1.0.0",
@@ -119,6 +120,10 @@
     "npm-run-all": "^4.0.2",
     "nyc": "^10.3.2",
     "prettier": "^1.11.1",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-jss": "^7.0.2",
     "react-styleguidist": "^5.5.10",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
