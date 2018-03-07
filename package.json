@@ -74,7 +74,6 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "color": "^1.0.3",
-    "common-tags": "^1.4.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
