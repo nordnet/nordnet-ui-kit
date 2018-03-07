@@ -60,7 +60,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
 
                   <Td hiddenOnDesktop borderBottom={!this.state[`${instrument[0]}_${index}`]} flexBasisMobile={10} onClick={this.toggleCollapsed(`${instrument[0]}_${index}`)} style={{cursor: 'pointer'}}>
                     <div style={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                      { !this.state[instrument[0]] ? <Icon.ChevronDown /> : <Icon.ChevronUp />}
+                      { !this.state[`${instrument[0]}_${index}`] ? <Icon.ChevronDown /> : <Icon.ChevronUp />}
                     </div>
                   </Td>
 
