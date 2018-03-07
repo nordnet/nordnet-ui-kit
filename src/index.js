@@ -34,7 +34,6 @@ import Icon from './components/icon/icons';
 import { createTheme } from './styles';
 
 // Test utils
-import { createMount, createShallow, createRenderToString } from './test-utils';
 import mockClasses from './utilities/mock-classes';
 
 const theme = createTheme();
@@ -77,8 +76,5 @@ export {
   createTheme,
   theme,
   // Test utils
-  createMount,
-  createShallow,
-  createRenderToString,
   mockClasses,
 };
