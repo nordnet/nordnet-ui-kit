@@ -6,10 +6,14 @@ export default theme => {
   return {
     tfoot: {
       ...mixins.basicBoxSizing,
-      display: 'block',
-      fontWeight: typography.fontWeightSemiBold,
       ...styleUtils.sizes(),
+      fontWeight: typography.fontWeightSemiBold,
       borderTop: `2px solid ${palette.shades.dark.text.muted}`,
+    },
+    hiddenOnMobile: {
+      [mixins.maxMedia('md')]: {
+        display: 'none',
+      },
     },
   };
 };

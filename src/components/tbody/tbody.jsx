@@ -8,10 +8,8 @@ function Tbody({
   classes,
   className,
   children,
-  style,
   size,
   colorAlternateRows,
-  maxHeight,
   border,
   borderTop,
   borderRight,
@@ -26,7 +24,6 @@ function Tbody({
     size,
     {
       'alternate-rows': colorAlternateRows,
-      scroll: maxHeight,
       border,
       borderTop,
       borderRight,
@@ -36,10 +33,8 @@ function Tbody({
     className,
   );
 
-  const tbodyStyle = Object.assign(maxHeight ? { maxHeight } : {}, style);
-
   return (
-    <tbody {...rest} className={usedClassName} style={tbodyStyle}>
+    <tbody {...rest} className={usedClassName}>
       {children}
     </tbody>
   );
@@ -59,11 +54,9 @@ Tbody.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
-  style: PropTypes.object,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   colorAlternateRows: PropTypes.bool,
   /** Unitless pixel value */
-  maxHeight: PropTypes.number,
   border: PropTypes.bool,
   borderTop: PropTypes.bool,
   borderRight: PropTypes.bool,
