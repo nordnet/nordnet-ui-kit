@@ -81,7 +81,7 @@
     "prop-types": ">=15",
     "react": ">=15",
     "react-dom": ">=15",
-    "react-jss": "^7.0.2"
+    "react-jss": ">=7"
   },
   "devDependencies": {
     "@nordnet/prettier-config": "^1.0.0",
@@ -123,7 +123,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-jss": "^7.0.2",
+    "react-jss": "^8.3.3",
     "react-styleguidist": "^5.5.10",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
