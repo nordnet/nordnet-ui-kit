@@ -9,15 +9,23 @@ function Tfoot({
   className,
   children,
   size,
+  hiddenOnMobile,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const usedClassName = classNames(classes.tfoot, size, className);
-  return <tfoot {...rest} className={usedClassName}>{children}</tfoot>;
+  const usedClassName = classNames(classes.tfoot, size, { [classes.hiddenOnMobile]: hiddenOnMobile }, className);
+
+  return (
+    <tfoot {...rest} className={usedClassName}>
+      {children}
+    </tfoot>
+  );
 }
 
-Tfoot.defaultProps = {};
+Tfoot.defaultProps = {
+  hiddenOnMobile: false,
+};
 
 Tfoot.propTypes = {
   /** @ignore */
@@ -25,6 +33,7 @@ Tfoot.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  hiddenOnMobile: PropTypes.bool,
 };
 
 export default injectSheet(styles)(Tfoot);
