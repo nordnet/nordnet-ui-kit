@@ -6944,12 +6944,6 @@ react-jss@^7.0.2:
     prop-types "^15.5.8"
     theming "^1.1.0"
 
-react-prop-types@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/react-prop-types/-/react-prop-types-0.4.0.tgz#f99b0bfb4006929c9af2051e7c1414a5c75b93d0"
-  dependencies:
-    warning "^3.0.0"
-
 react-styleguidist@^5.5.10:
   version "5.5.10"
   resolved "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-5.5.10.tgz#1071716c48bad5441466f1ee39b26d9a940275cf"
