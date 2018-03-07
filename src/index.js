@@ -31,7 +31,7 @@ import Ul from './components/ul/ul';
 import Icon from './components/icon/icons';
 
 // Theming
-import { ThemeProvider, createTheme } from './styles';
+import { createTheme } from './styles';
 
 // Test utils
 import { createMount, createShallow, createRenderToString } from './test-utils';
@@ -74,7 +74,6 @@ export {
   Tr,
   Ul,
   // Theming
-  ThemeProvider,
   createTheme,
   theme,
   // Test utils

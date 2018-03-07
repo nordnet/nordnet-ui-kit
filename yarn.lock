@@ -16,15 +16,6 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@iamstarkov/jss-theme-reactor@^0.12.5":
-  version "0.12.5"
-  resolved "https://registry.npmjs.org/@iamstarkov/jss-theme-reactor/-/jss-theme-reactor-0.12.5.tgz#bb58cbee4bcb66cb157e86ba624f0f74dd7c739b"
-  dependencies:
-    jss "^8.1.0"
-    jss-preset-default "^3.0.0"
-    jss-vendor-prefixer "^6.0.0"
-    murmurhash-js "^1.0.0"
-
 "@nordnet/prettier-config@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@nordnet/prettier-config/-/prettier-config-1.0.0.tgz#67c68ac3672f52ac0c4069604c07dc1159f559b9"
@@ -5665,10 +5656,6 @@ ms@0.7.2:
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
-
-murmurhash-js@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/murmurhash-js/-/murmurhash-js-1.0.0.tgz#b06278e21fc6c37fa5313732b0412bcb6ae15f51"
 
 mute-stream@0.0.5:
   version "0.0.5"
