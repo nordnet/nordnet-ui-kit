@@ -26,6 +26,9 @@
     "coveralls": "coveralls < coverage/lcov.info",
     "semantic-release": "semantic-release",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
+    "sketch": "run-s sketch:*",
+    "sketch:render": "styleguidist build --config styleguide-sketch.config.js",
+    "sketch:build": "html-sketchapp --file sketch/index.html --out-dir sketch/lib-file",
     "format": "prettier --write {src,test}/**/*.js"
   },
   "files": [

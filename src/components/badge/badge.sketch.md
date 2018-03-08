@@ -13,6 +13,6 @@
       </div>
 
       <div data-sketch-symbol="Badge/success">
-        <Badge modifier="success" >Badge</Badge>
+        <Badge modifier="danger" >Badge changed</Badge>
       </div>
     </div>
