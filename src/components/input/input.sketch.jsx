@@ -1,6 +1,13 @@
 import React from 'react';
 import Input from './input';
 
+const selectValues = [
+  {
+    label: '',
+    value: 1,
+  },
+];
+
 const symbols = {
   'Input/text/default': <Input label="label" placeholder="placeholder" />,
   'Input/text/secondary': <Input label="label" placeholder="placeholder" variant="secondary" />,
@@ -10,19 +17,7 @@ const symbols = {
   'Input/text/leftAddon': <Input label="label" placeholder="placeholder" leftAddon="$" />,
   'Input/text/rightAddon': <Input label="label" placeholder="placeholder" rightAddon="USD" />,
   'Input/password': <Input type="password" label="label" placeholder="password" />,
-  'Input/select': (
-    <Input
-      type="select"
-      label="label"
-      placeholder="password"
-      options={[
-        {
-          label: '',
-          value: 1,
-        },
-      ]}
-    />
-  ),
+  'Input/select': <Input type="select" label="label" placeholder="password" options={selectValues} />,
   'Input/checkbox': <Input type="checkbox" label="label" />,
   'Input/checkbox/checked': <Input type="checkbox" label="label" checked />,
   'Input/checkbox/success': <Input type="checkbox" label="label" hasSuccess />,
