@@ -16,6 +16,31 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
+"@iamstarkov/html-sketchapp-cli@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@iamstarkov/html-sketchapp-cli/-/html-sketchapp-cli-0.2.0.tgz#b18e38d5ac0d8fd39f6de821925e1160ddb2a5aa"
+  dependencies:
+    "@iamstarkov/html-sketchapp" "^1.0.0"
+    es6-promisify "^6.0.0"
+    find-up "^2.1.0"
+    get-port "^3.2.0"
+    mkdirp "^0.5.1"
+    opn "^5.1.0"
+    puppeteer "^1.0.0"
+    serve "^6.4.9"
+    url-join "^4.0.0"
+    wait-on "^2.1.0"
+    yargs "^11.0.0"
+
+"@iamstarkov/html-sketchapp@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@iamstarkov/html-sketchapp/-/html-sketchapp-1.0.0.tgz#1037078e7b3080a4775d2435ae048c0a2112fc70"
+  dependencies:
+    murmur2js "^1.0.0"
+    normalize-css-color "^1.0.2"
+    sketch-constants "^1.1.0"
+    sketchapp-json-plugin "^0.1.2"
+
 "@iamstarkov/jss-theme-reactor@^0.12.5":
   version "0.12.5"
   resolved "https://registry.npmjs.org/@iamstarkov/jss-theme-reactor/-/jss-theme-reactor-0.12.5.tgz#bb58cbee4bcb66cb157e86ba624f0f74dd7c739b"
@@ -4156,31 +4181,6 @@ html-minifier@^3.2.3:
     param-case "2.1.x"
     relateurl "0.2.x"
     uglify-js "2.8.x"
-
-html-sketchapp-cli@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/html-sketchapp-cli/-/html-sketchapp-cli-0.1.0.tgz#fdf820c254839e3e082bdeeb849fcc389f0bda9f"
-  dependencies:
-    es6-promisify "^6.0.0"
-    find-up "^2.1.0"
-    get-port "^3.2.0"
-    html-sketchapp "github:brainly/html-sketchapp#49f1d0ea3e239608af0b8f7c0b6240e3a6a331e2"
-    mkdirp "^0.5.1"
-    opn "^5.1.0"
-    puppeteer "^1.0.0"
-    serve "^6.4.9"
-    url-join "^4.0.0"
-    wait-on "^2.1.0"
-    yargs "^11.0.0"
-
-"html-sketchapp@github:brainly/html-sketchapp#49f1d0ea3e239608af0b8f7c0b6240e3a6a331e2":
-  version "1.0.0"
-  resolved "https://codeload.github.com/brainly/html-sketchapp/tar.gz/49f1d0ea3e239608af0b8f7c0b6240e3a6a331e2"
-  dependencies:
-    murmur2js "^1.0.0"
-    normalize-css-color "^1.0.2"
-    sketch-constants "^1.1.0"
-    sketchapp-json-plugin "^0.1.2"
 
 html-webpack-plugin@^2.28.0:
   version "2.30.1"

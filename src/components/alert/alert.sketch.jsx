@@ -1,7 +1,7 @@
-import React from 'react';
-import Alert from './alert';
+const React = require('react');
+const { Alert } = require('../../'); // nordnet-ui-kit
 
-export const symbols = [
+module.exports = [
   {
     symbol: 'Alert/default',
     entity: <Alert header="Alert">Alert text</Alert>,
