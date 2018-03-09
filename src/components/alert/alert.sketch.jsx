@@ -1,33 +1,51 @@
 import React from 'react';
 import Alert from './alert';
 
-const symbols = {
-  'Alert/default': <Alert header="Alert">Alert text</Alert>,
-  'Alert/info': (
-    <Alert modifier="info" header="Alert">
-      Alert text
-    </Alert>
-  ),
-  'Alert/success': (
-    <Alert modifier="success" header="Alert">
-      Alert text
-    </Alert>
-  ),
-  'Alert/warning': (
-    <Alert modifier="warning" header="Alert">
-      Alert text
-    </Alert>
-  ),
-  'Alert/danger': (
-    <Alert modifier="danger" header="Alert">
-      Alert text
-    </Alert>
-  ),
-  'Alert/vertical': (
-    <Alert header="Alert" vertical>
-      Alert text
-    </Alert>
-  ),
-};
+export const symbols = [
+  {
+    symbol: 'Alert/default',
+    entity: <Alert header="Alert">Alert text</Alert>,
+  },
+  {
+    symbol: 'Alert/vertical',
+    entity: (
+      <Alert header="Alert" vertical>
+        Alert text
+      </Alert>
+    ),
+  },
+  {
+    symbol: 'Alert/info',
+    entity: (
+      <Alert modifier="info" header="Alert">
+        Alert text
+      </Alert>
+    ),
+  },
+  {
+    symbol: 'Alert/success',
+    entity: (
+      <Alert modifier="success" header="Alert">
+        Alert text
+      </Alert>
+    ),
+  },
+  {
+    symbol: 'Alert/warning',
+    entity: (
+      <Alert modifier="warning" header="Alert">
+        Alert text
+      </Alert>
+    ),
+  },
+  {
+    symbol: 'Alert/danger',
+    entity: (
+      <Alert modifier="danger" header="Alert">
+        Alert text
+      </Alert>
+    ),
+  },
+];
 
 export default symbols;
