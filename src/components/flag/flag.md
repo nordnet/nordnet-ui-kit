@@ -48,5 +48,3 @@ Currencies:
       <Flag size={64} countryCode="eu" secondaryCountryCode="us" />
       <Flag size={64} countryCode="eu" secondaryCountryCode="gb" />
     </div>
-
-At the moment these are all the supported currency combinations, but we can easily create more.
