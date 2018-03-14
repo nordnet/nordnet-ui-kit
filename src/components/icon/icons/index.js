@@ -1,4 +1,5 @@
 import AddMoney from './addMoney';
+import Advice from './advice';
 import Apartment from './apartment';
 import ArrowDown from './arrowDown';
 import ArrowLeft from './arrowLeft';
@@ -42,6 +43,7 @@ import Heart from './heart';
 import Hexagon from './hexagon';
 import House from './house';
 import Industry from './industry';
+import Info from './info';
 import Key from './key';
 import LightBulb from './lightBulb';
 import LightningBolt from './lightningBolt';
@@ -75,6 +77,7 @@ import Trash from './trash';
 import VerticalEllipsis from './verticalEllipsis';
 
 const Icon = {
+  Advice,
   AddMoney,
   Apartment,
   ArrowDown,
@@ -118,6 +121,7 @@ const Icon = {
   Heart,
   Hexagon,
   House,
+  Info,
   Industry,
   Key,
   LightBulb,
