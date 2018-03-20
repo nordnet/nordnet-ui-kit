@@ -28,6 +28,7 @@ import Ellipsis from './ellipsis';
 import ExclamationPoint from './exclamationPoint';
 import ExclamationPointCircle from './exclamationPointCircle';
 import Expand from './expand';
+import Feed from './feed';
 import File from './file';
 import Film from './film';
 import Filter from './filter';
@@ -77,8 +78,8 @@ import Trash from './trash';
 import VerticalEllipsis from './verticalEllipsis';
 
 const Icon = {
-  Advice,
   AddMoney,
+  Advice,
   Apartment,
   ArrowDown,
   ArrowLeft,
@@ -107,6 +108,7 @@ const Icon = {
   ExclamationPoint,
   ExclamationPointCircle,
   Expand,
+  Feed,
   File,
   Film,
   Filter,
@@ -121,8 +123,8 @@ const Icon = {
   Heart,
   Hexagon,
   House,
-  Info,
   Industry,
+  Info,
   Key,
   LightBulb,
   LightningBolt,
