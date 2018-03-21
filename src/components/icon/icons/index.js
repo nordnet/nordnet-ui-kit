@@ -1,4 +1,5 @@
 import AddMoney from './addMoney';
+import Advice from './advice';
 import Apartment from './apartment';
 import ArrowDown from './arrowDown';
 import ArrowLeft from './arrowLeft';
@@ -27,6 +28,7 @@ import Ellipsis from './ellipsis';
 import ExclamationPoint from './exclamationPoint';
 import ExclamationPointCircle from './exclamationPointCircle';
 import Expand from './expand';
+import Feed from './feed';
 import File from './file';
 import Film from './film';
 import Filter from './filter';
@@ -42,6 +44,7 @@ import Heart from './heart';
 import Hexagon from './hexagon';
 import House from './house';
 import Industry from './industry';
+import Info from './info';
 import Key from './key';
 import LightBulb from './lightBulb';
 import LightningBolt from './lightningBolt';
@@ -76,6 +79,7 @@ import VerticalEllipsis from './verticalEllipsis';
 
 const Icon = {
   AddMoney,
+  Advice,
   Apartment,
   ArrowDown,
   ArrowLeft,
@@ -104,6 +108,7 @@ const Icon = {
   ExclamationPoint,
   ExclamationPointCircle,
   Expand,
+  Feed,
   File,
   Film,
   Filter,
@@ -119,6 +124,7 @@ const Icon = {
   Hexagon,
   House,
   Industry,
+  Info,
   Key,
   LightBulb,
   LightningBolt,

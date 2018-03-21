@@ -18,11 +18,7 @@ function Checkbox(props) {
 
   const icon = <Icon.Checkmark stroke={color.white} style={{ display: 'block' }} />;
 
-  return (
-    <span className={classes}>
-      {checked ? icon : null}
-    </span>
-  );
+  return <span className={classes}>{checked ? icon : null}</span>;
 }
 
 Checkbox.propTypes = {

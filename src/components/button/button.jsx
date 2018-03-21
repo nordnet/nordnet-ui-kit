@@ -50,9 +50,7 @@ function Button({
     <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
       <div className={classes.innerWrapper}>
         {icon}
-        <span className={classNames({ [classes.spaceForIcon]: icon && children })}>
-          {children}
-        </span>
+        <span className={classNames({ [classes.spaceForIcon]: icon && children })}>{children}</span>
       </div>
     </Element>
   );

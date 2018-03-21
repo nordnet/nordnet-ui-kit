@@ -1,8 +1,14 @@
 import c from 'color';
 
 // This function was created because 'focused' versions on colors were not found in the palette
-const focusColor = color => c(color).darken(0.1).hex();
-const disableColor = color => c(color).lighten(0.7).hex();
+const focusColor = color =>
+  c(color)
+    .darken(0.1)
+    .hex();
+const disableColor = color =>
+  c(color)
+    .lighten(0.7)
+    .hex();
 
 const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDisabled) => {
   const variantDict = {
@@ -233,7 +239,9 @@ export default theme => {
           'primary',
           palette.variant.warning,
           focusColor(palette.variant.warning),
-          c(palette.variant.warning).lighten(0.3).hex(),
+          c(palette.variant.warning)
+            .lighten(0.3)
+            .hex(),
           palette.text.default,
         ),
         color: palette.text.default,
@@ -242,7 +250,9 @@ export default theme => {
         'primary',
         palette.variant.danger,
         focusColor(palette.variant.danger),
-        c(palette.variant.danger).lighten(0.3).hex(),
+        c(palette.variant.danger)
+          .lighten(0.3)
+          .hex(),
         palette.shades.dark.text.default,
       ),
     },
@@ -253,8 +263,12 @@ export default theme => {
       border: `2px solid ${palette.color.gray}`,
 
       '&:hover': {
-        color: c(palette.color.grayDark).darken(0.1).hex(),
-        borderColor: c(palette.color.gray).darken(0.1).hex(),
+        color: c(palette.color.grayDark)
+          .darken(0.1)
+          .hex(),
+        borderColor: c(palette.color.gray)
+          .darken(0.1)
+          .hex(),
       },
 
       '&:disabled': {
@@ -263,7 +277,9 @@ export default theme => {
       },
 
       '&:focus, &:active': {
-        boxShadow: `0 0 0 2px ${c(palette.color.gray).darken(0.1).hex()}`,
+        boxShadow: `0 0 0 2px ${c(palette.color.gray)
+          .darken(0.1)
+          .hex()}`,
       },
 
       '&.xs,&.sm': {

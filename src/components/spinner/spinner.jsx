@@ -39,12 +39,8 @@ function conicalGradient(size, limit, clipPathId) {
 
   return (
     <g className="spinner__gradient">
-      <g>
-        {gradientSectionsA.map(section => section)}
-      </g>
-      <g clipPath={`url(#${clipPathId})`}>
-        {gradientSectionsB.map(section => section)}
-      </g>
+      <g>{gradientSectionsA.map(section => section)}</g>
+      <g clipPath={`url(#${clipPathId})`}>{gradientSectionsB.map(section => section)}</g>
     </g>
   );
 }

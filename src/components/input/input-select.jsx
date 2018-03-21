@@ -37,11 +37,7 @@ class InputSelect extends InputDefault.InnerComponent {
 
   renderFakePlaceholder() {
     const placeholder = this.props.placeholder || this.props.label;
-    return (
-      <span className="input__placeholder">
-        {placeholder}
-      </span>
-    );
+    return <span className="input__placeholder">{placeholder}</span>;
   }
 
   renderValueLabel() {
@@ -50,11 +46,7 @@ class InputSelect extends InputDefault.InnerComponent {
       return null;
     }
 
-    return (
-      <span className="input__value-label">
-        {option.label}
-      </span>
-    );
+    return <span className="input__value-label">{option.label}</span>;
   }
 
   getSelectedOption() {
@@ -102,7 +94,11 @@ class InputSelect extends InputDefault.InnerComponent {
           label={label}
           type={type}
         >
-          {placeholder ? <option value="" disabled>{placeholder}</option> : null}
+          {placeholder ? (
+            <option value="" disabled>
+              {placeholder}
+            </option>
+          ) : null}
           {options.map(renderOption)}
         </select>
         {this.state.value ? null : this.renderFakePlaceholder()}
