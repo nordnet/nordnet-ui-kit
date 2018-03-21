@@ -158,9 +158,7 @@ class Tooltip extends React.Component {
             this.popup = popup;
           }}
         >
-          <div>
-            {content}
-          </div>
+          <div>{content}</div>
         </div>
       </div>
     );

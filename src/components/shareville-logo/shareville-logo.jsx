@@ -10,7 +10,8 @@ function SharevilleLogo({ onlyIcon, height, ...rest }) {
         <defs>
           <style
             dangerouslySetInnerHTML={{
-              __html: '.svLogoGradientClass-1{fill:url(#linear-gradient);}.svLogoGradientClass-2{fill:url(#linear-gradient-2);}.svLogoGradientClass-3{fill:url(#linear-gradient-3);}',
+              __html:
+                '.svLogoGradientClass-1{fill:url(#linear-gradient);}.svLogoGradientClass-2{fill:url(#linear-gradient-2);}.svLogoGradientClass-3{fill:url(#linear-gradient-3);}',
             }}
           />
           <linearGradient
@@ -84,7 +85,8 @@ function SharevilleLogo({ onlyIcon, height, ...rest }) {
       <defs>
         <style
           dangerouslySetInnerHTML={{
-            __html: '.svLogoGradientWtClass-1{fill:#008c44;}.svLogoGradientWtClass-2{fill:url(#linear-gradient);}.svLogoGradientWtClass-3{fill:url(#linear-gradient-2);}.svLogoGradientWtClass-4{fill:url(#linear-gradient-3);}',
+            __html:
+              '.svLogoGradientWtClass-1{fill:#008c44;}.svLogoGradientWtClass-2{fill:url(#linear-gradient);}.svLogoGradientWtClass-3{fill:url(#linear-gradient-2);}.svLogoGradientWtClass-4{fill:url(#linear-gradient-3);}',
           }}
         />
         <linearGradient

@@ -2,11 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function Icon() {
-  return (
-    <span>
-      Dummy icon used for documentation
-    </span>
-  );
+  return <span>Dummy icon used for documentation</span>;
 }
 
 Icon.propTypes = {

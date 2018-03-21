@@ -3,7 +3,10 @@ import Color from 'color';
 export default theme => {
   const { palette, transitions, mixins, typography } = theme;
 
-  const disabledColor = color => Color(color).mix(Color(palette.action.disabled), 0.6).hex();
+  const disabledColor = color =>
+    Color(color)
+      .mix(Color(palette.action.disabled), 0.6)
+      .hex();
 
   const inputMarginBottom = 20;
   const borderSize = 1;
