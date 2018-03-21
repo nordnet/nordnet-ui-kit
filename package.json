@@ -26,7 +26,7 @@
     "coveralls": "coveralls < coverage/lcov.info",
     "semantic-release": "semantic-release",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
-    "format": "prettier --write {src,test}/**/*.js"
+    "format": "prettier --write {src,test}/**/*.{js,jsx}"
   },
   "files": [
     "dist",
