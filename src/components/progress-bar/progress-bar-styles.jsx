@@ -1,8 +1,14 @@
 import c from 'color';
 
 // This function was created because 'focused' versions on colors were not found in the palette
-const focusColor = color => c(color).darken(0.1).hex();
-const disableColor = color => c(color).lighten(0.7).hex();
+const focusColor = color =>
+  c(color)
+    .darken(0.1)
+    .hex();
+const disableColor = color =>
+  c(color)
+    .lighten(0.7)
+    .hex();
 
 const variantModifierFn = (variant, colors) => {
   const { background, backgroundDisabled, borderColor, color, colorDisabled } = colors;

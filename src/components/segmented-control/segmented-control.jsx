@@ -126,9 +126,7 @@ class SegmentedControl extends React.PureComponent {
           onFocus={event => this.handleFocus(event, index)}
           onBlur={event => this.handleFocus(event, index)}
         />
-        <label htmlFor={inputId}>
-          {child}
-        </label>
+        <label htmlFor={inputId}>{child}</label>
       </span>
     );
   }
