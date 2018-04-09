@@ -48,9 +48,9 @@ All available icons:
 
     const iconFilter = (
       <div>
-        <label htmlFor="filter">Filter: </label>
+        <label htmlFor="icon_filter">Filter: </label>
         <Input
-          id="filter"
+          id="icon_filter"
           type="text"
           value={state.value}
           onChange={
@@ -67,9 +67,9 @@ All available icons:
 
     const colorPicker = (
       <div>
-        <label htmlFor="color">Icon color: </label>
+        <label htmlFor="color_picker">Icon color: </label>
         <Input
-          id="color"
+          id="color_picker"
           type="text"
           value={state.color}
           placeholder="Choose a color wisely, try cornflowerblue or #234567?"
