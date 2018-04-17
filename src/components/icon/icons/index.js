@@ -28,6 +28,7 @@ import Ellipsis from './ellipsis';
 import ExclamationPoint from './exclamationPoint';
 import ExclamationPointCircle from './exclamationPointCircle';
 import Expand from './expand';
+import Eye from './eye';
 import Feed from './feed';
 import File from './file';
 import Film from './film';
@@ -108,6 +109,7 @@ const Icon = {
   ExclamationPoint,
   ExclamationPointCircle,
   Expand,
+  Eye,
   Feed,
   File,
   Film,
