@@ -9,6 +9,8 @@ import ArrowUpDown from './arrowUpDown';
 import Balloon from './balloon';
 import Bank from './bank';
 import Bell from './bell';
+import BoxPlus from './boxPlus';
+import BoxCheckmark from './boxCheckmark';
 import Calendar from './calendar';
 import Car from './car';
 import Cart from './cart';
@@ -49,6 +51,7 @@ import Info from './info';
 import Key from './key';
 import LightBulb from './lightBulb';
 import LightningBolt from './lightningBolt';
+import Like from './like';
 import Lock from './lock';
 import Mail from './mail';
 import MailOpen from './mailOpen';
@@ -90,6 +93,8 @@ const Icon = {
   Balloon,
   Bank,
   Bell,
+  BoxCheckmark,
+  BoxPlus,
   Calendar,
   Car,
   Cart,
@@ -130,6 +135,7 @@ const Icon = {
   Key,
   LightBulb,
   LightningBolt,
+  Like,
   Lock,
   Mail,
   MailOpen,
