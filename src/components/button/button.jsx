@@ -8,6 +8,7 @@ const getElementType = (node, href) => {
   if (href && (node === 'button' || node === 'a')) {
     return 'a';
   } else if (typeof node === 'function') {
+    // For when passing Link from react-router-dom into the node prop
     return node;
   }
 
