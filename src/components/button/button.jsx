@@ -4,6 +4,16 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import styles from './button-styles';
 
+const getElementType = (node, href) => {
+  if (href && (node === 'button' || node === 'a')) {
+    return 'a';
+  } else if (typeof node === 'function') {
+    return node;
+  }
+
+  return 'button';
+};
+
 function Button({
   classes,
   variant,
@@ -12,6 +22,7 @@ function Button({
   className,
   children,
   modifier,
+  node,
   href,
   icon,
   size,
@@ -19,7 +30,7 @@ function Button({
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const Element = href ? 'a' : 'button';
+  const Element = getElementType(node, href);
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
   const isLink = variant === 'link';
@@ -59,6 +70,7 @@ function Button({
 Button.defaultProps = {
   variant: 'primary',
   size: 'sm',
+  node: 'button',
 };
 
 Button.propTypes = {
@@ -70,6 +82,7 @@ Button.propTypes = {
   block: PropTypes.bool,
   variant: PropTypes.oneOf(['primary', 'secondary', 'link']),
   modifier: PropTypes.oneOf(['action', 'success', 'warning', 'danger']),
+  node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
   icon: PropTypes.node,
