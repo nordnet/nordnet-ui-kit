@@ -5,14 +5,11 @@ import classNames from 'classnames';
 import styles from './button-styles';
 
 const getElementType = (node, href) => {
-  if (href && (node === 'button' || node === 'a')) {
-    return 'a';
-  } else if (typeof node === 'function') {
-    // For when passing Link from react-router-dom into the node prop
+  if (node) {
     return node;
   }
 
-  return 'button';
+  return href ? 'a' : 'button';
 };
 
 function Button({
