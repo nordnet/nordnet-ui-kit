@@ -68,7 +68,6 @@ function Button({
 Button.defaultProps = {
   variant: 'primary',
   size: 'sm',
-  node: 'button',
 };
 
 Button.propTypes = {
