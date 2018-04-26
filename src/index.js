@@ -27,6 +27,7 @@ import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
 import Ul from './components/ul/ul';
+import { PopupMenu, PopupMenuItem } from './components/popup-menu';
 
 import Icon from './components/icon/icons';
 
@@ -57,6 +58,8 @@ export {
   Li,
   Logo,
   Pane,
+  PopupMenu,
+  PopupMenuItem,
   ProgressBar,
   RadioGroup,
   SegmentedControl,

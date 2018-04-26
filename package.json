@@ -75,7 +75,7 @@
     "classnames": "^2.2.3",
     "color": "^1.0.3",
     "lodash": "^4.17.4",
-    "react-transition-group": "^2.2.0"
+    "react-transition-group": "^2.3.1"
   },
   "peerDependencies": {
     "prop-types": ">=15",
@@ -124,6 +124,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-jss": "^8.3.3",
+    "react-router-dom": "^4.2.2",
     "react-styleguidist": "^5.5.10",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
