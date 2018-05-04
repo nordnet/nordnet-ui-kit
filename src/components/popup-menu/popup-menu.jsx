@@ -55,8 +55,9 @@ class PopupMenu extends React.Component {
   };
 
   render() {
-    const { width, toggleButton, classes, children, enter, exit } = this.props;
+    const { width, toggleButton, classes, children, enter, exit, maxHeight } = this.props;
     const { isOpen } = this.state;
+    const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
     return (
       <span
         className={classes.menuContainer}
@@ -71,7 +72,7 @@ class PopupMenu extends React.Component {
           {isOpen && (
             <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
               <div className={classes.menuPopup} style={{ width }}>
-                <div className={classes.menuItemContainer}>
+                <div className={classes.menuItemContainer} style={itemContainerStyle}>
                   <ul className={classes.menuItems}>{children}</ul>
                 </div>
               </div>
@@ -92,6 +93,7 @@ PopupMenu.propTypes = {
   enter: PropTypes.number,
   exit: PropTypes.number,
   toggleButton: PropTypes.node,
+  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 PopupMenu.defaultProps = {
@@ -101,6 +103,8 @@ PopupMenu.defaultProps = {
   enter: 100,
   exit: 100,
   toggleButton: null,
+  maxHeight: 'none',
 };
 
+export { PopupMenu as Component, styles };
 export default injectSheet(styles)(PopupMenu);
