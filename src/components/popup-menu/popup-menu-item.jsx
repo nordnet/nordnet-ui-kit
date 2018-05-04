@@ -33,4 +33,5 @@ PopupMenuItem.defaultProps = {
   disabled: false,
 };
 
+export { PopupMenuItem as Component, styles };
 export default injectSheet(styles)(PopupMenuItem);
