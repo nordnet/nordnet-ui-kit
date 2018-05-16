@@ -140,6 +140,7 @@ class Tooltip extends React.Component {
     const wrapperStyle = {
       opacity: this.state.hover || this.state.toggled ? 1 : 0,
       pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
+      width: this.props.fixedWidth || 'initial',
       ...tooltipStyle,
     };
 
@@ -149,11 +150,13 @@ class Tooltip extends React.Component {
       bottom: placement === 'above' ? 0 : 'auto',
     };
 
+    const popupClass = this.props.fixedWidth ? this.classes.popupFixed : this.classes.popupNormal;
+    const popupContentClass = this.props.fixedWidth ? this.classes.popupContentFixed : this.classes.popupContentNormal;
     return (
-      <div className={classnames(this.classes.popup, this.classes[placement])} style={wrapperStyle}>
+      <div className={classnames(popupClass, this.classes[placement])} style={wrapperStyle}>
         <div
           style={contentStyle}
-          className={classnames(this.classes.popupContent, this.classes[placement])}
+          className={classnames(popupContentClass, this.classes[placement])}
           ref={popup => {
             this.popup = popup;
           }}
