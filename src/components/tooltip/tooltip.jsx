@@ -150,13 +150,18 @@ class Tooltip extends React.Component {
       bottom: placement === 'above' ? 0 : 'auto',
     };
 
-    const popupClass = this.props.fixedWidth ? this.classes.popupFixed : this.classes.popupNormal;
-    const popupContentClass = this.props.fixedWidth ? this.classes.popupContentFixed : this.classes.popupContentNormal;
     return (
-      <div className={classnames(popupClass, this.classes[placement])} style={wrapperStyle}>
+      <div
+        className={classnames(this.classes.popup, this.classes[placement], this.props.fixedWidth && this.classes.popupFixed)}
+        style={wrapperStyle}
+      >
         <div
           style={contentStyle}
-          className={classnames(popupContentClass, this.classes[placement])}
+          className={classnames(
+            this.classes.popupContent,
+            this.classes[placement],
+            this.props.fixedWidth && this.classes.popupContentFixed,
+          )}
           ref={popup => {
             this.popup = popup;
           }}
