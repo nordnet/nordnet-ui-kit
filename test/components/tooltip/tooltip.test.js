@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
-import { mockClasses, theme } from '../../../src';
+import { mockClasses } from '../../../src';
 import { Component as Tooltip, styles } from '../../../src/components/tooltip/tooltip';
 
 describe('<Tooltip />', () => {
@@ -47,29 +47,27 @@ describe('<Tooltip />', () => {
   });
 
   it('should have fixedWidth', () => {
-    const props = {
-      fixedWidth: 123,
-    };
-    const actual = styles(theme).popup.width(props);
-    expect(actual).to.equal(props.fixedWidth);
+    wrapper = shallow(<Tooltip classes={classes} fixedWidth={345} content="Lorem ipsum dolor sit amet." />);
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    expect(wrapper.find(`.${classes.popupFixed}`).node.props.style).to.have.property('width', 345);
   });
 
   it('should set className to above', () => {
     wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'above'} />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popup}`).hasClass('above')).to.equal(true);
+    expect(wrapper.find(`.${classes.popupNormal}`).hasClass('above')).to.equal(true);
   });
 
   it('should set className to left', () => {
     wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'left'} />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popup}`).hasClass('left')).to.equal(true);
+    expect(wrapper.find(`.${classes.popupNormal}`).hasClass('left')).to.equal(true);
   });
 
   it('should set placement to below if none is given', () => {
     wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popup}`).hasClass('below')).to.equal(true);
+    expect(wrapper.find(`.${classes.popupNormal}`).hasClass('below')).to.equal(true);
   });
 
   describe('click outside functionality', () => {
@@ -112,7 +110,7 @@ describe('<Tooltip />', () => {
 
     it('should not untoggle tooltip when clicked inside', () => {
       component.find(`.${classes.container}`).simulate('click');
-      component.find(`.${classes.popupContent}`).simulate('click');
+      component.find(`.${classes.popupContentNormal}`).simulate('click');
       expect(component.state('toggled')).to.equal(true);
     });
   });
