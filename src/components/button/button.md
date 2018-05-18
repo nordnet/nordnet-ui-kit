@@ -59,7 +59,7 @@ Secondary, disabled:
       <Button variant="secondary" disabled modifier="warning" style={ style }>Click Me</Button>
       <Button variant="secondary" disabled modifier="success" style={ style }>Click Me</Button>
     </div>
-    
+
 Secondary, icon:
 
     const { Icon } = require('../../');
@@ -96,11 +96,11 @@ Link icon:
     const { Icon } = require('../../');
     const { Logo } = require('../../');
     const icon = <Icon.Edit />;
-    
+
     const style = {
       marginRight: 16,
     };
-    
+
     const groupstyle = {
       marginTop: 16,
     };
@@ -116,6 +116,17 @@ Link icon:
       <div style={groupstyle}>
         <Button variant="link" style={ style }><Logo /></Button>
       </div>
+    </div>
+
+Href button:
+
+    const style = {
+      marginRight: 16,
+    };
+
+    <div>
+      <Button variant="primary" modifier="action" style={ style } href="/">I will link you</Button>
+      <Button variant="primary" modifier="action" style={ style } href="/" disabled>I won't link you</Button>
     </div>
 
 Sizes:
