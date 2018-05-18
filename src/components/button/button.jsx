@@ -4,12 +4,12 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import styles from './button-styles';
 
-const getElementType = (node, href) => {
+const getElementType = (node, href, disabled) => {
   if (node) {
     return node;
   }
 
-  return href ? 'a' : 'button';
+  return href && !disabled ? 'a' : 'button';
 };
 
 function Button({
@@ -28,7 +28,7 @@ function Button({
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const Element = getElementType(node, href);
+  const Element = getElementType(node, href, disabled);
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
   const isLink = variant === 'link';
