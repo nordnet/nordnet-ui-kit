@@ -16,8 +16,11 @@ function Tr({ classes, className, children, size, border, sticky, stickyBorder, 
     },
     className,
   );
+
+  const style = { top: stickyOffset || 0 };
+
   return (
-    <tr {...omit(rest, 'theme', 'sheet')} className={usedClassName}>
+    <tr {...omit(rest, 'theme', 'sheet')} className={usedClassName} style={style}>
       {children}
     </tr>
   );

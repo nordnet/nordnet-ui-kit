@@ -12,6 +12,7 @@ function Thead({
   hiddenOnMobile,
   sticky,
   stickyBorder,
+  stickyOffset,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -27,8 +28,10 @@ function Thead({
     className,
   );
 
+  const style = { top: stickyOffset || 0 };
+
   return (
-    <thead {...rest} className={usedClassName}>
+    <thead {...rest} className={usedClassName} style={style}>
       {children}
     </thead>
   );
@@ -38,6 +41,7 @@ Thead.defaultProps = {
   hiddenOnMobile: false,
   sticky: false,
   stickyBorder: false,
+  stickyOffset: 0,
 };
 
 Thead.propTypes = {
@@ -49,6 +53,7 @@ Thead.propTypes = {
   hiddenOnMobile: PropTypes.bool,
   sticky: PropTypes.bool,
   stickyBorder: PropTypes.bool,
+  stickyOffset: PropTypes.number,
 };
 
 export default injectSheet(styles)(Thead);
