@@ -27,7 +27,7 @@ export default theme => {
     sticky: {
       '& td': {
         position: 'sticky',
-        top: props => props.stickyOffset || 0,
+        top: 'inherit',
         backgroundColor: color.white,
       },
     },
