@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
@@ -6,34 +6,19 @@ import classnames from 'classnames';
 import Questionmark from '../icon/icons/questionmark';
 import styles from './tooltip-styles';
 
-class Tooltip extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      hover: false,
-      toggled: false,
-    };
-    this.toggleShow = this.toggleShow.bind(this);
-    this.mouseEnter = this.mouseEnter.bind(this);
-    this.mouseLeave = this.mouseLeave.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
+class Tooltip extends Component {
+  constructor(props) {
+    super(props);
 
-    this.checkPosition = {
-      above: rect => rect.top > 0,
-      left: rect => rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect),
-      right: rect =>
-        (window.innerWidth || document.documentElement.clientWidth) - rect.right > 0 &&
-        this.checkPosition.below(rect) &&
-        this.checkPosition.above(rect),
-      below: rect => (window.innerHeight || document.documentElement.clientHeight) - rect.bottom > 0,
-    };
-
-    this.left = 0;
     this.placement = props.placement;
-    this.classes = this.props.classes;
-    this.renderPopup = this.renderPopup.bind(this);
+    this.classes = props.classes;
+    this.left = 0;
   }
+
+  state = {
+    hover: false,
+    toggled: false,
+  };
 
   componentDidMount() {
     document.addEventListener('click', this.handleClick);
@@ -49,7 +34,7 @@ class Tooltip extends React.Component {
     document.removeEventListener('touchstart', this.handleClick);
   }
 
-  getPlacement(placement = 'below') {
+  getPlacement = (placement = 'below') => {
     const rect = this.popup.getBoundingClientRect();
 
     // Try the position last used
@@ -74,23 +59,33 @@ class Tooltip extends React.Component {
     }
 
     return 'below';
-  }
+  };
 
-  handleClick({ target } = {}) {
+  checkPosition = {
+    above: rect => rect.top > 0,
+    left: rect => rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect),
+    right: rect =>
+      (window.innerWidth || document.documentElement.clientWidth) - rect.right > 0 &&
+      this.checkPosition.below(rect) &&
+      this.checkPosition.above(rect),
+    below: rect => (window.innerHeight || document.documentElement.clientHeight) - rect.bottom > 0,
+  };
+
+  handleClick = ({ target } = {}) => {
     if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
       this.handleClickOutside();
     }
-  }
+  };
 
-  handleClickOutside() {
+  handleClickOutside = () => {
     if (this.state.toggled) {
       this.setState({
         toggled: false,
       });
     }
-  }
+  };
 
-  toggleShow() {
+  toggleShow = () => {
     if (!this.props.sticky) {
       return;
     }
@@ -99,25 +94,25 @@ class Tooltip extends React.Component {
       toggled: !this.state.toggled,
       hover: false,
     });
-  }
+  };
 
-  mouseEnter() {
+  mouseEnter = () => {
     if (!this.state.toggled) {
       this.setState({
         hover: true,
       });
     }
-  }
+  };
 
-  mouseLeave() {
+  mouseLeave = () => {
     if (!this.state.toggled) {
       this.setState({
         hover: false,
       });
     }
-  }
+  };
 
-  renderPopup(content, placement, tooltipStyle) {
+  renderPopup = (content, placement, tooltipStyle) => {
     if (this.container && (placement === 'below' || placement === 'above')) {
       if (this.state.hover) {
         const popupRect = this.popup.getBoundingClientRect();
@@ -137,31 +132,29 @@ class Tooltip extends React.Component {
       }
     }
 
+    const { fixedWidth } = this.props;
+    const { hover, toggled } = this.state;
+
     const wrapperStyle = {
-      opacity: this.state.hover || this.state.toggled ? 1 : 0,
-      pointerEvents: this.state.hover || this.state.toggled ? 'all' : 'none',
-      width: this.props.fixedWidth || 'initial',
+      opacity: hover || toggled ? 1 : 0,
+      pointerEvents: hover || toggled ? 'all' : 'none',
+      width: fixedWidth || 'initial',
       ...tooltipStyle,
     };
 
     const contentStyle = {
       left: this.left,
-      position: (placement === 'above' || placement === 'below') && this.props.fixedWidth ? 'absolute' : 'static',
+      position: (placement === 'above' || placement === 'below') && fixedWidth ? 'absolute' : 'static',
       bottom: placement === 'above' ? 0 : 'auto',
     };
 
+    const classes = this.classes;
+
     return (
-      <div
-        className={classnames(this.classes.popup, this.classes[placement], this.props.fixedWidth && this.classes.popupFixed)}
-        style={wrapperStyle}
-      >
+      <div className={classnames(classes.popup, classes[placement], fixedWidth && classes.popupFixed)} style={wrapperStyle}>
         <div
           style={contentStyle}
-          className={classnames(
-            this.classes.popupContent,
-            this.classes[placement],
-            this.props.fixedWidth && this.classes.popupContentFixed,
-          )}
+          className={classnames(classes.popupContent, classes[placement], fixedWidth && classes.popupContentFixed)}
           ref={popup => {
             this.popup = popup;
           }}
@@ -170,7 +163,7 @@ class Tooltip extends React.Component {
         </div>
       </div>
     );
-  }
+  };
 
   render() {
     const { children, content, className, placement, style, tooltipStyle } = this.props;
