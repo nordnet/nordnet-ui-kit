@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import omit from '../../utilities/omit';
-import styles from './tr-styles';
+import styles, { stickyOffset as stickyOffsetStyles } from './tr-styles';
 
 function Tr({ classes, className, children, size, border, sticky, stickyBorder, stickyOffset, ...rest }) {
   const usedClassName = classNames(
@@ -14,13 +14,12 @@ function Tr({ classes, className, children, size, border, sticky, stickyBorder, 
       [classes.sticky]: sticky,
       [classes.stickyBorder]: stickyBorder,
     },
+    stickyOffset && { [classes.stickyOffset]: stickyOffset }, // classNames will filter out this if false
     className,
   );
 
-  const style = { top: stickyOffset || 0 };
-
   return (
-    <tr {...omit(rest, 'theme', 'sheet')} className={usedClassName} style={style}>
+    <tr {...omit(rest, 'theme', 'sheet')} className={usedClassName}>
       {children}
     </tr>
   );
@@ -45,4 +44,9 @@ Tr.propTypes = {
   stickyOffset: PropTypes.number,
 };
 
-export default injectSheet(styles)(Tr);
+const Normal = injectSheet(styles)(Tr);
+const Sticky = injectSheet(stickyOffsetStyles)(Tr);
+
+const Wrapper = props => (props.stickyOffset ? <Sticky {...props} /> : <Normal {...props} />);
+
+Wrapper.propTypes = { stickyOffset: Tr.propTypes.stickyOffset };
