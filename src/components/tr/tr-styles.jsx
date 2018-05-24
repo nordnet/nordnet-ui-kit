@@ -1,8 +1,8 @@
 import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
-export default theme => {
-  const { mixins, palette } = theme;
+const normal = theme => {
+  const { mixins } = theme;
 
   return {
     tr: {
@@ -27,15 +27,26 @@ export default theme => {
     sticky: {
       '& td': {
         position: 'sticky',
-        top: 'inherit',
+        top: 0,
         backgroundColor: color.white,
       },
     },
     stickyBorder: {
       '& td': {
         border: 0,
-        background: `linear-gradient(to top, ${palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
+        background: `linear-gradient(to top, ${theme.palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
       },
     },
   };
 };
+
+const stickyOffset = theme => ({
+  ...normal(theme),
+  stickyOffset: {
+    '& td': {
+      top: props => props.stickyOffset,
+    },
+  },
+});
+
+export { normal as default, stickyOffset };
