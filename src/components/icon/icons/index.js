@@ -9,8 +9,8 @@ import ArrowUpDown from './arrowUpDown';
 import Balloon from './balloon';
 import Bank from './bank';
 import Bell from './bell';
-import BoxPlus from './boxPlus';
 import BoxCheckmark from './boxCheckmark';
+import BoxPlus from './boxPlus';
 import Calendar from './calendar';
 import Car from './car';
 import Cart from './cart';
@@ -46,6 +46,7 @@ import GraphVolume from './graphVolume';
 import Heart from './heart';
 import Hexagon from './hexagon';
 import House from './house';
+import Image from './image';
 import Industry from './industry';
 import Info from './info';
 import Key from './key';
@@ -130,6 +131,7 @@ const Icon = {
   Heart,
   Hexagon,
   House,
+  Image,
   Industry,
   Info,
   Key,
