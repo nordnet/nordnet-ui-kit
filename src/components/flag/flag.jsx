@@ -10,6 +10,8 @@ function Flag({ className, style, countryCode, secondaryCountryCode, size, round
       width: size,
       height: size * 0.75,
       marginLeft: round ? -size * 0.125 : null,
+      position: round ? 'absolute' : 'relative',
+      left: 0,
     },
     style,
   );
