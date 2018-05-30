@@ -50,3 +50,5 @@ const Sticky = injectSheet(stickyOffsetStyles)(Tr);
 const Wrapper = props => (props.stickyOffset ? <Sticky {...props} /> : <Normal {...props} />);
 
 Wrapper.propTypes = { stickyOffset: Tr.propTypes.stickyOffset };
+
+export default Wrapper;
