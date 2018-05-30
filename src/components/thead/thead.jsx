@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import styles from './thead-styles';
+import styles, { stickyOffset as stickyOffsetStyles } from './thead-styles';
 
 function Thead({
   classes,
@@ -25,13 +25,12 @@ function Thead({
       [classes.sticky]: sticky,
       [classes.stickyBorder]: stickyBorder,
     },
+    stickyOffset && { [classes.stickyOffset]: stickyOffset },
     className,
   );
 
-  const style = { top: stickyOffset || 0 };
-
   return (
-    <thead {...rest} className={usedClassName} style={style}>
+    <thead {...rest} className={usedClassName}>
       {children}
     </thead>
   );
@@ -56,4 +55,11 @@ Thead.propTypes = {
   stickyOffset: PropTypes.number,
 };
 
-export default injectSheet(styles)(Thead);
+const Normal = injectSheet(styles)(Thead);
+const Sticky = injectSheet(stickyOffsetStyles)(Thead);
+
+const Wrapper = props => (props.stickyOffset ? <Sticky {...props} /> : <Normal {...props} />);
+
+Wrapper.propTypes = { stickyOffset: Thead.propTypes.stickyOffset };
+
+export default Wrapper;
