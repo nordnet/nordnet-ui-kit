@@ -24,8 +24,8 @@ function Thead({
       [classes.hiddenOnMobile]: hiddenOnMobile,
       [classes.sticky]: sticky,
       [classes.stickyBorder]: stickyBorder,
+      [classes.stickyOffset]: stickyOffset,
     },
-    stickyOffset && { [classes.stickyOffset]: stickyOffset },
     className,
   );
 

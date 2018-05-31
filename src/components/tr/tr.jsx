@@ -13,8 +13,8 @@ function Tr({ classes, className, children, size, border, sticky, stickyBorder, 
       [classes.border]: border,
       [classes.sticky]: sticky,
       [classes.stickyBorder]: stickyBorder,
+      [classes.stickyOffset]: stickyOffset,
     },
-    stickyOffset && { [classes.stickyOffset]: stickyOffset }, // classNames will filter out this if false
     className,
   );
 
