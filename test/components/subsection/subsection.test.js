@@ -3,9 +3,9 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Component as Subsection, styles } from '../../../src/components/subsection/subsection';
-import { mockClasses } from '../../../src';
+import { mockClasses, Icon } from '../../../src';
 
-describe.only('<Subsection />', () => {
+describe('<Subsection />', () => {
   const classes = mockClasses(styles);
   const defaultProps = { classes, title: () => <span>Title</span>, theme: { transitions: { duration: { shorter: 200 } } } };
 
@@ -25,10 +25,22 @@ describe.only('<Subsection />', () => {
     expect(wrapper.hasClass(classes.root)).to.equal(true);
   });
 
-  it('should render to custom icons', () => {
-    const wrapper = shallow(<Subsection {...defaultProps} />);
+  it('should render two custom icons', () => {
+    const wrapper = shallow(<Subsection icon={Icon.Trash} {...defaultProps} />);
 
-    expect(wrapper.hasClass(classes.root)).to.equal(true);
+    expect(wrapper.find(Icon.Trash)).to.have.length(2);
+  });
+
+  it('should render one custom icon with class desktopOnly', () => {
+    const wrapper = shallow(<Subsection icon={Icon.Trash} {...defaultProps} />);
+
+    expect(wrapper.find(`.${classes.icon}.${classes.desktopOnly}`)).to.have.length(1);
+  });
+
+  it('should render one custom icon with class mobileOnly', () => {
+    const wrapper = shallow(<Subsection icon={Icon.Trash} {...defaultProps} />);
+
+    expect(wrapper.find(`.${classes.icon}.${classes.mobileOnly}`)).to.have.length(1);
   });
 
   it('should set toggleActive while animating when toggled prop is changed', () => {
@@ -76,7 +88,7 @@ describe.only('<Subsection />', () => {
 
   it('hides the chevron when loading is true', () => {
     const wrapper = shallow(<Subsection {...defaultProps} loading />);
-    const chevron = wrapper.find('.chevron');
+    const chevron = wrapper.find(`.${classes.chevron}`);
 
     expect(chevron.length).to.equal(0);
   });
