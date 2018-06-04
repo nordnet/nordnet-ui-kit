@@ -54,6 +54,8 @@ import LightBulb from './lightBulb';
 import LightningBolt from './lightningBolt';
 import Like from './like';
 import Lock from './lock';
+import MagnifierPlus from './magnifierPlus';
+import MagnifierMinus from './magnifierMinus';
 import Mail from './mail';
 import MailOpen from './mailOpen';
 import Market from './market';
@@ -139,6 +141,8 @@ const Icon = {
   LightningBolt,
   Like,
   Lock,
+  MagnifierPlus,
+  MagnifierMinus,
   Mail,
   MailOpen,
   Market,
