@@ -1,4 +1,4 @@
-export default ({ palette, typography, mixins }) => ({
+export default ({ palette, typography, mixins, transitions }) => ({
   root: {
     padding: [10, 0],
     borderBottom: `1px solid ${palette.color.grayLighter}`,
@@ -35,6 +35,9 @@ export default ({ palette, typography, mixins }) => ({
       cursor: 'auto',
     },
   },
+  loading: {
+    cursor: 'auto',
+  },
   titleLeft: {
     display: 'flex',
     justifyContent: 'center',
@@ -49,5 +52,29 @@ export default ({ palette, typography, mixins }) => ({
   },
   icon: {
     marginRight: 10,
+  },
+  desktopOnly: {
+    [mixins.maxMedia('md')]: {
+      display: 'none',
+    },
+  },
+  mobileOnly: {
+    [mixins.media('md')]: {
+      display: 'none',
+    },
+  },
+  children: {
+    maxHeight: 0,
+    overflow: 'hidden',
+    transition: transitions.create(['max-height'], { duration: transitions.duration.shorter }),
+
+    [mixins.media('md')]: {
+      maxHeight: 'initial',
+      overflow: 'visible',
+    },
+  },
+  toggled: {
+    maxHeight: 'initial',
+    overflow: 'visible',
   },
 });
