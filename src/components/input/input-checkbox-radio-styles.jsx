@@ -107,6 +107,11 @@ export default theme => {
         '&--is-disabled': {
           color: palette.action.disabled,
           borderColor: palette.action.disabled,
+        },
+      },
+
+      '& .checkbox': {
+        '&--is-disabled': {
           background: palette.action.disabled,
         },
       },
