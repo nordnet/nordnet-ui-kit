@@ -1,103 +1,103 @@
-// import React from 'react';
-// import test from 'ava';
-// import sinon from 'sinon';
-// import { shallow } from 'enzyme';
-// import Swipe from 'react-easy-swipe';
-// import { Component as Carousel } from '../../../src/components/carousel';
+import React from 'react';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+import sinon from 'sinon';
+import Swipe from 'react-easy-swipe';
+import { Component as Carousel } from '../../../src/components/carousel/carousel';
 
-// test.beforeEach(t => {
-//   const component = shallow(
-//     <Carousel classes={{}}>
-//       <div>1</div>
-//       <div>1</div>
-//       <div>1</div>
-//       <div>1</div>
-//       <div>1</div>
-//       <div>1</div>
-//       <div>1</div>
-//     </Carousel>,
-//   );
+describe('<Carousel />', () => {
+  const defaultItemSize = 262;
+  const sandbox = sinon.sandbox.create();
+  const component = shallow(
+    <Carousel classes={{}} defaultItemSize={defaultItemSize}>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </Carousel>,
+  );
 
-//   component.instance().state = { wrapperSize: 1000, itemSize: 262 };
-//   component.instance().itemList = { swiper: { clientWidth: 800 } };
-//   component.instance().wrapper = { getBoundingClientRect: () => ({ left: 0 }) };
-//   t.context.component = component; // eslint-disable-line no-param-reassign
-// });
+  beforeEach(() => {
+    component.instance().state = { wrapperSize: 1000, itemSize: 262 };
+    component.instance().itemList = { swiper: { clientWidth: 800 } };
+    component.instance().wrapper = { getBoundingClientRect: () => ({ left: 0 }) };
+  });
 
-// const sandbox = sinon.sandbox.create();
+  afterEach(() => {
+    sandbox.restore();
+  });
 
-// test.afterEach(t => {
-//   sandbox.restore();
-//   t.context.component = null; // eslint-disable-line no-param-reassign
-// });
+  it('it should render a Swipe', () => {
+    expect(component.find(Swipe)).to.have.length(1);
+  });
 
-// test('it should render a Swipe', t => {
-//   t.is(t.context.component.find(Swipe).length, 1);
-// });
+  it('it should render 2 buttons', () => {
+    expect(component.find('button')).to.have.length(2);
+  });
 
-// test('it should render 2 buttons', t => {
-//   t.is(t.context.component.find('button').length, 2);
-// });
+  it('calcTransform', () => {
+    expect(component.instance().calcTransform(456)).to.equal('translate3d(456%, 0, 0)');
+  });
 
-// test('calcTransform', t => {
-//   t.is(t.context.component.instance().calcTransform(456), 'translate3d(456%, 0, 0)');
-// });
+  it('calcMovePositions', () => {
+    expect(component.instance().calcMovePositions(456)).to.equal(1);
+    expect(component.instance().calcMovePositions(756)).to.equal(2);
+  });
 
-// test('calcMovePositions', t => {
-//   t.is(t.context.component.instance().calcMovePositions(456), 1);
-//   t.is(t.context.component.instance().calcMovePositions(756), 2);
-// });
+  it('moveTo should set firstPosition', () => {
+    component.instance().moveTo(-1);
 
-// test('moveTo should set firstPosition', t => {
-//   t.context.component.instance().moveTo(-1);
+    expect(component.instance().state.selectedItem).to.equal(0);
+  });
 
-//   t.is(t.context.component.instance().state.selectedItem, 0);
-// });
+  it('moveTo should set lastPosition', () => {
+    component.instance().moveTo(10);
 
-// test('moveTo should set lastPosition', t => {
-//   t.context.component.instance().moveTo(10);
+    expect(component.instance().state.selectedItem).to.equal(4);
+  });
 
-//   t.is(t.context.component.instance().state.selectedItem, 4);
-// });
+  it('onSwipeStart should set swiping true', () => {
+    component.instance().onSwipeStart();
 
-// test('onSwipeStart should set swiping true', t => {
-//   t.context.component.instance().onSwipeStart();
+    expect(component.instance().state.swiping).to.equal(true);
+  });
 
-//   t.true(t.context.component.instance().state.swiping);
-// });
+  it('onSwipeEnd should set swiping false', () => {
+    component.instance().onSwipeEnd();
 
-// test('onSwipeEnd should set swiping false', t => {
-//   t.context.component.instance().onSwipeEnd();
+    expect(component.instance().state.swiping).to.equal(false);
+  });
 
-//   t.false(t.context.component.instance().state.swiping);
-// });
+  it('updateSizes should set percentage, itemSize, wrapperSize', () => {
+    component.instance().updateSizes();
+    const expected = {
+      wrapperSize: 800,
+      itemSize: defaultItemSize,
+      percentage: 32.75,
+    };
 
-// test('updateSizes should set percentage, itemSize, wrapperSize', t => {
-//   t.context.component.instance().updateSizes();
-//   const expected = {
-//     wrapperSize: 800,
-//     itemSize: 262,
-//     percentage: 32.75,
-//   };
+    expect(component.instance().state).to.deep.equal(expected);
+  });
 
-//   t.deepEqual(t.context.component.instance().state, expected);
-// });
+  it('that wrapperClickHandler calls increment when item clicked is halfway outside the swiper area', () => {
+    const e = {
+      nativeEvent: {
+        clientX: 10000,
+      },
+    };
+    const spy = sinon.spy(component.instance(), 'increment');
+    component.instance().wrapperClickHandler(e);
 
-// test('that wrapperClickHandler calls increment when item clicked is halfway outside the swiper area', t => {
-//   const e = {
-//     nativeEvent: {
-//       clientX: 10000,
-//     },
-//   };
-//   const spy = sinon.spy(t.context.component.instance(), 'increment');
-//   t.context.component.instance().wrapperClickHandler(e);
+    expect(spy.calledOnce).to.equal(true);
+  });
 
-//   t.true(spy.calledOnce);
-// });
+  it('should render on state update', () => {
+    const renderSpy = sinon.spy(component.instance(), 'render');
+    component.instance().setState({});
 
-// test('should render on state update', t => {
-//   const renderSpy = sinon.spy(t.context.component.instance(), 'render');
-//   t.context.component.instance().setState({});
-
-//   t.true(renderSpy.calledOnce);
-// });
+    expect(renderSpy.calledOnce).to.equal(true);
+  });
+});
