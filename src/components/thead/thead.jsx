@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import styles from './thead-styles';
+import styles, { stickyOffset as stickyOffsetStyles } from './thead-styles';
 
 function Thead({
   classes,
@@ -12,6 +12,7 @@ function Thead({
   hiddenOnMobile,
   sticky,
   stickyBorder,
+  stickyOffset,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -23,6 +24,7 @@ function Thead({
       [classes.hiddenOnMobile]: hiddenOnMobile,
       [classes.sticky]: sticky,
       [classes.stickyBorder]: stickyBorder,
+      [classes.stickyOffset]: stickyOffset,
     },
     className,
   );
@@ -38,6 +40,7 @@ Thead.defaultProps = {
   hiddenOnMobile: false,
   sticky: false,
   stickyBorder: false,
+  stickyOffset: 0,
 };
 
 Thead.propTypes = {
@@ -49,6 +52,14 @@ Thead.propTypes = {
   hiddenOnMobile: PropTypes.bool,
   sticky: PropTypes.bool,
   stickyBorder: PropTypes.bool,
+  stickyOffset: PropTypes.number,
 };
 
-export default injectSheet(styles)(Thead);
+const Normal = injectSheet(styles)(Thead);
+const Sticky = injectSheet(stickyOffsetStyles)(Thead);
+
+const Wrapper = props => (props.stickyOffset ? <Sticky {...props} /> : <Normal {...props} />);
+
+Wrapper.propTypes = { stickyOffset: Thead.propTypes.stickyOffset };
+
+export default Wrapper;

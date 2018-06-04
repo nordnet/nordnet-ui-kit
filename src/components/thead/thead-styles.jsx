@@ -1,7 +1,7 @@
 import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
-export default theme => {
+const normal = theme => {
   const { palette, mixins, typography } = theme;
 
   return {
@@ -21,7 +21,7 @@ export default theme => {
     sticky: {
       '& th': {
         position: 'sticky',
-        top: props => props.stickyOffset || 0,
+        top: 0,
         backgroundColor: color.white,
       },
     },
@@ -33,3 +33,14 @@ export default theme => {
     },
   };
 };
+
+const stickyOffset = theme => ({
+  ...normal(theme),
+  stickyOffset: {
+    '& th': {
+      top: props => props.stickyOffset,
+    },
+  },
+});
+
+export { normal as default, stickyOffset };
