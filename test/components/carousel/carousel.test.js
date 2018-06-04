@@ -3,13 +3,20 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import Swipe from 'react-easy-swipe';
-import { Component as Carousel } from '../../../src/components/carousel/carousel';
+import { mockClasses } from '../../../src';
+import { Component as Carousel, styles } from '../../../src/components/carousel/carousel';
 
 describe('<Carousel />', () => {
+  const classes = mockClasses(styles);
   const defaultItemSize = 262;
   const sandbox = sinon.sandbox.create();
+  const defaultProps = {
+    classes,
+    defaultItemSize,
+  };
+
   const component = shallow(
-    <Carousel classes={{}} defaultItemSize={defaultItemSize}>
+    <Carousel {...defaultProps}>
       <div>1</div>
       <div>1</div>
       <div>1</div>

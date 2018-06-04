@@ -278,5 +278,5 @@ Carousel.defaultProps = {
 
 const Enhanced = injectSheet(styles)(Carousel);
 
-export { Carousel as Component };
+export { Carousel as Component, styles };
 export default Enhanced;
