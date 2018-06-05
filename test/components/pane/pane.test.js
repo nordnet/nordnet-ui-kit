@@ -35,7 +35,10 @@ describe('<Pane />', () => {
 
     beforeEach(() => {
       wrapper = shallow(<Pane classes={classes} tabs={tabs} />);
-      renderedTabs = wrapper.children().children().find('li');
+      renderedTabs = wrapper
+        .children()
+        .children()
+        .find('li');
     });
 
     it('should render <div> as container', () => {
@@ -91,7 +94,14 @@ describe('<Pane />', () => {
     });
 
     it('should have class lg', () => {
-      expect(wrapper.children().children().find('li').at(0).hasClass(classes.lg)).to.equal(true);
+      expect(
+        wrapper
+          .children()
+          .children()
+          .find('li')
+          .at(0)
+          .hasClass(classes.lg),
+      ).to.equal(true);
     });
   });
 });
