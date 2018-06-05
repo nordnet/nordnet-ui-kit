@@ -8,7 +8,7 @@ export default theme => {
 
   return {
     input: {
-      extend: defaultStyles.input,
+      ...defaultStyles.input,
     },
     'select-wrapper': {
       ...mixins.basicBoxSizing,
