@@ -27,6 +27,7 @@ import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
 import Ul from './components/ul/ul';
+import Carousel from './components/carousel';
 import { PopupMenu, PopupMenuItem } from './components/popup-menu';
 
 import Icon from './components/icon/icons';
@@ -39,9 +40,6 @@ import mockClasses from './utilities/mock-classes';
 
 const theme = createTheme();
 
-// deprecated
-// deprecated
-// deprecated
 export {
   Alert,
   Animate,
@@ -75,6 +73,7 @@ export {
   Tooltip,
   Tr,
   Ul,
+  Carousel,
   // Theming
   createTheme,
   theme,
