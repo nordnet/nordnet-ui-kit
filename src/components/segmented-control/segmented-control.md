@@ -19,8 +19,7 @@ Radio type, Primary (using icons):
       </span>
     </SegmentedControl>
 
-
-  Radio type, Primary (using text):
+Radio type, Primary (using text):
 
       const { Icon } = require('../../');
       const color = require('../../styles/color').default;
@@ -37,8 +36,6 @@ Radio type, Primary (using icons):
           Right
         </span>
       </SegmentedControl>
-
-
 
 Radio type, Secondary (using text):
 
@@ -83,7 +80,6 @@ Radio type, Secondary (using text):
 
       <RadioTypeSample />
 
-
 Checkbox type:
 
     <SegmentedControl
@@ -92,7 +88,6 @@ Checkbox type:
       <span value="green">Green</span>
       <span value="blue" checked={true}>Blue</span>
     </SegmentedControl>
-
 
 With single option, "checkbox" type:
 
