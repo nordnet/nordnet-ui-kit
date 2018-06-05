@@ -7,7 +7,18 @@ export default ({ palette, mixins }) => ({
     overflow: 'hidden',
     margin: 'auto',
     width: '100%',
-    maskImage: 'linear-gradient(to right, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%)',
+    position: 'relative',
+    '&:after': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      height: '100%',
+      width: '20%',
+      pointerEvents: 'none',
+      background: 'linear-gradient(90deg, rgba(246,246,246,0) 20%, rgba(246,246,246,1) 100%)',
+    },
   },
   slider: {
     display: 'flex',
@@ -41,7 +52,7 @@ export default ({ palette, mixins }) => ({
     width: 30,
     height: 30,
     border: 'none',
-    margin: '0 0 0 8px',
+    margin: [0, 0, 0, 8],
     padding: 0,
     '&:hover': {
       backgroundColor: palette.color.grayLighter,
