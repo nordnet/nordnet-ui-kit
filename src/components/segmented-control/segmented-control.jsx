@@ -36,18 +36,11 @@ class SegmentedControl extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.type === 'radio' && nextProps.value && nextProps.value !== this.state.selected) {
+    if (this.props.type === 'radio' && nextProps.value !== this.props.value) {
       this.setState({
         value: nextProps.value,
       });
-    }
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (this.props.type === 'radio' && this.state.value !== nextState.value) {
-      if (this.handleChange) {
-        this.handleChange({ currentTarget: { value: nextState.value } });
-      }
+      this.handleChange({ currentTarget: { value: nextProps.value } });
     }
   }
 

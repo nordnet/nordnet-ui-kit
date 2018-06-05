@@ -49,7 +49,7 @@ describe('<Tooltip />', () => {
   it('should have fixedWidth', () => {
     wrapper = shallow(<Tooltip classes={classes} fixedWidth={345} content="Lorem ipsum dolor sit amet." />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popupFixed}`).node.props.style).to.have.property('width', 345);
+    expect(wrapper.find(`.${classes.popupFixed}`).prop('style')).to.have.property('width', 345);
   });
 
   it('should set className to above', () => {
