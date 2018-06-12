@@ -53,6 +53,21 @@ export default theme => {
       },
     },
 
+    desktopOnlyWrapper: {
+      display: 'inline-block',
+    },
+    desktopOnly: {
+      display: 'none',
+      [mixins.media('md')]: {
+        display: 'inline-block',
+      },
+    },
+    mobileOnly: {
+      [mixins.media('md')]: {
+        display: 'none',
+      },
+    },
+
     popup: {
       transition: transitions.create(['opacity']),
       position: 'absolute',
