@@ -218,5 +218,18 @@ Tooltip.propTypes = {
   fixedWidth: PropTypes.number, //  eslint-disable-line
 };
 
+/* eslint-disable react/prop-types */
+const DesktopOnlyTooltipWrapper = props => {
+  if (!props.desktopOnly) return <Tooltip {...props} />;
+  const { classes, className, children } = props;
+  return (
+    <div className={classes.desktopOnlyWrapper}>
+      <Tooltip className={classnames(classes.desktopOnly, className)} {...props} />
+      <div className={classes.mobileOnly}>{children}</div>
+    </div>
+  );
+};
+/* eslint-enable react/prop-types */
+
 export { Tooltip as Component, styles };
-export default injectSheet(styles)(Tooltip);
+export default injectSheet(styles)(DesktopOnlyTooltipWrapper);
