@@ -151,9 +151,8 @@ export default theme => {
       wordWrap: 'break-word',
     },
     popupDesktopOnly: {
-      display: 'none',
-      [mixins.media('md')]: {
-        display: 'block',
+      [mixins.maxMedia('md')]: {
+        display: 'none',
       },
     },
   };
