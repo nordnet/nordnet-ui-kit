@@ -132,7 +132,7 @@ class Tooltip extends Component {
       }
     }
 
-    const { fixedWidth } = this.props;
+    const { fixedWidth, desktopOnly } = this.props;
     const { hover, toggled } = this.state;
 
     const wrapperStyle = {
@@ -142,16 +142,19 @@ class Tooltip extends Component {
       ...tooltipStyle,
     };
 
+    const classes = this.classes;
+    const wrapperClasses = classnames(classes.popup, classes[placement], {
+      [classes.popupFixed]: fixedWidth,
+      [classes.popupDesktopOnly]: desktopOnly,
+    });
+
     const contentStyle = {
       left: this.left,
       position: (placement === 'above' || placement === 'below') && fixedWidth ? 'absolute' : 'static',
       bottom: placement === 'above' ? 0 : 'auto',
     };
-
-    const classes = this.classes;
-
     return (
-      <div className={classnames(classes.popup, classes[placement], fixedWidth && classes.popupFixed)} style={wrapperStyle}>
+      <div className={wrapperClasses} style={wrapperStyle}>
         <div
           style={contentStyle}
           className={classnames(classes.popupContent, classes[placement], fixedWidth && classes.popupContentFixed)}
@@ -200,6 +203,7 @@ Tooltip.defaultProps = {
   children: <Questionmark width={16} height={16} />,
   placement: 'below',
   sticky: true,
+  desktopOnly: false,
 };
 
 Tooltip.propTypes = {
@@ -216,20 +220,8 @@ Tooltip.propTypes = {
   sticky: PropTypes.bool,
   placement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
   fixedWidth: PropTypes.number, //  eslint-disable-line
+  desktopOnly: PropTypes.bool,
 };
-
-/* eslint-disable react/prop-types */
-const DesktopOnlyTooltipWrapper = props => {
-  if (!props.desktopOnly) return <Tooltip {...props} />;
-  const { classes, className, children } = props;
-  return (
-    <div className={classes.desktopOnlyWrapper}>
-      <Tooltip className={classnames(classes.desktopOnly, className)} {...props} />
-      <div className={classes.mobileOnly}>{children}</div>
-    </div>
-  );
-};
-/* eslint-enable react/prop-types */
 
 export { Tooltip as Component, styles };
-export default injectSheet(styles)(DesktopOnlyTooltipWrapper);
+export default injectSheet(styles)(Tooltip);

@@ -70,6 +70,12 @@ describe('<Tooltip />', () => {
     expect(wrapper.find(`.${classes.popup}`).hasClass('below')).to.equal(true);
   });
 
+  it('should set desktopOnly', () => {
+    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." desktopOnly />);
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    expect(wrapper.find(`.${classes.popup}`).hasClass(classes.popupDesktopOnly)).to.equal(true);
+  });
+
   describe('click outside functionality', () => {
     const target = { attachTo: document.getElementById('app') };
     let component;

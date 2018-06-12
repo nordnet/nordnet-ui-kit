@@ -53,21 +53,6 @@ export default theme => {
       },
     },
 
-    desktopOnlyWrapper: {
-      display: 'inline-block',
-    },
-    desktopOnly: {
-      display: 'none',
-      [mixins.media('md')]: {
-        display: 'inline-block',
-      },
-    },
-    mobileOnly: {
-      [mixins.media('md')]: {
-        display: 'none',
-      },
-    },
-
     popup: {
       transition: transitions.create(['opacity']),
       position: 'absolute',
@@ -164,6 +149,12 @@ export default theme => {
       overflowWrap: 'break-word',
       wordBreak: 'break-word',
       wordWrap: 'break-word',
+    },
+    popupDesktopOnly: {
+      display: 'none',
+      [mixins.media('md')]: {
+        display: 'block',
+      },
     },
   };
 };
