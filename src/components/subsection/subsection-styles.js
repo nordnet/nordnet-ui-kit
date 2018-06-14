@@ -69,12 +69,12 @@ export default ({ palette, typography, mixins, transitions }) => ({
     transition: transitions.create(['max-height'], { duration: transitions.duration.shorter }),
 
     [mixins.media('md')]: {
-      maxHeight: 'initial',
+      maxHeight: 'none',
       overflow: 'visible',
     },
   },
   toggled: {
-    maxHeight: 'initial',
+    maxHeight: 'none',
     overflow: 'visible',
   },
 });

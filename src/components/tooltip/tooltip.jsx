@@ -138,7 +138,7 @@ class Tooltip extends Component {
     const wrapperStyle = {
       opacity: hover || toggled ? 1 : 0,
       pointerEvents: hover || toggled ? 'all' : 'none',
-      width: fixedWidth || 'initial',
+      width: fixedWidth || 'auto',
       ...tooltipStyle,
     };
 
