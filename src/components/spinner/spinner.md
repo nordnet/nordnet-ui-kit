@@ -1,5 +1,7 @@
+    const { Spinner } = require('../../');
+
     const spinnerStyle = {
-      marginRight: 8,
+      marginRight: 32,
     };
 
     <div>
@@ -8,4 +10,5 @@
       <Spinner style={ spinnerStyle } color="#EF472F" />
       <Spinner style={ spinnerStyle } size={ 32 } strokeWidth={ 2 } />
       <Spinner style={ spinnerStyle } size={ 32 } />
+      <Spinner style={ spinnerStyle } size={ 64 } />
     </div>
