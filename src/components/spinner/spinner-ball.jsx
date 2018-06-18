@@ -24,9 +24,11 @@ function SpinnerBall({
   };
 
   return (
-    <span {...rest} className={classNames(classes.spinner, classes.ball, className)} style={wrapperStyle}>
-      ⚽️
-    </span>
+    <div {...rest} className={classNames(classes.spinner, className)} style={wrapperStyle}>
+      <div className={classes.ball}>
+        <span>⚽</span>
+      </div>
+    </div>
   );
 }
 
