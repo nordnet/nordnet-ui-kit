@@ -5,15 +5,16 @@ import injectSheet from 'react-jss';
 import styles from './popup-menu.styles';
 
 class PopupMenuItem extends Component {
-  // we need to track hover in the state since the focus prop comes from above, and conditionally adds the linkFocus class
-  // which doesn't have precedence over the link:hover css :(
+  // focus is tracked with react (downshift), and the html element never seems to get focus, so
+  // so since the css focus is handled with a conditional class, the hover needs to be react tracked as well,
+  // otherwise the :hover rule will take precedence over our linkFocus class.
   state = { hover: false };
 
   onMouseOver = () => this.setState({ hover: true });
   onMouseOut = () => this.setState({ hover: false });
 
   render() {
-    const { node, children, topBorder, linkTo, onClick, disabled, focus, classes } = this.props;
+    const { node, children, topBorder, linkTo, onClick, disabled, focus, classes, ...downShiftProps } = this.props;
     const { hover } = this.state;
     const Element = node || 'button';
     const className = cn(classes.link, {
@@ -24,6 +25,7 @@ class PopupMenuItem extends Component {
       <li className={classes.item}>
         {topBorder && <hr className={classes.hr} />}
         <Element
+          {...downShiftProps}
           to={linkTo}
           onClick={onClick}
           className={className}
