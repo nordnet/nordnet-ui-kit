@@ -89,9 +89,6 @@ export default ({ palette, typography, mixins, transitions }) => ({
     display: 'block',
     padding: 10,
     width: '100%',
-    '&:hover:not([disabled])': {
-      background: palette.color.grayLightest,
-    },
     '&[disabled]': {
       color: palette.text.muted,
       cursor: 'default',
@@ -105,6 +102,9 @@ export default ({ palette, typography, mixins, transitions }) => ({
     outline: 'none',
     fontSize: 14,
     textAlign: 'left',
+  },
+  linkHover: {
+    background: palette.color.grayLightest,
   },
   linkFocus: {
     background: palette.color.grayLighter,
