@@ -106,4 +106,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
     fontSize: 14,
     textAlign: 'left',
   },
+  linkFocus: {
+    background: palette.color.grayLighter,
+  },
 });
