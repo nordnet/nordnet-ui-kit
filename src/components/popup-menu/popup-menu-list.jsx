@@ -59,6 +59,9 @@ class PopupMenuList extends Component {
         listItemElements[this.focusIndex].focus();
       }
       e.preventDefault();
+    } else if (e.keyCode === keyCodes.ESC) {
+      this.setState({ hasFocus: false });
+      listItemElements[this.focusIndex].blur();
     }
     this.props.onKeyDown(e);
   };
