@@ -44,6 +44,12 @@ class PopupMenu extends Component {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
   };
 
+  onBlurList = () => {
+    if (this.state.isOpen) {
+      this.onToggle();
+    }
+  };
+
   setFirstListItemRef = listItem => {
     this.firstListElement = listItem;
   };
@@ -86,6 +92,7 @@ class PopupMenu extends Component {
         </button>
         <PopupMenuList
           isOpen={isOpenFromProps !== null ? isOpenFromProps : isOpen}
+          onBlur={this.onBlurList}
           onKeyDown={this.onKeyDown}
           buttonHasFocus={hasFocus}
           firstListItemRefCallback={this.setFirstListItemRef}

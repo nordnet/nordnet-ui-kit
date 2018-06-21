@@ -34,6 +34,7 @@ class PopupMenuList extends Component {
         this.setState({
           hasFocus: false,
         });
+        this.props.onBlur();
       }
     }, 0);
   };
