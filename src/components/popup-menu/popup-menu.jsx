@@ -1,84 +1,102 @@
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
 import injectSheet from 'react-jss';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styles from './popup-menu.styles';
 import { Icon } from '../../';
+import keyCodes from './keyCodes';
+import PopupMenuList from './popup-menu-list';
 
-class PopupMenu extends React.Component {
-  constructor(props) {
-    super(props);
+class PopupMenu extends Component {
+  state = {
+    isOpen: false,
+    hasFocus: false,
+  };
 
-    this.state = {
-      isOpen: props.isOpen,
-    };
-  }
-
-  componentDidMount() {
-    document.addEventListener('click', this.handleClick);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isOpen !== this.props.isOpen) {
-      this.setState({
-        isOpen: nextProps.isOpen,
-      });
+  onKeyDown = e => {
+    if (e.keyCode === keyCodes.ARROW_DOWN && this.state.hasFocus && this.firstListElement) {
+      e.preventDefault();
+      this.firstListElement.focus();
+      this.setState({ hasFocus: false });
     }
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleClick);
-  }
-
-  handleClick = ({ target } = {}) => {
-    if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
-      this.handleClickOutside();
+    if (e.keyCode === keyCodes.ESC && this.state.isOpen) {
+      this.onToggle();
     }
   };
 
-  handleClickOutside = () => {
-    if (this.state.isOpen) {
-      this.toggleMenu(false);
+  onFocus = () => this.setState({ hasFocus: true });
+
+  // use setTimeout to put it after the onFocus event (on potentially the list) on the call stack.
+  onBlur = () =>
+    setTimeout(() => {
+      this.setState({ hasFocus: false });
+    }, 0);
+
+  onToggle = () => {
+    const { isOpen } = this.state;
+    if (!isOpen) {
+      document.addEventListener('click', this.documentClickOutsideListener);
+    } else {
+      document.removeEventListener('click', this.documentClickOutsideListener);
+    }
+
+    this.props.onToggle(!isOpen);
+
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  };
+
+  setFirstListItemRef = listItem => {
+    this.firstListElement = listItem;
+  };
+
+  setButtonRef = buttonElement => {
+    this.buttonElement = buttonElement;
+  };
+
+  setContainerRef = containerElement => {
+    this.containerElement = containerElement;
+  };
+
+  documentClickOutsideListener = e => {
+    if (e.target && this.containerElement && !this.containerElement.contains(e.target)) {
+      this.onToggle();
     }
   };
 
-  toggleMenu = (forceOpenToggle = null) => {
-    const isOpen = forceOpenToggle !== null ? forceOpenToggle : !this.state.isOpen;
-    this.setState({
-      isOpen,
-    });
-    this.props.onToggle(isOpen);
-  };
-
-  toggleMenuClick = () => {
-    this.toggleMenu();
+  takeFocus = () => {
+    if (this.buttonElement) {
+      this.buttonElement.focus();
+      this.onFocus();
+    }
   };
 
   render() {
-    const { width, toggleButton, classes, children, enter, exit, maxHeight } = this.props;
-    const { isOpen } = this.state;
-    const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
+    const { width, toggleButton, classes, children, enter, exit, maxHeight, isOpen: isOpenFromProps } = this.props;
+    const { isOpen, hasFocus } = this.state;
     return (
-      <span
-        className={classes.menuContainer}
-        ref={element => {
-          this.onOutsideElement = element;
-        }}
-      >
-        <button className={classes.menuButton} onClick={this.toggleMenuClick}>
+      <span className={classes.menuContainer} ref={this.setContainerRef}>
+        <button
+          className={classes.menuButton}
+          onClick={this.onToggle}
+          ref={this.setButtonRef}
+          onKeyDown={this.onKeyDown}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+        >
           {toggleButton || <Icon.VerticalEllipsis height={28} width={28} stroke="currentColor" fill="currentColor" />}
         </button>
-        <TransitionGroup>
-          {isOpen && (
-            <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
-              <div className={classes.menuPopup} style={{ width }}>
-                <div className={classes.menuItemContainer} style={itemContainerStyle}>
-                  <ul className={classes.menuItems}>{children}</ul>
-                </div>
-              </div>
-            </CSSTransition>
-          )}
-        </TransitionGroup>
+        <PopupMenuList
+          isOpen={isOpenFromProps !== null ? isOpenFromProps : isOpen}
+          onKeyDown={this.onKeyDown}
+          buttonHasFocus={hasFocus}
+          firstListItemRefCallback={this.setFirstListItemRef}
+          yieldFocusCallback={this.takeFocus}
+          enter={enter}
+          exit={exit}
+          width={width}
+          maxHeight={maxHeight}
+        >
+          {children}
+        </PopupMenuList>
       </span>
     );
   }
@@ -86,6 +104,7 @@ class PopupMenu extends React.Component {
 
 PopupMenu.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Will be deprecated. Overrides, but does not change the internal state. */
   isOpen: PropTypes.bool,
   classes: PropTypes.object.isRequired,
   onToggle: PropTypes.func,
@@ -99,7 +118,7 @@ PopupMenu.propTypes = {
 PopupMenu.defaultProps = {
   width: 200,
   onToggle: () => {},
-  isOpen: false,
+  isOpen: null,
   enter: 100,
   exit: 100,
   toggleButton: null,
