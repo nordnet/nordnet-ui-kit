@@ -91,7 +91,8 @@ class PopupMenu extends Component {
           {toggleButton || <Icon.VerticalEllipsis height={28} width={28} stroke="currentColor" fill="currentColor" />}
         </button>
         <PopupMenuList
-          isOpen={isOpenFromProps !== null ? isOpenFromProps : isOpen}
+          forceOpen={isOpenFromProps !== null && isOpenFromProps}
+          isOpen={isOpen}
           onBlur={this.onBlurList}
           onKeyDown={this.onKeyDown}
           buttonHasFocus={hasFocus}

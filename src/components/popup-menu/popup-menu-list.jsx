@@ -85,40 +85,40 @@ class PopupMenuList extends Component {
   };
 
   render() {
-    const { width, classes, children, enter, exit, maxHeight, isOpen, buttonHasFocus } = this.props;
+    const { width, classes, children, enter, exit, maxHeight, isOpen, forceOpen, buttonHasFocus } = this.props;
     const { hasFocus } = this.state;
     const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
+    const open = forceOpen || (isOpen && (buttonHasFocus || hasFocus));
     let notDisabledIndex = 0;
-    console.log({ buttonHasFocus, hasFocus, isOpen });
     return (
       <TransitionGroup>
-        {isOpen &&
-          (buttonHasFocus || hasFocus) && (
-            <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
-              <div className={classes.menuPopup} style={{ width }}>
-                <div className={classes.menuItemContainer} style={itemContainerStyle}>
-                  <ul className={classes.menuItems} ref={this.setListElement} onFocus={this.onFocus} onBlur={this.onBlur}>
-                    {Children.map(children, child => {
-                      if (child.props.disabled) return child;
-                      const childWithCallbackProps = cloneElement(child, {
-                        listItemRef: this.setListItemElement(notDisabledIndex),
-                        onFocus: this.onListItemFocus(notDisabledIndex),
-                        onKeyDown: this.onKeyDown,
-                      });
-                      notDisabledIndex += 1;
-                      return childWithCallbackProps;
-                    })}
-                  </ul>
-                </div>
+        {open && (
+          <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
+            <div className={classes.menuPopup} style={{ width }}>
+              <div className={classes.menuItemContainer} style={itemContainerStyle}>
+                <ul className={classes.menuItems} ref={this.setListElement} onFocus={this.onFocus} onBlur={this.onBlur}>
+                  {Children.map(children, child => {
+                    if (child.props.disabled) return child;
+                    const childWithCallbackProps = cloneElement(child, {
+                      listItemRef: this.setListItemElement(notDisabledIndex),
+                      onFocus: this.onListItemFocus(notDisabledIndex),
+                      onKeyDown: this.onKeyDown,
+                    });
+                    notDisabledIndex += 1;
+                    return childWithCallbackProps;
+                  })}
+                </ul>
               </div>
-            </CSSTransition>
-          )}
+            </div>
+          </CSSTransition>
+        )}
       </TransitionGroup>
     );
   }
 }
 
 PopupMenuList.propTypes = {
+  forceOpen: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
   buttonHasFocus: PropTypes.bool.isRequired,
   onBlur: PropTypes.func.isRequired,
