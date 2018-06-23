@@ -89,6 +89,7 @@ class PopupMenuList extends Component {
     const { width, classes, children, enter, exit, maxHeight, isOpen, buttonHasFocus } = this.props;
     const { hasFocus } = this.state;
     const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
+    let notDisabledIndex = 0;
     return (
       <TransitionGroup>
         {isOpen &&
@@ -97,13 +98,16 @@ class PopupMenuList extends Component {
               <div className={classes.menuPopup} style={{ width }}>
                 <div className={classes.menuItemContainer} style={itemContainerStyle}>
                   <ul className={classes.menuItems} ref={this.setListElement} onFocus={this.onFocus} onBlur={this.onBlur}>
-                    {Children.map(children, (child, index) =>
-                      cloneElement(child, {
-                        listItemRefCallback: this.setListItemElement(index),
-                        onFocusCallback: this.onListItemFocus(index),
+                    {Children.map(children, child => {
+                      if (child.props.disabled) return child;
+                      const childWithCallbackProps = cloneElement(child, {
+                        listItemRefCallback: this.setListItemElement(notDisabledIndex),
+                        onFocusCallback: this.onListItemFocus(notDisabledIndex),
                         onKeyDownCallback: this.onKeyDown,
-                      }),
-                    )}
+                      });
+                      notDisabledIndex += 1;
+                      return childWithCallbackProps;
+                    })}
                   </ul>
                 </div>
               </div>
