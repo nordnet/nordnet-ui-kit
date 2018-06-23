@@ -45,7 +45,7 @@ class PopupMenu extends Component {
   };
 
   onBlurList = () => {
-    if (this.state.isOpen) {
+    if (this.state.isOpen && !this.state.hasFocus) {
       this.onToggle();
     }
   };
@@ -95,8 +95,8 @@ class PopupMenu extends Component {
           onBlur={this.onBlurList}
           onKeyDown={this.onKeyDown}
           buttonHasFocus={hasFocus}
-          firstListItemRefCallback={this.setFirstListItemRef}
-          yieldFocusCallback={this.takeFocus}
+          firstListItemRef={this.setFirstListItemRef}
+          yieldFocus={this.takeFocus}
           enter={enter}
           exit={exit}
           width={width}

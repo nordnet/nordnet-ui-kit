@@ -1,10 +1,9 @@
 import React, { Children, Component, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import injectSheet from 'react-jss';
 import styles from './popup-menu.styles';
 import keyCodes from './keyCodes';
-
-/* eslint-disable react/prop-types */
 
 class PopupMenuList extends Component {
   constructor(props) {
@@ -54,7 +53,7 @@ class PopupMenuList extends Component {
     } else if (e.keyCode === keyCodes.ARROW_UP) {
       if (this.focusIndex === 0) {
         this.focusIndex = -1;
-        this.props.yieldFocusCallback();
+        this.props.yieldFocus();
       } else if (listItemElements[this.focusIndex - 1]) {
         this.focusIndex -= 1;
         listItemElements[this.focusIndex].focus();
@@ -77,7 +76,7 @@ class PopupMenuList extends Component {
   setListItemElement = index => listItemElement => {
     this.listItemElements[index] = listItemElement;
     if (index === 0) {
-      this.props.firstListItemRefCallback(listItemElement);
+      this.props.firstListItemRef(listItemElement);
     }
   };
 
@@ -90,6 +89,7 @@ class PopupMenuList extends Component {
     const { hasFocus } = this.state;
     const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
     let notDisabledIndex = 0;
+    console.log({ buttonHasFocus, hasFocus, isOpen });
     return (
       <TransitionGroup>
         {isOpen &&
@@ -101,9 +101,9 @@ class PopupMenuList extends Component {
                     {Children.map(children, child => {
                       if (child.props.disabled) return child;
                       const childWithCallbackProps = cloneElement(child, {
-                        listItemRefCallback: this.setListItemElement(notDisabledIndex),
-                        onFocusCallback: this.onListItemFocus(notDisabledIndex),
-                        onKeyDownCallback: this.onKeyDown,
+                        listItemRef: this.setListItemElement(notDisabledIndex),
+                        onFocus: this.onListItemFocus(notDisabledIndex),
+                        onKeyDown: this.onKeyDown,
                       });
                       notDisabledIndex += 1;
                       return childWithCallbackProps;
@@ -118,6 +118,19 @@ class PopupMenuList extends Component {
   }
 }
 
-PopupMenuList.propTypes = {};
+PopupMenuList.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  buttonHasFocus: PropTypes.bool.isRequired,
+  onBlur: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+  firstListItemRef: PropTypes.func.isRequired,
+  yieldFocus: PropTypes.func.isRequired,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  classes: PropTypes.object.isRequired,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  enter: PropTypes.number.isRequired,
+  exit: PropTypes.number.isRequired,
+  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+};
 
 export default injectSheet(styles)(PopupMenuList);
