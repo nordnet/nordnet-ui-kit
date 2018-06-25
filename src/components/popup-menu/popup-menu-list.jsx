@@ -1,8 +1,6 @@
 import React, { Children, Component, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import injectSheet from 'react-jss';
-import styles from './popup-menu.styles';
 import keyCodes from './keyCodes';
 
 class PopupMenuList extends Component {
@@ -127,10 +125,10 @@ PopupMenuList.propTypes = {
   yieldFocus: PropTypes.func.isRequired,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   classes: PropTypes.object.isRequired,
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]).isRequired,
   enter: PropTypes.number.isRequired,
   exit: PropTypes.number.isRequired,
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-export default injectSheet(styles)(PopupMenuList);
+export default PopupMenuList;
