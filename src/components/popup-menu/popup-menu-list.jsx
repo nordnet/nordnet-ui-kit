@@ -10,17 +10,7 @@ class PopupMenuList extends Component {
     this.listItemElements = [];
     this.focusIndex = -1;
     this.listElement = null;
-
-    this.state = {
-      hasFocus: false,
-    };
   }
-
-  onFocus = () => {
-    this.setState({
-      hasFocus: true,
-    });
-  };
 
   onBlur = e => {
     const { listElement } = this;
@@ -28,9 +18,6 @@ class PopupMenuList extends Component {
     setTimeout(() => {
       if (e.target && !listElement.contains(document.activeElement) && listElement !== document.activeElement) {
         this.focusIndex = -1;
-        this.setState({
-          hasFocus: false,
-        });
         this.props.onBlur();
       }
     }, 0);
@@ -58,7 +45,6 @@ class PopupMenuList extends Component {
       }
       e.preventDefault();
     } else if (e.keyCode === keyCodes.ESC) {
-      this.setState({ hasFocus: false });
       listItemElements[this.focusIndex].blur();
     }
     this.props.onKeyDown(e);
@@ -83,14 +69,12 @@ class PopupMenuList extends Component {
   };
 
   render() {
-    const { width, classes, children, enter, exit, maxHeight, isOpen, forceOpen, buttonHasFocus } = this.props;
-    const { hasFocus } = this.state;
+    const { width, classes, children, enter, exit, maxHeight, isOpen } = this.props;
     const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
-    const open = forceOpen || (isOpen && (buttonHasFocus || hasFocus));
     let notDisabledIndex = 0;
     return (
       <TransitionGroup>
-        {open && (
+        {isOpen && (
           <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
             <div className={classes.menuPopup} style={{ width }}>
               <div className={classes.menuItemContainer} style={itemContainerStyle}>
@@ -116,9 +100,7 @@ class PopupMenuList extends Component {
 }
 
 PopupMenuList.propTypes = {
-  forceOpen: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  buttonHasFocus: PropTypes.bool.isRequired,
   onBlur: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
   firstListItemRef: PropTypes.func.isRequired,

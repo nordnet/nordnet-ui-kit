@@ -77,7 +77,8 @@ class PopupMenu extends Component {
 
   render() {
     const { width, toggleButton, classes, children, enter, exit, maxHeight, isOpen: isOpenFromProps } = this.props;
-    const { isOpen, hasFocus } = this.state;
+    const { isOpen } = this.state;
+    const open = isOpenFromProps !== null ? isOpenFromProps : isOpen;
     return (
       <span className={classes.menuContainer} ref={this.setContainerRef}>
         <button
@@ -92,11 +93,9 @@ class PopupMenu extends Component {
         </button>
         <PopupMenuList
           classes={classes}
-          forceOpen={isOpenFromProps !== null && isOpenFromProps}
-          isOpen={isOpen}
+          isOpen={open}
           onBlur={this.onBlurList}
           onKeyDown={this.onKeyDown}
-          buttonHasFocus={hasFocus}
           firstListItemRef={this.setFirstListItemRef}
           yieldFocus={this.takeFocus}
           enter={enter}
