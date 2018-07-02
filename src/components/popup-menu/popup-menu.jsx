@@ -6,10 +6,13 @@ import { Icon } from '../../';
 import keyCodes from './keyCodes';
 import PopupMenuList from './popup-menu-list';
 
+let idIncrement = 0;
 class PopupMenu extends Component {
   state = {
     isOpen: false,
     hasFocus: false,
+    // eslint-disable-next-line no-plusplus
+    id: `PopUpMenu${idIncrement++}${(+new Date()).toString(36)}`, // generate a sufficiently unique id
   };
 
   onKeyDown = e => {
@@ -76,12 +79,22 @@ class PopupMenu extends Component {
   };
 
   render() {
-    const { width, toggleButton, classes, children, enter, exit, maxHeight, isOpen: isOpenFromProps } = this.props;
-    const { isOpen } = this.state;
+    const { width, toggleButton, classes, children, enter, exit, maxHeight, buttonLabel, isOpen: isOpenFromProps } = this.props;
+    const { isOpen, id } = this.state;
     const open = isOpenFromProps !== null ? isOpenFromProps : isOpen;
+    let label = null;
+    if (typeof buttonLabel === 'string') label = buttonLabel;
+    else if (typeof buttonLabel === 'object' && buttonLabel !== null) {
+      // typeof null === 'object', see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+      // the label describes what toggling the button does, so it's the opposite of isOpen.
+      label = open ? buttonLabel.close : buttonLabel.open;
+    }
     return (
       <span className={classes.menuContainer} ref={this.setContainerRef}>
         <button
+          aria-expanded={open}
+          aria-label={label}
+          id={id}
           className={classes.menuButton}
           onClick={this.onToggle}
           ref={this.setButtonRef}
@@ -92,6 +105,7 @@ class PopupMenu extends Component {
           {toggleButton || <Icon.VerticalEllipsis height={28} width={28} stroke="currentColor" fill="currentColor" />}
         </button>
         <PopupMenuList
+          aria-labelledby={id}
           classes={classes}
           isOpen={open}
           onBlur={this.onBlurList}
@@ -116,6 +130,16 @@ PopupMenu.propTypes = {
   isOpen: PropTypes.bool,
   classes: PropTypes.object.isRequired,
   onToggle: PropTypes.func,
+  /** The aria-label for the toggle button. Either a plain string or an object with different labels
+   * for when the menu is opened and closed, e.g. `{ open: 'Open menu', close: 'Close menu' }`.
+   * The label describes what toggling the button will do, so `open` will used when the menu is closed, and vice versa. */
+  buttonLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      open: PropTypes.string,
+      close: PropTypes.string,
+    }),
+  ]),
   children: PropTypes.node.isRequired,
   enter: PropTypes.number,
   exit: PropTypes.number,
@@ -126,6 +150,7 @@ PopupMenu.propTypes = {
 PopupMenu.defaultProps = {
   width: 200,
   onToggle: () => {},
+  buttonLabel: null,
   isOpen: null,
   enter: 100,
   exit: 100,

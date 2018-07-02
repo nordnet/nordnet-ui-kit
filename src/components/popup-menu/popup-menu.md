@@ -2,7 +2,7 @@
     const { HashRouter, Link } = require('../../../node_modules/react-router-dom');
     <HashRouter>
         <div style={{display: 'flex', marginLeft: 200}}>
-            <PopupMenu>
+            <PopupMenu buttonLabel={{ open: 'Open menu', close: 'Close menu'}}>
               <PopupMenuItem disabled node={Link}>
                 Disabled link
               </PopupMenuItem>

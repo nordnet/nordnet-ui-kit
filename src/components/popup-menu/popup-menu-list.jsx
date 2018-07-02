@@ -69,7 +69,7 @@ class PopupMenuList extends Component {
   };
 
   render() {
-    const { width, classes, children, enter, exit, maxHeight, isOpen } = this.props;
+    const { width, classes, children, enter, exit, maxHeight, isOpen, 'aria-labelledby': ariaLabelledBy } = this.props;
     const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
     let notDisabledIndex = 0;
     return (
@@ -78,7 +78,13 @@ class PopupMenuList extends Component {
           <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
             <div className={classes.menuPopup} style={{ width }}>
               <div className={classes.menuItemContainer} style={itemContainerStyle}>
-                <ul className={classes.menuItems} ref={this.setListElement} onFocus={this.onFocus} onBlur={this.onBlur}>
+                <ul
+                  className={classes.menuItems}
+                  aria-labelledby={ariaLabelledBy}
+                  ref={this.setListElement}
+                  onFocus={this.onFocus}
+                  onBlur={this.onBlur}
+                >
                   {Children.map(children, child => {
                     if (child.props.disabled) return child;
                     const childWithCallbackProps = cloneElement(child, {
@@ -107,6 +113,7 @@ PopupMenuList.propTypes = {
   yieldFocus: PropTypes.func.isRequired,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   classes: PropTypes.object.isRequired,
+  'aria-labelledby': PropTypes.string.isRequired,
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]).isRequired,
   enter: PropTypes.number.isRequired,
   exit: PropTypes.number.isRequired,
