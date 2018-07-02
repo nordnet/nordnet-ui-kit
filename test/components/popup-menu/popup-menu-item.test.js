@@ -14,7 +14,7 @@ describe('<PopupMenuItem />', () => {
     );
     expect(
       divNode
-        .find('li')
+        .find('span')
         .at(0)
         .childAt(0)
         .type(),
@@ -23,7 +23,7 @@ describe('<PopupMenuItem />', () => {
     const defaultNode = shallow(<PopupMenuItem classes={classes}>Content</PopupMenuItem>);
     expect(
       defaultNode
-        .find('li')
+        .find('span')
         .at(0)
         .childAt(0)
         .type(),
@@ -36,7 +36,7 @@ describe('<PopupMenuItem />', () => {
     );
     expect(
       spanNode
-        .find('li')
+        .find('span')
         .at(0)
         .childAt(0)
         .type(),
