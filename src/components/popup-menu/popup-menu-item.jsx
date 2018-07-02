@@ -13,7 +13,7 @@ const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, 
         * to the native element ref corresponding to the Element. This is because we want to
         * call focus on the ref from the PopupMenuList.
       */}
-      <span ref={ref => ref && listItemRef(ref.childNodes[0])}>
+      <span ref={ref => ref && listItemRef && listItemRef(ref.childNodes[0])}>
         <Element to={linkTo} onClick={onClick} onFocus={onFocus} onKeyDown={onKeyDown} className={classes.link} disabled={disabled}>
           {children}
         </Element>
@@ -42,9 +42,9 @@ PopupMenuItem.defaultProps = {
   linkTo: '#',
   topBorder: false,
   disabled: false,
-  onFocus: () => {},
-  onKeyDown: () => {},
-  listItemRef: () => {},
+  onFocus: null,
+  onKeyDown: null,
+  listItemRef: null,
 };
 
 export { PopupMenuItem as Component, styles };
