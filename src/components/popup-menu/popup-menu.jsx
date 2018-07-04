@@ -12,8 +12,12 @@ class PopupMenu extends Component {
     isOpen: false,
     hasFocus: false,
     // eslint-disable-next-line no-plusplus
-    id: `PopUpMenu${idIncrement++}${(+new Date()).toString(36)}`, // generate a sufficiently unique id
+    id: `PopUpMenu${idIncrement++}`, // generate a sufficiently unique id
   };
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.documentClickOutsideListener);
+  }
 
   onKeyDown = e => {
     if (e.keyCode === keyCodes.ARROW_DOWN && this.state.hasFocus && this.firstListElement) {
