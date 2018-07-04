@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import styles from './popup-menu.styles';
 
 const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, listItemRef, disabled, classes, onFocus }) => {
-  const Element = node || 'button';
+  const Element = disabled ? 'button' : node;
   return (
     <li className={classes.item}>
       {topBorder && <hr className={classes.hr} />}
@@ -38,6 +38,7 @@ PopupMenuItem.propTypes = {
 
 PopupMenuItem.defaultProps = {
   onClick: () => {},
+  node: 'button',
   children: '',
   linkTo: '#',
   topBorder: false,
