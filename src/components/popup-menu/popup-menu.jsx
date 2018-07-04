@@ -28,7 +28,6 @@ class PopupMenu extends Component {
 
   onFocus = () => this.setState({ hasFocus: true });
 
-  // use setTimeout to put it after the onFocus event (on potentially the list) on the call stack.
   onBlur = () => this.setState({ hasFocus: false });
 
   onToggle = () => {
