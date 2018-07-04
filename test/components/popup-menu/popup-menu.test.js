@@ -76,7 +76,7 @@ describe('<PopupMenu />', () => {
     expect(wrapper.state('hasFocus')).to.be.true;
   });
 
-  it('should set hasFocus to false on toggle button blur', done => {
+  it('should set hasFocus to false on toggle button blur', () => {
     wrapper = shallow(
       <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
@@ -86,10 +86,7 @@ describe('<PopupMenu />', () => {
     wrapper.find(`button.${classes.menuButton}`).simulate('focus');
     wrapper.find(`button.${classes.menuButton}`).simulate('blur');
 
-    new Promise(resolve => setTimeout(resolve, 0)).then(() => {
-      expect(wrapper.state('hasFocus')).to.be.false;
-      done();
-    });
+    expect(wrapper.state('hasFocus')).to.be.false;
   });
 
   it('should focus first list element and prevent default on arrow down', () => {
