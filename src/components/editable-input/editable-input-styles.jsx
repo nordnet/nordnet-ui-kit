@@ -10,10 +10,23 @@ export default theme => ({
     width: '100%',
   },
   readOnly: {
+    width: '100%',
+    position: 'relative',
     fontSize: 14,
-    paddingTop: 11,
-    paddingBottom: 8,
     marginBottom: 4,
+  },
+  value: {
+    paddingTop: 11,
+    paddingBottom: 9,
+  },
+  hasLabel: {
+    marginBottom: 23,
+  },
+  hasError: {
+    marginBottom: 20,
+    '& $value': {
+      borderBottom: `3px solid ${theme.palette.variant.danger}`,
+    },
   },
   input: {
     width: '100%',

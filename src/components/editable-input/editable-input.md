@@ -18,3 +18,15 @@ With `emptyDefaultValue`
             emptyDefaultValue="+"
           />
     </div>
+
+With `hasError` and `helpText`
+
+    <div>
+    <span>Something is wrong here:</span>
+    <EditableInput
+            label="Is this correct?"
+            value="No"
+            hasError
+            helpText="It never is"
+          />
+    </div>

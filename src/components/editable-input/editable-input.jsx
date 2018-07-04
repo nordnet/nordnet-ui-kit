@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import styles from './editable-input-styles';
 import { Button, Icon, Input, Spinner } from '../../';
+import HelpText from '../input/help-text';
 
 class EditableInput extends React.Component {
   constructor(props) {
@@ -66,6 +67,16 @@ class EditableInput extends React.Component {
     this.setState({ editing: false });
   };
 
+  renderHelpText() {
+    const modifiers = {
+      hasSuccess: this.props.hasSuccess,
+      hasWarning: this.props.hasWarning,
+      hasError: this.props.hasError,
+    };
+
+    return !this.props.helpText ? null : <HelpText {...modifiers}>{this.props.helpText}</HelpText>;
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -75,7 +86,7 @@ class EditableInput extends React.Component {
           autoFocus
           className={classes.input}
           style={this.props.style}
-          type="text"
+          type={this.props.type}
           variant={this.props.variant}
           disabled={this.props.disabled || this.state.saving}
           label={this.props.label}
@@ -95,9 +106,13 @@ class EditableInput extends React.Component {
         />
       </form>
     ) : (
-      <span className={classes.readOnly} style={this.props.style}>
-        {this.state.value}
-      </span>
+      <div
+        className={classNames(classes.readOnly, { [classes.hasLabel]: this.props.label, [classes.hasError]: this.props.hasError })}
+        style={this.props.style}
+      >
+        <div className={classes.value}>{this.state.value}</div>
+        {this.renderHelpText()}
+      </div>
     );
 
     const buttons = this.state.editing ? (
@@ -136,6 +151,8 @@ class EditableInput extends React.Component {
 EditableInput.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
+  /** Needs to be a valid input type */
+  type: PropTypes.string,
   variant: PropTypes.oneOf(['primary', 'secondary']),
   disabled: PropTypes.bool,
   label: PropTypes.node,
@@ -161,6 +178,7 @@ EditableInput.propTypes = {
 };
 
 EditableInput.defaultProps = {
+  type: 'text',
   variant: 'secondary',
   submitLabel: 'Submit',
   cancelLabel: 'Cancel',
