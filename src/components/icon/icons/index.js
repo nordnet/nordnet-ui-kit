@@ -79,7 +79,6 @@ import SocialYouTube from './socialYouTube';
 import SolidArrowDown from './solidArrowDown';
 import SolidArrowUp from './solidArrowUp';
 import Star from './star';
-import Swish from './swish';
 import Tag from './tag';
 import TickingClock from './tickingClock';
 import Trash from './trash';
@@ -167,7 +166,6 @@ const Icon = {
   SolidArrowDown,
   SolidArrowUp,
   Star,
-  Swish,
   Tag,
   TickingClock,
   Trash,
