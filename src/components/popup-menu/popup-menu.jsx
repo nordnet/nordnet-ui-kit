@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { camelCase } from 'lodash';
 import styles from './popup-menu.styles';
 import { Icon } from '../../';
 import keyCodes from './keyCodes';
 import PopupMenuList from './popup-menu-list';
 
-let idIncrement = 0;
 class PopupMenu extends Component {
   state = {
     isOpen: false,
     hasFocus: false,
-    // eslint-disable-next-line no-plusplus
-    id: `PopUpMenu${idIncrement++}`, // generate a sufficiently unique id
   };
 
   componentWillUnmount() {
@@ -79,8 +77,8 @@ class PopupMenu extends Component {
   };
 
   render() {
-    const { width, toggleButton, classes, children, enter, exit, maxHeight, buttonLabel, isOpen: isOpenFromProps } = this.props;
-    const { isOpen, id } = this.state;
+    const { width, toggleButton, classes, children, enter, exit, maxHeight, buttonLabel, buttonID, isOpen: isOpenFromProps } = this.props;
+    const { isOpen } = this.state;
     const open = isOpenFromProps !== null ? isOpenFromProps : isOpen;
     let label = null;
     if (typeof buttonLabel === 'string') label = buttonLabel;
@@ -89,6 +87,8 @@ class PopupMenu extends Component {
       // the label describes what toggling the button does, so it's the opposite of isOpen.
       label = open ? buttonLabel.close : buttonLabel.open;
     }
+    // If an ID, against all odds, is not supplied, default to the camel case-ified label (we do not want whitespace in the id).
+    const id = buttonID || camelCase(label);
     return (
       <span className={classes.menuContainer} ref={this.setContainerRef}>
         <button
@@ -130,9 +130,13 @@ PopupMenu.propTypes = {
   isOpen: PropTypes.bool,
   classes: PropTypes.object.isRequired,
   onToggle: PropTypes.func,
-  /** The aria-label for the toggle button. Either a plain string or an object with different labels
+  /**
+   * The aria-label for the toggle button. Either a plain string or an object with different labels
    * for when the menu is opened and closed, e.g. `{ open: 'Open menu', close: 'Close menu' }`.
-   * The label describes what toggling the button will do, so `open` will used when the menu is closed, and vice versa. */
+   * The label describes what toggling the button will do, so `open` will used when the menu is closed, and vice versa.
+   *
+   * If this is used then a complementing `buttonID` must be provided as a prop as well.
+   * */
   buttonLabel: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -140,6 +144,20 @@ PopupMenu.propTypes = {
       close: PropTypes.string,
     }),
   ]),
+  /** An ID string. Must be supplied if `buttonLabel` is used, for the aria tags. */
+  // Do a custom PropType check, as buttonID must be supplied if buttonLabel is used.
+  // eslint-disable-next-line consistent-return
+  buttonID: (props, propName, componentName) => {
+    // First do a "normal" type check
+    if (props[propName] && typeof props[propName] !== 'string') {
+      return new Error(
+        `Invalid prop \`${propName}\` of type \`${typeof props[propName]}\` supplied to \`${componentName}\`, expected \`string\`.`,
+      );
+    }
+    if (props.buttonLabel && !props[propName]) {
+      return new Error('If `buttonLabel` prop is used, a `buttonID` prop must be provided as well.');
+    }
+  },
   children: PropTypes.node.isRequired,
   enter: PropTypes.number,
   exit: PropTypes.number,
