@@ -78,13 +78,7 @@ class PopupMenuList extends Component {
           <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
             <div className={classes.menuPopup} style={{ width }}>
               <div className={classes.menuItemContainer} style={itemContainerStyle}>
-                <ul
-                  className={classes.menuItems}
-                  aria-labelledby={ariaLabelledBy}
-                  ref={this.setListElement}
-                  onFocus={this.onFocus}
-                  onBlur={this.onBlur}
-                >
+                <ul className={classes.menuItems} aria-labelledby={ariaLabelledBy} ref={this.setListElement} onBlur={this.onBlur}>
                   {Children.map(children, child => {
                     if (child.props.disabled) return child;
                     const childWithCallbackProps = cloneElement(child, {
