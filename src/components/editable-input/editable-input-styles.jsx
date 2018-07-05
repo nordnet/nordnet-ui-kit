@@ -35,10 +35,10 @@ export default theme => ({
   buttons: {
     display: 'flex',
     flexDirection: 'row',
+    flexShrink: 0,
   },
   buttonEdit: {
-    width: 24,
-    height: 24,
-    marginTop: 9,
+    width: 31,
+    height: 31,
   },
 });

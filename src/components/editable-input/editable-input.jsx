@@ -28,6 +28,12 @@ class EditableInput extends React.Component {
   };
 
   onFocus = event => {
+    /* NOTE: Workaround for moving cursor to end of input in IE/Edge */
+    const value = event.target.value;
+    const target = event.target;
+    target.value = '';
+    target.value = value;
+
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
