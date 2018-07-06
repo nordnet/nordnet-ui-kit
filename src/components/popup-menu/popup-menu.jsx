@@ -96,7 +96,10 @@ class PopupMenu extends Component {
           aria-label={label}
           id={id}
           className={classes.menuButton}
-          onClick={this.onToggle}
+          onClick={() => {
+            if (this.buttonElement) this.buttonElement.focus();
+            this.onToggle();
+          }}
           ref={this.setButtonRef}
           onKeyDown={this.onKeyDown}
           onFocus={this.onFocus}
@@ -159,8 +162,11 @@ PopupMenu.propTypes = {
     }
   },
   children: PropTypes.node.isRequired,
+  /** The duration of the enter transition, in milliseconds. */
   enter: PropTypes.number,
+  /** The duration of the exit transition, in milliseconds. */
   exit: PropTypes.number,
+  /** The content of the toggle button, defaults to `VerticalEllipsis` from the Icon set. */
   toggleButton: PropTypes.node,
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
