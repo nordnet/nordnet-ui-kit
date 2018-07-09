@@ -17,7 +17,7 @@ class Dropdown extends React.PureComponent {
     };
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.close = this.close.bind(this);
     this.handleToggleClick = this.handleToggleClick.bind(this);
     this.classes = this.props.classes;
     this.theme = this.props.theme;
@@ -33,11 +33,11 @@ class Dropdown extends React.PureComponent {
 
   handleClick({ target } = {}) {
     if (target && this.onOutsideElement && !this.onOutsideElement.contains(target)) {
-      this.handleClickOutside();
+      this.close();
     }
   }
 
-  handleClickOutside() {
+  close() {
     if (this.state.actionsOpen) {
       this.setState({
         actionsOpen: false,
@@ -56,10 +56,21 @@ class Dropdown extends React.PureComponent {
       display: this.state.actionsOpen ? 'block' : 'none',
     };
 
+    const { actions, closeOnAction } = this.props;
+
     return (
       <ul className={this.classes.actions} style={style}>
-        {this.props.actions.map((action, index) => (
-          <li className={this.classes.action} key={`${index}-${kebabCase(action.label)}`} onClick={action.action}>
+        {actions.map((action, index) => (
+          <li
+            className={this.classes.action}
+            key={`${index}-${kebabCase(action.label)}`}
+            onClick={() => {
+              action.action();
+              if (closeOnAction) {
+                this.close();
+              }
+            }}
+          >
             {action.label}
           </li>
         ))}
@@ -108,10 +119,12 @@ Dropdown.propTypes = {
     }),
   ),
   actionsOpen: PropTypes.bool,
+  closeOnAction: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   actionsOpen: false,
+  closeOnAction: false,
 };
 
 export { Dropdown as Component, styles };
