@@ -83,6 +83,11 @@
       </li>
 
       <li style={{marginBottom: '11px'}}>
+        <span>Different placements for mobile and desktop: </span>
+        <Tooltip content={ <span>Fixed width</span> } placement="right" mobilePlacement="above" />
+      </li>
+
+      <li style={{marginBottom: '11px'}}>
         <span>Fixed width 345px:</span>
         <Tooltip content={ <span>Fixed width</span> } fixedWidth={345} />
       </li>

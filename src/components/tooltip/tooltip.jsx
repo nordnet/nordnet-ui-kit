@@ -132,7 +132,7 @@ class Tooltip extends Component {
       }
     }
 
-    const { fixedWidth, desktopOnly } = this.props;
+    const { fixedWidth, desktopOnly, mobilePlacement } = this.props;
     const { hover, toggled } = this.state;
 
     const wrapperStyle = {
@@ -143,21 +143,42 @@ class Tooltip extends Component {
     };
 
     const classes = this.classes;
-    const wrapperClasses = classnames(classes.popup, classes[placement], {
-      [classes.popupFixed]: fixedWidth,
-      [classes.popupDesktopOnly]: desktopOnly,
-    });
+    const wrapperClasses = classnames(
+      classes.popup,
+      !mobilePlacement && classes[placement],
+      mobilePlacement && classes[`${mobilePlacement}Mobile`],
+      mobilePlacement && classes[`${placement}Desktop`],
+      {
+        [classes.popupFixed]: fixedWidth,
+        [classes.popupDesktopOnly]: desktopOnly,
+      },
+    );
 
     const contentStyle = {
-      left: this.left,
-      position: (placement === 'above' || placement === 'below') && fixedWidth ? 'absolute' : 'static',
-      bottom: placement === 'above' ? 0 : 'auto',
+      // don't want to do anything fancy if we're using different placements for mobile and desktop.
+      ...(!mobilePlacement ? { left: this.left } : {}),
     };
+    const vertical = placement === 'above' || placement === 'below';
+    const verticalMobile = mobilePlacement === 'above' || mobilePlacement === 'below';
     return (
       <div className={wrapperClasses} style={wrapperStyle}>
         <div
           style={contentStyle}
-          className={classnames(classes.popupContent, classes[placement], fixedWidth && classes.popupContentFixed)}
+          className={classnames(
+            classes.popupContent,
+            !mobilePlacement && classes[placement],
+            mobilePlacement && classes[`${mobilePlacement}Mobile`],
+            mobilePlacement && classes[`${placement}Desktop`],
+            {
+              [classes.popupContentFixed]: fixedWidth,
+              [classes.popupContentVertical]: !mobilePlacement && vertical && fixedWidth,
+              [classes.popupContentVerticalMobile]: mobilePlacement && verticalMobile && fixedWidth,
+              [classes.popupContentVerticalDesktop]: mobilePlacement && vertical && fixedWidth,
+              [classes.popupContentAbove]: !mobilePlacement && placement === 'above',
+              [classes.popupContentAboveMobile]: mobilePlacement && placement === 'above',
+              [classes.popupContentAboveDesktop]: mobilePlacement && placement === 'above',
+            },
+          )}
           ref={popup => {
             this.popup = popup;
           }}
@@ -169,7 +190,7 @@ class Tooltip extends Component {
   };
 
   render() {
-    const { children, content, className, placement, style, tooltipStyle } = this.props;
+    const { children, content, className, placement, mobilePlacement, style, tooltipStyle } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = placement || this.getPlacement(placement);
     }
@@ -188,7 +209,12 @@ class Tooltip extends Component {
           ref={container => {
             this.container = container;
           }}
-          className={classnames(this.classes.container, this.classes[this.placement])}
+          className={classnames(
+            this.classes.container,
+            !mobilePlacement && this.classes[placement],
+            mobilePlacement && this.classes[`${mobilePlacement}Mobile`],
+            mobilePlacement && this.classes[`${placement}Desktop`],
+          )}
           onClick={this.toggleShow}
         >
           {children}
@@ -202,6 +228,7 @@ class Tooltip extends Component {
 Tooltip.defaultProps = {
   children: <Questionmark width={16} height={16} />,
   placement: 'below',
+  mobilePlacement: null,
   sticky: true,
   desktopOnly: false,
 };
@@ -219,6 +246,7 @@ Tooltip.propTypes = {
   /** Tooltip should display when clicked */
   sticky: PropTypes.bool,
   placement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
+  mobilePlacement: PropTypes.oneOf(['above', 'below', 'right', 'left']),
   fixedWidth: PropTypes.number, //  eslint-disable-line
   desktopOnly: PropTypes.bool,
 };
