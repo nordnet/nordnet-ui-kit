@@ -151,6 +151,8 @@ export default theme => {
       },
 
       ...popupPlacementStyles(palette),
+      // the wrapping is needed because of https://github.com/cssinjs/jss/issues/446
+      // can't have & and $ as selectors inside the mixin
       ...wrapInMobileMediaQuery(mixins, popupPlacementStyles(palette, 'Mobile')),
       ...wrapInDesktopMediaQuery(mixins, popupPlacementStyles(palette, 'Desktop')),
     },
