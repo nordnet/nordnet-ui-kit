@@ -161,7 +161,6 @@ export default theme => {
     },
 
     popupContent: {
-      position: 'static',
       width: '100%',
       textAlign: 'left',
       fontSize: 12,
