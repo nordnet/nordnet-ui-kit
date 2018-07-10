@@ -1,1 +1,1 @@
-export { default } from './spinner-ball';
+export { default } from './spinner';

@@ -92,6 +92,9 @@ export default ({ palette, typography, mixins, transitions }) => ({
     '&:hover:not([disabled])': {
       background: palette.color.grayLightest,
     },
+    '&:focus:not([disabled])': {
+      background: palette.color.grayLighter,
+    },
     '&[disabled]': {
       color: palette.text.muted,
       cursor: 'default',
