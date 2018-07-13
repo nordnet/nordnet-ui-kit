@@ -89,7 +89,7 @@ export default theme => {
         display: 'block',
         width: '16px',
         height: '16px',
-        border: `1px solid ${palette.shades.dark.text.muted}`,
+        border: `1px solid ${palette.shades.light.text.muted}`,
         padding: '3px 2px',
         transition: transitions.create(['all'], {
           duration: transitions.duration.shortest,
