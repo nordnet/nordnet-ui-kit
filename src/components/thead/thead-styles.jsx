@@ -22,6 +22,7 @@ const normal = theme => {
       '& th': {
         position: 'sticky',
         top: 0,
+        zIndex: 1,
         backgroundColor: color.white,
       },
     },
