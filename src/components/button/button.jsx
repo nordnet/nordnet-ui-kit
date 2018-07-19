@@ -23,6 +23,7 @@ function Button({
   node,
   href,
   icon,
+  iconAbove,
   size,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
@@ -54,12 +55,15 @@ function Button({
     size,
     className,
   );
+  const innerButtonWrapper = classNames(classes.innerWrapper, {
+    [classes.iconAbove]: iconAbove,
+  });
 
   return (
     <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
-      <div className={classes.innerWrapper}>
+      <div className={innerButtonWrapper}>
         {icon}
-        <span className={classNames({ [classes.spaceForIcon]: icon && children })}>{children}</span>
+        <span className={classNames({ [classes.spaceForIcon]: icon && children && !iconAbove })}>{children}</span>
       </div>
     </Element>
   );
@@ -83,6 +87,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
   icon: PropTypes.node,
+  iconAbove: PropTypes.bool,
   disabled: PropTypes.bool,
 };
 

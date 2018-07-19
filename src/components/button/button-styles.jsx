@@ -188,6 +188,10 @@ export default theme => {
       borderRadius: '50%',
     },
 
+    iconAbove: {
+      flexDirection: 'column',
+    },
+
     iconText: {},
 
     innerWrapper: {
