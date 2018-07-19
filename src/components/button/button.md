@@ -166,20 +166,24 @@ Sizes:
         <Button variant="primary" modifier="action" size="xs" style= { style }>Button xs</Button>
         <Button variant="primary" modifier="action" icon={icon} size="xs" style= { style }>Button xs</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="xs" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="xs" style= { style }>Button xs</Button>
       </div>
       <div style={groupstyle}>
         <Button variant="primary" modifier="action" size="sm" style= { style }>Button sm</Button>
         <Button variant="primary" modifier="action" icon={icon} size="sm" style= { style }>Button sm  (Default)</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="sm" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="sm" style= { style }>Button sm</Button>
       </div>
       <div style={groupstyle}>
         <Button variant="primary" modifier="action" size="md" style= { style }>Button md</Button>
         <Button variant="primary" modifier="action" icon={icon} size="md" style= { style }>Button md</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="md" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="md" style= { style }>Button md</Button>
       </div>
       <div style={groupstyle}>
         <Button variant="primary" modifier="action" size="lg" style= { style }>Button lg</Button>
         <Button variant="primary" modifier="action" icon={icon} size="lg" style= { style }>Button lg</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="lg" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="lg" style= { style }>Button lg</Button>
       </div>
     </div>
