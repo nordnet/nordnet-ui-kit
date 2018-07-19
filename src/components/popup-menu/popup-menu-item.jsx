@@ -6,9 +6,8 @@ import styles from './popup-menu.styles';
 
 const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, listItemRef, disabled, classes, onFocus, className }) => {
   const Element = disabled ? 'button' : node;
-  const classNameStr = className ? cn(classes.item, className) : classes.item;
   return (
-    <li className={classNameStr}>
+    <li className={cn(classes.item, className)}>
       {topBorder && <hr className={classes.hr} />}
       {/* Since putting the ref for listItemRef on the actual Element didn't work as expected
         * if the Element was a React Router Link, we put it on a wrapped span and traverse down
@@ -49,7 +48,6 @@ PopupMenuItem.defaultProps = {
   onFocus: null,
   onKeyDown: null,
   listItemRef: null,
-  className: null,
 };
 
 export { PopupMenuItem as Component, styles };
