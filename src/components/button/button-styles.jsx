@@ -200,8 +200,12 @@ export default theme => {
       justifyContent: 'center',
     },
 
-    spaceForIcon: {
+    spaceLeft: {
       marginLeft: '0.5em',
+    },
+
+    spaceAbove: {
+      marginTop: 4,
     },
 
     primary: {

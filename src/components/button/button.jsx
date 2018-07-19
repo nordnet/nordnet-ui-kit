@@ -58,12 +58,16 @@ function Button({
   const innerButtonWrapper = classNames(classes.innerWrapper, {
     [classes.iconAbove]: iconAbove,
   });
+  const iconSpacer = classNames(classes.innerWrapper, {
+    [classes.spaceAbove]: icon && children && iconAbove,
+    [classes.spaceLeft]: icon && children && !iconAbove,
+  });
 
   return (
     <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
       <div className={innerButtonWrapper}>
         {icon}
-        <span className={classNames({ [classes.spaceForIcon]: icon && children && !iconAbove })}>{children}</span>
+        <span className={iconSpacer}>{children}</span>
       </div>
     </Element>
   );
