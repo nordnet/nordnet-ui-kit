@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import cn from 'classnames';
 import styles from './popup-menu.styles';
 
-const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, listItemRef, disabled, classes, onFocus }) => {
+const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, listItemRef, disabled, classes, onFocus, className }) => {
   const Element = disabled ? 'button' : node;
+  const classNameStr = className ? cn(classes.item, className) : classes.item;
   return (
-    <li className={classes.item}>
+    <li className={classNameStr}>
       {topBorder && <hr className={classes.hr} />}
       {/* Since putting the ref for listItemRef on the actual Element didn't work as expected
         * if the Element was a React Router Link, we put it on a wrapped span and traverse down
@@ -24,6 +26,7 @@ const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, 
 
 PopupMenuItem.propTypes = {
   classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
   node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   onClick: PropTypes.func,
   linkTo: PropTypes.string,
@@ -46,6 +49,7 @@ PopupMenuItem.defaultProps = {
   onFocus: null,
   onKeyDown: null,
   listItemRef: null,
+  className: null,
 };
 
 export { PopupMenuItem as Component, styles };
