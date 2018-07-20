@@ -28,6 +28,7 @@ function TableCell({
   flexBasisMobile,
   hiddenOnDesktop,
   hiddenOnMobile,
+  unstyledChild,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -62,7 +63,7 @@ function TableCell({
   const Tag = tagName;
   return (
     <Tag {...rest} className={usedClassName} style={style}>
-      <div className={classNames(classes.child, { [classes.ellipsis]: ellipsis })} data-title={title}>
+      <div className={classNames({ [classes.child]: !unstyledChild }, { [classes.ellipsis]: ellipsis })} data-title={title}>
         {children}
       </div>
     </Tag>
@@ -80,6 +81,7 @@ TableCell.defaultProps = {
   hiddenOnDesktop: false,
   hiddenOnMobile: false,
   collapsed: false,
+  unstyledChild: false,
 };
 
 TableCell.propTypes = {
@@ -109,6 +111,7 @@ TableCell.propTypes = {
   flexBasisMobile: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   hiddenOnDesktop: PropTypes.bool,
   hiddenOnMobile: PropTypes.bool,
+  unstyledChild: PropTypes.bool,
 };
 
 export { TableCell as Component, styles };
