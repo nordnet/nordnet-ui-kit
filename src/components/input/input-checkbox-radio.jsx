@@ -144,4 +144,5 @@ InputCheckboxRadio.defaultProps = {
   disabled: false,
 };
 
+export { InputCheckboxRadio as Component, styles };
 export default injectSheet(styles)(InputCheckboxRadio);

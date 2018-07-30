@@ -18,4 +18,5 @@ Ul.propTypes = {
   className: PropTypes.string,
 };
 
+export { Ul as Component };
 export default Ul;

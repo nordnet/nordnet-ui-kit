@@ -5,7 +5,7 @@ Radio type, Primary (using icons):
 
     <SegmentedControl
       value="green"
-      name="colorRadio"
+      name="colorRadioIcons"
       type="radio"
     >
       <span value="red">
@@ -26,7 +26,7 @@ Radio type, Primary (using text):
 
       <SegmentedControl
         value="left"
-        name="colorRadio"
+        name="colorRadioText"
         type="radio"
       >
         <span value="left">
@@ -54,7 +54,7 @@ Radio type, Secondary (using text):
               <SegmentedControl
                 variant="secondary"
                 value={this.state.value}
-                name="colorRadio"
+                name="colorRadioText2"
                 type="radio"
               >
                 <span value="ALL_NEWS">

@@ -28,11 +28,6 @@ class SegmentedControl extends React.PureComponent {
         };
       }
     }
-    this.renderChild = this.renderChild.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.childSelectedState = this.childSelectedState.bind(this);
-    this.classes = this.props.classes;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,7 +39,7 @@ class SegmentedControl extends React.PureComponent {
     }
   }
 
-  childSelectedState() {
+  childSelectedState = () => {
     // Multiple children
     if (this.props.children.reduce) {
       if (this.props.type === 'radio') {
@@ -72,16 +67,16 @@ class SegmentedControl extends React.PureComponent {
       };
     }
     return null;
-  }
+  };
 
-  handleFocus(e, index) {
+  handleFocus = index => e => {
     const focus = e.type === 'focus' ? index : '';
     this.setState({
       focus,
     });
-  }
+  };
 
-  handleChange(e) {
+  handleChange = e => {
     const index = e.currentTarget.value;
     const callOnChange = () => {
       if (this.props.onChange) {
@@ -103,24 +98,28 @@ class SegmentedControl extends React.PureComponent {
         callOnChange,
       );
     }
-  }
+  };
 
-  renderChild(child, index = 0) {
+  renderChild = (child, index = 0) => {
     const childValue = (child.props || {}).value;
     let selected;
+
     if (this.props.type === 'radio') {
       selected = childValue === this.state.selected;
     } else if (this.props.type === 'checkbox') {
       selected = this.state[childValue];
     }
-    const usedClassName = cn(this.classes.label, this.props.variant, {
-      [this.classes.selected]: selected,
-      [this.classes.buttonLeft]: index === 0,
-      [this.classes.buttonRight]: this.props.children.map ? index === this.props.children.length - 1 : true,
-      [this.classes.focus]: index === this.state.focus,
-      [this.classes.radio]: this.props.type === 'radio',
-      [this.classes.checkbox]: this.props.type === 'checkbox',
+
+    const usedClassName = cn(this.props.classes.label, this.props.variant, {
+      [this.props.classes.selected]: selected,
+      [this.props.classes.buttonLeft]: index === 0,
+      [this.props.classes.buttonRight]: this.props.children.map ? index === this.props.children.length - 1 : true,
+      [this.props.classes.focus]: index === this.state.focus,
+      [this.props.classes.radio]: this.props.type === 'radio',
+      [this.props.classes.checkbox]: this.props.type === 'checkbox',
     });
+
+    const handleFocus = this.handleFocus(index);
 
     const inputId = `sc-${this.props.name}-${index}`;
     return (
@@ -132,18 +131,18 @@ class SegmentedControl extends React.PureComponent {
           value={childValue || index}
           checked={selected}
           onChange={this.handleChange}
-          onFocus={event => this.handleFocus(event, index)}
-          onBlur={event => this.handleFocus(event, index)}
+          onFocus={handleFocus}
+          onBlur={handleFocus}
         />
         <label htmlFor={inputId}>{child}</label>
       </span>
     );
-  }
+  };
 
   render() {
     // If we have an array of children, then we have the map function
     return (
-      <span style={this.props.style} className={cn(this.classes.root, this.props.className)}>
+      <span style={this.props.style} className={cn(this.props.classes.root, this.props.className)}>
         {this.props.children.map ? this.props.children.map(this.renderChild) : this.renderChild(this.props.children)}
       </span>
     );
@@ -166,4 +165,5 @@ SegmentedControl.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary']),
 };
 
+export { SegmentedControl as Component, styles };
 export default injectSheet(styles)(SegmentedControl);

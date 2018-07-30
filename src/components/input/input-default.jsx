@@ -228,4 +228,5 @@ InputDefault.defaultProps = {
   lineCount: 3,
 };
 
+export { InputDefault as Component, styles };
 export default injectSheet(styles)(InputDefault);
