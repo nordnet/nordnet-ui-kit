@@ -166,4 +166,5 @@ SegmentedControl.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary']),
 };
 
+export { SegmentedControl as Component, styles };
 export default injectSheet(styles)(SegmentedControl);
