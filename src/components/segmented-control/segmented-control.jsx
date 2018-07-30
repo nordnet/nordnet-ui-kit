@@ -28,10 +28,6 @@ class SegmentedControl extends React.PureComponent {
         };
       }
     }
-    this.renderChild = this.renderChild.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.childSelectedState = this.childSelectedState.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
