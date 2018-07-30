@@ -8,13 +8,10 @@ describe('<Li />', () => {
   const classes = mockClasses(styles);
   let wrapper;
 
-  it('should render 2 <Li />', () => {
-    wrapper = shallow(
-      <ul>
-        <Li classes={classes}>Test</Li>
-        <Li classes={classes}>Test2</Li>
-      </ul>,
-    );
-    expect(wrapper.find('Li')).to.have.length(2);
+  it('should render an li', () => {
+    wrapper = shallow(<Li classes={classes}>li1</Li>);
+    const actual = wrapper.type();
+    const expected = 'li';
+    expect(actual).to.equal(expected);
   });
 });

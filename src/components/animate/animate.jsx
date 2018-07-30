@@ -6,9 +6,12 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import easings from '../../styles/transitions/easings';
 import durations from '../../styles/transitions/durations';
 
+const zeroHeight = () => 0;
+const getEstimatedHeight = props => props.estimatedHeight;
+
 const initialHeight = {
-  height: () => 0,
-  maxHeight: () => 0,
+  height: zeroHeight,
+  maxHeight: zeroHeight,
 };
 
 const styles = {
@@ -18,15 +21,15 @@ const styles = {
   },
   heightEnter: initialHeight,
   heightEnterActive: {
-    height: props => props.estimatedHeight,
-    maxHeight: props => props.estimatedHeight,
+    height: getEstimatedHeight,
+    maxHeight: getEstimatedHeight,
     transitionTimingFunction: props => props.easingEnterFunction,
     transitionDuration: props => props.enterTime,
     overflow: 'hidden',
   },
   heightExit: {
-    height: props => props.estimatedHeight,
-    maxHeight: props => props.estimatedHeight,
+    height: getEstimatedHeight,
+    maxHeight: getEstimatedHeight,
     transitionTimingFunction: props => props.easingLeaveFunction,
     transitionDuration: props => props.leaveTime,
     overflow: 'hidden',
