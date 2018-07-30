@@ -132,6 +132,8 @@ InputSelect.defaultProps = {
     },
   ],
   variant: 'primary',
+  type: 'select',
 };
 
+export { InputSelect as Component, styles };
 export default injectSheet(styles)(InputSelect);

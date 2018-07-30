@@ -1,30 +1,31 @@
-describe.skip('<InputDefault />', () => {
-  it.skip('should have tests', () => {});
-});
-
-/*
 import React from 'react';
 import { assert } from 'chai';
-import { shallow as enzymeShallow } from 'enzyme';
-import { createShallow } from '../../../src/test-utils';
-import InputDefault from '../../../src/components/input/input-default';
+import { shallow } from 'enzyme';
+import { Component as InputDefault, styles } from '../../../src/components/input/input-default';
+import { mockClasses, theme } from '../../../src';
+
+const classes = mockClasses(styles);
+
+const defaultProps = { classes, theme };
+
+const renderComponent = props => shallow(<InputDefault {...defaultProps} {...props} />);
 
 describe('<InputDefault />', () => {
-  const shallow = createShallow(enzymeShallow);
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<InputDefault />);
+    wrapper = renderComponent();
   });
 
   afterEach(() => {
     wrapper = null;
   });
 
-  it('adds value class when there is an value', () => {
+  it('adds value class when there is a value', () => {
     const nonEmtpyValues = ['a string', false, 7, [3], { someProp: 'a value' }];
 
     nonEmtpyValues.forEach(v => {
+      wrapper = renderComponent({ value: v });
       wrapper.setProps({ value: v });
       assert(wrapper.hasClass('input--has-value'), `"${v}" did not set the value class`);
     });
@@ -39,4 +40,3 @@ describe('<InputDefault />', () => {
     });
   });
 });
-*/

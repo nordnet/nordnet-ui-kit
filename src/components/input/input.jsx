@@ -49,4 +49,5 @@ Input.defaultProps = {
   variant: 'primary',
 };
 
+export { Input as Component };
 export default Input;
