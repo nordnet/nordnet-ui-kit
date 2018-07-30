@@ -2,14 +2,14 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../../src';
-import { Component as Td, styles } from '../../../../src/components/td/td';
+import { Component as TableCell, styles } from '../../../../src/components/table-cell/table-cell';
 
-describe('<Td />', () => {
+describe('<TableCell />', () => {
   const classes = mockClasses(styles);
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Td classes={classes} />);
+    wrapper = shallow(<TableCell tagName="td" classes={classes} />);
   });
 
   it('should render a <td />', () => {
@@ -25,7 +25,7 @@ describe('<Td />', () => {
   });
 
   it('should not render a component with td--ellipsis, when ellipsis have false input', () => {
-    wrapper = shallow(<Td classes={classes} ellipsis={false} />);
+    wrapper = shallow(<TableCell tagName="td" classes={classes} ellipsis={false} />);
     expect(wrapper.find('div.ellipsis')).to.have.length(0);
   });
 });

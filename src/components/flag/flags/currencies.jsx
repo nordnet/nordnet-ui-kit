@@ -31,9 +31,7 @@ export default function CombinedFlag({ style, primaryCC, secondaryCC, size, ...r
                 <clipPath id="_clip2">
                   <path d="M54.523,7.03l122.875,0l0,122.875l-122.875,0l0,-122.875Z" />
                 </clipPath>
-                <g transform={`translate(${secondaryX}, 0)`}>
-                  {SecondaryFlag ? <SecondaryFlag /> : null}
-                </g>
+                <g transform={`translate(${secondaryX}, 0)`}>{SecondaryFlag ? <SecondaryFlag /> : null}</g>
               </g>
             </g>
           </g>
@@ -48,9 +46,7 @@ export default function CombinedFlag({ style, primaryCC, secondaryCC, size, ...r
               <clipPath id="_clip4">
                 <rect x="5.541" y="6.213" width="122.88" height="122.88" />
               </clipPath>
-              <g transform={`translate(${primaryX}, 0)`}>
-                {PrimaryFlag ? <PrimaryFlag /> : null}
-              </g>
+              <g transform={`translate(${primaryX}, 0)`}>{PrimaryFlag ? <PrimaryFlag /> : null}</g>
             </g>
           </g>
         </g>

@@ -17,11 +17,7 @@ function renderAddon(content, position) {
 
   const classes = classNames('input__addon', `input__addon--${position}`);
 
-  return (
-    <div className={classes}>
-      {typeof content === 'function' ? content() : content}
-    </div>
-  );
+  return <div className={classes}>{typeof content === 'function' ? content() : content}</div>;
 }
 
 function hasValue(value) {

@@ -2,6 +2,7 @@
       marginRight: 8,
     };
 
+
     <div>
       <Spinner style={ spinnerStyle } />
       <Spinner style={ spinnerStyle } color="#00BD76" />

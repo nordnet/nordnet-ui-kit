@@ -4,11 +4,10 @@ export default theme => {
   const { palette, mixins } = theme;
   return {
     tbody: {
+      width: '100%',
       ...mixins.basicBoxSizing,
-      display: 'block',
       ...styleUtils.sizes(),
       ...styleUtils.borders(palette),
-      width: '100%',
       overflow: 'auto',
 
       '@supports (-webkit-overflow-scrolling: touch)': {

@@ -19,8 +19,7 @@ Radio type, Primary (using icons):
       </span>
     </SegmentedControl>
 
-
-  Radio type, Primary (using text):
+Radio type, Primary (using text):
 
       const { Icon } = require('../../');
       const color = require('../../styles/color').default;
@@ -38,27 +37,48 @@ Radio type, Primary (using icons):
         </span>
       </SegmentedControl>
 
+Radio type, Secondary (using text):
 
+      // This is a sample component to enable testing setting value from outside the UI-Kit
+      const React = require('react');
 
-  Radio type, Secondary (using text):
+      class RadioTypeSample extends React.PureComponent {
+        constructor(props) {
+          super(props);
+          this.state = { value: 'ALL_NEWS' };
+        }
 
-      const { Icon } = require('../../');
-      const color = require('../../styles/color').default;
+        render() {
+          return (
+            <div>
+              <SegmentedControl
+                variant="secondary"
+                value={this.state.value}
+                name="colorRadio"
+                type="radio"
+              >
+                <span value="ALL_NEWS">
+                  ALL NEWS
+                </span>
+                <span value="RECOMMENDED_NEWS">
+                  RECOMMENDED NEWS
+                </span>
+                <span value="MY_NEWS">
+                  MY NEWS
+                </span>
+              </SegmentedControl>
+              <div style={{padding: '0 20px 20px', marginTop: '50px', border: '1px solid lightgray'}}>
+                <h5>Click buttons to simulate select from outside UI-Kit</h5>
+                <button onClick={ () => { this.setState({ value:'ALL_NEWS' }); }}>ALL_NEWS</button>
+                <button style={{marginLeft: '5px'}} onClick={ () => { this.setState({ value:'RECOMMENDED_NEWS' }); }}>RECOMMENDED_NEWS</button>
+                <button style={{marginLeft: '5px'}} onClick={ () => { this.setState({ value:'MY_NEWS' }); }}>MY_NEWS</button>
+              </div>
+            </div>
+          );
+        }
+      }
 
-      <SegmentedControl
-        variant="secondary"
-        value="ALL_NEWS"
-        name="colorRadio"
-        type="radio"
-      >
-        <span value="ALL_NEWS">
-          ALL NEWS
-        </span>
-        <span value="MY_NEWS">
-          MY NEWS
-        </span>
-      </SegmentedControl>
-
+      <RadioTypeSample />
 
 Checkbox type:
 
@@ -68,7 +88,6 @@ Checkbox type:
       <span value="green">Green</span>
       <span value="blue" checked={true}>Blue</span>
     </SegmentedControl>
-
 
 With single option, "checkbox" type:
 

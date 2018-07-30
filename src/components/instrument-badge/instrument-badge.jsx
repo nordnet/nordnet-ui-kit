@@ -178,9 +178,13 @@ class InstrumentBadge extends React.Component {
   renderQualifyBadge = () => {
     const { qualified, size, classes } = this.props;
 
-    return qualified
-      ? <Icon.Checkmark {...getIconProps({ size, strokeWidth: 1 })} />
-      : <div className={classes.exclamationPoint}><Icon.ExclamationPoint {...getIconProps({ size, strokeWidth: 2 })} /></div>;
+    return qualified ? (
+      <Icon.Checkmark {...getIconProps({ size, strokeWidth: 1 })} />
+    ) : (
+      <div className={classes.exclamationPoint}>
+        <Icon.ExclamationPoint {...getIconProps({ size, strokeWidth: 2 })} />
+      </div>
+    );
   };
 
   renderInstrumentBadge = () => {
@@ -189,7 +193,9 @@ class InstrumentBadge extends React.Component {
     return (
       <div className={classes.wrapper}>
         <div className={classes.badgeWrapper}>
-          <div className={classes.iconWrapper}><div className={classes.icon}>{this.renderQualifyBadge()}</div></div>
+          <div className={classes.iconWrapper}>
+            <div className={classes.icon}>{this.renderQualifyBadge()}</div>
+          </div>
           <div className={classes.badge}>
             <Icon.Hexagon
               className={classes.hexagon}
@@ -201,9 +207,7 @@ class InstrumentBadge extends React.Component {
             />
           </div>
         </div>
-        <span className={classes.subText}>
-          {subText}
-        </span>
+        <span className={classes.subText}>{subText}</span>
       </div>
     );
   };
@@ -229,11 +233,13 @@ class InstrumentBadge extends React.Component {
           'unqualifiedColor',
         )}
       >
-        {tooltipContent
-          ? <Tooltip style={{ display: 'flex', alignItems: 'center' }} content={tooltipContent} placement={tooltipPlacement}>
-              {this.renderInstrumentBadge()}
-            </Tooltip>
-          : this.renderInstrumentBadge()}
+        {tooltipContent ? (
+          <Tooltip style={{ display: 'flex', alignItems: 'center' }} content={tooltipContent} placement={tooltipPlacement}>
+            {this.renderInstrumentBadge()}
+          </Tooltip>
+        ) : (
+          this.renderInstrumentBadge()
+        )}
       </div>
     );
   }

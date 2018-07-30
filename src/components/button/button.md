@@ -59,7 +59,7 @@ Secondary, disabled:
       <Button variant="secondary" disabled modifier="warning" style={ style }>Click Me</Button>
       <Button variant="secondary" disabled modifier="success" style={ style }>Click Me</Button>
     </div>
-    
+
 Secondary, icon:
 
     const { Icon } = require('../../');
@@ -96,11 +96,11 @@ Link icon:
     const { Icon } = require('../../');
     const { Logo } = require('../../');
     const icon = <Icon.Edit />;
-    
+
     const style = {
       marginRight: 16,
     };
-    
+
     const groupstyle = {
       marginTop: 16,
     };
@@ -116,6 +116,17 @@ Link icon:
       <div style={groupstyle}>
         <Button variant="link" style={ style }><Logo /></Button>
       </div>
+    </div>
+
+Href button:
+
+    const style = {
+      marginRight: 16,
+    };
+
+    <div>
+      <Button variant="primary" modifier="action" style={ style } href="/">I will link you</Button>
+      <Button variant="primary" modifier="action" style={ style } href="/" disabled>I won't link you</Button>
     </div>
 
 Sizes:
@@ -155,20 +166,24 @@ Sizes:
         <Button variant="primary" modifier="action" size="xs" style= { style }>Button xs</Button>
         <Button variant="primary" modifier="action" icon={icon} size="xs" style= { style }>Button xs</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="xs" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="xs" style= { style }>Button xs</Button>
       </div>
       <div style={groupstyle}>
         <Button variant="primary" modifier="action" size="sm" style= { style }>Button sm</Button>
         <Button variant="primary" modifier="action" icon={icon} size="sm" style= { style }>Button sm  (Default)</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="sm" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="sm" style= { style }>Button sm</Button>
       </div>
       <div style={groupstyle}>
         <Button variant="primary" modifier="action" size="md" style= { style }>Button md</Button>
         <Button variant="primary" modifier="action" icon={icon} size="md" style= { style }>Button md</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="md" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="md" style= { style }>Button md</Button>
       </div>
       <div style={groupstyle}>
         <Button variant="primary" modifier="action" size="lg" style= { style }>Button lg</Button>
         <Button variant="primary" modifier="action" icon={icon} size="lg" style= { style }>Button lg</Button>
         <Button variant="secondary" modifier="action" icon={icon} size="lg" style= { style } />
+        <Button variant="link" modifier="action" icon={icon} iconAbove size="lg" style= { style }>Button lg</Button>
       </div>
     </div>
