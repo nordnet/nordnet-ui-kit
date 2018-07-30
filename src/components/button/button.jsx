@@ -4,6 +4,14 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import styles from './button-styles';
 
+const getElementType = (node, href, disabled) => {
+  if (node) {
+    return node;
+  }
+
+  return href && !disabled ? 'a' : 'button';
+};
+
 function Button({
   classes,
   variant,
@@ -12,14 +20,16 @@ function Button({
   className,
   children,
   modifier,
+  node,
   href,
   icon,
+  iconAbove,
   size,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const Element = href ? 'a' : 'button';
+  const Element = getElementType(node, href, disabled);
   const isPrimary = variant === 'primary';
   const isSecondary = variant === 'secondary';
   const isLink = variant === 'link';
@@ -45,14 +55,19 @@ function Button({
     size,
     className,
   );
+  const innerButtonWrapper = classNames(classes.innerWrapper, {
+    [classes.iconAbove]: iconAbove,
+  });
+  const iconSpacer = classNames(classes.innerWrapper, {
+    [classes.spaceAbove]: icon && children && iconAbove,
+    [classes.spaceLeft]: icon && children && !iconAbove,
+  });
 
   return (
     <Element {...rest} className={usedClassName} disabled={disabled} href={href}>
-      <div className={classes.innerWrapper}>
+      <div className={innerButtonWrapper}>
         {icon}
-        <span className={classNames({ [classes.spaceForIcon]: icon && children })}>
-          {children}
-        </span>
+        <span className={iconSpacer}>{children}</span>
       </div>
     </Element>
   );
@@ -72,9 +87,11 @@ Button.propTypes = {
   block: PropTypes.bool,
   variant: PropTypes.oneOf(['primary', 'secondary', 'link']),
   modifier: PropTypes.oneOf(['action', 'success', 'warning', 'danger']),
+  node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   href: PropTypes.string,
   icon: PropTypes.node,
+  iconAbove: PropTypes.bool,
   disabled: PropTypes.bool,
 };
 

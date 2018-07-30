@@ -28,9 +28,20 @@ export default function createMixins(breakpoints = {}) {
     return '&';
   };
 
+  const maxMedia = size => {
+    const breakpoint = breakpoints[size];
+
+    if (breakpoint) {
+      return `@media only screen and (max-width: ${breakpoints[size] - 1}px)`;
+    }
+
+    return '&';
+  };
+
   return {
     basicBoxSizing,
     media,
+    maxMedia,
     screenReadersOnly,
   };
 }

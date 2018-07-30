@@ -1,53 +1,52 @@
 import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
-export default theme => {
-  const { palette, mixins } = theme;
+const normal = theme => {
+  const { mixins } = theme;
 
   return {
     tr: {
       ...mixins.basicBoxSizing,
-      ...styleUtils.flexRow(),
       ...styleUtils.sizes(),
       borderLeft: '1px solid transparent',
       borderRight: '1px solid transparent',
+      borderCollapse: 'collapse',
       flexWrap: 'wrap',
       overflow: 'hidden',
 
-      '&.primary': {
-        background: color.grayLight,
-        borderColor: color.gray,
+      [mixins.maxMedia('md')]: {
+        display: 'flex',
+        flexFlow: 'row wrap',
       },
-
-      '&.secondary': {
-        background: color.grayDark,
-        borderColor: color.grayDarker,
-        color: color.white,
+    },
+    border: {
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderColor: color.grayLight,
+    },
+    sticky: {
+      '& td': {
+        position: 'sticky',
+        top: 0,
+        backgroundColor: color.white,
       },
-
-      '&.clone': {
-        opacity: 0,
-      },
-
-      '&.sticky': {
-        position: 'absolute',
-        background: palette.background.default,
-        [mixins.media('md')]: {
-          '&.sticky': {
-            position: () => 'fixed',
-          },
-        },
-      },
-
-      '&.border': {
-        border: '1px solid',
-        borderColor: color.grayLight,
-      },
-
-      [mixins.media('md')]: {
-        flexWrap: 'nowrap',
-        borderCollapse: 'collapse',
+    },
+    stickyBorder: {
+      '& td': {
+        border: 0,
+        background: `linear-gradient(to top, ${theme.palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
       },
     },
   };
 };
+
+const stickyOffset = theme => ({
+  ...normal(theme),
+  stickyOffset: {
+    '& td': {
+      top: props => props.stickyOffset,
+    },
+  },
+});
+
+export { normal as default, stickyOffset };

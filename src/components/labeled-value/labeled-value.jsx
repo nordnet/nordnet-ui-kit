@@ -82,8 +82,12 @@ function LabeledValue({
 
   return (
     <div {...rest} className={rootClasses}>
-      <span className={labelClasses} id={id}>{label}</span>
-      <span className={valueClasses} aria-labelledby={id}>{children}</span>
+      <span className={labelClasses} id={id}>
+        {label}
+      </span>
+      <span className={valueClasses} aria-labelledby={id}>
+        {children}
+      </span>
     </div>
   );
 }

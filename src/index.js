@@ -5,6 +5,7 @@ import Badge from './components/badge/badge';
 import Button from './components/button/button';
 import CostInfoLogo from './components/cost-info-logo';
 import Dropdown from './components/dropdown/dropdown';
+import EditableInput from './components/editable-input';
 import Flag from './components/flag/flag';
 import Input from './components/input/input';
 import InstrumentBadge from './components/instrument-badge/instrument-badge';
@@ -17,6 +18,7 @@ import RadioGroup from './components/radio-group';
 import SegmentedControl from './components/segmented-control';
 import SharevilleLogo from './components/shareville-logo';
 import Spinner from './components/spinner';
+import Subsection from './components/subsection/subsection';
 import Table from './components/table';
 import Tbody from './components/tbody';
 import Td from './components/td';
@@ -26,14 +28,14 @@ import Thead from './components/thead';
 import Tooltip from './components/tooltip';
 import Tr from './components/tr';
 import Ul from './components/ul/ul';
+import { PopupMenu, PopupMenuItem } from './components/popup-menu';
 
 import Icon from './components/icon/icons';
 
 // Theming
-import { ThemeProvider, createTheme } from './styles';
+import { createTheme } from './styles';
 
 // Test utils
-import { createMount, createShallow, createRenderToString } from './test-utils';
 import mockClasses from './utilities/mock-classes';
 
 const theme = createTheme();
@@ -49,6 +51,7 @@ export {
   Button,
   CostInfoLogo,
   Dropdown,
+  EditableInput,
   Flag,
   Icon,
   Input,
@@ -57,11 +60,14 @@ export {
   Li,
   Logo,
   Pane,
+  PopupMenu,
+  PopupMenuItem,
   ProgressBar,
   RadioGroup,
   SegmentedControl,
   SharevilleLogo,
   Spinner,
+  Subsection,
   Table,
   Tbody,
   Td,
@@ -72,12 +78,8 @@ export {
   Tr,
   Ul,
   // Theming
-  ThemeProvider,
   createTheme,
   theme,
   // Test utils
-  createMount,
-  createShallow,
-  createRenderToString,
   mockClasses,
 };

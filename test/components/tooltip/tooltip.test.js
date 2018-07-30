@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
-import { mockClasses, theme } from '../../../src';
+import { mockClasses } from '../../../src';
 import { Component as Tooltip, styles } from '../../../src/components/tooltip/tooltip';
 
 describe('<Tooltip />', () => {
@@ -47,11 +47,9 @@ describe('<Tooltip />', () => {
   });
 
   it('should have fixedWidth', () => {
-    const props = {
-      fixedWidth: 123,
-    };
-    const actual = styles(theme).popup.width(props);
-    expect(actual).to.equal(props.fixedWidth);
+    wrapper = shallow(<Tooltip classes={classes} fixedWidth={345} content="Lorem ipsum dolor sit amet." />);
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    expect(wrapper.find(`.${classes.popupFixed}`).prop('style')).to.have.property('width', 345);
   });
 
   it('should set className to above', () => {
@@ -70,6 +68,12 @@ describe('<Tooltip />', () => {
     wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('below')).to.equal(true);
+  });
+
+  it('should set desktopOnly', () => {
+    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." desktopOnly />);
+    wrapper.find(`.${classes.container}`).simulate('mouseEnter');
+    expect(wrapper.find(`.${classes.popup}`).hasClass(classes.popupDesktopOnly)).to.equal(true);
   });
 
   describe('click outside functionality', () => {

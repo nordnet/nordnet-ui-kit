@@ -54,7 +54,11 @@ function Badge({
     classNameProp,
   );
 
-  return <span {...rest} className={className}>{children}</span>;
+  return (
+    <span {...rest} className={className}>
+      {children}
+    </span>
+  );
 }
 
 Badge.propTypes = {

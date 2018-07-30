@@ -11,14 +11,18 @@ function Table({
   size,
   minWidth,
   style,
+  tableLayoutFixed,
+  maxHeight,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const usedClassName = classNames(classes.table, size, className);
+  const usedClassName = classNames(classes.table, size, { [classes.tableLayoutFixed]: tableLayoutFixed }, className);
+
+  const rootStyle = Object.assign(maxHeight ? { maxHeight, overflowY: 'scroll' } : {});
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={rootStyle}>
       <table {...rest} style={style} className={usedClassName}>
         {children}
       </table>
@@ -32,13 +36,17 @@ Table.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
-  /** Use `'auto'` for mobile list mode */
   minWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   style: PropTypes.object,
+  tableLayoutFixed: PropTypes.bool,
+  maxHeight: PropTypes.number,
 };
 
 Table.defaultProps = {
+  size: 'sm',
   minWidth: 700,
+  tableLayoutFixed: false,
+  maxHeight: null,
 };
 
 export default injectSheet(styles)(Table);

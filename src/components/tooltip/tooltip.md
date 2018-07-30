@@ -1,4 +1,4 @@
-    const { Icon } = require('../../'); // nordnet-ui-kit
+    const { Icon, Button } = require('../../'); // nordnet-ui-kit
 
     <ul>
       <li style={{marginBottom: '11px'}}>
@@ -73,6 +73,18 @@
         <Tooltip content={ <span>A heart</span> }>
           <Icon.Heart fill="tomato" stroke="tomato" width={ 16 } height={ 16 } />
         </Tooltip>
+      </li>
+
+      <li style={{marginBottom: '11px'}}>
+        <span>How it looks when it's desktop only: </span>
+        <Tooltip content={ <span>I'm only visible on desktop</span> } desktopOnly placement="above">
+          <Button variant="primary" modifier="action">Click me!</Button>
+        </Tooltip>
+      </li>
+
+      <li style={{marginBottom: '11px'}}>
+        <span>Different placements for mobile and desktop: </span>
+        <Tooltip content={ <span>Fixed width</span> } placement="right" mobilePlacement="above" />
       </li>
 
       <li style={{marginBottom: '11px'}}>

@@ -9,6 +9,7 @@ function Logo({ onlyIcon, height, iconColor, textColor, ...rest }) {
     fill: iconColor,
     stroke: textColor,
     viewBox: onlyIcon ? '0 0 64 64' : undefined,
+    style: { overflow: 'hidden' },
     ...rest,
   };
 

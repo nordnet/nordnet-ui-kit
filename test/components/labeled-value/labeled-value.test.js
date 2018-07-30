@@ -29,11 +29,21 @@ describe('<LabeledValue />', () => {
   });
 
   it('should render input child as value', () => {
-    expect(wrapper.find(`span.${classes.value}`).childAt(0).text()).to.equal('myvalue');
+    expect(
+      wrapper
+        .find(`span.${classes.value}`)
+        .childAt(0)
+        .text(),
+    ).to.equal('myvalue');
   });
 
   it('should render input label', () => {
-    expect(wrapper.find(`span.${classes.label}`).childAt(0).text()).to.equal('label');
+    expect(
+      wrapper
+        .find(`span.${classes.label}`)
+        .childAt(0)
+        .text(),
+    ).to.equal('label');
   });
 
   it('should have value node with md as default size', () => {
