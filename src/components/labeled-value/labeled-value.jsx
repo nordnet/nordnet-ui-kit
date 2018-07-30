@@ -27,6 +27,7 @@ export const styles = theme => {
     const fontSize = modifiers[size];
     const mobileFontSize = mobileModifiers[size];
     const paddingTop = size === 'xs' ? 0 : 2;
+    const lineHeight = size === 'xlg' ? 1 : 1.2;
     const className = `value-${size}`;
 
     return {
@@ -34,6 +35,7 @@ export const styles = theme => {
       [className]: {
         fontSize: mobileFontSize,
         paddingTop,
+        lineHeight,
         [theme.mixins.media('md')]: {
           fontSize,
         },
@@ -50,13 +52,12 @@ export const styles = theme => {
     },
     label: {
       display: 'block',
-      fontSize: '12px',
+      fontSize: 12,
       lineHeight: 1.2,
     },
     value: {
       display: 'block',
-      fontSize: '16px',
-      lineHeight: 1.2,
+      fontSize: 16,
     },
     ...valueSizes,
   };
