@@ -37,7 +37,11 @@ class InputSelect extends InputDefault.InnerComponent {
 
   renderFakePlaceholder() {
     const placeholder = this.props.placeholder || this.props.label;
-    return <span className="input__placeholder">{placeholder}</span>;
+    return (
+      <span className={classNames('input__placeholder', { [this.props.classes.selectable]: this.props.selectablePlaceholder })}>
+        {placeholder}
+      </span>
+    );
   }
 
   renderValueLabel() {
@@ -76,7 +80,7 @@ class InputSelect extends InputDefault.InnerComponent {
   }
 
   renderInput() {
-    const { classes, id, placeholder, options, label, type, ...rest } = this.props;
+    const { classes, id, placeholder, options, label, type, selectablePlaceholder, ...rest } = this.props;
     const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
     const title = this.getTitle();
 
@@ -95,7 +99,7 @@ class InputSelect extends InputDefault.InnerComponent {
           type={type}
         >
           {placeholder ? (
-            <option value="" disabled>
+            <option value="" disabled={!selectablePlaceholder}>
               {placeholder}
             </option>
           ) : null}
@@ -122,6 +126,7 @@ InputSelect.propTypes = {
     }),
   ),
   variant: PropTypes.oneOf(['primary', 'secondary']),
+  selectablePlaceholder: PropTypes.bool,
 };
 
 InputSelect.defaultProps = {
@@ -133,6 +138,7 @@ InputSelect.defaultProps = {
   ],
   variant: 'primary',
   type: 'select',
+  selectablePlaceholder: false,
 };
 
 export { InputSelect as Component, styles };

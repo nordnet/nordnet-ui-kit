@@ -10,6 +10,7 @@ export default theme => {
     input: {
       ...defaultStyles.input,
     },
+    selectable: {}, // needed for placeholder further down
     'select-wrapper': {
       ...mixins.basicBoxSizing,
       position: 'relative',
@@ -32,7 +33,7 @@ export default theme => {
         textOverflow: 'ellipsis',
       },
 
-      '& .input__placeholder': {
+      '& .input__placeholder:not($selectable)': {
         color: palette.text.muted,
       },
 
