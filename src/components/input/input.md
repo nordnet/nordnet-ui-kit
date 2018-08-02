@@ -182,6 +182,16 @@ Type: `select`
         hasSuccess
         variant="secondary"
       />
+
+      <Input
+        label="Secondary select input with selectable placeholder"
+        placeholder="All"
+        selectablePlaceholder
+        type="select"
+        options={ options }
+        hasSuccess
+        variant="secondary"
+      />
     </div>
 
 Type: `checkbox`

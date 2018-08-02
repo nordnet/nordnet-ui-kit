@@ -33,6 +33,8 @@ Input.propTypes = {
   onChange: PropTypes.func,
   /** Only used when type === textarea */
   lineCount: PropTypes.number,
+  /** Only used when type === select */
+  selectablePlaceholder: PropTypes.bool,
   /** Manipulates the value of the input, eg. removing unsupported characters from number inputs */
   valueFormatter: PropTypes.func,
   hasSuccess: PropTypes.bool,
