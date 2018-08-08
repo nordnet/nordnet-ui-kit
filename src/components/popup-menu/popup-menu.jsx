@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { camelCase } from 'lodash';
+import cn from 'classnames';
 import styles from './popup-menu.styles';
 import { Icon } from '../../';
 import keyCodes from './keyCodes';
@@ -77,7 +78,19 @@ class PopupMenu extends Component {
   };
 
   render() {
-    const { width, toggleButton, classes, children, enter, exit, maxHeight, buttonLabel, buttonID, isOpen: isOpenFromProps } = this.props;
+    const {
+      width,
+      toggleButton,
+      classes,
+      className,
+      children,
+      enter,
+      exit,
+      maxHeight,
+      buttonLabel,
+      buttonID,
+      isOpen: isOpenFromProps,
+    } = this.props;
     const { isOpen } = this.state;
     const open = isOpenFromProps !== null ? isOpenFromProps : isOpen;
     let label = null;
@@ -90,7 +103,7 @@ class PopupMenu extends Component {
     // If an ID, against all odds, is not supplied, default to the camel case-ified label (we do not want whitespace in the id).
     const id = buttonID || camelCase(label);
     return (
-      <span className={classes.menuContainer} ref={this.setContainerRef}>
+      <span className={cn(classes.menuContainer, className)} ref={this.setContainerRef}>
         <button
           aria-expanded={open}
           aria-label={label}
@@ -132,6 +145,7 @@ PopupMenu.propTypes = {
   /** Will be deprecated. Overrides, but does not change the internal state. */
   isOpen: PropTypes.bool,
   classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
   onToggle: PropTypes.func,
   /**
    * The aria-label for the toggle button. Either a plain string or an object with different labels
