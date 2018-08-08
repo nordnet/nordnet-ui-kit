@@ -27,6 +27,7 @@ import Drop from './drop';
 import Edit from './edit';
 import Ellipse from './ellipse';
 import Ellipsis from './ellipsis';
+import Excel from './excel';
 import ExclamationPoint from './exclamationPoint';
 import ExclamationPointCircle from './exclamationPointCircle';
 import Expand from './expand';
@@ -63,6 +64,7 @@ import MedKit from './medKit';
 import Mobile from './mobile';
 import News from './news';
 import OrderDepth from './orderDepth';
+import Pdf from './pdf';
 import Portfolio from './portfolio';
 import Print from './print';
 import Profile from './profile';
@@ -114,6 +116,7 @@ const Icon = {
   Edit,
   Ellipse,
   Ellipsis,
+  Excel,
   ExclamationPoint,
   ExclamationPointCircle,
   Expand,
@@ -150,6 +153,7 @@ const Icon = {
   Mobile,
   News,
   OrderDepth,
+  Pdf,
   Portfolio,
   Print,
   Profile,
