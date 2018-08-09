@@ -5,11 +5,15 @@ import classNames from 'classnames';
 import styles from './button-styles';
 
 const getElementType = (node, href, disabled) => {
+  if (disabled) {
+    return 'button';
+  }
+  
   if (node) {
     return node;
   }
-
-  return href && !disabled ? 'a' : 'button';
+  
+  return href ? 'a' : 'button';
 };
 
 function Button({
