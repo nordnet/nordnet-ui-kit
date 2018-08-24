@@ -10,7 +10,6 @@ const zeroHeight = () => 0;
 const getEstimatedHeight = props => props.estimatedHeight;
 
 const initialHeight = {
-  height: zeroHeight,
   maxHeight: zeroHeight,
 };
 
@@ -21,14 +20,12 @@ const styles = {
   },
   heightEnter: initialHeight,
   heightEnterActive: {
-    height: getEstimatedHeight,
     maxHeight: getEstimatedHeight,
     transitionTimingFunction: props => props.easingEnterFunction,
     transitionDuration: props => props.enterTime,
     overflow: 'hidden',
   },
   heightExit: {
-    height: getEstimatedHeight,
     maxHeight: getEstimatedHeight,
     transitionTimingFunction: props => props.easingLeaveFunction,
     transitionDuration: props => props.leaveTime,
