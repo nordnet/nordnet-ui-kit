@@ -132,6 +132,29 @@ Type: `select`
       label: 'Super mega very long option 3 - this is a test to show that the option is properly cut after a specific length and that the whole option text is shown in a title tag',
       value: 3,
     }];
+
+    const optgroupOptions = [{
+      label: 'Optgroup 1',
+      options: [{
+        label: 'Option 1',
+        value: 1,
+      }, {
+        label: 'Option 2',
+        value: 2,
+      }],
+    }, {
+      label: 'Option 3',
+      value: 3,
+    }, {
+      label: 'Optgroup 2',
+      options: [],
+    }, {
+      label: 'Optgroup 3',
+      options: [{
+        label: 'Option 4',
+        value: 4,
+      }],
+    }];
     <div>
       <Input
         label="Select input"
@@ -189,6 +212,14 @@ Type: `select`
         selectablePlaceholder
         type="select"
         options={ options }
+        hasSuccess
+        variant="secondary"
+      />
+      <Input
+        label="Select input with optgroups"
+        placeholder="Pick option"
+        type="select"
+        options={ optgroupOptions }
         hasSuccess
         variant="secondary"
       />
