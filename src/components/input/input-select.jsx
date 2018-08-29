@@ -10,9 +10,18 @@ import styles from './input-select-styles';
 import omit from '../../utilities/omit';
 
 function renderOption(option) {
-  const { label, value, key: keyOption, ...rest } = option;
-  const key = keyOption || kebabCase(value); // Assumes value is a string
+  const { label, value, key: keyOption, options, ...rest } = option;
 
+  if (options) {
+    const key = keyOption || kebabCase(label); // Assumes optgroup label is unique
+    return (
+      <optgroup {...rest} key={key} label={label}>
+        {options.map(renderOption)}
+      </optgroup>
+    );
+  }
+
+  const key = keyOption || kebabCase(value); // Assumes value is a string
   return (
     <option {...rest} key={key} value={value}>
       {label}
@@ -54,7 +63,9 @@ class InputSelect extends InputDefault.InnerComponent {
   }
 
   getSelectedOption() {
-    return this.props.options.find(opt => `${opt.value}` === this.state.value);
+    return this.props.options
+      .reduce((prev, opt) => [...prev, ...(opt.options ? opt.options : [opt])], [])
+      .find(opt => `${opt.value}` === this.state.value);
   }
 
   getTitle() {
@@ -122,7 +133,14 @@ InputSelect.propTypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       key: PropTypes.string,
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+      options: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          key: PropTypes.string,
+          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+        }),
+      ),
     }),
   ),
   variant: PropTypes.oneOf(['primary', 'secondary']),
