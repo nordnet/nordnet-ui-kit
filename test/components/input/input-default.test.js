@@ -1,5 +1,5 @@
 import React from 'react';
-import { assert } from 'chai';
+import { assert, expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as InputDefault, styles } from '../../../src/components/input/input-default';
 import { mockClasses, theme } from '../../../src';
@@ -19,6 +19,10 @@ describe('<InputDefault />', () => {
 
   afterEach(() => {
     wrapper = null;
+  });
+
+  it('has class input', () => {
+    expect(wrapper.hasClass('input')).to.equal(true);
   });
 
   it('adds value class when there is a value', () => {
