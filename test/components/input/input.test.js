@@ -83,14 +83,9 @@ describe('<Input />', () => {
             // For the InputSelect the placeholder is only visible if no "value" is set
             const wrapperWithoutValue = renderComponent({ Component: type.component, props: { value: undefined } });
 
-            expect(
-              wrapperWithoutValue
-                .find('span.input__placeholder')
-                .childAt(0)
-                .text(),
-            ).to.equal('placeholder');
+            expect(wrapperWithoutValue.find('FakePlaceholder').prop('placeholder')).to.equal('placeholder');
           } else {
-            expect(wrapper.find('input.input__element').prop('placeholder')).to.equal('placeholder');
+            expect(wrapper.find('NativeInput').prop('placeholder')).to.equal('placeholder');
           }
         });
 
@@ -150,12 +145,6 @@ describe('<Input />', () => {
       if (type.name === 'text') {
         it('should have class input--text', () => {
           expect(wrapper.hasClass('input--text')).to.equal(true);
-        });
-
-        it('should format the input if a formatter is provided', () => {
-          wrapper.setProps({ valueFormatter: val => val.toUpperCase() });
-          wrapper.find('input').simulate('change', { target: { value: 'abc' }, currentTarget: { value: 'abc' } });
-          expect(wrapper.find('input').html()).to.contain('value="ABC"');
         });
       } else if (type.name === 'select') {
         it('should have class input--select', () => {

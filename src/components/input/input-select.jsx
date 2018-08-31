@@ -3,64 +3,74 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
-import InputDefault from './input-default';
 import IconChevronUp from '../icon/icons/chevronUp';
 import IconChevronDown from '../icon/icons/chevronDown';
 import styles from './input-select-styles';
 import omit from '../../utilities/omit';
+import { hasValue, isUndefined } from './utils';
+import InputAddon from './input-addon';
+import Label from './label';
+import HelpText from './help-text';
+import FakePlaceholder from './fake-placeholder';
+import SelectOption from './select-option';
 
-function renderOption(option) {
-  const { label, value, key: keyOption, options, ...rest } = option;
-
-  if (options) {
-    const key = keyOption || kebabCase(label); // Assumes optgroup label is unique
-    return (
-      <optgroup {...rest} key={key} label={label}>
-        {options.map(renderOption)}
-      </optgroup>
-    );
-  }
-
-  const key = keyOption || kebabCase(value); // Assumes value is a string
-  return (
-    <option {...rest} key={key} value={value}>
-      {label}
-    </option>
-  );
-}
-
-class InputSelect extends InputDefault.InnerComponent {
+class InputSelect extends React.Component {
   constructor(props) {
     super(props);
 
-    if (props.value && this.showValue(props.value)) {
-      this.state.value = props.value;
+    this.state = {
+      value: isUndefined(props.value) ? '' : props.value,
+      hasFocus: false,
+      hasSuccess: !!props.hasSuccess,
+      hasWarning: !!props.hasWarning,
+      hasError: !!props.hasError,
+      hasAddon: !!props.rightAddon || !!props.leftAddon,
+    };
+
+    this.state.hasValue = hasValue(this.state.value);
+  }
+
+  componentWillReceiveProps({ hasSuccess, hasWarning, hasError, rightAddon, leftAddon, value }) {
+    this.setState({
+      hasSuccess: !!hasSuccess,
+      hasWarning: !!hasWarning,
+      hasError: !!hasError,
+      hasAddon: !!rightAddon || !!leftAddon,
+      hasValue: hasValue(value),
+      value: isUndefined(value) ? this.state.value : value,
+    });
+  }
+
+  onFocus = event => {
+    this.setState({
+      hasFocus: true,
+    });
+
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
     }
-  }
+  };
 
-  renderSelectArrow() {
-    const className = 'input__select-arrow';
-    const IconUsed = this.state.hasFocus ? IconChevronUp : IconChevronDown;
-    return <IconUsed className={className} stroke={this.props.theme.palette.variant.primary} />;
-  }
+  onBlur = event => {
+    this.setState({
+      hasFocus: false,
+    });
 
-  renderFakePlaceholder() {
-    const placeholder = this.props.placeholder || this.props.label;
-    return (
-      <span className={classNames('input__placeholder', { [this.props.classes.selectable]: this.props.selectablePlaceholder })}>
-        {placeholder}
-      </span>
-    );
-  }
-
-  renderValueLabel() {
-    const option = this.getSelectedOption();
-    if (!option) {
-      return null;
+    if (this.props.onBlur) {
+      this.props.onBlur(event);
     }
+  };
 
-    return <span className="input__value-label">{option.label}</span>;
-  }
+  onChange = event => {
+    this.setState({
+      value: event.target.value,
+      hasValue: hasValue(event.target.value),
+    });
+
+    if (this.props.onChange) {
+      this.props.onChange(event);
+    }
+  };
 
   getSelectedOption() {
     return this.props.options
@@ -90,35 +100,105 @@ class InputSelect extends InputDefault.InnerComponent {
     return false;
   }
 
-  renderInput() {
-    const { classes, id, placeholder, options, label, type, selectablePlaceholder, ...rest } = this.props;
-    const className = classNames([classes['select-wrapper']], 'input__element-wrapper');
+  render() {
+    const {
+      theme,
+      classes,
+      helpText,
+      id,
+      label,
+      style,
+      className,
+      placeholder,
+      leftAddon,
+      rightAddon,
+      variant,
+      type,
+      disabled,
+      selectablePlaceholder,
+      options,
+    } = this.props;
+    const { hasSuccess, hasWarning, hasError, hasFocus, hasValue: stateHasValue, hasAddon, value } = this.state;
+
     const title = this.getTitle();
+    const selectedOption = this.getSelectedOption();
+
+    const rootClassName = classNames(
+      ['input', classes.input],
+      {
+        'input--has-focus': hasFocus,
+        'input--has-value': stateHasValue,
+        'input--has-addon': hasAddon,
+        'input--has-success': hasSuccess,
+        'input--has-warning': hasWarning,
+        'input--has-error': hasError,
+        'input--is-disabled': disabled,
+      },
+      `input--${kebabCase(type)}`,
+      classes[variant],
+      className,
+    );
+
+    const selectProps = omit(
+      this.props,
+      'hasSuccess',
+      'hasWarning',
+      'hasError',
+      'helpText',
+      'leftAddon',
+      'rightAddon',
+      'classes',
+      'theme',
+      'sheet',
+      'options',
+      'variant',
+      'selectablePlaceholder',
+    );
+
+    const helpTextModifiers = {
+      hasSuccess,
+      hasWarning,
+      hasError,
+    };
+
+    const SelectArrow = hasFocus ? IconChevronUp : IconChevronDown;
+
+    const elementId = id || kebabCase(label);
 
     return (
-      <div className={className} title={title}>
-        <select
-          {...omit(rest, 'hasSuccess', 'hasWarning', 'hasError', 'helpText', 'leftAddon', 'rightAddon', 'theme', 'sheet', 'variant')}
-          id={id}
-          className="input__element input__element--select"
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          onChange={this.onChange}
-          placeholder=""
-          value={this.state.value}
-          label={label}
-          type={type}
-        >
-          {placeholder ? (
-            <option value="" disabled={!selectablePlaceholder}>
-              {placeholder}
-            </option>
-          ) : null}
-          {options.map(renderOption)}
-        </select>
-        {this.state.value ? null : this.renderFakePlaceholder()}
-        {this.showValue() ? this.renderValueLabel() : null}
-        {this.renderSelectArrow()}
+      <div className={rootClassName} style={style}>
+        <div className="input__field">
+          <InputAddon content={leftAddon} position="left" />
+          <div className={classNames([classes['select-wrapper']], 'input__element-wrapper')} title={title}>
+            <select
+              {...selectProps}
+              id={elementId}
+              className="input__element input__element--select"
+              onFocus={this.onFocus}
+              onBlur={this.onBlur}
+              onChange={this.onChange}
+              placeholder={placeholder}
+              value={value}
+              label={label}
+              type={type}
+            >
+              {placeholder && (
+                <option value="" disabled={!selectablePlaceholder}>
+                  {placeholder}
+                </option>
+              )}
+              {options.map(option => <SelectOption optionKey={option.key} key={option.key || kebabCase(option.label)} {...option} />)}
+            </select>
+            {value ? null : (
+              <FakePlaceholder placeholder={placeholder} label={label} classes={classes} selectable={selectablePlaceholder} />
+            )}
+            {this.showValue() && selectedOption && <span className="input__value-label">{selectedOption.label}</span>}
+            <SelectArrow className="input__select-arrow" stroke={theme.palette.variant.primary} />
+          </div>
+          <Label id={elementId} label={label} placeholder={placeholder} hasFocus={hasFocus} hasValue={stateHasValue} />
+          <InputAddon content={rightAddon} position="right" />
+        </div>
+        <HelpText {...helpTextModifiers}>{helpText}</HelpText>
       </div>
     );
   }
@@ -129,6 +209,8 @@ InputSelect.propTypes = {
   classes: PropTypes.object.isRequired,
   /** @ignore */
   theme: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -145,6 +227,22 @@ InputSelect.propTypes = {
   ),
   variant: PropTypes.oneOf(['primary', 'secondary']),
   selectablePlaceholder: PropTypes.bool,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  label: PropTypes.node,
+  placeholder: PropTypes.string,
+  id: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  /** Manipulates the value of the input, eg. removing unsupported characters from number inputs */
+  hasSuccess: PropTypes.bool,
+  hasError: PropTypes.bool,
+  hasWarning: PropTypes.bool,
+  helpText: PropTypes.node,
+  leftAddon: PropTypes.node,
+  rightAddon: PropTypes.node,
 };
 
 InputSelect.defaultProps = {

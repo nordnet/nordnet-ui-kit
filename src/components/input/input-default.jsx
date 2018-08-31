@@ -6,28 +6,14 @@ import { kebabCase } from 'lodash';
 import Label from './label';
 import styles from './input-default-styles';
 import HelpText from './help-text';
+import InputAddon from './input-addon';
+import NativeInput from './native-input';
+import { isUndefined, hasValue } from './utils';
 import omit from '../../utilities/omit';
 
-const isUndefined = value => value === undefined;
-
-function renderAddon(content, position) {
-  if (!content) {
-    return null;
-  }
-
-  const classes = classNames('input__addon', `input__addon--${position}`);
-
-  return <div className={classes}>{typeof content === 'function' ? content() : content}</div>;
-}
-
-function hasValue(value) {
-  const type = typeof value;
-  return type === 'boolean' || type === 'number' || (value && (type === 'object' || type === 'string') && Object.keys(value).length);
-}
-
 class InputDefault extends React.PureComponent {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.state = {
       value: isUndefined(props.value) ? '' : props.value,
@@ -39,10 +25,6 @@ class InputDefault extends React.PureComponent {
     };
 
     this.state.hasValue = hasValue(this.state.value);
-
-    this.onFocus = this.onFocus.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-    this.onChange = this.onChange.bind(this);
   }
 
   componentWillReceiveProps({ hasSuccess, hasWarning, hasError, rightAddon, leftAddon, value }) {
@@ -56,7 +38,7 @@ class InputDefault extends React.PureComponent {
     });
   }
 
-  onFocus(event) {
+  onFocus = event => {
     this.setState({
       hasFocus: true,
     });
@@ -64,9 +46,9 @@ class InputDefault extends React.PureComponent {
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
-  }
+  };
 
-  onBlur(event) {
+  onBlur = event => {
     this.setState({
       hasFocus: false,
     });
@@ -74,9 +56,9 @@ class InputDefault extends React.PureComponent {
     if (this.props.onBlur) {
       this.props.onBlur(event);
     }
-  }
+  };
 
-  onChange(event) {
+  onChange = event => {
     const state = {};
 
     if (this.props.valueFormatter) {
@@ -94,102 +76,72 @@ class InputDefault extends React.PureComponent {
     if (this.props.onChange) {
       this.props.onChange(event);
     }
-  }
-
-  renderInput(id) {
-    const classes = `input__element input__element--${this.props.type}`;
-    const placeholder = this.props.placeholder || this.props.label;
-    const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
-
-    const props = {
-      ...omit(
-        this.props,
-        'valueFormatter',
-        'hasSuccess',
-        'hasWarning',
-        'hasError',
-        'helpText',
-        'leftAddon',
-        'rightAddon',
-        'options',
-        'classes',
-        'sheet',
-        'theme',
-        'variant',
-        'lineCount',
-      ),
-      id,
-      placeholder,
-      className: classes,
-      onFocus: this.onFocus,
-      onBlur: this.onBlur,
-      onChange: this.onChange,
-      value: this.state.value,
-    };
-
-    return <Tag {...props} />;
-  }
-
-  renderLabel(id) {
-    const props = {
-      id,
-      label: this.props.label,
-      placeholder: this.props.placeholder,
-      hasFocus: this.state.hasFocus,
-      hasValue: this.state.hasValue,
-    };
-
-    return <Label {...props} />;
-  }
-
-  renderHelpText() {
-    const modifiers = {
-      hasSuccess: this.state.hasSuccess,
-      hasWarning: this.state.hasWarning,
-      hasError: this.state.hasError,
-    };
-
-    if (!this.props.helpText) {
-      return null;
-    }
-
-    return <HelpText {...modifiers}>{this.props.helpText}</HelpText>;
-  }
-
-  renderField(id) {
-    return (
-      <div className="input__field">
-        {renderAddon(this.props.leftAddon, 'left')}
-        {this.renderInput(id)}
-        {this.renderLabel(id)}
-        {renderAddon(this.props.rightAddon, 'right')}
-      </div>
-    );
-  }
+  };
 
   render() {
-    const { classes } = this.props;
-    const id = this.props.id || kebabCase(this.props.label);
-    const className = classNames(
+    const { classes, helpText, id, label, style, className, placeholder, leftAddon, rightAddon, variant, type, disabled } = this.props;
+    const { hasSuccess, hasWarning, hasError, value, hasFocus, hasValue: stateHasValue, hasAddon } = this.state;
+
+    const elementId = id || kebabCase(label);
+
+    const rootClassName = classNames(
       ['input', classes.input],
       {
-        'input--has-focus': this.state.hasFocus,
-        'input--has-value': this.state.hasValue,
-        'input--has-addon': this.state.hasAddon,
-        'input--has-success': this.state.hasSuccess,
-        'input--has-warning': this.state.hasWarning,
-        'input--has-error': this.state.hasError,
-        'input--is-disabled': this.props.disabled,
+        'input--has-focus': hasFocus,
+        'input--has-value': stateHasValue,
+        'input--has-addon': hasAddon,
+        'input--has-success': hasSuccess,
+        'input--has-warning': hasWarning,
+        'input--has-error': hasError,
+        'input--is-disabled': disabled,
       },
-      `input--${kebabCase(this.props.type)}`,
-      classes[this.props.variant],
-      this.props.className,
+      `input--${kebabCase(type)}`,
+      classes[variant],
+      className,
+    );
+
+    const helpTextModifiers = {
+      hasSuccess,
+      hasWarning,
+      hasError,
+    };
+
+    const fieldProps = omit(
+      this.props,
+      'valueFormatter',
+      'hasSuccess',
+      'hasWarning',
+      'hasError',
+      'helpText',
+      'leftAddon',
+      'rightAddon',
+      'options',
+      'classes',
+      'sheet',
+      'theme',
+      'variant',
+      'lineCount',
+      'id',
     );
 
     return (
-      <div className={className} style={this.props.style}>
-        {this.renderField(id)}
-        {this.renderHelpText()}
+      <div className={rootClassName} style={style}>
+        <div className="input__field">
+          <InputAddon content={leftAddon} position="left" />
+          <NativeInput
+            {...fieldProps}
+            id={elementId}
+            type={type}
+            value={value}
+            placeholder={placeholder}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            onChange={this.onChange}
+          />
+          <Label id={elementId} label={label} placeholder={placeholder} hasFocus={hasFocus} hasValue={stateHasValue} />
+          <InputAddon content={rightAddon} position="right" />
+        </div>
+        <HelpText {...helpTextModifiers}>{helpText}</HelpText>
       </div>
     );
   }
