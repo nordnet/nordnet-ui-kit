@@ -48,4 +48,8 @@ HelpText.propTypes = {
   isRadio: PropTypes.bool,
 };
 
+const Component = HelpText;
+
+export { Component, styles };
+
 export default injectSheet(styles)(HelpText);
