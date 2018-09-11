@@ -148,7 +148,7 @@ Pagination.propTypes = {
   classes: PropTypes.object.isRequired,
   total: PropTypes.number.isRequired,
   limit: PropTypes.number,
-  changeHandler: PropTypes.func.isRequired,
+  changeHandler: PropTypes.func,
   buttonTextPrevious: PropTypes.string,
   buttonTextNext: PropTypes.string,
   anchors: PropTypes.number,
@@ -163,6 +163,7 @@ Pagination.defaultProps = {
   limit: 10,
   buttonTextPrevious: 'Previous',
   buttonTextNext: 'Next',
+  changeHandler: () => {},
 };
 
 const enhance = injectSheet(styles);

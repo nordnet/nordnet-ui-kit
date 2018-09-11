@@ -14,7 +14,6 @@ describe('<Pagination />', () => {
     classes,
     total: 100,
     limit: 10,
-    changeHandler: () => {},
     buttonTextPrevious: 'Previous',
     buttonTextNext: 'Next',
   };
