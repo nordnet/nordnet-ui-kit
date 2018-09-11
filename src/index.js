@@ -12,6 +12,7 @@ import InstrumentBadge from './components/instrument-badge/instrument-badge';
 import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
+import Pagination from './components/pagination/pagination';
 import Pane from './components/pane/pane';
 import ProgressBar from './components/progress-bar/progress-bar';
 import RadioGroup from './components/radio-group';
@@ -59,6 +60,7 @@ export {
   LabeledValue,
   Li,
   Logo,
+  Pagination,
   Pane,
   PopupMenu,
   PopupMenuItem,
