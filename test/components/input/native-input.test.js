@@ -25,6 +25,14 @@ describe('<NativeInput />', () => {
     expect(wrapper.hasClass('input__element--text')).to.equal(true);
   });
 
+  it('appends custom className', () => {
+    const customClass = 'custom-class';
+    const wrapper = renderComponent({ className: customClass });
+    expect(wrapper.hasClass(customClass)).to.equal(true);
+    expect(wrapper.hasClass('input__element')).to.equal(true);
+    expect(wrapper.hasClass('input__element--text')).to.equal(true);
+  });
+
   it('renders an input when type is not textarea', () => {
     const wrapper = renderComponent();
     expect(wrapper.type()).to.equal('input');
