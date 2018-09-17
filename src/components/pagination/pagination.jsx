@@ -2,46 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { Icon } from '../../';
-import Page from './page';
 import Stepper from './stepper';
-import Ellipsis from './ellipsis';
+import Range from './range';
 import styles from './pagination-styles';
 
-const getRandomString = () =>
-  Math.random()
-    .toString(36)
-    .substr(2, 9);
-
 class Pagination extends Component {
-  constructor(props) {
-    super(props);
-    const { total, limit, selected, anchors, selectedSiblings } = this.props;
+  state = {
+    selected: parseInt(this.props.selected, 10),
+  };
 
-    this.state = {
-      selected: parseInt(selected, 10),
-    };
+  calcPagesCount() {
+    const { total, limit } = this.props;
 
-    this.pagesCount = Math.ceil(total / limit);
-    this.pagesToDraw = 1 + anchors * 2 + selectedSiblings * 2; // 1 = the selected item
-    this.advancedPagination = this.pagesCount > this.pagesToDraw;
-  }
-
-  getEllipsis = hiddenOnDesktop => <Ellipsis key={getRandomString()} hiddenOnDesktop={hiddenOnDesktop || !this.advancedPagination} />;
-
-  getPage(pageNumber) {
-    const { selected } = this.state;
-    return (
-      <Page
-        key={pageNumber}
-        pageNumber={pageNumber}
-        clickHandler={this.handlePageSelected}
-        isSelected={pageNumber === selected}
-        isFirst={pageNumber === 1}
-        isLast={pageNumber === this.pagesCount}
-      >
-        <span>{pageNumber}</span>
-      </Page>
-    );
+    return Math.ceil(total / limit);
   }
 
   handlePreviousPage = () => {
@@ -54,8 +27,9 @@ class Pagination extends Component {
 
   handleNextPage = () => {
     const { selected } = this.state;
+    const pagesCount = this.calcPagesCount();
 
-    if (selected < this.pagesCount) {
+    if (selected < pagesCount) {
       this.handlePageSelected(selected + 1);
     }
   };
@@ -69,60 +43,15 @@ class Pagination extends Component {
     changeHandler(number);
   };
 
-  paginate() {
-    const { selected } = this.state;
-    const { selectedSiblings, anchors } = this.props;
-    const selectedPageIsOnTheLeftSide = selected - selectedSiblings <= 2;
-    const selectedPageIsOnTheRightSide = selected + selectedSiblings >= this.pagesCount - 1;
-
-    const items = [];
-
-    if (!this.advancedPagination) {
-      for (let i = 1; i <= this.pagesCount; i += 1) {
-        items.push(this.getPage(i));
-      }
-    } else {
-      /*
-      Add pages to Pagination
-        * Anchors (far left and far right)
-        * Selected item
-        * Siblings to the selected item
-        * Lastly fills out with pages until no empty spots left
-      */
-
-      for (let i = 1; i <= this.pagesCount; i += 1) {
-        const emptySpotsRemaining = this.pagesToDraw > items.length + 1;
-
-        if (
-          i <= anchors ||
-          i === selected ||
-          i > this.pagesCount - anchors ||
-          (i >= selected - selectedSiblings && i <= selected + selectedSiblings) ||
-          (selectedPageIsOnTheLeftSide && emptySpotsRemaining) ||
-          (selectedPageIsOnTheRightSide && emptySpotsRemaining && i > this.pagesCount - this.pagesToDraw + emptySpotsRemaining)
-        ) {
-          items.push(this.getPage(i));
-        }
-      }
-    }
-
-    // Add ellipsis
-    if (selected > 2) {
-      items.splice(anchors, 0, this.getEllipsis(selectedPageIsOnTheLeftSide));
-    }
-
-    if (selected < this.pagesCount - 1) {
-      items.splice(items.length - anchors, 0, this.getEllipsis(selectedPageIsOnTheRightSide));
-    }
-
-    return items;
-  }
-
   render() {
-    const { classes, buttonTextPrevious, buttonTextNext } = this.props;
+    const { classes, buttonTextPrevious, buttonTextNext, selectedSiblings, anchors } = this.props;
     const { selected } = this.state;
 
-    if (Number.isNaN(this.pagesCount) || this.pagesCount <= 1) {
+    const pagesCount = this.calcPagesCount();
+    const pagesToDraw = 1 + anchors * 2 + selectedSiblings * 2; // 1 = the selected item
+    const advancedPagination = pagesCount > pagesToDraw;
+
+    if (Number.isNaN(pagesCount) || pagesCount <= 1) {
       return null;
     }
 
@@ -133,8 +62,16 @@ class Pagination extends Component {
             <Icon.ArrowLeft className={classes.stepperIcon} />
             <span className={classes.stepperText}>{buttonTextPrevious}</span>
           </Stepper>
-          {this.paginate()}
-          <Stepper clickHandler={this.handleNextPage} clickable={selected !== this.pagesCount}>
+          <Range
+            advancedPagination={advancedPagination}
+            anchors={anchors}
+            selected={selected}
+            selectedSiblings={selectedSiblings}
+            pagesCount={pagesCount}
+            pagesToDraw={pagesToDraw}
+            selectHandler={this.handlePageSelected}
+          />
+          <Stepper clickHandler={this.handleNextPage} clickable={selected !== pagesCount}>
             <Icon.ArrowRight className={classes.stepperIcon} />
             <span className={classes.stepperText}>{buttonTextNext}</span>
           </Stepper>
@@ -151,8 +88,11 @@ Pagination.propTypes = {
   changeHandler: PropTypes.func,
   buttonTextPrevious: PropTypes.string,
   buttonTextNext: PropTypes.string,
+  /** Number of constanstly visible pages at the beginning and at the end of the range */
   anchors: PropTypes.number,
+  /** Number of the selected page */
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Number of constantly visible pages to the left and right of the selected page */
   selectedSiblings: PropTypes.number,
 };
 

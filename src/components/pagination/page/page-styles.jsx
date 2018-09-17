@@ -11,7 +11,7 @@ export default ({ palette, typography, mixins }) => ({
     display: 'flex',
   },
   button: {
-    fontFamily: typography.primary.fontFamily,
+    ...typography.primary,
     color: palette.action.active,
     fontSize: 16,
     padding: 0,
