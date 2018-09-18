@@ -24,7 +24,7 @@ class Range extends Component {
   );
 
   renderPage(pageNumber) {
-    const { selectHandler, pagesCount, selected } = this.props;
+    const { selectHandler, pagesCount, selected, pageLabelText, pageLabelTextSelected } = this.props;
 
     return (
       <Page
@@ -34,6 +34,7 @@ class Range extends Component {
         isSelected={pageNumber === selected}
         isFirst={pageNumber === 1}
         isLast={pageNumber === pagesCount}
+        labelText={pageNumber === selected ? `${pageLabelTextSelected} ${pageNumber}` : `${pageLabelText} ${pageNumber}`}
       >
         <span>{pageNumber}</span>
       </Page>
@@ -98,6 +99,8 @@ Range.propTypes = {
   selectedSiblings: PropTypes.number.isRequired,
   pagesCount: PropTypes.number.isRequired,
   selectHandler: PropTypes.func.isRequired,
+  pageLabelText: PropTypes.string.isRequired,
+  pageLabelTextSelected: PropTypes.string.isRequired,
 };
 
 const enhance = injectSheet(styles);

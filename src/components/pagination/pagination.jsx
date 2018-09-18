@@ -44,7 +44,16 @@ class Pagination extends Component {
   };
 
   render() {
-    const { classes, buttonTextPrevious, buttonTextNext, selectedSiblings, anchors } = this.props;
+    const {
+      classes,
+      title,
+      buttonTextPrevious,
+      buttonTextNext,
+      selectedSiblings,
+      anchors,
+      pageLabelText,
+      pageLabelTextSelected,
+    } = this.props;
     const { selected } = this.state;
 
     const pagesCount = this.calcPagesCount();
@@ -54,7 +63,7 @@ class Pagination extends Component {
     }
 
     return (
-      <nav className={classes.root}>
+      <nav className={classes.root} role="navigation" aria-label={title}>
         <Stepper clickHandler={this.handlePreviousPage} clickable={selected !== 1}>
           <Icon.ArrowLeft className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextPrevious}</span>
@@ -65,6 +74,8 @@ class Pagination extends Component {
           selectedSiblings={selectedSiblings}
           pagesCount={pagesCount}
           selectHandler={this.handlePageSelected}
+          pageLabelText={pageLabelText}
+          pageLabelTextSelected={pageLabelTextSelected}
         />
         <Stepper clickHandler={this.handleNextPage} clickable={selected !== pagesCount}>
           <Icon.ArrowRight className={classes.stepperIcon} />
@@ -80,8 +91,14 @@ Pagination.propTypes = {
   total: PropTypes.number.isRequired,
   limit: PropTypes.number,
   changeHandler: PropTypes.func,
+  /** Screenreader friendly title for the pagination */
+  title: PropTypes.string,
   buttonTextPrevious: PropTypes.string,
   buttonTextNext: PropTypes.string,
+  /** A page number will be appended to this string */
+  pageLabelText: PropTypes.string,
+  /** A page number will be appended to this string */
+  pageLabelTextSelected: PropTypes.string,
   /** Number of constanstly visible pages at the beginning and at the end of the range */
   anchors: PropTypes.number,
   /** Number of the selected page */
@@ -95,8 +112,11 @@ Pagination.defaultProps = {
   selectedSiblings: 2,
   anchors: 1,
   limit: 10,
+  pageLabelText: 'Go to Page',
+  pageLabelTextSelected: 'Current Page, Page',
   buttonTextPrevious: 'Previous',
   buttonTextNext: 'Next',
+  title: 'Pagination',
   changeHandler: () => {},
 };
 

@@ -12,7 +12,7 @@ class Page extends Component {
   };
 
   render() {
-    const { classes, isSelected, isFirst, isLast, children } = this.props;
+    const { classes, isSelected, isFirst, isLast, labelText, children } = this.props;
     return (
       <li
         className={cn(classes.item, {
@@ -26,6 +26,7 @@ class Page extends Component {
           })}
           onClick={this.onPageClick}
           disabled={isSelected}
+          aria-label={labelText}
         >
           {children}
         </button>
@@ -41,6 +42,7 @@ Page.propTypes = {
   isLast: PropTypes.bool.isRequired,
   selectHandler: PropTypes.func.isRequired,
   pageNumber: PropTypes.number.isRequired,
+  labelText: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 const enhance = injectSheet(styles);

@@ -78,6 +78,12 @@ describe('<Page />', () => {
     ).to.equal('1');
   });
 
+  it('should render aria-label text', () => {
+    const wrapper = shallowComponent({ labelText: 'Go to page' });
+
+    expect(wrapper.find('button').props()['aria-label']).to.equal('Go to page');
+  });
+
   it('should handle click', () => {
     const clickCallback = sinon.spy();
     const wrapper = shallowComponent({ selectHandler: clickCallback });

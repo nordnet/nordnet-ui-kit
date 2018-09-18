@@ -118,4 +118,26 @@ describe('<Range />', () => {
         .props().isLast,
     ).to.equal(false);
   });
+
+  it('render label text for page', () => {
+    const wrapper = shallowComponent({ selected: 2, pageLabelText: 'go to page', pageLebelSelected: 'current page' });
+
+    expect(
+      wrapper
+        .find(Page)
+        .first()
+        .props().labelText,
+    ).to.equal('go to page 1');
+  });
+
+  it('render label text for selected page', () => {
+    const wrapper = shallowComponent({ selected: 1, pageLabelText: 'go to page', pageLabelTextSelected: 'current page' });
+
+    expect(
+      wrapper
+        .find(Page)
+        .first()
+        .props().labelText,
+    ).to.equal('current page 1');
+  });
 });
