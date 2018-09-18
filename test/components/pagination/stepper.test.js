@@ -15,12 +15,6 @@ describe('<Stepper />', () => {
 
   const shallowComponent = customProps => shallow(<Stepper {...defaultProps} {...customProps} />);
 
-  it('should render a li element', () => {
-    const wrapper = shallowComponent();
-
-    expect(wrapper.find(`li.${classes.item}`).length).to.equal(1);
-  });
-
   it('should render a link', () => {
     const wrapper = shallowComponent();
 

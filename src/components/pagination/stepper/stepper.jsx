@@ -5,11 +5,9 @@ import { Button } from '../../../';
 import styles from './stepper-styles';
 
 const Stepper = ({ classes, clickable, clickHandler, children }) => (
-  <li className={classes.item}>
-    <Button type="button" variant="link" modifier="action" className={classes.button} onClick={clickHandler} disabled={!clickable}>
-      {children}
-    </Button>
-  </li>
+  <Button type="button" variant="link" modifier="action" className={classes.button} onClick={clickHandler} disabled={!clickable}>
+    {children}
+  </Button>
 );
 
 Stepper.propTypes = {

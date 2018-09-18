@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import Page from '../page';
 import Ellipsis from '../ellipsis';
+import styles from './range-styles';
 
 class Range extends Component {
-  getEllipsis = (hiddenOnDesktop, pos) => {
-    const { advancedPagination } = this.props;
+  calcPagesToDraw() {
+    const { anchors, selectedSiblings } = this.props;
 
-    return <Ellipsis key={`ellipsis-${pos}`} hiddenOnDesktop={hiddenOnDesktop || !advancedPagination} />;
-  };
+    return 1 + anchors * 2 + selectedSiblings * 2; // 1 = the selected item
+  }
 
-  getPage(pageNumber) {
+  isAdvancedPagination() {
+    const { pagesCount } = this.props;
+    const pagesToDraw = this.calcPagesToDraw();
+
+    return pagesCount > pagesToDraw;
+  }
+
+  renderEllipsis = (hiddenOnDesktop, pos) => (
+    <Ellipsis key={`ellipsis-${pos}`} hiddenOnDesktop={hiddenOnDesktop || !this.isAdvancedPagination()} />
+  );
+
+  renderPage(pageNumber) {
     const { selectHandler, pagesCount, selected } = this.props;
 
     return (
@@ -28,15 +41,17 @@ class Range extends Component {
   }
 
   render() {
-    const { advancedPagination, selectedSiblings, anchors, selected, pagesCount, pagesToDraw } = this.props;
+    const { classes, anchors, selectedSiblings, selected, pagesCount } = this.props;
     const selectedPageIsOnTheLeftSide = selected - selectedSiblings <= 2;
     const selectedPageIsOnTheRightSide = selected + selectedSiblings >= pagesCount - 1;
 
+    const pagesToDraw = this.calcPagesToDraw();
+
     const items = [];
 
-    if (!advancedPagination) {
+    if (!this.isAdvancedPagination()) {
       for (let i = 1; i <= pagesCount; i += 1) {
-        items.push(this.getPage(i));
+        items.push(this.renderPage(i));
       }
     } else {
       /*
@@ -58,32 +73,34 @@ class Range extends Component {
           (selectedPageIsOnTheLeftSide && emptySpotsRemaining) ||
           (selectedPageIsOnTheRightSide && emptySpotsRemaining && i > pagesCount - pagesToDraw + emptySpotsRemaining)
         ) {
-          items.push(this.getPage(i));
+          items.push(this.renderPage(i));
         }
       }
     }
 
     // Add ellipsis
     if (selected > 2) {
-      items.splice(anchors, 0, this.getEllipsis(selectedPageIsOnTheLeftSide, 'left'));
+      items.splice(anchors, 0, this.renderEllipsis(selectedPageIsOnTheLeftSide, 'left'));
     }
 
     if (selected < pagesCount - 1) {
-      items.splice(items.length - anchors, 0, this.getEllipsis(selectedPageIsOnTheRightSide, 'right'));
+      items.splice(items.length - anchors, 0, this.renderEllipsis(selectedPageIsOnTheRightSide, 'right'));
     }
 
-    return items;
+    return <ul className={classes.list}>{items}</ul>;
   }
 }
 
 Range.propTypes = {
-  advancedPagination: PropTypes.bool.isRequired,
+  classes: PropTypes.object.isRequired,
   anchors: PropTypes.number.isRequired,
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   selectedSiblings: PropTypes.number.isRequired,
   pagesCount: PropTypes.number.isRequired,
-  pagesToDraw: PropTypes.number.isRequired,
   selectHandler: PropTypes.func.isRequired,
 };
 
-export default Range;
+const enhance = injectSheet(styles);
+
+export { Range as Component, styles };
+export default enhance(Range);

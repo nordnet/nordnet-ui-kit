@@ -1,18 +1,17 @@
 export default ({ palette, mixins }) => ({
-  item: {
+  button: {
+    fontSize: 16,
+    margin: [0, 10],
     display: 'flex',
     alignItems: 'center',
-    margin: [0, 10],
+
+    '&[disabled]': {
+      color: palette.action.disabled,
+    },
 
     [mixins.media('md')]: {
       marginLeft: 20,
       marginRight: 20,
-    },
-  },
-  button: {
-    fontSize: 16,
-    '&[disabled]': {
-      color: palette.action.disabled,
     },
   },
 });

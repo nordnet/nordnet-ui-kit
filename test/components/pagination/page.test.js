@@ -80,7 +80,7 @@ describe('<Page />', () => {
 
   it('should handle click', () => {
     const clickCallback = sinon.spy();
-    const wrapper = shallowComponent({ clickHandler: clickCallback });
+    const wrapper = shallowComponent({ selectHandler: clickCallback });
 
     wrapper.find('button').simulate('click');
     expect(clickCallback.calledOnce).to.equal(true);

@@ -1,8 +1,7 @@
 export default ({ mixins }) => ({
-  list: {
+  root: {
+    margin: [40, 0],
     display: 'flex',
-    padding: 0,
-    listStyleType: 'none',
     justifyContent: 'center',
   },
   stepperText: {

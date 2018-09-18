@@ -48,34 +48,28 @@ class Pagination extends Component {
     const { selected } = this.state;
 
     const pagesCount = this.calcPagesCount();
-    const pagesToDraw = 1 + anchors * 2 + selectedSiblings * 2; // 1 = the selected item
-    const advancedPagination = pagesCount > pagesToDraw;
 
     if (Number.isNaN(pagesCount) || pagesCount <= 1) {
       return null;
     }
 
     return (
-      <nav>
-        <ul className={classes.list}>
-          <Stepper clickHandler={this.handlePreviousPage} clickable={selected !== 1}>
-            <Icon.ArrowLeft className={classes.stepperIcon} />
-            <span className={classes.stepperText}>{buttonTextPrevious}</span>
-          </Stepper>
-          <Range
-            advancedPagination={advancedPagination}
-            anchors={anchors}
-            selected={selected}
-            selectedSiblings={selectedSiblings}
-            pagesCount={pagesCount}
-            pagesToDraw={pagesToDraw}
-            selectHandler={this.handlePageSelected}
-          />
-          <Stepper clickHandler={this.handleNextPage} clickable={selected !== pagesCount}>
-            <Icon.ArrowRight className={classes.stepperIcon} />
-            <span className={classes.stepperText}>{buttonTextNext}</span>
-          </Stepper>
-        </ul>
+      <nav className={classes.root}>
+        <Stepper clickHandler={this.handlePreviousPage} clickable={selected !== 1}>
+          <Icon.ArrowLeft className={classes.stepperIcon} />
+          <span className={classes.stepperText}>{buttonTextPrevious}</span>
+        </Stepper>
+        <Range
+          anchors={anchors}
+          selected={selected}
+          selectedSiblings={selectedSiblings}
+          pagesCount={pagesCount}
+          selectHandler={this.handlePageSelected}
+        />
+        <Stepper clickHandler={this.handleNextPage} clickable={selected !== pagesCount}>
+          <Icon.ArrowRight className={classes.stepperIcon} />
+          <span className={classes.stepperText}>{buttonTextNext}</span>
+        </Stepper>
       </nav>
     );
   }

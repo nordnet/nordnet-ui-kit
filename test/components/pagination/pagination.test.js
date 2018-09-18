@@ -5,8 +5,7 @@ import sinon from 'sinon';
 import { mockClasses, Icon } from '../../../src';
 import { Component as Pagination, styles } from '../../../src/components/pagination/pagination';
 import Stepper from '../../../src/components/pagination/stepper';
-import Page from '../../../src/components/pagination/page';
-import Ellipsis from '../../../src/components/pagination/ellipsis';
+import Range from '../../../src/components/pagination/range';
 
 describe('<Pagination />', () => {
   const classes = mockClasses(styles);
@@ -29,12 +28,6 @@ describe('<Pagination />', () => {
     const wrapper = shallowComponent();
 
     expect(wrapper.find('nav').length).to.equal(1);
-  });
-
-  it('should render a ul element', () => {
-    const wrapper = shallowComponent();
-
-    expect(wrapper.find(`ul.${classes.list}`).length).to.equal(1);
   });
 
   it('should render next and previous buttons', () => {
@@ -135,36 +128,10 @@ describe('<Pagination />', () => {
     ).to.equal(1);
   });
 
-  it('should render 5 pages', () => {
-    const wrapper = shallowComponent({ total: 50, limit: 10 });
-
-    expect(wrapper.find(Page).length).to.equal(5);
-  });
-
-  it('should render one ellipsis', () => {
+  it('should render a range of pages', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(Ellipsis).length).to.equal(1);
-  });
-
-  it('should render one ellipsis', () => {
-    const wrapper = shallowComponent({ total: 100, limit: 10 });
-    wrapper.setState({ selected: 5 });
-
-    expect(wrapper.find(Ellipsis).length).to.equal(2);
-  });
-
-  it('should set state with correct page number', () => {
-    const clickCallback = sinon.spy();
-    const wrapper = shallowComponent({ changeHandler: clickCallback });
-
-    wrapper
-      .find(Page)
-      .at(3)
-      .props()
-      .clickHandler(4);
-
-    expect(wrapper.state().selected).to.equal(4);
+    expect(wrapper.find(Range).length).to.equal(1);
   });
 
   it('should increment selected in state', () => {
@@ -191,39 +158,5 @@ describe('<Pagination />', () => {
       .clickHandler();
 
     expect(wrapper.state().selected).to.equal(1);
-  });
-
-  it('second page item is an anchor', () => {
-    const wrapper = shallowComponent({
-      selectedSiblings: 1,
-      anchors: 2,
-      limit: 10,
-      total: 100,
-      selected: 10,
-    });
-
-    expect(
-      wrapper
-        .find(Page)
-        .at(1)
-        .props().pageNumber,
-    ).to.equal(2);
-  });
-
-  it('second page item is a sibling of selected', () => {
-    const wrapper = shallowComponent({
-      selectedSiblings: 2,
-      anchors: 1,
-      limit: 10,
-      total: 100,
-      selected: 6,
-    });
-
-    expect(
-      wrapper
-        .find(Page)
-        .at(1)
-        .props().pageNumber,
-    ).to.equal(4);
   });
 });
