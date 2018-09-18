@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 
-const NativeInput = ({ id, value, placeholder, label, type, onFocus, onBlur, onChange, ...rest }) => {
-  const className = `input__element input__element--${type}`;
+const NativeInput = ({ id, value, placeholder, label, type, onFocus, onBlur, onChange, className, ...rest }) => {
   const Tag = type === 'textarea' ? 'textarea' : 'input';
 
   return (
     <Tag
-      className={className}
+      className={cn('input__element', `input__element--${type}`, className)}
       id={id}
       type={type}
       placeholder={placeholder || label}
@@ -21,6 +21,7 @@ const NativeInput = ({ id, value, placeholder, label, type, onFocus, onBlur, onC
 };
 
 NativeInput.propTypes = {
+  className: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
