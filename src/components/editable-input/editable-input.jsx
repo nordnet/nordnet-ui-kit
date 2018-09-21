@@ -23,8 +23,12 @@ class EditableInput extends React.Component {
     if (nextProps.value) this.setState({ value: nextProps.value });
   }
 
-  onEdit = () => {
+  onEdit = event => {
     this.setState({ originalValue: this.state.value, editing: true });
+
+    if (this.props.onEdit) {
+      this.props.onEdit(event);
+    }
   };
 
   onFocus = event => {
@@ -172,6 +176,7 @@ EditableInput.propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
   onCancel: PropTypes.func,
+  onEdit: PropTypes.func,
   valueFormatter: PropTypes.func,
   hasSuccess: PropTypes.bool,
   hasError: PropTypes.bool,
