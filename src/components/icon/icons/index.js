@@ -2,9 +2,11 @@ import AddMoney from './addMoney';
 import Advice from './advice';
 import Apartment from './apartment';
 import ArrowDown from './arrowDown';
+import ArrowDownStraight from './arrowDownStraight';
 import ArrowLeft from './arrowLeft';
 import ArrowRight from './arrowRight';
 import ArrowUp from './arrowUp';
+import ArrowUpStraight from './arrowUpStraight';
 import ArrowUpDown from './arrowUpDown';
 import Balloon from './balloon';
 import Bank from './bank';
@@ -91,9 +93,11 @@ const Icon = {
   Advice,
   Apartment,
   ArrowDown,
+  ArrowDownStraight,
   ArrowLeft,
   ArrowRight,
   ArrowUp,
+  ArrowUpStraight,
   ArrowUpDown,
   Balloon,
   Bank,
