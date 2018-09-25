@@ -93,7 +93,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
                 </Tr>
               )) }
             </Tbody>
-            <Tfoot size="lg" hiddenOnMobile>
+            <Tfoot size="md" hiddenOnMobile>
               <Tr>
                 <Td width={30}></Td>
                 <Td></Td>
@@ -127,7 +127,7 @@ Table with two sticky (one with stickyOffset).
         </Tr>
       </Thead>
       <Tbody colorAlternateRows={false}>
-        <Tr sticky stickyOffset={38} style={{fontStyle: 'italic'}} stickyBorder>
+        <Tr sticky stickyOffset={30} style={{fontStyle: 'italic'}} stickyBorder>
           <Td width={60}>Name</Td>
           <Td></Td>
           <Td>SEK</Td>

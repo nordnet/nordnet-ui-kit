@@ -4,15 +4,15 @@ const sizes = () => ({
   },
 
   '&.sm': {
-    fontSize: '14px',
+    fontSize: '12px',
   },
 
   '&.md': {
-    fontSize: '16px',
+    fontSize: '14px',
   },
 
   '&.lg': {
-    fontSize: '18px',
+    fontSize: '16px',
   },
 });
 
