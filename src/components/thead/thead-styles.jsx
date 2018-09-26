@@ -2,7 +2,7 @@ import styleUtils from '../table/style-utilities';
 import color from '../../styles/color';
 
 const normal = theme => {
-  const { palette, mixins, typography } = theme;
+  const { mixins, typography } = theme;
 
   return {
     thead: {
@@ -11,7 +11,7 @@ const normal = theme => {
       ...mixins.basicBoxSizing,
       fontWeight: typography.fontWeightSemiBold,
       borderColor: color.gray,
-      borderBottom: `2px solid ${palette.shades.dark.text.muted}`,
+      borderBottom: `2px solid ${color.grayDarker}`,
     },
     hiddenOnMobile: {
       [mixins.maxMedia('md')]: {
@@ -29,7 +29,7 @@ const normal = theme => {
     stickyBorder: {
       border: 0,
       '& th': {
-        background: `linear-gradient(to top, ${palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
+        background: `linear-gradient(to top, ${color.grayDarker} 2px, ${color.white} 2px)`,
       },
     },
   };

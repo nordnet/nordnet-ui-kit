@@ -45,6 +45,9 @@ const borders = palette => {
     '&.border': {
       border: `1px solid ${palette.background.muted}`,
     },
+    '&.fatBorder': {
+      border: `2px solid ${palette.color.grayDarker}`,
+    },
 
     ...combinedBorders,
   };
