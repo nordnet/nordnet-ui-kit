@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import omit from '../../utilities/omit';
 import styles, { stickyOffset as stickyOffsetStyles } from './tr-styles';
 
-function Tr({ classes, className, children, size, border, sticky, stickyBorder, stickyOffset, ...rest }) {
+function Tr({ classes, className, children, size, border, sticky, stickyBorder, stickyOffset, borderBottom, ...rest }) {
   const usedClassName = classNames(
     classes.tr,
     size,
@@ -14,6 +14,7 @@ function Tr({ classes, className, children, size, border, sticky, stickyBorder, 
       [classes.sticky]: sticky,
       [classes.stickyBorder]: stickyBorder,
       [classes.stickyOffset]: stickyOffset,
+      [classes.borderBottom]: borderBottom,
     },
     className,
   );
@@ -30,6 +31,7 @@ Tr.defaultProps = {
   sticky: false,
   stickyBorder: false,
   stickyOffset: 0,
+  borderBottom: false,
 };
 
 Tr.propTypes = {
@@ -42,6 +44,7 @@ Tr.propTypes = {
   sticky: PropTypes.bool,
   stickyBorder: PropTypes.bool,
   stickyOffset: PropTypes.number,
+  borderBottom: PropTypes.bool,
 };
 
 const Normal = injectSheet(styles)(Tr);

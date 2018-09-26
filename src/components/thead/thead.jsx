@@ -13,6 +13,7 @@ function Thead({
   sticky,
   stickyBorder,
   stickyOffset,
+  borderBottom,
   theme, // eslint-disable-line react/prop-types
   sheet, // eslint-disable-line react/prop-types
   ...rest
@@ -25,6 +26,7 @@ function Thead({
       [classes.sticky]: sticky,
       [classes.stickyBorder]: stickyBorder,
       [classes.stickyOffset]: stickyOffset,
+      [classes.borderBottom]: borderBottom,
     },
     className,
   );
@@ -41,6 +43,7 @@ Thead.defaultProps = {
   sticky: false,
   stickyBorder: false,
   stickyOffset: 0,
+  borderBottom: false,
 };
 
 Thead.propTypes = {
@@ -53,6 +56,7 @@ Thead.propTypes = {
   sticky: PropTypes.bool,
   stickyBorder: PropTypes.bool,
   stickyOffset: PropTypes.number,
+  borderBottom: PropTypes.bool,
 };
 
 const Normal = injectSheet(styles)(Thead);

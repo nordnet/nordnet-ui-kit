@@ -27,7 +27,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
         return (
           <Table minWidth={700} tableLayoutFixed>
             <Thead hiddenOnMobile size="sm" sticky stickyBorder>
-              <Tr>
+              <Tr borderBottom>
                 <Th width={30}>Instrument</Th>
                 <Th>Today</Th>
                 <Th>Latest</Th>
@@ -111,7 +111,6 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
     }
     <MobileTableSample />
 
-
 Table with two sticky (one with stickyOffset).
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
@@ -144,7 +143,6 @@ Table with two sticky (one with stickyOffset).
       </Tbody>
     </Table>
 
-
 Table with size md and sticky header and borders:
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
@@ -169,8 +167,7 @@ Table with size md and sticky header and borders:
           </Tr>
         )) }
       </Tbody>
-    </Table>   
-
+    </Table>
 
 Table with different sizes on Tbody, Thead and TFoot
 
@@ -206,14 +203,13 @@ Table with different sizes on Tbody, Thead and TFoot
       </Tfoot>
     </Table>
 
-
-Table with size on Table level
+Table with size on Table level and borderBottom on header
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
     const {data} = require('./data.js');
 
     <Table minWidth={700} size="xs">
-      <Thead>
+      <Thead borderBottom>
         <Tr>
           <Th width={30}>Instrument</Th>
           <Th>Quantity</Th>
@@ -240,7 +236,6 @@ Table with size on Table level
         </Tr>
       </Tfoot>
     </Table>
-
 
 Table with min-width and max-height (scrollable)
 
@@ -275,7 +270,6 @@ Table with min-width and max-height (scrollable)
         </Tr>
       </Tfoot>
     </Table>
-
 
 Table with equal width columns and no ellipsis bound by a limited width parent
 

@@ -10,9 +10,8 @@ const normal = theme => {
       ...styleUtils.sizes(),
       ...mixins.basicBoxSizing,
       fontWeight: typography.fontWeightSemiBold,
-      borderColor: color.gray,
-      borderBottom: `2px solid ${color.grayDarker}`,
     },
+    borderBottom: {},
     hiddenOnMobile: {
       [mixins.maxMedia('md')]: {
         display: 'none',
@@ -29,7 +28,15 @@ const normal = theme => {
     stickyBorder: {
       border: 0,
       '& th': {
-        background: `linear-gradient(to top, ${color.grayDarker} 2px, ${color.white} 2px)`,
+        '&:after': {
+          display: 'inline-block',
+          content: '""',
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          borderBottom: `2px solid ${color.grayDarker}`,
+        },
       },
     },
   };

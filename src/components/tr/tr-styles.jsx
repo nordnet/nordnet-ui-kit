@@ -24,6 +24,7 @@ const normal = theme => {
       borderWidth: 1,
       borderColor: color.grayLight,
     },
+    borderBottom: {},
     sticky: {
       '& td': {
         position: 'sticky',
@@ -32,9 +33,16 @@ const normal = theme => {
       },
     },
     stickyBorder: {
+      border: 0,
       '& td': {
-        border: 0,
-        background: `linear-gradient(to top, ${theme.palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
+        '&:after': {
+          content: '""',
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          borderBottom: `2px solid ${color.grayDarker}`,
+        },
       },
     },
   };
