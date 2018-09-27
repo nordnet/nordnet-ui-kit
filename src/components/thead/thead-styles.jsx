@@ -10,25 +10,7 @@ const normal = theme => {
       ...styleUtils.sizes(),
       ...mixins.basicBoxSizing,
       fontWeight: typography.fontWeightSemiBold,
-    },
-    borderBottom: {
       borderBottom: `2px solid ${color.grayDarker}`,
-    },
-    hiddenOnMobile: {
-      [mixins.maxMedia('md')]: {
-        display: 'none',
-      },
-    },
-    sticky: {
-      '& th': {
-        position: 'sticky',
-        top: 0,
-        zIndex: 1,
-        backgroundColor: color.white,
-      },
-    },
-    stickyBorder: {
-      border: 0,
       '& th': {
         '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
           borderBottom: `2px solid ${color.grayDarker}`,
@@ -41,6 +23,20 @@ const normal = theme => {
           width: '100%',
           borderBottom: `2px solid ${color.grayDarker}`,
         },
+      },
+    },
+    hiddenOnMobile: {
+      [mixins.maxMedia('md')]: {
+        display: 'none',
+      },
+    },
+    sticky: {
+      border: 0,
+      '& th': {
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        backgroundColor: color.white,
       },
     },
   };

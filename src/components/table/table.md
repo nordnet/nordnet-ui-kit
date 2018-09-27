@@ -203,13 +203,13 @@ Table with different sizes on Tbody, Thead and TFoot
       </Tfoot>
     </Table>
 
-Table with size on Table level and borderBottom on header
+Table with size on Table level
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
     const {data} = require('./data.js');
 
     <Table minWidth={700} size="xs">
-      <Thead borderBottom>
+      <Thead>
         <Tr>
           <Th width={30}>Instrument</Th>
           <Th>Quantity</Th>
