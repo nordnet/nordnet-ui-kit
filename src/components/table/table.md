@@ -27,7 +27,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
         return (
           <Table minWidth={700} tableLayoutFixed>
             <Thead hiddenOnMobile size="sm" sticky stickyBorder>
-              <Tr borderBottom>
+              <Tr>
                 <Th width={30}>Instrument</Th>
                 <Th>Today</Th>
                 <Th>Latest</Th>

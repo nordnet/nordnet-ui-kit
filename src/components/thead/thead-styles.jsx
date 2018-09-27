@@ -11,7 +11,9 @@ const normal = theme => {
       ...mixins.basicBoxSizing,
       fontWeight: typography.fontWeightSemiBold,
     },
-    borderBottom: {},
+    borderBottom: {
+      borderBottom: `2px solid ${color.grayDarker}`,
+    },
     hiddenOnMobile: {
       [mixins.maxMedia('md')]: {
         display: 'none',
@@ -28,8 +30,10 @@ const normal = theme => {
     stickyBorder: {
       border: 0,
       '& th': {
+        '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
+          borderBottom: `2px solid ${color.grayDarker}`,
+        },
         '&:after': {
-          display: 'inline-block',
           content: '""',
           position: 'absolute',
           left: 0,

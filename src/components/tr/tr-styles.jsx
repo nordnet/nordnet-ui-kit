@@ -24,7 +24,7 @@ const normal = theme => {
       borderWidth: 1,
       borderColor: color.grayLight,
     },
-    borderBottom: {},
+    borderBottom: { borderBottom: `2px solid ${color.grayDarker}` },
     sticky: {
       '& td': {
         position: 'sticky',
