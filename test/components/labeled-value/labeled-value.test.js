@@ -40,7 +40,7 @@ describe('<LabeledValue />', () => {
   it('should render input label', () => {
     expect(
       wrapper
-        .find(`span.${classes.label}`)
+        .find(`label.${classes.label}`)
         .childAt(0)
         .text(),
     ).to.equal('label');

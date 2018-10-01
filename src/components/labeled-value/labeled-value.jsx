@@ -63,6 +63,16 @@ export const styles = theme => {
   };
 };
 
+const setIdOnChild = id => child => {
+  if (!child.type) {
+    return <span id={id}>{child}</span>;
+  }
+
+  return React.cloneElement(child, {
+    id,
+  });
+};
+
 function LabeledValue({
   classes,
   label,
@@ -80,14 +90,14 @@ function LabeledValue({
   const labelClasses = cn(classes.label);
   const valueClasses = cn(classes.value, classes[`value-${size}`]);
 
+  const renderChild = setIdOnChild(id);
+
   return (
     <div {...rest} className={rootClasses}>
-      <span className={labelClasses} id={id}>
+      <label className={labelClasses} htmlFor={id}>
         {label}
-      </span>
-      <span className={valueClasses} aria-labelledby={id}>
-        {children}
-      </span>
+      </label>
+      <span className={valueClasses}>{React.Children.map(children, renderChild)}</span>
     </div>
   );
 }
