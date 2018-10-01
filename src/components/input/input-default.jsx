@@ -106,42 +106,45 @@ class InputDefault extends React.PureComponent {
       hasError,
     };
 
-    const fieldProps = omit(
-      this.props,
-      'valueFormatter',
-      'hasSuccess',
-      'hasWarning',
-      'hasError',
-      'helpText',
-      'leftAddon',
-      'rightAddon',
-      'options',
-      'classes',
-      'sheet',
-      'theme',
-      'variant',
-      'lineCount',
-      'id',
-    );
+    const fieldProps = {
+      ...omit(
+        this.props,
+        'valueFormatter',
+        'hasSuccess',
+        'hasWarning',
+        'hasError',
+        'helpText',
+        'leftAddon',
+        'rightAddon',
+        'options',
+        'classes',
+        'sheet',
+        'theme',
+        'variant',
+        'lineCount',
+        'id',
+      ),
+      ...(id ? { id: elementId } : {}),
+    };
 
     return (
       <div className={rootClassName} style={style}>
-        <div className="input__field">
-          <InputAddon content={leftAddon} position="left" />
-          <NativeInput
-            {...fieldProps}
-            id={elementId}
-            type={type}
-            value={value}
-            placeholder={placeholder}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-            onChange={this.onChange}
-          />
-          <Label id={elementId} label={label} placeholder={placeholder} hasFocus={hasFocus} hasValue={stateHasValue} />
-          <InputAddon content={rightAddon} position="right" />
-        </div>
-        <HelpText {...helpTextModifiers}>{helpText}</HelpText>
+        <Label label={label} placeholder={placeholder} hasFocus={hasFocus} hasValue={stateHasValue}>
+          <div className="input__field">
+            <InputAddon content={leftAddon} position="left" />
+            <NativeInput
+              {...fieldProps}
+              type={type}
+              value={value}
+              placeholder={placeholder}
+              onFocus={this.onFocus}
+              onBlur={this.onBlur}
+              onChange={this.onChange}
+            />
+            <InputAddon content={rightAddon} position="right" />
+          </div>
+          <HelpText {...helpTextModifiers}>{helpText}</HelpText>
+        </Label>
       </div>
     );
   }
