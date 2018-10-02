@@ -147,6 +147,7 @@ Table with size md and sticky header and borders:
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
     const {data} = require('./data.js');
+    const { Icon } = require('../../');
 
     <Table minWidth={700} size="md">
       <Thead sticky stickyBorder>
@@ -155,6 +156,7 @@ Table with size md and sticky header and borders:
           <Th>Quantity</Th>
           <Th>Price</Th>
           <Th align="right">Performance 1D</Th>
+          <Th align="right">Trash</Th>
         </Tr>
       </Thead>
       <Tbody colorAlternateRows={false}>
@@ -164,6 +166,7 @@ Table with size md and sticky header and borders:
             <Td mono>{ Math.floor(Math.random() * instrument[2]) }</Td>
             <Td mono>{ instrument[3] }</Td>
             <Td mono modifier={ instrument[4] > 0 ? 'success' : 'danger' } align="right">{ instrument[4] }%</Td>
+            <Td align="right"><Icon.Trash width={18} height={18} fill="#000" /></Td>
           </Tr>
         )) }
       </Tbody>

@@ -15,14 +15,6 @@ const normal = theme => {
         '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
           borderBottom: `2px solid ${color.grayDarker}`,
         },
-        '&:after': {
-          content: '""',
-          position: 'absolute',
-          left: 0,
-          bottom: 0,
-          width: '100%',
-          borderBottom: `2px solid ${color.grayDarker}`,
-        },
       },
     },
     hiddenOnMobile: {
@@ -37,6 +29,19 @@ const normal = theme => {
         top: 0,
         zIndex: 1,
         backgroundColor: color.white,
+      },
+    },
+    stickyBorder: {
+      border: 0,
+      '& th': {
+        '&:after': {
+          content: '""',
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          borderBottom: `2px solid ${color.grayDarker}`,
+        },
       },
     },
   };
