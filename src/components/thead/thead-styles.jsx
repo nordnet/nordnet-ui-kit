@@ -41,6 +41,9 @@ const normal = theme => {
           bottom: 0,
           width: '100%',
           borderBottom: `2px solid ${color.grayDarker}`,
+          '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
+            borderBottom: 0,
+          },
         },
       },
     },
