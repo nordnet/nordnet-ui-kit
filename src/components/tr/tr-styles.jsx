@@ -32,9 +32,14 @@ const normal = theme => {
       },
     },
     stickyBorder: {
-      '& td': {
-        border: 0,
-        background: `linear-gradient(to top, ${theme.palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
+      border: 0,
+      '& td:after': {
+        content: '""',
+        position: 'absolute',
+        left: 0,
+        bottom: 0,
+        width: '100%',
+        borderBottom: `2px solid ${color.grayDarker}`,
       },
     },
   };

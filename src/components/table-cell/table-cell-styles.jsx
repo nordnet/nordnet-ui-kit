@@ -18,6 +18,8 @@ export default theme => {
       maxHeight: 50,
       borderWidth: 1,
 
+      textAlign: 'left',
+
       transition: transitions.create(['max-height', 'border-width']),
 
       [mixins.maxMedia('md')]: {
@@ -64,7 +66,7 @@ export default theme => {
     },
     child: {
       display: 'block',
-      margin: 8,
+      margin: [8, 4],
       height: 'calc(100% - 16px)',
 
       '&::before': {

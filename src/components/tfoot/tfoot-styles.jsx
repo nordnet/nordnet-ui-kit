@@ -1,19 +1,15 @@
 import styleUtils from '../table/style-utilities';
 
-export default theme => {
-  const { palette, mixins, typography } = theme;
-
-  return {
-    tfoot: {
-      ...mixins.basicBoxSizing,
-      ...styleUtils.sizes(),
-      fontWeight: typography.fontWeightSemiBold,
-      borderTop: `2px solid ${palette.shades.dark.text.muted}`,
+export default ({ mixins, typography, palette: { color } }) => ({
+  tfoot: {
+    ...mixins.basicBoxSizing,
+    ...styleUtils.sizes(),
+    fontWeight: typography.fontWeightSemiBold,
+    borderTop: `2px solid ${color.grayDarker}`,
+  },
+  hiddenOnMobile: {
+    [mixins.maxMedia('md')]: {
+      display: 'none',
     },
-    hiddenOnMobile: {
-      [mixins.maxMedia('md')]: {
-        display: 'none',
-      },
-    },
-  };
-};
+  },
+});

@@ -1,39 +1,47 @@
 import styleUtils from '../table/style-utilities';
-import color from '../../styles/color';
 
-const normal = theme => {
-  const { palette, mixins, typography } = theme;
-
-  return {
-    thead: {
+const normal = ({ mixins, typography, palette: { color } }) => ({
+  thead: {
+    width: '100%',
+    ...styleUtils.sizes(),
+    ...mixins.basicBoxSizing,
+    fontWeight: typography.fontWeightSemiBold,
+    borderBottom: `2px solid ${color.grayDarker}`,
+    '& th': {
+      '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
+        borderBottom: `2px solid ${color.grayDarker}`,
+      },
+    },
+  },
+  hiddenOnMobile: {
+    [mixins.maxMedia('md')]: {
+      display: 'none',
+    },
+  },
+  sticky: {
+    border: 0,
+    '& th': {
+      position: 'sticky',
+      top: 0,
+      zIndex: 1,
+      backgroundColor: color.white,
+    },
+  },
+  stickyBorder: {
+    border: 0,
+    '& th:after': {
+      content: '""',
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
       width: '100%',
-      ...styleUtils.sizes(),
-      ...mixins.basicBoxSizing,
-      fontWeight: typography.fontWeightSemiBold,
-      borderColor: color.gray,
-      borderBottom: `2px solid ${palette.shades.dark.text.muted}`,
-    },
-    hiddenOnMobile: {
-      [mixins.maxMedia('md')]: {
-        display: 'none',
+      borderBottom: `2px solid ${color.grayDarker}`,
+      '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
+        borderBottom: 0,
       },
     },
-    sticky: {
-      '& th': {
-        position: 'sticky',
-        top: 0,
-        zIndex: 1,
-        backgroundColor: color.white,
-      },
-    },
-    stickyBorder: {
-      border: 0,
-      '& th': {
-        background: `linear-gradient(to top, ${palette.shades.dark.text.muted} 2px, ${color.white} 2px)`,
-      },
-    },
-  };
-};
+  },
+});
 
 const stickyOffset = theme => ({
   ...normal(theme),
