@@ -1,7 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 import { mockClasses, Icon } from '../../../src';
 import { Component as Pagination, styles } from '../../../src/components/pagination/pagination';
 import Stepper from '../../../src/components/pagination/stepper';
@@ -132,31 +131,5 @@ describe('<Pagination />', () => {
     const wrapper = shallowComponent();
 
     expect(wrapper.find(Range).length).to.equal(1);
-  });
-
-  it('should increment selected in state', () => {
-    const clickCallback = sinon.spy();
-    const wrapper = shallowComponent({ changeHandler: clickCallback });
-
-    wrapper
-      .find(Stepper)
-      .last()
-      .props()
-      .clickHandler();
-
-    expect(wrapper.state().selected).to.equal(2);
-  });
-
-  it('should decrement selected in state', () => {
-    const clickCallback = sinon.spy();
-    const wrapper = shallowComponent({ changeHandler: clickCallback, selected: 2 });
-
-    wrapper
-      .find(Stepper)
-      .first()
-      .props()
-      .clickHandler();
-
-    expect(wrapper.state().selected).to.equal(1);
   });
 });

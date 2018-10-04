@@ -7,20 +7,6 @@ import Range from './range';
 import styles from './pagination-styles';
 
 class Pagination extends Component {
-  static getDerivedStateFromProps(props, state) {
-    const selectedFromParent = parseInt(props.selected, 10);
-    if (selectedFromParent !== state.selected) {
-      // Parent component forcing a reset/change of selected page
-      return { selected: selectedFromParent };
-    }
-
-    return null;
-  }
-
-  state = {
-    selected: parseInt(this.props.selected, 10),
-  };
-
   calcPagesCount() {
     const { total, limit } = this.props;
 
@@ -28,15 +14,14 @@ class Pagination extends Component {
   }
 
   handlePreviousPage = () => {
-    const { selected } = this.state;
-
+    const { selected } = this.props;
     if (selected > 1) {
       this.handlePageSelected(selected - 1);
     }
   };
 
   handleNextPage = () => {
-    const { selected } = this.state;
+    const { selected } = this.props;
     const pagesCount = this.calcPagesCount();
 
     if (selected < pagesCount) {
@@ -46,10 +31,6 @@ class Pagination extends Component {
 
   handlePageSelected = number => {
     const { changeHandler } = this.props;
-    this.setState({
-      selected: number,
-    });
-
     changeHandler(number);
   };
 
@@ -63,8 +44,8 @@ class Pagination extends Component {
       anchors,
       pageLabelText,
       pageLabelTextSelected,
+      selected,
     } = this.props;
-    const { selected } = this.state;
 
     const pagesCount = this.calcPagesCount();
 
@@ -100,6 +81,7 @@ Pagination.propTypes = {
   classes: PropTypes.object.isRequired,
   total: PropTypes.number.isRequired,
   limit: PropTypes.number,
+  /** Callback that returns the page chosen */
   changeHandler: PropTypes.func,
   /** Screenreader friendly title for the pagination */
   title: PropTypes.string,
