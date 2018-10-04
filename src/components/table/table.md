@@ -145,9 +145,8 @@ Table with two sticky (one with stickyOffset).
 
 Table with size md and sticky header and borders:
 
-    const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
+    const { Icon, Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
     const {data} = require('./data.js');
-    const { Icon } = require('../../');
 
     <Table minWidth={700} size="md">
       <Thead sticky stickyBorder>
