@@ -17,6 +17,7 @@ export default theme => {
       minWidth: 20,
       maxHeight: 50,
       borderWidth: 1,
+
       textAlign: 'left',
 
       transition: transitions.create(['max-height', 'border-width']),

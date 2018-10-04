@@ -1,18 +1,18 @@
 const sizes = () => ({
   '&.xs': {
-    fontSize: '12px',
+    fontSize: 12,
   },
 
   '&.sm': {
-    fontSize: '12px',
+    fontSize: 12,
   },
 
   '&.md': {
-    fontSize: '14px',
+    fontSize: 14,
   },
 
   '&.lg': {
-    fontSize: '16px',
+    fontSize: 16,
   },
 });
 
