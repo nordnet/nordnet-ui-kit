@@ -1,7 +1,26 @@
+    // This is a sample component to enable testing setting value from outside the UI-Kit
+    const React = require('react');
+
+    class PaginationExample extends React.PureComponent {
+      constructor(props) {
+        super(props);
+        this.state = { selected: 1 };
+      }
+
+      render() {
+        return (
+          <div>
+            <Pagination selected={this.state.selected} total={50} changeHandler={(pageNumber) => this.setState({ selected: pageNumber }) } />
+          </div>);
+      }
+    }
+
+    <PaginationExample />
+
 Simple, few pages (default):
 
     <div>
-      <Pagination selected={1} total={50} changeHandler={() => {}} />
+      <Pagination total={100} changeHandler={() => {}} />
     </div>
 
 Advanced:
