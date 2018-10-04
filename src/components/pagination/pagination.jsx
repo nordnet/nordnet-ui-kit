@@ -7,6 +7,16 @@ import Range from './range';
 import styles from './pagination-styles';
 
 class Pagination extends Component {
+  static getDerivedStateFromProps(props, state) {
+    const selectedFromParent = parseInt(props.selected, 10);
+    if (selectedFromParent !== state.selected) {
+      // Parent component forcing a reset/change of selected page
+      return { selected: selectedFromParent };
+    }
+
+    return null;
+  }
+
   state = {
     selected: parseInt(this.props.selected, 10),
   };
