@@ -7,19 +7,17 @@ import Range from './range';
 import styles from './pagination-styles';
 
 class Pagination extends Component {
-  static getDerivedStateFromProps(props, state) {
-    const selectedFromParent = parseInt(props.selected, 10);
-    if (selectedFromParent !== state.selected) {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const selectedFromParent = parseInt(nextProps.selected, 10);
+    if (!prevState || selectedFromParent !== prevState.selectedProp) {
       // Parent component forcing a reset/change of selected page
-      return { selected: selectedFromParent };
+      return { selected: selectedFromParent, selectedProp: selectedFromParent };
     }
 
     return null;
   }
 
-  state = {
-    selected: parseInt(this.props.selected, 10),
-  };
+  state = {};
 
   calcPagesCount() {
     const { total, limit } = this.props;
@@ -100,6 +98,7 @@ Pagination.propTypes = {
   classes: PropTypes.object.isRequired,
   total: PropTypes.number.isRequired,
   limit: PropTypes.number,
+  /** Callback that returns the page chosen */
   changeHandler: PropTypes.func,
   /** Screenreader friendly title for the pagination */
   title: PropTypes.string,
@@ -112,7 +111,7 @@ Pagination.propTypes = {
   /** Number of constanstly visible pages at the beginning and at the end of the range */
   anchors: PropTypes.number,
   /** Number of the selected page */
-  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // eslint-disable-line react/no-unused-prop-types
   /** Number of constantly visible pages to the left and right of the selected page */
   selectedSiblings: PropTypes.number,
 };

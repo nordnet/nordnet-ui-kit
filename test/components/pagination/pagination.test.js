@@ -159,4 +159,24 @@ describe('<Pagination />', () => {
 
     expect(wrapper.state().selected).to.equal(1);
   });
+
+  it('should increment selected in state when prop changes', () => {
+    const clickCallback = sinon.spy();
+    const selected = 1;
+    const wrapper = shallowComponent({ selected, changeHandler: clickCallback });
+
+    wrapper.setProps({ selected: selected + 1 });
+
+    expect(wrapper.state().selected).to.equal(selected + 1);
+  });
+
+  it('should decrement selected in state when prop changes', () => {
+    const clickCallback = sinon.spy();
+    const selected = 2;
+    const wrapper = shallowComponent({ selected, changeHandler: clickCallback });
+
+    wrapper.setProps({ selected: selected - 1 });
+
+    expect(wrapper.state().selected).to.equal(selected - 1);
+  });
 });
