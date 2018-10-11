@@ -33,7 +33,7 @@ const Flag = ({ classes, className, style, countryCode, secondaryCountryCode, si
   if (secondaryCountryCode) {
     return (
       <CurrencyFlag
-        className={cn(classes.flagStyle, className)}
+        className={cn(classes.flagStyle, className, 'flag')}
         size={size}
         primaryCC={countryCode.toLowerCase()}
         secondaryCC={secondaryCountryCode.toLowerCase()}
@@ -46,7 +46,7 @@ const Flag = ({ classes, className, style, countryCode, secondaryCountryCode, si
     return null;
   }
 
-  const flag = <SvgFlag className={cn(classes.flagStyle, className)} {...rest} />;
+  const flag = <SvgFlag className={cn(classes.flagStyle, className, 'flag')} {...rest} />;
 
   if (round) {
     return <span className={classes.roundFlagStyle}>{flag}</span>;
@@ -101,5 +101,5 @@ Flag.propTypes = {
   style: PropTypes.object,
   round: PropTypes.bool,
 };
-
+export { Flag as Component };
 export default injectSheet(styles)(Flag);
