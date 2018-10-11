@@ -8,8 +8,6 @@ const normal = theme => {
     tr: {
       ...mixins.basicBoxSizing,
       ...styleUtils.sizes(),
-      borderLeft: '1px solid transparent',
-      borderRight: '1px solid transparent',
       borderCollapse: 'collapse',
       flexWrap: 'wrap',
       overflow: 'hidden',

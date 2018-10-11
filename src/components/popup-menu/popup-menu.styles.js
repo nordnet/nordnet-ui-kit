@@ -1,27 +1,29 @@
+const triangleIndent = 15;
 export default ({ palette, typography, mixins, transitions }) => ({
   menuPopup: {
     position: 'absolute',
     display: 'inline-block',
-    top: 0,
-    right: 0,
+    top: '100%',
+    right: '50%',
     background: palette.color.white,
     boxShadow: '0 2px 4px 2px rgba(0, 0, 0, .1)',
     listStyle: 'none',
     padding: 15,
-    marginTop: 55,
+    marginTop: 10,
     zIndex: 1,
+    transform: `translateX(${triangleIndent + 20 / 2}px)`, // 20 = triangle width
 
-    '&:before': {
+    '&::before': {
       position: 'absolute',
-      right: '4%',
-      transform: 'translateX(-50%) rotate(45deg)',
+      right: triangleIndent,
+      transform: 'translateX(-3px) rotate(45deg)',
       boxShadow: '-1px -1px 1px rgba(0, 0, 0, .08)',
       display: 'block',
       content: '""', // Need the extra inner "", otherwise stripped away
       width: 0,
       height: 0,
       zIndex: 5,
-      top: -8,
+      top: -7,
       borderLeft: `7px solid ${palette.color.white}`,
       borderRight: `7px solid ${palette.color.white}`,
       borderBottom: `7px solid ${palette.color.white}`,
