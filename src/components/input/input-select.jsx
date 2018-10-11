@@ -187,7 +187,13 @@ class InputSelect extends React.Component {
                   {placeholder}
                 </option>
               )}
-              {options.map(option => <SelectOption optionKey={option.key} key={option.key || kebabCase(option.label)} {...option} />)}
+              {options.map((option, index) => (
+                <SelectOption
+                  optionKey={option.key}
+                  key={option.key || option.value || `${kebabCase(option.label)}-${index}`}
+                  {...option}
+                />
+              ))}
             </select>
             {value ? null : (
               <FakePlaceholder placeholder={placeholder} label={label} classes={classes} selectable={selectablePlaceholder} />
