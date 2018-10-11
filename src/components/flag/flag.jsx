@@ -1,56 +1,59 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import injectSheet from 'react-jss';
+import cn from 'classnames';
 import flags from './flags';
 import CurrencyFlag from './flags/currencies';
 
-function Flag({ className, style, countryCode, secondaryCountryCode, size, round, ...rest }) {
-  const flagStyle = Object.assign(
-    {
-      display: 'inline-block',
-      width: size,
-      height: size * 0.75,
-      marginLeft: round ? -size * 0.125 : null,
-      position: round ? 'absolute' : 'relative',
-      left: 0,
-    },
-    style,
-  );
+export const styles = theme => {
+  const { palette } = theme;
 
+  return {
+    flagStyle: {
+      display: 'inline-block',
+      width: props => props.size,
+      height: props => props.size * 0.75,
+      marginLeft: props => (props.round ? -props.size * 0.125 : null),
+      position: props => (props.round ? 'absolute' : 'relative'),
+      left: 0,
+      outline: props => (!props.round && !props.secondaryCountryCode ? `1px solid ${palette.color.grayLighter}` : null),
+    },
+    roundFlagStyle: {
+      display: 'inline-block',
+      position: 'relative',
+      width: props => props.size * 0.75,
+      height: props => props.size * 0.75,
+      overflow: 'hidden',
+      borderRadius: '50%',
+    },
+  };
+};
+
+const Flag = ({ classes, className, style, countryCode, secondaryCountryCode, size, round, ...rest }) => {
   if (secondaryCountryCode) {
     return (
       <CurrencyFlag
-        className="flag"
-        style={flagStyle}
+        className={cn(classes.flagStyle, className)}
         size={size}
         primaryCC={countryCode.toLowerCase()}
         secondaryCC={secondaryCountryCode.toLowerCase()}
       />
     );
   }
-
-  const flagContainerStyle = {
-    display: 'inline-block',
-    position: 'relative',
-    width: size * 0.75,
-    height: size * 0.75,
-    overflow: 'hidden',
-    borderRadius: '50%',
-  };
-
   const SvgFlag = flags[countryCode.toLowerCase()];
 
   if (!SvgFlag) {
     return null;
   }
 
-  const flag = <SvgFlag className="flag" style={flagStyle} {...rest} />;
+  const flag = <SvgFlag className={cn(classes.flagStyle, className)} {...rest} />;
 
   if (round) {
-    return <span style={flagContainerStyle}>{flag}</span>;
+    return <span className={classes.roundFlagStyle}>{flag}</span>;
   }
 
   return flag;
-}
+};
 
 Flag.defaultProps = {
   countryCode: '',
@@ -88,6 +91,7 @@ const countryCodes = [
 ];
 
 Flag.propTypes = {
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   /** A valid 2-character country code */
   countryCode: PropTypes.oneOf(countryCodes),
@@ -98,4 +102,4 @@ Flag.propTypes = {
   round: PropTypes.bool,
 };
 
-export default Flag;
+export default injectSheet(styles)(Flag);
