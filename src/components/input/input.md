@@ -124,13 +124,13 @@ Type: `select`
 
     const options = [{
       label: 'Option 1',
-      value: 1,
+      value: 0,
     }, {
       label: 'Option 2',
-      value: 2,
+      value: '2-string',
     }, {
       label: 'Super mega very long option 3 - this is a test to show that the option is properly cut after a specific length and that the whole option text is shown in a title tag',
-      value: 3,
+      value: 4711,
     }];
 
     const optgroupOptions = [{
