@@ -16,16 +16,18 @@ describe('<Flag />', () => {
 
   it(`should be able to style size`, () => {
     expect(themedRealStyle.flagStyle.width({ size: 50 })).to.equal(50);
-    expect(themedRealStyle.flagStyle.height({ size: 50 })).to.equal(50 * 0.75);
+    expect(themedRealStyle.flagStyle.height({ size: 50 })).to.equal('auto');
 
     expect(themedRealStyle.roundFlagStyle.width({ size: 50 })).to.equal(50 * 0.75);
     expect(themedRealStyle.roundFlagStyle.height({ size: 50 })).to.equal(50 * 0.75);
   });
 
   it('should have the class "flag"', () => {
-    expect(wrapper.hasClass('flag')).to.equal(true);
-    expect(wrapper.hasClass('flagStyle')).to.equal(true);
-    expect(wrapper.hasClass('roundFlagStyle')).to.equal(false);
+    const flagComponent = wrapper.children().first();
+    expect(wrapper.hasClass('container')).to.equal(true);
+    expect(flagComponent.hasClass('flag')).to.equal(true);
+    expect(flagComponent.hasClass('flagStyle')).to.equal(true);
+    expect(flagComponent.hasClass('roundFlagStyle')).to.equal(false);
   });
 
   it('should add roundClass if round prop provided', () => {
