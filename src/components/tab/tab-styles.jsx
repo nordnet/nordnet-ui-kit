@@ -20,18 +20,24 @@ export default theme => {
       position: 'relative',
       display: 'block',
       fontSize: '12px',
-      background: 'none',
-      border: 0,
       color: palette.text.muted,
       fontFamily: typography.primary.fontFamily,
       fontWeight: typography.fontWeightSemiBold,
       paddingTop: 5,
       paddingBottom: borderHeight + 2,
       textTransform: 'uppercase',
-      textDecoration: 'none',
       letterSpacing: 0.5,
       whiteSpace: 'nowrap',
       cursor: 'pointer',
+
+      'button&': {
+        background: 'none',
+        border: 0,
+      },
+
+      'a&': {
+        textDecoration: 'none',
+      },
 
       '&::before': {
         content: '""',
