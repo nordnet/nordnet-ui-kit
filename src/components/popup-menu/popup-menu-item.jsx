@@ -15,7 +15,15 @@ const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, 
         * call focus on the ref from the PopupMenuList.
       */}
       <span ref={ref => ref && listItemRef && listItemRef(ref.childNodes[0])}>
-        <Element to={linkTo} onClick={onClick} onFocus={onFocus} onKeyDown={onKeyDown} className={classes.link} disabled={disabled}>
+        <Element
+          type={Element === 'button' ? 'button' : null}
+          to={linkTo}
+          onClick={onClick}
+          onFocus={onFocus}
+          onKeyDown={onKeyDown}
+          className={classes.link}
+          disabled={disabled}
+        >
           {children}
         </Element>
       </span>
