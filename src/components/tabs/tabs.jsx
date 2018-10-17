@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
+import { Tab, Tabpanel } from '../../';
 import styles from './tabs-styles';
 
 class Tabs extends Component {
@@ -19,7 +20,7 @@ class Tabs extends Component {
         index,
         variant,
         singlePanel,
-        changeHandler: child.type.displayName === 'Jss(Tab)' ? onChange : null,
+        changeHandler: child.type.displayName === Tab.displayName ? onChange : null,
       });
 
       index += 1;
@@ -30,8 +31,8 @@ class Tabs extends Component {
 
   render() {
     const { classes, className, variant } = this.props;
-    const tabs = this.injectContextProps('Jss(Tab)');
-    const tabpanels = this.injectContextProps('Jss(Tabpanel)');
+    const tabs = this.injectContextProps(Tab.displayName);
+    const tabpanels = this.injectContextProps(Tabpanel.displayName);
 
     return (
       <div>
