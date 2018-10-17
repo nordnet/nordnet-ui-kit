@@ -4,25 +4,27 @@ import injectSheet from 'react-jss';
 import cn from 'classnames';
 import flags from './flags';
 import CurrencyFlag from './flags/currencies';
+import omit from '../../utilities/omit';
+
+const addBorder = props => !props.hideBorder && !props.round && !props.secondaryCountryCode;
 
 export const styles = theme => {
   const { palette } = theme;
-  const addBorder = props => !props.hideBorder && !props.round && !props.secondaryCountryCode;
   return {
     container: {
-      lineHeight: 0,
+      display: 'inline-block',
     },
     flagStyle: {
-      display: 'inline-block',
+      display: 'block',
       width: props => props.size,
-      height: props => (addBorder(props) ? 'auto' : props.size * 0.75),
+      height: props => (addBorder(props) ? (props.size - 2) * 0.75 + 2 : props.size * 0.75),
       marginLeft: props => (props.round ? -props.size * 0.125 : null),
       position: props => (props.round ? 'absolute' : 'relative'),
       boxSizing: 'border-box',
       left: 0,
       border: props => (addBorder(props) ? `1px solid ${props.borderColor || palette.color.grayLightest}` : null),
     },
-    roundFlagStyle: {
+    roundFlagContainer: {
       display: 'inline-block',
       position: 'relative',
       width: props => props.size * 0.75,
@@ -51,17 +53,13 @@ const Flag = ({ classes, className, style, countryCode, secondaryCountryCode, si
     return null;
   }
 
-  const flag = (
-    <div className={classes.container}>
-      <SvgFlag className={cn(classes.flagStyle, className, 'flag')} style={style} {...rest} />
-    </div>
-  );
+  const flag = <SvgFlag className={cn(classes.flagStyle, className, 'flag')} style={style} {...omit(rest, 'theme')} />;
 
   if (round) {
-    return <span className={classes.roundFlagStyle}>{flag}</span>;
+    return <span className={classes.roundFlagContainer}>{flag}</span>;
   }
 
-  return flag;
+  return <div className={classes.container}>{flag}</div>;
 };
 
 Flag.defaultProps = {
