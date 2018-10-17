@@ -66,6 +66,13 @@ export default theme => {
     secondary: {
       flex: '1 1 auto',
       textAlign: 'center',
+      paddingLeft: 0,
+      paddingRight: 0,
+
+      '& $tab': {
+        paddingLeft: 10,
+        paddingRight: 10,
+      },
     },
 
     tertiary: {
