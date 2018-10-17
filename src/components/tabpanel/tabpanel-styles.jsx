@@ -1,4 +1,4 @@
-export default () => ({
+export default {
   root: {
     padding: [20, 0],
 
@@ -6,4 +6,4 @@ export default () => ({
       display: 'none',
     },
   },
-});
+};
