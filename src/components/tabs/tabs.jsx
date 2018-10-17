@@ -14,15 +14,17 @@ class Tabs extends Component {
         return null;
       }
 
-      index += 1;
-
-      return React.cloneElement(child, {
-        selected: value === index - 1,
-        index: index - 1,
+      const childrenWithContext = React.cloneElement(child, {
+        selected: value === index,
+        index,
         variant,
         singlePanel,
         changeHandler: child.type.displayName === 'Jss(Tab)' ? onChange : null,
       });
+
+      index += 1;
+
+      return childrenWithContext;
     });
   }
 
