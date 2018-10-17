@@ -105,6 +105,7 @@ class PopupMenu extends Component {
     return (
       <span className={cn(classes.menuContainer, className)} ref={this.setContainerRef}>
         <button
+          type="button"
           aria-expanded={open}
           aria-label={label}
           id={id}
