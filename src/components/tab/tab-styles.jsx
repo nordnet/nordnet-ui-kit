@@ -19,7 +19,7 @@ export default theme => {
     tab: {
       position: 'relative',
       display: 'block',
-      fontSize: '12px',
+      fontSize: 12,
       color: palette.text.muted,
       fontFamily: typography.primary.fontFamily,
       fontWeight: typography.fontWeightSemiBold,
