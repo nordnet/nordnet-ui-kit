@@ -16,10 +16,10 @@ describe('<Flag />', () => {
 
   it(`should be able to style size`, () => {
     expect(themedRealStyle.flagStyle.width({ size: 50 })).to.equal(50);
-    expect(themedRealStyle.flagStyle.height({ size: 50 })).to.equal('auto');
+    expect(themedRealStyle.flagStyle.height({ size: 50 })).to.equal(38);
 
-    expect(themedRealStyle.roundFlagStyle.width({ size: 50 })).to.equal(50 * 0.75);
-    expect(themedRealStyle.roundFlagStyle.height({ size: 50 })).to.equal(50 * 0.75);
+    expect(themedRealStyle.roundFlagContainer.width({ size: 50 })).to.equal(50 * 0.75);
+    expect(themedRealStyle.roundFlagContainer.height({ size: 50 })).to.equal(50 * 0.75);
   });
 
   it('should have the class "flag"', () => {
@@ -32,7 +32,7 @@ describe('<Flag />', () => {
 
   it('should add roundClass if round prop provided', () => {
     const newElement = shallow(<Flag countryCode="se" classes={classes} round />);
-    expect(newElement.hasClass('roundFlagStyle')).to.equal(true);
+    expect(newElement.hasClass('roundFlagContainer')).to.equal(true);
   });
 
   it('should be possible to show combined flag for currencies', () => {
