@@ -6,6 +6,8 @@ import styles from './popup-menu.styles';
 
 const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, listItemRef, disabled, classes, onFocus, className }) => {
   const Element = disabled ? 'button' : node;
+  const elementProps = Element === 'button' ? { type: 'button', disabled } : { to: linkTo };
+
   return (
     <li className={cn(classes.item, className)}>
       {topBorder && <hr className={classes.hr} />}
@@ -15,15 +17,7 @@ const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, 
         * call focus on the ref from the PopupMenuList.
       */}
       <span ref={ref => ref && listItemRef && listItemRef(ref.childNodes[0])}>
-        <Element
-          type={Element === 'button' ? 'button' : null}
-          to={linkTo}
-          onClick={onClick}
-          onFocus={onFocus}
-          onKeyDown={onKeyDown}
-          className={classes.link}
-          disabled={disabled}
-        >
+        <Element {...elementProps} className={classes.link} onClick={onClick} onFocus={onFocus} onKeyDown={onKeyDown}>
           {children}
         </Element>
       </span>

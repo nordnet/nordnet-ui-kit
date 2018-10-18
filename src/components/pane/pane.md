@@ -1,3 +1,5 @@
+Warning! This component is deprecated, please use the Tabs component.
+
     const tabs = [{
       label: 'Tab 1',
       body: <div style={{ padding: 16 }}>This is tab 1!</div>,
