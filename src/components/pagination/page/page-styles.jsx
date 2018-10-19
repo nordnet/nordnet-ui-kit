@@ -17,19 +17,26 @@ export default ({ palette, typography, mixins }) => ({
     padding: 0,
     width: 45,
     height: 45,
+    lineHeight: 1,
     border: `2px solid ${palette.action.disabled}`,
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
+    boxSizing: 'border-box',
     outline: 'none',
-    backgroundColor: 'transparent',
+
+    'a&': {
+      textDecoration: 'none',
+    },
+
     '&:hover': {
       background: palette.action.active,
       borderColor: palette.action.active,
       color: palette.color.white,
     },
+
     '&:focus': {
       borderColor: palette.action.active,
     },

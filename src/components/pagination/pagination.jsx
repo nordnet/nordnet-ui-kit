@@ -61,9 +61,9 @@ class Pagination extends Component {
       anchors,
       pageLabelText,
       pageLabelTextSelected,
+      urlGenerator,
     } = this.props;
     const { selected } = this.state;
-
     const pagesCount = this.calcPagesCount();
 
     if (Number.isNaN(pagesCount) || pagesCount <= 1) {
@@ -72,7 +72,7 @@ class Pagination extends Component {
 
     return (
       <nav className={classes.root} role="navigation" aria-label={title}>
-        <Stepper clickHandler={this.handlePreviousPage} clickable={selected !== 1}>
+        <Stepper clickHandler={this.handlePreviousPage} disabled={selected === 1} url={urlGenerator(selected - 1)}>
           <Icon.ArrowLeft className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextPrevious}</span>
         </Stepper>
@@ -84,8 +84,9 @@ class Pagination extends Component {
           selectHandler={this.handlePageSelected}
           pageLabelText={pageLabelText}
           pageLabelTextSelected={pageLabelTextSelected}
+          urlGenerator={urlGenerator}
         />
-        <Stepper clickHandler={this.handleNextPage} clickable={selected !== pagesCount}>
+        <Stepper clickHandler={this.handleNextPage} disabled={selected === pagesCount} url={urlGenerator(selected + 1)}>
           <Icon.ArrowRight className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextNext}</span>
         </Stepper>
@@ -114,6 +115,8 @@ Pagination.propTypes = {
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // eslint-disable-line react/no-unused-prop-types
   /** Number of constantly visible pages to the left and right of the selected page */
   selectedSiblings: PropTypes.number,
+  /** A function that should return pagination link url's, if this is not set then the component will render buttons instead of links */
+  urlGenerator: PropTypes.func,
 };
 
 Pagination.defaultProps = {
@@ -127,6 +130,7 @@ Pagination.defaultProps = {
   buttonTextNext: 'Next',
   title: 'Pagination',
   changeHandler: () => {},
+  urlGenerator: () => null,
 };
 
 const enhance = injectSheet(styles);
