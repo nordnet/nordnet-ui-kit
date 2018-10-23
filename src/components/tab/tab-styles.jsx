@@ -26,6 +26,7 @@ export default ({ palette, typography, mixins }) => ({
     letterSpacing: 0.5,
     whiteSpace: 'nowrap',
     cursor: 'pointer',
+    outline: 'none',
 
     'button&': {
       background: 'none',
@@ -53,6 +54,10 @@ export default ({ palette, typography, mixins }) => ({
       '&::before': {
         display: 'block',
       },
+    },
+
+    '&:focus::before': {
+      background: palette.action.active,
     },
   },
 
