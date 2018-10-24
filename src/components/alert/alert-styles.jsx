@@ -16,7 +16,7 @@ export default theme => {
     header: {
       display: 'inline-block',
       fontWeight: 'bold',
-      padding: '4px',
+      padding: [4, 20, 4, 4],
       color: palette.variant.info,
 
       '&$vertical': {
@@ -30,7 +30,7 @@ export default theme => {
 
     body: {
       display: 'inline-block',
-      padding: '4px',
+      padding: [4, 20, 4, 4],
     },
 
     close: {
