@@ -82,6 +82,7 @@ ShowMore.defaultProps = {
   className: '',
   showMoreButtonContent: 'Show more',
   cutoffHeight: 200,
+  backgroundColor: 'white',
   onShowMore: () => {},
 };
 
@@ -90,7 +91,9 @@ ShowMore.propTypes = {
   className: PropTypes.string,
   showMoreButtonContent: PropTypes.node,
   onShowMore: PropTypes.func,
-  cutoffHeight: PropTypes.number, // eslint-disable-line react/no-unused-prop-types
+  cutoffHeight: PropTypes.number,
+  /* Needs to be provided for the gradient to work unless background color is white */
+  backgroundColor: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   classes: PropTypes.shape().isRequired,
 };
 

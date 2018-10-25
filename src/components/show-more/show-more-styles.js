@@ -9,7 +9,7 @@ export default () => ({
       position: 'absolute',
       left: 0,
       bottom: 0,
-      background: 'linear-gradient(transparent, white)',
+      background: ({ backgroundColor }) => `linear-gradient(transparent, ${backgroundColor})`,
     },
     margin: 0,
   },
