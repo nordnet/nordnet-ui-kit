@@ -75,7 +75,7 @@ class InputSelect extends React.Component {
   getSelectedOption() {
     return this.props.options
       .reduce((prev, opt) => [...prev, ...(opt.options ? opt.options : [opt])], [])
-      .find(opt => `${opt.value}` === this.state.value);
+      .find(opt => `${opt.value}` === `${this.state.value}`);
   }
 
   getTitle() {
@@ -92,8 +92,9 @@ class InputSelect extends React.Component {
     const { value, hasFocus } = this.state;
     const hasStringValue = typeof value === 'string' && value.length;
     const isObject = typeof value === 'object';
+    const isNumber = typeof value === 'number';
 
-    if (hasFocus || hasStringValue || isObject) {
+    if (hasFocus || hasStringValue || isNumber || isObject) {
       return true;
     }
 
@@ -187,9 +188,15 @@ class InputSelect extends React.Component {
                   {placeholder}
                 </option>
               )}
-              {options.map(option => <SelectOption optionKey={option.key} key={option.key || kebabCase(option.label)} {...option} />)}
+              {options.map((option, index) => (
+                <SelectOption
+                  optionKey={option.key}
+                  key={option.key || option.value || `${kebabCase(option.label)}-${index}`}
+                  {...option}
+                />
+              ))}
             </select>
-            {value ? null : (
+            {stateHasValue ? null : (
               <FakePlaceholder placeholder={placeholder} label={label} classes={classes} selectable={selectablePlaceholder} />
             )}
             {this.showValue() && selectedOption && <span className="input__value-label">{selectedOption.label}</span>}

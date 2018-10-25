@@ -20,6 +20,9 @@ import SegmentedControl from './components/segmented-control';
 import SharevilleLogo from './components/shareville-logo';
 import Spinner from './components/spinner';
 import Subsection from './components/subsection/subsection';
+import Tabs from './components/tabs';
+import Tab from './components/tab';
+import Tabpanel from './components/tabpanel';
 import Table from './components/table';
 import Tbody from './components/tbody';
 import Td from './components/td';
@@ -70,6 +73,9 @@ export {
   SharevilleLogo,
   Spinner,
   Subsection,
+  Tabs,
+  Tab,
+  Tabpanel,
   Table,
   Tbody,
   Td,

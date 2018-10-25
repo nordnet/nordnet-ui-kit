@@ -1,61 +1,73 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import injectSheet from 'react-jss';
+import cn from 'classnames';
 import flags from './flags';
 import CurrencyFlag from './flags/currencies';
+import omit from '../../utilities/omit';
 
-function Flag({ className, style, countryCode, secondaryCountryCode, size, round, ...rest }) {
-  const flagStyle = Object.assign(
-    {
+const addBorder = props => !props.hideBorder && !props.round && !props.secondaryCountryCode;
+
+export const styles = theme => {
+  const { palette } = theme;
+  return {
+    container: {
       display: 'inline-block',
-      width: size,
-      height: size * 0.75,
-      marginLeft: round ? -size * 0.125 : null,
-      position: round ? 'absolute' : 'relative',
-      left: 0,
     },
-    style,
-  );
+    flagStyle: {
+      display: 'block',
+      width: props => props.size,
+      height: props => (addBorder(props) ? (props.size - 2) * 0.75 + 2 : props.size * 0.75),
+      marginLeft: props => (props.round ? -props.size * 0.125 : null),
+      position: props => (props.round ? 'absolute' : 'relative'),
+      boxSizing: 'border-box',
+      left: 0,
+      border: props => (addBorder(props) ? `1px solid ${props.borderColor || palette.color.grayLightest}` : null),
+    },
+    roundFlagContainer: {
+      display: 'inline-block',
+      position: 'relative',
+      width: props => props.size * 0.75,
+      height: props => props.size * 0.75,
+      overflow: 'hidden',
+      borderRadius: '50%',
+    },
+  };
+};
 
+const Flag = ({ classes, className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, ...rest }) => {
   if (secondaryCountryCode) {
     return (
       <CurrencyFlag
-        className="flag"
-        style={flagStyle}
+        className={cn(classes.flagStyle, className, 'flag')}
+        style={style}
         size={size}
         primaryCC={countryCode.toLowerCase()}
         secondaryCC={secondaryCountryCode.toLowerCase()}
       />
     );
   }
-
-  const flagContainerStyle = {
-    display: 'inline-block',
-    position: 'relative',
-    width: size * 0.75,
-    height: size * 0.75,
-    overflow: 'hidden',
-    borderRadius: '50%',
-  };
-
   const SvgFlag = flags[countryCode.toLowerCase()];
 
   if (!SvgFlag) {
     return null;
   }
 
-  const flag = <SvgFlag className="flag" style={flagStyle} {...rest} />;
+  const flag = <SvgFlag className={cn(classes.flagStyle, className, 'flag')} style={style} {...omit(rest, 'theme')} />;
 
   if (round) {
-    return <span style={flagContainerStyle}>{flag}</span>;
+    return <span className={classes.roundFlagContainer}>{flag}</span>;
   }
 
-  return flag;
-}
+  return <div className={classes.container}>{flag}</div>;
+};
 
 Flag.defaultProps = {
   countryCode: '',
   size: 32,
   round: false,
+  hideBorder: false,
+  borderColor: '',
 };
 
 const countryCodes = [
@@ -88,6 +100,7 @@ const countryCodes = [
 ];
 
 Flag.propTypes = {
+  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   /** A valid 2-character country code */
   countryCode: PropTypes.oneOf(countryCodes),
@@ -96,6 +109,8 @@ Flag.propTypes = {
   size: PropTypes.number,
   style: PropTypes.object,
   round: PropTypes.bool,
+  hideBorder: PropTypes.bool,
+  borderColor: PropTypes.string,
 };
-
-export default Flag;
+export { Flag as Component };
+export default injectSheet(styles)(Flag);

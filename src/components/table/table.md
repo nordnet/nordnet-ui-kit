@@ -93,7 +93,7 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
                 </Tr>
               )) }
             </Tbody>
-            <Tfoot size="lg" hiddenOnMobile>
+            <Tfoot size="md" hiddenOnMobile>
               <Tr>
                 <Td width={30}></Td>
                 <Td></Td>
@@ -111,7 +111,6 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
     }
     <MobileTableSample />
 
-
 Table with two sticky (one with stickyOffset).
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
@@ -127,7 +126,7 @@ Table with two sticky (one with stickyOffset).
         </Tr>
       </Thead>
       <Tbody colorAlternateRows={false}>
-        <Tr sticky stickyOffset={38} style={{fontStyle: 'italic'}} stickyBorder>
+        <Tr sticky stickyOffset={30} style={{fontStyle: 'italic'}} stickyBorder>
           <Td width={60}>Name</Td>
           <Td></Td>
           <Td>SEK</Td>
@@ -144,10 +143,9 @@ Table with two sticky (one with stickyOffset).
       </Tbody>
     </Table>
 
-
 Table with size md and sticky header and borders:
 
-    const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
+    const { Icon, Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
     const {data} = require('./data.js');
 
     <Table minWidth={700} size="md">
@@ -157,6 +155,7 @@ Table with size md and sticky header and borders:
           <Th>Quantity</Th>
           <Th>Price</Th>
           <Th align="right">Performance 1D</Th>
+          <Th align="right">Trash</Th>
         </Tr>
       </Thead>
       <Tbody colorAlternateRows={false}>
@@ -166,11 +165,11 @@ Table with size md and sticky header and borders:
             <Td mono>{ Math.floor(Math.random() * instrument[2]) }</Td>
             <Td mono>{ instrument[3] }</Td>
             <Td mono modifier={ instrument[4] > 0 ? 'success' : 'danger' } align="right">{ instrument[4] }%</Td>
+            <Td align="right"><Icon.Trash width={18} height={18} fill="#000" /></Td>
           </Tr>
         )) }
       </Tbody>
-    </Table>   
-
+    </Table>
 
 Table with different sizes on Tbody, Thead and TFoot
 
@@ -206,7 +205,6 @@ Table with different sizes on Tbody, Thead and TFoot
       </Tfoot>
     </Table>
 
-
 Table with size on Table level
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
@@ -241,7 +239,6 @@ Table with size on Table level
       </Tfoot>
     </Table>
 
-
 Table with min-width and max-height (scrollable)
 
     const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
@@ -275,7 +272,6 @@ Table with min-width and max-height (scrollable)
         </Tr>
       </Tfoot>
     </Table>
-
 
 Table with equal width columns and no ellipsis bound by a limited width parent
 

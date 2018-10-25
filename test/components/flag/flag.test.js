@@ -1,26 +1,42 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import Flag from '../../../src/components/flag/flag';
+import { Component as Flag, styles } from '../../../src/components/flag/flag';
+import { mockClasses } from '../../../src/';
+import { createTheme } from '../../../src/styles';
 
 describe('<Flag />', () => {
+  const classes = mockClasses(styles);
+  const themedRealStyle = styles(createTheme());
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Flag countryCode="se" />);
+    wrapper = shallow(<Flag countryCode="se" classes={classes} />);
+  });
+
+  it(`should be able to style size`, () => {
+    expect(themedRealStyle.flagStyle.width({ size: 50 })).to.equal(50);
+    expect(themedRealStyle.flagStyle.height({ size: 50 })).to.equal(38);
+
+    expect(themedRealStyle.roundFlagContainer.width({ size: 50 })).to.equal(50 * 0.75);
+    expect(themedRealStyle.roundFlagContainer.height({ size: 50 })).to.equal(50 * 0.75);
   });
 
   it('should have the class "flag"', () => {
-    expect(wrapper.hasClass('flag')).to.equal(true);
+    const flagComponent = wrapper.children().first();
+    expect(wrapper.hasClass('container')).to.equal(true);
+    expect(flagComponent.hasClass('flag')).to.equal(true);
+    expect(flagComponent.hasClass('flagStyle')).to.equal(true);
+    expect(flagComponent.hasClass('roundFlagStyle')).to.equal(false);
   });
 
-  it('should scale according to size', () => {
-    const newElement = shallow(<Flag countryCode="se" size={64} />);
-    expect(newElement.prop('style').width).to.equal(64);
+  it('should add roundClass if round prop provided', () => {
+    const newElement = shallow(<Flag countryCode="se" classes={classes} round />);
+    expect(newElement.hasClass('roundFlagContainer')).to.equal(true);
   });
 
   it('should be possible to show combined flag for currencies', () => {
-    const currencyElement = shallow(<Flag countryCode="us" secondaryCountryCode="se" />);
+    const currencyElement = shallow(<Flag countryCode="us" secondaryCountryCode="se" classes={classes} />);
     expect(currencyElement.html()).to.not.equal(null);
   });
 });

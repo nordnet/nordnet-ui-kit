@@ -39,6 +39,8 @@ Radio type, Primary (using text):
 
 Radio type, Secondary (using text):
 
+Warning! This variant is deprecated, please use the Tabs component.
+
       // This is a sample component to enable testing setting value from outside the UI-Kit
       const React = require('react');
 
