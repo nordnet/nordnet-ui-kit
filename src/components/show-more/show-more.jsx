@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Button } from '../../';
 import styles from './show-more-styles';
 
-class ShowMore extends React.Component {
+class ShowMore extends React.PureComponent {
   state = {
     isOverflowing: false,
     showMoreClicked: false,
