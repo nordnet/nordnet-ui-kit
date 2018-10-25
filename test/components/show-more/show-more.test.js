@@ -51,13 +51,6 @@ describe('<ShowMore />', () => {
     expect(wrapper.state('isOverflowing')).to.equal(true);
   });
 
-  it('should show button if content does not fit', () => {
-    const wrapper = getWrapper();
-    wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
-    wrapper.instance().componentDidMount();
-    expect(wrapper.state('isOverflowing')).to.equal(true);
-  });
-
   it('should register resize event listener on mount', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
