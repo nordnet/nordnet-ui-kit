@@ -2,9 +2,13 @@ export default theme => ({
   container: {
     ...theme.typography.primary,
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
+  },
+  isEditing: {
+    flexWrap: 'wrap',
+    [theme.mixins.media('md')]: {
+      flexWrap: 'nowrap',
+    },
   },
   form: {
     width: '100%',
@@ -34,11 +38,12 @@ export default theme => ({
   },
   buttons: {
     display: 'flex',
-    flexDirection: 'row',
     flexShrink: 0,
+    alignSelf: 'center',
   },
   buttonEdit: {
     width: 31,
     height: 31,
+    alignSelf: 'center',
   },
 });
