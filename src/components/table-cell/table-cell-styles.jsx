@@ -38,6 +38,7 @@ export default theme => {
         [mixins.maxMedia('md')]: {
           maxHeight: 0,
           borderWidth: 0,
+          overflow: 'hidden',
         },
       },
 
