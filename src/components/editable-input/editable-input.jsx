@@ -150,7 +150,7 @@ class EditableInput extends React.Component {
     );
 
     return (
-      <div className={classNames(classes.container, this.props.className)}>
+      <div className={classNames(classes.container, { [classes.isEditing]: this.state.editing }, this.props.className)}>
         {input}
         {buttons}
       </div>
