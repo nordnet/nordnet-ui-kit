@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { Component as Flag, styles } from '../../../src/components/flag/flag';
+import { Component as Flag, styles } from '../../../src/components/flag/flag-deprecated';
 import { mockClasses } from '../../../src/';
 import { createTheme } from '../../../src/styles';
 
