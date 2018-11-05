@@ -32,7 +32,7 @@ const Flag = props => {
     );
   }
 
-  return <SvgFlag round={round} size={size} countryCode={countryCode.toLowerCase()} style={style} {...omit(rest, 'theme')} />;
+  return <SvgFlag round={round} size={size} countryCode={countryCode.toLowerCase()} style={extendedStyle} {...omit(rest, 'theme')} />;
 };
 
 Flag.defaultProps = {
