@@ -54,7 +54,9 @@ const Flag = ({ classes, className, style, countryCode, secondaryCountryCode, si
     return null;
   }
 
-  const flag = <SvgFlag className={cn(classes.flagStyle, className, 'flag')} style={style} {...omit(rest, 'theme')} />;
+  const flag = (
+    <SvgFlag className={cn(classes.flagStyle, className, 'flag')} style={style} {...omit(rest, 'theme', 'round', 'countryCode')} />
+  );
 
   if (round) {
     return <span className={classes.roundFlagContainer}>{flag}</span>;

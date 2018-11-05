@@ -3,6 +3,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
 import CurrencyFlag from './currencies';
+import omit from '../../../utilities/omit';
 import styles from './styles';
 
 const Flag = props => {
@@ -10,7 +11,7 @@ const Flag = props => {
 
   return (
     <CurrencyFlag
-      {...props}
+      {...omit(props, 'round')}
       className={cn(className, classes.common, classes[size], {
         [classes[`rounded${size.toUpperCase()}`]]: round,
       })}

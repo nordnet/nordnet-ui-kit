@@ -3,6 +3,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
 import flags from '../flags';
+import omit from '../../../utilities/omit';
 import styles from './styles';
 
 const SvgFlag = props => {
@@ -17,14 +18,17 @@ const SvgFlag = props => {
   if (round) {
     return (
       <span className={cn(classes.roundedContainer, classes[`roundedContainer${size.toUpperCase()}`])}>
-        <Flag {...props} className={cn(className, classes.common, classes[size], classes[`rounded${size.toUpperCase()}`])} />
+        <Flag
+          {...omit(props, 'countryCode', 'round')}
+          className={cn(className, classes.common, classes[size], classes[`rounded${size.toUpperCase()}`])}
+        />
       </span>
     );
   }
 
   return (
     <span className={classes.container}>
-      <Flag {...props} className={cn(className, classes.common, classes[size])} />
+      <Flag {...omit(props, 'countryCode', 'round')} className={cn(className, classes.common, classes[size])} />
     </span>
   );
 };

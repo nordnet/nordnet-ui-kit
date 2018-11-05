@@ -73,7 +73,7 @@ const countryCodes = [
 ];
 
 Flag.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
   className: PropTypes.string,
   /** A valid 2-character country code */
   countryCode: PropTypes.oneOf(countryCodes),

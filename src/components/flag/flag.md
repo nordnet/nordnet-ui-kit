@@ -32,10 +32,10 @@ Classic usage: single flag literal size
   
     <div>
       <span>Select size:  </span>
-      <select onChange={(event) => setState({ size: event.target.value })}>
+      <select value='md' onChange={(event) => setState({ size: event.target.value })}>
        <option>xs</option>
        <option>sm</option>
-       <option selected>md</option>
+       <option>md</option>
        <option>lg</option>
      </select>
      <div>
@@ -82,10 +82,10 @@ Rounded flags literal size:
     <div>
       <div>
         <span>Select size:  </span>
-        <select onChange={(event) => setState({ size: event.target.value })}>
+        <select value='md' onChange={(event) => setState({ size: event.target.value })}>
         <option>xs</option>
         <option>sm</option>
-        <option selected>md</option>
+        <option>md</option>
         <option>lg</option>
       </select>
      </div>
@@ -119,22 +119,15 @@ Currencies literal size:
     <div>
       <div>
         <span>Select size:  </span>
-        <select onChange={(event) => setState({ size: event.target.value })}>
+        <select value='md' onChange={(event) => setState({ size: event.target.value })}>
         <option>xs</option>
         <option>sm</option>
-        <option selected>md</option>
+        <option>md</option>
         <option>lg</option>
       </select>
      </div>
      <div>
       <Flag size={state.size} countryCode="eu" secondaryCountryCode="dk" />
-      <Flag size={state.size} countryCode="eu" secondaryCountryCode="no" />
-      <Flag size={state.size} countryCode="eu" secondaryCountryCode="se" />
-      <Flag size={state.size} countryCode="dk" secondaryCountryCode="se" />
-      <Flag size={state.size} countryCode="no" secondaryCountryCode="se" />
-      <Flag size={state.size} countryCode="us" secondaryCountryCode="se" />
-      <Flag size={state.size} countryCode="eu" secondaryCountryCode="us" />
-      <Flag size={state.size} countryCode="eu" secondaryCountryCode="gb" />
      </div>
     </div>
 
