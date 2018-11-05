@@ -24,12 +24,12 @@ class Tab extends Component {
   };
 
   render() {
-    const { classes, children, selected, variant, index } = this.props;
+    const { classes, children, selected, variant, index, className } = this.props;
     const href = this.getDefaultHref();
     const Element = getElementType(href);
 
     return (
-      <li className={cn(classes.root, classes[variant])} role="presentation">
+      <li className={cn(classes.root, classes[variant], className)} role="presentation">
         <Element
           id={`tabs-tab-${index}`}
           className={classes.tab}
@@ -55,12 +55,14 @@ Tab.propTypes = {
   index: PropTypes.number.isRequired,
   singlePanel: PropTypes.bool,
   changeHandler: PropTypes.func,
+  className: PropTypes.string,
 };
 
 Tab.defaultProps = {
   changeHandler: () => {},
   href: null,
   singlePanel: false,
+  className: '',
 };
 
 export { Tab as Component, styles };
