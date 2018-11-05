@@ -80,7 +80,7 @@ Flag.propTypes = {
   secondaryCountryCode: PropTypes.oneOf(countryCodes),
   size: PropTypes.oneOfType([
     /** Unitless pixel value */
-    /** Will be deprecated. Size will be predefined and one of 'xs', 'sm', 'md', 'lg'. */
+    /** Will be deprecated. Size will not be a numerical value and will be predefined with value one of 'xs', 'sm', 'md', 'lg'. */
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   ]),
