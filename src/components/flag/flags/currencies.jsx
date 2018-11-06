@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import flags from './';
 
-export default function CombinedFlag({ style, primaryCC, secondaryCC, size, ...rest }) {
+export default function CombinedFlag({ style, primaryCC, secondaryCC, ...rest }) {
   const usedStyle = Object.assign(
     {},
     {
@@ -65,5 +65,4 @@ CombinedFlag.propTypes = {
   style: PropTypes.object,
   primaryCC: PropTypes.string,
   secondaryCC: PropTypes.string,
-  size: PropTypes.number,
 };
