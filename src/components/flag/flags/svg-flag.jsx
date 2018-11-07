@@ -3,32 +3,26 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
 import flags from '../flags';
-import omit from '../../../utilities/omit';
 import styles from './styles';
 
-const SvgFlag = props => {
-  const Flag = flags[props.countryCode];
+const SvgFlag = ({ className, classes, size, countryCode, round, ...rest }) => {
+  const Flag = flags[countryCode];
 
   if (!Flag) {
     return null;
   }
 
-  const { size, className, classes, round } = props;
-
   if (round) {
     return (
       <span className={cn(classes.roundedContainer, classes[`roundedContainer${size.toUpperCase()}`])}>
-        <Flag
-          {...omit(props, 'countryCode', 'round')}
-          className={cn(className, classes.common, classes[size], classes[`rounded${size.toUpperCase()}`])}
-        />
+        <Flag className={cn(className, classes.common, classes[size], classes[`rounded${size.toUpperCase()}`])} {...rest} />
       </span>
     );
   }
 
   return (
     <span className={classes.container}>
-      <Flag {...omit(props, 'countryCode', 'round')} className={cn(className, classes.common, classes[size])} />
+      <Flag {...rest} className={cn(className, classes.common, classes[size])} />
     </span>
   );
 };
