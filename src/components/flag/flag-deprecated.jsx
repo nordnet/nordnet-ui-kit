@@ -26,15 +26,14 @@ export const styles = () => ({
 const Flag = ({ classes, theme, className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, ...rest }) => {
   const hasBorder = !hideBorder && !round && !secondaryCountryCode;
 
-  const border = borderColor || theme.palette.color.grayLightest;
   const flagStyle = {
     ...style,
     width: size,
     height: size * 0.75,
     marginLeft: round ? -size * 0.125 : null,
     position: round ? 'absolute' : 'relative',
-    border: hasBorder ? `1px solid ${border}` : null,
-    backgroundColor: border, // "fix" errors with subpixel anti-aliasing between flag and border
+    border: hasBorder ? `1px solid ${borderColor}` : null,
+    backgroundColor: borderColor, // "fix" errors with subpixel anti-aliasing between flag and border
   };
 
   const roundFlagContainerStyle = {
@@ -77,7 +76,6 @@ Flag.defaultProps = {
   size: 32,
   round: false,
   hideBorder: false,
-  borderColor: '',
 };
 
 const countryCodes = [

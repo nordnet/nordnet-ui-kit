@@ -15,7 +15,7 @@ const defaultProps = {
 
 const renderFlag = (props = {}) => shallow(<Flag {...defaultProps} {...props} />);
 
-describe.only('<Flag />', () => {
+describe('<Flag />', () => {
   it(`should be able to style size`, () => {
     const size = 50;
     const expectedWidth = size;

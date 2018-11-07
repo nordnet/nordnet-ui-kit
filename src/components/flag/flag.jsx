@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { SvgFlag, CurrencyFlag } from './flags';
-import omit from '../../utilities/omit';
 import FlagDeprecated from './flag-deprecated';
 import color from '../../styles/color';
 
@@ -18,7 +17,7 @@ const Flag = props => {
   /** Will be deprecated. This is here just for backwards compatibility. */
   const extendedStyle = {
     ...style,
-    border: addBorder(props) ? `1px solid ${props.borderColor || color.grayLightest}` : null,
+    border: addBorder(props) ? `1px solid ${props.borderColor}` : null,
   };
 
   if (secondaryCountryCode) {
@@ -32,7 +31,7 @@ const Flag = props => {
     );
   }
 
-  return <SvgFlag round={round} size={size} countryCode={countryCode.toLowerCase()} style={extendedStyle} {...omit(rest, 'theme')} />;
+  return <SvgFlag round={round} size={size} countryCode={countryCode.toLowerCase()} style={extendedStyle} {...rest} />;
 };
 
 Flag.defaultProps = {
@@ -40,7 +39,7 @@ Flag.defaultProps = {
   size: 32,
   round: false,
   hideBorder: false,
-  borderColor: '',
+  borderColor: color.grayLightest,
 };
 
 const countryCodes = [
