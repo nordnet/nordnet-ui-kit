@@ -7,18 +7,19 @@ import color from '../../styles/color';
 const addBorder = props => !props.hideBorder && !props.round && !props.secondaryCountryCode;
 
 const Flag = props => {
+  /** Will be deprecated. This is here just for backwards compatibility. */
+  const extendedStyle = {
+    ...props.style,
+    border: addBorder(props) ? `1px solid ${props.borderColor}` : null,
+    backgroundColor: addBorder(props) ? props.borderColor : 'rgba(0,0,0,0)', // "fix" errors with subpixel coloring between flag and border
+  };
+
   /** Will be deprecated. */
   if (typeof props.size === 'number') {
-    return <FlagDeprecated {...props} />;
+    return <FlagDeprecated {...props} style={extendedStyle} />;
   }
 
   const { classes, className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, ...rest } = props;
-
-  /** Will be deprecated. This is here just for backwards compatibility. */
-  const extendedStyle = {
-    ...style,
-    border: addBorder(props) ? `1px solid ${props.borderColor}` : null,
-  };
 
   if (secondaryCountryCode) {
     return (

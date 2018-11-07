@@ -24,16 +24,12 @@ export const styles = () => ({
 });
 
 const Flag = ({ classes, theme, className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, ...rest }) => {
-  const hasBorder = !hideBorder && !round && !secondaryCountryCode;
-
   const flagStyle = {
     ...style,
     width: size,
     height: size * 0.75,
     marginLeft: round ? -size * 0.125 : null,
     position: round ? 'absolute' : 'relative',
-    border: hasBorder ? `1px solid ${borderColor}` : null,
-    backgroundColor: borderColor, // "fix" errors with subpixel anti-aliasing between flag and border
   };
 
   const roundFlagContainerStyle = {
