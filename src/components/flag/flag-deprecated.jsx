@@ -23,16 +23,18 @@ export const styles = () => ({
   },
 });
 
-const Flag = ({ classes, className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, theme, ...rest }) => {
+const Flag = ({ classes, theme, className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, ...rest }) => {
   const hasBorder = !hideBorder && !round && !secondaryCountryCode;
 
+  const border = borderColor || theme.palette.color.grayLightest;
   const flagStyle = {
     ...style,
     width: size,
-    height: hasBorder ? (size - 2) * 0.75 + 2 : size * 0.75,
+    height: size * 0.75,
     marginLeft: round ? -size * 0.125 : null,
     position: round ? 'absolute' : 'relative',
-    border: hasBorder ? `1px solid ${theme.palette.color.grayLightest}` : null,
+    border: hasBorder ? `1px solid ${border}` : null,
+    backgroundColor: border, // "fix" errors with subpixel anti-aliasing between flag and border
   };
 
   const roundFlagContainerStyle = {
