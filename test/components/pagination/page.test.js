@@ -2,7 +2,6 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { Link } from 'react-router-dom';
 import { mockClasses } from '../../../src';
 import { Component as Page, styles } from '../../../src/components/pagination/page/page';
 
@@ -45,10 +44,16 @@ describe('<Page />', () => {
     expect(wrapper.find(`li.${classes.item}`).hasClass(classes.itemAlwaysVisible)).to.equal(true);
   });
 
-  it('should render a Link component if provided url', () => {
+  it('should render a link if url is provided', () => {
     const wrapper = shallowComponent({ pageNumber: 2, url: '?page=2' });
 
-    expect(wrapper.find(Link).length).to.equal(1);
+    expect(wrapper.find('a').length).to.equal(1);
+  });
+
+  it('should render a custom element if node is provided', () => {
+    const wrapper = shallowComponent({ pageNumber: 2, url: '?page=2', node: 'span' });
+
+    expect(wrapper.find('span').length).to.equal(1);
   });
 
   it('should render a button if on current page', () => {
@@ -63,10 +68,10 @@ describe('<Page />', () => {
     expect(wrapper.find('button').props().disabled).to.equal(true);
   });
 
-  it('Link component should have "to" prop', () => {
-    const wrapper = shallowComponent({ pageNumber: 5, url: '?page=5' });
+  it('custom element should have "to" prop', () => {
+    const wrapper = shallowComponent({ pageNumber: 5, url: '?page=5', node: 'ReactRouterLink' });
 
-    expect(wrapper.find(Link).props().to).to.equal('?page=5');
+    expect(wrapper.find('ReactRouterLink').props().to).to.equal('?page=5');
   });
 
   it('should render text in button from children prop', () => {
@@ -81,12 +86,12 @@ describe('<Page />', () => {
     ).to.equal('1');
   });
 
-  it('should render text in Link from children prop', () => {
-    const wrapper = shallowComponent({ children: '1', url: '?page=1', isSelected: false });
+  it('should render text in button from children prop', () => {
+    const wrapper = shallowComponent({ children: '1', url: '?page=1', isSelected: true });
 
     expect(
       wrapper
-        .find(Link)
+        .find('button')
         .first()
         .childAt(0)
         .text(),
@@ -111,7 +116,7 @@ describe('<Page />', () => {
     const clickCallback = sinon.spy();
     const wrapper = shallowComponent({ selectHandler: clickCallback, url: '?page=1', isSelected: false });
 
-    wrapper.find(Link).simulate('click');
+    wrapper.find('a').simulate('click');
     expect(clickCallback.calledOnce).to.equal(true);
   });
 });

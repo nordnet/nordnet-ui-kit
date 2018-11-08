@@ -2,8 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
+import { getElementType } from '../../button/button';
 import styles from './page-styles';
+
+const getButtonProps = (node, url, disabled) => {
+  if (disabled) {
+    return { type: 'button', disabled };
+  }
+
+  if (node && url) {
+    return { to: url };
+  }
+
+  if (url) {
+    return { href: url };
+  }
+
+  return { type: 'button' };
+};
 
 class Page extends Component {
   onPageClick = () => {
@@ -13,10 +29,10 @@ class Page extends Component {
   };
 
   render() {
-    const { classes, isSelected, isFirst, isLast, labelText, url, children } = this.props;
+    const { classes, isSelected, isFirst, isLast, labelText, url, node, children } = this.props;
     const disabled = isSelected;
-    const Element = url && !disabled ? Link : 'button';
-    const customProps = Element === Link ? { to: url } : { type: 'button', disabled };
+    const Element = getElementType(node, url, disabled);
+    const buttonProps = getButtonProps(node, url, disabled);
 
     return (
       <li
@@ -25,7 +41,7 @@ class Page extends Component {
         })}
       >
         <Element
-          {...customProps}
+          {...buttonProps}
           className={cn(classes.button, {
             [classes.buttonSelected]: isSelected,
           })}
@@ -49,10 +65,12 @@ Page.propTypes = {
   labelText: PropTypes.string.isRequired,
   url: PropTypes.string,
   children: PropTypes.node.isRequired,
+  node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 Page.defaultProps = {
   url: null,
+  node: null,
 };
 
 const enhance = injectSheet(styles);

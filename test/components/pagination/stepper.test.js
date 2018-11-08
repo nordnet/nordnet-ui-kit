@@ -1,7 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { Link } from 'react-router-dom';
 import sinon from 'sinon';
 import { Button, mockClasses } from '../../../src';
 import { Component as Stepper, styles } from '../../../src/components/pagination/stepper/stepper';
@@ -41,13 +40,19 @@ describe('<Stepper />', () => {
   });
 
   it('should render a Button with Link as node', () => {
-    const wrapper = shallowComponent({ disabled: false });
+    const wrapper = shallowComponent({ disabled: false, node: 'ReactRouterLink' });
 
-    expect(wrapper.find(Button).props().node).to.equal(Link);
+    expect(wrapper.find(Button).props().node).to.equal('ReactRouterLink');
   });
 
   it('should render a url to Button', () => {
     const wrapper = shallowComponent({ disabled: false, url: '?page=1' });
+
+    expect(wrapper.find(Button).props().href).to.equal('?page=1');
+  });
+
+  it('should render a to prop inside Button', () => {
+    const wrapper = shallowComponent({ disabled: false, url: '?page=1', node: 'ReactRouterLink' });
 
     expect(wrapper.find(Button).props().to).to.equal('?page=1');
   });
