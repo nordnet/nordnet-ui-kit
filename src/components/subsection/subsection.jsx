@@ -49,19 +49,21 @@ class Subsection extends React.Component {
           )}
           <div className={classes.mainSection}>
             <button className={cn(classes.title, { [classes.loading]: loading })} onClick={this.handleToggle}>
-              <div className={classes.titleLeft}>
-                {CustomIcon && (
-                  <div className={cn(classes.icon, classes.mobileOnly)}>
-                    <CustomIcon />
-                  </div>
-                )}
-                <Title />
-              </div>
-              <div className={classes.titleRight}>
-                {loading && <Spinner />}
-                {!loading && (
-                  <div className={cn(classes.chevron, classes.mobileOnly)}>{toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}</div>
-                )}
+              <div className={classes.titleContent}>
+                <div className={classes.titleLeft}>
+                  {CustomIcon && (
+                    <div className={cn(classes.icon, classes.mobileOnly)}>
+                      <CustomIcon />
+                    </div>
+                  )}
+                  <Title />
+                </div>
+                <div className={classes.titleRight}>
+                  {loading && <Spinner />}
+                  {!loading && (
+                    <div className={cn(classes.chevron, classes.mobileOnly)}>{toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}</div>
+                  )}
+                </div>
               </div>
             </button>
             <div
