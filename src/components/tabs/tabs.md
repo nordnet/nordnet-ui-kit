@@ -79,7 +79,7 @@ With a single tabpanel (tertiary look):
           return (
             <div>
               <Tabs value={this.state.value} variant="tertiary" onChange={ (i) => { this.setState({ value:i }); }} singlePanel>
-                <Tab>Prieces</Tab>
+                <Tab>Prices</Tab>
                 <Tab>Historical</Tab>
                 <Tab>Key figures</Tab>
                 <Tabpanel>

@@ -172,6 +172,11 @@ export default theme => {
         '&:focus': {
           outline: 'none',
         },
+
+        '&:invalid, &:-moz-ui-invalid': {
+          boxShadow: 'none',
+        },
+
         '&--textarea': {
           maxHeight: 'none',
           resize: 'vertical',

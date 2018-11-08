@@ -13,7 +13,7 @@ const InputAddon = ({ content, position }) => {
 };
 
 InputAddon.propTypes = {
-  content: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  content: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   position: PropTypes.string.isRequired,
 };
 

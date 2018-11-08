@@ -12,4 +12,8 @@ import us from './us';
 import jp from './jp';
 import cn from './cn';
 
+import SvgFlag from './svg-flag';
+import CurrencyFlag from './currency-flag';
+
 export default { ca, de, eu, fr, ru, gb, dk, fi, no, se, us, jp, cn };
+export { CurrencyFlag, SvgFlag };

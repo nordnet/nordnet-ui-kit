@@ -18,6 +18,7 @@ import ProgressBar from './components/progress-bar/progress-bar';
 import RadioGroup from './components/radio-group';
 import SegmentedControl from './components/segmented-control';
 import SharevilleLogo from './components/shareville-logo';
+import ShowMore from './components/show-more';
 import Spinner from './components/spinner';
 import Subsection from './components/subsection/subsection';
 import Tabs from './components/tabs';
@@ -71,6 +72,7 @@ export {
   RadioGroup,
   SegmentedControl,
   SharevilleLogo,
+  ShowMore,
   Spinner,
   Subsection,
   Tabs,

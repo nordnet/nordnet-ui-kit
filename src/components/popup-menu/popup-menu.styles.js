@@ -10,6 +10,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
     listStyle: 'none',
     padding: 15,
     marginTop: 10,
+    overflow: 'hidden',
     zIndex: 1,
     transform: `translateX(${triangleIndent + 20 / 2}px)`, // 20 = triangle width
 
