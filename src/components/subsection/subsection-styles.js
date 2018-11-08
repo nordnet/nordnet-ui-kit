@@ -18,8 +18,6 @@ export default ({ palette, typography, mixins, transitions }) => ({
   title: {
     ...typography.secondary,
     fontSize: 20,
-    display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'center',
     lineHeight: 1.4,
     padding: [8, 0],
@@ -34,6 +32,10 @@ export default ({ palette, typography, mixins, transitions }) => ({
     [mixins.media('md')]: {
       cursor: 'auto',
     },
+  },
+  titleContent: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   loading: {
     cursor: 'auto',
