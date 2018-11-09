@@ -13,7 +13,6 @@ export const styles = () => ({
   flagStyle: {
     display: 'block',
     boxSizing: 'border-box',
-    left: 0,
   },
   roundFlagContainer: {
     display: 'inline-block',
