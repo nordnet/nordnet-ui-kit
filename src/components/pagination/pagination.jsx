@@ -25,30 +25,31 @@ class Pagination extends Component {
     return Math.ceil(total / limit);
   }
 
-  handlePreviousPage = () => {
+  handlePreviousPage = e => {
     const { selected } = this.state;
 
     if (selected > 1) {
-      this.handlePageSelected(selected - 1);
+      this.handlePageSelected(selected - 1, 'PREV_PAGE', e);
     }
   };
 
-  handleNextPage = () => {
+  handleNextPage = e => {
     const { selected } = this.state;
     const pagesCount = this.calcPagesCount();
 
     if (selected < pagesCount) {
-      this.handlePageSelected(selected + 1);
+      this.handlePageSelected(selected + 1, 'NEXT_PAGE', e);
     }
   };
 
-  handlePageSelected = number => {
+  handlePageSelected = (number, action, e) => {
     const { changeHandler } = this.props;
+
     this.setState({
       selected: number,
     });
 
-    changeHandler(number);
+    changeHandler(number, action, e);
   };
 
   render() {

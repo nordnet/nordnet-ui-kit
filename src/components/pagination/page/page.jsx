@@ -22,10 +22,10 @@ const getButtonProps = (node, url, disabled) => {
 };
 
 class Page extends Component {
-  onPageClick = () => {
+  onPageClick = e => {
     const { pageNumber, selectHandler } = this.props;
 
-    selectHandler(pageNumber);
+    selectHandler(pageNumber, 'PAGE', e);
   };
 
   render() {
