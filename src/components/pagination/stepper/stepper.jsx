@@ -4,13 +4,9 @@ import injectSheet from 'react-jss';
 import { Button } from '../../../';
 import styles from './stepper-styles';
 
-const getButtonProps = (node, url, disabled) => {
+const getButtonProps = (url, disabled) => {
   if (disabled) {
     return { type: 'button', disabled };
-  }
-
-  if (node && url) {
-    return { node, to: url };
   }
 
   if (url) {
@@ -20,14 +16,13 @@ const getButtonProps = (node, url, disabled) => {
   return { type: 'button' };
 };
 
-const Stepper = ({ classes, disabled, clickHandler, children, url, node }) => {
-  const buttonProps = getButtonProps(node, url, disabled);
+const Stepper = ({ classes, disabled, clickHandler, children, url, getNode }) => {
+  const commonProps = { className: classes.button, onClick: clickHandler, variant: 'link', modifier: 'action' };
+  const buttonProps = getButtonProps(url, disabled);
+  const defaultProps = { ...commonProps, ...buttonProps };
+  const Node = getNode ? getNode(url, children, { ...commonProps }) : <Button {...defaultProps}>{children}</Button>;
 
-  return (
-    <Button {...buttonProps} variant="link" modifier="action" className={classes.button} onClick={clickHandler}>
-      {children}
-    </Button>
-  );
+  return Node;
 };
 
 Stepper.propTypes = {
@@ -36,12 +31,12 @@ Stepper.propTypes = {
   clickHandler: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   url: PropTypes.string,
-  node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  getNode: PropTypes.func,
 };
 
 Stepper.defaultProps = {
   url: null,
-  node: null,
+  getNode: null,
 };
 
 const enhance = injectSheet(styles);

@@ -63,7 +63,7 @@ class Pagination extends Component {
       pageLabelText,
       pageLabelTextSelected,
       urlGenerator,
-      buttonNode,
+      getNode,
     } = this.props;
     const { selected } = this.state;
     const pagesCount = this.calcPagesCount();
@@ -74,7 +74,7 @@ class Pagination extends Component {
 
     return (
       <nav className={classes.root} role="navigation" aria-label={title}>
-        <Stepper clickHandler={this.handlePreviousPage} disabled={selected === 1} url={urlGenerator(selected - 1)} node={buttonNode}>
+        <Stepper clickHandler={this.handlePreviousPage} disabled={selected === 1} url={urlGenerator(selected - 1)} getNode={getNode}>
           <Icon.ArrowLeft className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextPrevious}</span>
         </Stepper>
@@ -87,9 +87,9 @@ class Pagination extends Component {
           pageLabelText={pageLabelText}
           pageLabelTextSelected={pageLabelTextSelected}
           urlGenerator={urlGenerator}
-          node={buttonNode}
+          getNode={getNode}
         />
-        <Stepper clickHandler={this.handleNextPage} disabled={selected === pagesCount} url={urlGenerator(selected + 1)} node={buttonNode}>
+        <Stepper clickHandler={this.handleNextPage} disabled={selected === pagesCount} url={urlGenerator(selected + 1)} getNode={getNode}>
           <Icon.ArrowRight className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextNext}</span>
         </Stepper>
@@ -120,7 +120,7 @@ Pagination.propTypes = {
   selectedSiblings: PropTypes.number,
   /** A function that should return pagination link url's, if this is not set then the component will render buttons instead of links */
   urlGenerator: PropTypes.func,
-  buttonNode: PropTypes.func,
+  getNode: PropTypes.func,
 };
 
 Pagination.defaultProps = {
@@ -135,7 +135,7 @@ Pagination.defaultProps = {
   title: 'Pagination',
   changeHandler: () => {},
   urlGenerator: () => null,
-  buttonNode: null,
+  getNode: null,
 };
 
 const enhance = injectSheet(styles);

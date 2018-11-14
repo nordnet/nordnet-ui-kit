@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { getElementType } from '../../button/button';
 import styles from './page-styles';
 
-const getButtonProps = (node, url, disabled) => {
+export const getElementType = (url, disabled) => {
   if (disabled) {
-    return { type: 'button', disabled };
+    return 'button';
   }
 
-  if (node && url) {
-    return { to: url };
+  return url ? 'a' : 'button';
+};
+
+const getButtonProps = (url, disabled) => {
+  if (disabled) {
+    return { type: 'button', disabled };
   }
 
   if (url) {
@@ -29,10 +32,19 @@ class Page extends Component {
   };
 
   render() {
-    const { classes, isSelected, isFirst, isLast, labelText, url, node, children } = this.props;
+    const { classes, isSelected, isFirst, isLast, labelText, url, getNode, children } = this.props;
     const disabled = isSelected;
-    const Element = getElementType(node, url, disabled);
-    const buttonProps = getButtonProps(node, url, disabled);
+    const Element = getElementType(url, disabled);
+    const commonProps = {
+      className: cn(classes.button, {
+        [classes.buttonSelected]: isSelected,
+      }),
+      onClick: this.onPageClick,
+      'aria-label': labelText,
+    };
+    const buttonProps = getButtonProps(url, disabled);
+    const defaultProps = { ...commonProps, ...buttonProps };
+    const Node = getNode ? getNode(url, children, { ...commonProps }) : <Element {...defaultProps}>{children}</Element>;
 
     return (
       <li
@@ -40,16 +52,7 @@ class Page extends Component {
           [classes.itemAlwaysVisible]: isSelected || isFirst || isLast,
         })}
       >
-        <Element
-          {...buttonProps}
-          className={cn(classes.button, {
-            [classes.buttonSelected]: isSelected,
-          })}
-          onClick={this.onPageClick}
-          aria-label={labelText}
-        >
-          {children}
-        </Element>
+        {Node}
       </li>
     );
   }
@@ -65,12 +68,12 @@ Page.propTypes = {
   labelText: PropTypes.string.isRequired,
   url: PropTypes.string,
   children: PropTypes.node.isRequired,
-  node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  getNode: PropTypes.func,
 };
 
 Page.defaultProps = {
   url: null,
-  node: null,
+  getNode: null,
 };
 
 const enhance = injectSheet(styles);

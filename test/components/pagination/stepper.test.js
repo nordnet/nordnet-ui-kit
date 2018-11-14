@@ -39,10 +39,13 @@ describe('<Stepper />', () => {
     expect(wrapper.find(Button).props().disabled).to.equal(true);
   });
 
-  it('should render a Button with Link as node', () => {
-    const wrapper = shallowComponent({ disabled: false, node: 'ReactRouterLink' });
+  it('should render a custom element if getNode is provided', () => {
+    const wrapper = shallowComponent({
+      disabled: false,
+      getNode: (url, children, rest) => <Button {...rest}>{children}</Button>,
+    });
 
-    expect(wrapper.find(Button).props().node).to.equal('ReactRouterLink');
+    expect(wrapper.find(Button).length).to.equal(1);
   });
 
   it('should render a url to Button', () => {
@@ -51,10 +54,18 @@ describe('<Stepper />', () => {
     expect(wrapper.find(Button).props().href).to.equal('?page=1');
   });
 
-  it('should render a to prop inside Button', () => {
-    const wrapper = shallowComponent({ disabled: false, url: '?page=1', node: 'ReactRouterLink' });
+  it('getNode element can have custom prop', () => {
+    const wrapper = shallowComponent({
+      disabled: false,
+      url: '?page=5',
+      getNode: (url, children, rest) => (
+        <Button to={url} {...rest}>
+          {children}
+        </Button>
+      ),
+    });
 
-    expect(wrapper.find(Button).props().to).to.equal('?page=1');
+    expect(wrapper.find(Button).props().to).to.equal('?page=5');
   });
 
   it('should render type if Button is disabled', () => {

@@ -1,7 +1,6 @@
 Simple, few pages (default):
 
     const React = require('react');
-    const { MemoryRouter, Link } = require('../../../node_modules/react-router-dom');
 
     class PaginationExample1 extends React.PureComponent {
       constructor(props) {
@@ -15,11 +14,9 @@ Simple, few pages (default):
 
       render() {
         return (
-          <MemoryRouter>
-            <div>
-              <Pagination selected={1} total={50} urlGenerator={this.urlGenerator} buttonNode={Link} />
-            </div>
-          </MemoryRouter>
+          <div>
+            <Pagination selected={1} total={50} urlGenerator={this.urlGenerator} />
+          </div>
         );
       }
     }
@@ -30,6 +27,7 @@ Advanced layout (more than 7 pages):
 
     const React = require('react');
     const { MemoryRouter, Link } = require('../../../node_modules/react-router-dom');
+    const { Button } = require('../../');
 
     class PaginationExample2 extends React.PureComponent {
       constructor(props) {
@@ -41,11 +39,15 @@ Advanced layout (more than 7 pages):
         return `?page=${pageNumber}`
       }
 
+      nodeGenerator(url, children, rest) {
+        return <Button node={Link} to={url} {...rest}>{children}</Button>
+      }
+
       render() {
         return (
           <MemoryRouter>
             <div>
-              <Pagination selected={2} total={100} urlGenerator={this.urlGenerator} buttonNode={Link} />
+              <Pagination selected={2} total={100} urlGenerator={this.urlGenerator} getNode={this.nodeGenerator} />
             </div>
           </MemoryRouter>
         );

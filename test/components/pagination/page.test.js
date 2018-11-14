@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { mockClasses } from '../../../src';
+import { mockClasses, Button } from '../../../src';
 import { Component as Page, styles } from '../../../src/components/pagination/page/page';
 
 describe('<Page />', () => {
@@ -50,10 +50,18 @@ describe('<Page />', () => {
     expect(wrapper.find('a').length).to.equal(1);
   });
 
-  it('should render a custom element if node is provided', () => {
-    const wrapper = shallowComponent({ pageNumber: 2, url: '?page=2', node: 'span' });
+  it('should render a custom element if getNode is provided', () => {
+    const wrapper = shallowComponent({
+      pageNumber: 2,
+      url: '?page=2',
+      getNode: (url, children, rest) => (
+        <Button url={url} {...rest}>
+          {children}
+        </Button>
+      ),
+    });
 
-    expect(wrapper.find('span').length).to.equal(1);
+    expect(wrapper.find(Button).length).to.equal(1);
   });
 
   it('should render a button if on current page', () => {
@@ -68,10 +76,18 @@ describe('<Page />', () => {
     expect(wrapper.find('button').props().disabled).to.equal(true);
   });
 
-  it('custom element should have "to" prop', () => {
-    const wrapper = shallowComponent({ pageNumber: 5, url: '?page=5', node: 'ReactRouterLink' });
+  it('getNode element can have custom prop', () => {
+    const wrapper = shallowComponent({
+      pageNumber: 5,
+      url: '?page=5',
+      getNode: (url, children, rest) => (
+        <Button to={url} {...rest}>
+          {children}
+        </Button>
+      ),
+    });
 
-    expect(wrapper.find('ReactRouterLink').props().to).to.equal('?page=5');
+    expect(wrapper.find(Button).props().to).to.equal('?page=5');
   });
 
   it('should render text in button from children prop', () => {

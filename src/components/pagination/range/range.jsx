@@ -24,7 +24,7 @@ class Range extends Component {
   );
 
   renderPage(pageNumber) {
-    const { selectHandler, pagesCount, selected, pageLabelText, pageLabelTextSelected, urlGenerator, node } = this.props;
+    const { selectHandler, pagesCount, selected, pageLabelText, pageLabelTextSelected, urlGenerator, getNode } = this.props;
 
     return (
       <Page
@@ -36,7 +36,7 @@ class Range extends Component {
         isLast={pageNumber === pagesCount}
         labelText={pageNumber === selected ? `${pageLabelTextSelected} ${pageNumber}` : `${pageLabelText} ${pageNumber}`}
         url={urlGenerator(pageNumber)}
-        node={node}
+        getNode={getNode}
       >
         <span>{pageNumber}</span>
       </Page>
@@ -104,11 +104,12 @@ Range.propTypes = {
   pageLabelText: PropTypes.string.isRequired,
   pageLabelTextSelected: PropTypes.string.isRequired,
   urlGenerator: PropTypes.func.isRequired,
-  node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  getNode: PropTypes.func,
 };
 
 Range.defaultProps = {
   node: null,
+  getNode: null,
 };
 
 const enhance = injectSheet(styles);
