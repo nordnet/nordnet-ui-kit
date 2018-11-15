@@ -5,38 +5,43 @@ import { Component as Flag, styles } from '../../../src/components/flag/flag-dep
 import { mockClasses } from '../../../src/';
 import { createTheme } from '../../../src/styles';
 
+const classes = mockClasses(styles);
+const theme = createTheme();
+const defaultProps = {
+  classes,
+  theme,
+  countryCode: 'se',
+};
+
+const renderFlag = (props = {}) => shallow(<Flag {...defaultProps} {...props} />);
+
 describe('<Flag />', () => {
-  const classes = mockClasses(styles);
-  const themedRealStyle = styles(createTheme());
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(<Flag countryCode="se" classes={classes} />);
-  });
-
   it(`should be able to style size`, () => {
-    expect(themedRealStyle.flagStyle.width({ size: 50 })).to.equal(50);
-    expect(themedRealStyle.flagStyle.height({ size: 50 })).to.equal(38);
-
-    expect(themedRealStyle.roundFlagContainer.width({ size: 50 })).to.equal(50 * 0.75);
-    expect(themedRealStyle.roundFlagContainer.height({ size: 50 })).to.equal(50 * 0.75);
+    const size = 50;
+    const expectedWidth = size;
+    const expectedHeight = size * 0.75;
+    const component = renderFlag({ size, hideBorder: true });
+    const flagComponent = component.children().first();
+    expect(flagComponent.prop('style').width).to.equal(expectedWidth);
+    expect(flagComponent.prop('style').height).to.equal(expectedHeight);
   });
 
   it('should have the class "flag"', () => {
-    const flagComponent = wrapper.children().first();
-    expect(wrapper.hasClass('container')).to.equal(true);
+    const component = renderFlag();
+    const flagComponent = component.children().first();
+    expect(component.hasClass(classes.container)).to.equal(true);
     expect(flagComponent.hasClass('flag')).to.equal(true);
-    expect(flagComponent.hasClass('flagStyle')).to.equal(true);
-    expect(flagComponent.hasClass('roundFlagStyle')).to.equal(false);
+    expect(flagComponent.hasClass(classes.flagStyle)).to.equal(true);
+    expect(flagComponent.hasClass(classes.roundFlagStyle)).to.equal(false);
   });
 
   it('should add roundClass if round prop provided', () => {
-    const newElement = shallow(<Flag countryCode="se" classes={classes} round />);
-    expect(newElement.hasClass('roundFlagContainer')).to.equal(true);
+    const newElement = renderFlag({ round: true });
+    expect(newElement.hasClass(classes.roundFlagContainer)).to.equal(true);
   });
 
   it('should be possible to show combined flag for currencies', () => {
-    const currencyElement = shallow(<Flag countryCode="us" secondaryCountryCode="se" classes={classes} />);
+    const currencyElement = renderFlag({ countryCode: 'us', secondaryCountryCode: 'se' });
     expect(currencyElement.html()).to.not.equal(null);
   });
 });
