@@ -1,9 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
-import { mockClasses, Button } from '../../../src';
+import { mockClasses } from '../../../src';
 import { Component as Page, styles } from '../../../src/components/pagination/page/page';
+import ButtonNode from '../../../src/components/pagination/buttonNode';
 
 describe('<Page />', () => {
   const classes = mockClasses(styles);
@@ -44,95 +44,40 @@ describe('<Page />', () => {
     expect(wrapper.find(`li.${classes.item}`).hasClass(classes.itemAlwaysVisible)).to.equal(true);
   });
 
-  it('should render a link if url is provided', () => {
-    const wrapper = shallowComponent({ pageNumber: 2, url: '?page=2' });
+  it('should render a ButtonNode component', () => {
+    const wrapper = shallowComponent({ isLast: true });
 
-    expect(wrapper.find('a').length).to.equal(1);
+    expect(wrapper.find(ButtonNode).length).to.equal(1);
   });
 
-  it('should render a custom element if getNode is provided', () => {
-    const wrapper = shallowComponent({
-      pageNumber: 2,
-      url: '?page=2',
-      getNode: (url, children, rest) => (
-        <Button url={url} {...rest}>
-          {children}
-        </Button>
-      ),
-    });
-
-    expect(wrapper.find(Button).length).to.equal(1);
-  });
-
-  it('should render a button if on current page', () => {
-    const wrapper = shallowComponent({ pageNumber: 2, url: '?page=2', isSelected: true });
-
-    expect(wrapper.find(`button.${classes.button}.${classes.buttonSelected}`).length).to.equal(1);
-  });
-
-  it('should render a disabled button', () => {
+  it('should render disabled prop to ButtonNode component', () => {
     const wrapper = shallowComponent({ isSelected: true });
 
-    expect(wrapper.find('button').props().disabled).to.equal(true);
+    expect(wrapper.find(ButtonNode).props().disabled).to.equal(true);
   });
 
-  it('getNode element can have custom prop', () => {
-    const wrapper = shallowComponent({
-      pageNumber: 5,
-      url: '?page=5',
-      getNode: (url, children, rest) => (
-        <Button to={url} {...rest}>
-          {children}
-        </Button>
-      ),
-    });
+  it('should not render disabled prop to ButtonNode component', () => {
+    const wrapper = shallowComponent({ isSelected: false });
 
-    expect(wrapper.find(Button).props().to).to.equal('?page=5');
+    expect(wrapper.find(ButtonNode).props().disabled).to.equal(false);
   });
 
-  it('should render text in button from children prop', () => {
-    const wrapper = shallowComponent({ children: '1' });
+  it('should render url prop to ButtonNode component', () => {
+    const wrapper = shallowComponent({ url: 'www.test.com' });
 
-    expect(
-      wrapper
-        .find('button')
-        .first()
-        .childAt(0)
-        .text(),
-    ).to.equal('1');
+    expect(wrapper.find(ButtonNode).props().url).to.equal('www.test.com');
   });
 
-  it('should render text in button from children prop', () => {
-    const wrapper = shallowComponent({ children: '1', url: '?page=1', isSelected: true });
+  it('should have getNode prop in ButtonNode component', () => {
+    const testFunc = () => true;
+    const wrapper = shallowComponent({ getNode: testFunc });
 
-    expect(
-      wrapper
-        .find('button')
-        .first()
-        .childAt(0)
-        .text(),
-    ).to.equal('1');
+    expect(wrapper.find(ButtonNode).props().getNode).to.equal(testFunc);
   });
 
-  it('should render aria-label text', () => {
+  it('should have aria-label text in defaultProps', () => {
     const wrapper = shallowComponent({ labelText: 'Go to page' });
 
-    expect(wrapper.find('button').props()['aria-label']).to.equal('Go to page');
-  });
-
-  it('should handle click on button', () => {
-    const clickCallback = sinon.spy();
-    const wrapper = shallowComponent({ selectHandler: clickCallback });
-
-    wrapper.find('button').simulate('click');
-    expect(clickCallback.calledOnce).to.equal(true);
-  });
-
-  it('should handle click on Link', () => {
-    const clickCallback = sinon.spy();
-    const wrapper = shallowComponent({ selectHandler: clickCallback, url: '?page=1', isSelected: false });
-
-    wrapper.find('a').simulate('click');
-    expect(clickCallback.calledOnce).to.equal(true);
+    expect(wrapper.find(ButtonNode).props().defaultProps['aria-label']).to.equal('Go to page');
   });
 });

@@ -2,27 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { Button } from '../../../';
+import ButtonNode from '../buttonNode';
 import styles from './stepper-styles';
 
-const getButtonProps = (url, disabled) => {
-  if (disabled) {
-    return { type: 'button', disabled };
-  }
-
-  if (url) {
-    return { href: url };
-  }
-
-  return { type: 'button' };
-};
-
 const Stepper = ({ classes, disabled, clickHandler, children, url, getNode }) => {
-  const commonProps = { className: classes.button, onClick: clickHandler, variant: 'link', modifier: 'action' };
-  const buttonProps = getButtonProps(url, disabled);
-  const defaultProps = { ...commonProps, ...buttonProps };
-  const Node = getNode ? getNode(url, children, { ...commonProps }) : <Button {...defaultProps}>{children}</Button>;
+  const stepperProps = { className: classes.button, onClick: clickHandler, variant: 'link', modifier: 'action' };
 
-  return Node;
+  return (
+    <ButtonNode node={Button} getNode={getNode} url={url} disabled={disabled} defaultProps={stepperProps}>
+      {children}
+    </ButtonNode>
+  );
 };
 
 Stepper.propTypes = {
