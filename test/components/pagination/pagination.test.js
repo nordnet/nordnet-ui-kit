@@ -15,6 +15,7 @@ describe('<Pagination />', () => {
     limit: 10,
     buttonTextPrevious: 'Previous',
     buttonTextNext: 'Next',
+    urlGenerator: () => null,
   };
   const shallowComponent = customProps => shallow(<Pagination {...defaultProps} {...customProps} />);
 
@@ -43,8 +44,8 @@ describe('<Pagination />', () => {
       wrapper
         .find(Stepper)
         .first()
-        .prop('clickable'),
-    ).to.equal(false);
+        .prop('disabled'),
+    ).to.equal(true);
   });
 
   it('previous button should be clickable', () => {
@@ -54,8 +55,8 @@ describe('<Pagination />', () => {
       wrapper
         .find(Stepper)
         .first()
-        .prop('clickable'),
-    ).to.equal(true);
+        .prop('disabled'),
+    ).to.equal(false);
   });
 
   it('next button should not be clickable', () => {
@@ -65,8 +66,8 @@ describe('<Pagination />', () => {
       wrapper
         .find(Stepper)
         .last()
-        .prop('clickable'),
-    ).to.equal(false);
+        .prop('disabled'),
+    ).to.equal(true);
   });
 
   it('next button should be clickable', () => {
@@ -76,8 +77,8 @@ describe('<Pagination />', () => {
       wrapper
         .find(Stepper)
         .last()
-        .prop('clickable'),
-    ).to.equal(true);
+        .prop('disabled'),
+    ).to.equal(false);
   });
 
   it('next button should render text', () => {

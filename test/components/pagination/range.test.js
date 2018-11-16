@@ -14,6 +14,7 @@ describe('<Range />', () => {
     pagesCount: 10,
     selected: 1,
     selectedSiblings: 2,
+    urlGenerator: () => null,
   };
 
   const shallowComponent = customProps => shallow(<Range {...defaultProps} {...customProps} />);

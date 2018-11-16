@@ -1,3 +1,6 @@
+const buttonSize = 45;
+const buttonBorderSize = 2;
+
 export default ({ palette, typography, mixins }) => ({
   item: {
     margin: [0, 5],
@@ -12,24 +15,31 @@ export default ({ palette, typography, mixins }) => ({
   },
   button: {
     ...typography.primary,
+    display: 'block',
     color: palette.action.active,
+    backgroundColor: palette.color.white,
     fontSize: 16,
     padding: 0,
-    width: 45,
-    height: 45,
-    border: `2px solid ${palette.action.disabled}`,
+    width: buttonSize,
+    height: buttonSize,
+    lineHeight: `${buttonSize - buttonBorderSize * 2}px`,
+    border: `${buttonBorderSize}px solid ${palette.action.disabled}`,
     borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    textAlign: 'center',
     cursor: 'pointer',
+    boxSizing: 'border-box',
     outline: 'none',
-    backgroundColor: 'transparent',
+
+    'a&': {
+      textDecoration: 'none',
+    },
+
     '&:hover': {
       background: palette.action.active,
       borderColor: palette.action.active,
       color: palette.color.white,
     },
+
     '&:focus': {
       borderColor: palette.action.active,
     },

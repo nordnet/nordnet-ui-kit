@@ -4,15 +4,15 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import styles from './button-styles';
 
-const getElementType = (node, href, disabled) => {
+export const getElementType = (node, href, disabled) => {
   if (disabled) {
     return 'button';
   }
-  
+
   if (node) {
     return node;
   }
-  
+
   return href ? 'a' : 'button';
 };
 

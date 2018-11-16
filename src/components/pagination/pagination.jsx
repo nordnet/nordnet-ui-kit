@@ -25,30 +25,31 @@ class Pagination extends Component {
     return Math.ceil(total / limit);
   }
 
-  handlePreviousPage = () => {
+  handlePreviousPage = e => {
     const { selected } = this.state;
 
     if (selected > 1) {
-      this.handlePageSelected(selected - 1);
+      this.handlePageSelected(selected - 1, 'PREV_PAGE', e);
     }
   };
 
-  handleNextPage = () => {
+  handleNextPage = e => {
     const { selected } = this.state;
     const pagesCount = this.calcPagesCount();
 
     if (selected < pagesCount) {
-      this.handlePageSelected(selected + 1);
+      this.handlePageSelected(selected + 1, 'NEXT_PAGE', e);
     }
   };
 
-  handlePageSelected = number => {
+  handlePageSelected = (number, action, e) => {
     const { changeHandler } = this.props;
+
     this.setState({
       selected: number,
     });
 
-    changeHandler(number);
+    changeHandler(number, action, e);
   };
 
   render() {
@@ -61,9 +62,10 @@ class Pagination extends Component {
       anchors,
       pageLabelText,
       pageLabelTextSelected,
+      urlGenerator,
+      getNode,
     } = this.props;
     const { selected } = this.state;
-
     const pagesCount = this.calcPagesCount();
 
     if (Number.isNaN(pagesCount) || pagesCount <= 1) {
@@ -72,7 +74,7 @@ class Pagination extends Component {
 
     return (
       <nav className={classes.root} role="navigation" aria-label={title}>
-        <Stepper clickHandler={this.handlePreviousPage} clickable={selected !== 1}>
+        <Stepper clickHandler={this.handlePreviousPage} disabled={selected === 1} url={urlGenerator(selected - 1)} getNode={getNode}>
           <Icon.ArrowLeft className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextPrevious}</span>
         </Stepper>
@@ -84,8 +86,10 @@ class Pagination extends Component {
           selectHandler={this.handlePageSelected}
           pageLabelText={pageLabelText}
           pageLabelTextSelected={pageLabelTextSelected}
+          urlGenerator={urlGenerator}
+          getNode={getNode}
         />
-        <Stepper clickHandler={this.handleNextPage} clickable={selected !== pagesCount}>
+        <Stepper clickHandler={this.handleNextPage} disabled={selected === pagesCount} url={urlGenerator(selected + 1)} getNode={getNode}>
           <Icon.ArrowRight className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextNext}</span>
         </Stepper>
@@ -114,6 +118,9 @@ Pagination.propTypes = {
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // eslint-disable-line react/no-unused-prop-types
   /** Number of constantly visible pages to the left and right of the selected page */
   selectedSiblings: PropTypes.number,
+  /** A function that should return pagination link url's, if this is not set then the component will render buttons instead of links */
+  urlGenerator: PropTypes.func,
+  getNode: PropTypes.func,
 };
 
 Pagination.defaultProps = {
@@ -127,6 +134,8 @@ Pagination.defaultProps = {
   buttonTextNext: 'Next',
   title: 'Pagination',
   changeHandler: () => {},
+  urlGenerator: () => null,
+  getNode: null,
 };
 
 const enhance = injectSheet(styles);
