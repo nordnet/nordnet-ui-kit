@@ -22,12 +22,15 @@ const getButtonProps = (url, disabled) => {
 };
 
 const ButtonNode = ({ node, defaultProps, getNode, children, url, disabled }) => {
+  if (getNode) {
+    return getNode(url, children, { ...defaultProps });
+  }
+
   const Default = node || getElementType(url, disabled);
   const buttonProps = getButtonProps(url, disabled);
   const combinedProps = { ...defaultProps, ...buttonProps };
-  const Node = getNode ? getNode(url, children, { ...defaultProps }) : <Default {...combinedProps}>{children}</Default>;
 
-  return Node;
+  return <Default {...combinedProps}>{children}</Default>;
 };
 
 ButtonNode.propTypes = {
