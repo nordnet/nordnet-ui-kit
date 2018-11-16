@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Button } from '../../../src';
-import ButtonNode from '../../../src/components/pagination/buttonNode';
+import ButtonNode from '../../../src/components/pagination/button-node';
 
 describe('<ButtonNode />', () => {
   const defaultProps = {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { Button } from '../../../';
-import ButtonNode from '../buttonNode';
+import ButtonNode from '../button-node';
 import styles from './stepper-styles';
 
 const Stepper = ({ classes, disabled, clickHandler, children, url, getNode }) => {

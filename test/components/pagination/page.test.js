@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
 import { Component as Page, styles } from '../../../src/components/pagination/page/page';
-import ButtonNode from '../../../src/components/pagination/buttonNode';
+import ButtonNode from '../../../src/components/pagination/button-node';
 
 describe('<Page />', () => {
   const classes = mockClasses(styles);

@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Button, mockClasses } from '../../../src';
 import { Component as Stepper, styles } from '../../../src/components/pagination/stepper/stepper';
-import ButtonNode from '../../../src/components/pagination/buttonNode/buttonNode';
+import ButtonNode from '../../../src/components/pagination/button-node/';
 
 describe('<Stepper />', () => {
   const classes = mockClasses(styles);

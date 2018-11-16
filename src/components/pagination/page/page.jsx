@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import ButtonNode from '../buttonNode';
+import ButtonNode from '../button-node';
 import styles from './page-styles';
 
 class Page extends Component {
