@@ -22,7 +22,7 @@ const getButtonProps = (url, disabled) => {
 };
 
 const ButtonNode = ({ node, defaultProps, getNode, children, url, disabled }) => {
-  if (getNode) {
+  if (getNode && !disabled) {
     return getNode(url, children, { ...defaultProps });
   }
 
