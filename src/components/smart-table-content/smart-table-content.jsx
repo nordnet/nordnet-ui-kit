@@ -129,5 +129,5 @@ SmartTableContent.defaultProps = {
   getTdContent: (col, data) => (col.useBase ? data[col.baseKey] : data[col.baseKey][col.key]),
 };
 
-export { SmartTableContent as Component };
+export { SmartTableContent as Component, styles };
 export default injectSheet(styles)(SmartTableContent);
