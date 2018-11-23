@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import injectSheet from 'react-jss';
 import { Th, Tr, Thead, Icon } from '../../../';
-import styles from './TableHead.styles';
+import styles from './table-head.styles';
 import { colShape, sortingLocalizationShape } from '../shapes';
 
 const initialSortOrder = 'desc';

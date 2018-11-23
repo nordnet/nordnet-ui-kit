@@ -7,7 +7,7 @@ import Tr from '../../../src/components/tr';
 import Th from '../../../src/components/th';
 import ArrowDownStraight from '../../../src/components/icon/icons/arrowDownStraight';
 import ArrowUpStraight from '../../../src/components/icon/icons/arrowUpStraight';
-import { Component as TableHead, styles } from '../../../src/components/smart-table-content/TableHead/TableHead';
+import { Component as TableHead, styles } from '../../../src/components/smart-table-content/table-head/table-head';
 
 const classes = mockClasses(styles);
 

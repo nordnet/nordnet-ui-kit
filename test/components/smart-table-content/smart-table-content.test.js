@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
 import { Component as SmartTableContent, styles } from '../../../src/components/smart-table-content/smart-table-content';
-import TableHead from '../../../src/components/smart-table-content/TableHead/TableHead';
-import TableBody from '../../../src/components/smart-table-content/TableBody/TableBody';
+import TableHead from '../../../src/components/smart-table-content/table-head/table-head';
+import TableBody from '../../../src/components/smart-table-content/table-body/table-body';
 import Table from '../../../src/components/table';
 import Pagination from '../../../src/components/pagination';
 
