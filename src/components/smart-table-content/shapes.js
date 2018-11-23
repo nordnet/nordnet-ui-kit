@@ -7,7 +7,7 @@ export const colShape = PropTypes.shape({
   useBase: PropTypes.bool,
   hideHeaderLabel: PropTypes.bool,
   sortable: PropTypes.bool.isRequired,
-  width: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   align: PropTypes.string,
   type: PropTypes.string,
   responsiveProps: PropTypes.shape({
