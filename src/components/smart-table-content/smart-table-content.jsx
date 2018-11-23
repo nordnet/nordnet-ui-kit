@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { Table, Pagination, Button } from '../../';
-import TableHead from './TableHead/TableHead';
-import TableBody from './TableBody/TableBody';
-import styles from './SmartTableContent.styles';
+import TableHead from './table-head/table-head';
+import TableBody from './table-body/table-body';
+import styles from './smart-table-content.styles';
 import { colShape, sortingLocalizationShape } from './shapes';
 
 class SmartTableContent extends Component {

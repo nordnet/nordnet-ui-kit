@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import cn from 'classnames';
 import { Tr, Td, Icon } from '../../../../';
 import { colShape } from '../../shapes';
-import styles from './TableBodyRow.styles';
+import styles from './table-body-row.styles';
 
 class TableBodyRow extends Component {
   state = {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import { Tbody } from '../../../';
-import TableBodyRow from './TableBodyRow/TableBodyRow';
+import TableBodyRow from './table-body-row/table-body-row';
 import { colShape } from '../shapes';
 
 const TableBody = ({ rowData, columns, getTdContent, expandLabel, rowKeyPath }) => (
