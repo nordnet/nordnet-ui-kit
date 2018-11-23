@@ -136,5 +136,5 @@ TableHead.propTypes = {
   localization: sortingLocalizationShape.isRequired,
 };
 
-export { TableHead as Component };
+export { TableHead as Component, styles };
 export default injectSheet(styles)(TableHead);
