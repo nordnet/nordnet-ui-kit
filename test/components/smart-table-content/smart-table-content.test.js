@@ -19,9 +19,16 @@ const defaultProps = {
   sortField: 'name',
   sortOrder: 'asc',
   leftButtonsExperiment: false,
-  rowData: [0, 1, 2],
+  rowData: [{ id: 1 }, { id: 2 }, { id: 3 }],
   loading: false,
-  localization: {},
+  localization: {
+    expand: 'Expand',
+    noData: 'No data for you mister',
+    nextButton: 'Next',
+    prevButton: 'Previous',
+    caption: 'TestTable',
+  },
+  rowKeyPath: 'id',
 };
 
 const shallowComponent = customProps => shallow(<SmartTableContent {...defaultProps} {...customProps} />);
