@@ -96,7 +96,6 @@ class TableHead extends Component {
               tableHeadInner
             ) : (
               <button
-                variant="link"
                 className={classes.button}
                 type="button"
                 aria-label={localization.ariaLabel({

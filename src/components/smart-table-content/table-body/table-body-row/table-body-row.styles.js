@@ -33,8 +33,8 @@ export default ({ palette, mixins }) => ({
     },
 
     [mixins.maxMedia('md')]: {
-      borderTop: `2px solid ${palette.color.grayDarker}`,
-      borderBottom: `2px solid ${palette.color.grayDarker}`,
+      borderTop: [2, 'solid', palette.color.grayDarker],
+      borderBottom: [2, 'solid', palette.color.grayDarker],
 
       '& + $expanded': {
         borderTop: 'none',
