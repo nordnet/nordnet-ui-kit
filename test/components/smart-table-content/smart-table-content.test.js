@@ -18,7 +18,6 @@ const defaultProps = {
   sortHandler: () => {},
   sortField: 'name',
   sortOrder: 'asc',
-  leftButtonsExperiment: false,
   rowData: [{ id: 1 }, { id: 2 }, { id: 3 }],
   loading: false,
   localization: {
