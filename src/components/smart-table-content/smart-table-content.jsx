@@ -8,15 +8,6 @@ import styles from './smart-table-content.styles';
 import { colShape, sortingLocalizationShape } from './shapes';
 
 class SmartTableContent extends Component {
-  shouldComponentUpdate(nextProps) {
-    const { loading } = this.props;
-    if (typeof nextProps.loading === 'undefined' || (loading === false && nextProps.loading === true)) {
-      return false;
-    }
-
-    return true;
-  }
-
   generateNode = (url, children, rest) => {
     const { paginationNode } = this.props;
     return (
@@ -123,7 +114,7 @@ SmartTableContent.defaultProps = {
   page: 1,
   sortField: '',
   sortOrder: 'desc',
-  loading: undefined,
+  loading: null,
   paginationNode: null,
   urlGenerator: () => null,
   getTdContent: (col, data) => (col.useBase ? data[col.baseKey] : data[col.baseKey][col.key]),
