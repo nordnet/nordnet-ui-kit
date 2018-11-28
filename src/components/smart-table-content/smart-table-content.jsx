@@ -32,7 +32,7 @@ class SmartTableContent extends Component {
       rowKeyPath,
       loading,
       localization,
-      getTdContent,
+      renderTd,
       urlGenerator,
     } = this.props;
 
@@ -56,7 +56,7 @@ class SmartTableContent extends Component {
               columns={columns}
               rowData={rowData}
               loading={loading}
-              getTdContent={getTdContent}
+              renderTd={renderTd}
               expandLabel={localization.expand}
               rowKeyPath={rowKeyPath}
             />
@@ -101,7 +101,7 @@ SmartTableContent.propTypes = {
     expand: PropTypes.string.isRequired,
     sorting: sortingLocalizationShape,
   }).isRequired,
-  getTdContent: PropTypes.func,
+  renderTd: PropTypes.func,
   paginationNode: PropTypes.func,
   urlGenerator: PropTypes.func,
 };
@@ -117,7 +117,7 @@ SmartTableContent.defaultProps = {
   loading: null,
   paginationNode: null,
   urlGenerator: () => null,
-  getTdContent: (col, data) => (col.useBase ? data[col.baseKey] : data[col.baseKey][col.key]),
+  renderTd: (col, data) => (col.useBase ? data[col.baseKey] : data[col.baseKey][col.key]),
 };
 
 export { SmartTableContent as Component, styles };
