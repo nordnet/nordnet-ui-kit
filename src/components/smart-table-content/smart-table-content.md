@@ -8,14 +8,25 @@ SmartTableComponent:
         headerLabel: 'Name',
         useBase: true,
         sortable: true,
-        type: 'string'
+        type: 'string',
+        firstMobileRow: true,
+        responsiveProps: {
+          flexOrder: 1,
+          flexBasisMobile: 100,
+          className: 'borderless',
+        },
       },{
         key: 'species',
         baseKey: 'description',
         headerLabel: 'Species',
         useBase: false,
         sortable: false,
-        type: 'string'
+        type: 'string',
+        responsiveProps: {
+          flexOrder: 3,
+          flexBasisMobile: 50,
+          className: 'borderless',
+        },
       },{
         key: 'color',
         baseKey: 'description',
@@ -23,13 +34,41 @@ SmartTableComponent:
         useBase: false,
         sortable: false,
         type: 'fancyString',
-      }]
+        responsiveProps: {
+          flexOrder: 2,
+          flexBasisMobile: 50,
+          className: 'borderless',
+        }
+      },{
+        key: 'height',
+        baseKey: 'description',
+        headerLabel: 'Height',
+        useBase: false,
+        sortable: false,
+        type: 'string',
+        responsiveProps: {
+          flexOrder: 5,
+          flexBasisMobile: 50,
+          className: 'borderless',
+        },
+      },{
+        padding: true,
+        responsiveProps: {
+          hiddenOnDesktop: true,
+          flexOrder: 4,
+          flexBasisMobile: 50,
+          key: 'tradeButtonPadding',
+        },
+      },
+      ]
+
       const rowData = [[{
         id: 1,
         name: 'Bob',
         description: {
           species: 'cat',
           color: 'blue',
+          height: 20
         }
       },{
         id: 2,
@@ -37,6 +76,7 @@ SmartTableComponent:
         description: {
           species: 'dog',
           color: 'brown',
+          height: 25
         }
       },{
         id: 3,
@@ -44,6 +84,7 @@ SmartTableComponent:
         description: {
           species: 'cat',
           color: 'green',
+          height: 10
         }
       }],[{
         id: 4,
@@ -51,6 +92,7 @@ SmartTableComponent:
         description: {
           species: 'giraffe',
           color: 'black',
+          height: 22
         }
       },{
         id: 5,
@@ -58,6 +100,7 @@ SmartTableComponent:
         description: {
           species: 'horse',
           color: 'pink',
+          height: 13
         }
       }]]
       const nrResults = 5;
@@ -77,12 +120,13 @@ SmartTableComponent:
          };
 
 
-        const getTdContent = (col, row) => {
+        const renderTd = (col, row) => {
           switch(col.type) {
-            case 'string':
-              return <span>{col.useBase ? row[col.baseKey] : row[col.baseKey][col.key]}</span>
             case 'fancyString':
               return <span style={{color: row[col.baseKey][col.key]}}>{col.useBase ? row[col.baseKey] : row[col.baseKey][col.key]}</span>
+            case 'string':
+            defualt:
+              return <span>{col.useBase ? row[col.baseKey] : row[col.baseKey][col.key]}</span>
           }
         }
       class SmartTableExample extends React.PureComponent {
@@ -109,7 +153,7 @@ SmartTableComponent:
                 localization={localization}
                 // urlGenerator={this.generateUrl}
                 rowKeyPath="id"
-                getTdContent={getTdContent}
+                renderTd={renderTd}
             />
           );
         }
