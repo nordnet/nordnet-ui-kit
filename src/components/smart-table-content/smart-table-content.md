@@ -120,13 +120,13 @@ SmartTableComponent:
          };
 
 
-        const renderTd = (col, row) => {
+        const renderTd = ({col, rowData}) => {
           switch(col.type) {
             case 'fancyString':
-              return <span style={{color: row[col.baseKey][col.key]}}>{col.useBase ? row[col.baseKey] : row[col.baseKey][col.key]}</span>
+              return <span style={{color: rowData[col.baseKey][col.key]}}>{col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key]}</span>
             case 'string':
             defualt:
-              return <span>{col.useBase ? row[col.baseKey] : row[col.baseKey][col.key]}</span>
+              return <span>{col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key]}</span>
           }
         }
       class SmartTableExample extends React.PureComponent {

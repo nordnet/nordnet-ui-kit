@@ -117,7 +117,7 @@ SmartTableContent.defaultProps = {
   loading: null,
   paginationNode: null,
   urlGenerator: () => null,
-  renderTd: (col, data) => (col.useBase ? data[col.baseKey] : data[col.baseKey][col.key]),
+  renderTd: ({ col, rowData }) => (col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key]),
 };
 
 export { SmartTableContent as Component, styles };
