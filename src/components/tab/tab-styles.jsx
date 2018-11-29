@@ -82,10 +82,12 @@ export default ({ palette, typography, mixins }) => ({
 
     '&:first-child': {
       paddingLeft: 0,
+      marginLeft: 'auto',
     },
 
     '&:last-child': {
       paddingRight: 0,
+      marginRight: 'auto',
     },
 
     '& $tab': {
