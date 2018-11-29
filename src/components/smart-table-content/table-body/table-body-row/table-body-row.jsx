@@ -66,7 +66,7 @@ class TableBodyRow extends Component {
             onClick={col.firstMobileRow && this.toggleExpandedRow}
             {...convertBasis(col.responsiveProps, spacers)}
           >
-            {renderTd(col, rowData)}
+            {renderTd({ col, rowData })}
           </Td>
         ))}
         <Td
