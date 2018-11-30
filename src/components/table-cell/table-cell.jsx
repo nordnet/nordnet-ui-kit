@@ -64,7 +64,7 @@ function TableCell({
   return (
     <Tag {...rest} className={usedClassName} style={style}>
       <div className={classNames({ [classes.child]: !unstyledChild }, { [classes.ellipsis]: ellipsis })} data-title={title}>
-        {children}
+        {children || '\u00a0'}
       </div>
     </Tag>
   );
