@@ -8,7 +8,5 @@ export default ({ palette }) => ({
 
   tertiary: {
     borderBottom: `2px solid ${palette.color.grayLighter}`,
-    flex: '0 0 auto',
-    justifyContent: 'center',
   },
 });
