@@ -1,4 +1,4 @@
-SmartTableComponent:
+TableContentWrapper:
 
       const React = require('react');
       const pageSize = 3;
@@ -129,7 +129,7 @@ SmartTableComponent:
               return <span>{col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key]}</span>
           }
         }
-      class SmartTableExample extends React.PureComponent {
+      class TableContentWrapperExample extends React.PureComponent {
         constructor(props){
           super(props)
           this.state = { page: 1, sortField: '', sortOrder: '' };
@@ -138,7 +138,7 @@ SmartTableComponent:
         render() {
           const {page, sortField, sortOrder} = this.state
           return (
-             <SmartTableContent
+             <TableContentWrapper
                 columns={columns}
                 pageSize={pageSize}
                 nrResults={nrResults}
@@ -159,4 +159,4 @@ SmartTableComponent:
         }
       }
 
-      <SmartTableExample />
+      <TableContentWrapperExample />
