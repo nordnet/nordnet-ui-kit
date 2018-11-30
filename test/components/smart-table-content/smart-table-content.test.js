@@ -2,9 +2,9 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
-import { Component as SmartTableContent, styles } from '../../../src/components/smart-table-content/smart-table-content';
-import TableHead from '../../../src/components/smart-table-content/table-head/table-head';
-import TableBody from '../../../src/components/smart-table-content/table-body/table-body';
+import { Component as TableContentWrapper, styles } from '../../../src/components/table-content-wrapper/table-content-wrapper';
+import TableHead from '../../../src/components/table-content-wrapper/table-head/table-head';
+import TableBody from '../../../src/components/table-content-wrapper/table-body/table-body';
 import Table from '../../../src/components/table';
 import Pagination from '../../../src/components/pagination';
 
@@ -30,8 +30,8 @@ const defaultProps = {
   rowKeyPath: 'id',
 };
 
-const shallowComponent = customProps => shallow(<SmartTableContent {...defaultProps} {...customProps} />);
-describe('<SmartTableContent />', () => {
+const shallowComponent = customProps => shallow(<TableContentWrapper {...defaultProps} {...customProps} />);
+describe('<TableContentWrapper />', () => {
   it('has a Table', () => {
     const component = shallowComponent();
     const actual = component.find(Table).length;

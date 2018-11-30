@@ -4,10 +4,10 @@ import injectSheet from 'react-jss';
 import { Table, Pagination, Button } from '../../';
 import TableHead from './table-head/table-head';
 import TableBody from './table-body/table-body';
-import styles from './smart-table-content.styles';
+import styles from './table-content-wrapper.styles';
 import { colShape, sortingLocalizationShape } from './shapes';
 
-class SmartTableContent extends Component {
+class TableContentWrapper extends Component {
   generateNode = (url, children, rest) => {
     const { paginationNode } = this.props;
     return (
@@ -80,7 +80,7 @@ class SmartTableContent extends Component {
   }
 }
 
-SmartTableContent.propTypes = {
+TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
   columns: PropTypes.arrayOf(colShape),
   pageSize: PropTypes.number,
@@ -106,7 +106,7 @@ SmartTableContent.propTypes = {
   urlGenerator: PropTypes.func,
 };
 
-SmartTableContent.defaultProps = {
+TableContentWrapper.defaultProps = {
   columns: [],
   rowData: [],
   pageSize: 10,
@@ -120,5 +120,5 @@ SmartTableContent.defaultProps = {
   renderTd: ({ col, rowData }) => (col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key]),
 };
 
-export { SmartTableContent as Component, styles };
-export default injectSheet(styles)(SmartTableContent);
+export { TableContentWrapper as Component, styles };
+export default injectSheet(styles)(TableContentWrapper);

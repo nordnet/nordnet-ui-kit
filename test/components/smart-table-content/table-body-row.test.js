@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { convertOrder } from '../../../src/components/smart-table-content/table-body/table-body-row/table-body-row';
+import { convertOrder } from '../../../src/components/table-content-wrapper/table-body/table-body-row/table-body-row';
 
 describe('convertOrder', () => {
   it('convertOrder does the right things', () => {

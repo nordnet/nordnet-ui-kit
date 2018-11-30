@@ -12,7 +12,7 @@ import {
   styles,
   TableHeadContent,
   TableHeadIcon,
-} from '../../../src/components/smart-table-content/table-head/table-head';
+} from '../../../src/components/table-content-wrapper/table-head/table-head';
 
 const classes = mockClasses(styles);
 
