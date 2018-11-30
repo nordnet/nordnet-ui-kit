@@ -13,7 +13,6 @@ TableContentWrapper:
         responsiveProps: {
           flexOrder: 1,
           flexBasisMobile: 100,
-          className: 'borderless',
         },
       },{
         key: 'species',
@@ -25,7 +24,6 @@ TableContentWrapper:
         responsiveProps: {
           flexOrder: 3,
           flexBasisMobile: 50,
-          className: 'borderless',
         },
       },{
         key: 'color',
@@ -37,7 +35,6 @@ TableContentWrapper:
         responsiveProps: {
           flexOrder: 2,
           flexBasisMobile: 50,
-          className: 'borderless',
         }
       },{
         key: 'height',
@@ -49,7 +46,6 @@ TableContentWrapper:
         responsiveProps: {
           flexOrder: 5,
           flexBasisMobile: 50,
-          className: 'borderless',
         },
       },{
         padding: true,
