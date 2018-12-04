@@ -34,6 +34,7 @@ class TableContentWrapper extends Component {
       localization,
       renderTd,
       urlGenerator,
+      disablePagination,
     } = this.props;
 
     if (typeof loading === 'undefined') {
@@ -61,18 +62,20 @@ class TableContentWrapper extends Component {
               rowKeyPath={rowKeyPath}
             />
           </Table>
-          <Pagination
-            total={nrResults}
-            limit={pageSize}
-            selected={page}
-            anchors={1}
-            selectedSiblings={2}
-            changeHandler={pageChangeHandler}
-            buttonTextPrevious={localization.prevButton}
-            buttonTextNext={localization.nextButton}
-            getNode={this.generateNode}
-            urlGenerator={urlGenerator}
-          />
+          {!disablePagination && (
+            <Pagination
+              total={nrResults}
+              limit={pageSize}
+              selected={page}
+              anchors={1}
+              selectedSiblings={2}
+              changeHandler={pageChangeHandler}
+              buttonTextPrevious={localization.prevButton}
+              buttonTextNext={localization.nextButton}
+              getNode={this.generateNode}
+              urlGenerator={urlGenerator}
+            />
+          )}
         </div>
       );
     }
@@ -104,6 +107,7 @@ TableContentWrapper.propTypes = {
   renderTd: PropTypes.func,
   paginationNode: PropTypes.func,
   urlGenerator: PropTypes.func,
+  disablePagination: PropTypes.bool,
 };
 
 TableContentWrapper.defaultProps = {
@@ -118,6 +122,7 @@ TableContentWrapper.defaultProps = {
   paginationNode: null,
   urlGenerator: () => null,
   renderTd: ({ col, rowData }) => (col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key]),
+  disablePagination: false,
 };
 
 export { TableContentWrapper as Component, styles };
