@@ -64,6 +64,7 @@ class TableBodyRow extends Component {
             title={col.headerLabel}
             collapsed={!col.firstMobileRow && collapsed}
             onClick={col.firstMobileRow && this.toggleExpandedRow}
+            {...col.tdProps}
             {...convertBasis(col.responsiveProps, spacers)}
           >
             {renderTd({ col, rowData })}

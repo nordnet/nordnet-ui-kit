@@ -11,6 +11,7 @@ export const colShape = PropTypes.shape({
   align: PropTypes.string,
   type: PropTypes.string,
   padding: PropTypes.bool,
+  tdProps: PropTypes.shape({}),
   responsiveProps: PropTypes.shape({
     flexOrder: PropTypes.number,
     flexBasisMobile: PropTypes.number,
