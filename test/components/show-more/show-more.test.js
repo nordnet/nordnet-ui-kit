@@ -65,6 +65,21 @@ describe('<ShowMore />', () => {
     expect(removeEventListenerSpy.args[0][0]).to.equal('resize');
   });
 
+  it('should set showMoreClicked to true when show more button is clicked', () => {
+    const wrapper = getWrapper();
+    wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
+    wrapper.instance().handleShowMore();
+    expect(wrapper.state('showMoreClicked')).to.equal(true);
+  });
+
+  it('should call user supplied onShowMore when show more button is clicked', () => {
+    const onShowMore = sinon.spy();
+    const wrapper = getWrapper({ onShowMore });
+    wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
+    wrapper.instance().handleShowMore();
+    expect(onShowMore.calledOnce).to.equal(true);
+  });
+
   it('should render correct content in show more button', () => {
     const wrapper = getWrapper({ showMoreButtonContent: 'content' });
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
