@@ -24,7 +24,7 @@ const Flag = props => {
   if (secondaryCountryCode) {
     return (
       <CurrencyFlag
-        className
+        className={className}
         style={extendedStyle}
         size={size}
         primaryCC={countryCode.toLowerCase()}
@@ -33,7 +33,7 @@ const Flag = props => {
     );
   }
 
-  return <SvgFlag className round={round} size={size} countryCode={countryCode.toLowerCase()} style={extendedStyle} {...rest} />;
+  return <SvgFlag className={className} round={round} size={size} countryCode={countryCode.toLowerCase()} style={extendedStyle} {...rest} />;
 };
 
 Flag.defaultProps = {
