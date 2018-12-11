@@ -58,6 +58,22 @@ describe('<ShowMore />', () => {
     expect(addEventListenerSpy.args[0][0]).to.equal('resize');
   });
 
+  it('should not check if overflow when updated with same children', () => {
+    const wrapper = getWrapper();
+    wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
+    const checkIfOverflowingSpy = sinon.spy(wrapper.instance(), 'checkIfOverflowing');
+    wrapper.instance().componentDidUpdate({ children: 'Children' });
+    expect(checkIfOverflowingSpy.notCalled).to.equal(true);
+  });
+
+  it('should check if overflow when updated with new children', () => {
+    const wrapper = getWrapper();
+    wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
+    const checkIfOverflowingSpy = sinon.spy(wrapper.instance(), 'checkIfOverflowing');
+    wrapper.instance().componentDidUpdate({ children: 'new child' });
+    expect(checkIfOverflowingSpy.calledOnce).to.equal(true);
+  });
+
   it('should deregister resize event listener on unmount', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
