@@ -24,7 +24,7 @@ NativeInput.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
   placeholder: PropTypes.string,
   label: PropTypes.string,
   onFocus: PropTypes.func.isRequired,
