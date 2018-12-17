@@ -41,4 +41,18 @@ describe('<SegmentedControl />', () => {
     const expected = true;
     expect(spy.calledOnce).to.equal(expected);
   });
+
+  it('should set focus to child index when element get focus', () => {
+    const wrapper = renderComponent({ children: [<span value={1}>1</span>, <span value={2}>2</span>] });
+    const actual = wrapper.find('input[type="radio"][value=1]');
+    actual.simulate('focus', { type: 'focus' });
+    expect(wrapper.state('focus')).to.equal(0);
+  });
+
+  it('should set focus to empty value when element get focus but event is not focus', () => {
+    const wrapper = renderComponent({ children: [<span value={1}>1</span>, <span value={2}>2</span>] });
+    const actual = wrapper.find('input[type="radio"][value=1]');
+    actual.simulate('focus', { type: 'not focus' });
+    expect(wrapper.state('focus')).to.equal('');
+  });
 });
