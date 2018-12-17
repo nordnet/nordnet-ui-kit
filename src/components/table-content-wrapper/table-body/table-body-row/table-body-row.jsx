@@ -46,13 +46,12 @@ class TableBodyRow extends Component {
   };
 
   render() {
-    const { classes, rowData, columns, renderTd, expandLabel } = this.props;
+    const { classes, rowData, columns, renderTd, expandLabel, trProps } = this.props;
     const { collapsed } = this.state;
     const mobileSortedColumns = columns.filter(col => col.responsiveProps.flexOrder > 0).sort(compareResponsiveOrder);
     const spacers = findSpacers(mobileSortedColumns);
-
     return (
-      <Tr className={cn({ [classes.expanded]: !collapsed }, classes.row)}>
+      <Tr className={cn({ [classes.expanded]: !collapsed }, classes.row)} {...trProps}>
         {columns.map(col => (
           <Td
             className={cn({
@@ -109,6 +108,7 @@ TableBodyRow.propTypes = {
   renderTd: PropTypes.func.isRequired,
   expandLabel: PropTypes.string.isRequired,
   rowData: PropTypes.shape().isRequired,
+  trProps: PropTypes.shape(),
 };
 
 export default injectSheet(styles)(TableBodyRow);
