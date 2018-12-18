@@ -83,7 +83,7 @@ class TableHead extends Component {
     const { classes, columns, sortHandler, localization, sortField, sortOrder } = this.props;
 
     return (
-      <Thead className={classes.root}>
+      <Thead className={classes.root} sticky stickyBorder>
         <Tr>
           {columns.map(col => {
             if (col.responsiveProps && col.responsiveProps.hiddenOnDesktop) {

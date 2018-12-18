@@ -35,6 +35,7 @@ class TableContentWrapper extends Component {
       renderTd,
       urlGenerator,
       disablePagination,
+      trProps,
     } = this.props;
 
     if (typeof loading === 'undefined') {
@@ -60,6 +61,7 @@ class TableContentWrapper extends Component {
               renderTd={renderTd}
               expandLabel={localization.expand}
               rowKeyPath={rowKeyPath}
+              trProps={trProps}
             />
           </Table>
           {!disablePagination && (
@@ -108,6 +110,7 @@ TableContentWrapper.propTypes = {
   paginationNode: PropTypes.func,
   urlGenerator: PropTypes.func,
   disablePagination: PropTypes.bool,
+  trProps: PropTypes.shape(),
 };
 
 TableContentWrapper.defaultProps = {
