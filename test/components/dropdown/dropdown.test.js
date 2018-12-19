@@ -1,4 +1,5 @@
 import React from 'react';
+import sinon from 'sinon';
 import { expect, assert } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses, theme } from '../../../src';
@@ -34,5 +35,14 @@ describe('<Dropdown />', () => {
 
   it(`should have the ${classes.dropdown} class`, () => {
     expect(wrapper.hasClass(classes.dropdown)).to.equal(true);
+  });
+
+  it('should unsubscribe from click events on unmount', () => {
+    const sandbox = sinon.sandbox.create();
+    const removeEventSpy = sandbox.spy(document, 'removeEventListener');
+    const handleClick = wrapper.instance().handleClick;
+    wrapper.unmount();
+    expect(removeEventSpy.calledWith('click', handleClick)).to.equal(true);
+    sandbox.restore();
   });
 });
