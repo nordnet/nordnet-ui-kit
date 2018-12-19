@@ -120,7 +120,7 @@ class TableHead extends Component {
                 scope="col"
                 role="columnheader"
                 unstyledChild
-                valign="bottom"
+                className={classes.th}
                 {...col.thProps}
               >
                 <span className={cn({ [classes.screenReadersOnly]: col.hideHeaderLabel })}>
