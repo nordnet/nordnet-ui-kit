@@ -5,7 +5,7 @@ import { Tbody } from '../../../';
 import TableBodyRow from './table-body-row/table-body-row';
 import { colShape } from '../shapes';
 
-const TableBody = ({ rowData, columns, renderTd, expandLabel, rowKeyPath, trProps }) => (
+const TableBody = ({ rowData, columns, renderTd, expandLabel, rowKeyPath, trProps, borderlessRows }) => (
   <Tbody colorAlternateRows={false}>
     {rowData.map(row => (
       <TableBodyRow
@@ -15,6 +15,7 @@ const TableBody = ({ rowData, columns, renderTd, expandLabel, rowKeyPath, trProp
         renderTd={renderTd}
         expandLabel={expandLabel}
         trProps={trProps}
+        borderlessRows={borderlessRows}
       />
     ))}
   </Tbody>
@@ -27,6 +28,7 @@ TableBody.propTypes = {
   renderTd: PropTypes.func.isRequired,
   expandLabel: PropTypes.string.isRequired,
   trProps: PropTypes.shape(),
+  borderlessRows: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default TableBody;
