@@ -4,6 +4,9 @@ export default ({ typography, palette, mixins }) => ({
       display: 'none',
     },
   },
+  th: {
+    verticalAlign: 'bottom',
+  },
   button: {
     position: 'relative',
     fontFamily: typography.primary.fontFamily,
