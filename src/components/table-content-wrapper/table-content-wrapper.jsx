@@ -49,7 +49,13 @@ class TableContentWrapper extends Component {
       return (
         <div className={classes.root}>
           <Table tableLayoutFixed>
-            <caption className={cn(classes.caption, 'smart-table__caption', { [classes.screenReadersOnly]: captionHidden })}>
+            <caption
+              className={cn({
+                [classes.screenReadersOnly]: captionHidden,
+                [classes.caption]: !captionHidden,
+                'smart-table__caption': !captionHidden,
+              })}
+            >
               {localization.caption}
             </caption>
             <TableHead
