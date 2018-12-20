@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import cn from 'classnames';
 import { Table, Pagination, Button } from '../../';
 import TableHead from './table-head/table-head';
 import TableBody from './table-body/table-body';
@@ -20,6 +21,7 @@ class TableContentWrapper extends Component {
   render() {
     const {
       classes,
+      captionHidden,
       pageSize,
       page,
       sortField,
@@ -47,7 +49,15 @@ class TableContentWrapper extends Component {
       return (
         <div className={classes.root}>
           <Table tableLayoutFixed>
-            <caption className={classes.screenReadersOnly}>{localization.caption}</caption>
+            <caption
+              className={cn({
+                [classes.screenReadersOnly]: captionHidden,
+                [classes.caption]: !captionHidden,
+                'smart-table__caption': !captionHidden,
+              })}
+            >
+              {localization.caption}
+            </caption>
             <TableHead
               columns={columns}
               sortField={sortField}
@@ -89,6 +99,7 @@ class TableContentWrapper extends Component {
 
 TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
+  captionHidden: PropTypes.bool,
   columns: PropTypes.arrayOf(colShape),
   pageSize: PropTypes.number,
   nrResults: PropTypes.number,
@@ -118,6 +129,7 @@ TableContentWrapper.propTypes = {
 
 TableContentWrapper.defaultProps = {
   columns: [],
+  captionHidden: true,
   rowData: [],
   borderlessRows: [],
   pageSize: 10,
