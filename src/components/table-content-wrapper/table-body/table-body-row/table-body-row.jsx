@@ -92,12 +92,12 @@ class TableBodyRow extends Component {
             )}
           </button>
         </Td>
-        {spacers.map((spacerIdx, index) => (
+        {spacers.map((spacerIndex, index) => (
           <Td
-            key={`td-spacer-${spacerIdx}`}
+            key={`td-spacer-${spacerIndex}`}
             borderBottom={!borderlessRows.includes(index + 2)} // 2 because not 0 indexed and skipping first chevron td
             hiddenOnDesktop
-            flexOrder={spacerIdx}
+            flexOrder={spacerIndex}
             flexBasisMobile={10}
             collapsed={collapsed}
           />
