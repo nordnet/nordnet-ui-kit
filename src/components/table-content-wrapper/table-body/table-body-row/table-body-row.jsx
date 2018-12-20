@@ -15,7 +15,7 @@ export const convertOrder = (origin, spacers) => {
 
 const convertBasis = (responsiveProps, spacers) => ({
   ...responsiveProps,
-  flexBasisMobile: (responsiveProps.flexBasisMobile / 100) * 90,
+  flexBasisMobile: responsiveProps.flexBasisMobile / 100 * 90,
   flexOrder: convertOrder(responsiveProps.flexOrder, spacers),
 });
 
@@ -25,10 +25,10 @@ const findSpacers = sortedColumns => {
   let curRowWidth = 0;
   const spacers = [];
   let rowNr = 1;
-  const colsWithRows = [];
+  const colsWithRows = {};
   for (let i = 0; i < sortedColumns.length; i += 1) {
     curRowWidth += sortedColumns[i].responsiveProps.flexBasisMobile;
-    colsWithRows.push({ ...sortedColumns[i], rowNr });
+    colsWithRows[sortedColumns[i].key] = rowNr;
 
     if (curRowWidth >= 100) {
       spacers.push(i + 2 + spacers.length);
@@ -57,14 +57,14 @@ class TableBodyRow extends Component {
     const { spacers, colsWithRows } = findSpacers(mobileSortedColumns);
     return (
       <Tr className={cn({ [classes.expanded]: !collapsed }, classes.row)} {...trProps}>
-        {colsWithRows.map(col => (
+        {columns.map(col => (
           <Td
             className={cn({
               [classes.firstMobileRow]: col.firstMobileRow,
             })}
             key={col.key || col.baseKey || col.padding}
             align={col.align}
-            borderBottom={collapsed || !borderlessRows.includes(col.rowNr)}
+            borderBottom={collapsed || !borderlessRows.includes(colsWithRows[col.key])}
             title={col.headerLabel}
             collapsed={!col.firstMobileRow && collapsed}
             onClick={col.firstMobileRow && this.toggleExpandedRow}
