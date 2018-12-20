@@ -150,6 +150,7 @@ TableContentWrapper:
                 // urlGenerator={this.generateUrl}
                 rowKeyPath="id"
                 renderTd={renderTd}
+                borderlessRows={[3]}
             />
           );
         }

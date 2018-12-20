@@ -51,7 +51,7 @@ class TableBodyRow extends Component {
   };
 
   render() {
-    const { classes, rowData, columns, renderTd, expandLabel, trProps, borderLessRows } = this.props;
+    const { classes, rowData, columns, renderTd, expandLabel, trProps, borderlessRows } = this.props;
     const { collapsed } = this.state;
     const mobileSortedColumns = columns.filter(col => col.responsiveProps.flexOrder > 0).sort(compareResponsiveOrder);
     const { spacers, colsWithRows } = findSpacers(mobileSortedColumns);
@@ -64,7 +64,7 @@ class TableBodyRow extends Component {
             })}
             key={col.key || col.baseKey || col.padding}
             align={col.align}
-            borderBottom={collapsed || borderLessRows.indexOf(col.rowNr) === -1}
+            borderBottom={collapsed || !borderlessRows.includes(col.rowNr)}
             title={col.headerLabel}
             collapsed={!col.firstMobileRow && collapsed}
             onClick={col.firstMobileRow && this.toggleExpandedRow}
@@ -80,7 +80,7 @@ class TableBodyRow extends Component {
           flexOrder={spacers.shift()}
           flexBasisMobile={10}
           ellipsis={false}
-          borderBottom={collapsed || borderLessRows.indexOf(1)}
+          borderBottom={collapsed || !borderlessRows.includes(1)}
           hiddenOnDesktop
         >
           <button className={classes.expander} onClick={this.toggleExpandedRow} aria-expanded={!collapsed} type="button">
@@ -95,7 +95,7 @@ class TableBodyRow extends Component {
         {spacers.map((spacerIdx, index) => (
           <Td
             key={`td-spacer-${spacerIdx}`}
-            borderBottom={borderLessRows.indexOf(index + 2) === -1} // 2 because not 0 indexed and skipping first chevron td
+            borderBottom={!borderlessRows.includes(index + 2)} // 2 because not 0 indexed and skipping first chevron td
             hiddenOnDesktop
             flexOrder={spacerIdx}
             flexBasisMobile={10}
@@ -114,7 +114,7 @@ TableBodyRow.propTypes = {
   expandLabel: PropTypes.string.isRequired,
   rowData: PropTypes.shape().isRequired,
   trProps: PropTypes.shape(),
-  borderLessRows: PropTypes.arrayOf(PropTypes.number).isRequired,
+  borderlessRows: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default injectSheet(styles)(TableBodyRow);
