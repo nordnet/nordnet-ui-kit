@@ -138,6 +138,7 @@ TableContentWrapper.propTypes = {
 
 TableContentWrapper.defaultProps = {
   columns: [],
+  captionHidden: true,
   captionVisible: false,
   rowData: [],
   borderlessRows: [],
