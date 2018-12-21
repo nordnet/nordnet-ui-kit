@@ -50,10 +50,11 @@ class TableContentWrapper extends Component {
         <div className={classes.root}>
           <Table tableLayoutFixed>
             <caption
-              className={cn({
+              className={cn(classes.caption, {
                 [classes.screenReadersOnly]: captionHidden,
-                [classes.caption]: !captionHidden,
-                'smart-table__caption': !captionHidden,
+                'smart-table__caption': !captionHidden || (!captionHidden.mobile && !captionHidden.desktop),
+                [classes.captionMobileHidden]: captionHidden.mobile && !captionHidden.desktop,
+                [classes.captionDesktopHidden]: !captionHidden.mobile && captionHidden.desktop,
               })}
             >
               {localization.caption}
@@ -99,7 +100,13 @@ class TableContentWrapper extends Component {
 
 TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
-  captionHidden: PropTypes.bool,
+  captionHidden: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      mobile: PropTypes.bool,
+      desktop: PropTypes.bool,
+    }),
+  ]),
   columns: PropTypes.arrayOf(colShape),
   pageSize: PropTypes.number,
   nrResults: PropTypes.number,
