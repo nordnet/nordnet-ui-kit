@@ -101,7 +101,7 @@ class TableContentWrapper extends Component {
 
 TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
-  captionHidden: PropTypes.bool,
+  captionHidden: PropTypes.bool, // TODO: Depricate
   captionVisible: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
