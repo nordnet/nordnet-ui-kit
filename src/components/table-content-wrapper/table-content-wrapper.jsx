@@ -22,7 +22,6 @@ class TableContentWrapper extends Component {
     const {
       classes,
       captionHidden,
-      captionVisible,
       pageSize,
       page,
       sortField,
@@ -52,10 +51,10 @@ class TableContentWrapper extends Component {
           <Table tableLayoutFixed>
             <caption
               className={cn(classes.caption, {
-                [classes.screenReadersOnly]: !captionVisible || captionHidden,
-                'smart-table__caption': captionVisible || !captionHidden || (captionVisible.mobile && captionVisible.desktop),
-                [classes.captionMobileHidden]: !captionVisible.mobile && captionVisible.desktop,
-                [classes.captionDesktopHidden]: captionVisible.mobile && !captionVisible.desktop,
+                [classes.screenReadersOnly]: captionHidden,
+                'smart-table__caption': !captionHidden || (!captionHidden.mobile && !captionHidden.desktop),
+                [classes.captionMobileHidden]: captionHidden.mobile && !captionHidden.desktop,
+                [classes.captionDesktopHidden]: !captionHidden.mobile && captionHidden.desktop,
               })}
             >
               {localization.caption}
@@ -101,8 +100,7 @@ class TableContentWrapper extends Component {
 
 TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
-  captionHidden: PropTypes.bool, // TODO: Depricate
-  captionVisible: PropTypes.oneOfType([
+  captionHidden: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
       mobile: PropTypes.bool,
@@ -139,7 +137,6 @@ TableContentWrapper.propTypes = {
 TableContentWrapper.defaultProps = {
   columns: [],
   captionHidden: true,
-  captionVisible: false,
   rowData: [],
   borderlessRows: [],
   pageSize: 10,
