@@ -21,8 +21,7 @@ class TableContentWrapper extends Component {
   render() {
     const {
       classes,
-      captionVisibleMobile,
-      captionVisibleDesktop,
+      captionVisible,
       pageSize,
       page,
       sortField,
@@ -41,8 +40,6 @@ class TableContentWrapper extends Component {
       trProps,
       borderlessRows,
     } = this.props;
-    const captionHidden = !captionVisibleMobile && !captionVisibleDesktop;
-    const captionVisible = captionVisibleMobile || captionVisibleDesktop;
 
     if (typeof loading === 'undefined') {
       return null;
@@ -53,12 +50,11 @@ class TableContentWrapper extends Component {
         <div className={classes.root}>
           <Table tableLayoutFixed>
             <caption
-              className={cn({
-                [classes.screenReadersOnly]: captionHidden,
-                [classes.caption]: captionVisible,
-                'smart-table__caption': captionVisible,
-                [classes.captionMobileHidden]: !captionVisibleMobile && captionVisibleDesktop,
-                [classes.captionDesktopHidden]: captionVisibleMobile && !captionVisibleDesktop,
+              className={cn(classes.caption, {
+                [classes.screenReadersOnly]: !captionVisible,
+                'smart-table__caption': captionVisible || (captionVisible.mobile && captionVisible.desktop),
+                [classes.captionMobileHidden]: !captionVisible.mobile && captionVisible.desktop,
+                [classes.captionDesktopHidden]: captionVisible.mobile && !captionVisible.desktop,
               })}
             >
               {localization.caption}
@@ -104,8 +100,13 @@ class TableContentWrapper extends Component {
 
 TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
-  captionVisibleMobile: PropTypes.bool,
-  captionVisibleDesktop: PropTypes.bool,
+  captionVisible: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      mobile: PropTypes.bool,
+      desktop: PropTypes.bool,
+    }),
+  ]),
   columns: PropTypes.arrayOf(colShape),
   pageSize: PropTypes.number,
   nrResults: PropTypes.number,
@@ -135,8 +136,7 @@ TableContentWrapper.propTypes = {
 
 TableContentWrapper.defaultProps = {
   columns: [],
-  captionVisibleMobile: false,
-  captionVisibleDesktop: false,
+  captionVisible: false,
   rowData: [],
   borderlessRows: [],
   pageSize: 10,

@@ -8,14 +8,10 @@ export default ({ mixins, palette, typography }) => ({
   },
   screenReadersOnly: mixins.screenReadersOnly,
   captionMobileHidden: {
-    [mixins.maxMedia('md')]: {
-      ...mixins.screenReadersOnly,
-    },
+    [mixins.maxMedia('md')]: mixins.screenReadersOnly,
   },
   captionDesktopHidden: {
-    [mixins.media('md')]: {
-      ...mixins.screenReadersOnly,
-    },
+    [mixins.media('md')]: mixins.screenReadersOnly,
   },
   feedback: {
     fontStyle: 'italic',
