@@ -21,6 +21,7 @@ class TableContentWrapper extends Component {
   render() {
     const {
       classes,
+      captionHidden,
       captionVisible,
       pageSize,
       page,
@@ -51,8 +52,8 @@ class TableContentWrapper extends Component {
           <Table tableLayoutFixed>
             <caption
               className={cn(classes.caption, {
-                [classes.screenReadersOnly]: !captionVisible,
-                'smart-table__caption': captionVisible || (captionVisible.mobile && captionVisible.desktop),
+                [classes.screenReadersOnly]: !captionVisible || captionHidden,
+                'smart-table__caption': captionVisible || !captionHidden || (captionVisible.mobile && captionVisible.desktop),
                 [classes.captionMobileHidden]: !captionVisible.mobile && captionVisible.desktop,
                 [classes.captionDesktopHidden]: captionVisible.mobile && !captionVisible.desktop,
               })}
@@ -100,6 +101,7 @@ class TableContentWrapper extends Component {
 
 TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
+  captionHidden: PropTypes.bool,
   captionVisible: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
