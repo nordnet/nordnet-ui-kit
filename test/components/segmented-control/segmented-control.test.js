@@ -33,13 +33,28 @@ describe('<SegmentedControl />', () => {
     expect(actual).to.have.length(expected);
   });
 
-  it('should call user supplied onChange when an input is changed to checked', () => {
+  it('should call user supplied onChange when an input with type radio is changed to checked', () => {
     const spy = sinon.spy();
     const wrapper = renderComponent({ onChange: spy, children: [<span value={1}>1</span>, <span value={2}>2</span>] });
     const actual = wrapper.find('input[type="radio"][value=2]');
     actual.simulate('change', { target: { checked: true }, currentTarget: { checked: true } });
     const expected = true;
     expect(spy.calledOnce).to.equal(expected);
+  });
+
+  it('should call user supplied onChange when an input with type checkbox is changed to checked', () => {
+    const spy = sinon.spy();
+    const wrapper = renderComponent({ onChange: spy, type: 'checkbox', children: [<span value={1}>1</span>, <span value={2}>2</span>] });
+    const actual = wrapper.find('input[type="checkbox"][value=2]');
+    actual.simulate('change', { target: { checked: true }, currentTarget: { checked: true } });
+    expect(spy.calledOnce).to.equal(true);
+  });
+
+  it('should set state to true when an input with type checkbox is changed to checked', () => {
+    const wrapper = renderComponent({ type: 'checkbox', children: [<span value={1}>1</span>, <span value={2}>2</span>] });
+    const actual = wrapper.find('input[type="checkbox"][value=2]');
+    actual.simulate('change', { target: { checked: true }, currentTarget: { value: 2 } });
+    expect(wrapper.state()[2]).to.equal(true);
   });
 
   it('should set focus to child index when element get focus', () => {
