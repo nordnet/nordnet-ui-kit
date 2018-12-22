@@ -1,4 +1,5 @@
 import React from 'react';
+import sinon from 'sinon';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
@@ -78,5 +79,16 @@ describe('<EditableInput />', () => {
     submitButton.simulate('click', { preventDefault: () => {} });
 
     expect(wrapper.state().value).to.equal('foo bar');
+  });
+
+  it('should call user supplied onCancel when pressing cancel button', () => {
+    const spy = sinon.spy();
+    wrapper = shallow(<EditableInput classes={classes} onCancel={spy} />);
+    wrapper.setState({ editing: true });
+
+    const cancelButton = wrapper.find(Button).last();
+    cancelButton.simulate('click');
+
+    expect(spy.calledOnce).to.equal(true);
   });
 });
