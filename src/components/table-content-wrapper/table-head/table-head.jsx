@@ -32,7 +32,14 @@ TableHeadIcon.propTypes = {
   isSortedOn: PropTypes.bool.isRequired,
 };
 
-const TableHeadContent = ({ colSpec: { headerLabel, align, sortable }, classes, sortHandler, sortField, sortOrder, isSortedOn }) => {
+const TableHeadContent = ({
+  colSpec: { headerLabel, align = 'left', sortable },
+  classes,
+  sortHandler,
+  sortField,
+  sortOrder,
+  isSortedOn,
+}) => {
   const iconBefore = sortable && align === 'right';
   const iconAfter = sortable && align === 'left';
 
@@ -50,7 +57,7 @@ const TableHeadContent = ({ colSpec: { headerLabel, align, sortable }, classes, 
     >
       {iconBefore && <TableHeadIcon classes={classes} sortOrder={sortOrder} isSortedOn={isSortedOn} />}
       {headerLabel}
-      {(!align || iconAfter) && <TableHeadIcon classes={classes} sortOrder={sortOrder} isSortedOn={isSortedOn} />}
+      {iconAfter && <TableHeadIcon classes={classes} sortOrder={sortOrder} isSortedOn={isSortedOn} />}
     </span>
   );
 };
@@ -83,7 +90,7 @@ class TableHead extends Component {
     const { classes, columns, sortHandler, localization, sortField, sortOrder } = this.props;
 
     return (
-      <Thead className={classes.root}>
+      <Thead className={classes.root} sticky stickyBorder>
         <Tr>
           {columns.map(col => {
             if (col.responsiveProps && col.responsiveProps.hiddenOnDesktop) {
@@ -113,6 +120,8 @@ class TableHead extends Component {
                 scope="col"
                 role="columnheader"
                 unstyledChild
+                className={classes.th}
+                {...col.thProps}
               >
                 <span className={cn({ [classes.screenReadersOnly]: col.hideHeaderLabel })}>
                   {!col.sortable ? (

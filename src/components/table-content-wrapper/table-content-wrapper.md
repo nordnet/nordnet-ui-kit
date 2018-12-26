@@ -4,6 +4,7 @@ TableContentWrapper:
       const pageSize = 3;
 
       const columns = [{
+        key: 'name',
         baseKey: 'name',
         headerLabel: 'Name',
         useBase: true,
@@ -48,6 +49,7 @@ TableContentWrapper:
           flexBasisMobile: 50,
         },
       },{
+        key: 'bottomRowPadding',
         padding: true,
         responsiveProps: {
           hiddenOnDesktop: true,
@@ -150,6 +152,7 @@ TableContentWrapper:
                 // urlGenerator={this.generateUrl}
                 rowKeyPath="id"
                 renderTd={renderTd}
+                borderlessRows={[2]}
             />
           );
         }

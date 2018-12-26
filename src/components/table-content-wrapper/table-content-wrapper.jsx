@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import cn from 'classnames';
 import { Table, Pagination, Button } from '../../';
 import TableHead from './table-head/table-head';
 import TableBody from './table-body/table-body';
@@ -20,6 +21,7 @@ class TableContentWrapper extends Component {
   render() {
     const {
       classes,
+      captionHidden,
       pageSize,
       page,
       sortField,
@@ -35,6 +37,8 @@ class TableContentWrapper extends Component {
       renderTd,
       urlGenerator,
       disablePagination,
+      trProps,
+      borderlessRows,
     } = this.props;
 
     if (typeof loading === 'undefined') {
@@ -45,7 +49,16 @@ class TableContentWrapper extends Component {
       return (
         <div className={classes.root}>
           <Table tableLayoutFixed>
-            <caption className={classes.screenReadersOnly}>{localization.caption}</caption>
+            <caption
+              className={cn(classes.caption, {
+                [classes.screenReadersOnly]: captionHidden,
+                'smart-table__caption': !captionHidden || (!captionHidden.mobile && !captionHidden.desktop),
+                [classes.captionMobileHidden]: captionHidden.mobile && !captionHidden.desktop,
+                [classes.captionDesktopHidden]: !captionHidden.mobile && captionHidden.desktop,
+              })}
+            >
+              {localization.caption}
+            </caption>
             <TableHead
               columns={columns}
               sortField={sortField}
@@ -60,6 +73,8 @@ class TableContentWrapper extends Component {
               renderTd={renderTd}
               expandLabel={localization.expand}
               rowKeyPath={rowKeyPath}
+              trProps={trProps}
+              borderlessRows={borderlessRows}
             />
           </Table>
           {!disablePagination && (
@@ -85,6 +100,13 @@ class TableContentWrapper extends Component {
 
 TableContentWrapper.propTypes = {
   classes: PropTypes.shape().isRequired,
+  captionHidden: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      mobile: PropTypes.bool,
+      desktop: PropTypes.bool,
+    }),
+  ]),
   columns: PropTypes.arrayOf(colShape),
   pageSize: PropTypes.number,
   nrResults: PropTypes.number,
@@ -108,11 +130,15 @@ TableContentWrapper.propTypes = {
   paginationNode: PropTypes.func,
   urlGenerator: PropTypes.func,
   disablePagination: PropTypes.bool,
+  trProps: PropTypes.shape(),
+  borderlessRows: PropTypes.arrayOf(PropTypes.number),
 };
 
 TableContentWrapper.defaultProps = {
   columns: [],
+  captionHidden: true,
   rowData: [],
+  borderlessRows: [],
   pageSize: 10,
   nrResults: 0,
   page: 1,

@@ -24,14 +24,19 @@ const compareResponsiveOrder = (a, b) => a.responsiveProps.flexOrder - b.respons
 const findSpacers = sortedColumns => {
   let curRowWidth = 0;
   const spacers = [];
+  let rowNr = 1;
+  const colsWithRows = {};
   for (let i = 0; i < sortedColumns.length; i += 1) {
     curRowWidth += sortedColumns[i].responsiveProps.flexBasisMobile;
+    colsWithRows[sortedColumns[i].key] = rowNr;
+
     if (curRowWidth >= 100) {
       spacers.push(i + 2 + spacers.length);
       curRowWidth = 0;
+      rowNr += 1;
     }
   }
-  return spacers;
+  return { spacers, colsWithRows };
 };
 
 class TableBodyRow extends Component {
@@ -46,13 +51,12 @@ class TableBodyRow extends Component {
   };
 
   render() {
-    const { classes, rowData, columns, renderTd, expandLabel } = this.props;
+    const { classes, rowData, columns, renderTd, expandLabel, trProps, borderlessRows } = this.props;
     const { collapsed } = this.state;
     const mobileSortedColumns = columns.filter(col => col.responsiveProps.flexOrder > 0).sort(compareResponsiveOrder);
-    const spacers = findSpacers(mobileSortedColumns);
-
+    const { spacers, colsWithRows } = findSpacers(mobileSortedColumns);
     return (
-      <Tr className={cn({ [classes.expanded]: !collapsed }, classes.row)}>
+      <Tr className={cn({ [classes.expanded]: !collapsed }, classes.row)} {...trProps}>
         {columns.map(col => (
           <Td
             className={cn({
@@ -60,7 +64,7 @@ class TableBodyRow extends Component {
             })}
             key={col.key || col.baseKey || col.padding}
             align={col.align}
-            borderBottom
+            borderBottom={collapsed || !borderlessRows.includes(colsWithRows[col.key])}
             title={col.headerLabel}
             collapsed={!col.firstMobileRow && collapsed}
             onClick={col.firstMobileRow && this.toggleExpandedRow}
@@ -76,7 +80,7 @@ class TableBodyRow extends Component {
           flexOrder={spacers.shift()}
           flexBasisMobile={10}
           ellipsis={false}
-          borderBottom
+          borderBottom={collapsed || !borderlessRows.includes(1)}
           hiddenOnDesktop
         >
           <button className={classes.expander} onClick={this.toggleExpandedRow} aria-expanded={!collapsed} type="button">
@@ -88,12 +92,12 @@ class TableBodyRow extends Component {
             )}
           </button>
         </Td>
-        {spacers.map(spacerIdx => (
+        {spacers.map((spacerIndex, index) => (
           <Td
-            key={`td-spacer-${spacerIdx}`}
-            borderBottom
+            key={`td-spacer-${spacerIndex}`}
+            borderBottom={!borderlessRows.includes(index + 2)} // 2 because not 0 indexed and skipping first chevron td
             hiddenOnDesktop
-            flexOrder={spacerIdx}
+            flexOrder={spacerIndex}
             flexBasisMobile={10}
             collapsed={collapsed}
           />
@@ -109,6 +113,8 @@ TableBodyRow.propTypes = {
   renderTd: PropTypes.func.isRequired,
   expandLabel: PropTypes.string.isRequired,
   rowData: PropTypes.shape().isRequired,
+  trProps: PropTypes.shape(),
+  borderlessRows: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default injectSheet(styles)(TableBodyRow);

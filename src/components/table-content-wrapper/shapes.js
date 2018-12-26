@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const colShape = PropTypes.shape({
-  key: PropTypes.string,
+  key: PropTypes.string.isRequired, // needs to be unique
   baseKey: PropTypes.string,
   headerLabel: PropTypes.string,
   useBase: PropTypes.bool,
@@ -12,6 +12,7 @@ export const colShape = PropTypes.shape({
   type: PropTypes.string,
   padding: PropTypes.bool,
   tdProps: PropTypes.shape({}),
+  thProps: PropTypes.shape({}),
   responsiveProps: PropTypes.shape({
     flexOrder: PropTypes.number,
     flexBasisMobile: PropTypes.number,
