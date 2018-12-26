@@ -76,4 +76,38 @@ describe('<RadioGroup />', () => {
     const expected = true;
     expect(spy.calledOnce).to.equal(expected);
   });
+
+  it('should not change selectedValue state when selectedValue prop is same', () => {
+    const setStateSpy = sinon.stub(RadioGroup.prototype, 'setState');
+    const wrapper = renderComponent({
+      selectedValue: '1',
+      children: [
+        <input key="1" type="radio" value="1">
+          1
+        </input>,
+        <input key="2" type="radio" value="2">
+          2
+        </input>,
+      ],
+    });
+    wrapper.setProps({ selectedValue: '1' });
+    expect(setStateSpy.notCalled).to.equal(true);
+    setStateSpy.restore();
+  });
+
+  it('should change selectedValue state when selectedValue prop is changed', () => {
+    const wrapper = renderComponent({
+      selectedValue: '1',
+      children: [
+        <input key="1" type="radio" value="1">
+          1
+        </input>,
+        <input key="2" type="radio" value="2">
+          2
+        </input>,
+      ],
+    });
+    wrapper.setProps({ selectedValue: '2' });
+    expect(wrapper.state().selectedValue).to.equal('2');
+  });
 });
