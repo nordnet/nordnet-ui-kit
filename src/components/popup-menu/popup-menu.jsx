@@ -90,9 +90,11 @@ class PopupMenu extends Component {
       buttonLabel,
       buttonID,
       isOpen: isOpenFromProps,
+      disabled,
+      theme,
     } = this.props;
     const { isOpen } = this.state;
-    const open = isOpenFromProps !== null ? isOpenFromProps : isOpen;
+    const open = !disabled && (isOpenFromProps !== null ? isOpenFromProps : isOpen);
     let label = null;
     if (typeof buttonLabel === 'string') label = buttonLabel;
     else if (typeof buttonLabel === 'object' && buttonLabel !== null) {
@@ -114,12 +116,20 @@ class PopupMenu extends Component {
             if (this.buttonElement) this.buttonElement.focus();
             this.onToggle();
           }}
+          disabled={disabled}
           ref={this.setButtonRef}
           onKeyDown={this.onKeyDown}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
         >
-          {toggleButton || <Icon.VerticalEllipsis height={28} width={28} stroke="currentColor" fill="currentColor" />}
+          {toggleButton || (
+            <Icon.VerticalEllipsis
+              height={28}
+              width={28}
+              stroke={disabled ? theme.palette.action.disabled : 'currentColor'}
+              fill={disabled ? theme.palette.action.disabled : 'currentColor'}
+            />
+          )}
         </button>
         <PopupMenuList
           aria-labelledby={id}
@@ -142,6 +152,8 @@ class PopupMenu extends Component {
 }
 
 PopupMenu.propTypes = {
+  /** @ignore */
+  theme: PropTypes.object.isRequired,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Will be deprecated. Overrides, but does not change the internal state. */
   isOpen: PropTypes.bool,
@@ -183,6 +195,8 @@ PopupMenu.propTypes = {
   exit: PropTypes.number,
   /** The content of the toggle button, defaults to `VerticalEllipsis` from the Icon set. */
   toggleButton: PropTypes.node,
+  /** Disables the popup menu */
+  disabled: PropTypes.bool,
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
@@ -195,6 +209,7 @@ PopupMenu.defaultProps = {
   exit: 100,
   toggleButton: null,
   maxHeight: 'none',
+  disabled: false,
 };
 
 export { PopupMenu as Component, styles };
