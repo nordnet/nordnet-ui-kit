@@ -92,6 +92,7 @@ class PopupMenu extends Component {
       isOpen: isOpenFromProps,
       disabled,
       theme,
+      popupMenuDropdownZIndex,
     } = this.props;
     const { isOpen } = this.state;
     const open = !disabled && (isOpenFromProps !== null ? isOpenFromProps : isOpen);
@@ -143,6 +144,7 @@ class PopupMenu extends Component {
           exit={exit}
           width={width}
           maxHeight={maxHeight}
+          popupMenuDropdownZIndex={popupMenuDropdownZIndex}
         >
           {children}
         </PopupMenuList>
@@ -198,6 +200,8 @@ PopupMenu.propTypes = {
   /** Disables the popup menu */
   disabled: PropTypes.bool,
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Allows setting specific z-index on the dropdown menu */
+  popupMenuDropdownZIndex: PropTypes.number,
 };
 
 PopupMenu.defaultProps = {
@@ -210,6 +214,7 @@ PopupMenu.defaultProps = {
   toggleButton: null,
   maxHeight: 'none',
   disabled: false,
+  popupMenuDropdownZIndex: 1,
 };
 
 export { PopupMenu as Component, styles };

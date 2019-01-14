@@ -69,14 +69,24 @@ class PopupMenuList extends Component {
   };
 
   render() {
-    const { width, classes, children, enter, exit, maxHeight, isOpen, 'aria-labelledby': ariaLabelledBy } = this.props;
+    const {
+      width,
+      classes,
+      children,
+      enter,
+      exit,
+      maxHeight,
+      isOpen,
+      'aria-labelledby': ariaLabelledBy,
+      popupMenuDropdownZIndex,
+    } = this.props;
     const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
     let notDisabledIndex = 0;
     return (
       <TransitionGroup>
         {isOpen && (
           <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
-            <div className={classes.menuPopup} style={{ width }}>
+            <div className={classes.menuPopup} style={{ width, zIndex: popupMenuDropdownZIndex }}>
               <div className={classes.menuItemContainer} style={itemContainerStyle}>
                 <ul className={classes.menuItems} aria-labelledby={ariaLabelledBy} ref={this.setListElement} onBlur={this.onBlur}>
                   {Children.map(children, child => {
@@ -112,6 +122,7 @@ PopupMenuList.propTypes = {
   enter: PropTypes.number.isRequired,
   exit: PropTypes.number.isRequired,
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  popupMenuDropdownZIndex: PropTypes.number.isRequired,
 };
 
 export default PopupMenuList;
