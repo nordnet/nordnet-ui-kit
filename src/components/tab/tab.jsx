@@ -4,7 +4,13 @@ import injectSheet from 'react-jss';
 import cn from 'classnames';
 import styles from './tab-styles';
 
-const getElementType = href => (href ? 'a' : 'button');
+export const getElementType = (node, href) => {
+  if (node) {
+    return node;
+  }
+
+  return href ? 'a' : 'button';
+};
 
 class Tab extends Component {
   getDefaultHref() {
@@ -24,9 +30,9 @@ class Tab extends Component {
   };
 
   render() {
-    const { classes, children, selected, variant, index, className } = this.props;
+    const { classes, children, selected, variant, index, className, node, to } = this.props;
     const href = this.getDefaultHref();
-    const Element = getElementType(href);
+    const Element = getElementType(node, href);
 
     return (
       <li className={cn(classes.root, classes[variant], className)} role="presentation">
@@ -36,8 +42,9 @@ class Tab extends Component {
           href={href}
           role="tab"
           type={Element === 'button' ? 'button' : null}
+          onClick={node ? null : this.handleClick}
           aria-selected={selected}
-          onClick={this.handleClick}
+          to={to}
         >
           {children}
         </Element>
@@ -56,6 +63,8 @@ Tab.propTypes = {
   singlePanel: PropTypes.bool,
   changeHandler: PropTypes.func,
   className: PropTypes.string,
+  node: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  to: PropTypes.string,
 };
 
 Tab.defaultProps = {
