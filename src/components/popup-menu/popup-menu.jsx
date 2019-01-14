@@ -83,7 +83,6 @@ class PopupMenu extends Component {
       toggleButton,
       classes,
       className,
-      popupMenuDropdownClassName,
       children,
       enter,
       exit,
@@ -135,7 +134,6 @@ class PopupMenu extends Component {
         <PopupMenuList
           aria-labelledby={id}
           classes={classes}
-          className={popupMenuDropdownClassName}
           isOpen={open}
           onBlur={this.onBlurList}
           onKeyDown={this.onKeyDown}
@@ -161,7 +159,6 @@ PopupMenu.propTypes = {
   isOpen: PropTypes.bool,
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
-  popupMenuDropdownClassName: PropTypes.string,
   onToggle: PropTypes.func,
   /**
    * The aria-label for the toggle button. Either a plain string or an object with different labels
