@@ -1,4 +1,5 @@
 import React, { Children, Component, cloneElement } from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import keyCodes from './keyCodes';
@@ -69,14 +70,14 @@ class PopupMenuList extends Component {
   };
 
   render() {
-    const { width, classes, children, enter, exit, maxHeight, isOpen, 'aria-labelledby': ariaLabelledBy } = this.props;
+    const { width, classes, children, enter, exit, maxHeight, isOpen, 'aria-labelledby': ariaLabelledBy, className } = this.props;
     const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
     let notDisabledIndex = 0;
     return (
       <TransitionGroup>
         {isOpen && (
           <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
-            <div className={classes.menuPopup} style={{ width }}>
+            <div className={cn(classes.menuPopup, className)} style={{ width }}>
               <div className={classes.menuItemContainer} style={itemContainerStyle}>
                 <ul className={classes.menuItems} aria-labelledby={ariaLabelledBy} ref={this.setListElement} onBlur={this.onBlur}>
                   {Children.map(children, child => {
@@ -112,6 +113,7 @@ PopupMenuList.propTypes = {
   enter: PropTypes.number.isRequired,
   exit: PropTypes.number.isRequired,
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  className: PropTypes.string,
 };
 
 export default PopupMenuList;
