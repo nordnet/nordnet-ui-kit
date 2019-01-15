@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { Component as Tabpanel, styles } from '../../../src/components/tabpanel/tabpanel';
+import { Component as Tabpanel, styles } from '../../../src/components/tabs/tabpanel/tabpanel';
 import { mockClasses } from '../../../src';
 
 const classes = mockClasses(styles);

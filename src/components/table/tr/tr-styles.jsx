@@ -1,5 +1,5 @@
-import styleUtils from '../table/style-utilities';
-import color from '../../styles/color';
+import styleUtils from '../style-utilities';
+import color from '../../../styles/color';
 
 const normal = theme => {
   const { mixins } = theme;

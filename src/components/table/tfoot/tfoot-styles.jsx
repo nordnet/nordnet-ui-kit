@@ -1,4 +1,4 @@
-import styleUtils from '../table/style-utilities';
+import styleUtils from '../style-utilities';
 
 export default ({ mixins, typography, palette: { color } }) => ({
   tfoot: {

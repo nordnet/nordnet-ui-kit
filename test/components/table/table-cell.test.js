@@ -1,8 +1,8 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../../../src';
-import { Component as TableCell, styles } from '../../../../src/components/table-cell/table-cell';
+import { mockClasses } from '../../../src';
+import { Component as TableCell, styles } from '../../../src/components/table/table-cell/table-cell';
 
 describe('<TableCell />', () => {
   const classes = mockClasses(styles);

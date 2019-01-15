@@ -5,7 +5,7 @@ import { mockClasses } from '../../../src';
 import { Component as TableContentWrapper, styles } from '../../../src/components/table-content-wrapper/table-content-wrapper';
 import TableHead from '../../../src/components/table-content-wrapper/table-head/table-head';
 import TableBody from '../../../src/components/table-content-wrapper/table-body/table-body';
-import Table from '../../../src/components/table';
+import Table from '../../../src/components/table/table';
 import Pagination from '../../../src/components/pagination';
 
 const classes = mockClasses(styles);

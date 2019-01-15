@@ -2,8 +2,8 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Tabs, styles } from '../../../src/components/tabs/tabs';
-import Tab from '../../../src/components/tab/tab';
-import Tabpanel from '../../../src/components/tabpanel/tabpanel';
+import Tab from '../../../src/components/tabs/tab/tab';
+import Tabpanel from '../../../src/components/tabs/tabpanel/tabpanel';
 import { mockClasses } from '../../../src';
 
 const classes = mockClasses(styles);

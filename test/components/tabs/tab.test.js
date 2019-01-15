@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { Component as Tab, styles } from '../../../src/components/tab/tab';
+import { Component as Tab, styles } from '../../../src/components/tabs/tab/tab';
 import { mockClasses } from '../../../src';
 
 const classes = mockClasses(styles);

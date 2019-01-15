@@ -1,4 +1,4 @@
-import styleUtils from '../table/style-utilities';
+import styleUtils from '../style-utilities';
 
 export default theme => {
   const { palette, typography, mixins, transitions } = theme;
