@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
-import Tr from '../../../src/components/tr';
-import Th from '../../../src/components/th';
+import Tr from '../../../src/components/table/tr';
+import Th from '../../../src/components/table/th';
 import ArrowDownStraight from '../../../src/components/icon/icons/arrowDownStraight';
 import ArrowUpStraight from '../../../src/components/icon/icons/arrowUpStraight';
 import {

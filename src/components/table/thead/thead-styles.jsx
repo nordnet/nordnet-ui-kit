@@ -1,4 +1,4 @@
-import styleUtils from '../table/style-utilities';
+import styleUtils from '../style-utilities';
 
 const normal = ({ mixins, typography, palette: { color } }) => ({
   thead: {

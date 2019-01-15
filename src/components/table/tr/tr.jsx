@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import omit from '../../utilities/omit';
+import omit from '../../../utilities/omit';
 import styles, { stickyOffset as stickyOffsetStyles } from './tr-styles';
 
 function Tr({ classes, className, children, size, border, sticky, stickyBorder, stickyOffset, ...rest }) {
