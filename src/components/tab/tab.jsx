@@ -23,10 +23,11 @@ class Tab extends Component {
   }
 
   handleClick = e => {
-    const { index, changeHandler } = this.props;
-
-    e.preventDefault();
-    changeHandler(index);
+    const { index, changeHandler, node } = this.props;
+    if (!node) {
+      e.preventDefault();
+      changeHandler(index);
+    }
   };
 
   render() {
@@ -42,7 +43,7 @@ class Tab extends Component {
           href={href}
           role="tab"
           type={Element === 'button' ? 'button' : null}
-          onClick={node ? null : this.handleClick}
+          onClick={this.handleClick}
           aria-selected={selected}
           to={to}
         >
@@ -72,6 +73,7 @@ Tab.defaultProps = {
   href: null,
   singlePanel: false,
   className: '',
+  to: '',
 };
 
 export { Tab as Component, styles };
