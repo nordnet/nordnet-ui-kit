@@ -57,6 +57,7 @@ function TableCell({
     width: `${width}${typeof width === 'number' ? '%' : ''}`,
     flexBasis: `${flexBasisMobile}${typeof flexBasisMobile === 'number' ? '%' : ''}`,
     order: `${flexOrder}`,
+    height: '100%',
     ...styleProp,
   };
 
