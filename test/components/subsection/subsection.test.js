@@ -7,7 +7,11 @@ import { mockClasses, Icon } from '../../../src';
 
 describe('<Subsection />', () => {
   const classes = mockClasses(styles);
-  const defaultProps = { classes, title: () => <span>Title</span>, theme: { transitions: { duration: { shorter: 200 } } } };
+  const defaultProps = {
+    classes,
+    title: () => <span>Title</span>,
+    theme: { transitions: { duration: { shorter: 200 } } },
+  };
 
   let clock;
 

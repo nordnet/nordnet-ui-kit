@@ -4,7 +4,19 @@ import injectSheet from 'react-jss';
 import cn from 'classnames';
 import styles from './popup-menu.styles';
 
-const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, listItemRef, disabled, classes, onFocus, className }) => {
+const PopupMenuItem = ({
+  node,
+  children,
+  topBorder,
+  linkTo,
+  onClick,
+  onKeyDown,
+  listItemRef,
+  disabled,
+  classes,
+  onFocus,
+  className,
+}) => {
   const Element = disabled ? 'button' : node;
   const elementProps = Element === 'button' ? { type: 'button', disabled } : { to: linkTo };
 
@@ -12,12 +24,18 @@ const PopupMenuItem = ({ node, children, topBorder, linkTo, onClick, onKeyDown, 
     <li className={cn(classes.item, className)}>
       {topBorder && <hr className={classes.hr} />}
       {/* Since putting the ref for listItemRef on the actual Element didn't work as expected
-        * if the Element was a React Router Link, we put it on a wrapped span and traverse down
-        * to the native element ref corresponding to the Element. This is because we want to
-        * call focus on the ref from the PopupMenuList.
-      */}
+       * if the Element was a React Router Link, we put it on a wrapped span and traverse down
+       * to the native element ref corresponding to the Element. This is because we want to
+       * call focus on the ref from the PopupMenuList.
+       */}
       <span ref={ref => ref && listItemRef && listItemRef(ref.childNodes[0])}>
-        <Element {...elementProps} className={classes.link} onClick={onClick} onFocus={onFocus} onKeyDown={onKeyDown}>
+        <Element
+          {...elementProps}
+          className={classes.link}
+          onClick={onClick}
+          onFocus={onFocus}
+          onKeyDown={onKeyDown}
+        >
           {children}
         </Element>
       </span>

@@ -52,7 +52,8 @@ class TableContentWrapper extends Component {
             <caption
               className={cn(classes.caption, {
                 [classes.screenReadersOnly]: captionHidden,
-                'smart-table__caption': !captionHidden || (!captionHidden.mobile && !captionHidden.desktop),
+                'smart-table__caption':
+                  !captionHidden || (!captionHidden.mobile && !captionHidden.desktop),
                 [classes.captionMobileHidden]: captionHidden.mobile && !captionHidden.desktop,
                 [classes.captionDesktopHidden]: !captionHidden.mobile && captionHidden.desktop,
               })}
@@ -147,7 +148,8 @@ TableContentWrapper.defaultProps = {
   loading: null,
   paginationNode: null,
   urlGenerator: () => null,
-  renderTd: ({ col, rowData }) => (col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key]),
+  renderTd: ({ col, rowData }) =>
+    col.useBase ? rowData[col.baseKey] : rowData[col.baseKey][col.key],
   disablePagination: false,
 };
 

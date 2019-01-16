@@ -98,7 +98,8 @@ export default theme => {
       display: 'flex',
       fontFamily: typography.primary.fontFamily,
       fontSize: ({ size }) => sizeDict[size].fontSize,
-      fontWeight: ({ size }) => (sizeDict[size].fontSize < 12 ? typography.fontWeightLight : typography.fontWeightRegular),
+      fontWeight: ({ size }) =>
+        sizeDict[size].fontSize < 12 ? typography.fontWeightLight : typography.fontWeightRegular,
       height: ({ size }) => 2 * sizeDict[size].radius,
       lineHeight: 1,
       margin: ({ size }) => sizeDict[size].radius / 2,

@@ -17,7 +17,12 @@ function Table({
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const usedClassName = classNames(classes.table, size, { [classes.tableLayoutFixed]: tableLayoutFixed }, className);
+  const usedClassName = classNames(
+    classes.table,
+    size,
+    { [classes.tableLayoutFixed]: tableLayoutFixed },
+    className,
+  );
 
   const rootStyle = Object.assign(maxHeight ? { maxHeight, overflowY: 'scroll' } : {});
 

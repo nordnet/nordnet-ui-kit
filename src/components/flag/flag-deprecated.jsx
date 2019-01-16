@@ -22,7 +22,19 @@ export const styles = () => ({
   },
 });
 
-const Flag = ({ classes, theme, className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, ...rest }) => {
+const Flag = ({
+  classes,
+  theme,
+  className,
+  style,
+  countryCode,
+  secondaryCountryCode,
+  size,
+  round,
+  hideBorder,
+  borderColor,
+  ...rest
+}) => {
   const flagStyle = {
     ...style,
     width: size,
@@ -53,7 +65,9 @@ const Flag = ({ classes, theme, className, style, countryCode, secondaryCountryC
     return null;
   }
 
-  const flag = <SvgFlag className={cn(classes.flagStyle, className, 'flag')} style={flagStyle} {...rest} />;
+  const flag = (
+    <SvgFlag className={cn(classes.flagStyle, className, 'flag')} style={flagStyle} {...rest} />
+  );
 
   if (round) {
     return (

@@ -1,7 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { Component as InstrumentBadge, styles } from '../../../src/components/instrument-badge/instrument-badge';
+import {
+  Component as InstrumentBadge,
+  styles,
+} from '../../../src/components/instrument-badge/instrument-badge';
 import Checkmark from '../../../src/components/icon/icons/checkmark';
 import ExclamationPoint from '../../../src/components/icon/icons/exclamationPoint';
 import { mockClasses, theme } from '../../../src';

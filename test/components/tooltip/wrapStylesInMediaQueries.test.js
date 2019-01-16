@@ -1,5 +1,8 @@
 import { expect } from 'chai';
-import { wrapInMobileMediaQuery, wrapInDesktopMediaQuery } from '../../../src/components/tooltip/wrapStylesInMediaQueries';
+import {
+  wrapInMobileMediaQuery,
+  wrapInDesktopMediaQuery,
+} from '../../../src/components/tooltip/wrapStylesInMediaQueries';
 
 const mixins = { media: () => 'media', maxMedia: () => 'maxMedia' };
 

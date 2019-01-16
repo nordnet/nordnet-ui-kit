@@ -2,7 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
-import { Component as PopupMenuItem, styles } from '../../../src/components/popup-menu/popup-menu-item';
+import {
+  Component as PopupMenuItem,
+  styles,
+} from '../../../src/components/popup-menu/popup-menu-item';
 
 describe('<PopupMenuItem />', () => {
   const classes = mockClasses(styles);

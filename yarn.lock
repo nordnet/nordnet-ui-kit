@@ -2,9 +2,10 @@
 # yarn lockfile v1
 
 
-"@nordnet/prettier-config@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@nordnet/prettier-config/-/prettier-config-1.0.0.tgz#67c68ac3672f52ac0c4069604c07dc1159f559b9"
+"@nordnet/prettier-config@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@nordnet/prettier-config/-/prettier-config-2.0.0.tgz#988b3d3e66e32207c90c4a2c3f3ec18e31412941"
+  integrity sha512-gJJigso6/lu6vqgIcegRPonYmuUS2T/IQLwDS2OCTsocBszXu+snQaeQ4QL74gp3SHk53uHUp4+AQxz9CWxicw==
 
 "@octokit/rest@^14.0.3":
   version "14.0.8"

@@ -2,7 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
-import { Component as TableContentWrapper, styles } from '../../../src/components/table-content-wrapper/table-content-wrapper';
+import {
+  Component as TableContentWrapper,
+  styles,
+} from '../../../src/components/table-content-wrapper/table-content-wrapper';
 import TableHead from '../../../src/components/table-content-wrapper/table-head/table-head';
 import TableBody from '../../../src/components/table-content-wrapper/table-body/table-body';
 import Table from '../../../src/components/table/table';
@@ -30,7 +33,8 @@ const defaultProps = {
   rowKeyPath: 'id',
 };
 
-const shallowComponent = customProps => shallow(<TableContentWrapper {...defaultProps} {...customProps} />);
+const shallowComponent = customProps =>
+  shallow(<TableContentWrapper {...defaultProps} {...customProps} />);
 describe('<TableContentWrapper />', () => {
   it('has a Table', () => {
     const component = shallowComponent();

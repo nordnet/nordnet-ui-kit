@@ -169,7 +169,9 @@ describe('<TableHeadIcon />', () => {
     expect(component.find(ArrowDownStraight).length).to.equal(1);
   });
   it('arrow should point down if not sorted on', () => {
-    const component = shallow(<TableHeadIcon classes={classes} sortOrder={'asc'} isSortedOn={false} />);
+    const component = shallow(
+      <TableHeadIcon classes={classes} sortOrder={'asc'} isSortedOn={false} />,
+    );
     expect(component.find(ArrowDownStraight).length).to.equal(1);
   });
 });
@@ -217,7 +219,9 @@ describe('<TableHeadContent />', () => {
     expect(actual).to.equal(expected);
   });
   it('component should render icon to the left', () => {
-    const component = shallow(<TableHeadContent {...props} colSpec={{ ...props.colSpec, align: 'right' }} />);
+    const component = shallow(
+      <TableHeadContent {...props} colSpec={{ ...props.colSpec, align: 'right' }} />,
+    );
     const actualLabel = component
       .find(`span.${classes.columnHeaderInner}`)
       .childAt(1)

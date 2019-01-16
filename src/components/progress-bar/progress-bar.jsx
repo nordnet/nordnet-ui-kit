@@ -35,7 +35,10 @@ function ProgressBar({
 
   return (
     <div {...rest} className={containerClasses}>
-      <div aria-hidden={clickables.length === 0 ? 'true' : 'false'} className={classNames(classes.progressBar)}>
+      <div
+        aria-hidden={clickables.length === 0 ? 'true' : 'false'}
+        className={classNames(classes.progressBar)}
+      >
         {_times(max, i => {
           const Element = getElementType(clickables[i]);
           const { label, reached, active, ...clickablesRest } = clickables[i] || {};
@@ -44,7 +47,8 @@ function ProgressBar({
             [classes.primary]: isPrimary,
             [classes.secondary]: isSecondary,
             [classes.reached]: typeof reached !== 'undefined' ? reached : i < value,
-            [classes.active]: typeof active !== 'undefined' ? active : highlightActive && i === value - 1,
+            [classes.active]:
+              typeof active !== 'undefined' ? active : highlightActive && i === value - 1,
           });
 
           return (

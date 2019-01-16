@@ -19,7 +19,10 @@ class Pane extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.activeTab !== nextProps.activeTab && nextProps.activeTab !== this.state.activeTab) {
+    if (
+      this.props.activeTab !== nextProps.activeTab &&
+      nextProps.activeTab !== this.state.activeTab
+    ) {
       this.setState({
         activeTab: nextProps.activeTab,
       });

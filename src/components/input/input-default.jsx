@@ -79,8 +79,29 @@ class InputDefault extends React.PureComponent {
   };
 
   render() {
-    const { classes, helpText, id, label, style, className, placeholder, leftAddon, rightAddon, variant, type, disabled } = this.props;
-    const { hasSuccess, hasWarning, hasError, value, hasFocus, hasValue: stateHasValue, hasAddon } = this.state;
+    const {
+      classes,
+      helpText,
+      id,
+      label,
+      style,
+      className,
+      placeholder,
+      leftAddon,
+      rightAddon,
+      variant,
+      type,
+      disabled,
+    } = this.props;
+    const {
+      hasSuccess,
+      hasWarning,
+      hasError,
+      value,
+      hasFocus,
+      hasValue: stateHasValue,
+      hasAddon,
+    } = this.state;
 
     const elementId = id || kebabCase(label);
 
@@ -138,7 +159,13 @@ class InputDefault extends React.PureComponent {
             onBlur={this.onBlur}
             onChange={this.onChange}
           />
-          <Label id={elementId} label={label} placeholder={placeholder} hasFocus={hasFocus} hasValue={stateHasValue} />
+          <Label
+            id={elementId}
+            label={label}
+            placeholder={placeholder}
+            hasFocus={hasFocus}
+            hasValue={stateHasValue}
+          />
           <InputAddon content={rightAddon} position="right" />
         </div>
         <HelpText {...helpTextModifiers}>{helpText}</HelpText>
@@ -158,7 +185,13 @@ InputDefault.propTypes = {
   label: PropTypes.node,
   placeholder: PropTypes.string,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
