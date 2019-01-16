@@ -29,7 +29,6 @@ TableContentWrapper:
       },{
         key: 'color',
         baseKey: 'description',
-        headerLabel: 'Color',
         useBase: false,
         sortable: false,
         type: 'fancyString',
@@ -40,10 +39,14 @@ TableContentWrapper:
       },{
         key: 'height',
         baseKey: 'description',
-        headerLabel: 'Height',
+        headerLabel: 'Height Column',
         useBase: false,
         sortable: false,
         type: 'string',
+        width: '50px',
+        thProps: {
+          ellipsis: false,
+        },
         responsiveProps: {
           flexOrder: 5,
           flexBasisMobile: 50,

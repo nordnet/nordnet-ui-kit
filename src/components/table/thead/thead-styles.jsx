@@ -29,11 +29,12 @@ const normal = ({ mixins, typography, palette: { color } }) => ({
   },
   stickyBorder: {
     border: 0,
-    '& th:after': {
+    '& th:before': {
       content: '""',
       position: 'absolute',
       left: 0,
       bottom: 0,
+      height: '100%',
       width: '100%',
       borderBottom: `2px solid ${color.grayDarker}`,
       '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {

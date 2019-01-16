@@ -69,7 +69,7 @@ export default theme => {
       display: 'block',
       margin: [8, 4],
       height: 'calc(100% - 16px)',
-
+      position: 'relative',
       '&::before': {
         display: 'block',
         content: 'attr(data-title)',
