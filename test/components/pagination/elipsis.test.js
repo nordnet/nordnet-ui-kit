@@ -2,7 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
-import { Component as Ellipsis, styles } from '../../../src/components/pagination/ellipsis/ellipsis';
+import {
+  Component as Ellipsis,
+  styles,
+} from '../../../src/components/pagination/ellipsis/ellipsis';
 
 describe('<Ellipsis />', () => {
   const classes = mockClasses(styles);

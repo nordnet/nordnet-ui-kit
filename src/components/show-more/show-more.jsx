@@ -38,7 +38,8 @@ class ShowMore extends React.PureComponent {
     const { showMoreClicked, isOverflowing } = this.state;
 
     if (!showMoreClicked) {
-      const overflowing = this.descriptionContainer.clientHeight < this.descriptionContainer.scrollHeight;
+      const overflowing =
+        this.descriptionContainer.clientHeight < this.descriptionContainer.scrollHeight;
       if (isOverflowing !== overflowing) this.setState({ isOverflowing: overflowing });
     }
   };
@@ -62,13 +63,21 @@ class ShowMore extends React.PureComponent {
           ref={elem => {
             this.descriptionContainer = elem;
           }}
-          className={cn(classes.text, { [classes.textShowAll]: showMoreClicked, [classes.disableOverlay]: !showMoreButton })}
+          className={cn(classes.text, {
+            [classes.textShowAll]: showMoreClicked,
+            [classes.disableOverlay]: !showMoreButton,
+          })}
           style={{ maxHeight: showMoreClicked ? 'none' : cutoffHeight }}
         >
           {children}
         </div>
         {showMoreButton ? (
-          <Button variant="link" modifier="action" onClick={this.handleShowMore} className={classes.button}>
+          <Button
+            variant="link"
+            modifier="action"
+            onClick={this.handleShowMore}
+            className={classes.button}
+          >
             {showMoreButtonContent}
           </Button>
         ) : null}

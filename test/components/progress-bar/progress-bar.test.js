@@ -2,7 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
-import { Component as ProgressBar, styles } from '../../../src/components/progress-bar/progress-bar';
+import {
+  Component as ProgressBar,
+  styles,
+} from '../../../src/components/progress-bar/progress-bar';
 
 describe('<ProgressBar />', () => {
   const classes = mockClasses(styles);
@@ -103,7 +106,9 @@ describe('<ProgressBar />', () => {
 
   ['primary', 'secondary'].forEach(variant => {
     it(`should have class ${classes[variant]} if variant is set to ${variant}`, () => {
-      wrapper = shallow(<ProgressBar classes={classes} variant={variant} value={value} max={max} />);
+      wrapper = shallow(
+        <ProgressBar classes={classes} variant={variant} value={value} max={max} />,
+      );
       expect(
         wrapper
           .find('.progressBar')
@@ -114,7 +119,9 @@ describe('<ProgressBar />', () => {
   });
 
   it('should be possible to render a step as an A tag', () => {
-    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} clickables={[{ href: '/foo/bar' }]} />);
+    wrapper = shallow(
+      <ProgressBar classes={classes} value={value} max={max} clickables={[{ href: '/foo/bar' }]} />,
+    );
     expect(
       wrapper
         .find('.progressBar')
@@ -124,7 +131,14 @@ describe('<ProgressBar />', () => {
   });
 
   it('should be possible to render a step as a BUTTON tag', () => {
-    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} clickables={[{ onClick: () => {} }]} />);
+    wrapper = shallow(
+      <ProgressBar
+        classes={classes}
+        value={value}
+        max={max}
+        clickables={[{ onClick: () => {} }]}
+      />,
+    );
     expect(
       wrapper
         .find('.progressBar')
@@ -134,7 +148,9 @@ describe('<ProgressBar />', () => {
   });
 
   it('should be possible to render a step as a disabled BUTTON tag', () => {
-    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} clickables={[{ disabled: true }]} />);
+    wrapper = shallow(
+      <ProgressBar classes={classes} value={value} max={max} clickables={[{ disabled: true }]} />,
+    );
     expect(
       wrapper
         .find('.progressBar')
@@ -150,7 +166,9 @@ describe('<ProgressBar />', () => {
   });
 
   it('should be possible to override the reached class for a specific step', () => {
-    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} clickables={[{ reached: false }]} />);
+    wrapper = shallow(
+      <ProgressBar classes={classes} value={value} max={max} clickables={[{ reached: false }]} />,
+    );
     expect(
       wrapper
         .find('.progressBar')
@@ -166,7 +184,9 @@ describe('<ProgressBar />', () => {
   });
 
   it('should be possible to override the active class for a specific step', () => {
-    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} clickables={[{ active: true }]} />);
+    wrapper = shallow(
+      <ProgressBar classes={classes} value={value} max={max} clickables={[{ active: true }]} />,
+    );
     expect(
       wrapper
         .find('.progressBar')
@@ -176,7 +196,15 @@ describe('<ProgressBar />', () => {
   });
 
   it('should be possible to override the label class for a specific step', () => {
-    wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} printNumbers clickables={[{ label: 'A' }]} />);
+    wrapper = shallow(
+      <ProgressBar
+        classes={classes}
+        value={value}
+        max={max}
+        printNumbers
+        clickables={[{ label: 'A' }]}
+      />,
+    );
     expect(
       wrapper
         .find('.progressBar')

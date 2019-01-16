@@ -117,7 +117,10 @@ class EditableInput extends React.Component {
       </form>
     ) : (
       <div
-        className={classNames(classes.readOnly, { [classes.hasLabel]: this.props.label, [classes.hasError]: this.props.hasError })}
+        className={classNames(classes.readOnly, {
+          [classes.hasLabel]: this.props.label,
+          [classes.hasError]: this.props.hasError,
+        })}
         style={this.props.style}
       >
         <div className={classes.value}>{this.state.value}</div>
@@ -135,7 +138,12 @@ class EditableInput extends React.Component {
         >
           {this.state.saving ? <Spinner size={13} color="#FFF" /> : this.props.submitLabel}
         </Button>
-        <Button variant="secondary" modifier="action" onClick={this.onCancel} disabled={this.props.disabled || this.state.saving}>
+        <Button
+          variant="secondary"
+          modifier="action"
+          onClick={this.onCancel}
+          disabled={this.props.disabled || this.state.saving}
+        >
           {this.props.cancelLabel}
         </Button>
       </div>
@@ -150,7 +158,13 @@ class EditableInput extends React.Component {
     );
 
     return (
-      <div className={classNames(classes.container, { [classes.isEditing]: this.state.editing }, this.props.className)}>
+      <div
+        className={classNames(
+          classes.container,
+          { [classes.isEditing]: this.state.editing },
+          this.props.className,
+        )}
+      >
         {input}
         {buttons}
       </div>

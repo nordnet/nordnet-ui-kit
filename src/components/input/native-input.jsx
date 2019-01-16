@@ -2,7 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-const NativeInput = ({ id, value, placeholder, label, type, onFocus, onBlur, onChange, className, ...rest }) => {
+const NativeInput = ({
+  id,
+  value,
+  placeholder,
+  label,
+  type,
+  onFocus,
+  onBlur,
+  onChange,
+  className,
+  ...rest
+}) => {
   const Tag = type === 'textarea' ? 'textarea' : 'input';
 
   return (
@@ -24,7 +35,13 @@ NativeInput.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   placeholder: PropTypes.string,
   label: PropTypes.string,
   onFocus: PropTypes.func.isRequired,

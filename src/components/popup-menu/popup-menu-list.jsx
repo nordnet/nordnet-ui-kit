@@ -16,7 +16,11 @@ class PopupMenuList extends Component {
     const { listElement } = this;
     e.persist();
     setTimeout(() => {
-      if (e.target && !listElement.contains(document.activeElement) && listElement !== document.activeElement) {
+      if (
+        e.target &&
+        !listElement.contains(document.activeElement) &&
+        listElement !== document.activeElement
+      ) {
         this.focusIndex = -1;
         this.props.onBlur();
       }
@@ -88,7 +92,12 @@ class PopupMenuList extends Component {
           <CSSTransition classNames={classes.menuSlideDown} timeout={{ exit, enter }}>
             <div className={classes.menuPopup} style={{ width, zIndex: popupMenuDropdownZIndex }}>
               <div className={classes.menuItemContainer} style={itemContainerStyle}>
-                <ul className={classes.menuItems} aria-labelledby={ariaLabelledBy} ref={this.setListElement} onBlur={this.onBlur}>
+                <ul
+                  className={classes.menuItems}
+                  aria-labelledby={ariaLabelledBy}
+                  ref={this.setListElement}
+                  onBlur={this.onBlur}
+                >
                   {Children.map(children, child => {
                     if (child.props.disabled) return child;
                     const childWithCallbackProps = cloneElement(child, {

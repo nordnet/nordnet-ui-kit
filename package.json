@@ -84,7 +84,7 @@
     "react-jss": ">=7"
   },
   "devDependencies": {
-    "@nordnet/prettier-config": "^1.0.0",
+    "@nordnet/prettier-config": "^2.0.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",

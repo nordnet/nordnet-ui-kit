@@ -17,7 +17,8 @@ describe('<Pagination />', () => {
     buttonTextNext: 'Next',
     urlGenerator: () => null,
   };
-  const shallowComponent = customProps => shallow(<Pagination {...defaultProps} {...customProps} />);
+  const shallowComponent = customProps =>
+    shallow(<Pagination {...defaultProps} {...customProps} />);
 
   it('should not paginate if there is only 1 page', () => {
     const wrapper = shallowComponent({ total: 10, limit: 10 });

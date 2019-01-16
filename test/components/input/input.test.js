@@ -2,9 +2,18 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Input } from '../../../src/components/input/input';
-import { Component as InputDefault, styles as inputDefaultStyles } from '../../../src/components/input/input-default';
-import { Component as InputSelect, styles as inputSelectStyles } from '../../../src/components/input/input-select';
-import { Component as InputCheckboxRadio, styles as inputCheckboxRadioStyles } from '../../../src/components/input/input-checkbox-radio';
+import {
+  Component as InputDefault,
+  styles as inputDefaultStyles,
+} from '../../../src/components/input/input-default';
+import {
+  Component as InputSelect,
+  styles as inputSelectStyles,
+} from '../../../src/components/input/input-select';
+import {
+  Component as InputCheckboxRadio,
+  styles as inputCheckboxRadioStyles,
+} from '../../../src/components/input/input-checkbox-radio';
 import HelpText from '../../../src/components/input/help-text';
 import { mockClasses, theme } from '../../../src';
 
@@ -22,7 +31,8 @@ const defaultProps = {
   placeholder: 'placeholder',
 };
 
-const renderComponent = ({ Component = Input, props }) => shallow(<Component {...defaultProps} {...props} />);
+const renderComponent = ({ Component = Input, props }) =>
+  shallow(<Component {...defaultProps} {...props} />);
 
 describe('<Input />', () => {
   let wrapper;
@@ -81,9 +91,14 @@ describe('<Input />', () => {
         it('should set the placeholder to the property placeholder', () => {
           if (type.component === InputSelect) {
             // For the InputSelect the placeholder is only visible if no "value" is set
-            const wrapperWithoutValue = renderComponent({ Component: type.component, props: { value: undefined } });
+            const wrapperWithoutValue = renderComponent({
+              Component: type.component,
+              props: { value: undefined },
+            });
 
-            expect(wrapperWithoutValue.find('FakePlaceholder').prop('placeholder')).to.equal('placeholder');
+            expect(wrapperWithoutValue.find('FakePlaceholder').prop('placeholder')).to.equal(
+              'placeholder',
+            );
           } else {
             expect(wrapper.find('NativeInput').prop('placeholder')).to.equal('placeholder');
           }
@@ -128,7 +143,9 @@ describe('<Input />', () => {
         });
 
         it('should become checked if unchecked and clicked', () => {
-          wrapper.find(`input[type="${type.name}"]`).simulate('change', { target: { checked: true }, currentTarget: { checked: true } });
+          wrapper
+            .find(`input[type="${type.name}"]`)
+            .simulate('change', { target: { checked: true }, currentTarget: { checked: true } });
           expect(wrapper.find(`input[type="${type.name}"]`).prop('checked')).to.equal(true);
         });
 

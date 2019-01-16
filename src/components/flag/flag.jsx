@@ -19,7 +19,17 @@ const Flag = props => {
     return <FlagDeprecated {...props} style={extendedStyle} />;
   }
 
-  const { className, style, countryCode, secondaryCountryCode, size, round, hideBorder, borderColor, ...rest } = props;
+  const {
+    className,
+    style,
+    countryCode,
+    secondaryCountryCode,
+    size,
+    round,
+    hideBorder,
+    borderColor,
+    ...rest
+  } = props;
 
   if (secondaryCountryCode) {
     return (
@@ -33,7 +43,16 @@ const Flag = props => {
     );
   }
 
-  return <SvgFlag className={className} round={round} size={size} countryCode={countryCode.toLowerCase()} style={extendedStyle} {...rest} />;
+  return (
+    <SvgFlag
+      className={className}
+      round={round}
+      size={size}
+      countryCode={countryCode.toLowerCase()}
+      style={extendedStyle}
+      {...rest}
+    />
+  );
 };
 
 Flag.defaultProps = {

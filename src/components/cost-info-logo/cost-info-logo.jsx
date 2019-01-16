@@ -36,7 +36,10 @@ function CostInfoLogo({ width, className, classes }) {
   const shadowX = (width - parseInt(width * 0.68, 10)) / 2;
 
   return (
-    <div className={cn(classes.wrapper, className)} style={{ width, height: parseInt(width * 1.1, 10) }}>
+    <div
+      className={cn(classes.wrapper, className)}
+      style={{ width, height: parseInt(width * 1.1, 10) }}
+    >
       <Calculator
         width={parseInt(width * 0.36, 10)}
         className={classes.calculatorWrapper}
@@ -62,7 +65,14 @@ function CostInfoLogo({ width, className, classes }) {
         style={{ width: parseInt(width, 10), height: parseInt(width, 10) }}
         fill={theme.palette.color.grayLighter}
       />
-      <div style={{ position: 'absolute', height: parseInt(width * 0.06, 10), top: parseInt(width * 1.04, 10), left: shadowX }}>
+      <div
+        style={{
+          position: 'absolute',
+          height: parseInt(width * 0.06, 10),
+          top: parseInt(width * 1.04, 10),
+          left: shadowX,
+        }}
+      >
         <Icon.Ellipse
           className={classes.shadowWrapper}
           width={parseInt(width * 0.68, 10)}

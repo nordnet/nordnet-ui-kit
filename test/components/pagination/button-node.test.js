@@ -13,7 +13,8 @@ describe('<ButtonNode />', () => {
     defaultProps: {},
   };
 
-  const shallowComponent = customProps => shallow(<ButtonNode {...defaultProps} {...customProps} />);
+  const shallowComponent = customProps =>
+    shallow(<ButtonNode {...defaultProps} {...customProps} />);
 
   it('should render a default button', () => {
     const wrapper = shallowComponent();

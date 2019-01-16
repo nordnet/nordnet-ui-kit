@@ -6,7 +6,8 @@ import styles from '../../../src/components/flag/flags/styles';
 import { mockClasses } from '../../../src/';
 
 const classes = mockClasses(styles);
-const shallowComponent = props => shallow(<SvgFlag classes={classes} countryCode="se" {...props} />);
+const shallowComponent = props =>
+  shallow(<SvgFlag classes={classes} countryCode="se" {...props} />);
 
 describe('<SvgFlag />', () => {
   it(`has common class`, () => {

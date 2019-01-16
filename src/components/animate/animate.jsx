@@ -36,7 +36,12 @@ const styles = {
 
 const items = (children, classNameProp, classNames, timeout) =>
   children.map(child => (
-    <CSSTransition key={child.key} className={classNameProp} classNames={classNames} timeout={timeout}>
+    <CSSTransition
+      key={child.key}
+      className={classNameProp}
+      classNames={classNames}
+      timeout={timeout}
+    >
       <div>{child}</div>
     </CSSTransition>
   ));
@@ -58,7 +63,11 @@ function Animate({
   };
   const timeout = { enter: enterTime, exit: leaveTime };
 
-  return <TransitionGroup>{items(React.Children.toArray(children), classNameProp, classNames, timeout)}</TransitionGroup>;
+  return (
+    <TransitionGroup>
+      {items(React.Children.toArray(children), classNameProp, classNames, timeout)}
+    </TransitionGroup>
+  );
 }
 
 Animate.propTypes = {

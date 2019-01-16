@@ -26,7 +26,11 @@ class Tooltip extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextState.hover !== this.state.hover || nextState.toggled !== this.state.toggled || nextProps.children !== this.props.children;
+    return (
+      nextState.hover !== this.state.hover ||
+      nextState.toggled !== this.state.toggled ||
+      nextProps.children !== this.props.children
+    );
   }
 
   componentWillUnmount() {
@@ -190,7 +194,15 @@ class Tooltip extends Component {
   };
 
   render() {
-    const { children, content, className, placement, mobilePlacement, style, tooltipStyle } = this.props;
+    const {
+      children,
+      content,
+      className,
+      placement,
+      mobilePlacement,
+      style,
+      tooltipStyle,
+    } = this.props;
     if (this.container && this.popup && this.state.hover) {
       this.placement = placement || this.getPlacement(placement);
     }

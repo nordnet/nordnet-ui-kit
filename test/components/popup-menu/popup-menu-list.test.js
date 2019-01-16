@@ -4,7 +4,10 @@ import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { mockClasses } from '../../../src';
 import { styles } from '../../../src/components/popup-menu/popup-menu';
-import { Component as PopupMenuItem, styles as itemStyles } from '../../../src/components/popup-menu/popup-menu-item';
+import {
+  Component as PopupMenuItem,
+  styles as itemStyles,
+} from '../../../src/components/popup-menu/popup-menu-item';
 import PopupMenuList from '../../../src/components/popup-menu/popup-menu-list';
 import keyCodes from '../../../src/components/popup-menu/keyCodes';
 
@@ -162,8 +165,12 @@ describe('<PopupMenuList />', () => {
     );
     const items = wrapper.find(PopupMenuItem);
 
-    const nonDisabledItems = items.findWhere(i => i.prop('listItemRef') && i.prop('onFocus') && i.prop('onKeyDown'));
-    const disabledItems = items.findWhere(i => !i.prop('listItemRef') && !i.prop('onFocus') && !i.prop('onKeyDown'));
+    const nonDisabledItems = items.findWhere(
+      i => i.prop('listItemRef') && i.prop('onFocus') && i.prop('onKeyDown'),
+    );
+    const disabledItems = items.findWhere(
+      i => !i.prop('listItemRef') && !i.prop('onFocus') && !i.prop('onKeyDown'),
+    );
     expect(nonDisabledItems.length).to.equals(2);
     expect(disabledItems.length).to.equals(1);
   });

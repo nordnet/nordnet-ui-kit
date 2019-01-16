@@ -2,7 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import { Component as EditableInput, styles } from '../../../src/components/editable-input/editable-input';
+import {
+  Component as EditableInput,
+  styles,
+} from '../../../src/components/editable-input/editable-input';
 import { mockClasses, Input, Button } from '../../../src';
 
 describe('<EditableInput />', () => {
