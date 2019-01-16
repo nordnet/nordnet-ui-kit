@@ -5,7 +5,15 @@ import { Tbody } from '../../../';
 import TableBodyRow from './table-body-row/table-body-row';
 import { colShape } from '../shapes';
 
-const TableBody = ({ rowData, columns, renderTd, expandLabel, rowKeyPath, trProps, borderlessRows }) => (
+const TableBody = ({
+  rowData,
+  columns,
+  renderTd,
+  expandLabel,
+  rowKeyPath,
+  trProps,
+  borderlessRows,
+}) => (
   <Tbody colorAlternateRows={false}>
     {rowData.map(row => (
       <TableBodyRow

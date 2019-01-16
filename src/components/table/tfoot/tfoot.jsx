@@ -14,7 +14,12 @@ function Tfoot({
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const usedClassName = classNames(classes.tfoot, size, { [classes.hiddenOnMobile]: hiddenOnMobile }, className);
+  const usedClassName = classNames(
+    classes.tfoot,
+    size,
+    { [classes.hiddenOnMobile]: hiddenOnMobile },
+    className,
+  );
 
   return (
     <tfoot {...rest} className={usedClassName}>

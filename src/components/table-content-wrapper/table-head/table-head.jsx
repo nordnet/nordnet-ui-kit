@@ -14,7 +14,8 @@ const readableSort = {
   desc: 'descending',
 };
 
-const nextSort = sortOrder => (sortOrder === initialSortOrder ? reverseSortOrder : initialSortOrder);
+const nextSort = sortOrder =>
+  sortOrder === initialSortOrder ? reverseSortOrder : initialSortOrder;
 
 const TableHeadIcon = ({ classes, sortOrder, isSortedOn }) => {
   if (isSortedOn) {
@@ -51,13 +52,21 @@ const TableHeadContent = ({
       })}
       onClick={e => {
         if (!sortable) {
-          sortHandler({ key: sortField, nextSortDir: sortOrder, readableSort: readableSort[sortOrder] }, 'NOT_SORTABLE', e);
+          sortHandler(
+            { key: sortField, nextSortDir: sortOrder, readableSort: readableSort[sortOrder] },
+            'NOT_SORTABLE',
+            e,
+          );
         }
       }}
     >
-      {iconBefore && <TableHeadIcon classes={classes} sortOrder={sortOrder} isSortedOn={isSortedOn} />}
+      {iconBefore && (
+        <TableHeadIcon classes={classes} sortOrder={sortOrder} isSortedOn={isSortedOn} />
+      )}
       {headerLabel}
-      {iconAfter && <TableHeadIcon classes={classes} sortOrder={sortOrder} isSortedOn={isSortedOn} />}
+      {iconAfter && (
+        <TableHeadIcon classes={classes} sortOrder={sortOrder} isSortedOn={isSortedOn} />
+      )}
     </span>
   );
 };
@@ -98,7 +107,10 @@ class TableHead extends Component {
             }
 
             const nextSortDir = this.getNextSortDir(col.key || col.baseKey);
-            const readableNextSortDir = nextSortDir === initialSortOrder ? localization[initialSortOrder] : localization[reverseSortOrder];
+            const readableNextSortDir =
+              nextSortDir === initialSortOrder
+                ? localization[initialSortOrder]
+                : localization[reverseSortOrder];
 
             const TableHeadInner = (
               <TableHeadContent
@@ -136,7 +148,11 @@ class TableHead extends Component {
                       })}
                       onClick={e => {
                         sortHandler(
-                          { key: col.key || col.baseKey, nextSortDir, readableSort: readableSort[nextSortDir] },
+                          {
+                            key: col.key || col.baseKey,
+                            nextSortDir,
+                            readableSort: readableSort[nextSortDir],
+                          },
                           'SORT_CHANGED',
                           e,
                         );

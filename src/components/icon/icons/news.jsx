@@ -17,7 +17,10 @@ export default function News({
     <svg style={style} {...rest}>
       <g stroke="none" strokeWidth={strokeWidth} fill="none" fillRule="evenodd">
         <g stroke={stroke}>
-          <path d="M3.00000002,14 L13,14 C14.1,14 15,13.1 15,12 L15,2 L4,2 L4,6" strokeWidth={strokeWidth} />
+          <path
+            d="M3.00000002,14 L13,14 C14.1,14 15,13.1 15,12 L15,2 L4,2 L4,6"
+            strokeWidth={strokeWidth}
+          />
           <path d="M10,4.5 L13,4.5" />
           <path d="M10,6.5 L13,6.5" />
           <path d="M10,8.5 L13,8.5" />
