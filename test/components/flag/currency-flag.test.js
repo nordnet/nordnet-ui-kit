@@ -6,7 +6,8 @@ import styles from '../../../src/components/flag/flags/styles';
 import { mockClasses } from '../../../src/';
 
 const classes = mockClasses(styles);
-const shallowComponent = props => shallow(<CurrencyFlag classes={classes} countryCode="se" {...props} />);
+const shallowComponent = props =>
+  shallow(<CurrencyFlag classes={classes} countryCode="se" {...props} />);
 
 describe('<CurrencyFlag />', () => {
   it(`should have common and size classes`, () => {

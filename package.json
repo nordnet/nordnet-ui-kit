@@ -26,7 +26,7 @@
     "coveralls": "coveralls < coverage/lcov.info",
     "semantic-release": "semantic-release",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
-    "format": "prettier --write {src,test}/**/**/*.{js,jsx}"
+    "format": "prettier --write '{src,test}/**/*.{js,jsx}'"
   },
   "files": [
     "dist",
@@ -84,7 +84,7 @@
     "react-jss": ">=7"
   },
   "devDependencies": {
-    "@nordnet/prettier-config": "^1.0.0",
+    "@nordnet/prettier-config": "^2.0.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",

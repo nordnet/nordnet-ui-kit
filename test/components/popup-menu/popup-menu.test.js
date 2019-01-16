@@ -4,7 +4,10 @@ import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { mockClasses } from '../../../src';
 import { Component as PopupMenu, styles } from '../../../src/components/popup-menu/popup-menu';
-import { Component as PopupMenuItem, styles as itemStyles } from '../../../src/components/popup-menu/popup-menu-item';
+import {
+  Component as PopupMenuItem,
+  styles as itemStyles,
+} from '../../../src/components/popup-menu/popup-menu-item';
 import PopupMenuList from '../../../src/components/popup-menu/popup-menu-list';
 import keyCodes from '../../../src/components/popup-menu/keyCodes';
 
@@ -101,7 +104,9 @@ describe('<PopupMenu />', () => {
     wrapper.instance().firstListElement = { focus };
     wrapper.find(`button.${classes.menuButton}`).simulate('focus');
     wrapper.find(`button.${classes.menuButton}`).simulate('click');
-    wrapper.find(`button.${classes.menuButton}`).simulate('keyDown', { preventDefault, keyCode: keyCodes.ARROW_DOWN });
+    wrapper
+      .find(`button.${classes.menuButton}`)
+      .simulate('keyDown', { preventDefault, keyCode: keyCodes.ARROW_DOWN });
 
     expect(focus.calledOnce).to.be.true;
     expect(preventDefault.calledOnce).to.be.true;

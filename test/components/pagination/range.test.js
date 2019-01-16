@@ -121,7 +121,11 @@ describe('<Range />', () => {
   });
 
   it('render label text for page', () => {
-    const wrapper = shallowComponent({ selected: 2, pageLabelText: 'go to page', pageLebelSelected: 'current page' });
+    const wrapper = shallowComponent({
+      selected: 2,
+      pageLabelText: 'go to page',
+      pageLebelSelected: 'current page',
+    });
 
     expect(
       wrapper
@@ -132,7 +136,11 @@ describe('<Range />', () => {
   });
 
   it('render label text for selected page', () => {
-    const wrapper = shallowComponent({ selected: 1, pageLabelText: 'go to page', pageLabelTextSelected: 'current page' });
+    const wrapper = shallowComponent({
+      selected: 1,
+      pageLabelText: 'go to page',
+      pageLabelTextSelected: 'current page',
+    });
 
     expect(
       wrapper

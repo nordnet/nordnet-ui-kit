@@ -119,7 +119,15 @@ class InputSelect extends React.Component {
       selectablePlaceholder,
       options,
     } = this.props;
-    const { hasSuccess, hasWarning, hasError, hasFocus, hasValue: stateHasValue, hasAddon, value } = this.state;
+    const {
+      hasSuccess,
+      hasWarning,
+      hasError,
+      hasFocus,
+      hasValue: stateHasValue,
+      hasAddon,
+      value,
+    } = this.state;
 
     const title = this.getTitle();
     const selectedOption = this.getSelectedOption();
@@ -170,7 +178,10 @@ class InputSelect extends React.Component {
       <div className={rootClassName} style={style}>
         <div className="input__field">
           <InputAddon content={leftAddon} position="left" />
-          <div className={classNames([classes['select-wrapper']], 'input__element-wrapper')} title={title}>
+          <div
+            className={classNames([classes['select-wrapper']], 'input__element-wrapper')}
+            title={title}
+          >
             <select
               {...selectProps}
               id={elementId}
@@ -197,12 +208,25 @@ class InputSelect extends React.Component {
               ))}
             </select>
             {stateHasValue ? null : (
-              <FakePlaceholder placeholder={placeholder} label={label} classes={classes} selectable={selectablePlaceholder} />
+              <FakePlaceholder
+                placeholder={placeholder}
+                label={label}
+                classes={classes}
+                selectable={selectablePlaceholder}
+              />
             )}
-            {this.showValue() && selectedOption && <span className="input__value-label">{selectedOption.label}</span>}
+            {this.showValue() && selectedOption && (
+              <span className="input__value-label">{selectedOption.label}</span>
+            )}
             <SelectArrow className="input__select-arrow" stroke={theme.palette.variant.primary} />
           </div>
-          <Label id={elementId} label={label} placeholder={placeholder} hasFocus={hasFocus} hasValue={stateHasValue} />
+          <Label
+            id={elementId}
+            label={label}
+            placeholder={placeholder}
+            hasFocus={hasFocus}
+            hasValue={stateHasValue}
+          />
           <InputAddon content={rightAddon} position="right" />
         </div>
         <HelpText {...helpTextModifiers}>{helpText}</HelpText>
@@ -227,7 +251,8 @@ InputSelect.propTypes = {
         PropTypes.shape({
           label: PropTypes.string.isRequired,
           key: PropTypes.string,
-          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
+            .isRequired,
         }),
       ),
     }),
@@ -239,7 +264,13 @@ InputSelect.propTypes = {
   label: PropTypes.node,
   placeholder: PropTypes.string,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object]),
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,

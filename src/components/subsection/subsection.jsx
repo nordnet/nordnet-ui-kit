@@ -36,7 +36,15 @@ class Subsection extends React.Component {
   };
 
   render() {
-    const { title: Title, icon: CustomIcon, children, loading, noSeparator, estimatedHeight, classes } = this.props;
+    const {
+      title: Title,
+      icon: CustomIcon,
+      children,
+      loading,
+      noSeparator,
+      estimatedHeight,
+      classes,
+    } = this.props;
     const { toggled, toggleActive } = this.state;
 
     return (
@@ -48,7 +56,10 @@ class Subsection extends React.Component {
             </div>
           )}
           <div className={classes.mainSection}>
-            <button className={cn(classes.title, { [classes.loading]: loading })} onClick={this.handleToggle}>
+            <button
+              className={cn(classes.title, { [classes.loading]: loading })}
+              onClick={this.handleToggle}
+            >
               <div className={classes.titleContent}>
                 <div className={classes.titleLeft}>
                   {CustomIcon && (
@@ -61,7 +72,9 @@ class Subsection extends React.Component {
                 <div className={classes.titleRight}>
                   {loading && <Spinner />}
                   {!loading && (
-                    <div className={cn(classes.chevron, classes.mobileOnly)}>{toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}</div>
+                    <div className={cn(classes.chevron, classes.mobileOnly)}>
+                      {toggled ? <Icon.ChevronUp /> : <Icon.ChevronDown />}
+                    </div>
                   )}
                 </div>
               </div>

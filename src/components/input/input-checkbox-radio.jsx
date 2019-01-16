@@ -76,7 +76,18 @@ class InputCheckboxRadio extends React.PureComponent {
     return (
       <div className="input-checkbox-radio__element">
         <input
-          {...omit(this.props, 'hasSuccess', 'hasError', 'isCheckbox', 'isRadio', 'helpText', 'sheet', 'classes', 'theme', 'variant')}
+          {...omit(
+            this.props,
+            'hasSuccess',
+            'hasError',
+            'isCheckbox',
+            'isRadio',
+            'helpText',
+            'sheet',
+            'classes',
+            'theme',
+            'variant',
+          )}
           type={this.props.type}
           checked={this.state.checked}
           disabled={this.state.disabled}

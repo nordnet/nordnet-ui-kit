@@ -47,19 +47,25 @@ describe('<Tooltip />', () => {
   });
 
   it('should have fixedWidth', () => {
-    wrapper = shallow(<Tooltip classes={classes} fixedWidth={345} content="Lorem ipsum dolor sit amet." />);
+    wrapper = shallow(
+      <Tooltip classes={classes} fixedWidth={345} content="Lorem ipsum dolor sit amet." />,
+    );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popupFixed}`).prop('style')).to.have.property('width', 345);
   });
 
   it('should set className to above', () => {
-    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'above'} />);
+    wrapper = shallow(
+      <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'above'} />,
+    );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('above')).to.equal(true);
   });
 
   it('should set className to left', () => {
-    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'left'} />);
+    wrapper = shallow(
+      <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'left'} />,
+    );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('left')).to.equal(true);
   });
@@ -71,7 +77,9 @@ describe('<Tooltip />', () => {
   });
 
   it('should set desktopOnly', () => {
-    wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." desktopOnly />);
+    wrapper = shallow(
+      <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." desktopOnly />,
+    );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass(classes.popupDesktopOnly)).to.equal(true);
   });

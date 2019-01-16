@@ -72,8 +72,11 @@ export const styles = theme => {
       },
     },
     hexagon: {
-      color: ({ qualified, qualifiedColor = theme.palette.color.green, unqualifiedColor = theme.palette.color.red }) =>
-        qualified ? qualifiedColor : unqualifiedColor,
+      color: ({
+        qualified,
+        qualifiedColor = theme.palette.color.green,
+        unqualifiedColor = theme.palette.color.red,
+      }) => (qualified ? qualifiedColor : unqualifiedColor),
     },
     iconWrapper: {
       position: 'absolute',
@@ -149,8 +152,11 @@ export const styles = theme => {
       },
     },
     subText: {
-      color: ({ qualified, qualifiedColor = palette.color.green, unqualifiedColor = palette.color.red }) =>
-        qualified ? qualifiedColor : unqualifiedColor,
+      color: ({
+        qualified,
+        qualifiedColor = palette.color.green,
+        unqualifiedColor = palette.color.red,
+      }) => (qualified ? qualifiedColor : unqualifiedColor),
       textAlign: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'center' : 'left'),
       marginLeft: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 0 : 4),
       fontSize: ({ subTextFontSize = 10 }) => subTextFontSize,
@@ -213,10 +219,19 @@ class InstrumentBadge extends React.Component {
   };
 
   render() {
-    const { tooltipContent, tooltipPlacement, showBackgroundCircle, size, className, classes } = this.props;
+    const {
+      tooltipContent,
+      tooltipPlacement,
+      showBackgroundCircle,
+      size,
+      className,
+      classes,
+    } = this.props;
     return (
       <div
-        className={cn(classes[size], className, { [classes.backgroundCircle]: showBackgroundCircle })}
+        className={cn(classes[size], className, {
+          [classes.backgroundCircle]: showBackgroundCircle,
+        })}
         {...omit(
           this.props,
           'sheet',
@@ -234,7 +249,11 @@ class InstrumentBadge extends React.Component {
         )}
       >
         {tooltipContent ? (
-          <Tooltip style={{ display: 'flex', alignItems: 'center' }} content={tooltipContent} placement={tooltipPlacement}>
+          <Tooltip
+            style={{ display: 'flex', alignItems: 'center' }}
+            content={tooltipContent}
+            placement={tooltipPlacement}
+          >
             {this.renderInstrumentBadge()}
           </Tooltip>
         ) : (

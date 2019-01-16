@@ -16,7 +16,8 @@ const defaultProps = {
 let addEventListenerSpy;
 let removeEventListenerSpy;
 
-const getWrapper = (props = {}) => shallow(<ShowMore {...defaultProps} {...props} />, { disableLifecycleMethods: true });
+const getWrapper = (props = {}) =>
+  shallow(<ShowMore {...defaultProps} {...props} />, { disableLifecycleMethods: true });
 
 describe('<ShowMore />', () => {
   beforeEach(() => {

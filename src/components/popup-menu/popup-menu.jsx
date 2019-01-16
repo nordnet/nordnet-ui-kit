@@ -183,11 +183,15 @@ PopupMenu.propTypes = {
     // First do a "normal" type check
     if (props[propName] && typeof props[propName] !== 'string') {
       return new Error(
-        `Invalid prop \`${propName}\` of type \`${typeof props[propName]}\` supplied to \`${componentName}\`, expected \`string\`.`,
+        `Invalid prop \`${propName}\` of type \`${typeof props[
+          propName
+        ]}\` supplied to \`${componentName}\`, expected \`string\`.`,
       );
     }
     if (props.buttonLabel && !props[propName]) {
-      return new Error('If `buttonLabel` prop is used, a `buttonID` prop must be provided as well.');
+      return new Error(
+        'If `buttonLabel` prop is used, a `buttonID` prop must be provided as well.',
+      );
     }
   },
   children: PropTypes.node.isRequired,

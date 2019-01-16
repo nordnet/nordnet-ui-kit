@@ -10,11 +10,19 @@ describe('<Dropdown />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Dropdown classes={classes} theme={theme} toggle="Dropdown" actions={[{ label: 'log', action: () => {} }]} />);
+    wrapper = shallow(
+      <Dropdown
+        classes={classes}
+        theme={theme}
+        toggle="Dropdown"
+        actions={[{ label: 'log', action: () => {} }]}
+      />,
+    );
   });
 
   it('should render <div> as container', () => expect(wrapper.type()).to.equal('div'));
-  it("should contain a <button> with class 'toggle'", () => assert.ok(wrapper.find('button').hasClass(classes.toggle)));
+  it("should contain a <button> with class 'toggle'", () =>
+    assert.ok(wrapper.find('button').hasClass(classes.toggle)));
   it('should be closed by default', () => expect(wrapper.state('actionsOpen')).to.equal(false));
   it('should be open after click', () => {
     wrapper.find(`button.${classes.toggle}`).simulate('click');
@@ -23,7 +31,13 @@ describe('<Dropdown />', () => {
 
   it('should be closed after click when closeOnAction is true', () => {
     const closeWrapper = shallow(
-      <Dropdown closeOnAction classes={classes} theme={theme} toggle="Dropdown" actions={[{ label: 'log', action: () => {} }]} />,
+      <Dropdown
+        closeOnAction
+        classes={classes}
+        theme={theme}
+        toggle="Dropdown"
+        actions={[{ label: 'log', action: () => {} }]}
+      />,
     );
     closeWrapper.find(`button.${classes.toggle}`).simulate('click');
     closeWrapper

@@ -4,7 +4,11 @@ import cn from 'classnames';
 
 const FakePlaceholder = ({ placeholder, label, classes, selectable }) => {
   const content = placeholder || label;
-  return <span className={cn('input__placeholder', { [classes.selectable]: selectable })}>{content}</span>;
+  return (
+    <span className={cn('input__placeholder', { [classes.selectable]: selectable })}>
+      {content}
+    </span>
+  );
 };
 
 FakePlaceholder.propTypes = {

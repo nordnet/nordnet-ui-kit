@@ -31,7 +31,11 @@ class SegmentedControl extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.type === 'radio' && nextProps.value !== this.props.value && nextProps.value !== this.state.selected) {
+    if (
+      this.props.type === 'radio' &&
+      nextProps.value !== this.props.value &&
+      nextProps.value !== this.state.selected
+    ) {
       this.setState({
         selected: nextProps.value,
       });
@@ -113,7 +117,9 @@ class SegmentedControl extends React.PureComponent {
     const usedClassName = cn(this.props.classes.label, this.props.variant, {
       [this.props.classes.selected]: selected,
       [this.props.classes.buttonLeft]: index === 0,
-      [this.props.classes.buttonRight]: this.props.children.map ? index === this.props.children.length - 1 : true,
+      [this.props.classes.buttonRight]: this.props.children.map
+        ? index === this.props.children.length - 1
+        : true,
       [this.props.classes.focus]: index === this.state.focus,
       [this.props.classes.radio]: this.props.type === 'radio',
       [this.props.classes.checkbox]: this.props.type === 'checkbox',
@@ -143,7 +149,9 @@ class SegmentedControl extends React.PureComponent {
     // If we have an array of children, then we have the map function
     return (
       <span style={this.props.style} className={cn(this.props.classes.root, this.props.className)}>
-        {this.props.children.map ? this.props.children.map(this.renderChild) : this.renderChild(this.props.children)}
+        {this.props.children.map
+          ? this.props.children.map(this.renderChild)
+          : this.renderChild(this.props.children)}
       </span>
     );
   }

@@ -74,7 +74,12 @@ class Pagination extends Component {
 
     return (
       <nav className={classes.root} role="navigation" aria-label={title}>
-        <Stepper clickHandler={this.handlePreviousPage} disabled={selected === 1} url={urlGenerator(selected - 1)} getNode={getNode}>
+        <Stepper
+          clickHandler={this.handlePreviousPage}
+          disabled={selected === 1}
+          url={urlGenerator(selected - 1)}
+          getNode={getNode}
+        >
           <Icon.ArrowLeft className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextPrevious}</span>
         </Stepper>
@@ -89,7 +94,12 @@ class Pagination extends Component {
           urlGenerator={urlGenerator}
           getNode={getNode}
         />
-        <Stepper clickHandler={this.handleNextPage} disabled={selected === pagesCount} url={urlGenerator(selected + 1)} getNode={getNode}>
+        <Stepper
+          clickHandler={this.handleNextPage}
+          disabled={selected === pagesCount}
+          url={urlGenerator(selected + 1)}
+          getNode={getNode}
+        >
           <Icon.ArrowRight className={classes.stepperIcon} />
           <span className={classes.stepperText}>{buttonTextNext}</span>
         </Stepper>

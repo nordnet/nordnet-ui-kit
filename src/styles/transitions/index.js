@@ -5,7 +5,10 @@ export default {
   easing: easingInternal,
   duration: durationInternal,
 
-  create(props = ['all'], { easing = easingInternal.easeInOut, duration = durationInternal.standard, delay = 0 } = {}) {
+  create(
+    props = ['all'],
+    { easing = easingInternal.easeInOut, duration = durationInternal.standard, delay = 0 } = {},
+  ) {
     return props.map(prop => `${prop} ${duration}ms ${easing} ${delay}ms`).join(',');
   },
 

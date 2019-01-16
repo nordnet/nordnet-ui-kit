@@ -2,7 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../../src';
-import { Component as LabeledValue, styles } from '../../../src/components/labeled-value/labeled-value';
+import {
+  Component as LabeledValue,
+  styles,
+} from '../../../src/components/labeled-value/labeled-value';
 
 describe('<LabeledValue />', () => {
   const classes = mockClasses(styles);

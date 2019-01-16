@@ -7,7 +7,9 @@ const SelectOption = ({ label, value, optionKey, options, ...rest }) => {
     const key = optionKey || kebabCase(label); // Assumes optgroup label is unique
     return (
       <optgroup {...rest} key={key} label={label}>
-        {options.map(option => <SelectOption key={option.key || kebabCase(option.label)} {...option} />)}
+        {options.map(option => (
+          <SelectOption key={option.key || kebabCase(option.label)} {...option} />
+        ))}
       </optgroup>
     );
   }

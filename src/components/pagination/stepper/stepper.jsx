@@ -6,10 +6,21 @@ import ButtonNode from '../button-node';
 import styles from './stepper-styles';
 
 const Stepper = ({ classes, disabled, clickHandler, children, url, getNode }) => {
-  const stepperProps = { className: classes.button, onClick: clickHandler, variant: 'link', modifier: 'action' };
+  const stepperProps = {
+    className: classes.button,
+    onClick: clickHandler,
+    variant: 'link',
+    modifier: 'action',
+  };
 
   return (
-    <ButtonNode node={Button} getNode={getNode} url={url} disabled={disabled} defaultProps={stepperProps}>
+    <ButtonNode
+      node={Button}
+      getNode={getNode}
+      url={url}
+      disabled={disabled}
+      defaultProps={stepperProps}
+    >
       {children}
     </ButtonNode>
   );
