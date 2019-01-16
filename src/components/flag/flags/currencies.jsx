@@ -18,7 +18,14 @@ export default function CombinedFlag({ style, primaryCC, secondaryCC, ...rest })
   const primaryX = -24;
   const secondaryX = -primaryX;
   return (
-    <svg width="100%" height="100%" style={usedStyle} aria-hidden="true" focusable="false" {...rest}>
+    <svg
+      width="100%"
+      height="100%"
+      style={usedStyle}
+      aria-hidden="true"
+      focusable="false"
+      {...rest}
+    >
       <g id={`${primaryCC}/${secondaryCC}`}>
         <g id={`${secondaryCC}-container`}>
           <circle cx="116.094" cy="68.031" r="68.031" style={{ fill: '#f6f6f6' }} />
@@ -31,7 +38,9 @@ export default function CombinedFlag({ style, primaryCC, secondaryCC, ...rest })
                 <clipPath id="_clip2">
                   <path d="M54.523,7.03l122.875,0l0,122.875l-122.875,0l0,-122.875Z" />
                 </clipPath>
-                <g transform={`translate(${secondaryX}, 0)`}>{SecondaryFlag ? <SecondaryFlag /> : null}</g>
+                <g transform={`translate(${secondaryX}, 0)`}>
+                  {SecondaryFlag ? <SecondaryFlag /> : null}
+                </g>
               </g>
             </g>
           </g>

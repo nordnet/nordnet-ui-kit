@@ -15,7 +15,7 @@ export const convertOrder = (origin, spacers) => {
 
 const convertBasis = (responsiveProps, spacers) => ({
   ...responsiveProps,
-  flexBasisMobile: responsiveProps.flexBasisMobile / 100 * 90,
+  flexBasisMobile: (responsiveProps.flexBasisMobile / 100) * 90,
   flexOrder: convertOrder(responsiveProps.flexOrder, spacers),
 });
 
@@ -51,9 +51,19 @@ class TableBodyRow extends Component {
   };
 
   render() {
-    const { classes, rowData, columns, renderTd, expandLabel, trProps, borderlessRows } = this.props;
+    const {
+      classes,
+      rowData,
+      columns,
+      renderTd,
+      expandLabel,
+      trProps,
+      borderlessRows,
+    } = this.props;
     const { collapsed } = this.state;
-    const mobileSortedColumns = columns.filter(col => col.responsiveProps.flexOrder > 0).sort(compareResponsiveOrder);
+    const mobileSortedColumns = columns
+      .filter(col => col.responsiveProps.flexOrder > 0)
+      .sort(compareResponsiveOrder);
     const { spacers, colsWithRows } = findSpacers(mobileSortedColumns);
     return (
       <Tr className={cn({ [classes.expanded]: !collapsed }, classes.row)} {...trProps}>
@@ -83,7 +93,12 @@ class TableBodyRow extends Component {
           borderBottom={collapsed || !borderlessRows.includes(1)}
           hiddenOnDesktop
         >
-          <button className={classes.expander} onClick={this.toggleExpandedRow} aria-expanded={!collapsed} type="button">
+          <button
+            className={classes.expander}
+            onClick={this.toggleExpandedRow}
+            aria-expanded={!collapsed}
+            type="button"
+          >
             <span className={classes.expanderText}>{expandLabel}</span>
             {collapsed ? (
               <Icon.ChevronDown aria-hidden="true" focusable="false" />

@@ -20,11 +20,22 @@ class Range extends Component {
   }
 
   renderEllipsis = (hiddenOnDesktop, pos) => (
-    <Ellipsis key={`ellipsis-${pos}`} hiddenOnDesktop={hiddenOnDesktop || !this.isAdvancedPagination()} />
+    <Ellipsis
+      key={`ellipsis-${pos}`}
+      hiddenOnDesktop={hiddenOnDesktop || !this.isAdvancedPagination()}
+    />
   );
 
   renderPage(pageNumber) {
-    const { selectHandler, pagesCount, selected, pageLabelText, pageLabelTextSelected, urlGenerator, getNode } = this.props;
+    const {
+      selectHandler,
+      pagesCount,
+      selected,
+      pageLabelText,
+      pageLabelTextSelected,
+      urlGenerator,
+      getNode,
+    } = this.props;
 
     return (
       <Page
@@ -34,7 +45,11 @@ class Range extends Component {
         isSelected={pageNumber === selected}
         isFirst={pageNumber === 1}
         isLast={pageNumber === pagesCount}
-        labelText={pageNumber === selected ? `${pageLabelTextSelected} ${pageNumber}` : `${pageLabelText} ${pageNumber}`}
+        labelText={
+          pageNumber === selected
+            ? `${pageLabelTextSelected} ${pageNumber}`
+            : `${pageLabelText} ${pageNumber}`
+        }
         url={urlGenerator(pageNumber)}
         getNode={getNode}
       >
@@ -74,7 +89,9 @@ class Range extends Component {
           i > pagesCount - anchors ||
           (i >= selected - selectedSiblings && i <= selected + selectedSiblings) ||
           (selectedPageIsOnTheLeftSide && emptySpotsRemaining) ||
-          (selectedPageIsOnTheRightSide && emptySpotsRemaining && i > pagesCount - pagesToDraw + emptySpotsRemaining)
+          (selectedPageIsOnTheRightSide &&
+            emptySpotsRemaining &&
+            i > pagesCount - pagesToDraw + emptySpotsRemaining)
         ) {
           items.push(this.renderPage(i));
         }
@@ -87,7 +104,11 @@ class Range extends Component {
     }
 
     if (selected < pagesCount - 1) {
-      items.splice(items.length - anchors, 0, this.renderEllipsis(selectedPageIsOnTheRightSide, 'right'));
+      items.splice(
+        items.length - anchors,
+        0,
+        this.renderEllipsis(selectedPageIsOnTheRightSide, 'right'),
+      );
     }
 
     return <ul className={classes.list}>{items}</ul>;

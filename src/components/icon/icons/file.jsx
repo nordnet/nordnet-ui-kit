@@ -23,7 +23,14 @@ export default function File({
         />
         {extension && (
           <g transform="translate(0.000000, 7.578947)">
-            <rect fill={fill} x="0" y="0" width={1.9 * 2 + 3.6 * extension.length} height="8" rx="1" />
+            <rect
+              fill={fill}
+              x="0"
+              y="0"
+              width={1.9 * 2 + 3.6 * extension.length}
+              height="8"
+              rx="1"
+            />
             <text fontFamily="monospace" fontSize="6" fontWeight="500" fill="#FFFFFF">
               <tspan x="1.9" y="6">
                 {extension}

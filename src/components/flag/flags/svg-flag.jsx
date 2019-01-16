@@ -14,8 +14,18 @@ const SvgFlag = ({ className, classes, size, countryCode, round, ...rest }) => {
 
   if (round) {
     return (
-      <span className={cn(classes.roundedContainer, classes[`roundedContainer${size.toUpperCase()}`])}>
-        <Flag className={cn(className, classes.common, classes[size], classes[`rounded${size.toUpperCase()}`])} {...rest} />
+      <span
+        className={cn(classes.roundedContainer, classes[`roundedContainer${size.toUpperCase()}`])}
+      >
+        <Flag
+          className={cn(
+            className,
+            classes.common,
+            classes[size],
+            classes[`rounded${size.toUpperCase()}`],
+          )}
+          {...rest}
+        />
       </span>
     );
   }

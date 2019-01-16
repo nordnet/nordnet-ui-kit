@@ -5,7 +5,17 @@ import classNames from 'classnames';
 import omit from '../../../utilities/omit';
 import styles, { stickyOffset as stickyOffsetStyles } from './tr-styles';
 
-function Tr({ classes, className, children, size, border, sticky, stickyBorder, stickyOffset, ...rest }) {
+function Tr({
+  classes,
+  className,
+  children,
+  size,
+  border,
+  sticky,
+  stickyBorder,
+  stickyOffset,
+  ...rest
+}) {
   const usedClassName = classNames(
     classes.tr,
     size,
