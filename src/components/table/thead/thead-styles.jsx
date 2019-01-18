@@ -22,6 +22,9 @@ const normal = ({ mixins, typography, palette: { color } }) => ({
     border: 0,
     '& th': {
       position: 'sticky',
+      fallbacks: {
+        position: 'relative',
+      },
       top: 0,
       zIndex: 1,
       backgroundColor: color.white,
