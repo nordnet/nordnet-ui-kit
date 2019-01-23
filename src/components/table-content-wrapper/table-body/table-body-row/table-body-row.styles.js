@@ -50,6 +50,7 @@ export default ({ palette, mixins }) => ({
     '&:focus': {
       color: palette.color.blue,
     },
+    padding: 2,
   },
   expanderText: {
     ...mixins.screenReadersOnly,
