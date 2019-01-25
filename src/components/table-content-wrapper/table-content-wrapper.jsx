@@ -41,10 +41,6 @@ class TableContentWrapper extends Component {
       borderlessRows,
     } = this.props;
 
-    if (typeof loading === 'undefined') {
-      return null;
-    }
-
     if (rowData.length > 0) {
       return (
         <div className={classes.root}>
@@ -94,6 +90,9 @@ class TableContentWrapper extends Component {
           )}
         </div>
       );
+    }
+    if (loading) {
+      return null;
     }
     return <div className={classes.feedback}>{localization.noData}</div>;
   }
