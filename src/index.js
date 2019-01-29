@@ -3,8 +3,6 @@ import Animate from './components/animate/animate';
 import Avatar from './components/avatar';
 import Badge from './components/badge/badge';
 import Button from './components/button/button';
-import CostInfoLogo from './components/cost-info-logo';
-import Dropdown from './components/dropdown/dropdown';
 import EditableInput from './components/editable-input';
 import Flag from './components/flag/flag';
 import Input from './components/input/input';
@@ -13,13 +11,10 @@ import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
 import Pagination from './components/pagination/pagination';
-import Pane from './components/pane/pane';
 import ProgressBar from './components/progress-bar/progress-bar';
 import RadioGroup from './components/radio-group';
-import SegmentedControl from './components/segmented-control';
 import SharevilleLogo from './components/shareville-logo';
 import ShowMore from './components/show-more';
-import TableContentWrapper from './components/table-content-wrapper';
 import Spinner from './components/spinner';
 import Subsection from './components/subsection/subsection';
 import { Tabs, Tab, Tabpanel } from './components/tabs';
@@ -47,8 +42,6 @@ export {
   Avatar,
   Badge,
   Button,
-  CostInfoLogo,
-  Dropdown,
   EditableInput,
   Flag,
   Icon,
@@ -58,14 +51,11 @@ export {
   Li,
   Logo,
   Pagination,
-  Pane,
   PopupMenu,
   PopupMenuItem,
   ProgressBar,
   RadioGroup,
-  SegmentedControl,
   SharevilleLogo,
-  TableContentWrapper,
   ShowMore,
   Spinner,
   Subsection,

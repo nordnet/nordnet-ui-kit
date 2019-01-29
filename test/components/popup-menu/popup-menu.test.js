@@ -21,7 +21,7 @@ describe('<PopupMenu />', () => {
 
   it('should render <span> by default', () => {
     wrapper = shallow(
-      <PopupMenu classes={classes} isOpen>
+      <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
       </PopupMenu>,
     );
@@ -30,26 +30,18 @@ describe('<PopupMenu />', () => {
 
   it('should render a button and a PopupMenuList as its children', () => {
     wrapper = shallow(
-      <PopupMenu classes={classes} isOpen>
+      <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
       </PopupMenu>,
     );
+
     expect(wrapper.find(`button.${classes.menuButton}`).length).to.equal(1);
     expect(wrapper.find(PopupMenuList).length).to.equal(1);
   });
 
-  it('renders open if isOpen prop is true', () => {
-    wrapper = shallow(
-      <PopupMenu classes={classes} isOpen>
-        <PopupMenuItem classes={itemClasses} />
-      </PopupMenu>,
-    );
-    expect(wrapper.find('PopupMenuItem')).to.have.length(1);
-  });
-
   it('renders correct amount of PopupMenuItems', () => {
     wrapper = shallow(
-      <PopupMenu classes={classes} isOpen>
+      <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
         <PopupMenuItem classes={itemClasses} />
         <PopupMenuItem classes={itemClasses} />

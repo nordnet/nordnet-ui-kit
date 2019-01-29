@@ -1,3 +1,5 @@
+**Warning this component is deprecated and will be removed in the next major release.**
+
     const divSize = 150;
 
     <div style={{display: 'flex'}}>

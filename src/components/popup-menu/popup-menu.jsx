@@ -89,13 +89,12 @@ class PopupMenu extends Component {
       maxHeight,
       buttonLabel,
       buttonID,
-      isOpen: isOpenFromProps,
       disabled,
       theme,
       popupMenuDropdownZIndex,
     } = this.props;
     const { isOpen } = this.state;
-    const open = !disabled && (isOpenFromProps !== null ? isOpenFromProps : isOpen);
+    const open = !disabled && isOpen;
     let label = null;
     if (typeof buttonLabel === 'string') label = buttonLabel;
     else if (typeof buttonLabel === 'object' && buttonLabel !== null) {
@@ -157,8 +156,6 @@ PopupMenu.propTypes = {
   /** @ignore */
   theme: PropTypes.object.isRequired,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** Will be deprecated. Overrides, but does not change the internal state. */
-  isOpen: PropTypes.bool,
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   onToggle: PropTypes.func,
@@ -212,7 +209,6 @@ PopupMenu.defaultProps = {
   width: 200,
   onToggle: () => {},
   buttonLabel: null,
-  isOpen: null,
   enter: 100,
   exit: 100,
   toggleButton: null,
