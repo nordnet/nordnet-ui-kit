@@ -13,10 +13,8 @@ import LabeledValue from './components/labeled-value/labeled-value';
 import Li from './components/li/li';
 import Logo from './components/logo/logo';
 import Pagination from './components/pagination/pagination';
-import Pane from './components/pane/pane';
 import ProgressBar from './components/progress-bar/progress-bar';
 import RadioGroup from './components/radio-group';
-import SegmentedControl from './components/segmented-control';
 import SharevilleLogo from './components/shareville-logo';
 import ShowMore from './components/show-more';
 import TableContentWrapper from './components/table-content-wrapper';
@@ -58,12 +56,10 @@ export {
   Li,
   Logo,
   Pagination,
-  Pane,
   PopupMenu,
   PopupMenuItem,
   ProgressBar,
   RadioGroup,
-  SegmentedControl,
   SharevilleLogo,
   TableContentWrapper,
   ShowMore,
