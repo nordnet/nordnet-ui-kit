@@ -3,7 +3,6 @@ import Animate from './components/animate/animate';
 import Avatar from './components/avatar';
 import Badge from './components/badge/badge';
 import Button from './components/button/button';
-import CostInfoLogo from './components/cost-info-logo';
 import EditableInput from './components/editable-input';
 import Flag from './components/flag/flag';
 import Input from './components/input/input';
@@ -43,7 +42,6 @@ export {
   Avatar,
   Badge,
   Button,
-  CostInfoLogo,
   EditableInput,
   Flag,
   Icon,
