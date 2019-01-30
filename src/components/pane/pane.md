@@ -1,4 +1,4 @@
-**Warning! This component is deprecated, please use the Tabs component.**
+** Warning! This component is deprecated. **
 
     const tabs = [{
       label: 'Tab 1',
