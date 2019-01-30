@@ -1,3 +1,5 @@
+**Warning this component is deprecated and will be removed in the next major release.**
+
 With tabpanels for each tab (primary look):
 
       const React = require('react');
