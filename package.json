@@ -2,9 +2,9 @@
   "name": "nordnet-ui-kit",
   "version": "0.0.0-development",
   "description": "Nordnets React powered UI kit",
-  "main": "dist",
   "main": "dist/cjs",
   "module": "dist/esm",
+  "sideEffects": false,
   "scripts": {
     "precommit": "lint-staged",
     "commit": "git-cz",
