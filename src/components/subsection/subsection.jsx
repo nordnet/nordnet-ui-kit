@@ -1,4 +1,3 @@
-// Warning this component is deprecated and will be removed in the next major release.
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';

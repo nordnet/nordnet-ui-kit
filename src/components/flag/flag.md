@@ -1,3 +1,23 @@
+Classic usage: single flag numeric size
+
+    const flags = require('./flags');
+
+    const style = {
+      display: 'inline-block',
+      textAlign: 'center',
+      padding: 16
+    };
+  
+
+    <div>
+      { Object.keys(flags.default).map(flag => (
+        <div key={ flag } style={ style }>
+          <Flag size={32} countryCode={ flag } />
+          <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
+        </div>
+      )) }
+    </div>
+
 Classic usage: single flag literal size
 
     const flags = require('./flags');
@@ -26,6 +46,25 @@ Classic usage: single flag literal size
           </div>
         )) }
      </div>
+    </div>
+
+Rounded flags numeric size:
+
+    const flags = require('./flags');
+
+    const style = {
+      display: 'inline-block',
+      textAlign: 'center',
+      padding: 16
+    };
+
+    <div>
+      { Object.keys(flags.default).map(flag => (
+        <div key={ flag } style={ style }>
+          <Flag size={32} countryCode={ flag } round />
+          <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
+        </div>
+      )) }
     </div>
 
 Rounded flags literal size:
@@ -58,6 +97,19 @@ Rounded flags literal size:
         </div>
       )) }
       </div>
+    </div>
+
+Currencies numeric size:
+
+    <div>
+      <Flag size={64} countryCode="eu" secondaryCountryCode="dk" />
+      <Flag size={64} countryCode="eu" secondaryCountryCode="no" />
+      <Flag size={64} countryCode="eu" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="dk" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="no" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="us" secondaryCountryCode="se" />
+      <Flag size={64} countryCode="eu" secondaryCountryCode="us" />
+      <Flag size={64} countryCode="eu" secondaryCountryCode="gb" />
     </div>
 
 Currencies literal size:
