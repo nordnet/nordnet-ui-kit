@@ -91,7 +91,7 @@ describe('<Tooltip />', () => {
     let addEventSpy;
     let removeEventSpy;
     beforeEach(() => {
-      sandbox = sinon.sandbox.create();
+      sandbox = sinon.createSandbox();
       addEventSpy = sandbox.spy(document, 'addEventListener');
       removeEventSpy = sandbox.spy(document, 'removeEventListener');
       component = mount(
