@@ -14,6 +14,7 @@ import Pagination from './components/pagination/pagination';
 import Pane from './components/pane/pane';
 import ProgressBar from './components/progress-bar/progress-bar';
 import RadioGroup from './components/radio-group';
+import Rating from './components/rating';
 import SegmentedControl from './components/segmented-control';
 import SharevilleLogo from './components/shareville-logo';
 import ShowMore from './components/show-more';
@@ -58,6 +59,7 @@ export {
   PopupMenuItem,
   ProgressBar,
   RadioGroup,
+  Rating,
   SegmentedControl,
   SharevilleLogo,
   ShowMore,
