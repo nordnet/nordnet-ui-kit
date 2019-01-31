@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { Icon } from '../../';
+import { Icon as UiKitIcon } from '../../';
 import styles from './rating.styles';
 
 /* eslint-disable react/no-array-index-key */
-const Rating = ({ icon: RenderIcon = Icon.Star, size, rating, maxRating, classes }) => (
+const Rating = ({ icon: Icon = UiKitIcon.Star, size, rating, maxRating, classes }) => (
   <div className={classes.rating}>
     {[...Array(maxRating)].map((_, index) => {
       const classNames = cn({
@@ -15,7 +15,7 @@ const Rating = ({ icon: RenderIcon = Icon.Star, size, rating, maxRating, classes
         [classes.ratingIcon]: true,
       });
       return (
-        <RenderIcon
+        <Icon
           key={index}
           className={classNames}
           fill="currentColor"

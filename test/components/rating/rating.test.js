@@ -6,7 +6,7 @@ import { Component as Rating, styles } from '../../../src/components/rating/rati
 
 const classes = mockClasses(styles);
 
-const getComponent = props => {
+const renderComponent = props => {
   const defaultProps = {
     icon: Icon.Star,
     size: 20,
@@ -25,7 +25,7 @@ const getComponent = props => {
 
 it('Should have same number active stars as rating says', () => {
   const rating = 4;
-  const component = getComponent({ rating });
+  const component = renderComponent({ rating });
   const active = component.find('.active');
   const inactive = component.find('.inactive');
   expect(active).to.have.length(4);
