@@ -1,6 +1,9 @@
 const path = require('path');
 const camelCase = require('lodash').camelCase;
 const fs = require('fs');
+const MiniHtmlWebpackPlugin = require('mini-html-webpack-plugin');
+
+const { generateCSSReferences, generateJSReferences } = MiniHtmlWebpackPlugin;
 
 const dir = path.join(__dirname, 'src');
 
@@ -12,7 +15,22 @@ module.exports = {
   title: 'Nordnet UI Kit',
   styleguideDir: path.join(__dirname, 'documentation/dist'),
   skipComponentsWithoutExample: true,
-  template: path.resolve(__dirname, './documentation/template.html'),
+  template: ({ css, js, title, publicPath }) =>
+    `<!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>${title}</title>
+        ${generateCSSReferences(css, publicPath)}
+        <link href="https://fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      </head>
+      <body>
+        <div id="rsg-root"></div>
+        ${generateJSReferences(js, publicPath)}
+      </body>
+    </html>
+    `,
   sections: [
     {
       name: 'Components',

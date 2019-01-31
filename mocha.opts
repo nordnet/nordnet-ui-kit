@@ -1,6 +1,6 @@
 --colors
---webpack-config test/webpack.config.test.js
 --require source-map-support/register
 --require test/setup.jsdom.js
---require babel-polyfill
+--require @babel/polyfill
+--require @babel/register
 test/**/*.test.js

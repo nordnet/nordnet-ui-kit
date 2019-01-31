@@ -1,6 +1,6 @@
 Static width
 
-```
+```js
 <div style={{ width: 200 }}>
   <ShowMore>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget pharetra nisi, sed scelerisque lectus. Sed at sem at elit efficitur vestibulum quis id orci. Nunc faucibus enim at nulla porta, vitae luctus lacus fringilla. Cras ut augue pharetra, malesuada purus blandit, dapibus est. Donec dictum dapibus diam tempus luctus. Maecenas lobortis cursus nisl, et convallis orci interdum at. Etiam lacinia tincidunt massa. Curabitur sit amet dolor eu magna condimentum tempus ut eget dolor.
@@ -12,7 +12,7 @@ Static width
 
 Dynamic width
 
-```
+```js
 <div>
   <ShowMore>
     <p>

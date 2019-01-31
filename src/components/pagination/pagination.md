@@ -1,84 +1,86 @@
 Simple, few pages (default):
+```js
+const React = require('react');
 
-    const React = require('react');
+class PaginationExample1 extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.urlGenerator = this.urlGenerator.bind(this);
+  }
 
-    class PaginationExample1 extends React.PureComponent {
-      constructor(props) {
-        super(props);
-        this.urlGenerator = this.urlGenerator.bind(this);
-      }
+  urlGenerator(pageNumber) {
+    return `?page=${pageNumber}`
+  }
 
-      urlGenerator(pageNumber) {
-        return `?page=${pageNumber}`
-      }
+  render() {
+    return (
+      <div>
+        <Pagination selected={1} total={50} urlGenerator={this.urlGenerator} />
+      </div>
+    );
+  }
+}
 
-      render() {
-        return (
-          <div>
-            <Pagination selected={1} total={50} urlGenerator={this.urlGenerator} />
-          </div>
-        );
-      }
-    }
-
-    <PaginationExample1 />
+<PaginationExample1 />
+```
 
 Advanced layout (more than 7 pages):
+```js
+const React = require('react');
+const { MemoryRouter, Link } = require('../../../node_modules/react-router-dom');
+const { Button } = require('../../');
 
-    const React = require('react');
-    const { MemoryRouter, Link } = require('../../../node_modules/react-router-dom');
-    const { Button } = require('../../');
+class PaginationExample2 extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.urlGenerator = this.urlGenerator.bind(this);
+  }
 
-    class PaginationExample2 extends React.PureComponent {
-      constructor(props) {
-        super(props);
-        this.urlGenerator = this.urlGenerator.bind(this);
-      }
+  urlGenerator(pageNumber) {
+    return `?page=${pageNumber}`
+  }
 
-      urlGenerator(pageNumber) {
-        return `?page=${pageNumber}`
-      }
+  nodeGenerator(url, children, rest) {
+    return <Button node={Link} to={url} {...rest}>{children}</Button>
+  }
 
-      nodeGenerator(url, children, rest) {
-        return <Button node={Link} to={url} {...rest}>{children}</Button>
-      }
+  render() {
+    return (
+      <MemoryRouter>
+        <div>
+          <Pagination selected={2} total={100} urlGenerator={this.urlGenerator} getNode={this.nodeGenerator} />
+        </div>
+      </MemoryRouter>
+    );
+  }
+}
 
-      render() {
-        return (
-          <MemoryRouter>
-            <div>
-              <Pagination selected={2} total={100} urlGenerator={this.urlGenerator} getNode={this.nodeGenerator} />
-            </div>
-          </MemoryRouter>
-        );
-      }
-    }
-
-    <PaginationExample2 />
-
+<PaginationExample2 />
+```
 Advanced layout with 1 sibling around selected item (without urlGenerator):
-
-    <div>
-      <Pagination selected={3} total={100} selectedSiblings={1} />
-    </div>
-
+```js
+<div>
+  <Pagination selected={3} total={100} selectedSiblings={1} />
+</div>
+```
 Advanced layout with 2 anchors (with external selected prop):
+```js
+const React = require('react');
 
-    const React = require('react');
+class PaginationExample4 extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = { selected: 1 };
+  }
 
-    class PaginationExample4 extends React.PureComponent {
-      constructor(props) {
-        super(props);
-        this.state = { selected: 1 };
-      }
+  render() {
+    return (
+      <div>
+        <Pagination selected={this.state.selected} total={100} changeHandler={(pageNumber) => this.setState({ selected: pageNumber }) } />
+      </div>
+    );
+  }
+}
 
-      render() {
-        return (
-          <div>
-            <Pagination selected={this.state.selected} total={100} changeHandler={(pageNumber) => this.setState({ selected: pageNumber }) } />
-          </div>
-        );
-      }
-    }
-
-    <PaginationExample4 />
+<PaginationExample4 />
+```
