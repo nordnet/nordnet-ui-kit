@@ -19,7 +19,7 @@
     "lint": "eslint --ext=.jsx --ext=.js src",
     "test": "mocha --opts mocha.opts",
     "tdd": "npm test -- --watch",
-    "coverage": "cross-env NODE_ENV=coverage nyc npm test",
+    "coverage": "cross-env NODE_ENV=coverage nyc --reporter=html --reporter=text npm run test",
     "prepush": "run-p lint test",
     "prepublish": "in-publish && run-s lint test build || not-in-publish",
     "start": "styleguidist server --colors",
@@ -27,7 +27,7 @@
     "predocs-publish": "run-s build:docs",
     "docs-publish": "gh-pages -d documentation/dist --repo https://$GH_TOKEN@github.com/nordnet/nordnet-ui-kit.git --silent",
     "precoveralls": "run-s coverage",
-    "coveralls": "coveralls < coverage/lcov.info",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "semantic-release": "semantic-release",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
     "format": "prettier --write '{src}/**/*.{js,jsx}'"
@@ -99,7 +99,6 @@
     "@nordnet/prettier-config": "^2.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
-    "babel-plugin-istanbul": "^5.1.0",
     "babel-plugin-lodash": "^3.3.4",
     "chai": "^4.2.0",
     "commitizen": "^3.0.5",
@@ -118,7 +117,6 @@
     "gh-pages": "^2.0.1",
     "husky": "^1.3.1",
     "in-publish": "^2.0.0",
-    "istanbul-instrumenter-loader": "^3.0.1",
     "jsdom": "^13.2.0",
     "lint-staged": "^8.1.1",
     "lodash.camelcase": "^4.3.0",
@@ -139,7 +137,6 @@
     "semantic-release": "^15.13.3",
     "sinon": "^7.2.3",
     "validate-commit-msg": "^2.12.1",
-    "webpack": "4.29.0",
-    "webpack-node-externals": "^1.5.4"
+    "webpack": "4.29.0"
   }
 }
