@@ -93,6 +93,6 @@ describe('<Subsection />', () => {
     const wrapper = shallow(<Subsection {...defaultProps} loading />);
     const chevron = wrapper.find(`.${classes.chevron}`);
 
-    expect(chevron.length).toBe(0);
+    expect(chevron).toHaveLength(0);
   });
 });

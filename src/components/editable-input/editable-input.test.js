@@ -20,8 +20,8 @@ describe('<EditableInput />', () => {
     const readOnly = wrapper.find(`.${classes.readOnly}`);
     const buttonEdit = wrapper.find(`.${classes.buttonEdit}`);
 
-    expect(readOnly.length).toBe(1);
-    expect(buttonEdit.length).toBe(1);
+    expect(readOnly).toHaveLength(1);
+    expect(buttonEdit).toHaveLength(1);
   });
 
   test('should toggle editing mode when edit button is clicked', () => {
@@ -36,13 +36,13 @@ describe('<EditableInput />', () => {
 
   test('should render input field and buttons when in editing mode', () => {
     wrapper = shallow(<EditableInput classes={classes} />);
-    expect(wrapper.find(`.${classes.form}`).length).toBe(0);
-    expect(wrapper.find(`.${classes.buttons}`).length).toBe(0);
+    expect(wrapper.find(`.${classes.form}`)).toHaveLength(0);
+    expect(wrapper.find(`.${classes.buttons}`)).toHaveLength(0);
 
     wrapper.setState({ editing: true });
 
-    expect(wrapper.find(`.${classes.form}`).length).toBe(1);
-    expect(wrapper.find(`.${classes.buttons}`).length).toBe(1);
+    expect(wrapper.find(`.${classes.form}`)).toHaveLength(1);
+    expect(wrapper.find(`.${classes.buttons}`)).toHaveLength(1);
   });
 
   test('should save the new input value when pressing submit button', () => {

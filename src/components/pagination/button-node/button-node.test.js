@@ -42,7 +42,7 @@ describe('<ButtonNode />', () => {
   test('should render Button component', () => {
     const wrapper = shallowComponent({ node: Button });
 
-    expect(wrapper.find(Button).length).toBe(1);
+    expect(wrapper.find(Button)).toHaveLength(1);
   });
 
   test('should render Button component from getNode function', () => {

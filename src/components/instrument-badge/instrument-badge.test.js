@@ -16,26 +16,26 @@ describe('<InstrumentBadge />', () => {
 
   test('should adapt classes to size small', () => {
     wrapper = shallow(<InstrumentBadge classes={classes} size="sm" theme={theme} />);
-    expect(wrapper.find(`.${classes.sm}`).length).toBe(1);
-    expect(wrapper.find(`.${classes.md}`).length).toBe(0);
+    expect(wrapper.find(`.${classes.sm}`)).toHaveLength(1);
+    expect(wrapper.find(`.${classes.md}`)).toHaveLength(0);
   });
 
   test('should adapt classes to size medium', () => {
     wrapper = shallow(<InstrumentBadge classes={classes} size="md" theme={theme} />);
-    expect(wrapper.find(`.${classes.sm}`).length).toBe(0);
-    expect(wrapper.find(`.${classes.md}`).length).toBe(1);
+    expect(wrapper.find(`.${classes.sm}`)).toHaveLength(0);
+    expect(wrapper.find(`.${classes.md}`)).toHaveLength(1);
   });
 
   test('should render checkmark icon when marked as qualified', () => {
     wrapper = shallow(<InstrumentBadge qualified classes={classes} theme={theme} />);
-    expect(wrapper.find(Checkmark).length).toBe(1);
-    expect(wrapper.find(ExclamationPoint).length).toBe(0);
+    expect(wrapper.find(Checkmark)).toHaveLength(1);
+    expect(wrapper.find(ExclamationPoint)).toHaveLength(0);
   });
 
   test('should render ExclamationPoint icon when NOT marked as qualified', () => {
     wrapper = shallow(<InstrumentBadge classes={classes} theme={theme} />);
-    expect(wrapper.find(Checkmark).length).toBe(0);
-    expect(wrapper.find(ExclamationPoint).length).toBe(1);
+    expect(wrapper.find(Checkmark)).toHaveLength(0);
+    expect(wrapper.find(ExclamationPoint)).toHaveLength(1);
   });
 
   test('should render instrument level and subtext', () => {

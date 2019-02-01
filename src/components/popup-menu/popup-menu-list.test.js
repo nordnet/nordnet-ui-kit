@@ -33,7 +33,7 @@ describe('<PopupMenuList />', () => {
       </PopupMenuList>,
     );
 
-    expect(wrapper.find(PopupMenuItem).length).toBe(0);
+    expect(wrapper.find(PopupMenuItem)).toHaveLength(0);
   });
 
   test('should render the list if isOpen is true', () => {
@@ -43,7 +43,7 @@ describe('<PopupMenuList />', () => {
       </PopupMenuList>,
     );
 
-    expect(wrapper.find(PopupMenuItem).length).toBe(1);
+    expect(wrapper.find(PopupMenuItem)).toHaveLength(1);
   });
 
   test('should update focusIndex if list item is focused', () => {
@@ -167,7 +167,7 @@ describe('<PopupMenuList />', () => {
     const disabledItems = items.findWhere(
       i => !i.prop('listItemRef') && !i.prop('onFocus') && !i.prop('onKeyDown'),
     );
-    expect(nonDisabledItems.length).toBe(2);
-    expect(disabledItems.length).toBe(1);
+    expect(nonDisabledItems).toHaveLength(2);
+    expect(disabledItems).toHaveLength(1);
   });
 });

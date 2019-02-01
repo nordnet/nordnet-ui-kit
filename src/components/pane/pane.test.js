@@ -49,30 +49,19 @@ describe('<Pane />', () => {
     });
 
     test('should render children', () => {
-      expect(wrapper.children().length).toBe(2);
+      expect(wrapper.children()).toHaveLength(2);
     });
 
     test('should render tabs', () => {
-      expect(renderedTabs.length).toBe(3);
+      expect(renderedTabs).toHaveLength(3);
     });
 
     test('should have first tab as active', () => {
-      expect(renderedTabs.at(0).hasClass(classes.active));
+      expect(renderedTabs.at(0).hasClass(classes.active)).toBe(true);
     });
 
     test('default size should be md', () => {
       expect(renderedTabs.at(0).hasClass(classes.md)).toBe(true);
-    });
-
-    test('should change active tab on activeTab prop change', () => {
-      wrapper.setProps({ activeTab: 1 });
-      expect(renderedTabs.at(1).hasClass(classes.active));
-    });
-
-    test('should not change active tab if component gets props unrelated to active tab', () => {
-      wrapper.setState({ activeTab: 2 });
-      wrapper.setProps({ size: 'lg' });
-      expect(renderedTabs.at(2).hasClass(classes.active));
     });
   });
 

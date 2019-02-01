@@ -22,19 +22,19 @@ describe('<Pagination />', () => {
   test('should not paginate if there is only 1 page', () => {
     const wrapper = shallowComponent({ total: 10, limit: 10 });
 
-    expect(wrapper.find(`ul.${classes.list}`).length).toBe(0);
+    expect(wrapper.find(`ul.${classes.list}`)).toHaveLength(0);
   });
 
   test('should render a nav element', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find('nav').length).toBe(1);
+    expect(wrapper.find('nav')).toHaveLength(1);
   });
 
   test('should render next and previous buttons', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(Stepper).length).toBe(2);
+    expect(wrapper.find(Stepper)).toHaveLength(2);
   });
 
   test('previous button should not be clickable', () => {
@@ -101,8 +101,8 @@ describe('<Pagination />', () => {
       wrapper
         .find(Stepper)
         .last()
-        .find(Icon.ArrowRight).length,
-    ).toBe(1);
+        .find(Icon.ArrowRight),
+    ).toHaveLength(1);
   });
 
   test('previous button should render text', () => {
@@ -125,14 +125,14 @@ describe('<Pagination />', () => {
       wrapper
         .find(Stepper)
         .first()
-        .find(Icon.ArrowLeft).length,
-    ).toBe(1);
+        .find(Icon.ArrowLeft),
+    ).toHaveLength(1);
   });
 
   test('should render a range of pages', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(Range).length).toBe(1);
+    expect(wrapper.find(Range)).toHaveLength(1);
   });
 
   test('should increment selected in state', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../../src';
-import { Component as Page, styles } from '../../../src/components/pagination/page/page';
-import ButtonNode from '../../../src/components/pagination/button-node';
+import { mockClasses } from '../../..';
+import { Component as Page, styles } from './page';
+import ButtonNode from '../button-node';
 
 describe('<Page />', () => {
   const classes = mockClasses(styles);
@@ -22,7 +22,7 @@ describe('<Page />', () => {
   test('should render a li element', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(`li.${classes.item}`).length).toBe(1);
+    expect(wrapper.find(`li.${classes.item}`)).toHaveLength(1);
   });
 
   test('should render a li element with class itemAlwaysVisible if page is selected', () => {
@@ -46,7 +46,7 @@ describe('<Page />', () => {
   test('should render a ButtonNode component', () => {
     const wrapper = shallowComponent({ isLast: true });
 
-    expect(wrapper.find(ButtonNode).length).toBe(1);
+    expect(wrapper.find(ButtonNode)).toHaveLength(1);
   });
 
   test('should render disabled prop to ButtonNode component', () => {

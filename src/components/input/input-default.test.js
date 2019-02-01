@@ -1,5 +1,4 @@
 import React from 'react';
-import { assert, expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as InputDefault, styles } from './input-default';
 import { mockClasses, theme } from '../../';
@@ -31,7 +30,7 @@ describe('<InputDefault />', () => {
     nonEmtpyValues.forEach(v => {
       wrapper = renderComponent({ value: v });
       wrapper.setProps({ value: v });
-      assert(wrapper.hasClass('input--has-value'), `"${v}" did not set the value class`);
+      expect(wrapper.hasClass('input--has-value')).toBe(true);
     });
   });
 
@@ -40,7 +39,7 @@ describe('<InputDefault />', () => {
 
     emtpyValues.forEach(v => {
       wrapper.setProps({ value: v });
-      assert(!wrapper.hasClass('input--has-value'), `"${v}" did set the value class`);
+      expect(wrapper.hasClass('input--has-value')).toBe(false);
     });
   });
 });

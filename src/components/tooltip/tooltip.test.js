@@ -117,7 +117,7 @@ describe('<Tooltip />', () => {
 
     test('should untoggle tooltip when clicked outside', () => {
       component.find(`.${classes.container}`).simulate('click');
-      document.getElementById('app').click();
+      document.body.click();
       expect(component.state('toggled')).toBe(false);
     });
 

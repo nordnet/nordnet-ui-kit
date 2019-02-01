@@ -31,8 +31,8 @@ describe('<PopupMenu />', () => {
       </PopupMenu>,
     );
 
-    expect(wrapper.find(`button.${classes.menuButton}`).length).toBe(1);
-    expect(wrapper.find(PopupMenuList).length).toBe(1);
+    expect(wrapper.find(`button.${classes.menuButton}`)).toHaveLength(1);
+    expect(wrapper.find(PopupMenuList)).toHaveLength(1);
   });
 
   test('renders correct amount of PopupMenuItems', () => {

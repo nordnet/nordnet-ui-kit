@@ -21,25 +21,25 @@ describe('<Range />', () => {
   test('should render a ul element', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(`ul.${classes.list}`).length).toBe(1);
+    expect(wrapper.find(`ul.${classes.list}`)).toHaveLength(1);
   });
 
   test('should render 5 pages', () => {
     const wrapper = shallowComponent({ pagesCount: 5 });
 
-    expect(wrapper.find(Page).length).toBe(5);
+    expect(wrapper.find(Page)).toHaveLength(5);
   });
 
   test('should render one ellipsis', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(Ellipsis).length).toBe(1);
+    expect(wrapper.find(Ellipsis)).toHaveLength(1);
   });
 
   test('should render two ellipsis', () => {
     const wrapper = shallowComponent({ selected: 5 });
 
-    expect(wrapper.find(Ellipsis).length).toBe(2);
+    expect(wrapper.find(Ellipsis)).toHaveLength(2);
   });
 
   test('should mark page as selected', () => {

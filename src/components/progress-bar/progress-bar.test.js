@@ -51,7 +51,7 @@ describe('<ProgressBar />', () => {
 
   test('should render the correct number of steps', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
-    expect(wrapper.find('.progressBar').children().length).toBe(max);
+    expect(wrapper.find('.progressBar').children()).toHaveLength(max);
   });
 
   test('should render the correct number of reached steps', () => {
@@ -80,7 +80,7 @@ describe('<ProgressBar />', () => {
 
   test('should not highlight the active step by default', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
-    expect(wrapper.find('.progressBar .active').length).toBe(0);
+    expect(wrapper.find('.progressBar .active')).toHaveLength(0);
     expect(
       wrapper
         .find('.progressBar')
@@ -91,7 +91,7 @@ describe('<ProgressBar />', () => {
 
   test('should be possible to highlight the active step', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} highlightActive />);
-    expect(wrapper.find('.progressBar .active').length).toBe(1);
+    expect(wrapper.find('.progressBar .active')).toHaveLength(1);
     expect(
       wrapper
         .find('.progressBar')

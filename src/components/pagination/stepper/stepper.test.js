@@ -19,7 +19,7 @@ describe('<Stepper />', () => {
   test('should render ButtonNode component', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(ButtonNode).length).toBe(1);
+    expect(wrapper.find(ButtonNode)).toHaveLength(1);
   });
 
   test('should have node prop as Button component', () => {
