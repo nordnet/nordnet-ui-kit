@@ -14,9 +14,6 @@ cache:
   directories:
   - node_modules
 
-after_script:
-  - npm run coveralls
-
 jobs:
   include:
     - stage: release
@@ -30,5 +27,5 @@ jobs:
       if: (NOT type IN (pull_request)) AND (branch = master)
 
 stages:
-  - test
+  - coverage
   - name: release
