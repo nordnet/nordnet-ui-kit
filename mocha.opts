@@ -3,4 +3,4 @@
 --require test/setup.jsdom.js
 --require @babel/polyfill
 --require @babel/register
-test/**/*.test.js
+src/**/*.test.js

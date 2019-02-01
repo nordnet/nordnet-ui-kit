@@ -16,7 +16,7 @@
     "babel:cjs": "babel -d dist/cjs src/",
     "watch": "npm run babel -- --watch",
     "babel": "babel src -d dist --copy-files --ignore .md",
-    "lint": "eslint --ext=.jsx --ext=.js src test",
+    "lint": "eslint --ext=.jsx --ext=.js src",
     "test": "mocha --opts mocha.opts",
     "tdd": "npm test -- --watch",
     "coverage": "cross-env NODE_ENV=coverage nyc npm test",

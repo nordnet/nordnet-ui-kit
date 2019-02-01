@@ -13,16 +13,20 @@
     }
   },
   "plugins": [
-    "react"
+    "react",
+    "mocha"
   ],
   "env": {
     "node": true,
     "browser": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
   "rules": {
     "import/no-extraneous-dependencies": 0,
     "react/forbid-prop-types": [2, { "forbid": ["any", "array"] }],
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "mocha/no-exclusive-tests": 2,
+    "react/jsx-filename-extension": 0
   }
 }
