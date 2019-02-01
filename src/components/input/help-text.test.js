@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as HelpText, styles } from './help-text';
 import { mockClasses, theme } from '../../';
@@ -11,43 +10,43 @@ const defaultProps = { classes, theme, children: 'HELP' };
 const renderComponent = props => shallow(<HelpText {...defaultProps} {...props} />);
 
 describe('<HelpText />', () => {
-  it('has class help-text', () => {
+  test('has class help-text', () => {
     const wrapper = renderComponent();
-    expect(wrapper.hasClass('help-text')).to.equal(true);
+    expect(wrapper.hasClass('help-text')).toBe(true);
   });
 
-  it('has class classes[help-text]', () => {
+  test('has class classes[help-text]', () => {
     const wrapper = renderComponent();
-    expect(wrapper.hasClass('help-text')).to.equal(true);
+    expect(wrapper.hasClass('help-text')).toBe(true);
   });
 
-  it('has class classes.success when hasSuccess is set', () => {
+  test('has class classes.success when hasSuccess is set', () => {
     const wrapper = renderComponent({ hasSuccess: true });
-    expect(wrapper.hasClass(classes.success)).to.equal(true);
+    expect(wrapper.hasClass(classes.success)).toBe(true);
   });
 
-  it('has class classes.warning when hasWarning is set', () => {
+  test('has class classes.warning when hasWarning is set', () => {
     const wrapper = renderComponent({ hasWarning: true });
-    expect(wrapper.hasClass(classes.warning)).to.equal(true);
+    expect(wrapper.hasClass(classes.warning)).toBe(true);
   });
 
-  it('has class classes.error when hasError is set', () => {
+  test('has class classes.error when hasError is set', () => {
     const wrapper = renderComponent({ hasError: true });
-    expect(wrapper.hasClass(classes.error)).to.equal(true);
+    expect(wrapper.hasClass(classes.error)).toBe(true);
   });
 
-  it('has class help-text--checkbox-radio when isCheckbox is set', () => {
+  test('has class help-text--checkbox-radio when isCheckbox is set', () => {
     const wrapper = renderComponent({ isCheckbox: true });
-    expect(wrapper.hasClass('help-text--checkbox-radio')).to.equal(true);
+    expect(wrapper.hasClass('help-text--checkbox-radio')).toBe(true);
   });
 
-  it('has class help-text--checkbox-radio when isRadio is set', () => {
+  test('has class help-text--checkbox-radio when isRadio is set', () => {
     const wrapper = renderComponent({ isRadio: true });
-    expect(wrapper.hasClass('help-text--checkbox-radio')).to.equal(true);
+    expect(wrapper.hasClass('help-text--checkbox-radio')).toBe(true);
   });
 
-  it('renders nothing if there are no children', () => {
+  test('renders nothing if there are no children', () => {
     const wrapper = renderComponent({ children: undefined });
-    expect(wrapper.type()).to.equal(null);
+    expect(wrapper.type()).toBeNull();
   });
 });

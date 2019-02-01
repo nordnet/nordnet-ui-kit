@@ -1,6 +1,0 @@
---colors
---require source-map-support/register
---require setup.jsdom.js
---require @babel/polyfill
---require @babel/register
-src/**/*.test.js

@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Input } from './input';
 import { Component as InputDefault, styles as inputDefaultStyles } from './input-default';
@@ -62,27 +61,27 @@ describe('<Input />', () => {
         });
       });
 
-      it(`should render an <${type.componentName} />`, () => {
+      test(`should render an <${type.componentName} />`, () => {
         wrapper = renderComponent({ props: { type: type.name } });
-        expect(wrapper.type().InnerComponent).to.equal(type.component);
+        expect(wrapper.type().InnerComponent).toBe(type.component);
       });
 
       if (type.componentName !== 'InputCheckboxRadio') {
-        it(`should have class ${classes.input}`, () => {
-          expect(wrapper.hasClass(classes.input)).to.equals(true);
+        test(`should have class ${classes.input}`, () => {
+          expect(wrapper.hasClass(classes.input)).toBe(true);
         });
 
-        it('should print the label if text is entered', () => {
+        test('should print the label if text is entered', () => {
           expect(
             wrapper
               .find('Label')
               .shallow()
               .childAt(0)
               .text(),
-          ).to.equal('label');
+          ).toBe('label');
         });
 
-        it('should set the placeholder to the property placeholder', () => {
+        test('should set the placeholder to the property placeholder', () => {
           if (type.component === InputSelect) {
             // For the InputSelect the placeholder is only visible if no "value" is set
             const wrapperWithoutValue = renderComponent({
@@ -90,76 +89,76 @@ describe('<Input />', () => {
               props: { value: undefined },
             });
 
-            expect(wrapperWithoutValue.find('FakePlaceholder').prop('placeholder')).to.equal(
+            expect(wrapperWithoutValue.find('FakePlaceholder').prop('placeholder')).toBe(
               'placeholder',
             );
           } else {
-            expect(wrapper.find('NativeInput').prop('placeholder')).to.equal('placeholder');
+            expect(wrapper.find('NativeInput').prop('placeholder')).toBe('placeholder');
           }
         });
 
-        it('should have class input--has-warning if warning', () => {
+        test('should have class input--has-warning if warning', () => {
           wrapper.setProps({ hasWarning: true });
-          expect(wrapper.hasClass('input--has-warning')).to.equals(true);
+          expect(wrapper.hasClass('input--has-warning')).toBe(true);
         });
 
-        it('should have class input--has-error if error', () => {
+        test('should have class input--has-error if error', () => {
           wrapper.setProps({ hasError: true });
-          expect(wrapper.hasClass('input--has-error')).to.equals(true);
+          expect(wrapper.hasClass('input--has-error')).toBe(true);
         });
 
-        it('should have class input--has-success if success', () => {
+        test('should have class input--has-success if success', () => {
           wrapper.setProps({ hasSuccess: true });
-          expect(wrapper.hasClass('input--has-success')).to.equals(true);
+          expect(wrapper.hasClass('input--has-success')).toBe(true);
         });
       } else {
-        it(`should have class ${classes['input-checkbox-radio']}`, () => {
-          expect(wrapper.find(`.${classes['input-checkbox-radio']}`)).to.have.length(1);
+        test(`should have class ${classes['input-checkbox-radio']}`, () => {
+          expect(wrapper.find(`.${classes['input-checkbox-radio']}`)).toHaveLength(1);
         });
 
-        it('should have class input-checkbox-radio--has-error if error', () => {
+        test('should have class input-checkbox-radio--has-error if error', () => {
           wrapper.setProps({ hasError: true });
-          expect(wrapper.find('.input-checkbox-radio--has-error')).to.have.length(1);
+          expect(wrapper.find('.input-checkbox-radio--has-error')).toHaveLength(1);
         });
 
-        it('should have class input-checkbox-radio--has-success if success', () => {
+        test('should have class input-checkbox-radio--has-success if success', () => {
           wrapper.setProps({ hasSuccess: true });
-          expect(wrapper.find('.input-checkbox-radio--has-success')).to.have.length(1);
+          expect(wrapper.find('.input-checkbox-radio--has-success')).toHaveLength(1);
         });
 
-        it('should be unchecked by default', () => {
-          expect(wrapper.find(`input[type="${type.name}"]`).prop('checked')).to.equal(false);
+        test('should be unchecked by default', () => {
+          expect(wrapper.find(`input[type="${type.name}"]`).prop('checked')).toBe(false);
         });
 
-        it('should be checked if checked in props', () => {
+        test('should be checked if checked in props', () => {
           wrapper.setProps({ checked: true });
-          expect(wrapper.find(`input[type="${type.name}"]`).prop('checked')).to.equal(true);
+          expect(wrapper.find(`input[type="${type.name}"]`).prop('checked')).toBe(true);
         });
 
-        it('should become checked if unchecked and clicked', () => {
+        test('should become checked if unchecked and clicked', () => {
           wrapper
             .find(`input[type="${type.name}"]`)
             .simulate('change', { target: { checked: true }, currentTarget: { checked: true } });
-          expect(wrapper.find(`input[type="${type.name}"]`).prop('checked')).to.equal(true);
+          expect(wrapper.find(`input[type="${type.name}"]`).prop('checked')).toBe(true);
         });
 
-        it('should render helptext if specified', () => {
+        test('should render helptext if specified', () => {
           wrapper.setProps({ helpText: 'help' });
           expect(
             wrapper
               .find(HelpText)
               .childAt(0)
               .text(),
-          ).to.equal('help');
+          ).toBe('help');
         });
       }
       if (type.name === 'text') {
-        it('should have class input--text', () => {
-          expect(wrapper.hasClass('input--text')).to.equal(true);
+        test('should have class input--text', () => {
+          expect(wrapper.hasClass('input--text')).toBe(true);
         });
       } else if (type.name === 'select') {
-        it('should have class input--select', () => {
-          expect(wrapper.hasClass('input--select')).to.equals(true);
+        test('should have class input--select', () => {
+          expect(wrapper.hasClass('input--select')).toBe(true);
         });
       }
     });

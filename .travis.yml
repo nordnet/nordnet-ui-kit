@@ -1,7 +1,4 @@
 language: node_js
-node_js:
-  - 10
-  - 8
 
 install: yarn install --ignore-engines
 
@@ -14,11 +11,14 @@ cache:
   directories:
   - node_modules
 
-after_script:
-  - npm run coveralls
-
 jobs:
   include:
+    - stage: coverage
+      node_js:
+        - 10
+        - 8
+      script:    
+        - npm run coverage
     - stage: release
       node_js: 8
       script:
@@ -30,5 +30,5 @@ jobs:
       if: (NOT type IN (pull_request)) AND (branch = master)
 
 stages:
-  - test
+  - name: coverage
   - name: release

@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { expect } from 'chai';
 import { Component as SvgFlag } from './svg-flag';
 import styles from './styles';
 import { mockClasses } from '../../../';
@@ -10,33 +9,33 @@ const shallowComponent = props =>
   shallow(<SvgFlag classes={classes} countryCode="se" {...props} />);
 
 describe('<SvgFlag />', () => {
-  it(`has common class`, () => {
+  test(`has common class`, () => {
     const wrapper = shallowComponent()
       .children()
       .first();
 
-    expect(wrapper.hasClass('common')).to.equal(true);
+    expect(wrapper.hasClass('common')).toBe(true);
   });
 
-  it('renders small flag by default', () => {
+  test('renders small flag by default', () => {
     const wrapper = shallowComponent()
       .children()
       .first();
 
-    expect(wrapper.hasClass('sm')).to.equal(true);
+    expect(wrapper.hasClass('sm')).toBe(true);
   });
 
-  it(`rounded container has roundedContainer classes`, () => {
+  test(`rounded container has roundedContainer classes`, () => {
     const wrapper = shallowComponent({ round: true, size: 'md' });
 
-    expect(wrapper.hasClass('roundedContainer')).to.equal(true);
-    expect(wrapper.hasClass('roundedContainerMD')).to.equal(true);
+    expect(wrapper.hasClass('roundedContainer')).toBe(true);
+    expect(wrapper.hasClass('roundedContainerMD')).toBe(true);
   });
 
-  it(`rounded medium flag has roundedMD class`, () => {
+  test(`rounded medium flag has roundedMD class`, () => {
     const wrapper = shallowComponent({ round: true, size: 'md' });
     const Flag = wrapper.children().first();
 
-    expect(Flag.hasClass('roundedMD')).to.equal(true);
+    expect(Flag.hasClass('roundedMD')).toBe(true);
   });
 });

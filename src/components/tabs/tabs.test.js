@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Tabs, styles } from './tabs';
 import Tab from './tab/tab';
@@ -24,62 +23,62 @@ const renderComponent = props =>
   );
 
 describe('<Tabs />', () => {
-  it('should render div as container', () => {
+  test('should render div as container', () => {
     const wrapper = renderComponent();
     const actual = wrapper.type();
     const expected = 'div';
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should render ul', () => {
+  test('should render ul', () => {
     const wrapper = renderComponent();
     const actual = wrapper.find('ul').length;
     const expected = 1;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should render variant class', () => {
+  test('should render variant class', () => {
     const wrapper = renderComponent({ variant: 'tertiary' });
     const actual = wrapper.find('ul').hasClass(classes.tertiary);
 
-    expect(actual).to.equal(true);
+    expect(actual).toBe(true);
   });
 
-  it('should render role tablist', () => {
+  test('should render role tablist', () => {
     const wrapper = renderComponent();
     const actual = wrapper.find('ul').props().role;
     const expected = 'tablist';
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should render class from props', () => {
+  test('should render class from props', () => {
     const wrapper = renderComponent({ className: 'test' });
     const actual = wrapper.find('ul').hasClass('test');
     const expected = true;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should render two tabs inside tablist', () => {
+  test('should render two tabs inside tablist', () => {
     const wrapper = renderComponent();
     const actual = wrapper.find('ul[role="tablist"]').find(Tab).length;
     const expected = 2;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should render two tabpanels', () => {
+  test('should render two tabpanels', () => {
     const wrapper = renderComponent();
     const actual = wrapper.find(Tabpanel).length;
     const expected = 2;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('value prop should set what tab is selected', () => {
+  test('value prop should set what tab is selected', () => {
     const wrapper = renderComponent({ value: 1 });
     const actual = wrapper
       .find(Tab)
@@ -87,10 +86,10 @@ describe('<Tabs />', () => {
       .props().selected;
     const expected = true;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('value prop should set what tabpanel is selected', () => {
+  test('value prop should set what tabpanel is selected', () => {
     const wrapper = renderComponent({ value: 1 });
     const actual = wrapper
       .find(Tabpanel)
@@ -98,10 +97,10 @@ describe('<Tabs />', () => {
       .props().selected;
     const expected = true;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should give tab index prop', () => {
+  test('should give tab index prop', () => {
     const wrapper = renderComponent();
     const actual = wrapper
       .find(Tab)
@@ -109,10 +108,10 @@ describe('<Tabs />', () => {
       .props().index;
     const expected = 1;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should give tabpanel index prop', () => {
+  test('should give tabpanel index prop', () => {
     const wrapper = renderComponent();
     const actual = wrapper
       .find(Tabpanel)
@@ -120,10 +119,10 @@ describe('<Tabs />', () => {
       .props().index;
     const expected = 0;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should give tab variant prop', () => {
+  test('should give tab variant prop', () => {
     const wrapper = renderComponent({ variant: 'secondary' });
     const actual = wrapper
       .find(Tab)
@@ -131,10 +130,10 @@ describe('<Tabs />', () => {
       .props().variant;
     const expected = 'secondary';
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should give tabpanel variant prop', () => {
+  test('should give tabpanel variant prop', () => {
     const wrapper = renderComponent({ variant: 'secondary' });
     const actual = wrapper
       .find(Tabpanel)
@@ -142,10 +141,10 @@ describe('<Tabs />', () => {
       .props().variant;
     const expected = 'secondary';
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should give tab singlePanel prop', () => {
+  test('should give tab singlePanel prop', () => {
     const wrapper = renderComponent({ singlePanel: true });
     const actual = wrapper
       .find(Tab)
@@ -153,10 +152,10 @@ describe('<Tabs />', () => {
       .props().singlePanel;
     const expected = true;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should give tabpanel singlePanel prop', () => {
+  test('should give tabpanel singlePanel prop', () => {
     const wrapper = renderComponent({ singlePanel: true });
     const actual = wrapper
       .find(Tabpanel)
@@ -164,10 +163,10 @@ describe('<Tabs />', () => {
       .props().singlePanel;
     const expected = true;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should give tab onChange prop', () => {
+  test('should give tab onChange prop', () => {
     const callback = () => {};
     const wrapper = renderComponent({ onChange: callback });
     const actual = wrapper
@@ -175,10 +174,10 @@ describe('<Tabs />', () => {
       .first()
       .props().changeHandler;
 
-    expect(actual).to.equal(callback);
+    expect(actual).toBe(callback);
   });
 
-  it('should not give tabpanel onChange prop', () => {
+  test('should not give tabpanel onChange prop', () => {
     const callback = () => {};
     const wrapper = renderComponent({ onChange: callback });
     const actual = wrapper
@@ -187,6 +186,6 @@ describe('<Tabs />', () => {
       .props().changeHandler;
     const expected = null;
 
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 });

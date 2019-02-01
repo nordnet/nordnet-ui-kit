@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../..';
 import { Component as Pane, styles } from './pane';
@@ -9,8 +8,8 @@ describe('<Pane />', () => {
 
   describe('When <Pane /> don´t have any tabs', () => {
     const wrapper = shallow(<Pane classes={classes} />);
-    it('should render null', () => {
-      expect(wrapper.type()).to.equal(null);
+    test('should render null', () => {
+      expect(wrapper.type()).toBeNull();
     });
   });
 
@@ -41,39 +40,28 @@ describe('<Pane />', () => {
         .find('li');
     });
 
-    it('should render <div> as container', () => {
-      expect(wrapper.type()).to.equal('div');
+    test('should render <div> as container', () => {
+      expect(wrapper.type()).toBe('div');
     });
 
-    it('should have the class pane', () => {
-      expect(wrapper.hasClass(classes.pane)).to.equal(true);
+    test('should have the class pane', () => {
+      expect(wrapper.hasClass(classes.pane)).toBe(true);
     });
 
-    it('should render children', () => {
-      expect(wrapper.children().length).to.equal(2);
+    test('should render children', () => {
+      expect(wrapper.children()).toHaveLength(2);
     });
 
-    it('should render tabs', () => {
-      expect(renderedTabs.length).to.equal(3);
+    test('should render tabs', () => {
+      expect(renderedTabs).toHaveLength(3);
     });
 
-    it('should have first tab as active', () => {
-      expect(renderedTabs.at(0).hasClass(classes.active));
+    test('should have first tab as active', () => {
+      expect(renderedTabs.at(0).hasClass(classes.active)).toBe(true);
     });
 
-    it('default size should be md', () => {
-      expect(renderedTabs.at(0).hasClass(classes.md)).to.equal(true);
-    });
-
-    it('should change active tab on activeTab prop change', () => {
-      wrapper.setProps({ activeTab: 1 });
-      expect(renderedTabs.at(1).hasClass(classes.active));
-    });
-
-    it('should not change active tab if component gets props unrelated to active tab', () => {
-      wrapper.setState({ activeTab: 2 });
-      wrapper.setProps({ size: 'lg' });
-      expect(renderedTabs.at(2).hasClass(classes.active));
+    test('default size should be md', () => {
+      expect(renderedTabs.at(0).hasClass(classes.md)).toBe(true);
     });
   });
 
@@ -85,15 +73,15 @@ describe('<Pane />', () => {
       },
     ];
     const wrapper = shallow(<Pane classes={classes} tabs={tabs} size="lg" />);
-    it('should render <div> as container', () => {
-      expect(wrapper.type()).to.equal('div');
+    test('should render <div> as container', () => {
+      expect(wrapper.type()).toBe('div');
     });
 
-    it('should have the class pane', () => {
-      expect(wrapper.hasClass(classes.pane)).to.equal(true);
+    test('should have the class pane', () => {
+      expect(wrapper.hasClass(classes.pane)).toBe(true);
     });
 
-    it('should have class lg', () => {
+    test('should have class lg', () => {
       expect(
         wrapper
           .children()
@@ -101,7 +89,7 @@ describe('<Pane />', () => {
           .find('li')
           .at(0)
           .hasClass(classes.lg),
-      ).to.equal(true);
+      ).toBe(true);
     });
   });
 });

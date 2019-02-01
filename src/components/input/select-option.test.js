@@ -1,31 +1,30 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import SelectOption from './select-option';
 
 const renderComponent = props => shallow(<SelectOption {...props} />);
 
 describe('<SelectOption />', () => {
-  it('renders an option', () => {
+  test('renders an option', () => {
     const wrapper = renderComponent();
-    expect(wrapper.type()).to.equal('option');
+    expect(wrapper.type()).toBe('option');
   });
 
-  it('has a value attribute set to value', () => {
+  test('has a value attribute set to value', () => {
     const value = 'test123';
     const wrapper = renderComponent({ value });
-    expect(wrapper.prop('value')).to.equal(value);
+    expect(wrapper.prop('value')).toBe(value);
   });
 
-  it('renders label as content', () => {
+  test('renders label as content', () => {
     const label = 'test123';
     const wrapper = renderComponent({ label });
-    expect(wrapper.text()).to.equal(label);
+    expect(wrapper.text()).toBe(label);
   });
 
-  it('renders an optgroup if options is defined', () => {
+  test('renders an optgroup if options is defined', () => {
     const options = [{ label: 'A', value: 'B' }];
     const wrapper = renderComponent({ options, label: 'C' });
-    expect(wrapper.type()).to.equal('optgroup');
+    expect(wrapper.type()).toBe('optgroup');
   });
 });

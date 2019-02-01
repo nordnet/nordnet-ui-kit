@@ -2,7 +2,8 @@
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:jest/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -14,19 +15,17 @@
   },
   "plugins": [
     "react",
-    "mocha"
+    "jest"
   ],
   "env": {
     "node": true,
     "browser": true,
-    "es6": true,
-    "mocha": true
+    "es6": true
   },
   "rules": {
     "import/no-extraneous-dependencies": 0,
     "react/forbid-prop-types": [2, { "forbid": ["any", "array"] }],
     "react/require-default-props": 0,
-    "mocha/no-exclusive-tests": 2,
     "react/jsx-filename-extension": 0
   }
 }

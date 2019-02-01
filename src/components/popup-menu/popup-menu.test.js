@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { mockClasses } from '../../';
@@ -16,48 +15,48 @@ describe('<PopupMenu />', () => {
   const itemClasses = mockClasses(itemStyles);
   let wrapper;
 
-  it('should render <span> by default', () => {
+  test('should render <span> by default', () => {
     wrapper = shallow(
       <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
       </PopupMenu>,
     );
-    expect(wrapper.type()).to.equal('span');
+    expect(wrapper.type()).toBe('span');
   });
 
-  it('should render a button and a PopupMenuList as its children', () => {
-    wrapper = shallow(
-      <PopupMenu classes={classes}>
-        <PopupMenuItem classes={itemClasses} />
-      </PopupMenu>,
-    );
-
-    expect(wrapper.find(`button.${classes.menuButton}`).length).to.equal(1);
-    expect(wrapper.find(PopupMenuList).length).to.equal(1);
-  });
-
-  it('renders correct amount of PopupMenuItems', () => {
-    wrapper = shallow(
-      <PopupMenu classes={classes}>
-        <PopupMenuItem classes={itemClasses} />
-        <PopupMenuItem classes={itemClasses} />
-        <PopupMenuItem classes={itemClasses} />
-      </PopupMenu>,
-    );
-    expect(wrapper.find('PopupMenuItem')).to.have.length(3);
-  });
-
-  it('should not be focused by default', () => {
+  test('should render a button and a PopupMenuList as its children', () => {
     wrapper = shallow(
       <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
       </PopupMenu>,
     );
 
-    expect(wrapper.state('hasFocus')).to.be.false;
+    expect(wrapper.find(`button.${classes.menuButton}`)).toHaveLength(1);
+    expect(wrapper.find(PopupMenuList)).toHaveLength(1);
   });
 
-  it('should set hasFocus to true on toggle button focus', () => {
+  test('renders correct amount of PopupMenuItems', () => {
+    wrapper = shallow(
+      <PopupMenu classes={classes}>
+        <PopupMenuItem classes={itemClasses} />
+        <PopupMenuItem classes={itemClasses} />
+        <PopupMenuItem classes={itemClasses} />
+      </PopupMenu>,
+    );
+    expect(wrapper.find('PopupMenuItem')).toHaveLength(3);
+  });
+
+  test('should not be focused by default', () => {
+    wrapper = shallow(
+      <PopupMenu classes={classes}>
+        <PopupMenuItem classes={itemClasses} />
+      </PopupMenu>,
+    );
+
+    expect(wrapper.state('hasFocus')).toBe(false);
+  });
+
+  test('should set hasFocus to true on toggle button focus', () => {
     wrapper = shallow(
       <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
@@ -65,10 +64,10 @@ describe('<PopupMenu />', () => {
     );
 
     wrapper.find(`button.${classes.menuButton}`).simulate('focus');
-    expect(wrapper.state('hasFocus')).to.be.true;
+    expect(wrapper.state('hasFocus')).toBe(true);
   });
 
-  it('should set hasFocus to false on toggle button blur', () => {
+  test('should set hasFocus to false on toggle button blur', () => {
     wrapper = shallow(
       <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
@@ -78,10 +77,10 @@ describe('<PopupMenu />', () => {
     wrapper.find(`button.${classes.menuButton}`).simulate('focus');
     wrapper.find(`button.${classes.menuButton}`).simulate('blur');
 
-    expect(wrapper.state('hasFocus')).to.be.false;
+    expect(wrapper.state('hasFocus')).toBe(false);
   });
 
-  it('should focus first list element and prevent default on arrow down', () => {
+  test('should focus first list element and prevent default on arrow down', () => {
     wrapper = shallow(
       <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
@@ -97,11 +96,11 @@ describe('<PopupMenu />', () => {
       .find(`button.${classes.menuButton}`)
       .simulate('keyDown', { preventDefault, keyCode: keyCodes.ARROW_DOWN });
 
-    expect(focus.calledOnce).to.be.true;
-    expect(preventDefault.calledOnce).to.be.true;
+    expect(focus.calledOnce).toBe(true);
+    expect(preventDefault.calledOnce).toBe(true);
   });
 
-  it('should toggle on esc press', () => {
+  test('should toggle on esc press', () => {
     const onToggle = sinon.spy();
     wrapper = shallow(
       <PopupMenu classes={classes} onToggle={onToggle}>
@@ -113,10 +112,10 @@ describe('<PopupMenu />', () => {
     wrapper.find(`button.${classes.menuButton}`).simulate('keyDown', { keyCode: keyCodes.ESC });
 
     // called once for the click open and once for the ESC
-    expect(onToggle.calledTwice).to.be.true;
+    expect(onToggle.calledTwice).toBe(true);
   });
 
-  it('should take focus when PopupMenuList yields focus', () => {
+  test('should take focus when PopupMenuList yields focus', () => {
     wrapper = shallow(
       <PopupMenu classes={classes}>
         <PopupMenuItem classes={itemClasses} />
@@ -128,6 +127,6 @@ describe('<PopupMenu />', () => {
     const yieldFocusCallback = wrapper.find(PopupMenuList).prop('yieldFocus');
     yieldFocusCallback();
 
-    expect(focus.calledOnce).to.be.true;
+    expect(focus.calledOnce).toBe(true);
   });
 });

@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../..';
 import { Component as Ellipsis, styles } from './ellipsis';
@@ -11,27 +10,27 @@ describe('<Ellipsis />', () => {
   };
   const shallowComponent = customProps => shallow(<Ellipsis {...defaultProps} {...customProps} />);
 
-  it('should render a li element', () => {
+  test('should render a li element', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(`li.${classes.item}`).length).to.equal(1);
+    expect(wrapper.find(`li.${classes.item}`)).toHaveLength(1);
   });
 
-  it('should not render a li element with class hiddenOnDesktop', () => {
+  test('should not render a li element with class hiddenOnDesktop', () => {
     const wrapper = shallowComponent({ hiddenOnDesktop: false });
 
-    expect(wrapper.find(`li.${classes.item}.${classes.hiddenOnDesktop}`).length).to.equal(0);
+    expect(wrapper.find(`li.${classes.item}.${classes.hiddenOnDesktop}`)).toHaveLength(0);
   });
 
-  it('should render a li element with class hiddenOnDesktop', () => {
+  test('should render a li element with class hiddenOnDesktop', () => {
     const wrapper = shallowComponent({ hiddenOnDesktop: true });
 
-    expect(wrapper.find(`li.${classes.item}.${classes.hiddenOnDesktop}`).length).to.equal(1);
+    expect(wrapper.find(`li.${classes.item}.${classes.hiddenOnDesktop}`)).toHaveLength(1);
   });
 
-  it('should render ...', () => {
+  test('should render ...', () => {
     const wrapper = shallowComponent({ children: 'Next' });
 
-    expect(wrapper.childAt(0).text()).to.equal('...');
+    expect(wrapper.childAt(0).text()).toBe('...');
   });
 });

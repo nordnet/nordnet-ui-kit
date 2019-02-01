@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { expect } from 'chai';
 import { Icon, mockClasses } from '../../';
 import { Component as Rating, styles } from './rating';
 
@@ -23,11 +22,11 @@ const renderComponent = props => {
   return shallow(<Rating {...newProps} />);
 };
 
-it('Should have same number active stars as rating says', () => {
+test('Should have same number active stars as rating says', () => {
   const rating = 4;
   const component = renderComponent({ rating });
   const active = component.find('.active');
   const inactive = component.find('.inactive');
-  expect(active).to.have.length(4);
-  expect(inactive).to.have.length(2);
+  expect(active).toHaveLength(4);
+  expect(inactive).toHaveLength(2);
 });

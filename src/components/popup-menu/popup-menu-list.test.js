@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { mockClasses } from '../../';
@@ -27,47 +26,27 @@ describe('<PopupMenuList />', () => {
     maxHeight: 'none',
   };
 
-  it('should not render the list if isOpen is false', () => {
+  test('should not render the list if isOpen is false', () => {
     const wrapper = shallow(
       <PopupMenuList {...props} classes={classes} isOpen={false}>
         <PopupMenuItem classes={itemClasses} />
       </PopupMenuList>,
     );
 
-    expect(wrapper.find(PopupMenuItem).length).to.equals(0);
+    expect(wrapper.find(PopupMenuItem)).toHaveLength(0);
   });
 
-  it('should render the list if isOpen is true', () => {
+  test('should render the list if isOpen is true', () => {
     const wrapper = shallow(
       <PopupMenuList {...props} classes={classes} isOpen>
         <PopupMenuItem classes={itemClasses} />
       </PopupMenuList>,
     );
 
-    expect(wrapper.find(PopupMenuItem).length).to.equals(1);
+    expect(wrapper.find(PopupMenuItem)).toHaveLength(1);
   });
 
-  it('should update focusIndex if list item is focused', () => {
-    const wrapper = shallow(
-      <PopupMenuList {...props} classes={classes} isOpen>
-        <PopupMenuItem classes={itemClasses} />
-        <PopupMenuItem classes={itemClasses} />
-      </PopupMenuList>,
-    );
-    const instance = wrapper.instance();
-    instance.listItemElements = [{ focus: () => {} }, { focus: () => {} }];
-
-    expect(instance.focusIndex).to.equals(-1);
-
-    wrapper
-      .find(PopupMenuItem)
-      .first()
-      .prop('onFocus')();
-
-    expect(instance.focusIndex).to.equals(0);
-  });
-
-  it('should focus next item on arrow down', () => {
+  test('should update focusIndex if list item is focused', () => {
     const wrapper = shallow(
       <PopupMenuList {...props} classes={classes} isOpen>
         <PopupMenuItem classes={itemClasses} />
@@ -77,18 +56,38 @@ describe('<PopupMenuList />', () => {
     const instance = wrapper.instance();
     instance.listItemElements = [{ focus: () => {} }, { focus: () => {} }];
 
+    expect(instance.focusIndex).toBe(-1);
+
     wrapper
       .find(PopupMenuItem)
       .first()
       .prop('onFocus')();
 
-    expect(instance.focusIndex).to.equals(0);
+    expect(instance.focusIndex).toBe(0);
+  });
+
+  test('should focus next item on arrow down', () => {
+    const wrapper = shallow(
+      <PopupMenuList {...props} classes={classes} isOpen>
+        <PopupMenuItem classes={itemClasses} />
+        <PopupMenuItem classes={itemClasses} />
+      </PopupMenuList>,
+    );
+    const instance = wrapper.instance();
+    instance.listItemElements = [{ focus: () => {} }, { focus: () => {} }];
+
+    wrapper
+      .find(PopupMenuItem)
+      .first()
+      .prop('onFocus')();
+
+    expect(instance.focusIndex).toBe(0);
 
     instance.onKeyDown({ keyCode: keyCodes.ARROW_DOWN, preventDefault: () => {} });
-    expect(instance.focusIndex).to.equals(1);
+    expect(instance.focusIndex).toBe(1);
   });
 
-  it('should focus previous item on arrow up', () => {
+  test('should focus previous item on arrow up', () => {
     const wrapper = shallow(
       <PopupMenuList {...props} classes={classes} isOpen>
         <PopupMenuItem classes={itemClasses} />
@@ -103,13 +102,13 @@ describe('<PopupMenuList />', () => {
       .last()
       .prop('onFocus')();
 
-    expect(instance.focusIndex).to.equals(1);
+    expect(instance.focusIndex).toBe(1);
 
     instance.onKeyDown({ keyCode: keyCodes.ARROW_UP, preventDefault: () => {} });
-    expect(instance.focusIndex).to.equals(0);
+    expect(instance.focusIndex).toBe(0);
   });
 
-  it('should wrap to first item on arrow down on last item', () => {
+  test('should wrap to first item on arrow down on last item', () => {
     const wrapper = shallow(
       <PopupMenuList {...props} classes={classes} isOpen>
         <PopupMenuItem classes={itemClasses} />
@@ -124,13 +123,13 @@ describe('<PopupMenuList />', () => {
       .last()
       .prop('onFocus')();
 
-    expect(instance.focusIndex).to.equals(1);
+    expect(instance.focusIndex).toBe(1);
 
     instance.onKeyDown({ keyCode: keyCodes.ARROW_DOWN, preventDefault: () => {} });
-    expect(instance.focusIndex).to.equals(0);
+    expect(instance.focusIndex).toBe(0);
   });
 
-  it('should blur item on esc', () => {
+  test('should blur item on esc', () => {
     const wrapper = shallow(
       <PopupMenuList {...props} classes={classes} isOpen>
         <PopupMenuItem classes={itemClasses} />
@@ -146,13 +145,13 @@ describe('<PopupMenuList />', () => {
       .last()
       .prop('onFocus')();
 
-    expect(instance.focusIndex).to.equals(1);
+    expect(instance.focusIndex).toBe(1);
 
     instance.onKeyDown({ keyCode: keyCodes.ESC, preventDefault: () => {} });
-    expect(blur.calledOnce).to.be.true;
+    expect(blur.calledOnce).toBe(true);
   });
 
-  it('should not add the focus handling props to disabled children', () => {
+  test('should not add the focus handling props to disabled children', () => {
     const wrapper = shallow(
       <PopupMenuList {...props} classes={classes} isOpen>
         <PopupMenuItem classes={itemClasses} />
@@ -168,7 +167,7 @@ describe('<PopupMenuList />', () => {
     const disabledItems = items.findWhere(
       i => !i.prop('listItemRef') && !i.prop('onFocus') && !i.prop('onKeyDown'),
     );
-    expect(nonDisabledItems.length).to.equals(2);
-    expect(disabledItems.length).to.equals(1);
+    expect(nonDisabledItems).toHaveLength(2);
+    expect(disabledItems).toHaveLength(1);
   });
 });

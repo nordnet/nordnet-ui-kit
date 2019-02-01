@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import NativeInput from './native-input';
 
@@ -15,43 +14,43 @@ const defaultProps = {
 const renderComponent = props => shallow(<NativeInput {...defaultProps} {...props} />);
 
 describe('<NativeInput />', () => {
-  it('has class input__element', () => {
+  test('has class input__element', () => {
     const wrapper = renderComponent();
-    expect(wrapper.hasClass('input__element')).to.equal(true);
+    expect(wrapper.hasClass('input__element')).toBe(true);
   });
 
-  it('has class input__element--text when type is "text"', () => {
+  test('has class input__element--text when type is "text"', () => {
     const wrapper = renderComponent({ type: 'text' });
-    expect(wrapper.hasClass('input__element--text')).to.equal(true);
+    expect(wrapper.hasClass('input__element--text')).toBe(true);
   });
 
-  it('appends custom className', () => {
+  test('appends custom className', () => {
     const customClass = 'custom-class';
     const wrapper = renderComponent({ className: customClass });
-    expect(wrapper.hasClass(customClass)).to.equal(true);
-    expect(wrapper.hasClass('input__element')).to.equal(true);
-    expect(wrapper.hasClass('input__element--text')).to.equal(true);
+    expect(wrapper.hasClass(customClass)).toBe(true);
+    expect(wrapper.hasClass('input__element')).toBe(true);
+    expect(wrapper.hasClass('input__element--text')).toBe(true);
   });
 
-  it('renders an input when type is not textarea', () => {
+  test('renders an input when type is not textarea', () => {
     const wrapper = renderComponent();
-    expect(wrapper.type()).to.equal('input');
+    expect(wrapper.type()).toBe('input');
   });
 
-  it('renders an textarea when type is textarea', () => {
+  test('renders an textarea when type is textarea', () => {
     const wrapper = renderComponent({ type: 'textarea' });
-    expect(wrapper.type()).to.equal('textarea');
+    expect(wrapper.type()).toBe('textarea');
   });
 
-  it('sets placeholder to placeholder if it is defined', () => {
+  test('sets placeholder to placeholder if it is defined', () => {
     const placeholder = 'test123';
     const wrapper = renderComponent({ placeholder });
-    expect(wrapper.prop('placeholder')).to.equal(placeholder);
+    expect(wrapper.prop('placeholder')).toBe(placeholder);
   });
 
-  it('sets placeholder to label if placeholder is not defined', () => {
+  test('sets placeholder to label if placeholder is not defined', () => {
     const label = 'test123';
     const wrapper = renderComponent({ label });
-    expect(wrapper.prop('placeholder')).to.equal(label);
+    expect(wrapper.prop('placeholder')).toBe(label);
   });
 });
