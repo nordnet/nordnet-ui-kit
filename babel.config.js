@@ -1,4 +1,4 @@
-module.exports = function(api) {
+module.exports = api => {
   const presets = [
     '@babel/preset-react',
     [
@@ -14,6 +14,9 @@ module.exports = function(api) {
   ];
 
   const plugins = ['@babel/plugin-proposal-class-properties'];
+  if (process.env.NODE_ENV === 'coverage') {
+    plugins.unshift('istanbul');
+  }
 
   return { comments: false, presets, plugins };
 };
