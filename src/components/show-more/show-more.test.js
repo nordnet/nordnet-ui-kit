@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Component as ShowMore } from './show-more';
@@ -28,76 +27,76 @@ describe('<ShowMore />', () => {
     addEventListenerSpy.restore();
     removeEventListenerSpy.restore();
   });
-  it('should render <div> as container', () => {
+  test('should render <div> as container', () => {
     const wrapper = getWrapper();
     const actual = wrapper.type();
     const expected = 'div';
-    expect(actual).to.equal(expected);
+    expect(actual).toBe(expected);
   });
 
-  it('should not show button if content fits', () => {
+  test('should not show button if content fits', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = {
       scrollHeight: 500,
       clientHeight: 500,
     };
     wrapper.instance().componentDidMount();
-    expect(wrapper.state('isOverflowing')).to.equal(false);
+    expect(wrapper.state('isOverflowing')).toBe(false);
   });
 
-  it('should show button if content does not fit', () => {
+  test('should show button if content does not fit', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     wrapper.instance().componentDidMount();
-    expect(wrapper.state('isOverflowing')).to.equal(true);
+    expect(wrapper.state('isOverflowing')).toBe(true);
   });
 
-  it('should register resize event listener on mount', () => {
+  test('should register resize event listener on mount', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     wrapper.instance().componentDidMount();
-    expect(addEventListenerSpy.args[0][0]).to.equal('resize');
+    expect(addEventListenerSpy.args[0][0]).toBe('resize');
   });
 
-  it('should not check if overflow when updated with same children', () => {
+  test('should not check if overflow when updated with same children', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     const checkIfOverflowingSpy = sinon.spy(wrapper.instance(), 'checkIfOverflowing');
     wrapper.instance().componentDidUpdate({ children: 'Children' });
-    expect(checkIfOverflowingSpy.notCalled).to.equal(true);
+    expect(checkIfOverflowingSpy.notCalled).toBe(true);
   });
 
-  it('should check if overflow when updated with new children', () => {
+  test('should check if overflow when updated with new children', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     const checkIfOverflowingSpy = sinon.spy(wrapper.instance(), 'checkIfOverflowing');
     wrapper.instance().componentDidUpdate({ children: 'new child' });
-    expect(checkIfOverflowingSpy.calledOnce).to.equal(true);
+    expect(checkIfOverflowingSpy.calledOnce).toBe(true);
   });
 
-  it('should deregister resize event listener on unmount', () => {
+  test('should deregister resize event listener on unmount', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     wrapper.instance().componentWillUnmount();
-    expect(removeEventListenerSpy.args[0][0]).to.equal('resize');
+    expect(removeEventListenerSpy.args[0][0]).toBe('resize');
   });
 
-  it('should set showMoreClicked to true when show more button is clicked', () => {
+  test('should set showMoreClicked to true when show more button is clicked', () => {
     const wrapper = getWrapper();
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     wrapper.instance().handleShowMore();
-    expect(wrapper.state('showMoreClicked')).to.equal(true);
+    expect(wrapper.state('showMoreClicked')).toBe(true);
   });
 
-  it('should call user supplied onShowMore when show more button is clicked', () => {
+  test('should call user supplied onShowMore when show more button is clicked', () => {
     const onShowMore = sinon.spy();
     const wrapper = getWrapper({ onShowMore });
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     wrapper.instance().handleShowMore();
-    expect(onShowMore.calledOnce).to.equal(true);
+    expect(onShowMore.calledOnce).toBe(true);
   });
 
-  it('should render correct content in show more button', () => {
+  test('should render correct content in show more button', () => {
     const wrapper = getWrapper({ showMoreButtonContent: 'content' });
     wrapper.instance().descriptionContainer = { scrollHeight: 600, clientHeight: 500 };
     wrapper.setState({ isOverflowing: true });
@@ -106,6 +105,6 @@ describe('<ShowMore />', () => {
         .find(Button)
         .childAt(0)
         .text(),
-    ).to.equal('content');
+    ).toBe('content');
   });
 });

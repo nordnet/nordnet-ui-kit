@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { mockClasses, Icon } from '../../';
@@ -20,25 +19,25 @@ describe('<Pagination />', () => {
   const shallowComponent = customProps =>
     shallow(<Pagination {...defaultProps} {...customProps} />);
 
-  it('should not paginate if there is only 1 page', () => {
+  test('should not paginate if there is only 1 page', () => {
     const wrapper = shallowComponent({ total: 10, limit: 10 });
 
-    expect(wrapper.find(`ul.${classes.list}`).length).to.equal(0);
+    expect(wrapper.find(`ul.${classes.list}`).length).toBe(0);
   });
 
-  it('should render a nav element', () => {
+  test('should render a nav element', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find('nav').length).to.equal(1);
+    expect(wrapper.find('nav').length).toBe(1);
   });
 
-  it('should render next and previous buttons', () => {
+  test('should render next and previous buttons', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(Stepper).length).to.equal(2);
+    expect(wrapper.find(Stepper).length).toBe(2);
   });
 
-  it('previous button should not be clickable', () => {
+  test('previous button should not be clickable', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -46,10 +45,10 @@ describe('<Pagination />', () => {
         .find(Stepper)
         .first()
         .prop('disabled'),
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('previous button should be clickable', () => {
+  test('previous button should be clickable', () => {
     const wrapper = shallowComponent({ selected: 2 });
 
     expect(
@@ -57,10 +56,10 @@ describe('<Pagination />', () => {
         .find(Stepper)
         .first()
         .prop('disabled'),
-    ).to.equal(false);
+    ).toBe(false);
   });
 
-  it('next button should not be clickable', () => {
+  test('next button should not be clickable', () => {
     const wrapper = shallowComponent({ selected: 10 });
 
     expect(
@@ -68,10 +67,10 @@ describe('<Pagination />', () => {
         .find(Stepper)
         .last()
         .prop('disabled'),
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('next button should be clickable', () => {
+  test('next button should be clickable', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -79,10 +78,10 @@ describe('<Pagination />', () => {
         .find(Stepper)
         .last()
         .prop('disabled'),
-    ).to.equal(false);
+    ).toBe(false);
   });
 
-  it('next button should render text', () => {
+  test('next button should render text', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -92,10 +91,10 @@ describe('<Pagination />', () => {
         .find(`.${classes.stepperText}`)
         .childAt(0)
         .text(),
-    ).to.equal(defaultProps.buttonTextNext);
+    ).toBe(defaultProps.buttonTextNext);
   });
 
-  it('next button should render SVG', () => {
+  test('next button should render SVG', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -103,10 +102,10 @@ describe('<Pagination />', () => {
         .find(Stepper)
         .last()
         .find(Icon.ArrowRight).length,
-    ).to.equal(1);
+    ).toBe(1);
   });
 
-  it('previous button should render text', () => {
+  test('previous button should render text', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -116,10 +115,10 @@ describe('<Pagination />', () => {
         .find(`.${classes.stepperText}`)
         .childAt(0)
         .text(),
-    ).to.equal(defaultProps.buttonTextPrevious);
+    ).toBe(defaultProps.buttonTextPrevious);
   });
 
-  it('previous button should render SVG', () => {
+  test('previous button should render SVG', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -127,16 +126,16 @@ describe('<Pagination />', () => {
         .find(Stepper)
         .first()
         .find(Icon.ArrowLeft).length,
-    ).to.equal(1);
+    ).toBe(1);
   });
 
-  it('should render a range of pages', () => {
+  test('should render a range of pages', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(Range).length).to.equal(1);
+    expect(wrapper.find(Range).length).toBe(1);
   });
 
-  it('should increment selected in state', () => {
+  test('should increment selected in state', () => {
     const clickCallback = sinon.spy();
     const wrapper = shallowComponent({ changeHandler: clickCallback });
 
@@ -146,10 +145,10 @@ describe('<Pagination />', () => {
       .props()
       .clickHandler();
 
-    expect(wrapper.state().selected).to.equal(2);
+    expect(wrapper.state().selected).toBe(2);
   });
 
-  it('should decrement selected in state', () => {
+  test('should decrement selected in state', () => {
     const clickCallback = sinon.spy();
     const wrapper = shallowComponent({ changeHandler: clickCallback, selected: 2 });
 
@@ -159,26 +158,26 @@ describe('<Pagination />', () => {
       .props()
       .clickHandler();
 
-    expect(wrapper.state().selected).to.equal(1);
+    expect(wrapper.state().selected).toBe(1);
   });
 
-  it('should increment selected in state when prop changes', () => {
+  test('should increment selected in state when prop changes', () => {
     const clickCallback = sinon.spy();
     const selected = 1;
     const wrapper = shallowComponent({ selected, changeHandler: clickCallback });
 
     wrapper.setProps({ selected: selected + 1 });
 
-    expect(wrapper.state().selected).to.equal(selected + 1);
+    expect(wrapper.state().selected).toBe(selected + 1);
   });
 
-  it('should decrement selected in state when prop changes', () => {
+  test('should decrement selected in state when prop changes', () => {
     const clickCallback = sinon.spy();
     const selected = 2;
     const wrapper = shallowComponent({ selected, changeHandler: clickCallback });
 
     wrapper.setProps({ selected: selected - 1 });
 
-    expect(wrapper.state().selected).to.equal(selected - 1);
+    expect(wrapper.state().selected).toBe(selected - 1);
   });
 });

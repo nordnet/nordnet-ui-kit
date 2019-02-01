@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../';
 import { Component as ProgressBar, styles } from './progress-bar';
@@ -10,52 +9,52 @@ describe('<ProgressBar />', () => {
   const max = 5;
   let wrapper;
 
-  it('should render as primary by default', () => {
+  test('should render as primary by default', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
     expect(
       wrapper
         .find('.progressBar')
         .childAt(0)
         .hasClass(classes.primary),
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('should render steps as spans by default', () => {
+  test('should render steps as spans by default', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
     expect(
       wrapper
         .find('.progressBar')
         .childAt(0)
         .type(),
-    ).to.equal('span');
+    ).toBe('span');
   });
 
-  it('should not print numbers by default', () => {
+  test('should not print numbers by default', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
     expect(
       wrapper
         .find('.progressBar')
         .childAt(0)
         .text(),
-    ).to.equal('');
+    ).toBe('');
   });
 
-  it('should be able to print numbers', () => {
+  test('should be able to print numbers', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} printNumbers />);
     expect(
       wrapper
         .find('.progressBar')
         .childAt(0)
         .text(),
-    ).to.equal('1');
+    ).toBe('1');
   });
 
-  it('should render the correct number of steps', () => {
+  test('should render the correct number of steps', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
-    expect(wrapper.find('.progressBar').children().length).to.equal(max);
+    expect(wrapper.find('.progressBar').children().length).toBe(max);
   });
 
-  it('should render the correct number of reached steps', () => {
+  test('should render the correct number of reached steps', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
     [0, 1, 2].forEach(step => {
       expect(
@@ -63,11 +62,11 @@ describe('<ProgressBar />', () => {
           .find('.progressBar')
           .childAt(step)
           .hasClass('reached'),
-      ).to.equal(true);
+      ).toBe(true);
     });
   });
 
-  it('should render the correct number of unreached steps', () => {
+  test('should render the correct number of unreached steps', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
     [3, 4].forEach(step => {
       expect(
@@ -75,34 +74,34 @@ describe('<ProgressBar />', () => {
           .find('.progressBar')
           .childAt(step)
           .hasClass('reached'),
-      ).to.equal(false);
+      ).toBe(false);
     });
   });
 
-  it('should not highlight the active step by default', () => {
+  test('should not highlight the active step by default', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} />);
-    expect(wrapper.find('.progressBar .active').length).to.equal(0);
+    expect(wrapper.find('.progressBar .active').length).toBe(0);
     expect(
       wrapper
         .find('.progressBar')
         .childAt(value - 1)
         .hasClass('active'),
-    ).to.equal(false);
+    ).toBe(false);
   });
 
-  it('should be possible to highlight the active step', () => {
+  test('should be possible to highlight the active step', () => {
     wrapper = shallow(<ProgressBar classes={classes} value={value} max={max} highlightActive />);
-    expect(wrapper.find('.progressBar .active').length).to.equal(1);
+    expect(wrapper.find('.progressBar .active').length).toBe(1);
     expect(
       wrapper
         .find('.progressBar')
         .childAt(value - 1)
         .hasClass('active'),
-    ).to.equal(true);
+    ).toBe(true);
   });
 
   ['primary', 'secondary'].forEach(variant => {
-    it(`should have class ${classes[variant]} if variant is set to ${variant}`, () => {
+    test(`should have class ${classes[variant]} if variant is set to ${variant}`, () => {
       wrapper = shallow(
         <ProgressBar classes={classes} variant={variant} value={value} max={max} />,
       );
@@ -111,11 +110,11 @@ describe('<ProgressBar />', () => {
           .find('.progressBar')
           .childAt(0)
           .hasClass(classes[variant]),
-      ).to.equal(true);
+      ).toBe(true);
     });
   });
 
-  it('should be possible to render a step as an A tag', () => {
+  test('should be possible to render a step as an A tag', () => {
     wrapper = shallow(
       <ProgressBar classes={classes} value={value} max={max} clickables={[{ href: '/foo/bar' }]} />,
     );
@@ -124,10 +123,10 @@ describe('<ProgressBar />', () => {
         .find('.progressBar')
         .childAt(0)
         .type(),
-    ).to.equal('a');
+    ).toBe('a');
   });
 
-  it('should be possible to render a step as a BUTTON tag', () => {
+  test('should be possible to render a step as a BUTTON tag', () => {
     wrapper = shallow(
       <ProgressBar
         classes={classes}
@@ -141,10 +140,10 @@ describe('<ProgressBar />', () => {
         .find('.progressBar')
         .childAt(0)
         .type(),
-    ).to.equal('button');
+    ).toBe('button');
   });
 
-  it('should be possible to render a step as a disabled BUTTON tag', () => {
+  test('should be possible to render a step as a disabled BUTTON tag', () => {
     wrapper = shallow(
       <ProgressBar classes={classes} value={value} max={max} clickables={[{ disabled: true }]} />,
     );
@@ -153,16 +152,16 @@ describe('<ProgressBar />', () => {
         .find('.progressBar')
         .childAt(0)
         .type(),
-    ).to.equal('button');
+    ).toBe('button');
     expect(
       wrapper
         .find('.progressBar')
         .childAt(0)
         .props().disabled,
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('should be possible to override the reached class for a specific step', () => {
+  test('should be possible to override the reached class for a specific step', () => {
     wrapper = shallow(
       <ProgressBar classes={classes} value={value} max={max} clickables={[{ reached: false }]} />,
     );
@@ -171,16 +170,16 @@ describe('<ProgressBar />', () => {
         .find('.progressBar')
         .childAt(0)
         .hasClass('reached'),
-    ).to.equal(false);
+    ).toBe(false);
     expect(
       wrapper
         .find('.progressBar')
         .childAt(1)
         .hasClass('reached'),
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('should be possible to override the active class for a specific step', () => {
+  test('should be possible to override the active class for a specific step', () => {
     wrapper = shallow(
       <ProgressBar classes={classes} value={value} max={max} clickables={[{ active: true }]} />,
     );
@@ -189,10 +188,10 @@ describe('<ProgressBar />', () => {
         .find('.progressBar')
         .childAt(0)
         .hasClass('reached'),
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('should be possible to override the label class for a specific step', () => {
+  test('should be possible to override the label class for a specific step', () => {
     wrapper = shallow(
       <ProgressBar
         classes={classes}
@@ -207,12 +206,12 @@ describe('<ProgressBar />', () => {
         .find('.progressBar')
         .childAt(0)
         .text(),
-    ).to.equal('A');
+    ).toBe('A');
     expect(
       wrapper
         .find('.progressBar')
         .childAt(1)
         .text(),
-    ).to.equal('2');
+    ).toBe('2');
   });
 });

@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { expect } from 'chai';
 import { Icon } from '../../';
 
 describe('<Icon />', () => {
@@ -10,35 +9,35 @@ describe('<Icon />', () => {
     wrapper = shallow(<Icon.ArrowLeft />);
   });
 
-  it('should render an svg', () => {
-    expect(wrapper.type()).to.equal('svg');
+  test('should render an svg', () => {
+    expect(wrapper.type()).toBe('svg');
   });
 
-  it('should set default proportions', () => {
-    expect(wrapper.prop('width')).to.equal('1em');
-    expect(wrapper.prop('height')).to.equal('1em');
-    expect(wrapper.prop('viewBox')).to.equal('0 0 16 16');
+  test('should set default proportions', () => {
+    expect(wrapper.prop('width')).toBe('1em');
+    expect(wrapper.prop('height')).toBe('1em');
+    expect(wrapper.prop('viewBox')).toBe('0 0 16 16');
   });
 
-  it('should be able to override stroke', () => {
+  test('should be able to override stroke', () => {
     const color = 'tomato';
     wrapper = shallow(<Icon.Cloud stroke={color} />);
-    expect(wrapper.find('g > g').prop('stroke')).to.equal(color);
+    expect(wrapper.find('g > g').prop('stroke')).toBe(color);
   });
 
-  it('should be able to override fill', () => {
+  test('should be able to override fill', () => {
     const color = 'crimson';
     wrapper = shallow(<Icon.Trash fill={color} />);
-    expect(wrapper.find('g > g').prop('fill')).to.equal(color);
+    expect(wrapper.find('g > g').prop('fill')).toBe(color);
   });
 
-  it('should have pointerEvents set to none', () => {
+  test('should have pointerEvents set to none', () => {
     Object.keys(Icon).map(key => {
       const Component = Icon[key];
       const element = shallow(<Component />);
       // If a test breaks, uncomment this to see which icon is broken:
       // console.log(`${key}: ${element.props().style.pointerEvents}`);
-      return expect(element.props().style.pointerEvents).to.equal('none');
+      return expect(element.props().style.pointerEvents).toBe('none');
     });
   });
 });

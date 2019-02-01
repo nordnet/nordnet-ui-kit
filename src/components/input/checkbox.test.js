@@ -1,33 +1,32 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Checkbox from './checkbox';
 
 const renderComponent = props => shallow(<Checkbox {...props} />);
 
 describe('<Checkbox />', () => {
-  it('has class checkbox', () => {
+  test('has class checkbox', () => {
     const wrapper = renderComponent();
-    expect(wrapper.hasClass('checkbox')).to.equal(true);
+    expect(wrapper.hasClass('checkbox')).toBe(true);
   });
 
-  it('has class checkbox--is-checked when checked is true', () => {
+  test('has class checkbox--is-checked when checked is true', () => {
     const wrapper = renderComponent({ checked: true });
-    expect(wrapper.hasClass('checkbox--is-checked')).to.equal(true);
+    expect(wrapper.hasClass('checkbox--is-checked')).toBe(true);
   });
 
-  it('has class checkbox--is-disabled when disabled is true', () => {
+  test('has class checkbox--is-disabled when disabled is true', () => {
     const wrapper = renderComponent({ disabled: true });
-    expect(wrapper.hasClass('checkbox--is-disabled')).to.equal(true);
+    expect(wrapper.hasClass('checkbox--is-disabled')).toBe(true);
   });
 
-  it('renders checkmark when checked is true', () => {
+  test('renders checkmark when checked is true', () => {
     const wrapper = renderComponent({ checked: true });
-    expect(wrapper.find('Checkmark')).to.have.length(1);
+    expect(wrapper.find('Checkmark')).toHaveLength(1);
   });
 
-  it('renders no checkmark when checked is false', () => {
+  test('renders no checkmark when checked is false', () => {
     const wrapper = renderComponent({ checked: false });
-    expect(wrapper.find('Checkmark')).to.have.length(0);
+    expect(wrapper.find('Checkmark')).toHaveLength(0);
   });
 });

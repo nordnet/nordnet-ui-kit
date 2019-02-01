@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Component as Subsection, styles } from './subsection';
@@ -23,40 +22,40 @@ describe('<Subsection />', () => {
     clock.restore();
   });
 
-  it('should have the class root', () => {
+  test('should have the class root', () => {
     const wrapper = shallow(<Subsection {...defaultProps} />);
 
-    expect(wrapper.hasClass(classes.root)).to.equal(true);
+    expect(wrapper.hasClass(classes.root)).toBe(true);
   });
 
-  it('should render two custom icons', () => {
+  test('should render two custom icons', () => {
     const wrapper = shallow(<Subsection icon={Icon.Trash} {...defaultProps} />);
 
-    expect(wrapper.find(Icon.Trash)).to.have.length(2);
+    expect(wrapper.find(Icon.Trash)).toHaveLength(2);
   });
 
-  it('should render one custom icon with class desktopOnly', () => {
+  test('should render one custom icon with class desktopOnly', () => {
     const wrapper = shallow(<Subsection icon={Icon.Trash} {...defaultProps} />);
 
-    expect(wrapper.find(`.${classes.icon}.${classes.desktopOnly}`)).to.have.length(1);
+    expect(wrapper.find(`.${classes.icon}.${classes.desktopOnly}`)).toHaveLength(1);
   });
 
-  it('should render one custom icon with class mobileOnly', () => {
+  test('should render one custom icon with class mobileOnly', () => {
     const wrapper = shallow(<Subsection icon={Icon.Trash} {...defaultProps} />);
 
-    expect(wrapper.find(`.${classes.icon}.${classes.mobileOnly}`)).to.have.length(1);
+    expect(wrapper.find(`.${classes.icon}.${classes.mobileOnly}`)).toHaveLength(1);
   });
 
-  it('should set toggleActive while animating when toggled prop is changed', () => {
+  test('should set toggleActive while animating when toggled prop is changed', () => {
     const wrapper = shallow(<Subsection {...defaultProps} />);
     wrapper.setProps({ toggled: true });
 
     const toggleActive = wrapper.state('toggleActive');
 
-    expect(toggleActive).to.equal(true);
+    expect(toggleActive).toBe(true);
   });
 
-  it('should unset toggleActive when animation is complete after toggled prop is changed', () => {
+  test('should unset toggleActive when animation is complete after toggled prop is changed', () => {
     const wrapper = shallow(<Subsection {...defaultProps} />);
     const before = wrapper.state('toggleActive');
     wrapper.setProps({ toggled: true });
@@ -64,11 +63,11 @@ describe('<Subsection />', () => {
     clock.tick(500);
     const after = wrapper.state('toggleActive');
 
-    expect(before).to.equal(false);
-    expect(after).to.equal(false);
+    expect(before).toBe(false);
+    expect(after).toBe(false);
   });
 
-  it('should change toggled state when toggled prop is changed', () => {
+  test('should change toggled state when toggled prop is changed', () => {
     const wrapper = shallow(<Subsection {...defaultProps} />);
     const before = wrapper.state('toggled');
 
@@ -76,10 +75,10 @@ describe('<Subsection />', () => {
 
     clock.tick(500);
     const after = wrapper.state('toggled');
-    expect(after).to.not.equal(before);
+    expect(after).not.toBe(before);
   });
 
-  it('should not change toggled state when toggled prop is same', () => {
+  test('should not change toggled state when toggled prop is same', () => {
     const wrapper = shallow(<Subsection {...defaultProps} />);
     const before = wrapper.state('toggled');
 
@@ -87,13 +86,13 @@ describe('<Subsection />', () => {
 
     const after = wrapper.state('toggled');
 
-    expect(after).to.equal(before);
+    expect(after).toBe(before);
   });
 
-  it('hides the chevron when loading is true', () => {
+  test('hides the chevron when loading is true', () => {
     const wrapper = shallow(<Subsection {...defaultProps} loading />);
     const chevron = wrapper.find(`.${classes.chevron}`);
 
-    expect(chevron.length).to.equal(0);
+    expect(chevron.length).toBe(0);
   });
 });

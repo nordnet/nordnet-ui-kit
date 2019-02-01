@@ -21,11 +21,11 @@ describe('<InputDefault />', () => {
     wrapper = null;
   });
 
-  it('has class input', () => {
-    expect(wrapper.hasClass('input')).to.equal(true);
+  test('has class input', () => {
+    expect(wrapper.hasClass('input')).toBe(true);
   });
 
-  it('adds value class when there is a value', () => {
+  test('adds value class when there is a value', () => {
     const nonEmtpyValues = ['a string', false, 7, [3], { someProp: 'a value' }];
 
     nonEmtpyValues.forEach(v => {
@@ -35,7 +35,7 @@ describe('<InputDefault />', () => {
     });
   });
 
-  it('does not add a value class when value is empty', () => {
+  test('does not add a value class when value is empty', () => {
     const emtpyValues = [undefined, null, '', [], {}];
 
     emtpyValues.forEach(v => {

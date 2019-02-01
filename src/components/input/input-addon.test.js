@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import InputAddon from './input-addon';
 
@@ -8,30 +7,30 @@ const defaultProps = { content: 'addon' };
 const renderComponent = props => shallow(<InputAddon {...defaultProps} {...props} />);
 
 describe('<InputAddon />', () => {
-  it('has class input__addon', () => {
+  test('has class input__addon', () => {
     const wrapper = renderComponent();
-    expect(wrapper.hasClass('input__addon')).to.equal(true);
+    expect(wrapper.hasClass('input__addon')).toBe(true);
   });
 
-  it('has class input__addon--left if position is "left"', () => {
+  test('has class input__addon--left if position is "left"', () => {
     const wrapper = renderComponent({ position: 'left' });
-    expect(wrapper.hasClass('input__addon--left')).to.equal(true);
+    expect(wrapper.hasClass('input__addon--left')).toBe(true);
   });
 
-  it('renders nothing when there is content', () => {
+  test('renders nothing when there is content', () => {
     const wrapper = renderComponent({ content: undefined });
-    expect(wrapper.type()).to.equal(null);
+    expect(wrapper.type()).toBeNull();
   });
 
-  it('renders content when it is set', () => {
+  test('renders content when it is set', () => {
     const content = 'content';
     const wrapper = renderComponent({ content });
-    expect(wrapper.text()).to.equal(content);
+    expect(wrapper.text()).toBe(content);
   });
 
-  it('renders the result of content() when content is a function', () => {
+  test('renders the result of content() when content is a function', () => {
     const contentResult = 'result';
     const wrapper = renderComponent({ content: () => contentResult });
-    expect(wrapper.text()).to.equal(contentResult);
+    expect(wrapper.text()).toBe(contentResult);
   });
 });

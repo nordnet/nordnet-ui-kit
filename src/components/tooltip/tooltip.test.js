@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
 import { mockClasses } from '../../';
@@ -13,75 +12,75 @@ describe('<Tooltip />', () => {
     wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." />);
   });
 
-  it('should render <div> as container', () => {
-    expect(wrapper.type()).to.equal('div');
+  test('should render <div> as container', () => {
+    expect(wrapper.type()).toBe('div');
   });
 
-  it('should not show the tooltip as default', () => {
-    expect(wrapper.state('hover')).to.equal(false);
-    expect(wrapper.state('toggled')).to.equal(false);
+  test('should not show the tooltip as default', () => {
+    expect(wrapper.state('hover')).toBe(false);
+    expect(wrapper.state('toggled')).toBe(false);
   });
 
-  it('should show the tooltip when hovered', () => {
+  test('should show the tooltip when hovered', () => {
     wrapper.find(`.${classes.tooltip}`).simulate('mouseEnter');
-    expect(wrapper.state('hover')).to.equal(true);
+    expect(wrapper.state('hover')).toBe(true);
     wrapper.find(`.${classes.tooltip}`).simulate('mouseLeave');
-    expect(wrapper.state('hover')).to.equal(false);
+    expect(wrapper.state('hover')).toBe(false);
   });
 
-  it('should toggle the tooltip when clicked', () => {
+  test('should toggle the tooltip when clicked', () => {
     wrapper.find(`.${classes.container}`).simulate('click');
-    expect(wrapper.state('toggled')).to.equal(true);
+    expect(wrapper.state('toggled')).toBe(true);
   });
 
-  it('should not display tooltip when clicked and sticky is false', () => {
+  test('should not display tooltip when clicked and sticky is false', () => {
     wrapper.setProps({ sticky: false });
     wrapper.find(`.${classes.container}`).simulate('click');
-    expect(wrapper.state('toggled')).to.equal(false);
+    expect(wrapper.state('toggled')).toBe(false);
   });
 
-  it('should display tooltip when clicked and sticky is true', () => {
+  test('should display tooltip when clicked and sticky is true', () => {
     wrapper.setProps({ sticky: true });
     wrapper.find(`.${classes.container}`).simulate('click');
-    expect(wrapper.state('toggled')).to.equal(true);
+    expect(wrapper.state('toggled')).toBe(true);
   });
 
-  it('should have fixedWidth', () => {
+  test('should have fixedWidth', () => {
     wrapper = shallow(
       <Tooltip classes={classes} fixedWidth={345} content="Lorem ipsum dolor sit amet." />,
     );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popupFixed}`).prop('style')).to.have.property('width', 345);
+    expect(wrapper.find(`.${classes.popupFixed}`).prop('style')).toHaveProperty('width', 345);
   });
 
-  it('should set className to above', () => {
+  test('should set className to above', () => {
     wrapper = shallow(
       <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'above'} />,
     );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popup}`).hasClass('above')).to.equal(true);
+    expect(wrapper.find(`.${classes.popup}`).hasClass('above')).toBe(true);
   });
 
-  it('should set className to left', () => {
+  test('should set className to left', () => {
     wrapper = shallow(
       <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'left'} />,
     );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popup}`).hasClass('left')).to.equal(true);
+    expect(wrapper.find(`.${classes.popup}`).hasClass('left')).toBe(true);
   });
 
-  it('should set placement to below if none is given', () => {
+  test('should set placement to below if none is given', () => {
     wrapper = shallow(<Tooltip classes={classes} content="Lorem ipsum dolor sit amet." />);
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popup}`).hasClass('below')).to.equal(true);
+    expect(wrapper.find(`.${classes.popup}`).hasClass('below')).toBe(true);
   });
 
-  it('should set desktopOnly', () => {
+  test('should set desktopOnly', () => {
     wrapper = shallow(
       <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." desktopOnly />,
     );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
-    expect(wrapper.find(`.${classes.popup}`).hasClass(classes.popupDesktopOnly)).to.equal(true);
+    expect(wrapper.find(`.${classes.popup}`).hasClass(classes.popupDesktopOnly)).toBe(true);
   });
 
   describe('click outside functionality', () => {
@@ -106,26 +105,26 @@ describe('<Tooltip />', () => {
       sandbox.restore();
     });
 
-    it('should subscribe to click event on mount', () => {
-      expect(addEventSpy.calledWith('click', component.instance().handleClick)).to.equal(true);
+    test('should subscribe to click event on mount', () => {
+      expect(addEventSpy.calledWith('click', component.instance().handleClick)).toBe(true);
     });
 
-    it('should unsubscribe from click events on unmount', () => {
+    test('should unsubscribe from click events on unmount', () => {
       const handleClick = component.instance().handleClick;
       component.unmount();
-      expect(removeEventSpy.calledWith('click', handleClick)).to.equal(true);
+      expect(removeEventSpy.calledWith('click', handleClick)).toBe(true);
     });
 
-    it('should untoggle tooltip when clicked outside', () => {
+    test('should untoggle tooltip when clicked outside', () => {
       component.find(`.${classes.container}`).simulate('click');
       document.getElementById('app').click();
-      expect(component.state('toggled')).to.equal(false);
+      expect(component.state('toggled')).toBe(false);
     });
 
-    it('should not untoggle tooltip when clicked inside', () => {
+    test('should not untoggle tooltip when clicked inside', () => {
       component.find(`.${classes.container}`).simulate('click');
       component.find(`.${classes.popupContent}`).simulate('click');
-      expect(component.state('toggled')).to.equal(true);
+      expect(component.state('toggled')).toBe(true);
     });
   });
 });

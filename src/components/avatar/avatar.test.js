@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Component as Avatar, styles } from './avatar';
 import { mockClasses } from '../../';
@@ -11,52 +10,52 @@ describe('<Avatar />', () => {
     classes,
     children: 'ISK',
   };
-  it('should render a div', () => {
+  test('should render a div', () => {
     const wrapper = shallow(<Avatar {...defaultProps} />);
-    expect(wrapper.type()).to.equal('div');
+    expect(wrapper.type()).toBe('div');
   });
 
-  it('should have the class "root"', () => {
+  test('should have the class "root"', () => {
     const wrapper = shallow(<Avatar {...defaultProps} />);
-    expect(wrapper.hasClass(classes.root)).to.equal(true);
+    expect(wrapper.hasClass(classes.root)).toBe(true);
   });
 
-  it('should have the class small by default', () => {
+  test('should have the class small by default', () => {
     const wrapper = shallow(<Avatar {...defaultProps} />);
-    expect(wrapper.hasClass(classes.sm)).to.equal(true);
+    expect(wrapper.hasClass(classes.sm)).toBe(true);
   });
 
-  it('should have the class md if size is set to "md"', () => {
+  test('should have the class md if size is set to "md"', () => {
     const wrapper = shallow(<Avatar {...defaultProps} size="md" />);
-    expect(wrapper.hasClass(classes.md)).to.equal(true);
+    expect(wrapper.hasClass(classes.md)).toBe(true);
   });
 
-  it('should have the class lg if size is set to "lg"', () => {
+  test('should have the class lg if size is set to "lg"', () => {
     const wrapper = shallow(<Avatar {...defaultProps} size="lg" />);
-    expect(wrapper.hasClass(classes.lg)).to.equal(true);
+    expect(wrapper.hasClass(classes.lg)).toBe(true);
   });
 
-  it(`should render the text ${defaultProps.children}`, () => {
+  test(`should render the text ${defaultProps.children}`, () => {
     const wrapper = shallow(<Avatar {...defaultProps} />);
-    expect(wrapper.text()).to.equal(defaultProps.children);
+    expect(wrapper.text()).toBe(defaultProps.children);
   });
 
-  it('should render a <Avatar /> with custom color', () => {
+  test('should render a <Avatar /> with custom color', () => {
     const color = 'red';
     const wrapper = shallow(<Avatar {...defaultProps} color={color} />);
-    expect(wrapper.prop('style').backgroundColor).to.equal(color);
+    expect(wrapper.prop('style').backgroundColor).toBe(color);
   });
 
-  it('should be possibe to send in a custom className', () => {
+  test('should be possibe to send in a custom className', () => {
     const className = 'custom-class';
     const wrapper = shallow(<Avatar {...defaultProps} className={className} />);
-    expect(wrapper.hasClass(className)).to.equal(true);
+    expect(wrapper.hasClass(className)).toBe(true);
   });
 
-  it('should be possibe to send in custom styles', () => {
+  test('should be possibe to send in custom styles', () => {
     const fontSize = 10;
     const style = { fontSize };
     const wrapper = shallow(<Avatar {...defaultProps} style={style} />);
-    expect(wrapper.prop('style').fontSize).to.equal(fontSize);
+    expect(wrapper.prop('style').fontSize).toBe(fontSize);
   });
 });

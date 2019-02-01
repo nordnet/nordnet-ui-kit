@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { mockClasses } from '../../..';
 import { Component as Range, styles } from './range';
@@ -19,31 +18,31 @@ describe('<Range />', () => {
 
   const shallowComponent = customProps => shallow(<Range {...defaultProps} {...customProps} />);
 
-  it('should render a ul element', () => {
+  test('should render a ul element', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(`ul.${classes.list}`).length).to.equal(1);
+    expect(wrapper.find(`ul.${classes.list}`).length).toBe(1);
   });
 
-  it('should render 5 pages', () => {
+  test('should render 5 pages', () => {
     const wrapper = shallowComponent({ pagesCount: 5 });
 
-    expect(wrapper.find(Page).length).to.equal(5);
+    expect(wrapper.find(Page).length).toBe(5);
   });
 
-  it('should render one ellipsis', () => {
+  test('should render one ellipsis', () => {
     const wrapper = shallowComponent();
 
-    expect(wrapper.find(Ellipsis).length).to.equal(1);
+    expect(wrapper.find(Ellipsis).length).toBe(1);
   });
 
-  it('should render two ellipsis', () => {
+  test('should render two ellipsis', () => {
     const wrapper = shallowComponent({ selected: 5 });
 
-    expect(wrapper.find(Ellipsis).length).to.equal(2);
+    expect(wrapper.find(Ellipsis).length).toBe(2);
   });
 
-  it('should mark page as selected', () => {
+  test('should mark page as selected', () => {
     const wrapper = shallowComponent({ selected: 3 });
 
     expect(
@@ -51,10 +50,10 @@ describe('<Range />', () => {
         .find(Page)
         .at(2)
         .props().isSelected,
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('first page should have prop isFirst', () => {
+  test('first page should have prop isFirst', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -62,10 +61,10 @@ describe('<Range />', () => {
         .find(Page)
         .first()
         .props().isFirst,
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('first page should not have prop isLast', () => {
+  test('first page should not have prop isLast', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -73,10 +72,10 @@ describe('<Range />', () => {
         .find(Page)
         .first()
         .props().isLast,
-    ).to.equal(false);
+    ).toBe(false);
   });
 
-  it('last page should have prop isLast', () => {
+  test('last page should have prop isLast', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -84,10 +83,10 @@ describe('<Range />', () => {
         .find(Page)
         .last()
         .props().isLast,
-    ).to.equal(true);
+    ).toBe(true);
   });
 
-  it('last page should not have prop isFirst', () => {
+  test('last page should not have prop isFirst', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -95,10 +94,10 @@ describe('<Range />', () => {
         .find(Page)
         .last()
         .props().isFirst,
-    ).to.equal(false);
+    ).toBe(false);
   });
 
-  it('page should have false on the prop isFirst', () => {
+  test('page should have false on the prop isFirst', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -106,10 +105,10 @@ describe('<Range />', () => {
         .find(Page)
         .at(2)
         .props().isFirst,
-    ).to.equal(false);
+    ).toBe(false);
   });
 
-  it('page should have false on the prop isLast', () => {
+  test('page should have false on the prop isLast', () => {
     const wrapper = shallowComponent();
 
     expect(
@@ -117,10 +116,10 @@ describe('<Range />', () => {
         .find(Page)
         .at(2)
         .props().isLast,
-    ).to.equal(false);
+    ).toBe(false);
   });
 
-  it('render label text for page', () => {
+  test('render label text for page', () => {
     const wrapper = shallowComponent({
       selected: 2,
       pageLabelText: 'go to page',
@@ -132,10 +131,10 @@ describe('<Range />', () => {
         .find(Page)
         .first()
         .props().labelText,
-    ).to.equal('go to page 1');
+    ).toBe('go to page 1');
   });
 
-  it('render label text for selected page', () => {
+  test('render label text for selected page', () => {
     const wrapper = shallowComponent({
       selected: 1,
       pageLabelText: 'go to page',
@@ -147,6 +146,6 @@ describe('<Range />', () => {
         .find(Page)
         .first()
         .props().labelText,
-    ).to.equal('current page 1');
+    ).toBe('current page 1');
   });
 });
