@@ -19,7 +19,7 @@
     "lint": "eslint --ext=.jsx --ext=.js src",
     "test": "mocha --opts mocha.opts",
     "tdd": "npm test -- --watch",
-    "coverage": "cross-env NODE_ENV=coverage nyc npm test",
+    "coverage": "cross-env NODE_ENV=coverage nyc --reporter=html --reporter=text npm test",
     "prepush": "run-p lint test",
     "prepublish": "in-publish && run-s lint test build || not-in-publish",
     "start": "styleguidist server --colors",

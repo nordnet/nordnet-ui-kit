@@ -14,8 +14,7 @@ cache:
   directories:
   - node_modules
 
-after_script:
-  - npm run coveralls
+after_success: npm run coverage
 
 jobs:
   include:
