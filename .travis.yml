@@ -1,5 +1,10 @@
 language: node_js
 
+before_install:
+  # Download latest yarn since travis defaults to v1.3.2
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
 install: yarn install --ignore-engines
 
 branches:
@@ -20,7 +25,7 @@ jobs:
       script:    
         - npm run coverage
     - stage: release
-      node_js: 8
+      node_js: 10
       script:
         - git config user.email "nordnet-release@localhost"
         - git config user.name "nordnet-release"
