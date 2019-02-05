@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import flags from '../flags';
+import flags from '.';
 import styles from './styles';
 
 const SvgFlag = ({ className, classes, size, countryCode, round, ...rest }) => {

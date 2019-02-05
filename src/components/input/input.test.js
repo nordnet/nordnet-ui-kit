@@ -8,7 +8,7 @@ import {
   styles as inputCheckboxRadioStyles,
 } from './input-checkbox-radio';
 import HelpText from './help-text';
-import { mockClasses, theme } from '../../';
+import { mockClasses, theme } from '../..';
 
 const inputDefaultClasses = mockClasses(inputDefaultStyles);
 const inputSelectClasses = mockClasses(inputSelectStyles);

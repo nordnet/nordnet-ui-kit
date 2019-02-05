@@ -25,7 +25,8 @@ function ProgressBar({
   const getElementType = clickable => {
     if (clickable && clickable.href) {
       return 'a';
-    } else if (clickable && (clickable.onClick || clickable.disabled)) {
+    }
+    if (clickable && (clickable.onClick || clickable.disabled)) {
       return 'button';
     }
     return 'span';

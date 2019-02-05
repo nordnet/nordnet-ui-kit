@@ -122,6 +122,8 @@ class InputCheckboxRadio extends React.PureComponent {
       this.props.className,
     );
 
+    // This is OK because we know that the input will be a child of the label.
+    /* eslint-disable jsx-a11y/label-has-associated-control */
     return (
       <span>
         <label className={className}>

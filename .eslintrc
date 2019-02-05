@@ -26,6 +26,8 @@
     "import/no-extraneous-dependencies": 0,
     "react/forbid-prop-types": [2, { "forbid": ["any", "array"] }],
     "react/require-default-props": 0,
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "react/destructuring-assignment": 0,
+    "prefer-destructuring": 0
   }
 }

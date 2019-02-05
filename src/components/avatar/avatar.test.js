@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Component as Avatar, styles } from './avatar';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 
 const classes = mockClasses(styles);
 

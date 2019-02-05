@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Component as Subsection, styles } from './subsection';
-import { mockClasses, Icon } from '../../';
+import { mockClasses, Icon } from '../..';
 
 describe('<Subsection />', () => {
   const classes = mockClasses(styles);

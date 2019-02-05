@@ -2,7 +2,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Button } from '../../';
+import { Button } from '../..';
 import styles from './show-more-styles';
 
 class ShowMore extends React.PureComponent {

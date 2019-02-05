@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Component as SvgFlag } from './svg-flag';
 import styles from './styles';
-import { mockClasses } from '../../../';
+import { mockClasses } from '../../..';
 
 const classes = mockClasses(styles);
 const shallowComponent = props =>

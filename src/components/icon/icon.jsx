@@ -5,6 +5,7 @@ export default function Icon() {
   return <span>Dummy icon used for documentation</span>;
 }
 
+/* eslint-disable react/no-unused-prop-types */
 Icon.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
@@ -16,6 +17,8 @@ Icon.propTypes = {
   fill: PropTypes.string,
   stroke: PropTypes.string,
   strokeWidth: PropTypes.number,
+  'aria-hidden': PropTypes.string,
+  focusable: PropTypes.string,
 };
 
 Icon.defaultProps = {

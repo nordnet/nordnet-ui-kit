@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 import { Component as PopupMenuItem, styles } from './popup-menu-item';
 
 describe('<PopupMenuItem />', () => {
   const classes = mockClasses(styles);
   test('renders correct nodes for items', () => {
     const divNode = shallow(
-      <PopupMenuItem classes={classes} node={'div'}>
+      <PopupMenuItem classes={classes} node="div">
         Content
       </PopupMenuItem>,
     );
@@ -29,7 +29,7 @@ describe('<PopupMenuItem />', () => {
     ).toBe('button');
 
     const spanNode = shallow(
-      <PopupMenuItem classes={classes} node={'span'}>
+      <PopupMenuItem classes={classes} node="span">
         Content
       </PopupMenuItem>,
     );

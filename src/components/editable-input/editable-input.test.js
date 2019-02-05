@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { Component as EditableInput, styles } from './editable-input';
-import { mockClasses, Input, Button } from '../../';
+import { mockClasses, Input, Button } from '../..';
 
 describe('<EditableInput />', () => {
   const classes = mockClasses(styles);

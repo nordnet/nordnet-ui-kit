@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { Button } from '../../../';
+import { Button } from '../../..';
 import ButtonNode from '../button-node';
 import styles from './stepper-styles';
 

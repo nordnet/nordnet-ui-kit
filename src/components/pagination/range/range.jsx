@@ -129,7 +129,6 @@ Range.propTypes = {
 };
 
 Range.defaultProps = {
-  node: null,
   getNode: null,
 };
 

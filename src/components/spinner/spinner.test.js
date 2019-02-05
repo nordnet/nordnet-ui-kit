@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mockClasses, theme } from '../../';
+import { mockClasses, theme } from '../..';
 import { Component as Spinner, styles } from './spinner';
 
 describe('<Spinner />', () => {

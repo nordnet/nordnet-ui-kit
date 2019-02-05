@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Component as HelpText, styles } from './help-text';
-import { mockClasses, theme } from '../../';
+import { mockClasses, theme } from '../..';
 
 const classes = mockClasses(styles);
 

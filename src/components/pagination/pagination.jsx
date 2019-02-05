@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { Icon } from '../../';
+import { Icon } from '../..';
 import Stepper from './stepper';
 import Range from './range';
 import styles from './pagination-styles';
@@ -19,11 +19,11 @@ class Pagination extends Component {
 
   state = {};
 
-  calcPagesCount() {
+  calcPagesCount = () => {
     const { total, limit } = this.props;
 
     return Math.ceil(total / limit);
-  }
+  };
 
   handlePreviousPage = e => {
     const { selected } = this.state;

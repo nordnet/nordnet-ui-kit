@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Icon, mockClasses } from '../../';
+import { Icon, mockClasses } from '../..';
 import { Component as Rating, styles } from './rating';
 
 const classes = mockClasses(styles);

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Component as Tab, styles } from './tab';
-import { mockClasses } from '../../../';
+import { mockClasses } from '../../..';
 
 const classes = mockClasses(styles);
 

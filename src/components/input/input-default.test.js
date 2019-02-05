@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Component as InputDefault, styles } from './input-default';
-import { mockClasses, theme } from '../../';
+import { mockClasses, theme } from '../..';
 
 const classes = mockClasses(styles);
 

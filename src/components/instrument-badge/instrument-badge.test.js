@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Component as InstrumentBadge, styles } from './instrument-badge';
-import Checkmark from '..//icon/icons/checkmark';
+import Checkmark from '../icon/icons/checkmark';
 import ExclamationPoint from '../icon/icons/exclamationPoint';
-import { mockClasses, theme } from '../../';
+import { mockClasses, theme } from '../..';
 
 describe('<InstrumentBadge />', () => {
   const classes = mockClasses(styles);
@@ -39,7 +39,7 @@ describe('<InstrumentBadge />', () => {
   });
 
   test('should render instrument level and subtext', () => {
-    wrapper = shallow(<InstrumentBadge subText={'Qualified!'} classes={classes} theme={theme} />);
+    wrapper = shallow(<InstrumentBadge subText="Qualified!" classes={classes} theme={theme} />);
     expect(wrapper.find(`.${classes.subText}`).text()).toBe('Qualified!');
   });
 });

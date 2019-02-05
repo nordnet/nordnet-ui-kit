@@ -76,7 +76,7 @@ Animate.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   /** This needs to be set in order for the component to render anything */
-  type: PropTypes.oneOf(['height']).isRequired,
+  type: PropTypes.oneOf(['height']),
   enterTime: PropTypes.number,
   leaveTime: PropTypes.number,
   easingEnterFunction: PropTypes.string, // eslint-disable-line
