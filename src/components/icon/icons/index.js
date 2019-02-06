@@ -47,6 +47,7 @@ import GraphArea from './graphArea';
 import GraphCandlestick from './graphCandlestick';
 import GraphLine from './graphLine';
 import GraphVolume from './graphVolume';
+import Hamburger from './hamburger';
 import Heart from './heart';
 import Hexagon from './hexagon';
 import House from './house';
@@ -86,6 +87,7 @@ import SolidArrowUp from './solidArrowUp';
 import Star from './star';
 import Tag from './tag';
 import TickingClock from './tickingClock';
+import ThickArrowDown from './thickArrowDown';
 import Trash from './trash';
 import VerticalEllipsis from './verticalEllipsis';
 
@@ -139,6 +141,7 @@ const Icon = {
   GraphCandlestick,
   GraphLine,
   GraphVolume,
+  Hamburger,
   Heart,
   Hexagon,
   House,
@@ -177,6 +180,7 @@ const Icon = {
   SolidArrowUp,
   Star,
   Tag,
+  ThickArrowDown,
   TickingClock,
   Trash,
   VerticalEllipsis,
