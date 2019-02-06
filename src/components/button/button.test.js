@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 import { Component as Button, styles } from './button';
 
 describe('<Button />', () => {

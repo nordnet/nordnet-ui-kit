@@ -1,4 +1,4 @@
-import { theme } from '../';
+import { theme } from '..';
 
 const mockReducer = (prev, curr) => Object.assign({}, prev, { [curr]: curr });
 

@@ -10,7 +10,6 @@ class Alert extends React.PureComponent {
     super(props, context);
 
     this.state = {
-      dismissable: props.dismissable,
       dismissed: props.dismissed,
     };
 
@@ -32,7 +31,7 @@ class Alert extends React.PureComponent {
     }
 
     return (
-      <button className={this.classes.close} onClick={this.handleCloseClick}>
+      <button className={this.classes.close} onClick={this.handleCloseClick} type="button">
         <IconClose
           stroke={this.theme.palette.text.default}
           width={10}

@@ -1,7 +1,7 @@
 import React from 'react';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 import { Component as Tooltip, styles } from './tooltip';
 
 describe('<Tooltip />', () => {
@@ -55,7 +55,7 @@ describe('<Tooltip />', () => {
 
   test('should set className to above', () => {
     wrapper = shallow(
-      <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'above'} />,
+      <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement="above" />,
     );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('above')).toBe(true);
@@ -63,7 +63,7 @@ describe('<Tooltip />', () => {
 
   test('should set className to left', () => {
     wrapper = shallow(
-      <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement={'left'} />,
+      <Tooltip classes={classes} content="Lorem ipsum dolor sit amet." placement="left" />,
     );
     wrapper.find(`.${classes.container}`).simulate('mouseEnter');
     expect(wrapper.find(`.${classes.popup}`).hasClass('left')).toBe(true);
@@ -94,7 +94,7 @@ describe('<Tooltip />', () => {
       addEventSpy = sandbox.spy(document, 'addEventListener');
       removeEventSpy = sandbox.spy(document, 'removeEventListener');
       component = mount(
-        <Tooltip classes={classes} content={'abc'}>
+        <Tooltip classes={classes} content="abc">
           <div id="child">child</div>
         </Tooltip>,
         target,

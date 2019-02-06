@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import { camelCase } from 'lodash';
 import cn from 'classnames';
 import styles from './popup-menu.styles';
-import { Icon } from '../../';
+import { Icon } from '../..';
 import keyCodes from './keyCodes';
 import PopupMenuList from './popup-menu-list';
 

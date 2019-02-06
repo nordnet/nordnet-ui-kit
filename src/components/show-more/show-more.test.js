@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Component as ShowMore } from './show-more';
 import styles from './show-more-styles';
-import { Button, mockClasses } from '../../';
+import { Button, mockClasses } from '../..';
 
 const classes = mockClasses(styles);
 

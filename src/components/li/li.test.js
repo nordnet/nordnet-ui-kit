@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mockClasses } from '../../../src';
+import { mockClasses } from '../..';
 import { Component as Li, styles } from './li';
 
 describe('<Li />', () => {

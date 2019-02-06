@@ -28,14 +28,14 @@ class InputDefault extends React.PureComponent {
   }
 
   componentWillReceiveProps({ hasSuccess, hasWarning, hasError, rightAddon, leftAddon, value }) {
-    this.setState({
+    this.setState(prevState => ({
       hasSuccess: !!hasSuccess,
       hasWarning: !!hasWarning,
       hasError: !!hasError,
       hasAddon: !!rightAddon || !!leftAddon,
       hasValue: hasValue(value),
-      value: isUndefined(value) ? this.state.value : value,
-    });
+      value: isUndefined(value) ? prevState.value : value,
+    }));
   }
 
   onFocus = event => {

@@ -37,6 +37,8 @@ class Pane extends React.PureComponent {
   }
 
   renderTabs() {
+    // This is a deprecated component, the new is much more accessible.
+    /* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
     return (
       <ul className={this.classes.tabs}>
         {this.props.tabs.map((tab, index) => (

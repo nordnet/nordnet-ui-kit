@@ -54,7 +54,8 @@ class SegmentedControl extends React.PureComponent {
           }),
           {},
         );
-      } else if (this.props.type === 'checkbox') {
+      }
+      if (this.props.type === 'checkbox') {
         return this.props.children.reduce(
           (previous, child) => ({
             ...previous,
@@ -96,9 +97,9 @@ class SegmentedControl extends React.PureComponent {
       );
     } else if (this.props.type === 'checkbox') {
       this.setState(
-        {
-          [index]: !this.state[index],
-        },
+        prevState => ({
+          [index]: !prevState[index],
+        }),
         callOnChange,
       );
     }
@@ -128,6 +129,7 @@ class SegmentedControl extends React.PureComponent {
     const handleFocus = this.handleFocus(index);
 
     const inputId = `sc-${this.props.name}-${index}`;
+    /* eslint-disable jsx-a11y/label-has-for */
     return (
       <span className={usedClassName} key={`sc-${this.props.name}-${childValue}`}>
         <input

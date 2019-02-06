@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { mockClasses, Icon } from '../../';
+import { mockClasses, Icon } from '../..';
 import { Component as Pagination, styles } from './pagination';
 import Stepper from './stepper';
 import Range from './range';

@@ -7,6 +7,16 @@ import Questionmark from '../icon/icons/questionmark';
 import styles from './tooltip-styles';
 
 class Tooltip extends Component {
+  checkPosition = {
+    above: rect => rect.top > 0,
+    left: rect => rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect),
+    right: rect =>
+      (window.innerWidth || document.documentElement.clientWidth) - rect.right > 0 &&
+      this.checkPosition.below(rect) &&
+      this.checkPosition.above(rect),
+    below: rect => (window.innerHeight || document.documentElement.clientHeight) - rect.bottom > 0,
+  };
+
   constructor(props) {
     super(props);
 
@@ -54,25 +64,18 @@ class Tooltip extends Component {
     // Try figure out a new position that will fit, otherwise use default
     if (this.checkPosition.below(rect)) {
       return 'below';
-    } else if (this.checkPosition.above(rect)) {
+    }
+    if (this.checkPosition.above(rect)) {
       return 'above';
-    } else if (this.checkPosition.right(rect)) {
+    }
+    if (this.checkPosition.right(rect)) {
       return 'right';
-    } else if (this.checkPosition.left(rect)) {
+    }
+    if (this.checkPosition.left(rect)) {
       return 'left';
     }
 
     return 'below';
-  };
-
-  checkPosition = {
-    above: rect => rect.top > 0,
-    left: rect => rect.left > 0 && this.checkPosition.below(rect) && this.checkPosition.above(rect),
-    right: rect =>
-      (window.innerWidth || document.documentElement.clientWidth) - rect.right > 0 &&
-      this.checkPosition.below(rect) &&
-      this.checkPosition.above(rect),
-    below: rect => (window.innerHeight || document.documentElement.clientHeight) - rect.bottom > 0,
   };
 
   handleClick = ({ target } = {}) => {
@@ -94,10 +97,10 @@ class Tooltip extends Component {
       return;
     }
 
-    this.setState({
-      toggled: !this.state.toggled,
+    this.setState(prevState => ({
+      toggled: !prevState.toggled,
       hover: false,
-    });
+    }));
   };
 
   mouseEnter = () => {
@@ -207,6 +210,8 @@ class Tooltip extends Component {
       this.placement = placement || this.getPlacement(placement);
     }
 
+    // Disable this until we get a major a11y overhaul of this component
+    /* eslint-disable jsx-a11y/click-events-have-key-events */
     return (
       <div
         className={classnames(this.classes.tooltip, className)}

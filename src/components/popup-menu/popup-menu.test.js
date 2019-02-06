@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 import { Component as PopupMenu, styles } from './popup-menu';
 import { Component as PopupMenuItem, styles as itemStyles } from './popup-menu-item';
 import PopupMenuList from './popup-menu-list';

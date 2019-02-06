@@ -2,7 +2,7 @@ import React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 import { shallow } from 'enzyme';
 import { Component as Animate, styles } from './animate';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 
 describe('<Animate />', () => {
   const defaultProps = {

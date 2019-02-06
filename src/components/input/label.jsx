@@ -5,6 +5,7 @@ function Label(props) {
   const { label, id } = props;
 
   return (
+    // eslint-disable-next-line jsx-a11y/label-has-for
     <label htmlFor={id} className="input__label">
       {label}
     </label>

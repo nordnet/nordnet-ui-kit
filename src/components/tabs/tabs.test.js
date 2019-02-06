@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Component as Tabs, styles } from './tabs';
 import Tab from './tab/tab';
 import Tabpanel from './tabpanel/tabpanel';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 
 const classes = mockClasses(styles);
 

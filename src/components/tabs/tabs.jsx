@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { Tab, Tabpanel } from '../../';
+import { Tab, Tabpanel } from '../..';
 import styles from './tabs-styles';
 
 class Tabs extends Component {

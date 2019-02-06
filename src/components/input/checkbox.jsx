@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Icon } from '../../';
+import { Icon } from '../..';
 import color from '../../styles/color';
 
 function Checkbox(props) {

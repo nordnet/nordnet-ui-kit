@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Component as Badge, styles } from './badge';
-import { mockClasses } from '../../';
+import { mockClasses } from '../..';
 
 describe('<Badge />', () => {
   const classes = mockClasses(styles);

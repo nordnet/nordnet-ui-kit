@@ -59,6 +59,7 @@ class Subsection extends React.Component {
             <button
               className={cn(classes.title, { [classes.loading]: loading })}
               onClick={this.handleToggle}
+              type="button"
             >
               <div className={classes.titleContent}>
                 <div className={classes.titleLeft}>
@@ -95,13 +96,13 @@ class Subsection extends React.Component {
 Subsection.propTypes = {
   title: PropTypes.func.isRequired,
   icon: PropTypes.func,
-  /** True if automatically expanded **/
+  /** True if automatically expanded * */
   toggled: PropTypes.bool,
-  /** Indicate the content is loading **/
+  /** Indicate the content is loading * */
   loading: PropTypes.bool,
-  /** Estimated height of the content. Use to avoid jumpy animation. **/
+  /** Estimated height of the content. Use to avoid jumpy animation. * */
   estimatedHeight: PropTypes.number, // eslint-disable-line react/no-unused-prop-types
-  /** Hide the bottom separator **/
+  /** Hide the bottom separator * */
   noSeparator: PropTypes.bool,
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,

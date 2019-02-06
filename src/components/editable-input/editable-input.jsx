@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 
 import styles from './editable-input-styles';
-import { Button, Icon, Input, Spinner } from '../../';
+import { Button, Icon, Input, Spinner } from '../..';
 import HelpText from '../input/help-text';
 
 class EditableInput extends React.Component {
@@ -24,7 +24,7 @@ class EditableInput extends React.Component {
   }
 
   onEdit = event => {
-    this.setState({ originalValue: this.state.value, editing: true });
+    this.setState(prevState => ({ originalValue: prevState.value, editing: true }));
 
     if (this.props.onEdit) {
       this.props.onEdit(event);
@@ -70,7 +70,7 @@ class EditableInput extends React.Component {
   };
 
   onCancel = () => {
-    this.setState({ value: this.state.originalValue });
+    this.setState(prevState => ({ value: prevState.originalValue }));
     if (this.props.onCancel) {
       this.props.onCancel(this.state.originalValue);
     }

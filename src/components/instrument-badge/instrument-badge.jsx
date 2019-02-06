@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
-import { Icon, Tooltip } from '../../';
+import { Icon, Tooltip } from '../..';
 import omit from '../../utilities/omit';
 
 export const styles = theme => {

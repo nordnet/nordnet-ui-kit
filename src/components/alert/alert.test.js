@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Component as Alert, styles } from './alert';
-import { mockClasses, theme } from '../../';
+import { mockClasses, theme } from '../..';
 
 const classes = mockClasses(styles);
 
