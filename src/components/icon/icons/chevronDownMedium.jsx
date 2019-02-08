@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '../icon';
 
-export default function MediumArrowDown({
+export default function ChevronDownMedium({
   fill,
   style: styleProp,
   ...rest // eslint-disable-line comma-dangle
@@ -22,12 +22,12 @@ export default function MediumArrowDown({
   );
 }
 
-MediumArrowDown.propTypes = {
+ChevronDownMedium.propTypes = {
   ...Icon.propTypes,
   fill: PropTypes.string,
 };
 
-MediumArrowDown.defaultProps = {
+ChevronDownMedium.defaultProps = {
   ...Icon.defaultProps,
   viewBox: '0 0 16 9',
 };

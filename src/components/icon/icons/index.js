@@ -19,6 +19,8 @@ import Cart from './cart';
 import Checkmark from './checkmark';
 import CheckmarkLarge from './checkmarkLarge';
 import ChevronDown from './chevronDown';
+import ChevronDownMedium from './chevronDownMedium';
+import ChevronDownThick from './chevronDownThick';
 import ChevronUp from './chevronUp';
 import CircleArrow from './circleArrow';
 import CircleSlash from './circleSlash';
@@ -64,7 +66,6 @@ import MagnifierMinus from './magnifierMinus';
 import Mail from './mail';
 import MailOpen from './mailOpen';
 import Market from './market';
-import MediumArrowDown from './mediumArrowDown';
 import MedKit from './medKit';
 import Mobile from './mobile';
 import News from './news';
@@ -114,6 +115,8 @@ const Icon = {
   Checkmark,
   CheckmarkLarge,
   ChevronDown,
+  ChevronDownMedium,
+  ChevronDownThick,
   ChevronUp,
   CircleArrow,
   CircleSlash,
@@ -159,7 +162,6 @@ const Icon = {
   Mail,
   MailOpen,
   Market,
-  MediumArrowDown,
   MedKit,
   Mobile,
   News,

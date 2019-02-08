@@ -1,9 +1,8 @@
-// DEPRECATED, Please use ChevronDownThick instead
 import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '../icon';
 
-export default function ThickArrowDown({
+export default function ChevronDownThick({
   fill,
   style: styleProp,
   ...rest // eslint-disable-line comma-dangle
@@ -23,12 +22,12 @@ export default function ThickArrowDown({
   );
 }
 
-ThickArrowDown.propTypes = {
+ChevronDownThick.propTypes = {
   ...Icon.propTypes,
   fill: PropTypes.string,
 };
 
-ThickArrowDown.defaultProps = {
+ChevronDownThick.defaultProps = {
   ...Icon.defaultProps,
   viewBox: '0 0 9 6',
 };
