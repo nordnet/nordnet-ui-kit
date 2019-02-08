@@ -7,10 +7,6 @@ before_install:
 
 install: yarn install --ignore-engines
 
-branches:
-  only:
-    - "master"
-
 cache:
   yarn: true
   directories:
