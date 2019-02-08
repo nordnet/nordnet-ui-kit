@@ -1,7 +1,7 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":pinOnlyDevDependencies"
   ],
-  "pinOnlyDevDependencies": true,
   "ignoreDeps": ["color"]
 }
