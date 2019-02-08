@@ -64,6 +64,7 @@ import MagnifierMinus from './magnifierMinus';
 import Mail from './mail';
 import MailOpen from './mailOpen';
 import Market from './market';
+import MediumArrowDown from './mediumArrowDown';
 import MedKit from './medKit';
 import Mobile from './mobile';
 import News from './news';
@@ -158,6 +159,7 @@ const Icon = {
   Mail,
   MailOpen,
   Market,
+  MediumArrowDown,
   MedKit,
   Mobile,
   News,
