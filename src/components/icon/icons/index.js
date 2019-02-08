@@ -19,6 +19,8 @@ import Cart from './cart';
 import Checkmark from './checkmark';
 import CheckmarkLarge from './checkmarkLarge';
 import ChevronDown from './chevronDown';
+import ChevronDownMedium from './chevronDownMedium';
+import ChevronDownThick from './chevronDownThick';
 import ChevronUp from './chevronUp';
 import CircleArrow from './circleArrow';
 import CircleSlash from './circleSlash';
@@ -87,7 +89,6 @@ import SolidArrowUp from './solidArrowUp';
 import Star from './star';
 import Tag from './tag';
 import TickingClock from './tickingClock';
-import ThickArrowDown from './thickArrowDown';
 import Trash from './trash';
 import VerticalEllipsis from './verticalEllipsis';
 
@@ -113,6 +114,8 @@ const Icon = {
   Checkmark,
   CheckmarkLarge,
   ChevronDown,
+  ChevronDownMedium,
+  ChevronDownThick,
   ChevronUp,
   CircleArrow,
   CircleSlash,
@@ -180,7 +183,7 @@ const Icon = {
   SolidArrowUp,
   Star,
   Tag,
-  ThickArrowDown,
+  ThickArrowDown: ChevronDownThick,
   TickingClock,
   Trash,
   VerticalEllipsis,
