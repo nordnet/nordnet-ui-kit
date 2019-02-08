@@ -89,7 +89,6 @@ import SolidArrowUp from './solidArrowUp';
 import Star from './star';
 import Tag from './tag';
 import TickingClock from './tickingClock';
-import ThickArrowDown from './thickArrowDown';
 import Trash from './trash';
 import VerticalEllipsis from './verticalEllipsis';
 
@@ -184,7 +183,7 @@ const Icon = {
   SolidArrowUp,
   Star,
   Tag,
-  ThickArrowDown,
+  ThickArrowDown: ChevronDownThick,
   TickingClock,
   Trash,
   VerticalEllipsis,
