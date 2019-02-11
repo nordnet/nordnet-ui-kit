@@ -21,11 +21,10 @@ jobs:
         - npm run lint
         - npm run coverage
 
-    - stage: test-build
+    - stage: build
       script:
-        - npm run babel:esm
+        - npm run build
         - npm run build:docs
-      if: NOT branch = master
 
     - stage: release
       script:
@@ -33,10 +32,10 @@ jobs:
         - git config user.name "nordnet-release"
         - TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run semantic-release
       after_script:
-        - npm run docs-publish
+        - npm run travis-docs-publish
       if: (NOT type IN (pull_request)) AND (branch = master)
 
 stages:
   - name: test
-  - name: test-build
+  - name: build
   - name: release
