@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "name": "nordnet-ui-kit",
+  "alias": "nordnet-ui-kit",
   "builds": [{
     "src": "./package.json",
     "use": "@now/static-build",
