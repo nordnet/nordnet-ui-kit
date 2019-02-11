@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - 10
 
 before_install:
   # Download latest yarn since travis defaults to v1.3.2
@@ -15,16 +17,17 @@ cache:
 jobs:
   include:
     - stage: test
-      node_js:
-        - 10
-        - 8
       script:
         - npm run lint
         - npm run coverage
+
+    - stage: test-build
+      script:
         - npm run babel:esm
         - npm run build:docs
+      if: (NOT type IN (pull_request)) AND (branch = master)
+
     - stage: release
-      node_js: 10
       script:
         - git config user.email "nordnet-release@localhost"
         - git config user.name "nordnet-release"
@@ -35,4 +38,5 @@ jobs:
 
 stages:
   - name: test
+  - name: test-build
   - name: release
