@@ -25,7 +25,7 @@ jobs:
       script:
         - npm run babel:esm
         - npm run build:docs
-      if: (NOT type IN (pull_request)) AND (branch = master)
+      if: NOT branch = master
 
     - stage: release
       script:
