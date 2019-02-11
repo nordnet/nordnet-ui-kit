@@ -134,6 +134,6 @@
     "semantic-release": "15.13.3",
     "sinon": "7.2.3",
     "validate-commit-msg": "2.14.0",
-    "webpack": "4.29.1"
+    "webpack": "4.29.3"
   }
 }
