@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import cn from 'classnames';
 import styles from './segmented-control-styles';
+import { deprecatedProps } from '../deprecate';
 
 class SegmentedControl extends React.PureComponent {
   constructor(props, context) {
@@ -176,4 +177,11 @@ SegmentedControl.propTypes = {
 };
 
 export { SegmentedControl as Component, styles };
-export default injectSheet(styles)(SegmentedControl);
+// prettier-ignore
+export default 
+  injectSheet(styles)
+  (deprecatedProps('SegmentedControl', [{
+    prop: 'variant',
+    message: 'variant="secondary" in SegmentedControl is deprecated. Use another Tab component instead. See https://github.com/nordnet/nordnet-ui-kit/blob/v3.0.0/docs/migrations/v3.0.0.md',
+  }])
+  (SegmentedControl));

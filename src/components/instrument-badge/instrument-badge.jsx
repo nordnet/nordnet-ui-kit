@@ -5,6 +5,7 @@ import injectSheet from 'react-jss';
 import cn from 'classnames';
 import { Icon, Tooltip } from '../..';
 import omit from '../../utilities/omit';
+import { deprecatedComponent } from '../deprecate';
 
 export const styles = theme => {
   const { palette, typography, mixins } = theme;
@@ -293,4 +294,11 @@ InstrumentBadge.defaultProps = {
 };
 
 export { InstrumentBadge as Component };
-export default injectSheet(styles)(InstrumentBadge);
+// prettier-ignore
+export default 
+  injectSheet(styles)(
+  deprecatedComponent(
+    'InstrumentBadge',
+    'See https://github.com/nordnet/nordnet-ui-kit/blob/v3.0.0/docs/migrations/v3.0.0.md for migration guide.',
+  )
+  (InstrumentBadge));

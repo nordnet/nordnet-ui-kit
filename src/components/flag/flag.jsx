@@ -3,6 +3,7 @@ import React from 'react';
 import { SvgFlag, CurrencyFlag } from './flags';
 import FlagDeprecated from './flag-deprecated';
 import color from '../../styles/color';
+import { deprecatedProps } from '../deprecate';
 
 const addBorder = props => !props.hideBorder && !props.round && !props.secondaryCountryCode;
 
@@ -110,4 +111,10 @@ Flag.propTypes = {
   borderColor: PropTypes.string,
 };
 export { Flag as Component };
-export default Flag;
+export default deprecatedProps('Flag', [
+  {
+    prop: 'size',
+    message:
+      "size in Flag as a number is deprecated. Please use one of 'xs', 'sm', 'md', 'lg' instead",
+  },
+])(Flag);
