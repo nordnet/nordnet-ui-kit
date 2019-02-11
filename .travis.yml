@@ -7,10 +7,6 @@ before_install:
 
 install: yarn install --ignore-engines
 
-branches:
-  only:
-    - "master"
-
 cache:
   yarn: true
   directories:
@@ -18,11 +14,12 @@ cache:
 
 jobs:
   include:
-    - stage: coverage
+    - stage: test
       node_js:
         - 10
         - 8
-      script:    
+      script:
+        - npm run lint
         - npm run coverage
     - stage: release
       node_js: 10
@@ -35,5 +32,5 @@ jobs:
       if: (NOT type IN (pull_request)) AND (branch = master)
 
 stages:
-  - name: coverage
+  - name: test
   - name: release

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '../icon';
 
-export default function ThickArrowDown({
+export default function ChevronDownMedium({
   fill,
   style: styleProp,
   ...rest // eslint-disable-line comma-dangle
@@ -14,7 +14,7 @@ export default function ThickArrowDown({
   return (
     <svg style={style} {...rest}>
       <path
-        d="M7.2975097.29267137l1.4137697 1.41465726L4.5021973 5.91377.2931151 1.70732863 1.7068849.29267137 4.5021973 3.08623z"
+        d="M14 .0814404l1.414214 1.3889597L7.707107 9.03988 0 1.4704001 1.414214.0814404l6.292893 6.1805201z"
         fill={fill}
         fillRule="nonzero"
       />
@@ -22,12 +22,12 @@ export default function ThickArrowDown({
   );
 }
 
-ThickArrowDown.propTypes = {
+ChevronDownMedium.propTypes = {
   ...Icon.propTypes,
   fill: PropTypes.string,
 };
 
-ThickArrowDown.defaultProps = {
+ChevronDownMedium.defaultProps = {
   ...Icon.defaultProps,
-  viewBox: '0 0 9 6',
+  viewBox: '0 0 16 9',
 };
