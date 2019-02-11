@@ -56,7 +56,7 @@ const deprecatedProps = (displayName, deprecated) => C => {
 
 const isNotProd = process.env.NODE_ENV !== 'production';
 
-const dc = isNotProd ? deprecatedComponent : C => C;
-const dp = isNotProd ? deprecatedProps : C => C;
+const dc = isNotProd ? deprecatedComponent : () => C => C;
+const dp = isNotProd ? deprecatedProps : () => C => C;
 
 export { dc as deprecatedComponent, dp as deprecatedProps };
