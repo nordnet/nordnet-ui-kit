@@ -77,11 +77,11 @@
     "classnames": "^2.2.3",
     "color": "^1.0.3",
     "lodash": "^4.17.10",
+    "ramda": "^0.26.1",
     "react-transition-group": "^2.5.2"
   },
   "peerDependencies": {
     "prop-types": ">=15",
-    "ramda": "^0.26.1",
     "react": ">=15",
     "react-dom": ">=15",
     "react-jss": ">=7"
