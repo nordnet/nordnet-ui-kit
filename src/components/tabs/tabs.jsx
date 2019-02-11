@@ -5,6 +5,7 @@ import injectSheet from 'react-jss';
 import cn from 'classnames';
 import { Tab, Tabpanel } from '../..';
 import styles from './tabs-styles';
+import { deprecatedComponent } from '../deprecate';
 
 class Tabs extends Component {
   injectContextProps(displayName) {
@@ -65,4 +66,11 @@ Tabs.propTypes = {
 };
 
 export { Tabs as Component, styles };
-export default injectSheet(styles)(Tabs);
+// prettier-ignore
+export default
+  injectSheet(styles)(
+  deprecatedComponent(
+    'Tabs',
+    'See https://github.com/nordnet/nordnet-ui-kit/blob/v3.0.0/docs/migrations/v3.0.0.md for migration guide.',
+  )
+  (Tabs));

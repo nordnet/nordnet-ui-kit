@@ -6,6 +6,7 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { kebabCase } from 'lodash';
 import styles from './pane-styles';
+import { deprecatedComponent } from '../deprecate';
 
 class Pane extends React.PureComponent {
   constructor(props, context) {
@@ -111,4 +112,11 @@ Pane.defaultProps = {
 };
 
 export { Pane as Component, styles };
-export default injectSheet(styles)(Pane);
+// prettier-ignore
+export default 
+  injectSheet(styles)(
+  deprecatedComponent(
+    'Pane',
+    'See https://github.com/nordnet/nordnet-ui-kit/blob/v3.0.0/docs/migrations/v3.0.0.md for migration guide.',
+  )
+  (Pane));

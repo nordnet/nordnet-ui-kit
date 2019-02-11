@@ -28,7 +28,7 @@
     "docs-publish": "gh-pages -d documentation/dist --repo https://$GH_TOKEN@github.com/nordnet/nordnet-ui-kit.git --silent",
     "semantic-release": "semantic-release",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
-    "format": "prettier --write '{src}/**/*.{js,jsx}'"
+    "format": "prettier --write 'src/**/*.{js,jsx}'"
   },
   "files": [
     "dist",
@@ -81,6 +81,7 @@
   },
   "peerDependencies": {
     "prop-types": ">=15",
+    "ramda": "^0.26.1",
     "react": ">=15",
     "react-dom": ">=15",
     "react-jss": ">=7"
