@@ -6,9 +6,7 @@
   "module": "dist/esm",
   "sideEffects": false,
   "scripts": {
-    "precommit": "lint-staged",
     "commit": "git-cz",
-    "commitmsg": "validate-commit-msg",
     "clean": "rimraf dist",
     "dev": "run-s start",
     "build": "run-s clean babel:*",
@@ -20,7 +18,6 @@
     "test": "jest",
     "tdd": "jest --watch",
     "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "prepush": "run-p lint test",
     "prepublish": "in-publish && run-s lint test build || not-in-publish",
     "start": "styleguidist server --colors",
     "now-build": "npm run build:docs",
@@ -137,5 +134,12 @@
     "sinon": "7.2.3",
     "validate-commit-msg": "2.14.0",
     "webpack": "4.29.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "validate-commit-msg",
+      "pre-commit": "lint-staged",
+      "pre-push": "run-p lint test"
+    }
   }
 }
