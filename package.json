@@ -51,20 +51,6 @@
       "git add"
     ]
   },
-  "nyc": {
-    "extension": [
-      ".js",
-      ".jsx"
-    ],
-    "all": true,
-    "instrument": false,
-    "sourceMap": false,
-    "reporter": [
-      "lcov",
-      "text-summary",
-      "text"
-    ]
-  },
   "author": "Gustaf Zetterlund <gustaf.zetterlund@nordnet.se>",
   "repository": "nordnet/nordnet-ui-kit",
   "bugs": {
