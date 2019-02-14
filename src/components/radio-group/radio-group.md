@@ -24,3 +24,22 @@
   />
 </RadioGroup>
 ```
+
+With `sameRow` prop.
+```js
+<RadioGroup name="stocks-or-cash" selectedValue="stocks" sameRow>
+  <Input
+    key="stocks"
+    label="Stocks"
+    type="radio"
+    value="stocks"
+  />
+
+  <Input
+    key="cash"
+    label="Cash"
+    type="radio"
+    value="cash"
+  />
+</RadioGroup>
+```
