@@ -1,13 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import injectSheet from 'react-jss';
+import cn from 'classnames';
+
+const styles = {
+  sameRow: {
+    display: 'inline-block',
+  },
+  margin: {
+    marginRight: 20,
+  },
+};
 
 class RadioGroup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedValue: this.props.selectedValue,
-    };
-  }
+  state = {
+    selectedValue: this.props.selectedValue,
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedValue && nextProps.selectedValue !== this.state.selectedValue) {
@@ -33,7 +41,7 @@ class RadioGroup extends React.Component {
   };
 
   render() {
-    const { children, name } = this.props;
+    const { children, name, orientation, classes } = this.props;
     const { selectedValue } = this.state;
     const childArray = Array.isArray(children) ? children : [children];
     const newProps = {
@@ -43,10 +51,14 @@ class RadioGroup extends React.Component {
 
     return (
       <div>
-        {childArray.map(child =>
+        {childArray.map((child, index) =>
           React.cloneElement(
             child,
             Object.assign(newProps, {
+              className: cn({
+                [classes.sameRow]: orientation === 'horizontal',
+                [classes.margin]: index !== childArray.length - 1,
+              }),
               checked: child.props.value === selectedValue,
             }),
           ),
@@ -64,7 +76,13 @@ RadioGroup.propTypes = {
   onChange: PropTypes.func,
   /** Elements of type `<Input type="checkbox" />` */
   children: PropTypes.node.isRequired,
+  orientation: PropTypes.oneOf(['vertical', 'horizontal']),
+  classes: PropTypes.shape().isRequired,
 };
 
-export { RadioGroup as Component };
-export default RadioGroup;
+RadioGroup.defaultProps = {
+  orientation: 'vertical',
+};
+
+export { RadioGroup as Component, styles };
+export default injectSheet(styles)(RadioGroup);

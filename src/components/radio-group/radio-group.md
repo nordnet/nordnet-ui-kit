@@ -24,3 +24,22 @@
   />
 </RadioGroup>
 ```
+
+With `orientation="horizontal"` prop.
+```js
+<RadioGroup name="stocks-or-cash" selectedValue="stocks" orientation="horizontal">
+  <Input
+    key="stocks"
+    label="Stocks"
+    type="radio"
+    value="stocks"
+  />
+
+  <Input
+    key="cash"
+    label="Cash"
+    type="radio"
+    value="cash"
+  />
+</RadioGroup>
+```

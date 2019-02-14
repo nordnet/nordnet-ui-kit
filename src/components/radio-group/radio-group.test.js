@@ -1,10 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { Component as RadioGroup } from './radio-group';
+import { mockClasses } from '../..';
+import { Component as RadioGroup, styles } from './radio-group';
+
+const classes = mockClasses(styles);
 
 const defaultProps = {
+  classes,
   value: 1,
+  selectedValue: '1',
   name: 'radio-group',
   type: 'radio',
   children: [<input key="1" type="radio" value="1" />],
@@ -30,6 +35,26 @@ describe('<RadioGroup />', () => {
     const actual = wrapper.find(`input[name="${name}"]`);
     const expected = children.length;
     expect(actual).toHaveLength(expected);
+  });
+
+  test('should give each input the sameRow class', () => {
+    const children = [
+      <input key="1" type="radio" value="1" />,
+      <input key="2" type="radio" value="2" />,
+    ];
+    const wrapper = renderComponent({ children, orientation: 'horizontal' });
+    const actual = wrapper.find(`input[value="1"]`).prop('className');
+    expect(actual).toContain(classes.sameRow);
+  });
+
+  test('should give each input except the last the margin class', () => {
+    const children = [
+      <input key="1" type="radio" value="1" />,
+      <input key="2" type="radio" value="2" />,
+    ];
+    const wrapper = renderComponent({ children, orientation: 'horizontal' });
+    expect(wrapper.find(`input[value="1"]`).prop('className')).toContain(classes.margin);
+    expect(wrapper.find(`input[value="2"]`).prop('className')).not.toContain(classes.margin);
   });
 
   test('should render the correct input as selected when selectedValue is supplied', () => {

@@ -14,9 +14,6 @@ module.exports = api => {
   ];
 
   const plugins = ['@babel/plugin-proposal-class-properties'];
-  if (process.env.NODE_ENV === 'coverage') {
-    plugins.unshift('istanbul');
-  }
 
   return { comments: false, presets, plugins };
 };
