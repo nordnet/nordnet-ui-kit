@@ -25,9 +25,9 @@
 </RadioGroup>
 ```
 
-With `sameRow` prop.
+With `orientation="horizontal"` prop.
 ```js
-<RadioGroup name="stocks-or-cash" selectedValue="stocks" sameRow>
+<RadioGroup name="stocks-or-cash" selectedValue="stocks" orientation="horizontal">
   <Input
     key="stocks"
     label="Stocks"

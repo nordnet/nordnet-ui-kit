@@ -41,7 +41,7 @@ class RadioGroup extends React.Component {
   };
 
   render() {
-    const { children, name, sameRow, classes } = this.props;
+    const { children, name, orientation, classes } = this.props;
     const { selectedValue } = this.state;
     const childArray = Array.isArray(children) ? children : [children];
     const newProps = {
@@ -56,7 +56,7 @@ class RadioGroup extends React.Component {
             child,
             Object.assign(newProps, {
               className: cn({
-                [classes.sameRow]: sameRow,
+                [classes.sameRow]: orientation === 'horizontal',
                 [classes.margin]: index !== childArray.length - 1,
               }),
               checked: child.props.value === selectedValue,
@@ -76,12 +76,12 @@ RadioGroup.propTypes = {
   onChange: PropTypes.func,
   /** Elements of type `<Input type="checkbox" />` */
   children: PropTypes.node.isRequired,
-  sameRow: PropTypes.bool,
+  orientation: PropTypes.oneOf(['vertical', 'horizontal']),
   classes: PropTypes.shape().isRequired,
 };
 
 RadioGroup.defaultProps = {
-  sameRow: false,
+  orientation: 'vertical',
 };
 
 export { RadioGroup as Component, styles };

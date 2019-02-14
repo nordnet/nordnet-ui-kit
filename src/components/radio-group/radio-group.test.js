@@ -42,7 +42,7 @@ describe('<RadioGroup />', () => {
       <input key="1" type="radio" value="1" />,
       <input key="2" type="radio" value="2" />,
     ];
-    const wrapper = renderComponent({ children, sameRow: true });
+    const wrapper = renderComponent({ children, orientation: 'horizontal' });
     const actual = wrapper.find(`input[value="1"]`).prop('className');
     expect(actual).toContain(classes.sameRow);
   });
@@ -52,7 +52,7 @@ describe('<RadioGroup />', () => {
       <input key="1" type="radio" value="1" />,
       <input key="2" type="radio" value="2" />,
     ];
-    const wrapper = renderComponent({ children, sameRow: true });
+    const wrapper = renderComponent({ children, orientation: 'horizontal' });
     expect(wrapper.find(`input[value="1"]`).prop('className')).toContain(classes.margin);
     expect(wrapper.find(`input[value="2"]`).prop('className')).not.toContain(classes.margin);
   });
