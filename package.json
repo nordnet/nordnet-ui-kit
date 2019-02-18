@@ -116,7 +116,7 @@
     "react-test-renderer": "16.8.2",
     "rimraf": "2.6.3",
     "semantic-release": "15.13.3",
-    "sinon": "7.2.3",
+    "sinon": "7.2.4",
     "validate-commit-msg": "2.14.0",
     "webpack": "4.29.4"
   },
