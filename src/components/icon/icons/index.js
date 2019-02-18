@@ -90,6 +90,7 @@ import Star from './star';
 import Tag from './tag';
 import TickingClock from './tickingClock';
 import Trash from './trash';
+import TriangleSolid from './triangleSolid';
 import VerticalEllipsis from './verticalEllipsis';
 
 const Icon = {
@@ -186,6 +187,7 @@ const Icon = {
   ThickArrowDown: ChevronDownThick,
   TickingClock,
   Trash,
+  TriangleSolid,
   VerticalEllipsis,
 };
 
