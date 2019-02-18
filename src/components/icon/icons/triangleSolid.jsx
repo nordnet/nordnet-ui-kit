@@ -10,7 +10,7 @@ export default function TriangleSolid({ fill, style: styleProp, ...rest }) {
 
   return (
     <svg style={style} {...rest}>
-      <polygon points="0 0, 0 100, 100 0" fill={fill} />
+      <polygon fill={fill} points="141.42,70.71 0,70.71 70.71,0" />
     </svg>
   );
 }
@@ -22,5 +22,5 @@ TriangleSolid.propTypes = {
 
 TriangleSolid.defaultProps = {
   ...Icon.defaultProps,
-  viewBox: '0 0 100 100',
+  viewBox: '0 0 141.42 70.71',
 };
