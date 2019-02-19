@@ -118,7 +118,7 @@
     "semantic-release": "15.13.3",
     "sinon": "7.2.4",
     "validate-commit-msg": "2.14.0",
-    "webpack": "4.29.4"
+    "webpack": "4.29.5"
   },
   "husky": {
     "hooks": {
