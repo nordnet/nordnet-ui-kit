@@ -16,13 +16,10 @@ cache:
 
 jobs:
   include:
-    - stage: test
+    - stage: test-and-build
       script:
         - npm run lint
         - npm run coverage
-
-    - stage: build
-      script:
         - npm run build
         - npm run build:docs
 
@@ -36,6 +33,5 @@ jobs:
       if: (NOT type IN (pull_request)) AND (branch = master)
 
 stages:
-  - name: test
-  - name: build
+  - name: test-and-build
   - name: release
