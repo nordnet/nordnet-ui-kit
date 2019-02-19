@@ -1,6 +1,6 @@
 export default ({ mixins }) => ({
   root: {
-    margin: [40, 0],
+    margin: 0,
     display: 'flex',
     justifyContent: 'center',
   },
