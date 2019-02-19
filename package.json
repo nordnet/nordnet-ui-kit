@@ -90,7 +90,7 @@
     "cz-conventional-changelog": "2.1.0",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.9.1",
-    "eslint": "5.14.0",
+    "eslint": "5.14.1",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.0.0",
     "eslint-plugin-import": "2.16.0",
@@ -118,7 +118,7 @@
     "semantic-release": "15.13.3",
     "sinon": "7.2.4",
     "validate-commit-msg": "2.14.0",
-    "webpack": "4.29.4"
+    "webpack": "4.29.5"
   },
   "husky": {
     "hooks": {
