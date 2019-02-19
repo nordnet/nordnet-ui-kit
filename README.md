@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
+[![Coverage Status][codecov-image]][codecov-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
 ## Installation
@@ -79,8 +79,8 @@ MIT (http://www.opensource.org/licenses/mit-license.php)
 [travis-url]: https://travis-ci.org/nordnet/nordnet-ui-kit
 [travis-image]: https://img.shields.io/travis/nordnet/nordnet-ui-kit.svg?style=flat-square
 
-[coveralls-url]: https://coveralls.io/r/nordnet/nordnet-ui-kit
-[coveralls-image]: https://img.shields.io/coveralls/nordnet/nordnet-ui-kit.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/nordnet/nordnet-ui-kit
+[codecov-image]: https://img.shields.io/codecov/c/github/nordnet/nordnet-ui-kit.svg?style=flat-square
 
 
 [depstat-url]: https://david-dm.org/nordnet/nordnet-ui-kit
