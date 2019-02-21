@@ -1,25 +1,93 @@
-const defaultConstants = {
-  fontFamilyOpen: '"Open Sans", sans-serif',
-  fontFamilyBitter: 'Bitter, serif',
-  fontSize: 16,
-  fontWeightLight: 300,
-  fontWeightRegular: 400,
-  fontWeightMedium: 400,
-  fontWeightSemiBold: 600,
-  fontWeightBold: 700,
-  fontWeightExtraBold: 800,
-};
+/**
+ * 
+* Hero title - 48px - Bold Only
+H1 - 32px - Bold & Regular
+H2 - 24px - Bold & Regular
+H3 - 20px - Bold & Regular
+Primary - 16px - Bold & Regular
+Secondary- 14px - Bold & Regular
+Tertiary - 12px - Bold & Regular
+Caption - 10px - Bold & Regular
+ */
 
-export default function createTypography(constants = defaultConstants) {
+const SMALL_DEVICE = 360;
+const WEIGHTS = {
+  normal: 400,
+  semiBold: 700,
+  bold: 800,
+};
+const FONT_FAMILY_NORMAL = '';
+const FONT_FAMILY_SEMIBOLD = '';
+const FONT_FAMILY_BOLD = '';
+const FONT_FAMILY_ITALIC = '';
+export default function createTypography(mixins) {
+  // @todo rename me
+  const ifSmallDevice = (smallFontSize, largeFontSize) => ({
+    fontSize: smallFontSize,
+    lineHeight: 1,
+    // @todo define media query
+    [mixins.media(`TARGET MORE THAN SMALL_DEVICE`)]: {
+      fontSize: largeFontSize,
+    },
+  });
+
+  const primary = ({ weight = 'normal' }) => ({
+    ...ifSmallDevice(14, 16),
+    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+  });
+  const secondary = ({ weight = 'normal' }) => ({
+    ...ifSmallDevice(12, 14),
+    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+  });
+  const tertiary = ({ weight = 'normal' }) => ({
+    ...ifSmallDevice(10, 12),
+    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+  });
+
+  const caption = ({ weight = 'normal', uppercase = false }) => ({
+    ...ifSmallDevice(8, 10),
+    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+    ...(uppercase ? { textTransform: 'uppercase' } : {}),
+    /** letterSpacing: 1, */ // @todo CLARIFY LETTER SPACING
+  });
+
+  const hero = () => ({
+    ...ifSmallDevice(46, 48),
+    fontWeight: WEIGHTS.bold,
+  });
+
+  const h1 = ({ weight = 'bold' }) => ({
+    ...ifSmallDevice(30, 32),
+    fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
+  });
+  const h2 = ({ weight = 'bold' }) => ({
+    ...ifSmallDevice(22, 24),
+    fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
+  });
+  const h3 = ({ weight = 'semiBold' }) => ({
+    ...ifSmallDevice(18, 20),
+    fontWeight: WEIGHTS[weight] || WEIGHTS.semiBold,
+  });
+
   return {
-    ...constants,
-    primary: {
-      fontWeight: constants.fontWeightRegular,
-      fontFamily: constants.fontFamilyOpen,
-    },
-    secondary: {
-      fontWeight: constants.fontWeightRegular,
-      fontFamily: constants.fontFamilyBitter,
-    },
+    caption,
+    hero,
+    h1,
+    h2,
+    h3,
+    primary,
+    secondary,
+    tertiary,
   };
 }
+
+/** USAGE */
+const styles = ({ typography }) => ({
+  myClass: {
+    ...typography.caption(),
+  },
+});
+
+/**
+ *
+ */
