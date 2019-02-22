@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '../icon';
 
-export default function Co2({
+export default function CO2({
   stroke,
   fill,
   strokeWidth,
@@ -25,11 +25,11 @@ export default function Co2({
   );
 }
 
-Co2.propTypes = {
+CO2.propTypes = {
   ...Icon.propTypes,
   stroke: PropTypes.string,
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
-Co2.defaultProps = Icon.defaultProps;
+CO2.defaultProps = Icon.defaultProps;
