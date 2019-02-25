@@ -92,6 +92,7 @@ import TickingClock from './tickingClock';
 import Trash from './trash';
 import TriangleSolid from './triangleSolid';
 import VerticalEllipsis from './verticalEllipsis';
+import Wallet from './wallet';
 
 const Icon = {
   AddMoney,
@@ -189,6 +190,7 @@ const Icon = {
   Trash,
   TriangleSolid,
   VerticalEllipsis,
+  Wallet,
 };
 
 export default Icon;
