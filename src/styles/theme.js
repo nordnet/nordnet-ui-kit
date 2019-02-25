@@ -12,7 +12,7 @@ export function createTheme(config = {}) {
     palette = createPalette(),
     breakpoints = createBreakpoints(),
     mixins = createMixins(breakpoints),
-    typography = createTypography(),
+    typography = createTypography(mixins),
     ...more
   } = config;
 

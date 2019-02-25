@@ -1,5 +1,5 @@
 /**
- * 
+ *
 * Hero title - 48px - Bold Only
 H1 - 32px - Bold & Regular
 H2 - 24px - Bold & Regular
@@ -31,20 +31,22 @@ export default function createTypography(mixins) {
     },
   });
 
-  const primary = ({ weight = 'normal' }) => ({
+  const primary = ({ weight = 'normal' } = { weight: 'normal' }) => ({
     ...ifSmallDevice(14, 16),
     fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
   });
-  const secondary = ({ weight = 'normal' }) => ({
+  const secondary = ({ weight = 'normal' } = { weight: 'normal' }) => ({
     ...ifSmallDevice(12, 14),
     fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
   });
-  const tertiary = ({ weight = 'normal' }) => ({
+  const tertiary = ({ weight = 'normal' } = { weight: 'normal' }) => ({
     ...ifSmallDevice(10, 12),
     fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
   });
 
-  const caption = ({ weight = 'normal', uppercase = false }) => ({
+  const caption = (
+    { weight = 'normal', uppercase = false } = { weight: 'normal', uppercase: false },
+  ) => ({
     ...ifSmallDevice(8, 10),
     fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
     ...(uppercase ? { textTransform: 'uppercase' } : {}),
@@ -56,15 +58,15 @@ export default function createTypography(mixins) {
     fontWeight: WEIGHTS.bold,
   });
 
-  const h1 = ({ weight = 'bold' }) => ({
+  const h1 = ({ weight = 'bold' } = { weight: 'bold' }) => ({
     ...ifSmallDevice(30, 32),
     fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
   });
-  const h2 = ({ weight = 'bold' }) => ({
+  const h2 = ({ weight = 'bold' } = { weight: 'bold' }) => ({
     ...ifSmallDevice(22, 24),
     fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
   });
-  const h3 = ({ weight = 'semiBold' }) => ({
+  const h3 = ({ weight = 'semiBold' } = { weight: 'semiBold' }) => ({
     ...ifSmallDevice(18, 20),
     fontWeight: WEIGHTS[weight] || WEIGHTS.semiBold,
   });
@@ -80,14 +82,3 @@ export default function createTypography(mixins) {
     tertiary,
   };
 }
-
-/** USAGE */
-const styles = ({ typography }) => ({
-  myClass: {
-    ...typography.caption(),
-  },
-});
-
-/**
- *
- */
