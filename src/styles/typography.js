@@ -1,54 +1,39 @@
-/**
- * 
-* Hero title - 48px - Bold Only
-H1 - 32px - Bold & Regular
-H2 - 24px - Bold & Regular
-H3 - 20px - Bold & Regular
-Primary - 16px - Bold & Regular
-Secondary- 14px - Bold & Regular
-Tertiary - 12px - Bold & Regular
-Caption - 10px - Bold & Regular
- */
-
 const SMALL_DEVICE = 360;
+
 const WEIGHTS = {
-  normal: 400,
+  regular: 400,
   semiBold: 700,
   bold: 800,
 };
-const FONT_FAMILY_NORMAL = '';
-const FONT_FAMILY_SEMIBOLD = '';
-const FONT_FAMILY_BOLD = '';
-const FONT_FAMILY_ITALIC = '';
-export default function createTypography(mixins) {
-  // @todo rename me
+
+export default function createTypography() {
   const ifSmallDevice = (smallFontSize, largeFontSize) => ({
+    fontFamily: '"Open Sans", sans',
     fontSize: smallFontSize,
-    lineHeight: 1,
-    // @todo define media query
-    [mixins.media(`TARGET MORE THAN SMALL_DEVICE`)]: {
+    lineHeight: 1.2, // @todo did we settle on this lineHeight?
+    // @todo refactor this to use mixins
+    [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
       fontSize: largeFontSize,
     },
   });
-
-  const primary = ({ weight = 'normal' }) => ({
+  const primary = ({ weight = 'regular' } = {}) => ({
     ...ifSmallDevice(14, 16),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
   });
-  const secondary = ({ weight = 'normal' }) => ({
+  const secondary = ({ weight = 'regular' } = {}) => ({
     ...ifSmallDevice(12, 14),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
   });
-  const tertiary = ({ weight = 'normal' }) => ({
+  const tertiary = ({ weight = 'regular' } = {}) => ({
     ...ifSmallDevice(10, 12),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
   });
 
-  const caption = ({ weight = 'normal', uppercase = false }) => ({
+  const caption = ({ weight = 'regular', uppercase = false } = {}) => ({
+    // @todo discuss lower value with designers
     ...ifSmallDevice(8, 10),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.normal,
+    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
     ...(uppercase ? { textTransform: 'uppercase' } : {}),
-    /** letterSpacing: 1, */ // @todo CLARIFY LETTER SPACING
   });
 
   const hero = () => ({
@@ -56,20 +41,20 @@ export default function createTypography(mixins) {
     fontWeight: WEIGHTS.bold,
   });
 
-  const h1 = ({ weight = 'bold' }) => ({
+  const h1 = ({ weight = 'bold' } = {}) => ({
     ...ifSmallDevice(30, 32),
     fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
   });
-  const h2 = ({ weight = 'bold' }) => ({
+  const h2 = ({ weight = 'bold' } = {}) => ({
     ...ifSmallDevice(22, 24),
     fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
   });
-  const h3 = ({ weight = 'semiBold' }) => ({
+  const h3 = ({ weight = 'semiBold' } = {}) => ({
     ...ifSmallDevice(18, 20),
     fontWeight: WEIGHTS[weight] || WEIGHTS.semiBold,
   });
 
-  return {
+  const newTypography = {
     caption,
     hero,
     h1,
@@ -79,15 +64,29 @@ export default function createTypography(mixins) {
     secondary,
     tertiary,
   };
+
+  const proxyIsAvailable = window ? 'Proxy' in window : true;
+  const legacyTypographyKeys = [
+    'fontFamilyOpen',
+    'fontFamilyBitter',
+    'fontSize',
+    'fontWeightLight',
+    'fontWeightRegular',
+    'fontWeightMedium',
+    'fontWeightSemiBold',
+    'fontWeightBold',
+    'fontWeightExtraBold',
+  ];
+
+  return proxyIsAvailable
+    ? new Proxy(newTypography, {
+        get: function get(target, prop) {
+          if (legacyTypographyKeys.includes(prop)) {
+            // eslint-disable-next-line no-console
+            console.error(`Accessing ${prop} on old typography object`);
+          }
+          return target[prop];
+        },
+      })
+    : newTypography;
 }
-
-/** USAGE */
-const styles = ({ typography }) => ({
-  myClass: {
-    ...typography.caption(),
-  },
-});
-
-/**
- *
- */
