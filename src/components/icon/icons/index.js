@@ -27,7 +27,7 @@ import CircleSlash from './circleSlash';
 import Clock from './clock';
 import Close from './close';
 import Cloud from './cloud';
-import CO2 from './co2';
+import Co2 from './co2';
 import Drop from './drop';
 import Edit from './edit';
 import Ellipse from './ellipse';
@@ -124,7 +124,7 @@ const Icon = {
   Clock,
   Close,
   Cloud,
-  CO2,
+  Co2,
   Drop,
   Edit,
   Ellipse,
