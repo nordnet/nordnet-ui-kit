@@ -27,8 +27,8 @@ class PaginationExample1 extends React.PureComponent {
 Advanced layout (more than 7 pages):
 ```js
 const React = require('react');
-const { MemoryRouter, Link } = require('../../../node_modules/react-router-dom');
-const { Button } = require('../../');
+import { MemoryRouter, Link } from 'react-router-dom';
+import { Button } from 'nordnet-ui-kit';
 
 class PaginationExample2 extends React.PureComponent {
   constructor(props) {

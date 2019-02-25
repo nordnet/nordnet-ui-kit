@@ -4,9 +4,9 @@ Table with Sticky header and mobile mode using flex-basis, lots of rows to test 
 ```js
 // This is a sample component to illustrate how to use the Table List for Mobile works
 // component. This was needed to have a toggle button with state.
-const React = require('react');
-const { Table, Thead, Tbody, Tfoot, Th, Tr, Td, Icon } = require('../../'); // nordnet-ui-kit
-const {data} = require('./data.js');
+import React from 'react';
+import { Table, Thead, Tbody, Tfoot, Th, Tr, Td, Icon } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import {data} from './data.js';
 const center = {justifyContent: 'center'};
 
 let tableData = [];
@@ -113,8 +113,8 @@ class MobileTableSample extends React.PureComponent {
 ```
 Table with two sticky (one with stickyOffset).
 ```js
-const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-const {data} = require('./data.js');
+import { Table, Thead, Tbody, Tfoot, Th, Tr, Td } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import {data} from './data.js';
 
 <Table minWidth={700} size="md">
   <Thead sticky stickyBorder>
@@ -145,8 +145,8 @@ const {data} = require('./data.js');
 ```
 Table with size md and sticky header and borders:
 ```js
-const { Icon, Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-const {data} = require('./data.js');
+import { Icon, Table, Thead, Tbody, Tfoot, Th, Tr, Td } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import {data} from './data.js';
 
 <Table minWidth={700} size="md">
   <Thead sticky stickyBorder>
@@ -173,8 +173,8 @@ const {data} = require('./data.js');
 ```
 Table with different sizes on Tbody, Thead and TFoot
 ```js
-const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-const {data} = require('./data.js');
+import { Table, Thead, Tbody, Tfoot, Th, Tr, Td } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import {data} from './data.js';
 
 <Table minWidth={700} size="sm">
   <Thead size="md">
@@ -207,8 +207,8 @@ const {data} = require('./data.js');
 ```
 Table with size on Table level
 ```js
-const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-const {data} = require('./data.js');
+import { Table, Thead, Tbody, Tfoot, Th, Tr, Td } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import {data} from './data.js';
 
 <Table minWidth={700} size="xs">
   <Thead>
@@ -241,8 +241,8 @@ const {data} = require('./data.js');
 ```
 Table with min-width and max-height (scrollable)
 ```js
-const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-const {data} = require('./data.js');
+import { Table, Thead, Tbody, Tfoot, Th, Tr, Td } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import {data} from './data.js';
 
 <Table minWidth={1700} maxHeight={250}>
   <Thead>
@@ -275,8 +275,8 @@ const {data} = require('./data.js');
 ```
 Table with equal width columns and no ellipsis bound by a limited width parent
 ```js
-const { Table, Thead, Tbody, Tfoot, Th, Tr, Td } = require('../../'); // nordnet-ui-kit
-const { quarterlyData } = require('./data.js');
+import { Table, Thead, Tbody, Tfoot, Th, Tr, Td } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import {quarterlyData} from './data.js';
 
 const tableWrapperStyle = {
   overflow: 'hidden',

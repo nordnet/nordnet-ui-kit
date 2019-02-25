@@ -68,7 +68,7 @@ const style = {
 
 Secondary, icon:
 ```js
-const { Icon } = require('../../');
+import { Icon } from 'nordnet-ui-kit';
 const icon = <Icon.Edit />;
 
 const style = {
@@ -102,8 +102,7 @@ const style = {
 
 Link icon:
 ```js
-const { Icon } = require('../../');
-const { Logo } = require('../../');
+import { Icon, Logo } from 'nordnet-ui-kit';
 const icon = <Icon.Edit />;
 
 const style = {
@@ -143,7 +142,7 @@ const style = {
 
 Sizes:
 ```js
-const { Icon } = require('../../');
+import { Icon } from 'nordnet-ui-kit';
 const icon = <Icon.Edit />;
 
 const style = {

@@ -63,6 +63,9 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'documentation', 'wrapper.jsx'),
   },
+  moduleAliases: {
+    'nordnet-ui-kit': path.resolve(__dirname, 'src', 'index.js'),
+  },
   webpackConfig: {
     module: {
       rules: [

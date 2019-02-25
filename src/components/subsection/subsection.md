@@ -21,7 +21,7 @@ Toggled
 
 With icon
 ```js
-const { Icon } = require('../../');
+import { Icon } from 'nordnet-ui-kit';
 
 <Subsection icon={Icon.Apartment} title={() => (<span>Apartment</span>)}>
   The apartment is a part of the house.
