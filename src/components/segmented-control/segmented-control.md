@@ -1,6 +1,6 @@
 Radio type, Primary (using icons):
 ```js
-const { Icon } = require('../../');
+import { Icon } from 'nordnet-ui-kit';
 const color = require('../../styles/color').default;
 
 <SegmentedControl
@@ -21,7 +21,7 @@ const color = require('../../styles/color').default;
 ```
 Radio type, Primary (using text):
 ```js
-const { Icon } = require('../../');
+import { Icon } from 'nordnet-ui-kit';
 const color = require('../../styles/color').default;
 
 <SegmentedControl

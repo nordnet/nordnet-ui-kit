@@ -1,6 +1,5 @@
 ```js
-const { Icon } = require('../../');
-const color = require('../../styles/color').default;
+import { Icon, theme } from 'nordnet-ui-kit';
 
 <div style={{display: 'flex'}}>
   <Avatar size={ 'xs' }>
@@ -15,11 +14,11 @@ const color = require('../../styles/color').default;
   <Avatar size={ 'lg' }>
     ISK
   </Avatar>
-  <Avatar color={ color.blueDarker }>
+  <Avatar color={ theme.palette.color.blueDarker }>
     Hm
   </Avatar>
-  <Avatar style={{ width: 40, height: 40 }} color={ color.red }>
-    <Icon.Trash width={18} height={18} fill={color.white} />
+  <Avatar style={{ width: 40, height: 40 }} color={ theme.palette.color.red }>
+    <Icon.Trash width={18} height={18} fill={theme.palette.color.white} />
   </Avatar>
 </div>
 ```
