@@ -69,6 +69,7 @@ import Market from './market';
 import MedKit from './medKit';
 import Mobile from './mobile';
 import News from './news';
+import NordnetSelection from './nordnetSelection';
 import OrderDepth from './orderDepth';
 import Pdf from './pdf';
 import Portfolio from './portfolio';
@@ -165,6 +166,7 @@ const Icon = {
   MedKit,
   Mobile,
   News,
+  NordnetSelection,
   OrderDepth,
   Pdf,
   Portfolio,
