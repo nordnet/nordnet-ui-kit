@@ -41,6 +41,7 @@ export default function createTypography() {
     fontWeight: WEIGHTS.bold,
   });
 
+  // FIXME: shouldnt be h1, h2 and h3, because that couples semantic and visuals
   const h1 = ({ weight = 'bold' } = {}) => ({
     ...ifSmallDevice(30, 32),
     fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
