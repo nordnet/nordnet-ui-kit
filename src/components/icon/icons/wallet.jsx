@@ -35,8 +35,8 @@ Wallet.propTypes = {
   fill: PropTypes.string,
   strokeWidth: PropTypes.number,
   viewBox: PropTypes.string,
-  height: PropTypes.string,
-  width: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number,
 };
 
 Wallet.defaultProps = Icon.defaultProps;
