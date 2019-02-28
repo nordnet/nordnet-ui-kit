@@ -7,6 +7,7 @@ import styles from './editable-input-styles';
 import { Button, Icon, Input, Spinner } from '../..';
 import HelpText from '../input/help-text';
 
+const SENSITIVE_PLACEHOLDER_VALUE = '****';
 class EditableInput extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,7 @@ class EditableInput extends React.Component {
     this.state = {
       editing: false,
       saving: false,
-      value: this.props.value,
+      value: this.props.sensitive ? SENSITIVE_PLACEHOLDER_VALUE : this.props.value,
       originalValue: '',
     };
   }
@@ -24,7 +25,13 @@ class EditableInput extends React.Component {
   }
 
   onEdit = event => {
-    this.setState(prevState => ({ originalValue: prevState.value, editing: true }));
+    if (this.props.sensitive) {
+      this.setState(prevState => {
+        return { originalValue: prevState.value, editing: true, value: '' };
+      });
+    } else {
+      this.setState(prevState => ({ originalValue: prevState.value, editing: true }));
+    }
 
     if (this.props.onEdit) {
       this.props.onEdit(event);
@@ -64,6 +71,9 @@ class EditableInput extends React.Component {
         this.setState({ saving: true });
         await this.props.onSubmit(this.state.value);
         this.setState({ saving: false });
+      }
+      if (this.props.sensitive) {
+        this.setState({ value: SENSITIVE_PLACEHOLDER_VALUE });
       }
       this.setState({ editing: false });
     }
@@ -199,6 +209,8 @@ EditableInput.propTypes = {
   leftAddon: PropTypes.node,
   rightAddon: PropTypes.node,
   emptyDefaultValue: PropTypes.string,
+  /** true: displays **** instead of the real value */
+  sensitive: PropTypes.bool,
   classes: PropTypes.object.isRequired,
 };
 
@@ -208,6 +220,7 @@ EditableInput.defaultProps = {
   submitLabel: 'Submit',
   cancelLabel: 'Cancel',
   emptyDefaultValue: '',
+  sensitive: false,
 };
 
 export default injectSheet(styles)(EditableInput);

@@ -73,9 +73,26 @@ describe('<EditableInput />', () => {
     const input = wrapper.find(Input);
     input.simulate('change', { target: { value: 'lorem ipsum' } });
 
-    const submitButton = wrapper.find(Button).last();
-    submitButton.simulate('click', { preventDefault: () => {} });
+    const cancelButton = wrapper.find(Button).last();
+    cancelButton.simulate('click', { preventDefault: () => {} });
 
     expect(wrapper.state().value).toBe('foo bar');
+  });
+
+  test('should display ****, when props is sensitive', () => {
+    wrapper = shallow(<EditableInput classes={classes} sensitive />);
+
+    expect(wrapper.state().value).toBe('****');
+  });
+
+  test('should toggle editing mode with cleared input, when edit button is clicked and props is sensitive', () => {
+    wrapper = shallow(<EditableInput classes={classes} sensitive />);
+    expect(wrapper.state().editing).toBe(false);
+
+    const buttonEdit = wrapper.find(`.${classes.buttonEdit}`);
+    buttonEdit.simulate('click');
+
+    expect(wrapper.state().editing).toBe(true);
+    expect(wrapper.state().value).toBe('');
   });
 });
