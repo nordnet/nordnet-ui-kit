@@ -14,15 +14,12 @@ export default ({ palette, typography, mixins }) => ({
     display: 'flex',
   },
   button: {
-    ...typography.primary,
     display: 'block',
     color: palette.action.active,
     backgroundColor: palette.color.white,
-    fontSize: 16,
     padding: 0,
     width: buttonSize,
     height: buttonSize,
-    lineHeight: `${buttonSize - buttonBorderSize * 2}px`,
     border: `${buttonBorderSize}px solid ${palette.action.disabled}`,
     borderRadius: '50%',
     textAlign: 'center',
@@ -43,6 +40,9 @@ export default ({ palette, typography, mixins }) => ({
     '&:focus': {
       borderColor: palette.action.active,
     },
+
+    ...typography.primary(),
+    lineHeight: `${buttonSize - buttonBorderSize * 2}px`,
   },
   buttonSelected: {
     background: palette.action.active,

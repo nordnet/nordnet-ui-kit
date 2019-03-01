@@ -5,7 +5,7 @@ export default theme => {
     pane: {
       ...mixins.basicBoxSizing,
       background: palette.background.default,
-      fontFamily: typography.primary.fontFamily,
+      ...typography.primary(),
     },
 
     tabs: {
@@ -20,7 +20,6 @@ export default theme => {
     tab: {
       display: 'inline-block',
       background: palette.background.default,
-      lineHeight: 1.2,
       textAlign: 'center',
       cursor: 'pointer',
       letterSpacing: 1,
@@ -28,33 +27,33 @@ export default theme => {
     },
 
     xs: {
-      fontSize: 10,
       padding: 4,
       borderBottom: '4px solid transparent',
+      ...typography.caption(),
     },
 
     sm: {
-      fontSize: 12,
       padding: 6,
       borderBottom: '6px solid transparent',
+      ...typography.tertiary(),
     },
 
     md: {
-      fontSize: 14,
       padding: 8,
       borderBottom: '8px solid transparent',
+      ...typography.secondary(),
     },
 
     lg: {
-      fontSize: 16,
       padding: 10,
       borderBottom: '10px solid transparent',
+      ...typography.primary(),
     },
 
     active: {
       background: palette.background.default,
       color: palette.text.default,
-      fontWeight: 600,
+      fontWeight: typography.primary({ weight: 'bold' }).fontWeight,
       borderColor: palette.background.secondary,
     },
   };

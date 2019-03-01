@@ -63,15 +63,29 @@ const variantModifierFn = (variant, colors) => {
   };
 };
 
-const sizeDict = {
-  xs: { fontSize: 10, radius: 8 },
-  sm: { fontSize: 11, radius: 16 },
-  md: { fontSize: 14, radius: 20 },
-  lg: { fontSize: 16, radius: 24 },
-};
-
 export default theme => {
   const { palette, transitions, typography, mixins } = theme;
+  const sizeDict = {
+    xs: {
+      radius: 8,
+      ...typography.caption(),
+    },
+
+    sm: {
+      radius: 16,
+      ...typography.caption(),
+    },
+
+    md: {
+      radius: 20,
+      ...typography.secondary(),
+    },
+
+    lg: {
+      radius: 24,
+      ...typography.primary(),
+    },
+  };
 
   return {
     progressBarContainer: {
@@ -89,6 +103,7 @@ export default theme => {
     },
 
     progressStep: {
+      ...typography.primary(),
       ...mixins.basicBoxSizing,
       alignItems: 'center',
       border: 0,
@@ -96,12 +111,9 @@ export default theme => {
       borderWidth: ({ size }) => (sizeDict[size].fontSize < 12 ? 1 : 2),
       cursor: 'default',
       display: 'flex',
-      fontFamily: typography.primary.fontFamily,
       fontSize: ({ size }) => sizeDict[size].fontSize,
-      fontWeight: ({ size }) =>
-        sizeDict[size].fontSize < 12 ? typography.fontWeightLight : typography.fontWeightRegular,
+      fontWeight: ({ size }) => sizeDict[size].fontWeight,
       height: ({ size }) => 2 * sizeDict[size].radius,
-      lineHeight: 1,
       margin: ({ size }) => sizeDict[size].radius / 2,
       padding: 0,
       textAlign: 'center',

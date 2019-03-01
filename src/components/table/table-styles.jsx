@@ -15,14 +15,12 @@ export default theme => {
     table: {
       width: '100%',
       ...mixins.basicBoxSizing,
-      ...styleUtils.sizes(),
+      ...styleUtils.sizes({ typography }),
       textAlign: 'left',
       borderCollapse: 'collapse',
-      fontWeight: typography.fontWeightRegular,
-      fontFamily: typography.primary.fontFamily,
       borderColor: palette.background.muted,
-
       minWidth: 'auto',
+
       [mixins.media('md')]: {
         minWidth: props => props.minWidth,
       },

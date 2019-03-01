@@ -163,15 +163,14 @@ export default theme => {
     popupContent: {
       width: '100%',
       textAlign: 'left',
-      fontSize: 12,
       padding: '4px 16px',
       color: palette.background.default,
       background: palette.text.default,
-      fontFamily: typography.primary.default,
       borderRadius: 4,
       overflowWrap: 'normal',
       wordBreak: 'normal',
       wordWrap: 'normal',
+      ...typography.tertiary(),
     },
     popupContentVertical: {
       position: 'absolute',

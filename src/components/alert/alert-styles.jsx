@@ -5,17 +5,18 @@ export default theme => {
     alert: {
       ...mixins.basicBoxSizing,
       background: palette.background.default,
-      fontSize: '12px',
       padding: '4px 8px',
       position: 'relative',
-      lineHeight: 1.4,
       marginBottom: '16px',
       color: palette.text.default,
+      ...theme.typography.tertiary(),
     },
 
     header: {
       display: 'inline-block',
-      fontWeight: 'bold',
+      ...theme.typography.tertiary({
+        weight: 'bold',
+      }),
       padding: [4, 20, 4, 4],
       color: palette.variant.info,
 

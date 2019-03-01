@@ -1,18 +1,18 @@
-const sizes = () => ({
+const sizes = ({ typography }) => ({
   '&.xs': {
-    fontSize: 12,
+    ...typography.tertiary(),
   },
 
   '&.sm': {
-    fontSize: 12,
+    ...typography.tertiary(),
   },
 
   '&.md': {
-    fontSize: 14,
+    ...typography.secondary(),
   },
 
   '&.lg': {
-    fontSize: 16,
+    ...typography.primary(),
   },
 });
 

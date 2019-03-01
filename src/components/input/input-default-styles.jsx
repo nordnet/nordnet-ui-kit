@@ -52,14 +52,12 @@ export default theme => {
   return {
     input: {
       ...mixins.basicBoxSizing,
-      fontSize: 14,
-      fontFamily: typography.primary.fontFamily,
       color: palette.text.default,
       marginBottom: ({ label }) => bottomBorderSize - borderSize + (label ? inputMarginBottom : 0),
       position: 'relative',
-
       '&.input--has-success': modifierFn(palette.variant.success),
       '&.input--has-warning': modifierFn(palette.variant.warning),
+
       '&.input--has-error': {
         '& .input': {
           '&__label': {
@@ -122,7 +120,6 @@ export default theme => {
           },
 
           '&__addon': {
-            fontSize: 12,
             color: palette.text.muted,
 
             '&--left': {
@@ -134,6 +131,8 @@ export default theme => {
               right: 10,
               paddingLeft: 8,
             },
+
+            ...typography.tertiary(),
           },
         },
       },
@@ -144,7 +143,6 @@ export default theme => {
         left: 0,
         cursor: 'text',
         transition: transitions.create(['opacity', 'transform', 'color']),
-        fontSize: 12,
         transform: 'translateY(0)',
         opacity: 0,
         color: palette.action.disabled,
@@ -154,7 +152,10 @@ export default theme => {
           opacity: 1,
           transform: 'translateY(0)',
         },
+
+        ...typography.tertiary(),
       },
+
       '& .input__element': {
         display: 'block',
         background: 'none',
@@ -162,10 +163,7 @@ export default theme => {
         borderRadius: 0,
         width: '100%',
         transition: transitions.create(['border-color', 'transform']),
-        fontSize: 14,
         height: '1.5em',
-        fontFamily: 'inherit',
-        fontWeight: 'inherit',
         minWidth: 0,
         padding: 0,
 
@@ -182,6 +180,8 @@ export default theme => {
           resize: 'vertical',
           height: ({ lineCount }) => `${lineCount * 1.5}em`,
         },
+
+        ...typography.secondary(),
       },
 
       '& .input__validation-icon': {
@@ -197,6 +197,8 @@ export default theme => {
           maxHeight: '100%',
         },
       },
+
+      ...typography.secondary(),
     },
 
     primary: {
