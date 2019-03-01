@@ -2,16 +2,16 @@ const SMALL_DEVICE = 360;
 
 const WEIGHTS = {
   regular: 400,
-  semiBold: 700,
-  bold: 800,
+  bold: 700,
+  extrabold: 800,
 };
 
 export default function createTypography() {
   const ifSmallDevice = (smallFontSize, largeFontSize) => ({
-    fontFamily: '"Open Sans", sans',
+    fontFamily: '"Nordnet Sans Mono", "Open Sans", sans',
     fontSize: smallFontSize,
-    lineHeight: 1.2, // @todo did we settle on this lineHeight?
-    // @todo refactor this to use mixins
+    lineHeight: 1.2,
+    letterSpacing: 'normal',
     [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
       fontSize: largeFontSize,
     },
@@ -31,36 +31,36 @@ export default function createTypography() {
 
   const caption = ({ weight = 'regular', uppercase = false } = {}) => ({
     // @todo discuss lower value with designers
-    ...ifSmallDevice(8, 10),
+    ...ifSmallDevice(10, 10),
     fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
     ...(uppercase ? { textTransform: 'uppercase' } : {}),
   });
 
   const hero = () => ({
     ...ifSmallDevice(46, 48),
-    fontWeight: WEIGHTS.bold,
+    fontWeight: WEIGHTS.extrabold,
   });
 
-  // FIXME: shouldnt be h1, h2 and h3, because that couples semantic and visuals
-  const h1 = ({ weight = 'bold' } = {}) => ({
+  const defaultTitleWeight = 'extrabold';
+  const title1 = ({ weight = defaultTitleWeight } = {}) => ({
     ...ifSmallDevice(30, 32),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
+    fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
-  const h2 = ({ weight = 'bold' } = {}) => ({
+  const title2 = ({ weight = defaultTitleWeight } = {}) => ({
     ...ifSmallDevice(22, 24),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.bold,
+    fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
-  const h3 = ({ weight = 'semiBold' } = {}) => ({
+  const title3 = ({ weight = defaultTitleWeight } = {}) => ({
     ...ifSmallDevice(18, 20),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.semiBold,
+    fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
 
   const newTypography = {
     caption,
     hero,
-    h1,
-    h2,
-    h3,
+    title1,
+    title2,
+    title3,
     primary,
     secondary,
     tertiary,
@@ -79,6 +79,7 @@ export default function createTypography() {
     'fontWeightExtraBold',
   ];
 
+  // FIXME before final release, release new version without proxy trap
   return proxyIsAvailable
     ? new Proxy(newTypography, {
         get: function get(target, prop) {
