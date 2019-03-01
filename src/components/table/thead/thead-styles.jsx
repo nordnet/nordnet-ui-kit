@@ -3,10 +3,11 @@ import styleUtils from '../style-utilities';
 const normal = ({ mixins, typography, palette: { color } }) => ({
   thead: {
     width: '100%',
-    ...styleUtils.sizes(),
+    ...styleUtils.sizes({ typography }),
     ...mixins.basicBoxSizing,
-    fontWeight: typography.fontWeightSemiBold,
+    fontWeight: typography.primary({ weight: 'bold' }).fontWeight,
     borderBottom: `2px solid ${color.grayDarker}`,
+
     '& th': {
       '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
         borderBottom: `2px solid ${color.grayDarker}`,

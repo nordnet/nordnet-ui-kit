@@ -62,13 +62,12 @@ export default theme => {
 
       '& .input-checkbox-radio__label': {
         display: 'inline-block',
-        lineHeight: 1.2,
         verticalAlign: 'top',
         paddingLeft: '4px',
         userSelect: 'none',
         maxWidth: 'calc(100% - 16px)',
-        fontSize: '16px',
         marginTop: '-2px',
+        ...theme.typography.primary(),
       },
 
       '&.input-checkbox-radio--is-disabled': {

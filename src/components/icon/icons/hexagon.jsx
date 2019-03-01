@@ -31,7 +31,6 @@ export default function Hexagon({
 
 Hexagon.propTypes = {
   ...Icon.propTypes,
-  fontFamily: PropTypes.string,
   stroke: PropTypes.string,
   strokeWidth: PropTypes.number,
   fill: PropTypes.string,

@@ -1,5 +1,6 @@
-export default () => ({
+export default ({ typography }) => ({
   text: {
+    ...typography.primary(),
     position: 'relative',
     overflow: 'hidden',
     '&::before': {

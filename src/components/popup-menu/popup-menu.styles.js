@@ -38,12 +38,13 @@ export default ({ palette, typography, mixins, transitions }) => ({
   menuItemContainer: {
     display: 'block',
     borderBottom: `1px solid ${palette.background.secondary}`,
-    fontSize: 12,
     color: palette.text.secondary,
 
     '&:last-child': {
       borderBottom: 'none',
     },
+
+    ...typography.tertiary(),
   },
   menuButton: {
     color: palette.color.grayDarkest,
@@ -78,38 +79,40 @@ export default ({ palette, typography, mixins, transitions }) => ({
   menuItems: {
     listStyle: 'none',
     color: palette.color.black,
-    fontFamily: typography.primary,
     padding: 0,
     margin: 0,
   },
   item: {
     textDecoration: 'none',
-    fontSize: 14,
+    ...typography.secondary(),
   },
   link: {
     ...mixins.basicBoxSizing,
-    fontFamily: typography.primary.fontFamily,
     display: 'block',
     padding: 10,
     width: '100%',
+
     '&:hover:not([disabled])': {
       background: palette.color.grayLightest,
     },
+
     '&:focus:not([disabled])': {
       background: palette.color.grayLighter,
     },
+
     '&[disabled]': {
       color: palette.text.muted,
       cursor: 'default',
       pointerEvents: 'none',
     },
+
     color: palette.color.grayDarkest,
     textDecoration: 'none',
     background: 'none',
     border: 'none',
     cursor: 'pointer',
     outline: 'none',
-    fontSize: 14,
     textAlign: 'left',
+    ...typography.secondary(),
   },
 });

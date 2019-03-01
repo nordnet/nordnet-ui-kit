@@ -51,11 +51,4 @@ describe('<Avatar />', () => {
     const wrapper = shallow(<Avatar {...defaultProps} className={className} />);
     expect(wrapper.hasClass(className)).toBe(true);
   });
-
-  test('should be possibe to send in custom styles', () => {
-    const fontSize = 10;
-    const style = { fontSize };
-    const wrapper = shallow(<Avatar {...defaultProps} style={style} />);
-    expect(wrapper.prop('style').fontSize).toBe(fontSize);
-  });
 });

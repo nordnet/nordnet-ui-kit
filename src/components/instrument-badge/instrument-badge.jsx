@@ -39,7 +39,7 @@ export const styles = theme => {
       },
     },
     wrapper: {
-      ...typography.primary,
+      ...typography.primary(),
       ...mixins.basicBoxSizing,
       display: 'flex',
       flexDirection: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'column' : 'row'),
@@ -159,17 +159,24 @@ export const styles = theme => {
         qualifiedColor = palette.color.green,
         unqualifiedColor = palette.color.red,
       }) => (qualified ? qualifiedColor : unqualifiedColor),
+
       textAlign: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'center' : 'left'),
       marginLeft: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 0 : 4),
+      // FIXME: Font size is not a literal,
       fontSize: ({ subTextFontSize = 10 }) => subTextFontSize,
+
       [mixins.media('md')]: {
+        // FIXME: Font size is not a literal,
         fontSize: ({ subTextFontSize = 16 }) => subTextFontSize,
       },
+
       '$sm &': {
+        // FIXME: Font size is not a literal,
         fontSize: ({ subTextFontSize = 10 }) => subTextFontSize,
       },
 
       '$md &': {
+        // FIXME: Font size is not a literal,
         fontSize: ({ subTextFontSize = 16 }) => subTextFontSize,
       },
     },

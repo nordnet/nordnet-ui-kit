@@ -33,8 +33,6 @@ export default theme => {
         outline: 'none',
         borderTop: `2px solid ${palette.color.grayLight}`,
         borderBottom: `2px solid ${palette.color.grayLight}`,
-        fontSize: '12px',
-        fontFamily: typography.primary.fontFamily,
         color: palette.text.default,
         backgroundColor: 'inherit',
         position: 'relative',
@@ -48,15 +46,14 @@ export default theme => {
           margin: '0 12px',
           lineHeight: '28px',
         },
+
+        ...typography.tertiary(),
       },
 
       '&.secondary': {
         letterSpacing: 0.2,
         textAlign: 'center',
         outline: 'none',
-        fontSize: '12px',
-        fontFamily: typography.primary.fontFamily,
-        fontWeight: typography.fontWeightSemiBold,
         color: palette.text.muted,
         backgroundColor: 'inherit',
         position: 'relative',
@@ -68,6 +65,10 @@ export default theme => {
         '& + &': {
           marginLeft: 27,
         },
+
+        ...typography.tertiary({
+          weight: 'bold',
+        }),
       },
     },
 

@@ -12,7 +12,6 @@ export const styles = theme => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontFamily: typography.secondary.fontFamily,
       color: palette.shades.dark.text.default,
       backgroundColor: palette.color.grayDarkest,
       overflow: 'hidden',
@@ -22,24 +21,24 @@ export const styles = theme => {
       width: '2.4em',
     },
     xs: {
-      fontSize: 9,
       height: 24,
       width: 24,
+      ...typography.caption(),
     },
     sm: {
-      fontSize: 14,
       height: 32,
       width: 32,
+      ...typography.secondary(),
     },
     md: {
-      fontSize: 16,
       height: 48,
       width: 48,
+      ...typography.primary(),
     },
     lg: {
-      fontSize: 20,
       height: 56,
       width: 56,
+      ...typography.title3(),
     },
   };
 };

@@ -27,16 +27,17 @@ export const styles = theme => {
     const fontSize = modifiers[size];
     const mobileFontSize = mobileModifiers[size];
     const paddingTop = size === 'xs' ? 0 : 2;
-    const lineHeight = size === 'xlg' ? 1 : 1.2;
     const className = `value-${size}`;
 
     return {
       ...sizes,
       [className]: {
+        // FIXME: talk to designers,
         fontSize: mobileFontSize,
         paddingTop,
-        lineHeight,
+
         [theme.mixins.media('md')]: {
+          // FIXME: talk to designers,
           fontSize,
         },
       },
@@ -48,16 +49,16 @@ export const styles = theme => {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
       color: palette.text.secondary,
+      // FIXME: talk to designers,
       fontFamily: typography.primary.fontFamily,
     },
     label: {
       display: 'block',
-      fontSize: 12,
-      lineHeight: 1.2,
+      ...typography.tertiary(),
     },
     value: {
       display: 'block',
-      fontSize: 16,
+      ...typography.primary(),
     },
     ...valueSizes,
   };

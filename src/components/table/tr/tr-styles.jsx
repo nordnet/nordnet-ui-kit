@@ -2,12 +2,12 @@ import styleUtils from '../style-utilities';
 import color from '../../../styles/color';
 
 const normal = theme => {
-  const { mixins } = theme;
+  const { mixins, typography } = theme;
 
   return {
     tr: {
       ...mixins.basicBoxSizing,
-      ...styleUtils.sizes(),
+      ...styleUtils.sizes({ typography }),
       borderCollapse: 'collapse',
       flexWrap: 'wrap',
       overflow: 'hidden',

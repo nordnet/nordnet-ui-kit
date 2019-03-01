@@ -1,12 +1,12 @@
 import styleUtils from '../style-utilities';
 
 export default theme => {
-  const { palette, mixins } = theme;
+  const { palette, mixins, typography } = theme;
   return {
     tbody: {
       width: '100%',
       ...mixins.basicBoxSizing,
-      ...styleUtils.sizes(),
+      ...styleUtils.sizes({ typography }),
       ...styleUtils.borders(palette),
       overflow: 'auto',
 

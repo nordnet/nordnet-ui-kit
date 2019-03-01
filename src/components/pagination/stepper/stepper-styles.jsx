@@ -1,6 +1,5 @@
-export default ({ palette, mixins }) => ({
+export default ({ palette, mixins, typography }) => ({
   button: {
-    fontSize: 16,
     margin: [0, 10],
     display: 'flex',
     alignItems: 'center',
@@ -13,5 +12,7 @@ export default ({ palette, mixins }) => ({
       marginLeft: 20,
       marginRight: 20,
     },
+
+    ...typography.primary(),
   },
 });
