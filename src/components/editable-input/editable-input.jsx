@@ -11,10 +11,12 @@ class EditableInput extends React.Component {
   constructor(props) {
     super(props);
 
+    const SENSITIVE_PLACEHOLDER_VALUE = props.sensitivePlaceholder;
+
     this.state = {
       editing: false,
       saving: false,
-      value: this.props.value,
+      value: props.sensitive ? SENSITIVE_PLACEHOLDER_VALUE : props.value,
       originalValue: '',
     };
   }
@@ -24,7 +26,13 @@ class EditableInput extends React.Component {
   }
 
   onEdit = event => {
-    this.setState(prevState => ({ originalValue: prevState.value, editing: true }));
+    if (this.props.sensitive) {
+      this.setState(prevState => {
+        return { originalValue: prevState.value, editing: true, value: '' };
+      });
+    } else {
+      this.setState(prevState => ({ originalValue: prevState.value, editing: true }));
+    }
 
     if (this.props.onEdit) {
       this.props.onEdit(event);
@@ -64,6 +72,9 @@ class EditableInput extends React.Component {
         this.setState({ saving: true });
         await this.props.onSubmit(this.state.value);
         this.setState({ saving: false });
+      }
+      if (this.props.sensitive) {
+        this.setState(prevState => ({ value: prevState.originalValue }));
       }
       this.setState({ editing: false });
     }
@@ -199,6 +210,10 @@ EditableInput.propTypes = {
   leftAddon: PropTypes.node,
   rightAddon: PropTypes.node,
   emptyDefaultValue: PropTypes.string,
+  /** true: displays `sensitivePlaceholder` instead of the real value */
+  sensitive: PropTypes.bool,
+  /** A string which substitutes the actual value. Example `----` or `xxxx`. */
+  sensitivePlaceholder: PropTypes.string,
   classes: PropTypes.object.isRequired,
 };
 
@@ -208,6 +223,8 @@ EditableInput.defaultProps = {
   submitLabel: 'Submit',
   cancelLabel: 'Cancel',
   emptyDefaultValue: '',
+  sensitive: false,
+  sensitivePlaceholder: '****',
 };
 
 export default injectSheet(styles)(EditableInput);
