@@ -41,10 +41,7 @@ export default theme => {
         borderWidth: 0,
       },
     },
-    mono: {
-      // FIXME: talk to designers,
-      fontFamily: 'monospace',
-    },
+
     collapsed: {},
     ellipsis: {
       whiteSpace: 'nowrap',
