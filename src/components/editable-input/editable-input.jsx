@@ -7,15 +7,16 @@ import styles from './editable-input-styles';
 import { Button, Icon, Input, Spinner } from '../..';
 import HelpText from '../input/help-text';
 
-const SENSITIVE_PLACEHOLDER_VALUE = '****';
 class EditableInput extends React.Component {
   constructor(props) {
     super(props);
 
+    const SENSITIVE_PLACEHOLDER_VALUE = props.sensitivePlaceholder;
+
     this.state = {
       editing: false,
       saving: false,
-      value: this.props.sensitive ? SENSITIVE_PLACEHOLDER_VALUE : this.props.value,
+      value: props.sensitive ? SENSITIVE_PLACEHOLDER_VALUE : props.value,
       originalValue: '',
     };
   }
@@ -73,7 +74,7 @@ class EditableInput extends React.Component {
         this.setState({ saving: false });
       }
       if (this.props.sensitive) {
-        this.setState({ value: SENSITIVE_PLACEHOLDER_VALUE });
+        this.setState(prevState => ({ value: prevState.originalValue }));
       }
       this.setState({ editing: false });
     }
@@ -209,8 +210,10 @@ EditableInput.propTypes = {
   leftAddon: PropTypes.node,
   rightAddon: PropTypes.node,
   emptyDefaultValue: PropTypes.string,
-  /** true: displays **** instead of the real value */
+  /** true: displays `sensitivePlaceholder` instead of the real value */
   sensitive: PropTypes.bool,
+  /** A string which substitutes the actual value. Example `----` or `xxxx`. */
+  sensitivePlaceholder: PropTypes.string,
   classes: PropTypes.object.isRequired,
 };
 
@@ -221,6 +224,7 @@ EditableInput.defaultProps = {
   cancelLabel: 'Cancel',
   emptyDefaultValue: '',
   sensitive: false,
+  sensitivePlaceholder: '****',
 };
 
 export default injectSheet(styles)(EditableInput);

@@ -28,13 +28,15 @@ With `hasError` and `helpText`
 With `sensitive`
 
 ```js
+const fourAsterisks = '****';
 <div>
   <div>PIN code:</div>
   <EditableInput
     label="PIN code"
     value="1337"
     onSubmit={submittedValue => console.log('Your submitted value:', submittedValue)}
+    sensitivePlaceholder={fourAsterisks}
     sensitive
   />
-</div>
+</div>;
 ```

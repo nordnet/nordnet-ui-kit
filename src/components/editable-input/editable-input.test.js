@@ -85,6 +85,12 @@ describe('<EditableInput />', () => {
     expect(wrapper.state().value).toBe('****');
   });
 
+  test('should display sensitivePlaceholder value instead of default ****, when props is sensitive', () => {
+    wrapper = shallow(<EditableInput classes={classes} sensitivePlaceholder="xxxx" sensitive />);
+
+    expect(wrapper.state().value).toBe('xxxx');
+  });
+
   test('should toggle editing mode with cleared input, when edit button is clicked and props is sensitive', () => {
     wrapper = shallow(<EditableInput classes={classes} sensitive />);
     expect(wrapper.state().editing).toBe(false);
