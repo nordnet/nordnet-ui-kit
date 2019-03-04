@@ -66,7 +66,7 @@ export default function createTypography() {
     tertiary,
   };
 
-  const proxyIsAvailable = window ? 'Proxy' in window : true;
+  const proxyIsAvailable = typeof window !== 'undefined' ? 'Proxy' in window : true;
   const legacyTypographyKeys = [
     'fontFamilyOpen',
     'fontFamilyBitter',
