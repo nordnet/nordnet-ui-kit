@@ -80,7 +80,7 @@ export default theme => {
       margin: 2,
       borderRadius: 16,
       ...typography.caption({
-        weight: 'normal',
+        weight: 'regular',
       }),
       transition: transitions.create(),
       textDecoration: 'none',
@@ -127,7 +127,7 @@ export default theme => {
       },
 
       ...typography.caption({
-        weight: 'normal',
+        weight: 'regular',
       }),
     },
 
@@ -149,7 +149,7 @@ export default theme => {
       },
 
       ...typography.caption({
-        weight: 'normal',
+        weight: 'regular',
       }),
     },
 
@@ -171,7 +171,7 @@ export default theme => {
       },
 
       ...typography.secondary({
-        weight: 'normal',
+        weight: 'regular',
       }),
     },
 
@@ -193,7 +193,7 @@ export default theme => {
       },
 
       ...typography.primary({
-        weight: 'normal',
+        weight: 'regular',
       }),
     },
 
