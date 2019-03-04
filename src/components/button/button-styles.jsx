@@ -79,8 +79,9 @@ export default theme => {
       border: 0,
       margin: 2,
       borderRadius: 16,
-      fontFamily: typography.primary.fontFamily,
-      lineHeight: 1,
+      ...typography.caption({
+        weight: 'regular',
+      }),
       transition: transitions.create(),
       textDecoration: 'none',
       userSelect: 'none',
@@ -109,8 +110,6 @@ export default theme => {
     },
 
     xs: {
-      fontSize: 10,
-      fontWeight: theme.typography.fontWeightLight,
       borderRadius: 12,
       padding: '5px 12px',
 
@@ -118,6 +117,7 @@ export default theme => {
         paddingBottom: 5,
         paddingTop: 4,
       },
+
       '&$icon': {
         padding: 4,
         '& svg': {
@@ -125,11 +125,13 @@ export default theme => {
           width: 11,
         },
       },
+
+      ...typography.caption({
+        weight: 'regular',
+      }),
     },
 
     sm: {
-      fontSize: 11,
-      fontWeight: theme.typography.fontWeightLight,
       borderRadius: 16,
       padding: '8px 20px',
 
@@ -137,6 +139,7 @@ export default theme => {
         paddingBottom: 7,
         paddingTop: 7,
       },
+
       '&$icon': {
         padding: 6,
         '& svg': {
@@ -144,11 +147,13 @@ export default theme => {
           width: 13,
         },
       },
+
+      ...typography.caption({
+        weight: 'regular',
+      }),
     },
 
     md: {
-      fontSize: 14,
-      fontWeight: theme.typography.fontWeightRegular,
       borderRadius: 20,
       padding: '11px 38px',
 
@@ -156,6 +161,7 @@ export default theme => {
         paddingBottom: 10,
         paddingTop: 10,
       },
+
       '&$icon': {
         padding: 8,
         '& svg': {
@@ -163,11 +169,13 @@ export default theme => {
           width: 16,
         },
       },
+
+      ...typography.secondary({
+        weight: 'regular',
+      }),
     },
 
     lg: {
-      fontSize: 16,
-      fontWeight: theme.typography.fontWeightRegular,
       borderRadius: 24,
       padding: '14px 40px',
 
@@ -175,6 +183,7 @@ export default theme => {
         paddingBottom: 13,
         paddingTop: 13,
       },
+
       '&$icon': {
         padding: 10,
         '& svg': {
@@ -182,6 +191,10 @@ export default theme => {
           width: 18,
         },
       },
+
+      ...typography.primary({
+        weight: 'regular',
+      }),
     },
 
     icon: {
@@ -334,6 +347,7 @@ export default theme => {
       borderRadius: 0,
       color: palette.text.default,
       border: '2px solid transparent',
+      // FIXME: talk to designers,
       fontWeight: 600,
       cursor: 'pointer',
 
@@ -369,16 +383,19 @@ export default theme => {
         palette.variant.primary,
         focusColor(palette.variant.primary),
       ),
+
       '&.success': buttonModifierFn(
         'link',
         palette.variant.success,
         focusColor(palette.variant.success),
       ),
+
       '&.warning': buttonModifierFn(
         'link',
         palette.variant.warning,
         focusColor(palette.variant.warning),
       ),
+
       '&.danger': buttonModifierFn(
         'link',
         palette.variant.danger,

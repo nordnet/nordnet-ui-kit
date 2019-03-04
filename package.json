@@ -4,6 +4,7 @@
   "description": "Nordnets React powered UI kit",
   "main": "dist/cjs",
   "module": "dist/esm",
+  "types": "types",
   "sideEffects": false,
   "scripts": {
     "commit": "git-cz",
@@ -31,7 +32,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ],
   "keywords": [
     "nordnet",

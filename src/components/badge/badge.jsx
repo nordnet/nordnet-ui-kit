@@ -10,17 +10,15 @@ export const styles = theme => {
     root: {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
-      fontSize: '12px',
-      fontFamily: typography.primary.fontFamily,
       padding: '2.5px 10px',
       minWidth: '80px',
-      lineHeight: '17px',
       color: palette.shades.dark.text.default,
       textAlign: 'center',
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',
       backgroundColor: palette.shades.dark.background.default,
       borderRadius: '3px',
+      ...typography.tertiary(),
     },
     success: {
       backgroundColor: palette.variant.success,

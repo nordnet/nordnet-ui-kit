@@ -16,10 +16,7 @@ export default ({ palette, typography, mixins }) => ({
   tab: {
     position: 'relative',
     display: 'block',
-    fontSize: 12,
     color: palette.text.muted,
-    fontFamily: typography.primary.fontFamily,
-    fontWeight: typography.fontWeightSemiBold,
     paddingTop: 5,
     paddingBottom: borderHeight + 2,
     textTransform: 'uppercase',
@@ -59,6 +56,10 @@ export default ({ palette, typography, mixins }) => ({
     '&:focus::before': {
       background: palette.action.active,
     },
+
+    ...typography.tertiary({
+      weight: 'bold',
+    }),
   },
 
   primary: {

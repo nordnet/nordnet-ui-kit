@@ -6,20 +6,15 @@ export default theme => {
   return {
     td: {
       ...mixins.basicBoxSizing,
-      ...styleUtils.sizes(),
+      ...styleUtils.sizes({ typography }),
       ...styleUtils.modifiers(palette),
       ...styleUtils.borders(palette),
-
-      fontFamily: typography.primary.fontFamily,
-      fontWeight: 'inherit',
 
       padding: 0,
       minWidth: 20,
       maxHeight: 50,
       borderWidth: 1,
-
       textAlign: 'left',
-
       transition: transitions.create(['max-height', 'border-width']),
 
       [mixins.maxMedia('md')]: {
@@ -46,9 +41,7 @@ export default theme => {
         borderWidth: 0,
       },
     },
-    mono: {
-      fontFamily: 'monospace',
-    },
+
     collapsed: {},
     ellipsis: {
       whiteSpace: 'nowrap',
@@ -73,7 +66,7 @@ export default theme => {
       '&::before': {
         display: 'block',
         content: 'attr(data-title)',
-        fontSize: '0.8em',
+        ...typography.caption(),
       },
 
       [mixins.media('md')]: {

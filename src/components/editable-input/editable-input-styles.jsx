@@ -1,6 +1,6 @@
 export default theme => ({
   container: {
-    ...theme.typography.primary,
+    ...theme.typography.secondary(),
     display: 'flex',
     justifyContent: 'flex-end',
   },
@@ -16,8 +16,8 @@ export default theme => ({
   readOnly: {
     width: '100%',
     position: 'relative',
-    fontSize: 14,
     marginBottom: 4,
+    ...theme.typography.secondary(),
   },
   value: {
     paddingTop: 11,

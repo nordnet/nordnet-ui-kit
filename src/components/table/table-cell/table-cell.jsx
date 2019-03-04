@@ -12,7 +12,6 @@ function TableCell({
   style: styleProp,
   size,
   width,
-  mono,
   collapsed,
   modifier,
   border,
@@ -42,7 +41,6 @@ function TableCell({
       [classes[`align-${align}`]]: align,
       [classes[`align-${alignMobile}--mobile`]]: alignMobile,
       [classes.collapsed]: collapsed,
-      [classes.mono]: mono,
       [modifier]: modifier,
       border,
       borderTop,
@@ -77,7 +75,6 @@ function TableCell({
 }
 
 TableCell.defaultProps = {
-  mono: false,
   border: false,
   borderTop: false,
   borderRight: false,
@@ -100,7 +97,6 @@ TableCell.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   /** Number is assumed to be a percentage which helps with responsiveness: */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  mono: PropTypes.bool,
   collapsed: PropTypes.bool,
   modifier: PropTypes.oneOf(['success', 'warning', 'danger']),
   border: PropTypes.bool,

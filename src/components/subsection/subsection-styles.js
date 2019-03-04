@@ -16,10 +16,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
     width: '100%',
   },
   title: {
-    ...typography.secondary,
-    fontSize: 20,
     alignItems: 'center',
-    lineHeight: 1.4,
     padding: [8, 0],
     border: 'none',
     borderRadius: 0,
@@ -29,9 +26,12 @@ export default ({ palette, typography, mixins, transitions }) => ({
     color: palette.text.default,
     width: '100%',
     textAlign: 'left',
+
     [mixins.media('md')]: {
       cursor: 'auto',
     },
+
+    ...typography.title3(),
   },
   titleContent: {
     display: 'flex',
