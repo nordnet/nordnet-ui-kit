@@ -13,7 +13,7 @@
     "build": "run-s clean babel:*",
     "babel:esm": "BABEL_ENV=esm babel -d dist/esm src/",
     "babel:cjs": "babel -d dist/cjs src/",
-    "watch": "npm run babel -- --watch",
+    "watch": "npm run babel:esm -- --watch",
     "babel": "babel src -d dist --copy-files --ignore .md",
     "lint": "eslint --ext=.jsx --ext=.js src",
     "test": "jest",

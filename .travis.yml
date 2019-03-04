@@ -30,6 +30,7 @@ jobs:
         - git config user.name "nordnet-release"
         - TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run semantic-release
       after_script:
+        - npm run build:docs
         - npm run travis-docs-publish
       if: (NOT type IN (pull_request)) AND (branch = master)
 
