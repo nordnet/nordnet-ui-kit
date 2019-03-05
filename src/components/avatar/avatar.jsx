@@ -24,21 +24,25 @@ export const styles = theme => {
       height: 24,
       width: 24,
       ...typography.caption(),
+      lineHeight: '24px',
     },
     sm: {
       height: 32,
       width: 32,
       ...typography.secondary(),
+      lineHeight: '32px',
     },
     md: {
       height: 48,
       width: 48,
       ...typography.primary(),
+      lineHeight: '48px',
     },
     lg: {
       height: 56,
       width: 56,
       ...typography.title3(),
+      lineHeight: '56px',
     },
   };
 };
