@@ -21,6 +21,9 @@ export default theme => {
         paddingRight: 24,
       },
 
+      '& .input__placeholder': {
+        lineHeight: '1.5em', // since input-default has height 1.5em
+      },
       '& .input__placeholder, & .input__value-label': {
         position: 'absolute',
         left: 0,
