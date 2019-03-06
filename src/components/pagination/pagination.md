@@ -1,6 +1,6 @@
 Simple, few pages (default):
 ```js
-const React = require('react');
+import React from 'react';
 
 class PaginationExample1 extends React.PureComponent {
   constructor(props) {
@@ -26,7 +26,7 @@ class PaginationExample1 extends React.PureComponent {
 
 Advanced layout (more than 7 pages):
 ```js
-const React = require('react');
+import React from 'react';
 import { MemoryRouter, Link } from 'react-router-dom';
 import { Button } from 'nordnet-ui-kit';
 
@@ -65,7 +65,7 @@ Advanced layout with 1 sibling around selected item (without urlGenerator):
 ```
 Advanced layout with 2 anchors (with external selected prop):
 ```js
-const React = require('react');
+import React from 'react';
 
 class PaginationExample4 extends React.PureComponent {
   constructor(props) {

@@ -2,7 +2,7 @@
 
 With tabpanels for each tab (primary look):
 ```js
-const React = require('react');
+import React from 'react';
 import { Tab, Tabpanel } from 'nordnet-ui-kit'; // from nordnet-ui-kit
 
 class TabsExample extends React.PureComponent {
@@ -37,7 +37,7 @@ class TabsExample extends React.PureComponent {
 ```
 With custom tab links (secondary look):
 ```js
-const React = require('react');
+import React from 'react';
 import {Tab, Tabpanel} from 'nordnet-ui-kit'; // from nordnet-ui-kit
 
 class TabsExample2 extends React.PureComponent {
