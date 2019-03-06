@@ -64,7 +64,7 @@ module.exports = {
     Wrapper: path.join(__dirname, 'documentation', 'wrapper.jsx'),
   },
   moduleAliases: {
-    'nordnet-ui-kit': path.resolve(__dirname, 'src', 'index.js'),
+    'nordnet-ui-kit': path.resolve(__dirname, 'src'),
   },
   webpackConfig: {
     module: {
@@ -78,6 +78,9 @@ module.exports = {
     },
     devServer: {
       disableHostCheck: true,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     },
   },
 };
