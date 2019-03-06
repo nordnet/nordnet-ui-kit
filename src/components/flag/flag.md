@@ -1,7 +1,7 @@
 Classic usage: single flag numeric size
 
 ```js
-const flags = require('./flags');
+import flags from './flags';
 
 const style = {
   display: 'inline-block',
@@ -11,7 +11,7 @@ const style = {
 
 
 <div>
-  { Object.keys(flags.default).map(flag => (
+  { Object.keys(flags).map(flag => (
     <div key={ flag } style={ style }>
       <Flag size={32} countryCode={ flag } />
       <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
@@ -22,7 +22,7 @@ const style = {
 
 Classic usage: single flag literal size
 ```js
-const flags = require('./flags');
+import flags from './flags';
 
 const style = {
   display: 'inline-block',
@@ -41,7 +41,7 @@ initialState = { size: 'md' };
     <option>lg</option>
   </select>
   <div>
-  { Object.keys(flags.default).map(flag => (
+  { Object.keys(flags).map(flag => (
       <div key={ flag } style={ style }>
         <Flag size={state.size} countryCode={ flag } />
         <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
@@ -53,7 +53,7 @@ initialState = { size: 'md' };
 
 Rounded flags numeric size:
 ```js
-const flags = require('./flags');
+import flags from './flags';
 
 const style = {
   display: 'inline-block',
@@ -62,7 +62,7 @@ const style = {
 };
 
 <div>
-  { Object.keys(flags.default).map(flag => (
+  { Object.keys(flags).map(flag => (
     <div key={ flag } style={ style }>
       <Flag size={32} countryCode={ flag } round />
       <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>
@@ -73,7 +73,7 @@ const style = {
 
 Rounded flags literal size:
 ```js
-const flags = require('./flags');
+import flags from './flags';
 
 const style = {
   display: 'inline-block',
@@ -94,7 +94,7 @@ initialState = { size: 'md' };
   </select>
   </div>
   <div>
-  { Object.keys(flags.default).map(flag => (
+  { Object.keys(flags).map(flag => (
     <div key={ flag } style={ style }>
       <Flag size={state.size} countryCode={ flag } round />
       <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ flag }</div>

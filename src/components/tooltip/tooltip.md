@@ -1,5 +1,5 @@
 ```js
-const { Icon, Button } = require('../../'); // nordnet-ui-kit
+import { Icon, Button } from 'nordnet-ui-kit'; // nordnet-ui-kit
 
 <ul>
   <li style={{marginBottom: '11px'}}>

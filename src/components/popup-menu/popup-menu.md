@@ -1,6 +1,6 @@
 ```js
-const { PopupMenuItem } = require('./');
-const { MemoryRouter, Link } = require('../../../node_modules/react-router-dom');
+import { PopupMenuItem } from 'nordnet-ui-kit';
+import { MemoryRouter, Link } from 'react-router-dom';
 <MemoryRouter>
   <div style={{display: 'flex', marginLeft: 200}}>
     <PopupMenu

@@ -63,6 +63,9 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'documentation', 'wrapper.jsx'),
   },
+  moduleAliases: {
+    'nordnet-ui-kit': path.resolve(__dirname, 'src'),
+  },
   webpackConfig: {
     module: {
       rules: [
@@ -75,6 +78,9 @@ module.exports = {
     },
     devServer: {
       disableHostCheck: true,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     },
   },
 };

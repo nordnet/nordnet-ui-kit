@@ -12,8 +12,7 @@ Below is an example of how it behaves when animating.
 ```js
 // This is a sample component to illustrate how to use the Animate
 // component. This was needed to have a toggle button with state.
-const React = require('react');
-const PropTypes = require('prop-types');
+import React from 'react';
 const red = { backgroundColor: 'tomato', height: 100, color: 'white' };
 const blue = { backgroundColor: '#07B', height: 100, color: 'white' };
 const DemoBox = ({ style, children }) => (

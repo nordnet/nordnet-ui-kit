@@ -5,14 +5,14 @@ Basic usage:
 ```
 ---
 ```js
-const { Icon } = require('../../'); // nordnet-ui-kit
+import { Icon } from 'nordnet-ui-kit'; // nordnet-ui-kit
 
 <Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />
 ```
 
 All available icons:
 ```js
-const { Icon } = require('../../'); // nordnet-ui-kit
+import { Icon, Input } from 'nordnet-ui-kit';
 
 const containerStyle = {
   paddingTop: 20,

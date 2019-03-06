@@ -1,7 +1,6 @@
 Radio type, Primary (using icons):
 ```js
-const { Icon } = require('../../');
-const color = require('../../styles/color').default;
+import { Icon, theme } from 'nordnet-ui-kit';
 
 <SegmentedControl
   value="green"
@@ -9,20 +8,19 @@ const color = require('../../styles/color').default;
   type="radio"
 >
   <span value="red">
-    <Icon.Trash  width={18} height={18} fill={color.red} />
+    <Icon.Trash  width={18} height={18} fill={theme.palette.color.red} />
   </span>
   <span value="green">
-    <Icon.Trash  width={18} height={18} fill={color.green} />
+    <Icon.Trash  width={18} height={18} fill={theme.palette.color.green} />
   </span>
   <span value="blue">
-    <Icon.Trash  width={18} height={18} fill={color.blue} />
+    <Icon.Trash  width={18} height={18} fill={theme.palette.color.blue} />
   </span>
 </SegmentedControl>
 ```
 Radio type, Primary (using text):
 ```js
-const { Icon } = require('../../');
-const color = require('../../styles/color').default;
+import { Icon, theme } from 'nordnet-ui-kit';
 
 <SegmentedControl
   value="left"
@@ -42,7 +40,7 @@ Radio type, Secondary (using text):
 **Warning! This variant is deprecated, please use the Tabs component.**
 ```js
 // This is a sample component to enable testing setting value from outside the UI-Kit
-const React = require('react');
+import React from 'react';
 
 class RadioTypeSample extends React.PureComponent {
   constructor(props) {

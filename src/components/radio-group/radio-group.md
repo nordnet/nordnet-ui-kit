@@ -1,4 +1,6 @@
 ```js
+import { Input } from 'nordnet-ui-kit';
+
 <RadioGroup name="radio-group" selectedValue="1">
   <Input
     key="radio-1"
@@ -27,6 +29,8 @@
 
 With `orientation="horizontal"` prop.
 ```js
+import { Input } from 'nordnet-ui-kit';
+
 <RadioGroup name="stocks-or-cash" selectedValue="stocks" orientation="horizontal">
   <Input
     key="stocks"

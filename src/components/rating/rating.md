@@ -1,4 +1,4 @@
-    const { Icon } = require('../../');
+    import { Icon } from 'nordnet-ui-kit';
     <div>
     <Rating rating={3} />
     <Rating rating={4} maxRating={10} />
