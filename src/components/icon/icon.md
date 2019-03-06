@@ -12,7 +12,7 @@ import { Icon } from 'nordnet-ui-kit'; // nordnet-ui-kit
 
 All available icons:
 ```js
-import { Icon } from 'nordnet-ui-kit'; // nordnet-ui-kit
+import { Icon, Input } from 'nordnet-ui-kit';
 
 const containerStyle = {
   paddingTop: 20,
