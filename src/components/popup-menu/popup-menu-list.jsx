@@ -84,7 +84,7 @@ class PopupMenuList extends Component {
       'aria-labelledby': ariaLabelledBy,
       popupMenuDropdownZIndex,
     } = this.props;
-    const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'scroll' };
+    const itemContainerStyle = maxHeight === 'none' ? {} : { maxHeight, overflowY: 'auto' };
     let notDisabledIndex = 0;
     return (
       <TransitionGroup>
