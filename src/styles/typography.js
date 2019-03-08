@@ -10,7 +10,6 @@ export default function createTypography() {
   const ifSmallDevice = (smallFontSize, largeFontSize) => ({
     fontFamily: '"Nordnet Sans Mono", "Open Sans", sans',
     fontSize: smallFontSize,
-    lineHeight: 1.2,
     letterSpacing: 'normal',
     [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
       fontSize: largeFontSize,
