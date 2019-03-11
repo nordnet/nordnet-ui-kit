@@ -21,6 +21,7 @@ import ShowMore from './components/show-more';
 import Spinner from './components/spinner';
 import Subsection from './components/subsection/subsection';
 import { Tabs, Tab, Tabpanel } from './components/tabs';
+import Text from './components/text';
 import { Table, Tbody, Td, Tfoot, Th, Thead, Tr } from './components/table';
 import Tooltip from './components/tooltip';
 import Ul from './components/ul/ul';
@@ -68,6 +69,7 @@ export {
   Tabs,
   Tab,
   Tabpanel,
+  Text,
   Table,
   Tbody,
   Td,

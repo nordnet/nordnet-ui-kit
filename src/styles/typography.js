@@ -6,52 +6,67 @@ const WEIGHTS = {
   extrabold: 800,
 };
 
+const ifSmallDevice = (smallFontSize, largeFontSize) => ({
+  fontFamily: '"Nordnet Sans Mono", "Open Sans", sans',
+  fontSize: smallFontSize,
+  lineHeight: 1.2,
+  letterSpacing: 'normal',
+  [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
+    fontSize: largeFontSize,
+  },
+});
+
+const sizes = {
+  caption: ifSmallDevice(10, 10),
+  hero: ifSmallDevice(46, 48),
+  title1: ifSmallDevice(30, 32),
+  title2: ifSmallDevice(22, 24),
+  title3: ifSmallDevice(18, 20),
+  primary: ifSmallDevice(14, 16),
+  secondary: ifSmallDevice(12, 14),
+  tertiary: ifSmallDevice(10, 12),
+};
+
+export { sizes, WEIGHTS as weights };
+
 export default function createTypography() {
-  const ifSmallDevice = (smallFontSize, largeFontSize) => ({
-    fontFamily: '"Nordnet Sans Mono", "Open Sans", sans',
-    fontSize: smallFontSize,
-    letterSpacing: 'normal',
-    [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
-      fontSize: largeFontSize,
-    },
-  });
   const primary = ({ weight = 'regular' } = {}) => ({
-    ...ifSmallDevice(14, 16),
+    ...sizes.primary,
     fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
   });
   const coerceExtraboldToBold = weight => (weight === 'extrabold' ? WEIGHTS.bold : WEIGHTS[weight]);
   const secondary = ({ weight = 'regular' } = {}) => ({
-    ...ifSmallDevice(12, 14),
+    ...sizes.secondary,
     fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
   });
   const tertiary = ({ weight = 'regular' } = {}) => ({
-    ...ifSmallDevice(10, 12),
+    ...sizes.tertiary,
     fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
   });
 
   const caption = ({ weight = 'regular', uppercase = false } = {}) => ({
     // @todo discuss lower value with designers
-    ...ifSmallDevice(10, 10),
+    ...sizes.caption,
     fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
     ...(uppercase ? { textTransform: 'uppercase' } : {}),
   });
 
   const hero = () => ({
-    ...ifSmallDevice(46, 48),
+    ...sizes.hero,
     fontWeight: WEIGHTS.extrabold,
   });
 
   const defaultTitleWeight = 'extrabold';
   const title1 = ({ weight = defaultTitleWeight } = {}) => ({
-    ...ifSmallDevice(30, 32),
+    ...sizes.title1,
     fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
   const title2 = ({ weight = defaultTitleWeight } = {}) => ({
-    ...ifSmallDevice(22, 24),
+    ...sizes.title2,
     fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
   const title3 = ({ weight = defaultTitleWeight } = {}) => ({
-    ...ifSmallDevice(18, 20),
+    ...sizes.title3,
     fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
 
