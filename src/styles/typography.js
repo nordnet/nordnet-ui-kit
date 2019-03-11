@@ -9,7 +9,7 @@ const WEIGHTS = {
 const ifSmallDevice = (smallFontSize, largeFontSize) => ({
   fontFamily: '"Nordnet Sans Mono", "Open Sans", sans',
   fontSize: smallFontSize,
-  lineHeight: 1.2,
+  lineHeight: 'normal',
   letterSpacing: 'normal',
   [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
     fontSize: largeFontSize,
