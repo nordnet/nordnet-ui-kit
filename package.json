@@ -122,7 +122,7 @@
     "react-dom": "16.8.4",
     "react-jss": "8.6.1",
     "react-router-dom": "4.3.1",
-    "react-styleguidist": "9.0.3",
+    "react-styleguidist": "9.0.4",
     "react-test-renderer": "16.8.4",
     "rimraf": "2.6.3",
     "semantic-release": "15.13.3",
