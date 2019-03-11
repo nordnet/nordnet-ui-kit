@@ -44,7 +44,7 @@ CTA #0046FF
 */
 
 export default {
-  // gray0 
+  // gray0
   black: '#373640', // Black text on white
   // gray0
   grayDarkest: '#4C4A56', // Avatar bg
@@ -53,7 +53,7 @@ export default {
   // gray0
   grayDark: '#888790', // Gray text on white bg, icon
 
-  // gray4 
+  // gray4
   gray: '#B9B6C2', // Borders on input fields
   // gray5 (if too light, go with gray4)
   grayLight: '#CFCFD5', // Dividers on gray bg
@@ -76,7 +76,7 @@ export default {
   red: '#FE6F67', // Minus performance, error
   // negative
   redLight: '#FE6F67', // Sell
-  
+
   // yellow
   yellow: '#FFD75A', // Notification Logo
   // yellow
