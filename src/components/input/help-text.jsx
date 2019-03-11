@@ -8,11 +8,9 @@ const styles = theme => {
 
   return {
     'help-text': {
-      position: 'absolute',
       display: 'block',
       width: '100%',
       textAlign: 'right',
-      bottom: '-16px',
       color: palette.text.muted,
       ...theme.typography.tertiary(),
     },
