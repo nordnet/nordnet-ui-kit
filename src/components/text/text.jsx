@@ -45,7 +45,7 @@ const asSize = (
   return Text;
 };
 
-const wrapInInject = R.map(k => injectSheet(styles)(k));
+const wrapInInject = R.map(injectSheet(styles));
 
 const components = {
   Primary: asSize('primary'),
