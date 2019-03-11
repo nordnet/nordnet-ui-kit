@@ -14,8 +14,7 @@
 
 <Text.Primary>Primary</Text.Primary><br/>
 <Text.Secondary>Secondary</Text.Secondary><br/>
-<Text.Secondary>Secondary</Text.Secondary><br/>
-<Text.Tertiary>Secondary</Text.Tertiary><br/>
+<Text.Tertiary>Tertiary</Text.Tertiary><br/>
 <Text.Caption>Caption</Text.Caption><br/>
 
 ```
