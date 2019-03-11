@@ -19,19 +19,20 @@ export default function createTypography() {
     ...ifSmallDevice(14, 16),
     fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
   });
+  const disallowExtrabold = weight => (weight === 'extrabold' ? WEIGHTS.bold : WEIGHTS[weight]);
   const secondary = ({ weight = 'regular' } = {}) => ({
     ...ifSmallDevice(12, 14),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
+    fontWeight: disallowExtrabold(weight) || WEIGHTS.regular,
   });
   const tertiary = ({ weight = 'regular' } = {}) => ({
     ...ifSmallDevice(10, 12),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
+    fontWeight: disallowExtrabold(weight) || WEIGHTS.regular,
   });
 
   const caption = ({ weight = 'regular', uppercase = false } = {}) => ({
     // @todo discuss lower value with designers
     ...ifSmallDevice(10, 10),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
+    fontWeight: disallowExtrabold(weight) || WEIGHTS.regular,
     ...(uppercase ? { textTransform: 'uppercase' } : {}),
   });
 
