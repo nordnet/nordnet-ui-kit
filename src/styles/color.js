@@ -42,7 +42,111 @@ Positive #00D200
 CTA #0046FF
 
 */
+const colors = {
+  // BRAND
+  brandBlue: '#00C8F5',
+  brandGreen: '#D2F500',
+  brandPink: '#FF2B83',
+  brandTurquoise: '#00F0E1',
 
+  // COMPLEMENTARY BRAND COLOURS
+  complementaryBlue2: '#131F4F',
+  complementaryGreen1: '#3A913F',
+  complementaryGreen2: '#023C00',
+  complementaryPink1: '#AC135A',
+  complementaryPink2: '#78013A',
+  complementaryTurquoise1: '#009195',
+  complementaryTurquoise2: '#01424C',
+
+  // GRAYSCALE PALETTE
+
+  black: '#000000',
+  white: '#FFFFFF',
+  gray6: '#EBEBE8',
+  gray5: '#D7D7D2',
+  gray4: '#BCBCB6',
+  gray3: '#A0A09B',
+  gray2: '#6E6E69',
+  gray1: '#4B4B46',
+  gray0: '#282823',
+  gray7: '#F5F5F5',
+
+  // FUNCTIONAL COLOURS FOR PRODUCT DEVELOPMENT
+
+  index: '#FFCF00',
+  negative: '#FF1900',
+  positive: '#00D200',
+  cta: '#0046FF',
+};
+
+const lightScheme = {
+  background: colors.gray7, // gray7, black
+  text: colors.gray0, // gray0, white <-- page text (!)
+  label: colors.gray2, // gray2, Gray4
+  buy: colors.cta, // CTA, CTA
+  buttonText: colors.white, // white, white <-- buy and sell buttons text (!)
+  sell: colors.negative, // Negative, Negative
+  cta: colors.cta, // CTA, BrandTurquoise
+  positive: colors.positive, // Positive, Positive
+  negative: colors.negative, // Negative, Negative
+  warning: colors.index, // Index, Index
+  module: colors.white, // White, gray0
+  divider: colors.gray6, // gray6, gray1
+  // maybe wider divider type
+
+  disabledButtonBackground: colors.gray5, // gray5, gray0
+  disabledButtonText: colors.white, // white, gray2
+
+  disabledText: colors.gray5, // gray5, gray2, <-- page text (!)
+
+  // HOVER, FOCUS???
+};
+
+const darkScheme = {
+  background: colors.black, // gray7, black
+  text: colors.white, // gray0, white <-- page text (!)
+  label: colors.gray4, // gray2, Gray4
+  buy: colors.cta, // CTA, CTA
+  buttonText: colors.white, // white, white <-- buy and sell buttons text (!)
+  sell: colors.negative, // Negative, Negative
+  cta: colors.brandTurquoise, // CTA, BrandTurquoise
+  positive: colors.positive, // Positive, Positive
+  negative: colors.negative, // Negative, Negative
+  warning: colors.index, // Index, Index
+  module: colors.gray0, // White, gray0
+  divider: colors.gray1, // gray6, gray1
+  // maybe wider divider type
+
+  disabledButtonBackground: colors.gray0, // gray5, gray0
+  disabledButtonText: colors.gray2, // white, gray2
+
+  disabledText: colors.gray2, // gray5, gray2, <-- page text (!)
+};
+
+/*
+background // gray7, black
+text, // gray0, white <-- page text (!)
+label,  //gray2, Gray4
+buy, // CTA, CTA
+buttonText, // white, white <-- buy and sell buttons text (!)
+sell, // Negative, Negative
+cta, // CTA, BrandTurquoise
+positive, // Positive, Positive
+negative, // Negative, Negative
+warning, // Index, Index
+module, // White, gray0
+divider, // gray6, gray1
+// maybe wider divider type
+
+disabledButtonBackground, // gray5, gray0
+disabledButtonText // white, gray2
+
+disabledText, // gray5, gray2, <-- page text (!)
+
+
+
+
+*/
 export default {
   // gray0
   black: '#373640', // Black text on white
@@ -83,3 +187,5 @@ export default {
   yellowLight: '#FFF1DD', // Notification
   white: '#FFF', // Background
 };
+
+export { lightScheme, darkScheme };
