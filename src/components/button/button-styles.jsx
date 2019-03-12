@@ -1,5 +1,5 @@
 import c from 'color';
-
+import { lightScheme } from '../../styles/color';
 // This function was created because 'focused' versions on colors were not found in the palette
 const focusColor = color =>
   c(color)
@@ -70,7 +70,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
 };
 
 export default theme => {
-  const { palette, transitions, typography, mixins } = theme;
+  const { transitions, typography, mixins } = theme;
 
   return {
     button: {
@@ -222,120 +222,106 @@ export default theme => {
     },
 
     primary: {
-      background: palette.background.secondary,
-      border: `2px solid ${palette.background.secondary}`,
-      color: palette.shades.dark.text.default,
+      background: lightScheme.label,
+      border: `2px solid ${lightScheme.label}`,
+      // color: palette.shades.dark.text.default,
+      color: lightScheme.buttonText,
 
       '&:hover': {
-        background: focusColor(palette.background.secondary),
-        borderColor: focusColor(palette.background.secondary),
+        background: focusColor(lightScheme.label),
+        borderColor: focusColor(lightScheme.label),
       },
 
       '&:disabled': {
-        background: palette.background.muted,
-        borderColor: palette.background.muted,
-        color: palette.text.muted,
+        background: lightScheme.disabledButtonBackground,
+        borderColor: lightScheme.disabledButtonBackground,
+        color: lightScheme.disabledButtonText,
       },
 
       '&:focus, &:active': {
-        boxShadow: `0 0 0 2px ${focusColor(palette.background.secondary)}`,
+        boxShadow: `0 0 0 2px ${focusColor(lightScheme.label)}`,
       },
 
       '&.action': buttonModifierFn(
         'primary',
-        palette.variant.primary,
-        focusColor(palette.variant.primary),
-        disableColor(palette.variant.primary),
-        palette.shades.dark.text.default,
+        lightScheme.cta,
+        focusColor(lightScheme.cta),
+        disableColor(lightScheme.cta),
+        lightScheme.disabledButtonText,
       ),
       '&.success': buttonModifierFn(
         'primary',
-        palette.variant.success,
-        focusColor(palette.variant.success),
-        disableColor(palette.variant.success),
-        palette.shades.dark.text.default,
+        lightScheme.positive,
+        focusColor(lightScheme.positive),
+        disableColor(lightScheme.positive),
+        lightScheme.disabledButtonText,
       ),
-      '&.warning': {
-        ...buttonModifierFn(
-          'primary',
-          palette.variant.warning,
-          focusColor(palette.variant.warning),
-          c(palette.variant.warning)
-            .lighten(0.3)
-            .hex(),
-          palette.text.default,
-        ),
-        color: palette.text.default,
-      },
+      '&.warning': buttonModifierFn(
+        'primary',
+        lightScheme.warning,
+        focusColor(lightScheme.warning),
+        disableColor(lightScheme.warning),
+        lightScheme.disabledButtonText,
+      ),
+
       '&.danger': buttonModifierFn(
         'primary',
-        palette.variant.danger,
-        focusColor(palette.variant.danger),
-        c(palette.variant.danger)
-          .lighten(0.3)
-          .hex(),
-        palette.shades.dark.text.default,
+        lightScheme.negative,
+        focusColor(lightScheme.negative),
+        disableColor(lightScheme.negative),
+        lightScheme.disabledButtonText,
       ),
     },
 
     secondary: {
-      background: 'none',
-      color: palette.color.grayDark,
-      border: `2px solid ${palette.color.gray}`,
+      background: lightScheme.module,
+      color: lightScheme.text,
+      border: `2px solid ${lightScheme.text}`,
 
       '&:hover': {
-        color: c(palette.color.grayDark)
-          .darken(0.1)
-          .hex(),
-        borderColor: c(palette.color.gray)
-          .darken(0.1)
-          .hex(),
+        color: focusColor(lightScheme.text),
+        borderColor: focusColor(lightScheme.text),
       },
 
       '&:disabled': {
-        borderColor: palette.color.grayLighter,
-        color: palette.color.gray,
+        borderColor: lightScheme.disabledButtonBackground,
+        color: lightScheme.disabledButtonBackground,
       },
 
       '&:focus, &:active': {
-        boxShadow: `0 0 0 2px ${c(palette.color.gray)
-          .darken(0.1)
-          .hex()}`,
+        boxShadow: `0 0 0 2px ${focusColor(lightScheme.text)}`,
       },
-
       '&.xs,&.sm': {
         borderWidth: 1,
       },
 
       '&.action': buttonModifierFn(
         'secondary',
-        palette.variant.primary,
-        focusColor(palette.variant.primary),
-        palette.color.grayLighter,
-        palette.color.gray,
+        lightScheme.cta,
+        focusColor(lightScheme.cta),
+        lightScheme.disabledButtonBackground,
+        lightScheme.disabledButtonBackground,
       ),
       '&.success': buttonModifierFn(
         'secondary',
-        palette.variant.success,
-        focusColor(palette.variant.success),
-        palette.color.grayLighter,
-        palette.color.gray,
+        lightScheme.positive,
+        focusColor(lightScheme.positive),
+        lightScheme.disabledButtonBackground,
+        lightScheme.disabledButtonBackground,
       ),
-      '&.warning': {
-        ...buttonModifierFn(
-          'secondary',
-          palette.variant.warning,
-          focusColor(palette.variant.warning),
-          palette.color.grayLighter,
-          palette.color.gray,
-        ),
-      },
+      '&.warning': buttonModifierFn(
+        'secondary',
+        lightScheme.warning,
+        focusColor(lightScheme.warning),
+        lightScheme.disabledButtonBackground,
+        lightScheme.disabledButtonBackground,
+      ),
       '&.danger': buttonModifierFn(
         'secondary',
-        palette.variant.danger,
-        focusColor(palette.variant.danger),
-        palette.color.grayLighter,
-        palette.color.gray,
+        lightScheme.negative,
+        focusColor(lightScheme.negative),
+        lightScheme.disabledButtonBackground,
+        lightScheme.disabledButtonBackground,
       ),
     },
 
@@ -345,7 +331,7 @@ export default theme => {
       paddingLeft: 0,
       paddingRight: 0,
       borderRadius: 0,
-      color: palette.text.default,
+      color: lightScheme.text,
       border: '2px solid transparent',
       // FIXME: talk to designers,
       fontWeight: 600,
@@ -366,41 +352,25 @@ export default theme => {
         boxShadow: 'none',
 
         '&::after': {
-          boxShadow: `0 4px 0 -2px ${palette.background.secondary}`,
+          boxShadow: `0 4px 0 -2px ${lightScheme.text}`,
         },
       },
 
       '&:hover': {
-        color: palette.color.grayDark, // was $color-primary-dark
+        color: focusColor(lightScheme.text), // was $color-primary-dark
       },
 
       '&:disabled': {
-        color: palette.color.gray,
+        color: disableColor(lightScheme.text),
       },
 
-      '&.action': buttonModifierFn(
-        'link',
-        palette.variant.primary,
-        focusColor(palette.variant.primary),
-      ),
+      '&.action': buttonModifierFn('link', lightScheme.cta, focusColor(lightScheme.cta)),
 
-      '&.success': buttonModifierFn(
-        'link',
-        palette.variant.success,
-        focusColor(palette.variant.success),
-      ),
+      '&.success': buttonModifierFn('link', lightScheme.positive, focusColor(lightScheme.positive)),
 
-      '&.warning': buttonModifierFn(
-        'link',
-        palette.variant.warning,
-        focusColor(palette.variant.warning),
-      ),
+      '&.warning': buttonModifierFn('link', lightScheme.warning, focusColor(lightScheme.warning)),
 
-      '&.danger': buttonModifierFn(
-        'link',
-        palette.variant.danger,
-        focusColor(palette.variant.danger),
-      ),
+      '&.danger': buttonModifierFn('link', lightScheme.negative, focusColor(lightScheme.negative)),
     },
   };
 };
