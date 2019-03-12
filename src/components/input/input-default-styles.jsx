@@ -13,7 +13,7 @@ export default theme => {
   const bottomBorderSize = 3;
 
   const modifierFn = color => ({
-    marginBottom: ({ label }) => (label ? inputMarginBottom : 0),
+    marginBottom: ({ label, helpText }) => (label || helpText ? inputMarginBottom : 0),
 
     '& .input__label': {
       color,
@@ -21,6 +21,8 @@ export default theme => {
 
     '& .input__field': {
       borderBottom: `${bottomBorderSize}px solid ${color}`,
+      marginBottom: ({ label, helpText }) =>
+        label && helpText && helpText.length > 32 ? inputMarginBottom : 0,
     },
 
     '&--is-disabled': {
