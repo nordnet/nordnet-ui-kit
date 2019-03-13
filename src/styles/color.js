@@ -94,7 +94,8 @@ const lightScheme = {
   divider: colors.gray6, // gray6, gray1
   // maybe wider divider type
 
-  disabledButtonBackground: colors.gray5, // gray5, gray0
+  disabledButtonBackgroundPrimary: colors.gray5, // gray5, gray0
+  disabledButtonBackgroundSecondary: colors.white, // white, black
   disabledButtonText: colors.white, // white, gray2
 
   disabledText: colors.gray5, // gray5, gray2, <-- page text (!)
@@ -117,7 +118,8 @@ const darkScheme = {
   divider: colors.gray1, // gray6, gray1
   // maybe wider divider type
 
-  disabledButtonBackground: colors.gray0, // gray5, gray0
+  disabledButtonBackgroundPrimary: colors.gray0, // gray5, gray0
+  disabledButtonBackgroundSecondary: colors.black, // white, black
   disabledButtonText: colors.gray2, // white, gray2
 
   disabledText: colors.gray2, // gray5, gray2, <-- page text (!)

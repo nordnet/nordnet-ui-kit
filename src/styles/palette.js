@@ -1,12 +1,4 @@
-import color from './color';
-
-const variant = {
-  primary: color.blue,
-  info: color.blueDark,
-  success: color.green,
-  warning: color.yellow,
-  danger: color.red,
-};
+import color, { lightScheme, darkScheme } from './color';
 
 export const light = {
   text: {
@@ -44,25 +36,20 @@ export const dark = {
 
 export const shades = { light, dark };
 
-export default function createPalette({
-  primary = variant.primary,
-  accent = variant.info,
-  error = variant.danger,
-  type = 'light',
-  name = 'nordnet',
-} = {}) {
+export default function createPalette({ type = 'light' } = {}) {
   return {
-    name,
-    type,
-    color,
-    variant,
-    text: shades[type].text,
-    action: shades[type].action,
-    background: shades[type].background,
-    shades,
-    primary,
-    accent,
-    error,
+    ...(type === 'dark' ? darkScheme : lightScheme),
+    // name,
+    // type,
+    // color,
+    // variant,
+    // text: shades[type].text,
+    // action: shades[type].action,
+    // background: shades[type].background,
+    // shades,
+    // primary,
+    // accent,
+    // error,
     // // functions
     // getContrastText,
   };

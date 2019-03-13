@@ -1,5 +1,4 @@
 import c from 'color';
-import { lightScheme } from '../../styles/color';
 // This function was created because 'focused' versions on colors were not found in the palette
 const focusColor = color =>
   c(color)
@@ -70,7 +69,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
 };
 
 export default theme => {
-  const { transitions, typography, mixins } = theme;
+  const { palette, transitions, typography, mixins } = theme;
 
   return {
     button: {
@@ -222,74 +221,74 @@ export default theme => {
     },
 
     primary: {
-      background: lightScheme.label,
-      border: `2px solid ${lightScheme.label}`,
+      background: palette.label,
+      border: `2px solid ${palette.label}`,
       // color: palette.shades.dark.text.default,
-      color: lightScheme.buttonText,
+      color: palette.buttonText,
 
       '&:hover': {
-        background: focusColor(lightScheme.label),
-        borderColor: focusColor(lightScheme.label),
+        background: focusColor(palette.label),
+        borderColor: focusColor(palette.label),
       },
 
       '&:disabled': {
-        background: lightScheme.disabledButtonBackground,
-        borderColor: lightScheme.disabledButtonBackground,
-        color: lightScheme.disabledButtonText,
+        background: palette.disabledButtonBackgroundPrimary,
+        borderColor: palette.disabledButtonBackgroundPrimary,
+        color: palette.disabledButtonText,
       },
 
       '&:focus, &:active': {
-        boxShadow: `0 0 0 2px ${focusColor(lightScheme.label)}`,
+        boxShadow: `0 0 0 2px ${focusColor(palette.label)}`,
       },
 
       '&.action': buttonModifierFn(
         'primary',
-        lightScheme.cta,
-        focusColor(lightScheme.cta),
-        disableColor(lightScheme.cta),
-        lightScheme.disabledButtonText,
+        palette.cta,
+        focusColor(palette.cta),
+        palette.disabledButtonBackgroundPrimary,
+        palette.disabledButtonText,
       ),
       '&.success': buttonModifierFn(
         'primary',
-        lightScheme.positive,
-        focusColor(lightScheme.positive),
-        disableColor(lightScheme.positive),
-        lightScheme.disabledButtonText,
+        palette.positive,
+        focusColor(palette.positive),
+        palette.disabledButtonBackgroundPrimary,
+        palette.disabledButtonText,
       ),
       '&.warning': buttonModifierFn(
         'primary',
-        lightScheme.warning,
-        focusColor(lightScheme.warning),
-        disableColor(lightScheme.warning),
-        lightScheme.disabledButtonText,
+        palette.warning,
+        focusColor(palette.warning),
+        palette.disabledButtonBackgroundPrimary,
+        palette.disabledButtonText,
       ),
 
       '&.danger': buttonModifierFn(
         'primary',
-        lightScheme.negative,
-        focusColor(lightScheme.negative),
-        disableColor(lightScheme.negative),
-        lightScheme.disabledButtonText,
+        palette.negative,
+        focusColor(palette.negative),
+        palette.disabledButtonBackgroundPrimary,
+        palette.disabledButtonText,
       ),
     },
 
     secondary: {
-      background: lightScheme.module,
-      color: lightScheme.text,
-      border: `2px solid ${lightScheme.text}`,
+      background: palette.module,
+      color: palette.text,
+      border: `2px solid ${palette.text}`,
 
       '&:hover': {
-        color: focusColor(lightScheme.text),
-        borderColor: focusColor(lightScheme.text),
+        color: focusColor(palette.text),
+        borderColor: focusColor(palette.text),
       },
 
       '&:disabled': {
-        borderColor: lightScheme.disabledButtonBackground,
-        color: lightScheme.disabledButtonBackground,
+        borderColor: palette.disabledButtonBackgroundSecondary,
+        color: palette.disabledButtonText,
       },
 
       '&:focus, &:active': {
-        boxShadow: `0 0 0 2px ${focusColor(lightScheme.text)}`,
+        boxShadow: `0 0 0 2px ${focusColor(palette.text)}`,
       },
       '&.xs,&.sm': {
         borderWidth: 1,
@@ -297,31 +296,31 @@ export default theme => {
 
       '&.action': buttonModifierFn(
         'secondary',
-        lightScheme.cta,
-        focusColor(lightScheme.cta),
-        lightScheme.disabledButtonBackground,
-        lightScheme.disabledButtonBackground,
+        palette.cta,
+        focusColor(palette.cta),
+        palette.disabledButtonBackgroundSecondary,
+        palette.disabledButtonText,
       ),
       '&.success': buttonModifierFn(
         'secondary',
-        lightScheme.positive,
-        focusColor(lightScheme.positive),
-        lightScheme.disabledButtonBackground,
-        lightScheme.disabledButtonBackground,
+        palette.positive,
+        focusColor(palette.positive),
+        palette.disabledButtonBackgroundSecondary,
+        palette.disabledButtonText,
       ),
       '&.warning': buttonModifierFn(
         'secondary',
-        lightScheme.warning,
-        focusColor(lightScheme.warning),
-        lightScheme.disabledButtonBackground,
-        lightScheme.disabledButtonBackground,
+        palette.warning,
+        focusColor(palette.warning),
+        palette.disabledButtonBackgroundSecondary,
+        palette.disabledButtonText,
       ),
       '&.danger': buttonModifierFn(
         'secondary',
-        lightScheme.negative,
-        focusColor(lightScheme.negative),
-        lightScheme.disabledButtonBackground,
-        lightScheme.disabledButtonBackground,
+        palette.negative,
+        focusColor(palette.negative),
+        palette.disabledButtonBackgroundSecondary,
+        palette.disabledButtonText,
       ),
     },
 
@@ -331,7 +330,7 @@ export default theme => {
       paddingLeft: 0,
       paddingRight: 0,
       borderRadius: 0,
-      color: lightScheme.text,
+      color: palette.text,
       border: '2px solid transparent',
       // FIXME: talk to designers,
       fontWeight: 600,
@@ -352,25 +351,25 @@ export default theme => {
         boxShadow: 'none',
 
         '&::after': {
-          boxShadow: `0 4px 0 -2px ${lightScheme.text}`,
+          boxShadow: `0 4px 0 -2px ${palette.text}`,
         },
       },
 
       '&:hover': {
-        color: focusColor(lightScheme.text), // was $color-primary-dark
+        color: focusColor(palette.text), // was $color-primary-dark
       },
 
       '&:disabled': {
-        color: disableColor(lightScheme.text),
+        color: disableColor(palette.text),
       },
 
-      '&.action': buttonModifierFn('link', lightScheme.cta, focusColor(lightScheme.cta)),
+      '&.action': buttonModifierFn('link', palette.cta, focusColor(palette.cta)),
 
-      '&.success': buttonModifierFn('link', lightScheme.positive, focusColor(lightScheme.positive)),
+      '&.success': buttonModifierFn('link', palette.positive, focusColor(palette.positive)),
 
-      '&.warning': buttonModifierFn('link', lightScheme.warning, focusColor(lightScheme.warning)),
+      '&.warning': buttonModifierFn('link', palette.warning, focusColor(palette.warning)),
 
-      '&.danger': buttonModifierFn('link', lightScheme.negative, focusColor(lightScheme.negative)),
+      '&.danger': buttonModifierFn('link', palette.negative, focusColor(palette.negative)),
     },
   };
 };
