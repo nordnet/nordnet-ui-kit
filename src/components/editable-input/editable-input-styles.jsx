@@ -42,8 +42,6 @@ export default theme => ({
     alignSelf: 'center',
   },
   buttonEdit: {
-    width: 31,
-    height: 31,
     alignSelf: 'center',
   },
 });
