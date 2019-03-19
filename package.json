@@ -48,8 +48,10 @@
   },
   "commitlint": {
     "extends": [
+      "squash-pr",
       "@commitlint/config-conventional"
-    ]
+    ],
+    "rules": { "scope-case": [0] }
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -96,6 +98,7 @@
     "babel-plugin-lodash": "3.3.4",
     "codecov": "3.2.0",
     "commitizen": "3.0.7",
+    "commitlint-config-squash-pr": "1.0.1",
     "cross-env": "5.2.0",
     "cz-conventional-changelog": "2.1.0",
     "enzyme": "3.9.0",

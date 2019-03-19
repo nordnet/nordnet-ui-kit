@@ -2832,6 +2832,11 @@ commitizen@3.0.7:
     strip-bom "3.0.0"
     strip-json-comments "2.0.1"
 
+commitlint-config-squash-pr@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/commitlint-config-squash-pr/-/commitlint-config-squash-pr-1.0.1.tgz#8bd288f63a5b4fa1e845cf88491aba2f1c7a708c"
+  integrity sha512-L1ajC7gJT1QY3+Rxf982bMl1utQkBpk5sL+5pU/zIjimCUedi+BpMuHUyDjAtxP2xnqwc7Nvx3ojPh56Askm6A==
+
 common-dir@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/common-dir/-/common-dir-2.0.2.tgz#cfea16f48564a0ecbb088065fad029047f469dc1"
