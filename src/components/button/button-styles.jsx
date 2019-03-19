@@ -111,11 +111,11 @@ export default theme => {
 
     xs: {
       borderRadius: 12,
-      padding: '5px 12px',
+      padding: '2px 10px 3px',
 
       '&$iconText': {
-        paddingBottom: 5,
-        paddingTop: 4,
+        paddingBottom: 3,
+        paddingTop: 2,
       },
 
       '&$icon': {
@@ -126,18 +126,18 @@ export default theme => {
         },
       },
 
-      ...typography.caption({
+      ...typography.secondary({
         weight: 'regular',
       }),
     },
 
     sm: {
       borderRadius: 16,
-      padding: '8px 20px',
+      padding: '5px 12px 6px',
 
       '&$iconText': {
-        paddingBottom: 7,
-        paddingTop: 7,
+        paddingBottom: 6,
+        paddingTop: 5,
       },
 
       '&$icon': {
@@ -148,17 +148,17 @@ export default theme => {
         },
       },
 
-      ...typography.caption({
+      ...typography.secondary({
         weight: 'regular',
       }),
     },
 
     md: {
       borderRadius: 20,
-      padding: '11px 38px',
+      padding: '10px 34px 11px',
 
       '&$iconText': {
-        paddingBottom: 10,
+        paddingBottom: 11,
         paddingTop: 10,
       },
 
@@ -170,7 +170,7 @@ export default theme => {
         },
       },
 
-      ...typography.secondary({
+      ...typography.primary({
         weight: 'regular',
       }),
     },
