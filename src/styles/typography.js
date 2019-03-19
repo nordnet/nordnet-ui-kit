@@ -8,7 +8,8 @@ const WEIGHTS = {
 
 export default function createTypography() {
   const ifSmallDevice = (smallFontSize, largeFontSize) => ({
-    fontFamily: '"Nordnet Sans Mono", "Open Sans", sans',
+    fontFamily:
+      '"Nordnet Sans Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     fontSize: smallFontSize,
     letterSpacing: 'normal',
     [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
