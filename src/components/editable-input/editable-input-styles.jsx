@@ -5,9 +5,13 @@ export default theme => ({
     justifyContent: 'flex-end',
   },
   isEditing: {
-    flexWrap: 'wrap',
+    flexDirection: 'column',
+    alignItems: 'center',
     [theme.mixins.media('md')]: {
-      flexWrap: 'nowrap',
+      alignItems: 'flex-end',
+    },
+    [theme.mixins.media('lg')]: {
+      flexDirection: 'row',
     },
   },
   form: {
@@ -39,11 +43,11 @@ export default theme => ({
   buttons: {
     display: 'flex',
     flexShrink: 0,
-    alignSelf: 'center',
+    [theme.mixins.media('lg')]: {
+      alignSelf: 'flex-start',
+    },
   },
   buttonEdit: {
-    width: 31,
-    height: 31,
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
   },
 });

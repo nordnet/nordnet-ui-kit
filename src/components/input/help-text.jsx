@@ -8,7 +8,6 @@ const styles = theme => {
 
   return {
     'help-text': {
-      position: 'absolute',
       display: 'block',
       width: '100%',
       textAlign: 'right',

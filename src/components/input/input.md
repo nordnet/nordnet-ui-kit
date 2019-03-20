@@ -66,6 +66,35 @@ function toUpperCase(value) {
     hasSuccess
     variant="secondary"
   />
+
+  <Input
+    placeholder="Enter text"
+    value="text"
+    hasError
+    helpText="This input doesn't have a label"
+  />
+
+  <Input
+    label="Text input with error and help text"
+    placeholder="Enter text"
+    value="text"
+    hasError
+    helpText="Reasonable help text length"
+  />
+
+  <Input
+    label="Text input with error and really long help text"
+    placeholder="Enter text"
+    value="text"
+    hasError
+    helpText="Something really long that breaks the flow of the page if it exceeds the length of the width of the page and potentially, but almost definitely, forces the text in the help text field to take up more than one row quite extensively and on almost every screen width size and this should also probably not collide with the label"
+  />
+  <Input
+    placeholder="Enter text"
+    value="text"
+    hasError
+    helpText="This input also has a really long help text, but since it doesn't have a label where the help text can bleed over into it, it doesn't need to add the extra margin at the bottom of itself, and can just remain intact as is, with no extra spacing added"
+  />
 </div>
 ```
 
