@@ -7,6 +7,6 @@ export default ({ palette }) => ({
   },
 
   tertiary: {
-    borderBottom: `2px solid ${palette.color.grayLighter}`,
+    borderBottom: `2px solid ${palette.gray6}`,
   },
 });

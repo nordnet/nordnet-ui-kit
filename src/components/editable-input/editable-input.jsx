@@ -147,7 +147,7 @@ class EditableInput extends React.Component {
           onClick={this.onSubmit}
           disabled={this.props.disabled || this.props.hasError || this.state.saving}
         >
-          {this.state.saving ? <Spinner size={13} color="#FFF" /> : this.props.submitLabel}
+          {this.state.saving ? <Spinner size={13} color="#FFFFFF" /> : this.props.submitLabel}
         </Button>
         <Button
           variant="secondary"

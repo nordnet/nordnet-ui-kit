@@ -48,7 +48,7 @@ export default theme => {
                 top: '-4px',
                 left: '-4px',
                 borderRadius: 'inherit',
-                border: `2px solid ${palette.variant.primary}`,
+                border: `2px solid ${palette.cta}`,
                 boxSizing: 'border-box',
               },
             },
@@ -56,9 +56,9 @@ export default theme => {
         },
       },
 
-      '&.input-checkbox-radio--has-success': modifierFn(palette.variant.success),
-      '&.input-checkbox-radio--has-warning': modifierFn(palette.variant.warning),
-      '&.input-checkbox-radio--has-error': modifierFn(palette.variant.danger),
+      '&.input-checkbox-radio--has-success': modifierFn(palette.positive),
+      '&.input-checkbox-radio--has-warning': modifierFn(palette.index),
+      '&.input-checkbox-radio--has-error': modifierFn(palette.negative),
 
       '& .input-checkbox-radio__label': {
         display: 'inline-block',
@@ -72,7 +72,7 @@ export default theme => {
 
       '&.input-checkbox-radio--is-disabled': {
         cursor: 'not-allowed',
-        color: palette.action.disabled,
+        color: palette.gray4,
       },
 
       '& + .help-text': {
@@ -88,30 +88,30 @@ export default theme => {
         display: 'block',
         width: '16px',
         height: '16px',
-        border: `1px solid ${palette.shades.light.text.muted}`,
+        border: `1px solid ${palette.gray0}`,
         padding: '3px 2px',
         transition: transitions.create(['all'], {
           duration: transitions.duration.shortest,
         }),
         userSelect: 'none',
-        color: palette.text.default,
-        outlineColor: palette.background.default,
+        color: palette.gray0,
+        outlineColor: palette.gray7,
 
         '&--is-checked': {
-          color: palette.variant.primary,
-          borderColor: palette.variant.primary,
-          background: palette.variant.primary,
+          color: palette.cta,
+          borderColor: palette.cta,
+          background: palette.cta,
         },
 
         '&--is-disabled': {
-          color: palette.action.disabled,
-          borderColor: palette.action.disabled,
+          color: palette.gray4,
+          borderColor: palette.gray4,
         },
       },
 
       '& .checkbox': {
         '&--is-disabled': {
-          background: palette.action.disabled,
+          background: palette.gray4,
         },
       },
 
@@ -120,7 +120,7 @@ export default theme => {
       },
 
       '& .checkbox--is-disabled.checkbox--is-checked, & .radio--is-disabled.radio--is-checked': {
-        background: palette.action.disabled,
+        background: palette.gray4,
       },
 
       '& .radio': {
@@ -132,7 +132,7 @@ export default theme => {
           display: 'block',
           width: '8px',
           height: '8px',
-          background: palette.background.default,
+          background: palette.gray7,
           top: '3px',
           left: '3px',
           borderRadius: '50%',

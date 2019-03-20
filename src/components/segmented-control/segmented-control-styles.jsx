@@ -31,14 +31,14 @@ export default theme => {
       '&.primary': {
         textAlign: 'center',
         outline: 'none',
-        borderTop: `2px solid ${palette.color.grayLight}`,
-        borderBottom: `2px solid ${palette.color.grayLight}`,
-        color: palette.text.default,
+        borderTop: `2px solid ${palette.gray5}`,
+        borderBottom: `2px solid ${palette.gray5}`,
+        color: palette.gray0,
         backgroundColor: 'inherit',
         position: 'relative',
 
         '& + &': {
-          borderLeft: `1px solid ${palette.color.grayLight}`,
+          borderLeft: `1px solid ${palette.gray5}`,
         },
 
         '& label': {
@@ -54,12 +54,12 @@ export default theme => {
         letterSpacing: 0.2,
         textAlign: 'center',
         outline: 'none',
-        color: palette.text.muted,
+        color: palette.gray0,
         backgroundColor: 'inherit',
         position: 'relative',
 
         '& selected': {
-          backgroundColor: palette.color.grayLighter,
+          backgroundColor: palette.gray6,
         },
 
         '& + &': {
@@ -74,18 +74,18 @@ export default theme => {
 
     selected: {
       '&.primary': {
-        backgroundColor: palette.color.grayLighter,
+        backgroundColor: palette.gray6,
       },
       '&.secondary': {
-        color: palette.text.default,
+        color: palette.gray0,
         paddingBottom: 2,
-        borderBottom: `2px solid ${palette.accent}`,
+        borderBottom: `2px solid ${palette.complementaryBlue1}`,
       },
     },
 
     focus: {
       '&.primary': {
-        boxShadow: `inset 0 0 1px 1px ${palette.variant.primary}`,
+        boxShadow: `inset 0 0 1px 1px ${palette.cta}`,
       },
     },
 
@@ -93,7 +93,7 @@ export default theme => {
       '&.primary': {
         borderTopLeftRadius: '8px',
         borderBottomLeftRadius: '8px',
-        borderLeft: `2px solid ${palette.color.grayLight}`,
+        borderLeft: `2px solid ${palette.gray5}`,
       },
     },
 
@@ -101,7 +101,7 @@ export default theme => {
       '&.primary': {
         borderTopRightRadius: '8px',
         borderBottomRightRadius: '8px',
-        borderRight: `2px solid ${palette.color.grayLight}`,
+        borderRight: `2px solid ${palette.gray5}`,
       },
     },
   };

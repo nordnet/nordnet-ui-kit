@@ -218,7 +218,7 @@ class InputSelect extends React.Component {
             {this.showValue() && selectedOption && (
               <span className="input__value-label">{selectedOption.label}</span>
             )}
-            <SelectArrow className="input__select-arrow" stroke={theme.palette.variant.primary} />
+            <SelectArrow className="input__select-arrow" stroke={theme.palette.cta} />
           </div>
           <Label
             id={elementId}

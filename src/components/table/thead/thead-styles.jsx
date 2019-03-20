@@ -1,16 +1,16 @@
 import styleUtils from '../style-utilities';
 
-const normal = ({ mixins, typography, palette: { color } }) => ({
+const normal = ({ mixins, typography, palette }) => ({
   thead: {
     width: '100%',
     ...styleUtils.sizes({ typography }),
     ...mixins.basicBoxSizing,
     fontWeight: typography.primary({ weight: 'bold' }).fontWeight,
-    borderBottom: `2px solid ${color.grayDarker}`,
+    borderBottom: `2px solid ${palette.gray0}`,
 
     '& th': {
       '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
-        borderBottom: `2px solid ${color.grayDarker}`,
+        borderBottom: `2px solid ${palette.gray0}`,
       },
     },
   },
@@ -28,7 +28,7 @@ const normal = ({ mixins, typography, palette: { color } }) => ({
       },
       top: 0,
       zIndex: 1,
-      backgroundColor: color.white,
+      backgroundColor: palette.white,
     },
   },
   stickyBorder: {
@@ -40,7 +40,7 @@ const normal = ({ mixins, typography, palette: { color } }) => ({
       bottom: 0,
       height: '100%',
       width: '100%',
-      borderBottom: `2px solid ${color.grayDarker}`,
+      borderBottom: `2px solid ${palette.gray0}`,
       '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)': {
         borderBottom: 0,
       },

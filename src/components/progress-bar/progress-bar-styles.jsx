@@ -12,7 +12,7 @@ const disableColor = color =>
 
 const variantModifierFn = (variant, colors) => {
   const { background, backgroundDisabled, borderColor, color, colorDisabled } = colors;
-
+  console.log(variant, background, color);
   const variantDict = {
     primary: {
       background,
@@ -146,45 +146,45 @@ export default theme => {
 
     primary: {
       ...variantModifierFn('primary', {
-        background: palette.background.secondary,
-        backgroundDisabled: palette.background.muted,
-        borderColor: palette.background.secondary,
-        color: palette.shades.dark.text.default,
-        colorDisabled: palette.action.disabled,
+        background: palette.gray7,
+        backgroundDisabled: palette.gray7,
+        borderColor: palette.gray5,
+        color: palette.gray0,
+        colorDisabled: palette.gray4,
       }),
 
       '&$reached': variantModifierFn('primary', {
-        background: palette.shades.dark.background.default,
-        borderColor: palette.shades.dark.background.default,
-        color: palette.shades.dark.text.default,
-        colorDisabled: palette.shades.dark.text.muted,
+        background: palette.complementaryBlue1,
+        borderColor: palette.complementaryBlue1,
+        color: palette.gray7,
+        colorDisabled: palette.gray4,
       }),
 
       '&$active': variantModifierFn('primary', {
-        background: palette.action.active,
-        borderColor: palette.action.active,
+        background: palette.cta,
+        borderColor: palette.cta,
       }),
     },
 
     secondary: {
       ...variantModifierFn('secondary', {
-        background: 'transparent',
-        backgroundDisabled: 'transparent',
-        borderColor: palette.shades.dark.background.default,
-        color: palette.text.default,
-        colorDisabled: palette.action.disabled,
+        background: palette.gray7,
+        backgroundDisabled: palette.gray0,
+        borderColor: palette.complementaryBlue1,
+        color: palette.gray0,
+        colorDisabled: palette.gray4,
       }),
 
       '&$reached': variantModifierFn('secondary', {
-        background: palette.shades.dark.background.default,
-        borderColor: palette.shades.dark.background.default,
-        color: palette.shades.dark.text.default,
-        colorDisabled: palette.shades.dark.text.muted,
+        background: palette.complementaryBlue1,
+        borderColor: palette.complementaryBlue1,
+        color: palette.gray7,
+        colorDisabled: palette.gray6,
       }),
 
       '&$active': variantModifierFn('secondary', {
-        background: palette.action.active,
-        borderColor: palette.action.active,
+        background: palette.cta,
+        borderColor: palette.cta,
       }),
     },
   };

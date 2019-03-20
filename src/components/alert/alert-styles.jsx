@@ -4,11 +4,11 @@ export default theme => {
   return {
     alert: {
       ...mixins.basicBoxSizing,
-      background: palette.background.default,
+      background: palette.gray7,
       padding: '4px 8px',
       position: 'relative',
       marginBottom: '16px',
-      color: palette.text.default,
+      color: palette.gray0,
       ...theme.typography.tertiary(),
     },
 
@@ -18,7 +18,7 @@ export default theme => {
         weight: 'bold',
       }),
       padding: [4, 20, 4, 4],
-      color: palette.variant.info,
+      color: palette.complementaryBlue1,
 
       '&$vertical': {
         color: 'inherit',
@@ -49,34 +49,34 @@ export default theme => {
     },
 
     info: {
-      borderLeft: `4px solid ${palette.variant.info}`,
+      borderLeft: `4px solid ${palette.complementaryBlue1}`,
 
       '& $header:not($vertical)': {
-        color: palette.variant.info,
+        color: palette.complementaryBlue1,
       },
     },
 
     success: {
-      borderLeft: `4px solid ${palette.variant.success}`,
+      borderLeft: `4px solid ${palette.positive}`,
 
       '& $header:not($vertical)': {
-        color: palette.variant.success,
+        color: palette.positive,
       },
     },
 
     warning: {
-      borderLeft: `4px solid ${palette.variant.warning}`,
+      borderLeft: `4px solid ${palette.index}`,
 
       '& $header:not($vertical)': {
-        color: palette.text.default,
+        color: palette.gray0,
       },
     },
 
     danger: {
-      borderLeft: `4px solid ${palette.variant.danger}`,
+      borderLeft: `4px solid ${palette.negative}`,
 
       '& $header:not($vertical)': {
-        color: palette.variant.danger,
+        color: palette.negative,
       },
     },
   };

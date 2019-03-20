@@ -126,8 +126,8 @@ class PopupMenu extends Component {
             <Icon.VerticalEllipsis
               height={28}
               width={28}
-              stroke={disabled ? theme.palette.action.disabled : 'currentColor'}
-              fill={disabled ? theme.palette.action.disabled : 'currentColor'}
+              stroke={disabled ? theme.palette.gray4 : 'currentColor'}
+              fill={disabled ? theme.palette.gray4 : 'currentColor'}
             />
           )}
         </button>

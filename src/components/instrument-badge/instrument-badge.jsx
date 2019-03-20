@@ -18,7 +18,7 @@ export const styles = theme => {
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: '50%',
-      backgroundColor: palette.color.grayLighter,
+      backgroundColor: palette.gray6,
 
       height: 45,
       width: 45,
@@ -76,8 +76,8 @@ export const styles = theme => {
     hexagon: {
       color: ({
         qualified,
-        qualifiedColor = theme.palette.color.green,
-        unqualifiedColor = theme.palette.color.red,
+        qualifiedColor = palette.positive,
+        unqualifiedColor = palette.negative,
       }) => (qualified ? qualifiedColor : unqualifiedColor),
     },
     iconWrapper: {
@@ -91,7 +91,7 @@ export const styles = theme => {
       alignItems: 'center',
       justifyContent: 'center',
       height: '100%',
-      color: palette.color.white,
+      color: palette.white,
 
       '& > svg': {
         width: 15,
@@ -156,8 +156,8 @@ export const styles = theme => {
     subText: {
       color: ({
         qualified,
-        qualifiedColor = palette.color.green,
-        unqualifiedColor = palette.color.red,
+        qualifiedColor = palette.positive,
+        unqualifiedColor = palette.negative,
       }) => (qualified ? qualifiedColor : unqualifiedColor),
 
       textAlign: ({ subTextPlacement }) => (subTextPlacement === 'below' ? 'center' : 'left'),

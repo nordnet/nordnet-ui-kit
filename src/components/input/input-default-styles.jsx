@@ -5,7 +5,7 @@ export default theme => {
 
   const disabledColor = color =>
     Color(color)
-      .mix(Color(palette.action.disabled), 0.6)
+      .mix(Color(palette.gray4), 0.6)
       .hex();
 
   const inputMarginBottom = 20;
@@ -52,54 +52,54 @@ export default theme => {
   return {
     input: {
       ...mixins.basicBoxSizing,
-      color: palette.text.default,
+      color: palette.gray0,
       marginBottom: ({ label }) => bottomBorderSize - borderSize + (label ? inputMarginBottom : 0),
       position: 'relative',
-      '&.input--has-success': modifierFn(palette.variant.success),
-      '&.input--has-warning': modifierFn(palette.variant.warning),
+      '&.input--has-success': modifierFn(palette.positive),
+      '&.input--has-warning': modifierFn(palette.negative),
 
       '&.input--has-error': {
         '& .input': {
           '&__label': {
-            color: palette.variant.danger,
+            color: palette.negative,
             opacity: 1,
             transform: 'translateY(15px)',
           },
         },
-        ...modifierFn(palette.variant.danger),
+        ...modifierFn(palette.negative),
       },
 
       '&.input--has-focus': {
         marginBottom: ({ label }) => (label ? inputMarginBottom : 0),
         '& .input': {
           '&__label': {
-            color: palette.action.active,
+            color: palette.cta,
             opacity: 1,
             transform: 'translateY(15px)',
           },
 
           '&__field': {
-            borderColor: palette.action.active,
-            borderBottom: `3px solid ${palette.action.active}`,
+            borderColor: palette.cta,
+            borderBottom: `3px solid ${palette.cta}`,
           },
         },
 
-        '&.input--has-success': modifierFocusFn(palette.variant.success),
-        '&.input--has-warning': modifierFocusFn(palette.variant.warning),
-        '&.input--has-error': modifierFocusFn(palette.variant.danger),
+        '&.input--has-success': modifierFocusFn(palette.positive),
+        '&.input--has-warning': modifierFocusFn(palette.index),
+        '&.input--has-error': modifierFocusFn(palette.negative),
       },
 
       '&.input--is-disabled': {
-        color: palette.action.disabled,
-        backgroundColor: palette.background.muted,
+        color: palette.gray4,
+        backgroundColor: palette.gray7,
 
         '& .input': {
           '&__label': {
-            color: palette.action.disabled,
+            color: palette.gray4,
           },
 
           '&__field': {
-            borderColor: palette.action.disabled,
+            borderColor: palette.gray4,
 
             '> input': {
               cursor: 'not-allowed',
@@ -120,7 +120,7 @@ export default theme => {
           },
 
           '&__addon': {
-            color: palette.text.muted,
+            color: palette.gray0,
 
             '&--left': {
               left: 10,
@@ -145,7 +145,7 @@ export default theme => {
         transition: transitions.create(['opacity', 'transform', 'color']),
         transform: 'translateY(0)',
         opacity: 0,
-        color: palette.action.disabled,
+        color: palette.gray4,
         pointerEvents: 'none',
 
         '&.input--has-focus, &.input--has-value': {
@@ -205,7 +205,7 @@ export default theme => {
       '& .input__field': {
         position: 'relative',
         width: '100%',
-        border: `${borderSize}px solid ${palette.action.disabled}`,
+        border: `${borderSize}px solid ${palette.gray4}`,
         borderRadius: 4,
         padding: 8,
         paddingTop: 10,
@@ -219,7 +219,7 @@ export default theme => {
         width: '100%',
         padding: [8, 0],
         border: 'none',
-        borderBottom: `${borderSize}px solid ${palette.action.disabled}`,
+        borderBottom: `${borderSize}px solid ${palette.gray4}`,
         paddingTop: 10,
         transition: transitions.create(['border-color']),
       },

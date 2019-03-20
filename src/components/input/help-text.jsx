@@ -13,12 +13,12 @@ const styles = theme => {
       width: '100%',
       textAlign: 'right',
       bottom: '-16px',
-      color: palette.text.muted,
+      color: palette.gray0,
       ...theme.typography.tertiary(),
     },
-    success: { color: palette.variant.success },
-    warning: { color: palette.variant.warning },
-    error: { color: palette.variant.danger },
+    success: { color: palette.positive },
+    warning: { color: palette.index },
+    error: { color: palette.negative },
   };
 };
 

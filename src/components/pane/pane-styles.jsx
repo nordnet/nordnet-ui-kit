@@ -4,7 +4,7 @@ export default theme => {
   return {
     pane: {
       ...mixins.basicBoxSizing,
-      background: palette.background.default,
+      background: palette.gray7,
       ...typography.primary(),
     },
 
@@ -13,13 +13,13 @@ export default theme => {
       margin: 0,
       padding: 0,
       listStyle: 'none',
-      color: palette.text.muted,
-      borderBottom: `1px solid ${palette.background.secondary}`,
+      color: palette.gray0,
+      borderBottom: `1px solid ${palette.gray5}`,
     },
 
     tab: {
       display: 'inline-block',
-      background: palette.background.default,
+      background: palette.gray7,
       textAlign: 'center',
       cursor: 'pointer',
       letterSpacing: 1,
@@ -51,10 +51,10 @@ export default theme => {
     },
 
     active: {
-      background: palette.background.default,
-      color: palette.text.default,
+      background: palette.gray7,
+      color: palette.gray0,
       fontWeight: typography.primary({ weight: 'bold' }).fontWeight,
-      borderColor: palette.background.secondary,
+      borderColor: palette.gray5,
     },
   };
 };

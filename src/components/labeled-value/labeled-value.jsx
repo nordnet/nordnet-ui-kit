@@ -48,7 +48,7 @@ export const styles = theme => {
     root: {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
-      color: palette.text.secondary,
+      color: palette.gray0,
       // FIXME: talk to designers,
       fontFamily: typography.primary.fontFamily,
     },

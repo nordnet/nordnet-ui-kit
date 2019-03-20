@@ -1,18 +1,21 @@
 Basic usage:
 
 ```html
-<Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />
+<Icon.Trash fill="tomato" stroke="tomato" width="{48}" height="{48}" />
 ```
+
 ---
+
 ```js
 import { Icon } from 'nordnet-ui-kit'; // nordnet-ui-kit
 
-<Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />
+<Icon.Trash fill="tomato" stroke="tomato" width={48} height={48} />;
 ```
 
 All available icons:
+
 ```js
-import { Icon, Input } from 'nordnet-ui-kit';
+import { Icon, Input, theme } from 'nordnet-ui-kit';
 
 const containerStyle = {
   paddingTop: 20,
@@ -34,16 +37,20 @@ const iconStyle = {
 
 const icons = Object.keys(Icon);
 
-const options = [{
-  label: 'Nordnet blue',
-  value: '#00A9EC',
-}, {
-  label: 'Black',
-  value: '#222',
-}, {
-  label: 'Nordnet blue dark',
-  value: '#365299',
-}];
+const options = [
+  {
+    label: 'Nordnet blue',
+    value: '#00A9EC',
+  },
+  {
+    label: 'Black',
+    value: '#222',
+  },
+  {
+    label: 'Nordnet blue dark',
+    value: '#365299',
+  },
+];
 
 initialState = { icons, value: '', color: '' };
 
@@ -54,13 +61,12 @@ const iconFilter = (
       id="icon_filter"
       type="text"
       value={state.value}
-      onChange={
-        ({ target: { value }}) => {
-          setState({
-            icons: icons.filter(name => name.toLowerCase().indexOf(value.toLowerCase()) > -1),
-            value,
-          });
-        }}
+      onChange={({ target: { value } }) => {
+        setState({
+          icons: icons.filter(name => name.toLowerCase().indexOf(value.toLowerCase()) > -1),
+          value,
+        });
+      }}
       placeholder="Filter icons: "
     />
   </div>
@@ -74,7 +80,7 @@ const colorPicker = (
       type="text"
       value={state.color}
       placeholder="Choose a color wisely, try cornflowerblue or #234567?"
-      onChange={({ target: { value }}) => {
+      onChange={({ target: { value } }) => {
         setState({ color: value });
       }}
     />
@@ -85,22 +91,26 @@ const colorPicker = (
   {iconFilter}
   {colorPicker}
   <div style={containerStyle}>
-    {state.icons
-      .map(iconName => {
-        const IconComponent = Icon[iconName];
+    {state.icons.map(iconName => {
+      const IconComponent = Icon[iconName];
 
-        return (
-          <div key={iconName} style={{display: 'inline-block', width: '100%', padding: 4, height: 20,}}>
-            <div key={ iconName } style={ style }>
-              <div style={iconStyle}>
-                <IconComponent stroke={state.color || '#00A9EC'} fill={state.color || '#00A9EC'} />
-              </div>
-              <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{ iconName }</div>
+      return (
+        <div
+          key={iconName}
+          style={{ display: 'inline-block', width: '100%', padding: 4, height: 20 }}
+        >
+          <div key={iconName} style={style}>
+            <div style={iconStyle}>
+              <IconComponent
+                stroke={state.color || theme.palette.cta}
+                fill={state.color || theme.palette.cta}
+              />
             </div>
+            <div style={{ fontSize: 12, fontFamily: '"Hack", monospace' }}>{iconName}</div>
           </div>
-        );
-      }
-    )}
+        </div>
+      );
+    })}
   </div>
-</div>
+</div>;
 ```

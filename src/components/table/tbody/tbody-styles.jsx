@@ -17,7 +17,7 @@ export default theme => {
 
       '&.alternate-rows': {
         '& tr:nth-child(odd)': {
-          background: palette.background.muted,
+          background: palette.gray7,
         },
       },
 

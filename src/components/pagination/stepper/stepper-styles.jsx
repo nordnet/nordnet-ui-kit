@@ -5,7 +5,7 @@ export default ({ palette, mixins, typography }) => ({
     alignItems: 'center',
 
     '&[disabled]': {
-      color: palette.action.disabled,
+      color: palette.gray4,
     },
 
     [mixins.media('md')]: {

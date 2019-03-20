@@ -15,12 +15,12 @@ export default ({ palette, typography, mixins }) => ({
   },
   button: {
     display: 'block',
-    color: palette.action.active,
-    backgroundColor: palette.color.white,
+    color: palette.cta,
+    backgroundColor: palette.white,
     padding: 0,
     width: buttonSize,
     height: buttonSize,
-    border: `${buttonBorderSize}px solid ${palette.action.disabled}`,
+    border: `${buttonBorderSize}px solid ${palette.gray4}`,
     borderRadius: '50%',
     textAlign: 'center',
     cursor: 'pointer',
@@ -32,22 +32,22 @@ export default ({ palette, typography, mixins }) => ({
     },
 
     '&:hover': {
-      background: palette.action.active,
-      borderColor: palette.action.active,
-      color: palette.color.white,
+      background: palette.cta,
+      borderColor: palette.cta,
+      color: palette.white,
     },
 
     '&:focus': {
-      borderColor: palette.action.active,
+      borderColor: palette.cta,
     },
 
     ...typography.primary(),
     lineHeight: `${buttonSize - buttonBorderSize * 2}px`,
   },
   buttonSelected: {
-    background: palette.action.active,
-    borderColor: palette.action.active,
-    color: palette.color.white,
+    background: palette.cta,
+    borderColor: palette.cta,
+    color: palette.white,
     cursor: 'inherit',
   },
 });

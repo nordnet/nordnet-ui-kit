@@ -16,7 +16,7 @@ export default ({ palette, typography, mixins }) => ({
   tab: {
     position: 'relative',
     display: 'block',
-    color: palette.text.muted,
+    color: palette.gray0,
     paddingTop: 5,
     paddingBottom: borderHeight + 2,
     textTransform: 'uppercase',
@@ -39,14 +39,14 @@ export default ({ palette, typography, mixins }) => ({
       display: 'none',
       width: '100%',
       height: borderHeight,
-      background: palette.text.default,
+      background: palette.gray0,
       position: 'absolute',
       bottom: 0,
       left: 0,
     },
 
     '&[aria-selected="true"], &:focus': {
-      color: palette.text.default,
+      color: palette.gray0,
 
       '&::before': {
         display: 'block',
@@ -54,7 +54,7 @@ export default ({ palette, typography, mixins }) => ({
     },
 
     '&:focus::before': {
-      background: palette.action.active,
+      background: palette.cta,
     },
 
     ...typography.tertiary({

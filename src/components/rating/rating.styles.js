@@ -3,9 +3,9 @@ export default ({ palette }) => ({
     marginRight: 2,
   },
   active: {
-    color: palette.accent,
+    color: palette.complementaryBlue1,
   },
   inactive: {
-    color: palette.background.secondary,
+    color: palette.gray5,
   },
 });
