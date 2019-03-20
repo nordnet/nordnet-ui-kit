@@ -63,7 +63,7 @@ function Spinner({
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const usedColor = color || '#0046FF';
+  const usedColor = color || theme.palette.cta;
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
   const maskId = `spinner__mask--${size}-${stroke}-${gradientStops}`;
