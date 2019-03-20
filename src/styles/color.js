@@ -18,20 +18,20 @@ export default {
   // GRAYSCALE PALETTE
 
   black: '#000000',
-  white: '#FFFFFF',
-  gray6: '#EBEBE8',
-  gray5: '#D7D7D2',
-  gray4: '#BCBCB6',
-  gray3: '#A0A09B',
-  gray2: '#6E6E69',
-  gray1: '#4B4B46',
   gray0: '#282823',
+  gray1: '#4B4B46',
+  gray2: '#6E6E69',
+  gray3: '#A0A09B',
+  gray4: '#BCBCB6',
+  gray5: '#D7D7D2',
+  gray6: '#EBEBE8',
   gray7: '#F5F5F5',
+  white: '#FFFFFF',
 
   // FUNCTIONAL COLOURS FOR PRODUCT DEVELOPMENT
 
-  index: '#FFCF00',
-  negative: '#FF1900',
-  positive: '#00D200',
   cta: '#0046FF',
+  positive: '#00D200',
+  negative: '#FF1900',
+  index: '#FFCF00',
 };
