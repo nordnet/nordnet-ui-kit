@@ -1,0 +1,3 @@
+comment:
+  layout: "diff"
+  require_changes: yes  # if true: only post the comment if coverage changes
