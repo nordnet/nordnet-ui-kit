@@ -8,9 +8,9 @@ const WEIGHTS = {
 
 export default function createTypography() {
   const ifSmallDevice = (smallFontSize, largeFontSize) => ({
-    fontFamily: '"Nordnet Sans Mono", "Open Sans", sans',
+    fontFamily:
+      '"Nordnet Sans Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     fontSize: smallFontSize,
-    lineHeight: 1.2,
     letterSpacing: 'normal',
     [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
       fontSize: largeFontSize,
@@ -20,19 +20,20 @@ export default function createTypography() {
     ...ifSmallDevice(14, 16),
     fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
   });
+  const coerceExtraboldToBold = weight => (weight === 'extrabold' ? WEIGHTS.bold : WEIGHTS[weight]);
   const secondary = ({ weight = 'regular' } = {}) => ({
     ...ifSmallDevice(12, 14),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
+    fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
   });
   const tertiary = ({ weight = 'regular' } = {}) => ({
     ...ifSmallDevice(10, 12),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
+    fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
   });
 
   const caption = ({ weight = 'regular', uppercase = false } = {}) => ({
     // @todo discuss lower value with designers
     ...ifSmallDevice(10, 10),
-    fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
+    fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
     ...(uppercase ? { textTransform: 'uppercase' } : {}),
   });
 

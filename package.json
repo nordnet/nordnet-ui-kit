@@ -48,8 +48,10 @@
   },
   "commitlint": {
     "extends": [
+      "squash-pr",
       "@commitlint/config-conventional"
-    ]
+    ],
+    "rules": { "scope-case": [0] }
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -96,21 +98,22 @@
     "babel-plugin-lodash": "3.3.4",
     "codecov": "3.2.0",
     "commitizen": "3.0.7",
+    "commitlint-config-squash-pr": "1.0.1",
     "cross-env": "5.2.0",
     "cz-conventional-changelog": "2.1.0",
     "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.10.0",
-    "eslint": "5.15.1",
+    "enzyme-adapter-react-16": "1.11.2",
+    "eslint": "5.15.2",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.1.0",
     "eslint-plugin-import": "2.16.0",
-    "eslint-plugin-jest": "22.3.0",
+    "eslint-plugin-jest": "22.4.1",
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-react": "7.12.4",
     "gh-pages": "2.0.1",
     "husky": "1.3.1",
     "in-publish": "2.0.0",
-    "jest": "24.1.0",
+    "jest": "24.5.0",
     "lint-staged": "8.1.5",
     "lodash.camelcase": "4.3.0",
     "mini-html-webpack-plugin": "0.2.3",
@@ -121,8 +124,8 @@
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-jss": "8.6.1",
-    "react-router-dom": "4.3.1",
-    "react-styleguidist": "9.0.3",
+    "react-router-dom": "4.4.0",
+    "react-styleguidist": "9.0.4",
     "react-test-renderer": "16.8.4",
     "rimraf": "2.6.3",
     "semantic-release": "15.13.3",
