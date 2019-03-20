@@ -32,12 +32,10 @@ export const styles = theme => {
     return {
       ...sizes,
       [className]: {
-        // FIXME: talk to designers,
         fontSize: mobileFontSize,
         paddingTop,
 
         [theme.mixins.media('md')]: {
-          // FIXME: talk to designers,
           fontSize,
         },
       },

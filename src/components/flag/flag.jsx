@@ -61,7 +61,7 @@ Flag.defaultProps = {
   size: 32,
   round: false,
   hideBorder: false,
-  borderColor: color.grayLightest,
+  borderColor: color.gray7,
 };
 
 const countryCodes = [
