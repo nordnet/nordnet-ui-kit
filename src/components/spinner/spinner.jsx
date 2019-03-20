@@ -84,7 +84,7 @@ function Spinner({
           <mask id={maskId} maskUnits="objectBoundingBox">
             <rect width={size} height={size} fill="#FFFFFF" />
             {conicalGradient(size, gradientStops, clipPathId)}
-            <circle cx={radius} cy={radius} r={radius - stroke} fill="#282823" />
+            <circle cx={radius} cy={radius} r={radius - stroke} fill="#000000" />
             <circle cx={radius} cy={stroke / 2} r={stroke / 2} fill="#FFFFFF" />
           </mask>
         </defs>
