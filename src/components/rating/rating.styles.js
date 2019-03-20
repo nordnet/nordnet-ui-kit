@@ -3,7 +3,7 @@ export default ({ palette }) => ({
     marginRight: 2,
   },
   active: {
-    color: palette.complementaryBlue1,
+    color: palette.cta,
   },
   inactive: {
     color: palette.gray5,

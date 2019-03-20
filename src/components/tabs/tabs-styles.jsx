@@ -1,5 +1,6 @@
 export default ({ palette }) => ({
   list: {
+    background: 'white',
     padding: 0,
     margin: 0,
     listStyleType: 'none',

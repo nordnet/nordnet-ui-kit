@@ -100,7 +100,7 @@ describe('<ProgressBar />', () => {
     ).toBe(true);
   });
 
-  ['primary', 'secondary'].forEach(variant => {
+  ['primary'].forEach(variant => {
     test(`should have class ${classes[variant]} if variant is set to ${variant}`, () => {
       wrapper = shallow(
         <ProgressBar classes={classes} variant={variant} value={value} max={max} />,

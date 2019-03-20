@@ -17,7 +17,7 @@ const styles = theme => {
       ...theme.typography.tertiary(),
     },
     success: { color: palette.positive },
-    warning: { color: palette.index },
+    warning: { color: palette.negative },
     error: { color: palette.negative },
   };
 };

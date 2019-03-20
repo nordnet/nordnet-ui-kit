@@ -19,9 +19,6 @@ function ProgressBar({
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const isPrimary = variant === 'primary';
-  const isSecondary = variant === 'secondary';
-
   const getElementType = clickable => {
     if (clickable && clickable.href) {
       return 'a';
@@ -45,8 +42,7 @@ function ProgressBar({
           const { label, reached, active, ...clickablesRest } = clickables[i] || {};
           const elementClassNames = classNames(classes.progressStep, {
             [classes.clickable]: Element !== 'span',
-            [classes.primary]: isPrimary,
-            [classes.secondary]: isSecondary,
+            [classes.primary]: true,
             [classes.reached]: typeof reached !== 'undefined' ? reached : i < value,
             [classes.active]:
               typeof active !== 'undefined' ? active : highlightActive && i === value - 1,
@@ -78,7 +74,7 @@ ProgressBar.propTypes = {
   /** @ignore */
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
-  variant: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOf(['primary']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   /** The current value of the progress */
   value: PropTypes.number,

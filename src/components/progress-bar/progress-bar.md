@@ -6,27 +6,11 @@ Primary, simple (default):
 </div>
 ```
 
-Secondary, simple:
-
-```js
-<div>
-  <ProgressBar variant="secondary" value={3} max={20} />
-</div>
-```
-
 Bigger, with numbers:
 
 ```js
 <div>
   <ProgressBar size="lg" printNumbers value={3} max={5} />
-</div>
-```
-
-Secondary Bigger, with numbers:
-
-```js
-<div>
-  <ProgressBar variant="secondary" size="lg" printNumbers value={3} max={5} />
 </div>
 ```
 
@@ -42,13 +26,6 @@ const clickables = [
 ];
 
 <div>
-  <ProgressBar
-    variant="secondary"
-    size="md"
-    printNumbers
-    clickables={clickables}
-    value={6}
-    max={9}
-  />
+  <ProgressBar variant="primary" size="md" printNumbers clickables={clickables} value={6} max={9} />
 </div>;
 ```

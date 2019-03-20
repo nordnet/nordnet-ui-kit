@@ -97,11 +97,6 @@ describe('<Input />', () => {
           }
         });
 
-        test('should have class input--has-warning if warning', () => {
-          wrapper.setProps({ hasWarning: true });
-          expect(wrapper.hasClass('input--has-warning')).toBe(true);
-        });
-
         test('should have class input--has-error if error', () => {
           wrapper.setProps({ hasError: true });
           expect(wrapper.hasClass('input--has-error')).toBe(true);

@@ -50,9 +50,9 @@ class RadioTypeSample extends React.PureComponent {
           name="colorRadioText2"
           type="radio"
         >
-          <span value="ALL_NEWS">ALL NEWS</span>
-          <span value="RECOMMENDED_NEWS">RECOMMENDED NEWS</span>
-          <span value="MY_NEWS">MY NEWS</span>
+          <span value="ALL_NEWS">All news</span>
+          <span value="RECOMMENDED_NEWS">Recommended news</span>
+          <span value="MY_NEWS">My news</span>
         </SegmentedControl>
         <div style={{ padding: '0 20px 20px', marginTop: '50px', border: '1px solid lightgray' }}>
           <h5>Click buttons to simulate select from outside UI-Kit</h5>

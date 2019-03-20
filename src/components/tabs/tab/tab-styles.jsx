@@ -17,10 +17,7 @@ export default ({ palette, typography, mixins }) => ({
     position: 'relative',
     display: 'block',
     color: palette.gray0,
-    paddingTop: 5,
-    paddingBottom: borderHeight + 2,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
+
     whiteSpace: 'nowrap',
     cursor: 'pointer',
     outline: 'none',
@@ -39,22 +36,17 @@ export default ({ palette, typography, mixins }) => ({
       display: 'none',
       width: '100%',
       height: borderHeight,
-      background: palette.gray0,
+      background: palette.cta,
       position: 'absolute',
       bottom: 0,
       left: 0,
     },
 
-    '&[aria-selected="true"], &:focus': {
+    '&[aria-selected="true"]': {
       color: palette.gray0,
-
       '&::before': {
         display: 'block',
       },
-    },
-
-    '&:focus::before': {
-      background: palette.cta,
     },
 
     ...typography.tertiary({
@@ -92,18 +84,18 @@ export default ({ palette, typography, mixins }) => ({
     },
 
     '& $tab': {
-      paddingBottom: borderHeight * 1.5 + 8,
+      paddingBottom: 8,
 
       [mixins.media('md')]: {
-        padding: [0, 12, borderHeight * 2 + 12, 12],
+        padding: [0, 12, 8, 12],
       },
     },
 
     '& $tab::before': {
-      height: borderHeight * 1.5,
+      height: borderHeight,
 
       [mixins.media('md')]: {
-        height: borderHeight * 2,
+        height: borderHeight,
       },
     },
   },

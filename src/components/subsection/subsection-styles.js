@@ -22,7 +22,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
     borderRadius: 0,
     outline: 'none',
     cursor: 'pointer',
-    backgroundColor: palette.gray0,
+    backgroundColor: palette.white,
     color: palette.gray0,
     width: '100%',
     textAlign: 'left',

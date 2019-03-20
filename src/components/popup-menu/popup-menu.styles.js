@@ -91,6 +91,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
     display: 'block',
     padding: 10,
     width: '100%',
+    color: palette.gray0,
 
     '&:hover:not([disabled])': {
       background: palette.gray7,
@@ -101,12 +102,11 @@ export default ({ palette, typography, mixins, transitions }) => ({
     },
 
     '&[disabled]': {
-      color: palette.gray0,
+      color: palette.gray5,
       cursor: 'default',
       pointerEvents: 'none',
     },
 
-    color: palette.gray0,
     textDecoration: 'none',
     background: 'none',
     border: 'none',

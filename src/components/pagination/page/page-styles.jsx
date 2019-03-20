@@ -1,5 +1,5 @@
 const buttonSize = 45;
-const buttonBorderSize = 2;
+const buttonBorderSize = 1;
 
 export default ({ palette, typography, mixins }) => ({
   item: {
@@ -15,7 +15,7 @@ export default ({ palette, typography, mixins }) => ({
   },
   button: {
     display: 'block',
-    color: palette.cta,
+    color: palette.gray0,
     backgroundColor: palette.white,
     padding: 0,
     width: buttonSize,
@@ -49,5 +49,6 @@ export default ({ palette, typography, mixins }) => ({
     borderColor: palette.cta,
     color: palette.white,
     cursor: 'inherit',
+    fontWeight: typography.primary({ weight: 'bold' }).fontWeight,
   },
 });

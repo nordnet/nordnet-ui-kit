@@ -49,12 +49,12 @@ export const styles = theme => {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
       color: palette.gray0,
-      // FIXME: talk to designers,
       fontFamily: typography.primary.fontFamily,
     },
     label: {
       display: 'block',
       ...typography.tertiary(),
+      color: palette.gray2,
     },
     value: {
       display: 'block',

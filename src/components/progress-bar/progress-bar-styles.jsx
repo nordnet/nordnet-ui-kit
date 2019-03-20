@@ -12,7 +12,6 @@ const disableColor = color =>
 
 const variantModifierFn = (variant, colors) => {
   const { background, backgroundDisabled, borderColor, color, colorDisabled } = colors;
-  console.log(variant, background, color);
   const variantDict = {
     primary: {
       background,
@@ -28,28 +27,6 @@ const variantModifierFn = (variant, colors) => {
       '&:disabled': {
         background: backgroundDisabled || disableColor(background),
         borderColor: backgroundDisabled || disableColor(borderColor),
-        color: colorDisabled,
-      },
-
-      '&$clickable:focus': {
-        boxShadow: `0 0 0 2px ${focusColor(borderColor)}`,
-      },
-    },
-
-    secondary: {
-      background,
-      borderColor,
-      borderStyle: 'solid',
-      color,
-
-      '&$clickable:hover:not(:disabled)': {
-        borderColor: focusColor(borderColor),
-        color: focusColor(color),
-      },
-
-      '&:disabled': {
-        background: backgroundDisabled || disableColor(background),
-        borderColor: disableColor(borderColor),
         color: colorDisabled,
       },
 
@@ -108,7 +85,7 @@ export default theme => {
       alignItems: 'center',
       border: 0,
       borderRadius: '50%',
-      borderWidth: ({ size }) => (sizeDict[size].fontSize < 12 ? 1 : 2),
+      borderWidth: 1,
       cursor: 'default',
       display: 'flex',
       fontSize: ({ size }) => sizeDict[size].fontSize,
@@ -148,41 +125,19 @@ export default theme => {
       ...variantModifierFn('primary', {
         background: palette.gray7,
         backgroundDisabled: palette.gray7,
-        borderColor: palette.gray5,
+        borderColor: palette.gray4,
         color: palette.gray0,
         colorDisabled: palette.gray4,
       }),
 
       '&$reached': variantModifierFn('primary', {
-        background: palette.complementaryBlue1,
-        borderColor: palette.complementaryBlue1,
+        background: palette.cta,
+        borderColor: palette.cta,
         color: palette.gray7,
-        colorDisabled: palette.gray4,
+        colorDisabled: palette.white,
       }),
 
       '&$active': variantModifierFn('primary', {
-        background: palette.cta,
-        borderColor: palette.cta,
-      }),
-    },
-
-    secondary: {
-      ...variantModifierFn('secondary', {
-        background: palette.gray7,
-        backgroundDisabled: palette.gray0,
-        borderColor: palette.complementaryBlue1,
-        color: palette.gray0,
-        colorDisabled: palette.gray4,
-      }),
-
-      '&$reached': variantModifierFn('secondary', {
-        background: palette.complementaryBlue1,
-        borderColor: palette.complementaryBlue1,
-        color: palette.gray7,
-        colorDisabled: palette.gray6,
-      }),
-
-      '&$active': variantModifierFn('secondary', {
         background: palette.cta,
         borderColor: palette.cta,
       }),

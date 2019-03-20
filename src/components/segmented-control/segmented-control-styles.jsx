@@ -28,17 +28,20 @@ export default theme => {
     },
 
     label: {
+      ...typography.tertiary({
+        weight: 'bold',
+      }),
       '&.primary': {
         textAlign: 'center',
         outline: 'none',
-        borderTop: `2px solid ${palette.gray5}`,
-        borderBottom: `2px solid ${palette.gray5}`,
+        borderTop: `2px solid ${palette.gray4}`,
+        borderBottom: `2px solid ${palette.gray4}`,
         color: palette.gray0,
         backgroundColor: 'inherit',
         position: 'relative',
 
         '& + &': {
-          borderLeft: `1px solid ${palette.gray5}`,
+          borderLeft: `1px solid ${palette.gray4}`,
         },
 
         '& label': {
@@ -46,12 +49,9 @@ export default theme => {
           margin: '0 12px',
           lineHeight: '28px',
         },
-
-        ...typography.tertiary(),
       },
 
       '&.secondary': {
-        letterSpacing: 0.2,
         textAlign: 'center',
         outline: 'none',
         color: palette.gray0,
@@ -65,21 +65,18 @@ export default theme => {
         '& + &': {
           marginLeft: 27,
         },
-
-        ...typography.tertiary({
-          weight: 'bold',
-        }),
       },
     },
 
     selected: {
       '&.primary': {
-        backgroundColor: palette.gray6,
+        backgroundColor: palette.cta,
+        color: palette.white,
       },
       '&.secondary': {
         color: palette.gray0,
         paddingBottom: 2,
-        borderBottom: `2px solid ${palette.complementaryBlue1}`,
+        borderBottom: `2px solid ${palette.cta}`,
       },
     },
 
@@ -93,7 +90,7 @@ export default theme => {
       '&.primary': {
         borderTopLeftRadius: '8px',
         borderBottomLeftRadius: '8px',
-        borderLeft: `2px solid ${palette.gray5}`,
+        borderLeft: `2px solid ${palette.gray4}`,
       },
     },
 
@@ -101,7 +98,7 @@ export default theme => {
       '&.primary': {
         borderTopRightRadius: '8px',
         borderBottomRightRadius: '8px',
-        borderRight: `2px solid ${palette.gray5}`,
+        borderRight: `2px solid ${palette.gray4}`,
       },
     },
   };

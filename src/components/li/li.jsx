@@ -12,6 +12,7 @@ export const styles = theme => ({
     '&:last-child': {
       borderBottom: 0,
     },
+    color: theme.palette.gray0,
   },
 });
 

@@ -12,7 +12,7 @@ export const styles = theme => {
       display: 'inline-block',
       padding: '2.5px 10px',
       minWidth: '80px',
-      color: palette.gray0,
+      color: palette.white,
       textAlign: 'center',
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',

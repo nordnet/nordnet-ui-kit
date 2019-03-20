@@ -12,7 +12,7 @@ export const styles = theme => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: palette.gray7,
+      color: palette.white,
       backgroundColor: palette.gray0,
       overflow: 'hidden',
       borderRadius: '50%',
@@ -41,7 +41,7 @@ export const styles = theme => {
     lg: {
       height: 56,
       width: 56,
-      ...typography.title3(),
+      ...typography.title3({ weight: 'regular' }),
       lineHeight: '56px',
     },
   };
