@@ -40,6 +40,7 @@ export default ({ palette, typography, mixins }) => ({
       position: 'absolute',
       bottom: 0,
       left: 0,
+      marginBottom: -2,
     },
 
     '&[aria-selected="true"]': {
