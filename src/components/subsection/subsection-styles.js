@@ -1,7 +1,7 @@
 export default ({ palette, typography, mixins, transitions }) => ({
   root: {
     padding: [10, 0],
-    borderBottom: `1px solid ${palette.color.grayLighter}`,
+    borderBottom: `1px solid ${palette.gray6}`,
     width: '100%',
   },
   noSeparator: {
@@ -22,8 +22,8 @@ export default ({ palette, typography, mixins, transitions }) => ({
     borderRadius: 0,
     outline: 'none',
     cursor: 'pointer',
-    backgroundColor: 'transparent',
-    color: palette.text.default,
+    backgroundColor: palette.white,
+    color: palette.gray0,
     width: '100%',
     textAlign: 'left',
 

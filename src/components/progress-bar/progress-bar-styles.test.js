@@ -8,11 +8,9 @@ describe('progress-bar-styles', () => {
     test(`should be able to style size ${size}`, () => {
       expect(typeof themedRealStyle.progressBar.margin({ size })).toBe('number');
 
-      ['borderWidth', 'fontSize', 'fontWeight', 'height', 'margin', 'width'].forEach(
-        dynamicProp => {
-          expect(typeof themedRealStyle.progressStep[dynamicProp]({ size })).toBe('number');
-        },
-      );
+      ['fontSize', 'fontWeight', 'height', 'margin', 'width'].forEach(dynamicProp => {
+        expect(typeof themedRealStyle.progressStep[dynamicProp]({ size })).toBe('number');
+      });
     });
   });
 });

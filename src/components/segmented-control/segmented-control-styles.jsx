@@ -28,17 +28,20 @@ export default theme => {
     },
 
     label: {
+      ...typography.tertiary({
+        weight: 'bold',
+      }),
       '&.primary': {
         textAlign: 'center',
         outline: 'none',
-        borderTop: `2px solid ${palette.color.grayLight}`,
-        borderBottom: `2px solid ${palette.color.grayLight}`,
-        color: palette.text.default,
+        borderTop: `2px solid ${palette.gray4}`,
+        borderBottom: `2px solid ${palette.gray4}`,
+        color: palette.gray0,
         backgroundColor: 'inherit',
         position: 'relative',
 
         '& + &': {
-          borderLeft: `1px solid ${palette.color.grayLight}`,
+          borderLeft: `1px solid ${palette.gray4}`,
         },
 
         '& label': {
@@ -46,46 +49,40 @@ export default theme => {
           margin: '0 12px',
           lineHeight: '28px',
         },
-
-        ...typography.tertiary(),
       },
 
       '&.secondary': {
-        letterSpacing: 0.2,
         textAlign: 'center',
         outline: 'none',
-        color: palette.text.muted,
+        color: palette.gray0,
         backgroundColor: 'inherit',
         position: 'relative',
 
         '& selected': {
-          backgroundColor: palette.color.grayLighter,
+          backgroundColor: palette.gray6,
         },
 
         '& + &': {
           marginLeft: 27,
         },
-
-        ...typography.tertiary({
-          weight: 'bold',
-        }),
       },
     },
 
     selected: {
       '&.primary': {
-        backgroundColor: palette.color.grayLighter,
+        backgroundColor: palette.cta,
+        color: palette.white,
       },
       '&.secondary': {
-        color: palette.text.default,
+        color: palette.gray0,
         paddingBottom: 2,
-        borderBottom: `2px solid ${palette.accent}`,
+        borderBottom: `2px solid ${palette.cta}`,
       },
     },
 
     focus: {
       '&.primary': {
-        boxShadow: `inset 0 0 1px 1px ${palette.variant.primary}`,
+        boxShadow: `inset 0 0 1px 1px ${palette.cta}`,
       },
     },
 
@@ -93,7 +90,7 @@ export default theme => {
       '&.primary': {
         borderTopLeftRadius: '8px',
         borderBottomLeftRadius: '8px',
-        borderLeft: `2px solid ${palette.color.grayLight}`,
+        borderLeft: `2px solid ${palette.gray4}`,
       },
     },
 
@@ -101,7 +98,7 @@ export default theme => {
       '&.primary': {
         borderTopRightRadius: '8px',
         borderBottomRightRadius: '8px',
-        borderRight: `2px solid ${palette.color.grayLight}`,
+        borderRight: `2px solid ${palette.gray4}`,
       },
     },
   };

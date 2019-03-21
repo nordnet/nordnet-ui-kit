@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { getContrastRatio } from './color-helpers';
 
 const styles = () => ({
   colorWrapper: {
@@ -13,8 +12,8 @@ const styles = () => ({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     flexFlow: 'column',
-    width: 100,
-    height: 100,
+    width: 220,
+    height: 130,
 
     '& span': {
       textAlign: 'center',
@@ -23,26 +22,20 @@ const styles = () => ({
   },
 });
 
-const contrastThreshold = 3;
-
-const colorStyle = (backgroundColor, theme) => {
-  const light = theme.palette.shades.light.text.default;
-  const dark = theme.palette.shades.dark.text.default;
-  const contrast = getContrastRatio(dark, backgroundColor);
-  const color = contrast > contrastThreshold ? dark : light;
-
-  return {
-    backgroundColor,
-    color,
-  };
-};
-
 const Color = ({ theme, classes }) => (
   <div className={classes.colorWrapper}>
-    {Object.entries(theme.palette.color).map(([name, value]) => (
-      <div key={name} className={classes.colorBlock} style={colorStyle(value, theme)}>
+    {Object.entries(theme.palette).map(([name, value]) => (
+      <div key={name} className={classes.colorBlock}>
         <span>{name}</span>
         <div>{value}</div>
+        <div
+          style={{
+            background: `${value}`,
+            width: 50,
+            height: 40,
+            border: '4px solid maroon',
+          }}
+        />
       </div>
     ))}
   </div>

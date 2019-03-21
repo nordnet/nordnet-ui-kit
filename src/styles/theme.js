@@ -9,11 +9,11 @@ import createMixins from './mixins';
 
 export function createTheme(config = {}) {
   const {
-    palette = createPalette(),
+    palette = createPalette({ type: 'dark' }),
     breakpoints = createBreakpoints(),
     mixins = createMixins(breakpoints),
     typography = createTypography(),
-    ...more
+    // ...more
   } = config;
 
   const theme = {
@@ -22,7 +22,7 @@ export function createTheme(config = {}) {
     mixins,
     breakpoints /* shadows, spacing, zIndex */,
     transitions,
-    ...more,
+    // ...more,
   };
 
   return theme;

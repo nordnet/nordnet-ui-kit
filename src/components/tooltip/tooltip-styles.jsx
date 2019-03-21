@@ -39,7 +39,7 @@ const popupPlacementStyles = (palette, txt = '') => ({
     marginBottom: 8,
     '&:before': {
       bottom: -8,
-      borderTop: `8px solid ${palette.text.default}`,
+      borderTop: `8px solid ${palette.gray0}`,
       borderRight: '8px solid transparent',
       borderLeft: '8px solid transparent',
     },
@@ -53,7 +53,7 @@ const popupPlacementStyles = (palette, txt = '') => ({
       top: -8,
       borderLeft: '8px solid transparent',
       borderRight: '8px solid transparent',
-      borderBottom: `8px solid ${palette.text.default}`,
+      borderBottom: `8px solid ${palette.gray0}`,
     },
   },
 
@@ -70,7 +70,7 @@ const popupPlacementStyles = (palette, txt = '') => ({
       content: '""',
       borderTop: '6px solid transparent',
       borderBottom: '6px solid transparent',
-      borderLeft: `6px solid ${palette.text.default}`,
+      borderLeft: `6px solid ${palette.gray0}`,
     },
   },
 
@@ -87,7 +87,7 @@ const popupPlacementStyles = (palette, txt = '') => ({
       content: '""',
       borderTop: '6px solid transparent',
       borderBottom: '6px solid transparent',
-      borderRight: `6px solid ${palette.text.default}`,
+      borderRight: `6px solid ${palette.gray0}`,
     },
   },
 });
@@ -98,7 +98,7 @@ export default theme => {
   return {
     tooltip: {
       ...mixins.basicBoxSizing,
-      color: palette.color.grayDarker,
+      color: palette.gray0,
       position: 'relative',
       display: 'inline-block',
     },
@@ -164,8 +164,8 @@ export default theme => {
       width: '100%',
       textAlign: 'left',
       padding: '4px 16px',
-      color: palette.background.default,
-      background: palette.text.default,
+      color: palette.gray7,
+      background: palette.gray0,
       borderRadius: 4,
       overflowWrap: 'normal',
       wordBreak: 'normal',

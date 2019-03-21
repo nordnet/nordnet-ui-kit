@@ -91,7 +91,7 @@ ShowMore.defaultProps = {
   className: '',
   showMoreButtonContent: 'Show more',
   cutoffHeight: 200,
-  backgroundColor: 'white',
+  backgroundColor: '#FFFFFF',
   onShowMore: () => {},
 };
 

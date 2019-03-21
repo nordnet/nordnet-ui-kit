@@ -11,12 +11,13 @@ const styles = theme => {
       display: 'block',
       width: '100%',
       textAlign: 'right',
-      color: palette.text.muted,
+      bottom: '-16px',
+      color: palette.gray0,
       ...theme.typography.tertiary(),
     },
-    success: { color: palette.variant.success },
-    warning: { color: palette.variant.warning },
-    error: { color: palette.variant.danger },
+    success: { color: palette.positive },
+    warning: { color: palette.negative },
+    error: { color: palette.negative },
   };
 };
 

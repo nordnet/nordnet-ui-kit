@@ -37,7 +37,7 @@ export default theme => {
       },
 
       '& .input__placeholder:not($selectable)': {
-        color: palette.text.muted,
+        color: palette.gray0,
       },
 
       '& .input__select-arrow': {
@@ -72,7 +72,7 @@ export default theme => {
       '& .input__field': {
         position: 'relative',
         width: '100%',
-        border: `${borderSize}px solid ${palette.action.disabled}`,
+        border: `${borderSize}px solid ${palette.gray4}`,
         borderRadius: 4,
         padding: 8,
         paddingTop: 10,
@@ -86,7 +86,7 @@ export default theme => {
         width: '100%',
         padding: [8, 0],
         border: 'none',
-        borderBottom: `${borderSize}px solid ${palette.action.disabled}`,
+        borderBottom: `${borderSize}px solid ${palette.gray4}`,
         paddingTop: 10,
         transition: transitions.create(['border-color']),
       },

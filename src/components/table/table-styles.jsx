@@ -18,7 +18,7 @@ export default theme => {
       ...styleUtils.sizes({ typography }),
       textAlign: 'left',
       borderCollapse: 'collapse',
-      borderColor: palette.background.muted,
+      borderColor: palette.gray7,
       minWidth: 'auto',
 
       [mixins.media('md')]: {

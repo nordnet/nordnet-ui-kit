@@ -22,9 +22,9 @@ const modifierItem = color => ({
 });
 
 const modifiers = palette => ({
-  '&.success': modifierItem(palette.variant.success),
-  '&.warning': modifierItem(palette.variant.warning),
-  '&.danger': modifierItem(palette.variant.danger),
+  '&.success': modifierItem(palette.positive),
+  '&.warning': modifierItem(palette.index),
+  '&.danger': modifierItem(palette.negative),
 });
 
 // Borders
@@ -32,7 +32,7 @@ const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 const borderPosition = (position, palette) => ({
   [`&.border${capitalize(position)}`]: {
-    [`border${capitalize(position)}`]: `1px solid ${palette.color.grayLighter}`,
+    [`border${capitalize(position)}`]: `1px solid ${palette.gray6}`,
   },
 });
 
@@ -43,7 +43,7 @@ const borders = palette => {
   });
   return {
     '&.border': {
-      border: `1px solid ${palette.background.muted}`,
+      border: `1px solid ${palette.gray7}`,
     },
 
     ...combinedBorders,

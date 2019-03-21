@@ -20,13 +20,13 @@ describe('<Icon />', () => {
   });
 
   test('should be able to override stroke', () => {
-    const color = 'tomato';
+    const color = '#123456';
     wrapper = shallow(<Icon.Cloud stroke={color} />);
     expect(wrapper.find('g > g').prop('stroke')).toBe(color);
   });
 
   test('should be able to override fill', () => {
-    const color = 'crimson';
+    const color = '#123456';
     wrapper = shallow(<Icon.Trash fill={color} />);
     expect(wrapper.find('g > g').prop('fill')).toBe(color);
   });

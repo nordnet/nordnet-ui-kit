@@ -99,7 +99,7 @@ class EditableInput extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, theme } = this.props;
 
     const input = this.state.editing ? (
       <form className={classes.form} onSubmit={this.onSubmit}>
@@ -147,7 +147,11 @@ class EditableInput extends React.Component {
           onClick={this.onSubmit}
           disabled={this.props.disabled || this.props.hasError || this.state.saving}
         >
-          {this.state.saving ? <Spinner size={13} color="#FFF" /> : this.props.submitLabel}
+          {this.state.saving ? (
+            <Spinner size={13} color={theme.palette.white} />
+          ) : (
+            this.props.submitLabel
+          )}
         </Button>
         <Button
           variant="secondary"
@@ -186,6 +190,7 @@ class EditableInput extends React.Component {
 EditableInput.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
+  theme: PropTypes.object,
   /** Needs to be a valid input type */
   type: PropTypes.string,
   variant: PropTypes.oneOf(['primary', 'secondary']),

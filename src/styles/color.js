@@ -1,23 +1,37 @@
 export default {
-  black: '#373640', // Black text on white
-  grayDarkest: '#4C4A56', // Avatar bg
-  grayDarker: '#6A6775', // Text on light gray bg
-  grayDark: '#888790', // Gray text on white bg, icon
+  // BRAND
+  brandBlue: '#00C8F5',
+  brandGreen: '#D2F500',
+  brandPink: '#FF2B83',
+  brandTurquoise: '#00F0E1',
 
-  gray: '#B9B6C2', // Borders on input fields
-  grayLight: '#CFCFD5', // Dividers on gray bg
-  grayLighter: '#E4E4E8', // Dividers on white bg
-  grayLightest: '#F6F6F6', // Backgrounds
+  // COMPLEMENTARY BRAND COLOURS
+  complementaryBlue1: '#385E9D',
+  complementaryBlue2: '#131F4F',
+  complementaryGreen1: '#3A913F',
+  complementaryGreen2: '#023C00',
+  complementaryPink1: '#AC135A',
+  complementaryPink2: '#78013A',
+  complementaryTurquoise1: '#009195',
+  complementaryTurquoise2: '#01424C',
 
-  blue: '#00A9EC', // Logo, links, cta
-  blueDark: '#365299', // Info color
-  blueDarker: '#2B417A', // Used together with dark in header gradient
-  blueLight: '#E3F2FC', // Background color in alerts
-  green: '#26A699', // Plus performance, success
-  red: '#FE6F67', // Minus performance, error
-  redLight: '#FE6F67', // Sell
+  // GRAYSCALE PALETTE
 
-  yellow: '#FFD75A', // Notification Logo
-  yellowLight: '#FFF1DD', // Notification
-  white: '#FFF', // Background
+  black: '#000000',
+  gray0: '#282823',
+  gray1: '#4B4B46',
+  gray2: '#6E6E69',
+  gray3: '#A0A09B',
+  gray4: '#BCBCB6',
+  gray5: '#D7D7D2',
+  gray6: '#EBEBE8',
+  gray7: '#F5F5F5',
+  white: '#FFFFFF',
+
+  // FUNCTIONAL COLOURS FOR PRODUCT DEVELOPMENT
+
+  cta: '#0046FF',
+  positive: '#00D200',
+  negative: '#FF1900',
+  index: '#FFCF00',
 };

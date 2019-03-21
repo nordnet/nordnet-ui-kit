@@ -32,12 +32,10 @@ export const styles = theme => {
     return {
       ...sizes,
       [className]: {
-        // FIXME: talk to designers,
         fontSize: mobileFontSize,
         paddingTop,
 
         [theme.mixins.media('md')]: {
-          // FIXME: talk to designers,
           fontSize,
         },
       },
@@ -48,13 +46,13 @@ export const styles = theme => {
     root: {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
-      color: palette.text.secondary,
-      // FIXME: talk to designers,
+      color: palette.gray0,
       fontFamily: typography.primary.fontFamily,
     },
     label: {
       display: 'block',
       ...typography.tertiary(),
+      color: palette.gray2,
     },
     value: {
       display: 'block',

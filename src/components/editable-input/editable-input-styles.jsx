@@ -33,7 +33,7 @@ export default theme => ({
   hasError: {
     marginBottom: 20,
     '& $value': {
-      borderBottom: `3px solid ${theme.palette.variant.danger}`,
+      borderBottom: `3px solid ${theme.palette.negative}`,
     },
   },
   input: {

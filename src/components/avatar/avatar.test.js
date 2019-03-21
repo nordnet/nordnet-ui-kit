@@ -41,7 +41,7 @@ describe('<Avatar />', () => {
   });
 
   test('should render a <Avatar /> with custom color', () => {
-    const color = 'red';
+    const color = '#123456';
     const wrapper = shallow(<Avatar {...defaultProps} color={color} />);
     expect(wrapper.prop('style').backgroundColor).toBe(color);
   });

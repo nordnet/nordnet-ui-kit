@@ -7,11 +7,12 @@ export const styles = theme => ({
   li: {
     ...theme.mixins.basicBoxSizing,
     listStyle: 'none',
-    borderBottom: `1px solid ${theme.palette.color.grayLighter}`,
+    borderBottom: `1px solid ${theme.palette.gray6}`,
     margin: 0,
     '&:last-child': {
       borderBottom: 0,
     },
+    color: theme.palette.gray0,
   },
 });
 

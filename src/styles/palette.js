@@ -1,70 +1,57 @@
 import color from './color';
 
-const variant = {
-  primary: color.blue,
-  info: color.blueDark,
-  success: color.green,
-  warning: color.yellow,
-  danger: color.red,
-};
+export default function createPalette({ type = 'light' }) {
+  const palette = { ...color };
 
-export const light = {
-  text: {
-    default: color.black,
-    secondary: color.grayDarker,
-    muted: color.grayDark,
-  },
-  action: {
-    // TODO define
-    active: color.blue,
-    disabled: color.gray,
-  },
-  background: {
-    default: color.white,
-    secondary: color.grayLight,
-    muted: color.grayLightest,
-  },
-};
+  const proxyIsAvailable = typeof window !== 'undefined' ? 'Proxy' in window : true;
 
-export const dark = {
-  text: {
-    default: color.white,
-    muted: color.grayLighter, // For now
-  },
-  action: {
-    // TODO define
-    active: color.blue,
-    disabled: color.gray,
-  },
-  background: {
-    default: color.blueDark,
-    muted: color.grayDark, // For now
-  },
-};
+  if (!proxyIsAvailable) {
+    return palette;
+  }
 
-export const shades = { light, dark };
+  const pinkProxieFactory = rootKey =>
+    new Proxy(
+      {},
+      {
+        get(target, key) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Accessing deprecated "theme.pallete${rootKey}.${key}", defaults to "pink"`,
+          );
+          return 'pink';
+        },
+      },
+    );
 
-export default function createPalette({
-  primary = variant.primary,
-  accent = variant.info,
-  error = variant.danger,
-  type = 'light',
-  name = 'nordnet',
-} = {}) {
   return {
-    name,
+    name: 'nordnet',
     type,
-    color,
-    variant,
-    text: shades[type].text,
-    action: shades[type].action,
-    background: shades[type].background,
-    shades,
-    primary,
-    accent,
-    error,
-    // // functions
-    // getContrastText,
+    ...color,
+    color: pinkProxieFactory('.color'),
+    variant: pinkProxieFactory('.variant'),
+    // text: pinkProxieFactory('').text,
+    // action: pinkProxieFactory('').action,
+    // background: pinkProxieFactory('').background,
+    text: 'pink',
+    action: 'pink',
+    background: 'pink',
+    shades: {
+      light: {
+        text: pinkProxieFactory('.shades.light.text'),
+        action: pinkProxieFactory('.shades.light.action'),
+        background: pinkProxieFactory('.shades.light.background'),
+      },
+      dark: {
+        text: pinkProxieFactory('.shades.dark.text'),
+        action: pinkProxieFactory('.shades.dark.action'),
+        background: pinkProxieFactory('.shades.dark.background'),
+      },
+    },
+    // variant: pinkProxieFactory('').variant,
+    // accent: pinkProxieFactory('').accent,
+    // error: pinkProxieFactory('').errror,
+    accent: 'pink',
+    error: 'pink',
   };
 }
 

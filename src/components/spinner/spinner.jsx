@@ -63,7 +63,7 @@ function Spinner({
   sheet, // eslint-disable-line react/prop-types
   ...rest
 }) {
-  const usedColor = color || theme.palette.variant.primary;
+  const usedColor = color || theme.palette.cta;
   const stroke = strokeWidth || size / 8;
   const radius = size / 2;
   const maskId = `spinner__mask--${size}-${stroke}-${gradientStops}`;
@@ -82,10 +82,10 @@ function Spinner({
             <rect x="0" y="0" width={radius} height={size} />
           </clipPath>
           <mask id={maskId} maskUnits="objectBoundingBox">
-            <rect width={size} height={size} fill="#fff" />
+            <rect width={size} height={size} fill="#FFFFFF" />
             {conicalGradient(size, gradientStops, clipPathId)}
-            <circle cx={radius} cy={radius} r={radius - stroke} fill="#000" />
-            <circle cx={radius} cy={stroke / 2} r={stroke / 2} fill="#fff" />
+            <circle cx={radius} cy={radius} r={radius - stroke} fill="#000000" />
+            <circle cx={radius} cy={stroke / 2} r={stroke / 2} fill="#FFFFFF" />
           </mask>
         </defs>
         <g dangerouslySetInnerHTML={renderCircleAsHtml(radius, usedColor, maskId)} />

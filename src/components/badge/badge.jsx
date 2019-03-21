@@ -12,23 +12,23 @@ export const styles = theme => {
       display: 'inline-block',
       padding: '2.5px 10px',
       minWidth: '80px',
-      color: palette.shades.dark.text.default,
+      color: palette.white,
       textAlign: 'center',
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',
-      backgroundColor: palette.shades.dark.background.default,
+      backgroundColor: palette.complementaryBlue1,
       borderRadius: '3px',
       ...typography.tertiary(),
     },
     success: {
-      backgroundColor: palette.variant.success,
+      backgroundColor: palette.positive,
     },
     warning: {
-      backgroundColor: palette.variant.warning,
-      color: palette.text.default,
+      backgroundColor: palette.index,
+      color: palette.gray0,
     },
     danger: {
-      backgroundColor: palette.variant.danger,
+      backgroundColor: palette.negative,
     },
   };
 };

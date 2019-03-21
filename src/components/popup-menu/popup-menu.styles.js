@@ -5,7 +5,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
     display: 'inline-block',
     top: '100%',
     right: '50%',
-    background: palette.color.white,
+    background: palette.white,
     boxShadow: '0 2px 4px 2px rgba(0, 0, 0, .1)',
     listStyle: 'none',
     padding: 15,
@@ -25,10 +25,10 @@ export default ({ palette, typography, mixins, transitions }) => ({
       height: 0,
       zIndex: 5,
       top: -7,
-      borderLeft: `7px solid ${palette.color.white}`,
-      borderRight: `7px solid ${palette.color.white}`,
-      borderBottom: `7px solid ${palette.color.white}`,
-      borderTop: `7px solid ${palette.color.white}`,
+      borderLeft: `7px solid ${palette.white}`,
+      borderRight: `7px solid ${palette.white}`,
+      borderBottom: `7px solid ${palette.white}`,
+      borderTop: `7px solid ${palette.white}`,
     },
   },
   menuContainer: {
@@ -37,8 +37,8 @@ export default ({ palette, typography, mixins, transitions }) => ({
   },
   menuItemContainer: {
     display: 'block',
-    borderBottom: `1px solid ${palette.background.secondary}`,
-    color: palette.text.secondary,
+    borderBottom: `1px solid ${palette.gray5}`,
+    color: palette.gray0,
 
     '&:last-child': {
       borderBottom: 'none',
@@ -47,7 +47,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
     ...typography.tertiary(),
   },
   menuButton: {
-    color: palette.color.grayDarkest,
+    color: palette.gray0,
     textDecoration: 'none',
     background: 'none',
     border: 'none',
@@ -78,7 +78,7 @@ export default ({ palette, typography, mixins, transitions }) => ({
   },
   menuItems: {
     listStyle: 'none',
-    color: palette.color.black,
+    color: palette.gray0,
     padding: 0,
     margin: 0,
   },
@@ -91,22 +91,22 @@ export default ({ palette, typography, mixins, transitions }) => ({
     display: 'block',
     padding: 10,
     width: '100%',
+    color: palette.gray0,
 
     '&:hover:not([disabled])': {
-      background: palette.color.grayLightest,
+      background: palette.gray7,
     },
 
     '&:focus:not([disabled])': {
-      background: palette.color.grayLighter,
+      background: palette.gray6,
     },
 
     '&[disabled]': {
-      color: palette.text.muted,
+      color: palette.gray5,
       cursor: 'default',
       pointerEvents: 'none',
     },
 
-    color: palette.color.grayDarkest,
     textDecoration: 'none',
     background: 'none',
     border: 'none',
