@@ -24,20 +24,22 @@ const styles = () => ({
 
 const Color = ({ theme, classes }) => (
   <div className={classes.colorWrapper}>
-    {Object.entries(theme.palette).map(([name, value]) => (
-      <div key={name} className={classes.colorBlock}>
-        <span>{name}</span>
-        <div>{value}</div>
-        <div
-          style={{
-            background: `${value}`,
-            width: 50,
-            height: 40,
-            border: '4px solid maroon',
-          }}
-        />
-      </div>
-    ))}
+    {Object.entries(theme.palette).map(([name, value]) =>
+      typeof value === 'string' ? (
+        <div key={name} className={classes.colorBlock}>
+          <span>{name}</span>
+          <div>{value}</div>
+          <div
+            style={{
+              background: `${value}`,
+              width: 50,
+              height: 40,
+              border: '4px solid maroon',
+            }}
+          />
+        </div>
+      ) : null,
+    )}
   </div>
 );
 
