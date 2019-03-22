@@ -260,6 +260,7 @@ export default theme => {
         palette.gray4,
       ),
       border: `2px solid ${palette.cta}`,
+      backgroundColor: palette.white,
 
       '&:hover': {
         color: c(palette.gray0)
