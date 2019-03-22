@@ -52,10 +52,7 @@ const buttonModifierFn = (variant, color, colorFocus, colorDisabled, textColorDi
 
       '&:hover': {
         color: colorFocus,
-      },
-
-      '&:focus&::after, &:active&::after': {
-        boxShadow: `0 4px 0 -2px ${colorFocus}`,
+        textDecoration: 'underline',
       },
     },
   };
@@ -333,14 +330,6 @@ export default theme => {
         transition: transitions.create(),
       },
 
-      '&:focus, &:active': {
-        boxShadow: 'none',
-
-        '&::after': {
-          boxShadow: `0 4px 0 -2px ${palette.gray5}`,
-        },
-      },
-
       '&:hover': {
         color: palette.gray0, // was $color-primary-dark
       },
@@ -349,9 +338,13 @@ export default theme => {
         color: palette.gray4,
       },
 
+      '&': buttonModifierFn('link', palette.cta, focusColor(palette.cta)),
+
       '&.action': buttonModifierFn('link', palette.cta, focusColor(palette.cta)),
 
       '&.success': buttonModifierFn('link', palette.positive, focusColor(palette.positive)),
+
+      '&.warning': buttonModifierFn('link', palette.negative, focusColor(palette.negative)),
 
       '&.danger': buttonModifierFn('link', palette.negative, focusColor(palette.negative)),
     },
