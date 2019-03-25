@@ -88,7 +88,7 @@ export default theme => {
         display: 'block',
         width: '16px',
         height: '16px',
-        border: `1px solid ${palette.gray0}`,
+        border: `1px solid ${palette.gray4}`,
         padding: '3px 2px',
         transition: transitions.create(['all'], {
           duration: transitions.duration.shortest,
