@@ -32,6 +32,7 @@ export default theme => {
         display: 'inline-block',
         width: '16px',
         position: 'relative',
+        background: palette.white,
 
         '& input': {
           position: 'absolute',
