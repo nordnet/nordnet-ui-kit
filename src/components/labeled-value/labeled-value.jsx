@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { kebabCase } from 'lodash';
 
 const modifiers = {
-  xs: 12,
+  xs: 14,
   sm: 14,
   md: 20,
   lg: 32,
@@ -14,10 +14,10 @@ const modifiers = {
 
 const mobileModifiers = {
   xs: 12,
-  sm: 14,
+  sm: 12,
   md: 16,
-  lg: 18,
-  xlg: 20,
+  lg: 24,
+  xlg: 28,
 };
 
 export const styles = theme => {
@@ -51,7 +51,7 @@ export const styles = theme => {
     },
     label: {
       display: 'block',
-      ...typography.tertiary(),
+      ...typography.secondary(),
       color: palette.gray2,
     },
     value: {
