@@ -17,7 +17,7 @@ export default ({ palette, typography, mixins }) => ({
     position: 'relative',
     display: 'block',
     color: palette.gray0,
-
+    paddingBottom: 2,
     whiteSpace: 'nowrap',
     cursor: 'pointer',
     outline: 'none',
@@ -31,23 +31,10 @@ export default ({ palette, typography, mixins }) => ({
       textDecoration: 'none',
     },
 
-    '&::before': {
-      content: '""',
-      display: 'none',
-      width: '100%',
-      height: borderHeight,
-      background: palette.cta,
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      marginBottom: -2,
-    },
-
     '&[aria-selected="true"]': {
       color: palette.gray0,
-      '&::before': {
-        display: 'block',
-      },
+      borderBottom: [2, 'solid', palette.cta],
+      marginBottom: -2,
     },
 
     ...typography.secondary({
