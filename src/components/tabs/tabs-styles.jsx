@@ -1,4 +1,4 @@
-export default ({ palette }) => ({
+export default ({ typography, palette }) => ({
   list: {
     background: palette.white,
     padding: 0,
@@ -8,6 +8,7 @@ export default ({ palette }) => ({
   },
 
   tertiary: {
+    ...typography.secondary({ weight: 'bold' }),
     borderBottom: `2px solid ${palette.gray6}`,
   },
 });
