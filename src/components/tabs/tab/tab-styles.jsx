@@ -50,7 +50,7 @@ export default ({ palette, typography, mixins }) => ({
       },
     },
 
-    ...typography.tertiary({
+    ...typography.secondary({
       weight: 'bold',
     }),
   },
