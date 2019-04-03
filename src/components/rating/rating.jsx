@@ -32,7 +32,7 @@ const Rating = ({ icon: Icon = UiKitIcon.Star, size, rating, maxRating, minRatin
 
 Rating.defaultProps = {
   maxRating: 5,
-  minRating: 1,
+  minRating: 0,
   size: 16,
 };
 Rating.propTypes = {

@@ -46,10 +46,9 @@ test('Should display default for rating = 0 if minRating = 1', () => {
   expect(component.text()).toBe('–');
 });
 
-test('Should display 0 active stars for rating = 0 if minRating = 0', () => {
+test('Should default to 0 active stars for rating = 0', () => {
   const rating = 0;
-  const minRating = 0;
-  const component = renderComponent({ rating, minRating });
+  const component = renderComponent({ rating });
   const active = component.find('.active');
   const inactive = component.find('.inactive');
   expect(active).toHaveLength(0);

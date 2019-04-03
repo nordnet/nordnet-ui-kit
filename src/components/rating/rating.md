@@ -7,5 +7,5 @@
 
       Default for missing rating data: <Rating />
       Default for zero rating: <Rating rating={0} />
-      Explicit zero rating: <Rating rating={0} minRating={0} />
+      Show zero rating as no rating: <Rating rating={0} minRating={1} />
     </div>
