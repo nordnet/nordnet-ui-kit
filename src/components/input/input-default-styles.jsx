@@ -10,7 +10,7 @@ export default theme => {
 
   const inputMarginBottom = 20;
   const borderSize = 1;
-  const bottomBorderSize = 3;
+  const bottomBorderSize = 1;
 
   const modifierFn = color => ({
     marginBottom: ({ label, helpText }) => (label || helpText ? inputMarginBottom : 0),
@@ -82,7 +82,7 @@ export default theme => {
 
           '&__field': {
             borderColor: palette.cta,
-            borderBottom: `3px solid ${palette.cta}`,
+            borderBottom: `1px solid ${palette.cta}`,
           },
         },
 
@@ -208,7 +208,7 @@ export default theme => {
         position: 'relative',
         width: '100%',
         border: `${borderSize}px solid ${palette.gray4}`,
-        borderRadius: 4,
+        borderRadius: 0,
         padding: 8,
         paddingTop: 10,
         transition: transitions.create(['border-color']),

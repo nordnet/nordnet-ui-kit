@@ -69,9 +69,8 @@ export default theme => {
     button: {
       ...mixins.basicBoxSizing,
       display: 'inline-block',
-      border: 0,
+      border: `2px solid ${palette.cta}`,
       margin: 2,
-      borderRadius: 16,
       ...typography.caption({
         weight: 'regular',
       }),
@@ -103,8 +102,7 @@ export default theme => {
     },
 
     xs: {
-      borderRadius: 12,
-      padding: '2px 10px 3px',
+      padding: '1px 4px 3px',
 
       '&$iconText': {
         paddingBottom: 3,
@@ -125,8 +123,7 @@ export default theme => {
     },
 
     sm: {
-      borderRadius: 16,
-      padding: '5px 12px 6px',
+      padding: '4px 5px 5px',
 
       '&$iconText': {
         paddingBottom: 6,
@@ -147,8 +144,7 @@ export default theme => {
     },
 
     md: {
-      borderRadius: 20,
-      padding: '10px 34px 11px',
+      padding: '8px 32px 9px',
 
       '&$iconText': {
         paddingBottom: 11,
@@ -169,8 +165,7 @@ export default theme => {
     },
 
     lg: {
-      borderRadius: 24,
-      padding: '14px 40px',
+      padding: '12px 38px',
 
       '&$iconText': {
         paddingBottom: 13,
@@ -188,10 +183,6 @@ export default theme => {
       ...typography.primary({
         weight: 'regular',
       }),
-    },
-
-    icon: {
-      borderRadius: '50%',
     },
 
     iconAbove: {
@@ -259,7 +250,6 @@ export default theme => {
         palette.gray6,
         palette.gray4,
       ),
-      border: `2px solid ${palette.cta}`,
       backgroundColor: palette.white,
 
       '&:hover': {
@@ -280,10 +270,6 @@ export default theme => {
         boxShadow: `0 0 0 2px ${c(palette.gray4)
           .darken(0.1)
           .hex()}`,
-      },
-
-      '&.xs,&.sm': {
-        borderWidth: 1,
       },
 
       '&.action': buttonModifierFn(
@@ -315,7 +301,6 @@ export default theme => {
       background: 'none',
       paddingLeft: 0,
       paddingRight: 0,
-      borderRadius: 0,
       border: '2px solid transparent',
       fontWeight: 600,
       cursor: 'pointer',

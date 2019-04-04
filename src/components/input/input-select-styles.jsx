@@ -73,7 +73,7 @@ export default theme => {
         position: 'relative',
         width: '100%',
         border: `${borderSize}px solid ${palette.gray4}`,
-        borderRadius: 4,
+        borderRadius: 0,
         padding: 8,
         paddingTop: 10,
         transition: transitions.create(['border-color']),

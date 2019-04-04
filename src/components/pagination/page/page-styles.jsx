@@ -21,7 +21,7 @@ export default ({ palette, typography, mixins }) => ({
     width: buttonSize,
     height: buttonSize,
     border: `${buttonBorderSize}px solid ${palette.gray4}`,
-    borderRadius: '50%',
+    borderRadius: 0,
     textAlign: 'center',
     cursor: 'pointer',
     boxSizing: 'border-box',
