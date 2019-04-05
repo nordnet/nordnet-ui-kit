@@ -84,7 +84,7 @@ export default theme => {
       ...mixins.basicBoxSizing,
       alignItems: 'center',
       border: 0,
-      borderRadius: '50%',
+      borderRadius: 0,
       borderWidth: 1,
       cursor: 'default',
       display: 'flex',

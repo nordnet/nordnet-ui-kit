@@ -166,7 +166,7 @@ export default theme => {
       padding: '4px 16px',
       color: palette.gray7,
       background: palette.gray0,
-      borderRadius: 4,
+      borderRadius: 0,
       overflowWrap: 'normal',
       wordBreak: 'normal',
       wordWrap: 'normal',

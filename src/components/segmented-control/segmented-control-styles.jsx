@@ -3,7 +3,7 @@ export default theme => {
 
   return {
     root: {
-      borderRadius: '8px',
+      borderRadius: 0,
       display: 'inline-flex',
 
       '& input': {
@@ -88,16 +88,14 @@ export default theme => {
 
     buttonLeft: {
       '&.primary': {
-        borderTopLeftRadius: '8px',
-        borderBottomLeftRadius: '8px',
+        borderRadius: 0,
         borderLeft: `2px solid ${palette.gray4}`,
       },
     },
 
     buttonRight: {
       '&.primary': {
-        borderTopRightRadius: '8px',
-        borderBottomRightRadius: '8px',
+        borderRadius: 0,
         borderRight: `2px solid ${palette.gray4}`,
       },
     },

@@ -17,7 +17,6 @@ export const styles = theme => {
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',
       backgroundColor: palette.complementaryBlue1,
-      borderRadius: '3px',
       ...typography.tertiary(),
     },
     success: {
