@@ -17,16 +17,16 @@ export default function createTypography() {
     },
   });
   const primary = ({ weight = 'regular' } = {}) => ({
-    ...ifSmallDevice(14, 16),
+    ...ifSmallDevice(16, 16),
     fontWeight: WEIGHTS[weight] || WEIGHTS.regular,
   });
   const coerceExtraboldToBold = weight => (weight === 'extrabold' ? WEIGHTS.bold : WEIGHTS[weight]);
   const secondary = ({ weight = 'regular' } = {}) => ({
-    ...ifSmallDevice(12, 14),
+    ...ifSmallDevice(14, 14),
     fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
   });
   const tertiary = ({ weight = 'regular' } = {}) => ({
-    ...ifSmallDevice(10, 12),
+    ...ifSmallDevice(12, 12),
     fontWeight: coerceExtraboldToBold(weight) || WEIGHTS.regular,
   });
 
@@ -44,11 +44,11 @@ export default function createTypography() {
 
   const defaultTitleWeight = 'extrabold';
   const title1 = ({ weight = defaultTitleWeight } = {}) => ({
-    ...ifSmallDevice(30, 32),
+    ...ifSmallDevice(24, 28),
     fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
   const title2 = ({ weight = defaultTitleWeight } = {}) => ({
-    ...ifSmallDevice(22, 24),
+    ...ifSmallDevice(20, 24),
     fontWeight: WEIGHTS[weight] || WEIGHTS[defaultTitleWeight],
   });
   const title3 = ({ weight = defaultTitleWeight } = {}) => ({
