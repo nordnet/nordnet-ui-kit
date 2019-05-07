@@ -1,11 +1,10 @@
-import color from './color';
+import createColor from './color';
 
-export default function createPalette({ type = 'light' }) {
-  const palette = { ...color };
-
+export default function createPalette({ type = 'light', a11yColors = false }) {
   const proxyIsAvailable = typeof window !== 'undefined' ? 'Proxy' in window : true;
 
   if (!proxyIsAvailable) {
+    const palette = { ...createColor({ a11yColors }) };
     return palette;
   }
 
@@ -26,7 +25,7 @@ export default function createPalette({ type = 'light' }) {
   return {
     name: 'nordnet',
     type,
-    ...color,
+    ...createColor({ a11yColors }),
     color: pinkProxieFactory('.color'),
     variant: pinkProxieFactory('.variant'),
     // text: pinkProxieFactory('').text,
