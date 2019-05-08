@@ -1,4 +1,4 @@
-export default {
+export default ({ a11yColors = false }) => ({
   // BRAND
   brandBlue: '#00C8F5',
   brandGreen: '#D2F500',
@@ -30,8 +30,8 @@ export default {
 
   // FUNCTIONAL COLOURS FOR PRODUCT DEVELOPMENT
 
-  cta: '#0046FF',
-  positive: '#00D200',
-  negative: '#FF1900',
-  index: '#FFCF00',
-};
+  cta: a11yColors ? '#2D67FF' : '#0046FF',
+  positive: a11yColors ? '#008A00' : '#00D200',
+  negative: a11yColors ? '#E81700' : '#FF1900',
+  index: a11yColors ? '#FFCF00' : '#C15700',
+});
