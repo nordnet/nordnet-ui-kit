@@ -1,8 +1,7 @@
 import styleUtils from '../style-utilities';
-import color from '../../../styles/color';
 
 const normal = theme => {
-  const { mixins, typography } = theme;
+  const { mixins, typography, palette } = theme;
 
   return {
     tr: {
@@ -20,13 +19,13 @@ const normal = theme => {
     border: {
       borderStyle: 'solid',
       borderWidth: 1,
-      borderColor: color.grayLight,
+      borderColor: palette.gray5,
     },
     sticky: {
       '& td': {
         position: 'sticky',
         top: 0,
-        backgroundColor: color.white,
+        backgroundColor: palette.white,
       },
     },
     stickyBorder: {
@@ -37,7 +36,7 @@ const normal = theme => {
         left: 0,
         bottom: 0,
         width: '100%',
-        borderBottom: `2px solid ${color.grayDarker}`,
+        borderBottom: `2px solid ${palette.gray2}`,
       },
     },
   };
