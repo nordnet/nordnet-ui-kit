@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Checkbox from './checkbox';
+import { Component as Checkbox } from './checkbox';
 
-const renderComponent = props => shallow(<Checkbox {...props} />);
+const renderComponent = props =>
+  shallow(<Checkbox {...props} theme={{ palette: { color: { white: '#FFFFFF' } } }} />);
 
 describe('<Checkbox />', () => {
   test('has class checkbox', () => {

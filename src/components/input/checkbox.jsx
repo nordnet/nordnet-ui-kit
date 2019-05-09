@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { withTheme } from 'react-jss';
 import { Icon } from '../..';
-import color from '../../styles/color';
 
 function Checkbox(props) {
-  const { checked, disabled } = props;
+  const { checked, disabled, theme } = props;
 
   const classes = classNames(
     'checkbox',
@@ -16,7 +16,7 @@ function Checkbox(props) {
     props.className,
   );
 
-  const icon = <Icon.Checkmark stroke={color.white} style={{ display: 'block' }} />;
+  const icon = <Icon.Checkmark stroke={theme.palette.white} style={{ display: 'block' }} />;
 
   return <span className={classes}>{checked ? icon : null}</span>;
 }
@@ -25,6 +25,8 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
+  theme: PropTypes.shape(),
 };
 
-export default Checkbox;
+export { Checkbox as Component };
+export default withTheme(Checkbox);
