@@ -30,8 +30,8 @@ export default ({ a11yColors = false }) => ({
 
   // FUNCTIONAL COLOURS FOR PRODUCT DEVELOPMENT
 
-  cta: a11yColors ? '#0046FF' : '#2D67FF',
-  positive: a11yColors ? '#00D200' : '#008A00',
-  negative: a11yColors ? '#FF1900' : '#E81700',
+  cta: a11yColors ? '#2D67FF' : '#0046FF',
+  positive: a11yColors ? '#008A00' : '#00D200',
+  negative: a11yColors ? '#E81700' : '#FF1900',
   index: a11yColors ? '#C15700' : '#FFCF00',
 });
