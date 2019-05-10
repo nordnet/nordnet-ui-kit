@@ -33,5 +33,5 @@ export default ({ a11yColors = false }) => ({
   cta: a11yColors ? '#0046FF' : '#2D67FF',
   positive: a11yColors ? '#00D200' : '#008A00',
   negative: a11yColors ? '#FF1900' : '#E81700',
-  index: a11yColors ? '#FFCF00' : '#C15700',
+  index: a11yColors ? '#C15700' : '#FFCF00',
 });
