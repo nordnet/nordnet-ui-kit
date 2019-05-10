@@ -1,9 +1,9 @@
 export default ({ a11yColors = false }) => ({
   // BRAND
-  brandBlue: '#00C8F5',
-  brandGreen: '#D2F500',
-  brandPink: '#FF2B83',
-  brandTurquoise: '#00F0E1',
+  brandBlue: a11yColors ? '#385E9D' : '#00C8F5',
+  brandGreen: a11yColors ? '#3A913F' : '#D2F500',
+  brandPink: a11yColors ? '#AC135A' : '#FF2B83',
+  brandTurquoise: a11yColors ? '#009195' : '#00F0E1',
 
   // COMPLEMENTARY BRAND COLOURS
   complementaryBlue1: '#385E9D',
