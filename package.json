@@ -124,7 +124,7 @@
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-jss": "8.6.1",
-    "react-router-dom": "4.4.0",
+    "react-router-dom": "4.4.0-beta.8",
     "react-styleguidist": "9.0.5",
     "react-test-renderer": "16.8.4",
     "rimraf": "2.6.3",
