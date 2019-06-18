@@ -3,8 +3,8 @@ const breakpoints = {
   xs: false,
   sm: 768,
   md: 992,
-  lg: 1300,
-  xl: 1680,
+  lg: 1440,
+  xl: 1680
 };
 
 export default function createBreakpoints() {
