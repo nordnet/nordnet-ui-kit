@@ -1,4 +1,6 @@
-const SMALL_DEVICE = 360;
+import { breakpoints } from './breakpoints';
+
+const SMALL_DEVICE = breakpoints.sm;
 
 const WEIGHTS = {
   regular: 400,

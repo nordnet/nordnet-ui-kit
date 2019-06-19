@@ -1,4 +1,4 @@
-const breakpoints = {
+export const breakpoints = {
   // The grid is mobile first so xs is the default, hence no breakpoint
   xs: false,
   sm: 768,
