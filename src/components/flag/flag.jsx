@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { withTheme } from 'react-jss';
 import { SvgFlag, CurrencyFlag } from './flags';
 import FlagDeprecated from './flag-deprecated';
-import color from '../../styles/color';
 import { deprecatedProps } from '../deprecate';
 
 const addBorder = props => !props.hideBorder && !props.round && !props.secondaryCountryCode;
 
 const Flag = props => {
+  const borderColor = props.borderColor ? props.borderColor : props.theme.palette.gray7;
   /** Will be deprecated. This is here just for backwards compatibility. */
   const extendedStyle = {
     ...props.style,
-    border: addBorder(props) ? `1px solid ${props.borderColor}` : null,
-    backgroundColor: addBorder(props) ? props.borderColor : 'rgba(0,0,0,0)', // "fix" errors with subpixel coloring between flag and border
+    border: addBorder(props) ? `1px solid ${borderColor}` : null,
+    backgroundColor: addBorder(props) ? borderColor : 'rgba(0,0,0,0)', // "fix" errors with subpixel coloring between flag and border
   };
 
   /** Will be deprecated. */
@@ -28,7 +29,6 @@ const Flag = props => {
     size,
     round,
     hideBorder,
-    borderColor,
     ...rest
   } = props;
 
@@ -61,7 +61,7 @@ Flag.defaultProps = {
   size: 32,
   round: false,
   hideBorder: false,
-  borderColor: color.gray7,
+  borderColor: null,
 };
 
 const countryCodes = [
@@ -109,6 +109,7 @@ Flag.propTypes = {
   hideBorder: PropTypes.bool,
   /** Will be deprecated. borderColor can be passed together with `styles` object. */
   borderColor: PropTypes.string,
+  theme: PropTypes.shape(),
 };
 export { Flag as Component };
 export default deprecatedProps('Flag', [
@@ -117,4 +118,4 @@ export default deprecatedProps('Flag', [
     message:
       "size in Flag as a number is deprecated. Please use one of 'xs', 'sm', 'md', 'lg' instead",
   },
-])(Flag);
+])(withTheme(Flag));

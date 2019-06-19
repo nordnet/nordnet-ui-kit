@@ -1,9 +1,9 @@
-export default {
+export default ({ a11yColors = false }) => ({
   // BRAND
-  brandBlue: '#00C8F5',
-  brandGreen: '#D2F500',
-  brandPink: '#FF2B83',
-  brandTurquoise: '#00F0E1',
+  brandBlue: a11yColors ? '#385E9D' : '#00C8F5',
+  brandGreen: a11yColors ? '#3A913F' : '#D2F500',
+  brandPink: a11yColors ? '#AC135A' : '#FF2B83',
+  brandTurquoise: a11yColors ? '#009195' : '#00F0E1',
 
   // COMPLEMENTARY BRAND COLOURS
   complementaryBlue1: '#385E9D',
@@ -30,8 +30,8 @@ export default {
 
   // FUNCTIONAL COLOURS FOR PRODUCT DEVELOPMENT
 
-  cta: '#0046FF',
-  positive: '#00D200',
-  negative: '#FF1900',
-  index: '#FFCF00',
-};
+  cta: a11yColors ? '#2D67FF' : '#0046FF',
+  positive: a11yColors ? '#008A00' : '#00D200',
+  negative: a11yColors ? '#E81700' : '#FF1900',
+  index: a11yColors ? '#C15700' : '#FFCF00',
+});
