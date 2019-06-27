@@ -8,18 +8,19 @@ const WEIGHTS = {
   extrabold: 800,
 };
 
-const FONT_FAMILY = '"Nordnet Sans Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+const FONT_FAMILY =
+  '"Nordnet Sans Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 const commonFontStyles = {
   fontFamily: FONT_FAMILY,
-  letterSpacing: 'normal'
-}
+  letterSpacing: 'normal',
+};
 
 export default function createTypography() {
   const ifSmallDevice = (smallFontSize, largeFontSize) => ({
     ...commonFontStyles,
     fontSize: smallFontSize,
-    [`@media only screen and (min-width: ${SMALL_DEVICE}px)`]: {
+    [`@media only screen and (min-width: ${SMALL_DEVICE}px)/* override fix */`]: {
       fontSize: largeFontSize,
     },
   });
