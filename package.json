@@ -94,7 +94,7 @@
     "@commitlint/travis-cli": "7.5.2",
     "@nordnet/prettier-config": "2.0.0",
     "babel-eslint": "10.0.1",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "babel-plugin-lodash": "3.3.4",
     "codecov": "3.2.0",
     "commitizen": "3.0.7",
