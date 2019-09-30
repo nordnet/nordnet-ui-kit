@@ -115,4 +115,4 @@ Spinner.propTypes = {
 };
 
 export { Spinner as Component, styles };
-export default injectSheet(styles)(Spinner);
+export default injectSheet(styles, { injectTheme: true })(Spinner);

@@ -54,8 +54,8 @@ Tr.propTypes = {
   stickyOffset: PropTypes.number,
 };
 
-const Normal = injectSheet(styles)(Tr);
-const Sticky = injectSheet(stickyOffsetStyles)(Tr);
+const Normal = injectSheet(styles, { injectTheme: true })(Tr);
+const Sticky = injectSheet(stickyOffsetStyles, { injectTheme: true })(Tr);
 
 const Wrapper = props => (props.stickyOffset ? <Sticky {...props} /> : <Normal {...props} />);
 

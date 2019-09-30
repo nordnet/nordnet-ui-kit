@@ -67,4 +67,4 @@ Badge.propTypes = {
 };
 
 export { Badge as Component };
-export default injectSheet(styles)(Badge);
+export default injectSheet(styles, { injectTheme: true })(Badge);

@@ -108,4 +108,4 @@ LabeledValue.propTypes = {
 };
 
 export { LabeledValue as Component };
-export default injectSheet(styles)(LabeledValue);
+export default injectSheet(styles, { injectTheme: true })(LabeledValue);

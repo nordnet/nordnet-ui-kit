@@ -117,4 +117,4 @@ TableCell.propTypes = {
 };
 
 export { TableCell as Component, styles };
-export default injectSheet(styles)(TableCell);
+export default injectSheet(styles, { injectTheme: true })(TableCell);

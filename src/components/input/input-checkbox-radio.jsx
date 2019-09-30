@@ -158,4 +158,4 @@ InputCheckboxRadio.defaultProps = {
 };
 
 export { InputCheckboxRadio as Component, styles };
-export default injectSheet(styles)(InputCheckboxRadio);
+export default injectSheet(styles, { injectTheme: true })(InputCheckboxRadio);

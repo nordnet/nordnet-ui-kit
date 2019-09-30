@@ -132,4 +132,4 @@ Flag.propTypes = {
 };
 
 export { Flag as Component };
-export default injectSheet(styles)(Flag);
+export default injectSheet(styles, { injectTheme: true })(Flag);

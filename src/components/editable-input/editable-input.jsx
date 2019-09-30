@@ -232,5 +232,5 @@ EditableInput.defaultProps = {
   sensitivePlaceholder: '****',
 };
 
-export default injectSheet(styles)(EditableInput);
+export default injectSheet(styles, { injectTheme: true })(EditableInput);
 export { EditableInput as Component, styles };

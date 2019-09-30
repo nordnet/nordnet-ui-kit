@@ -89,4 +89,4 @@ ProgressBar.propTypes = {
 };
 
 export { ProgressBar as Component, styles };
-export default injectSheet(styles)(ProgressBar);
+export default injectSheet(styles, { injectTheme: true })(ProgressBar);

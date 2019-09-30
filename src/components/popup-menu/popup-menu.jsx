@@ -218,4 +218,4 @@ PopupMenu.defaultProps = {
 };
 
 export { PopupMenu as Component, styles };
-export default injectSheet(styles)(PopupMenu);
+export default injectSheet(styles, { injectTheme: true })(PopupMenu);

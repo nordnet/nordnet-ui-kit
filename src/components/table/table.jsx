@@ -54,4 +54,4 @@ Table.defaultProps = {
   maxHeight: null,
 };
 
-export default injectSheet(styles)(Table);
+export default injectSheet(styles, { injectTheme: true })(Table);

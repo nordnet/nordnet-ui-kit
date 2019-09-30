@@ -118,7 +118,7 @@ Subsection.defaultProps = {
   children: null,
 };
 
-const enhance = injectSheet(styles);
+const enhance = injectSheet(styles, { injectTheme: true });
 
 export { Subsection as Component, styles };
 
