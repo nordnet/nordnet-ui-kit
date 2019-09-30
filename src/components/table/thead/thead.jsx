@@ -55,8 +55,8 @@ Thead.propTypes = {
   stickyOffset: PropTypes.number,
 };
 
-const Normal = injectSheet(styles)(Thead);
-const Sticky = injectSheet(stickyOffsetStyles)(Thead);
+const Normal = injectSheet(styles, { injectTheme: true })(Thead);
+const Sticky = injectSheet(stickyOffsetStyles, { injectTheme: true })(Thead);
 
 const Wrapper = props => (props.stickyOffset ? <Sticky {...props} /> : <Normal {...props} />);
 

@@ -90,4 +90,4 @@ Avatar.defaultProps = {
 };
 
 export { Avatar as Component };
-export default injectSheet(styles)(Avatar);
+export default injectSheet(styles, { injectTheme: true })(Avatar);

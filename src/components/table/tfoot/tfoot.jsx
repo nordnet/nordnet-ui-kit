@@ -41,4 +41,4 @@ Tfoot.propTypes = {
   hiddenOnMobile: PropTypes.bool,
 };
 
-export default injectSheet(styles)(Tfoot);
+export default injectSheet(styles, { injectTheme: true })(Tfoot);

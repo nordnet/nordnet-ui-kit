@@ -64,4 +64,4 @@ Tbody.propTypes = {
   borderLeft: PropTypes.bool,
 };
 
-export default injectSheet(styles)(Tbody);
+export default injectSheet(styles, { injectTheme: true })(Tbody);

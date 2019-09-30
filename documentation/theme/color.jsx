@@ -48,4 +48,4 @@ Color.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default injectSheet(styles)(Color);
+export default injectSheet(styles, { injectTheme: true })(Color);

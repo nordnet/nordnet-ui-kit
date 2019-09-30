@@ -88,4 +88,4 @@ Alert.defaultProps = {
 };
 
 export { Alert as Component, styles };
-export default injectSheet(styles)(Alert);
+export default injectSheet(styles, { injectTheme: true })(Alert);

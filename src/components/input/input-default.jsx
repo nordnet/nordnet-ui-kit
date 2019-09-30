@@ -214,4 +214,4 @@ InputDefault.defaultProps = {
 };
 
 export { InputDefault as Component, styles };
-export default injectSheet(styles)(InputDefault);
+export default injectSheet(styles, { injectTheme: true })(InputDefault);

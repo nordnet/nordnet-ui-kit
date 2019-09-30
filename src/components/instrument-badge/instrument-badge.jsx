@@ -303,7 +303,7 @@ InstrumentBadge.defaultProps = {
 export { InstrumentBadge as Component };
 // prettier-ignore
 export default 
-  injectSheet(styles)(
+  injectSheet(styles, { injectTheme: true })(
   deprecatedComponent(
     'InstrumentBadge',
     'See https://github.com/nordnet/nordnet-ui-kit/blob/v3.0.0/docs/migrations/v3.0.0.md for migration guide.',

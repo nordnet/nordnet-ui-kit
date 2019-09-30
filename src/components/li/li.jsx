@@ -41,4 +41,4 @@ Li.propTypes = {
 };
 
 export { Li as Component };
-export default injectSheet(styles)(Li);
+export default injectSheet(styles, { injectTheme: true })(Li);

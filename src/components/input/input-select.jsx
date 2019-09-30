@@ -296,4 +296,4 @@ InputSelect.defaultProps = {
 };
 
 export { InputSelect as Component, styles };
-export default injectSheet(styles)(InputSelect);
+export default injectSheet(styles, { injectTheme: true })(InputSelect);

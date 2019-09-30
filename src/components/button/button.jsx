@@ -100,4 +100,4 @@ Button.propTypes = {
 };
 
 export { Button as Component, styles };
-export default injectSheet(styles)(Button);
+export default injectSheet(styles, { injectTheme: true })(Button);
