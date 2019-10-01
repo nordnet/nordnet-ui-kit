@@ -1,10 +1,10 @@
 export const breakpoints = {
   // The grid is mobile first so xs is the default, hence no breakpoint
   xs: false,
-  sm: 768,
-  md: 992,
-  lg: 1440,
-  xl: 1680
+  sm: 760,
+  md: 976,
+  lg: 1292,
+  xl: 1600,
 };
 
 export default function createBreakpoints() {
