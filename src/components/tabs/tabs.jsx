@@ -13,7 +13,7 @@ class Tabs extends Component {
     let index = 0;
 
     return React.Children.map(childrenFromProp, child => {
-      if (child.type.displayName !== displayName || !React.isValidElement(child)) {
+      if (child.type.InnerComponent.name !== displayName || !React.isValidElement(child)) {
         return null;
       }
 
@@ -22,7 +22,7 @@ class Tabs extends Component {
         index,
         variant,
         singlePanel,
-        changeHandler: child.type.displayName === Tab.displayName ? onChange : null,
+        changeHandler: child.type.InnerComponent.name === Tab.InnerComponent.name ? onChange : null,
       });
 
       index += 1;
@@ -33,8 +33,8 @@ class Tabs extends Component {
 
   render() {
     const { classes, className, variant } = this.props;
-    const tabs = this.injectContextProps(Tab.displayName);
-    const tabpanels = this.injectContextProps(Tabpanel.displayName);
+    const tabs = this.injectContextProps(Tab.InnerComponent.name);
+    const tabpanels = this.injectContextProps(Tabpanel.InnerComponent.name);
 
     return (
       <div>
