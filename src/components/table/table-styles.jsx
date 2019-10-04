@@ -19,10 +19,9 @@ export default theme => {
       textAlign: 'left',
       borderCollapse: 'collapse',
       borderColor: palette.gray7,
-      minWidth: 'auto',
-
-      [mixins.media('md')]: {
-        minWidth: props => props.minWidth,
+      minWidth: props => props.minWidth,
+      [mixins.maxMedia('md')]: {
+        minWidth: 'auto',
       },
     },
     tableLayoutFixed: {
