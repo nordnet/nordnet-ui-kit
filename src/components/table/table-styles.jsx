@@ -21,7 +21,9 @@ export default theme => {
       borderColor: palette.gray7,
       minWidth: props => props.minWidth,
       [mixins.maxMedia('md')]: {
-        minWidth: 'auto',
+        // ToDo: put dynamic style back inside mq when react-jss fixes bug with dynamic styles in media queries https://github.com/cssinjs/jss/issues/1188
+        // !important because dynamic style still takes precedence as it is below the static styles in the DOM
+        minWidth: 'auto !important',
       },
     },
     tableLayoutFixed: {
