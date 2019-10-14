@@ -129,7 +129,7 @@
     "react-test-renderer": "16.8.4",
     "rimraf": "2.6.3",
     "semantic-release": "15.13.3",
-    "sinon": "7.2.7",
+    "sinon": "7.5.0",
     "webpack": "4.29.6"
   },
   "husky": {
