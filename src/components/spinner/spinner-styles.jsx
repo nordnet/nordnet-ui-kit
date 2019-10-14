@@ -1,7 +1,5 @@
-const identifier = `spinner-${Math.round(1000 * Math.random())}`;
-
 export default theme => ({
-  [`@keyframes ${identifier}`]: {
+  [`@keyframes spinThatSpinner`]: {
     from: {
       transform: 'rotate(0deg)',
     },
@@ -13,7 +11,7 @@ export default theme => ({
   spinner: {
     ...theme.mixins.basicBoxSizing,
     display: 'inline-block',
-    animation: `${identifier} 1s linear infinite`,
+    animation: `$spinThatSpinner 1s linear infinite`,
   },
 
   element: {
