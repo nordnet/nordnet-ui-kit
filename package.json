@@ -101,7 +101,7 @@
     "commitlint-config-squash-pr": "1.0.1",
     "cross-env": "5.2.0",
     "cz-conventional-changelog": "2.1.0",
-    "enzyme": "3.9.0",
+    "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.11.2",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
