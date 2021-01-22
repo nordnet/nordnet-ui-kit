@@ -130,7 +130,7 @@
     "rimraf": "2.6.3",
     "semantic-release": "15.13.3",
     "sinon": "7.2.7",
-    "webpack": "4.29.6"
+    "webpack": "4.46.0"
   },
   "husky": {
     "hooks": {
